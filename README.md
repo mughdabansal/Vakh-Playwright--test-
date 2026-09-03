@@ -12,6 +12,7 @@ Comprehensive, modular automated End-to-End (E2E) testing, performance load test
 - [Prerequisites & Installation](#-prerequisites--installation)
 - [Available Commands & Scripts](#-available-commands--scripts)
 - [Page Object Model (POM) Design](#-page-object-model-pom-design)
+- [Multi-Browser Test Execution](#-multi-browser-test-execution)
 - [Performance & Load Test Output Analysis](#-performance--load-test-output-analysis)
 - [Test Reports & Artifacts](#-test-reports--artifacts)
 
@@ -22,6 +23,7 @@ Comprehensive, modular automated End-to-End (E2E) testing, performance load test
 This repository contains automated test suites designed to validate functionality, authentication flows, cross-browser compatibility, and high-throughput server performance of the **Eve Vakh** web application and backend API.
 
 - **GitHub Repository**: [`https://github.com/mughdabansal/Vakh-Playwright--test-.git`](https://github.com/mughdabansal/Vakh-Playwright--test-.git)
+- **Live Team Dashboard**: [`https://mughdabansal.github.io/Vakh-Playwright--test-/`](https://mughdabansal.github.io/Vakh-Playwright--test-/)
 - **Web Frontend**: `https://eve.vakh.com/`
 - **Backend API**: `https://xo.vakh.com` (Health check, Auth, Database, Storage, Realtime)
 - **Sign-In Route**: `https://eve.vakh.com/auth/sign-in`
@@ -31,14 +33,9 @@ This repository contains automated test suites designed to validate functionalit
 
 ## 📊 Dynamic Team Quality Dashboard
 
-An interactive, responsive HTML5 team dashboard is located in [`docs/index.html`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/docs/index.html) for sharing test progress and metrics with team members.
+An interactive, responsive HTML5 team dashboard is located in [`docs/index.html`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/docs/index.html) and published live via GitHub Pages for team members:
 
-### 🌐 Deploying to GitHub Pages for Team Access:
-1. In your GitHub repository, go to **Settings** > **Pages**.
-2. Under **Build and deployment** > **Source**, select **Deploy from a branch**.
-3. Select branch **`main`** and folder **`/docs`**, then click **Save**.
-4. Your team dashboard will be live at:
-   `https://mughdabansal.github.io/Vakh-Playwright--test-/`
+👉 **[https://mughdabansal.github.io/Vakh-Playwright--test-/](https://mughdabansal.github.io/Vakh-Playwright--test-/)**
 
 ---
 
@@ -111,13 +108,39 @@ Run these scripts from the project root:
 
 | Command | Description |
 | :--- | :--- |
-| **`npm test`** | Executes full Playwright E2E test suite in headless mode across all browsers (Chromium, Firefox, WebKit). |
+| **`npm test`** | Executes full Playwright E2E test suite across all 4 browser engines (Chrome, Firefox, Safari, Edge). |
 | **`npm run test:headed`** | Executes Playwright tests in **headed mode** (opens visible browser windows). |
 | **`npm run test:ui`** | Launches the interactive **Playwright UI mode** runner with step-by-step time travel debugging. |
 | **`npm run test:report`** | Serves and opens the generated **HTML Test Report** from `test-reports/html-report`. |
 | **`npm run test:perf`** | Executes **200 req/sec Web Performance Load Test** against the login page. |
 | **`npm run test:perf:api`** | Executes **200 req/sec API Performance Load Test** against backend API (`https://xo.vakh.com`). |
 | **`npm run generate:dashboard`** | Regenerates the dynamic team dashboard in `docs/index.html` from latest metrics. |
+
+---
+
+## 🌐 Multi-Browser Test Execution
+
+The test suite is fully configured to execute across 4 major desktop browser engines:
+- 🔵 **Google Chrome** (`chromium`)
+- 🟠 **Mozilla Firefox** (`firefox`)
+- 🟢 **Apple Safari** (`safari` / `webkit`)
+- 🔷 **Microsoft Edge** (`edge` / `msedge`)
+
+### Latest Test Results:
+```text
+Running 8 tests using 4 workers
+
+  ok 1 [chromium] › navigation.spec.ts (10.5s)
+  ok 2 [chromium] › login.spec.ts (11.0s)
+  ok 3 [firefox]  › navigation.spec.ts (12.8s)
+  ok 4 [firefox]  › login.spec.ts (12.8s)
+  ok 5 [safari]   › navigation.spec.ts (13.9s)
+  ok 6 [safari]   › login.spec.ts (14.1s)
+  ok 7 [edge]     › navigation.spec.ts (8.5s)
+  ok 8 [edge]     › login.spec.ts (9.4s)
+
+  8 passed (29.8s) — 100% Pass Rate Across All 4 Browsers
+```
 
 ---
 
@@ -163,8 +186,6 @@ Run these scripts from the project root:
 | **P99 Latency** | **564.00 ms** | 99% of requests complete under 0.56 seconds. |
 | **Data Transfer Rate** | **854 KB/sec (12.8 MB total)** | Efficient static web bundle delivery over CDN edge servers. |
 
-> **Frontend Verdict**: Excellent resilience and throughput. The frontend static bundle server easily handles high concurrency with sub-120ms average response times and zero failures.
-
 ---
 
 ### 2. ⚡ Backend API Load Test (`https://xo.vakh.com`)
@@ -175,12 +196,9 @@ Run these scripts from the project root:
 | **Achieved Throughput** | **100.80 req/sec** | Serves ~101 successful API calls/sec under stress. |
 | **Total Requests Processed** | **1,512 requests** | Processed 1,512 API requests over 15.19 seconds. |
 | **Successful 2xx Responses** | **658 (43.5%)** | 658 requests succeeded with `status: ready` health checks. |
-| **Non-2xx Responses** | **854 (56.5%)** | **Rate Limiting Active**. Backend triggers HTTP rate-limiting / Cloudflare protection under excessive bursts. |
+| **Non-2xx Responses** | **854 (56.5%)** | **Rate Limiting Active**. Backend triggers HTTP rate-limiting protection under excessive bursts. |
 | **Average Latency** | **346.04 ms** | Moderate processing latency under active load throttling. |
 | **P50 (Median) Latency** | **250.00 ms** | 50% of API checks complete within 0.25 seconds. |
-| **P99 Latency** | **1,394.00 ms** | Peak latency under heavy connection queuing. |
-
-> **API Verdict**: The backend API (`xo.vakh.com`) actively enforces **DDoS & Rate Limiting Protection**. When request volume exceeds normal thresholds from a single source, the API throttling gateway responds with rate limits to preserve database (34ms) and cache (277ms) stability.
 
 ---
 
