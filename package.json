@@ -1,0 +1,29 @@
+{
+  "name": "vakh-playwright-tests",
+  "version": "1.0.0",
+  "description": "Playwright end-to-end test suite for Eve Vakh website",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:report": "playwright show-report test-reports/html-report",
+    "test:perf": "node performance/login-loadtest.js",
+    "test:perf:api": "node performance/api-loadtest.js",
+    "generate:dashboard": "node scripts/generate-dashboard.js"
+  },
+  "keywords": [
+    "playwright",
+    "testing",
+    "vakh",
+    "e2e"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.42.0",
+    "@types/node": "^20.11.0",
+    "autocannon": "^8.0.0",
+    "typescript": "^5.3.3"
+  }
+}

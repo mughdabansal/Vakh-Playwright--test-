@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+
+# Local Environment & Logs
+.env
+*.log
+npm-debug.log*
+
+# Playwright Test Artifacts (keep summary reports in test-reports/)
+test-reports/test-results/
+.last-run.json
+
+# OS files
+.DS_Store
+Thumbs.db
