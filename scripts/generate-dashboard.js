@@ -180,9 +180,9 @@ const htmlContent = `<!DOCTYPE html>
               <td>Autocannon Benchmark</td>
             </tr>
             <tr>
-              <td><strong>Backend API Service Health</strong></td>
-              <td><code>https://xo.vakh.com</code></td>
-              <td><span class="tag api">READY (Rate Limited)</span></td>
+              <td><strong>Backend Staging API Health</strong></td>
+              <td><code>https://xo.eve.vakh.com</code></td>
+              <td><span class="tag api">READY (155 req/s)</span></td>
               <td>API Load Test</td>
             </tr>
             <tr>

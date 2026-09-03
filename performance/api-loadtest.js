@@ -2,7 +2,7 @@ const autocannon = require('autocannon');
 const fs = require('fs');
 const path = require('path');
 
-const targetUrl = 'https://xo.vakh.com';
+const targetUrl = 'https://xo.eve.vakh.com';
 const outputDir = path.join(__dirname, '..', 'test-reports');
 
 if (!fs.existsSync(outputDir)) {

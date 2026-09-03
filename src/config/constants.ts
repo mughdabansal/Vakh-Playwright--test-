@@ -5,7 +5,7 @@ export const APP_CONFIG = {
   BASE_URL: 'https://eve.vakh.com',
   SIGN_IN_URL: 'https://eve.vakh.com/auth/sign-in',
   MFA_URL: 'https://eve.vakh.com/auth/mfa-challenge',
-  API_URL: 'https://xo.vakh.com',
+  API_URL: 'https://xo.eve.vakh.com',
   DEFAULT_TIMEOUT: 15000,
   NAVIGATION_TIMEOUT: 30000,
 };
