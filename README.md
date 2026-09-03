@@ -1,6 +1,6 @@
 # 🎭 Eve Vakh — Playwright E2E & Performance Test Suite
 
-Comprehensive, modular automated End-to-End (E2E) testing and performance load testing suite for [Eve Vakh](https://eve.vakh.com/) and its backend API ([https://xo.vakh.com](https://xo.vakh.com)), built using **Playwright** and **Autocannon** in TypeScript.
+Comprehensive, modular automated End-to-End (E2E) testing, performance load testing, and dynamic team dashboard for [Eve Vakh](https://eve.vakh.com/) and its backend API ([https://xo.vakh.com](https://xo.vakh.com)), built using **Playwright** and **Autocannon** in TypeScript.
 
 ---
 
@@ -8,6 +8,7 @@ Comprehensive, modular automated End-to-End (E2E) testing and performance load t
 
 - [Overview](#-overview)
 - [Clean & Modular Architecture](#-clean--modular-architecture)
+- [Dynamic Team Quality Dashboard](#-dynamic-team-quality-dashboard)
 - [Prerequisites & Installation](#-prerequisites--installation)
 - [Available Commands & Scripts](#-available-commands--scripts)
 - [Page Object Model (POM) Design](#-page-object-model-pom-design)
@@ -20,16 +21,28 @@ Comprehensive, modular automated End-to-End (E2E) testing and performance load t
 
 This repository contains automated test suites designed to validate functionality, authentication flows, cross-browser compatibility, and high-throughput server performance of the **Eve Vakh** web application and backend API.
 
+- **GitHub Repository**: [`https://github.com/mughdabansal/Vakh-Playwright--test-.git`](https://github.com/mughdabansal/Vakh-Playwright--test-.git)
 - **Web Frontend**: `https://eve.vakh.com/`
 - **Backend API**: `https://xo.vakh.com` (Health check, Auth, Database, Storage, Realtime)
 - **Sign-In Route**: `https://eve.vakh.com/auth/sign-in`
-- **Tech Stack**: Playwright, TypeScript, Node.js, Autocannon
+- **Tech Stack**: Playwright, TypeScript, Node.js, Autocannon, Chart.js
+
+---
+
+## 📊 Dynamic Team Quality Dashboard
+
+An interactive, responsive HTML5 team dashboard is located in [`docs/index.html`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/docs/index.html) for sharing test progress and metrics with team members.
+
+### 🌐 Deploying to GitHub Pages for Team Access:
+1. In your GitHub repository, go to **Settings** > **Pages**.
+2. Under **Build and deployment** > **Source**, select **Deploy from a branch**.
+3. Select branch **`main`** and folder **`/docs`**, then click **Save**.
+4. Your team dashboard will be live at:
+   `https://mughdabansal.github.io/Vakh-Playwright--test-/`
 
 ---
 
 ## 🧱 Clean & Modular Architecture
-
-The project follows a clean **Source-based Layered Architecture** (`src/`) with Page Object Models extending a shared `BasePage` and centralizing configuration constants.
 
 ```text
 Vakh-Playwright--test-/
@@ -38,6 +51,10 @@ Vakh-Playwright--test-/
 ├── tsconfig.json                  # TypeScript configuration & path aliases (@pages, @config)
 ├── playwright.config.ts           # Playwright framework configuration (testDir: ./src/tests)
 ├── README.md                      # Comprehensive project documentation
+├── docs/                          # Dynamic Team Dashboard (Deployable via GitHub Pages)
+│   └── index.html                 # Interactive Chart.js dashboard & coverage matrix
+├── scripts/                       # Automation scripts
+│   └── generate-dashboard.js      # Dashboard generator from latest test data
 ├── src/                           # Source directory for all test assets
 │   ├── config/                    # Centralized configuration & constants
 │   │   └── constants.ts           # App & API URLs, timeouts, test users, perf defaults
@@ -72,7 +89,7 @@ Vakh-Playwright--test-/
 
 1. **Clone the repository**:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/mughdabansal/Vakh-Playwright--test-.git
    cd Vakh-Playwright--test-
    ```
 
@@ -100,6 +117,7 @@ Run these scripts from the project root:
 | **`npm run test:report`** | Serves and opens the generated **HTML Test Report** from `test-reports/html-report`. |
 | **`npm run test:perf`** | Executes **200 req/sec Web Performance Load Test** against the login page. |
 | **`npm run test:perf:api`** | Executes **200 req/sec API Performance Load Test** against backend API (`https://xo.vakh.com`). |
+| **`npm run generate:dashboard`** | Regenerates the dynamic team dashboard in `docs/index.html` from latest metrics. |
 
 ---
 
@@ -132,14 +150,12 @@ Run these scripts from the project root:
 
 ## 📊 Performance & Load Test Output Analysis
 
-We analyzed the empirical output from both the **Web Frontend Load Test** and the **Backend API Load Test** under a target load of **200 requests/second with 50 concurrent connections**.
-
 ### 1. 🌐 Web Frontend Load Test (`https://eve.vakh.com/auth/sign-in`)
 
 | Metric | Measured Output | Analysis & Verdict |
 | :--- | :--- | :--- |
 | **Target Throughput** | 200 req/sec | Set target throughput. |
-| **Achieved Throughput** | **196.20 req/sec** | **98.1% Target Achievement**. Sustained high request volume effortlessly. |
+| **Achieved Throughput** | **196.20 req/sec** | **98.1% Target Achievement**. Sustained high request volume. |
 | **Total Requests Processed** | **2,943 requests** | Successfully processed 2,943 HTTP requests over 15.25 seconds. |
 | **HTTP 2xx Success Rate** | **100% (2,943 / 2,943)** | **Perfect Availability**. 0 dropped requests, 0 timeouts, 0 server errors. |
 | **Average Latency** | **116.86 ms** | **Ultra-Fast**. Pages load in ~0.11 seconds on average. |
@@ -171,6 +187,7 @@ We analyzed the empirical output from both the **Web Frontend Load Test** and th
 ## 📊 Test Reports & Artifacts
 
 All generated reports are saved inside the `test-reports/` folder:
+- **Team Dashboard**: [`docs/index.html`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/docs/index.html)
 - **HTML Report**: [`test-reports/html-report/index.html`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/test-reports/html-report/index.html)
 - **Web Performance Summary**: [`test-reports/performance-summary.md`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/test-reports/performance-summary.md)
 - **API Performance Summary**: [`test-reports/api-performance-summary.md`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/test-reports/api-performance-summary.md)
