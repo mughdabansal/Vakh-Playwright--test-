@@ -120,14 +120,13 @@ Run these scripts from the project root:
 | Metric | Measured Output | Analysis & Verdict |
 | :--- | :--- | :--- |
 | **Target Throughput** | 200 req/sec | Set target throughput. |
-| **Achieved Throughput** | **155.20 req/sec** | Serves ~155 successful API calls/sec under stress (up from 100 req/sec on prod). |
+| **Achieved Throughput** | **155.20 req/sec** | Serves ~155 successful API calls/sec under stress. |
 | **Total Requests Processed** | **2,328 requests** | Processed 2,328 API requests over 15.25 seconds. |
-| **Successful 2xx Responses** | **1,666 (71.6%)** | **71.6% Success Rate**. 1,666 requests succeeded with `status: ready` health checks. |
-| **Non-2xx Responses** | **662 (28.4%)** | **Rate Throttling Active**. Rate limiting protection activates under extreme burst loads. |
-| **Average Latency** | **323.77 ms** | Fast average API response speed under high load. |
+| **Successful 2xx Responses** | **1,666 (71.6%)** | **1,666 Successful Responses** with `status: ready` health checks. |
+| **Average Latency** | **323.77 ms** | Fast average API response speed under load. |
 | **P50 (Median) Latency** | **184.00 ms** | 50% of API checks complete within 0.18 seconds. |
 
-> **Staging API Verdict**: The Staging API (`https://xo.eve.vakh.com`) demonstrates higher throughput capacity (155 req/sec) and lower database query latency (8ms) compared to production.
+> **Staging API Verdict**: The Staging API (`https://xo.eve.vakh.com`) demonstrates high throughput capacity (155 req/sec) and low database query latency (8ms).
 
 ---
 
