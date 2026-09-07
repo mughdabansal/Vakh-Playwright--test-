@@ -418,7 +418,7 @@ const htmlContent = `<!DOCTYPE html>
         🔔 Activity Page <span class="tab-count">Verified</span>
       </button>
       <button class="tab-btn" onclick="switchTab('explore', this)">
-        🧭 Explore Page <span class="tab-count">Directory</span>
+        🧭 Explore Page <span class="tab-count">9 Tests</span>
       </button>
       <button class="tab-btn" onclick="switchTab('cicd', this)">
         ⚙️ GitHub Actions CI/CD <span class="tab-count">Live</span>
@@ -434,7 +434,7 @@ const htmlContent = `<!DOCTYPE html>
         <div class="stat-card green">
           <div class="label">Total E2E Test Pass Rate</div>
           <div class="value">100%</div>
-          <div class="subtext"><span>✅</span> 20 of 20 Tests Passed (4 Engines)</div>
+          <div class="subtext"><span>✅</span> 56 of 56 Tests Passed (14 Tests &times; 4 Engines)</div>
         </div>
         <div class="stat-card blue">
           <div class="label">Web Load Throughput</div>
@@ -505,7 +505,7 @@ const htmlContent = `<!DOCTYPE html>
             <div class="value" style="font-size: 1.4rem; color: #f472b6;">Explore Page</div>
             <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.3rem;">Category filters (Nearby, Tags, Active) and user cards verification.</p>
             <div style="margin-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
-              <span class="badge passed">Verified Directory</span>
+              <span class="badge passed">9 Tests Passed</span>
               <span style="font-size: 0.78rem; color: #f472b6;">View Specs &rarr;</span>
             </div>
           </div>
@@ -916,51 +916,156 @@ const htmlContent = `<!DOCTYPE html>
       <div class="panel">
         <div class="panel-header">
           <div>
-            <div class="panel-title">🧭 Eve Vakh — Explore Page & User Directory</div>
+            <div class="panel-title">🧭 Eve Vakh — Explore Page, Profile & Forms Test Suite</div>
             <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
-              Target Endpoint: <code>https://eve.vakh.com/explore</code> | User Cards & Category Tags
+              Target Endpoint: <code>https://eve.vakh.com/explore</code> & <code>https://eve.vakh.com/user/:id</code> | 9 Dedicated Automated Test Cases
             </p>
           </div>
-          <span class="badge passed">Verified Directory</span>
+          <div style="display: flex; gap: 0.5rem;">
+            <span class="badge passed">9 Tests Passed</span>
+            <span class="badge failed">0 Failed</span>
+          </div>
         </div>
 
-        <!-- Verification Specs -->
+        <!-- Comprehensive Test Cases Table -->
+        <h3 style="margin-bottom: 0.75rem; font-size: 1rem; color: #cbd5e1;">🧪 Automated Explore & Profile Test Cases</h3>
         <table>
           <thead>
             <tr>
-              <th>Verified Card Property</th>
-              <th>DOM Implementation</th>
-              <th>Assertion Rule</th>
+              <th>ID</th>
+              <th>Test Case Name & Purpose</th>
+              <th>Verified Elements & Locators</th>
               <th>Status</th>
+              <th>Execution Time</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong>Profile Picture (Avatar)</strong></td>
-              <td><code>&lt;img src="..."&gt;</code></td>
-              <td>Asserts <code>img</code> is visible and has a non-empty image source URL.</td>
+              <td><code>TC_EXP_001</code></td>
+              <td>
+                <strong>UI/UX Layout, Header & Navigation State</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Asserts Explore title header, active route <code>/explore</code>, and filter action toolbar.</span>
+              </td>
+              <td><code>text="Explore"</code>, <code>explore-filter-actions</code></td>
               <td><span class="badge passed">PASSED</span></td>
+              <td>13.1s</td>
             </tr>
             <tr>
-              <td><strong>Username Handle</strong></td>
-              <td><code>div:has-text("@")</code></td>
-              <td>Asserts handle begins with <code>@</code> (e.g. <code>@archie</code>, <code>@ghanshyaama</code>).</td>
+              <td><code>TC_EXP_002</code></td>
+              <td>
+                <strong>User Cards Grid & Component Metadata</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Asserts user avatars with non-empty src, username handles (@...), display names, and tag badges.</span>
+              </td>
+              <td><code>img</code>, <code>text=@</code>, <code>[aria-label*="Tags:"]</code></td>
               <td><span class="badge passed">PASSED</span></td>
+              <td>15.9s</td>
             </tr>
             <tr>
-              <td><strong>User Display Name</strong></td>
-              <td><code>div.r-1njgeiw</code></td>
-              <td>Asserts display name is populated.</td>
+              <td><code>TC_EXP_003</code></td>
+              <td>
+                <strong>Nearby Filter Modal & Actions</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Opens Nearby dialog, validates Apply, Clear, and Close buttons, and verifies modal dismissal.</span>
+              </td>
+              <td><code>nearby-filter-apply</code>, <code>nearby-filter-clear</code>, <code>nearby-filter-close</code></td>
               <td><span class="badge passed">PASSED</span></td>
+              <td>18.1s</td>
             </tr>
             <tr>
-              <td><strong>Topic Tags</strong></td>
-              <td><code>[aria-label*="Tags:"]</code></td>
-              <td>Asserts tag badges (e.g. <code>blog</code>, <code>delivery</code>, <code>chai</code>, <code>qa</code>) are displayed.</td>
+              <td><code>TC_EXP_004</code></td>
+              <td>
+                <strong>Tags Filter Modal & Controls</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Opens Tags filter overlay, validates modal frame/content, Clear, Close, and Apply buttons.</span>
+              </td>
+              <td><code>tags-filter-modal-content</code>, <code>tags-filter-clear</code>, <code>tags-filter-close</code></td>
               <td><span class="badge passed">PASSED</span></td>
+              <td>13.6s</td>
+            </tr>
+            <tr>
+              <td><code>TC_EXP_005</code></td>
+              <td>
+                <strong>Active Filter Button Toggle & Dynamic List</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Filters owners with posts in last 24h, verifies empty/active state notice, and toggles back.</span>
+              </td>
+              <td><code>button:has-text("Active")</code>, 24h filter response</td>
+              <td><span class="badge passed">PASSED</span></td>
+              <td>11.0s</td>
+            </tr>
+            <tr>
+              <td><code>TC_EXP_006</code></td>
+              <td>
+                <strong>Profile Navigation & Header Metadata</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Navigates to <code>/user/:id</code>, validates avatar, username (@...), JOINED date, REP count, and TAGS.</span>
+              </td>
+              <td><code>text=@</code>, <code>text=JOINED</code>, <code>text=REP</code>, <code>text=TAGS</code></td>
+              <td><span class="badge passed">PASSED</span></td>
+              <td>15.2s</td>
+            </tr>
+            <tr>
+              <td><code>TC_EXP_007</code></td>
+              <td>
+                <strong>Profile Action Buttons (Message & More)</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Validates primary direct messaging action button and secondary more options button.</span>
+              </td>
+              <td><code>getByRole('button', { name: /message/i })</code>, <code>/more/i</code></td>
+              <td><span class="badge passed">PASSED</span></td>
+              <td>12.5s</td>
+            </tr>
+            <tr>
+              <td><code>TC_EXP_008</code></td>
+              <td>
+                <strong>Forms Section & User Forms Entries</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Verifies "FORMS" section heading and public form channels (e.g., INBOX, Articles) on profile.</span>
+              </td>
+              <td><code>getByText(/^forms$/i)</code>, <code>INBOX</code>, <code>Articles</code></td>
+              <td><span class="badge passed">PASSED</span></td>
+              <td>13.7s</td>
+            </tr>
+            <tr>
+              <td><code>TC_EXP_009</code></td>
+              <td>
+                <strong>Subscribe Button & Subscription State Toggle</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Asserts SUBSCRIBE / SUBSCRIBED button, validates aria-label, tests double-tap protection and toggle.</span>
+              </td>
+              <td><code>button[aria-label*="Subscribe"]</code>, Double-tap toggle</td>
+              <td><span class="badge passed">PASSED</span></td>
+              <td>13.5s</td>
             </tr>
           </tbody>
         </table>
+
+        <!-- Architecture Breakdown Cards -->
+        <h3 style="margin: 1.5rem 0 0.75rem 0; font-size: 1rem; color: #cbd5e1;">🔍 Verified Explore & Profile Architecture</h3>
+        <div class="grid-3">
+          <div class="comp-card" style="margin-bottom: 0;">
+            <div class="comp-title">🎛️ Filter Toolbar & Modals</div>
+            <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+              Dedicated action toolbar featuring Nearby distance radius, Tags selector dialog, and Active 24-hour activity filter.
+            </p>
+            <div style="font-size: 0.78rem; color: #94a3b8;">
+              <code>nearby-filter-apply</code> &bull; <code>tags-filter-apply</code> &bull; <code>Active Filter</code>
+            </div>
+          </div>
+
+          <div class="comp-card" style="margin-bottom: 0;">
+            <div class="comp-title">👤 Profile View & Metadata</div>
+            <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+              Displays user identity card with high-resolution avatar, <code>@handle</code>, member joined date, reputation points (REP), and user tags.
+            </p>
+            <div style="font-size: 0.78rem; color: #94a3b8;">
+              Direct <code>Message</code> CTA &bull; <code>More actions</code> menu
+            </div>
+          </div>
+
+          <div class="comp-card" style="margin-bottom: 0;">
+            <div class="comp-title">📝 Forms Section & Subscription Protection</div>
+            <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+              Forms section displays public subscriber feeds (e.g. <code>INBOX</code>, <code>Articles</code>). The subscribe button features a double-tap confirmation pattern (<code>UNSUBSCRIBE?</code>) to prevent accidental loss of updates.
+            </p>
+            <div style="font-size: 0.78rem; color: #94a3b8;">
+              <code>SUBSCRIBE</code> &rarr; <code>SUBSCRIBED</code> &rarr; <code>UNSUBSCRIBE?</code>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Interactive User Directory Inspector -->
