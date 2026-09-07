@@ -1,0 +1,97 @@
+name: Sanity Tests (Login & Explore)
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'src/pages/LoginPage.ts'
+      - 'src/pages/ExplorePage.ts'
+      - 'src/tests/login.spec.ts'
+      - 'src/tests/explore.spec.ts'
+      - 'src/config/**'
+      - '.github/workflows/sanity-test.yml'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'src/pages/LoginPage.ts'
+      - 'src/pages/ExplorePage.ts'
+      - 'src/tests/login.spec.ts'
+      - 'src/tests/explore.spec.ts'
+      - 'src/config/**'
+      - '.github/workflows/sanity-test.yml'
+  workflow_dispatch:
+    inputs:
+      browser:
+        description: 'Browser engine to run sanity suite against'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - chromium
+          - firefox
+          - webkit
+          - edge
+
+jobs:
+  sanity-test:
+    name: Run Sanity Test Suite
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout Code Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Install Playwright Browsers & System Dependencies
+        run: |
+          if [ "${{ github.event.inputs.browser }}" = "chromium" ]; then
+            npx playwright install --with-deps chromium
+          elif [ "${{ github.event.inputs.browser }}" = "firefox" ]; then
+            npx playwright install --with-deps firefox
+          elif [ "${{ github.event.inputs.browser }}" = "webkit" ]; then
+            npx playwright install --with-deps webkit
+          elif [ "${{ github.event.inputs.browser }}" = "edge" ]; then
+            npx playwright install --with-deps msedge || npx playwright install --with-deps chromium
+          else
+            npx playwright install --with-deps
+            npx playwright install msedge || true
+          fi
+
+      - name: Run Playwright Sanity Tests (Login & Explore)
+        run: |
+          PROJECT_ARG=""
+          if [ -n "${{ github.event.inputs.browser }}" ] && [ "${{ github.event.inputs.browser }}" != "all" ]; then
+            PROJECT_ARG="--project=${{ github.event.inputs.browser }}"
+          fi
+          echo "Executing: npm run test:sanity -- $PROJECT_ARG"
+          npm run test:sanity -- $PROJECT_ARG
+        env:
+          CI: true
+
+      - name: Generate Sanity Run Summary
+        if: always()
+        run: |
+          echo "### 🚀 Sanity Test Suite Execution Summary" >> $GITHUB_STEP_SUMMARY
+          echo "- **Trigger**: \`${{ github.event_name }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "- **Target Pages**: Login Page (\`LoginPage.ts\`) & Explore Page (\`ExplorePage.ts\`)" >> $GITHUB_STEP_SUMMARY
+          echo "- **Target Test Files**: \`src/tests/login.spec.ts\` & \`src/tests/explore.spec.ts\`" >> $GITHUB_STEP_SUMMARY
+          echo "- **Selected Browser**: \`${{ github.event.inputs.browser || 'all' }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "- **Total Scenarios Evaluated**: 13 Unique Test Cases (4 Login + 9 Explore)" >> $GITHUB_STEP_SUMMARY
+
+      - name: Archive Playwright HTML Test Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sanity-test-html-report
+          path: test-reports/html-report/
+          retention-days: 14

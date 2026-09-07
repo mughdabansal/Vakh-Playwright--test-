@@ -258,7 +258,11 @@ export class ExplorePage extends BasePage {
     await expect(this.userCards.first()).toBeVisible({ timeout: 15000 });
     const card = this.userCards.nth(index);
     await card.scrollIntoViewIfNeeded();
-    await card.click();
+    try {
+      await card.click({ timeout: 5000 });
+    } catch {
+      await card.click({ force: true });
+    }
     await this.waitForUrlPattern(/\/user\//, 15000);
   }
 
