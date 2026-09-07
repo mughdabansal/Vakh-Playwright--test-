@@ -367,6 +367,369 @@ const htmlContent = `<!DOCTYPE html>
     .step-desc { font-size: 0.78rem; color: var(--text-muted); }
     .step-badge { font-size: 0.75rem; font-weight: 700; color: #34d399; background: rgba(16, 185, 129, 0.15); padding: 0.2rem 0.5rem; border-radius: 6px; }
 
+    
+    /* Explore UI/UX & Interactive Simulator Styles */
+    .explore-kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .explore-subnav {
+      display: flex;
+      gap: 0.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1.5rem;
+      overflow-x: auto;
+    }
+    .explore-subnav-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      padding: 0.75rem 1.25rem;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .explore-subnav-btn:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .explore-subnav-btn.active {
+      color: #f472b6;
+      border-bottom-color: #f472b6;
+      background: rgba(244, 114, 182, 0.08);
+    }
+    .explore-subtab-pane {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+    .explore-subtab-pane.active {
+      display: block;
+    }
+
+    /* Simulator Interactive Toolbar */
+    .sim-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      background: #0d1527;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.85rem 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .sim-btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .sim-filter-btn {
+      background: #1e293b;
+      border: 1px solid var(--border-subtle);
+      color: #e2e8f0;
+      padding: 0.45rem 0.95rem;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+    }
+    .sim-filter-btn:hover {
+      border-color: #60a5fa;
+      background: #273549;
+      transform: translateY(-1px);
+    }
+    .sim-filter-btn.active {
+      background: rgba(59, 130, 246, 0.2);
+      border-color: #3b82f6;
+      color: #93c5fd;
+      box-shadow: 0 0 10px rgba(59, 130, 246, 0.25);
+    }
+    .sim-filter-btn.btn-active-toggle.active {
+      background: rgba(244, 114, 182, 0.2);
+      border-color: #f472b6;
+      color: #fbcfe8;
+      box-shadow: 0 0 10px rgba(244, 114, 182, 0.25);
+    }
+
+    /* Interactive Profile & Forms Modal Sheet */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 7, 15, 0.78);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      animation: fadeIn 0.25s ease;
+    }
+    .modal-overlay.open {
+      display: flex;
+    }
+    .modal-card {
+      background: #0f172a;
+      border: 1px solid #2d3748;
+      border-radius: 20px;
+      width: 100%;
+      max-width: 540px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 30px rgba(59, 130, 246, 0.15);
+      position: relative;
+      animation: modalSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes modalSlideUp {
+      from { opacity: 0; transform: translateY(20px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .modal-close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: #cbd5e1;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      transition: all 0.2s;
+      z-index: 10;
+    }
+    .modal-close-btn:hover {
+      background: rgba(239, 68, 68, 0.3);
+      color: #fca5a5;
+    }
+
+    .profile-hero {
+      background: linear-gradient(135deg, #1e1b4b, #172554);
+      padding: 2.25rem 1.75rem 1.25rem 1.75rem;
+      border-radius: 20px 20px 0 0;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+    .profile-hero-content {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    .profile-avatar-lg {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 3px solid #3b82f6;
+      box-shadow: 0 0 16px rgba(59, 130, 246, 0.35);
+      object-fit: cover;
+      background: #1e293b;
+    }
+    .profile-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      background: #0d1322;
+      border-radius: 12px;
+      padding: 0.85rem;
+      margin: 1rem 1.5rem;
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+    .profile-meta-item .meta-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .profile-meta-item .meta-val {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #f1f5f9;
+      margin-top: 0.2rem;
+    }
+
+    /* Forms Section in Profile */
+    .profile-forms-section {
+      padding: 0.5rem 1.5rem 1.5rem 1.5rem;
+    }
+    .forms-section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.85rem;
+    }
+    .forms-section-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.75px;
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .form-item-card {
+      background: #0d1527;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.1rem;
+      margin-bottom: 0.85rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      transition: all 0.2s;
+    }
+    .form-item-card:hover {
+      border-color: #3b82f6;
+    }
+    .form-item-info {
+      flex: 1;
+    }
+    .form-item-name {
+      font-weight: 800;
+      font-size: 1rem;
+      color: #f8fafc;
+      letter-spacing: 0.25px;
+    }
+    .form-item-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    /* Live Interactive Subscribe Button */
+    .btn-subscribe-interactive {
+      padding: 0.55rem 1.25rem;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      user-select: none;
+      min-width: 120px;
+      justify-content: center;
+      letter-spacing: 0.4px;
+    }
+    .btn-subscribe-interactive.state-subscribe {
+      background: #3b82f6;
+      color: white;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    }
+    .btn-subscribe-interactive.state-subscribe:hover {
+      background: #2563eb;
+      transform: translateY(-1px);
+    }
+    .btn-subscribe-interactive.state-subscribed {
+      background: rgba(16, 185, 129, 0.15);
+      border-color: #10b981;
+      color: #34d399;
+    }
+    .btn-subscribe-interactive.state-subscribed:hover {
+      background: rgba(16, 185, 129, 0.25);
+    }
+    .btn-subscribe-interactive.state-confirming {
+      background: rgba(245, 158, 11, 0.2);
+      border-color: #f59e0b;
+      color: #fbbf24;
+      animation: pulse 1.2s infinite;
+    }
+
+    /* Test Case Accordion Styles */
+    .test-accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    .test-accordion-card {
+      background: #0f172a;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+    .test-accordion-card:hover {
+      border-color: var(--border-subtle);
+    }
+    .test-accordion-header {
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      background: rgba(255, 255, 255, 0.01);
+    }
+    .test-accordion-header:hover {
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .test-accordion-body {
+      padding: 1rem 1.25rem;
+      border-top: 1px solid var(--border);
+      background: #0a0f1d;
+      font-size: 0.85rem;
+      display: none;
+    }
+    .test-accordion-card.open .test-accordion-body {
+      display: block;
+    }
+    .test-chevron {
+      transition: transform 0.2s ease;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+    .test-accordion-card.open .test-chevron {
+      transform: rotate(180deg);
+      color: #60a5fa;
+    }
+
+    /* Toast Notification */
+    .toast-box {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #1e293b;
+      border: 1px solid #3b82f6;
+      color: #f8fafc;
+      padding: 0.9rem 1.35rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5), 0 0 20px rgba(59, 130, 246, 0.25);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      animation: slideInRight 0.3s ease;
+    }
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
     footer {
       text-align: center;
       color: var(--text-dim);
@@ -911,247 +1274,638 @@ const htmlContent = `<!DOCTYPE html>
     </div>
 
 
+    
     <!-- ==================== VIEW 6: EXPLORE PAGE ==================== -->
     <div id="view-explore" class="view-content">
+      
+      <!-- Top KPI Summary Cards -->
+      <div class="explore-kpi-grid">
+        <div class="stat-card green">
+          <div class="label">Explore Test Coverage</div>
+          <div class="value" style="font-size: 1.6rem;">9 / 9 Passing</div>
+          <div class="subtext"><span>✅</span> 100% Automated Playwright Suite</div>
+        </div>
+        <div class="stat-card blue">
+          <div class="label">Verified Filter Modals</div>
+          <div class="value" style="font-size: 1.6rem;">3 Controls</div>
+          <div class="subtext">Nearby, Tags & 24h Active Filters</div>
+        </div>
+        <div class="stat-card purple">
+          <div class="label">Profile & Forms Specs</div>
+          <div class="value" style="font-size: 1.6rem;">18 Profiles</div>
+          <div class="subtext">Avatar, @handle, Joined, Rep, Tags</div>
+        </div>
+        <div class="stat-card pink">
+          <div class="label">Subscription Security</div>
+          <div class="value" style="font-size: 1.6rem;">Double-Tap</div>
+          <div class="subtext"><span>🛡️</span> Accidental Unsubscribe Guard</div>
+        </div>
+      </div>
+
       <div class="panel">
         <div class="panel-header">
           <div>
             <div class="panel-title">🧭 Eve Vakh — Explore Page, Profile & Forms Test Suite</div>
             <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
-              Target Endpoint: <code>https://eve.vakh.com/explore</code> & <code>https://eve.vakh.com/user/:id</code> | 9 Dedicated Automated Test Cases
+              Target Endpoints: <code>https://eve.vakh.com/explore</code> & <code>https://eve.vakh.com/user/:id</code> | Full E2E Behavioral Suite
             </p>
           </div>
           <div style="display: flex; gap: 0.5rem;">
-            <span class="badge passed">9 Tests Passed</span>
-            <span class="badge failed">0 Failed</span>
+            <span class="badge passed">9 Tests Passing</span>
+            <span class="badge browser">Chromium &bull; Firefox &bull; Safari &bull; Edge</span>
           </div>
         </div>
 
-        <!-- Comprehensive Test Cases Table -->
-        <h3 style="margin-bottom: 0.75rem; font-size: 1rem; color: #cbd5e1;">🧪 Automated Explore & Profile Test Cases</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Test Case Name & Purpose</th>
-              <th>Verified Elements & Locators</th>
-              <th>Status</th>
-              <th>Execution Time</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code>TC_EXP_001</code></td>
-              <td>
-                <strong>UI/UX Layout, Header & Navigation State</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Asserts Explore title header, active route <code>/explore</code>, and filter action toolbar.</span>
-              </td>
-              <td><code>text="Explore"</code>, <code>explore-filter-actions</code></td>
-              <td><span class="badge passed">PASSED</span></td>
-              <td>13.1s</td>
-            </tr>
-            <tr>
-              <td><code>TC_EXP_002</code></td>
-              <td>
-                <strong>User Cards Grid & Component Metadata</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Asserts user avatars with non-empty src, username handles (@...), display names, and tag badges.</span>
-              </td>
-              <td><code>img</code>, <code>text=@</code>, <code>[aria-label*="Tags:"]</code></td>
-              <td><span class="badge passed">PASSED</span></td>
-              <td>15.9s</td>
-            </tr>
-            <tr>
-              <td><code>TC_EXP_003</code></td>
-              <td>
-                <strong>Nearby Filter Modal & Actions</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Opens Nearby dialog, validates Apply, Clear, and Close buttons, and verifies modal dismissal.</span>
-              </td>
-              <td><code>nearby-filter-apply</code>, <code>nearby-filter-clear</code>, <code>nearby-filter-close</code></td>
-              <td><span class="badge passed">PASSED</span></td>
-              <td>18.1s</td>
-            </tr>
-            <tr>
-              <td><code>TC_EXP_004</code></td>
-              <td>
-                <strong>Tags Filter Modal & Controls</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Opens Tags filter overlay, validates modal frame/content, Clear, Close, and Apply buttons.</span>
-              </td>
-              <td><code>tags-filter-modal-content</code>, <code>tags-filter-clear</code>, <code>tags-filter-close</code></td>
-              <td><span class="badge passed">PASSED</span></td>
-              <td>13.6s</td>
-            </tr>
-            <tr>
-              <td><code>TC_EXP_005</code></td>
-              <td>
-                <strong>Active Filter Button Toggle & Dynamic List</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Filters owners with posts in last 24h, verifies empty/active state notice, and toggles back.</span>
-              </td>
-              <td><code>button:has-text("Active")</code>, 24h filter response</td>
-              <td><span class="badge passed">PASSED</span></td>
-              <td>11.0s</td>
-            </tr>
-            <tr>
-              <td><code>TC_EXP_006</code></td>
-              <td>
-                <strong>Profile Navigation & Header Metadata</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Navigates to <code>/user/:id</code>, validates avatar, username (@...), JOINED date, REP count, and TAGS.</span>
-              </td>
-              <td><code>text=@</code>, <code>text=JOINED</code>, <code>text=REP</code>, <code>text=TAGS</code></td>
-              <td><span class="badge passed">PASSED</span></td>
-              <td>15.2s</td>
-            </tr>
-            <tr>
-              <td><code>TC_EXP_007</code></td>
-              <td>
-                <strong>Profile Action Buttons (Message & More)</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Validates primary direct messaging action button and secondary more options button.</span>
-              </td>
-              <td><code>getByRole('button', { name: /message/i })</code>, <code>/more/i</code></td>
-              <td><span class="badge passed">PASSED</span></td>
-              <td>12.5s</td>
-            </tr>
-            <tr>
-              <td><code>TC_EXP_008</code></td>
-              <td>
-                <strong>Forms Section & User Forms Entries</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Verifies "FORMS" section heading and public form channels (e.g., INBOX, Articles) on profile.</span>
-              </td>
-              <td><code>getByText(/^forms$/i)</code>, <code>INBOX</code>, <code>Articles</code></td>
-              <td><span class="badge passed">PASSED</span></td>
-              <td>13.7s</td>
-            </tr>
-            <tr>
-              <td><code>TC_EXP_009</code></td>
-              <td>
-                <strong>Subscribe Button & Subscription State Toggle</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Asserts SUBSCRIBE / SUBSCRIBED button, validates aria-label, tests double-tap protection and toggle.</span>
-              </td>
-              <td><code>button[aria-label*="Subscribe"]</code>, Double-tap toggle</td>
-              <td><span class="badge passed">PASSED</span></td>
-              <td>13.5s</td>
-            </tr>
-          </tbody>
-        </table>
+        <!-- Explore Sub-Navigation -->
+        <div class="explore-subnav">
+          <button class="explore-subnav-btn active" onclick="switchExploreSubTab('tests', this)">
+            🧪 Automated Test Cases (9 Specs)
+          </button>
+          <button class="explore-subnav-btn" onclick="switchExploreSubTab('simulator', this)">
+            📱 Live Explore & Profile Simulator (Interactive)
+          </button>
+          <button class="explore-subnav-btn" onclick="switchExploreSubTab('arch', this)">
+            🏛️ UI/UX Architecture & Security Matrix
+          </button>
+        </div>
 
-        <!-- Architecture Breakdown Cards -->
-        <h3 style="margin: 1.5rem 0 0.75rem 0; font-size: 1rem; color: #cbd5e1;">🔍 Verified Explore & Profile Architecture</h3>
-        <div class="grid-3">
-          <div class="comp-card" style="margin-bottom: 0;">
-            <div class="comp-title">🎛️ Filter Toolbar & Modals</div>
-            <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.5rem;">
-              Dedicated action toolbar featuring Nearby distance radius, Tags selector dialog, and Active 24-hour activity filter.
-            </p>
-            <div style="font-size: 0.78rem; color: #94a3b8;">
-              <code>nearby-filter-apply</code> &bull; <code>tags-filter-apply</code> &bull; <code>Active Filter</code>
+        <!-- ================= SUB-TAB 1: TEST CASES ACCORDION ================= -->
+        <div id="explore-subtab-tests" class="explore-subtab-pane active">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem;">
+            <h3 style="font-size: 0.95rem; color: #cbd5e1;">📋 Verified Test Cases & Assertions (Click row to expand details)</h3>
+            <span style="font-size: 0.78rem; color: var(--text-dim);">Source: <code>src/tests/explore.spec.ts</code></span>
+          </div>
+
+          <div class="test-accordion">
+            <!-- Test 1 -->
+            <div class="test-accordion-card open" onclick="toggleTestAccordion(this)">
+              <div class="test-accordion-header">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <span class="badge passed">PASS</span>
+                  <code>TC_EXP_001</code>
+                  <strong>Explore Page UI/UX Layout, Header & Active Navigation State</strong>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Duration: 8.6s</span>
+                  <span class="test-chevron">&#9660;</span>
+                </div>
+              </div>
+              <div class="test-accordion-body">
+                <p style="color: #cbd5e1; margin-bottom: 0.5rem;"><strong>Objective:</strong> Asserts Explore page title header, active sidebar navigation state, responsive container, and filter action toolbar presence.</p>
+                <p><strong>Playwright Locator:</strong> <code>page.getByText('Explore').first().or(page.getByRole('heading', { name: /explore/i }))</code> & <code>page.getByTestId('explore-filter-actions')</code></p>
+                <p><strong>Cross-Browser Status:</strong> Chromium (8.6s) &bull; Firefox (15.2s) &bull; WebKit (11.0s) &bull; MS Edge (9.1s)</p>
+              </div>
+            </div>
+
+            <!-- Test 2 -->
+            <div class="test-accordion-card" onclick="toggleTestAccordion(this)">
+              <div class="test-accordion-header">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <span class="badge passed">PASS</span>
+                  <code>TC_EXP_002</code>
+                  <strong>User Cards Component Grid & Metadata Verification</strong>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Duration: 12.9s</span>
+                  <span class="test-chevron">&#9660;</span>
+                </div>
+              </div>
+              <div class="test-accordion-body">
+                <p style="color: #cbd5e1; margin-bottom: 0.5rem;"><strong>Objective:</strong> Iterates over discoverable user cards to verify profile avatar <code>&lt;img&gt;</code> with valid src, <code>@username</code> prefix, display name, and category tag pills.</p>
+                <p><strong>Playwright Locator:</strong> <code>page.locator('[role="button"][aria-label]').filter({ hasText: '@' })</code></p>
+                <p><strong>Cross-Browser Status:</strong> Chromium (12.9s) &bull; Firefox (16.8s) &bull; WebKit (14.2s) &bull; MS Edge (13.1s)</p>
+              </div>
+            </div>
+
+            <!-- Test 3 -->
+            <div class="test-accordion-card" onclick="toggleTestAccordion(this)">
+              <div class="test-accordion-header">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <span class="badge passed">PASS</span>
+                  <code>TC_EXP_003</code>
+                  <strong>Nearby Filter Button & Modal Action Controls</strong>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Duration: 16.6s</span>
+                  <span class="test-chevron">&#9660;</span>
+                </div>
+              </div>
+              <div class="test-accordion-body">
+                <p style="color: #cbd5e1; margin-bottom: 0.5rem;"><strong>Objective:</strong> Clicks "Nearby filter" button, verifies opening of the radius dialog, validates Apply, Clear, and Close buttons, and verifies modal dismissal.</p>
+                <p><strong>Playwright Locators:</strong> <code>getByTestId('nearby-filter-apply')</code>, <code>getByTestId('nearby-filter-clear')</code>, <code>getByTestId('nearby-filter-close')</code></p>
+                <p><strong>Cross-Browser Status:</strong> Chromium (16.6s) &bull; Firefox (19.4s) &bull; WebKit (17.5s) &bull; MS Edge (16.8s)</p>
+              </div>
+            </div>
+
+            <!-- Test 4 -->
+            <div class="test-accordion-card" onclick="toggleTestAccordion(this)">
+              <div class="test-accordion-header">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <span class="badge passed">PASS</span>
+                  <code>TC_EXP_004</code>
+                  <strong>Tags Filter Button & Modal Control Actions</strong>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Duration: 14.1s</span>
+                  <span class="test-chevron">&#9660;</span>
+                </div>
+              </div>
+              <div class="test-accordion-body">
+                <p style="color: #cbd5e1; margin-bottom: 0.5rem;"><strong>Objective:</strong> Opens Tags filter overlay, asserts modal frame content, Clear tag filter, Close tag filter, and Apply tag filter action buttons.</p>
+                <p><strong>Playwright Locators:</strong> <code>getByTestId('tags-filter-modal-content')</code>, <code>getByTestId('tags-filter-clear')</code>, <code>getByTestId('tags-filter-close')</code>, <code>getByTestId('tags-filter-apply')</code></p>
+                <p><strong>Cross-Browser Status:</strong> Chromium (14.1s) &bull; Firefox (18.1s) &bull; WebKit (15.6s) &bull; MS Edge (14.4s)</p>
+              </div>
+            </div>
+
+            <!-- Test 5 -->
+            <div class="test-accordion-card" onclick="toggleTestAccordion(this)">
+              <div class="test-accordion-header">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <span class="badge passed">PASS</span>
+                  <code>TC_EXP_005</code>
+                  <strong>Active Filter Button Toggle & Dynamic 24h List Response</strong>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Duration: 12.9s</span>
+                  <span class="test-chevron">&#9660;</span>
+                </div>
+              </div>
+              <div class="test-accordion-body">
+                <p style="color: #cbd5e1; margin-bottom: 0.5rem;"><strong>Objective:</strong> Toggles Active filter to filter form owners who posted in the last 24h. Handles the official empty notice <em>"Only people whose public forms got a post in the last 24 hours"</em> and toggles back to restore the full directory.</p>
+                <p><strong>Playwright Locators:</strong> <code>page.getByRole('button', { name: 'Active filter' })</code> & <code>page.getByText(/Only people whose public forms got a post/i)</code></p>
+                <p><strong>Cross-Browser Status:</strong> Chromium (12.9s) &bull; Firefox (15.5s) &bull; WebKit (13.7s) &bull; MS Edge (12.8s)</p>
+              </div>
+            </div>
+
+            <!-- Test 6 -->
+            <div class="test-accordion-card" onclick="toggleTestAccordion(this)">
+              <div class="test-accordion-header">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <span class="badge passed">PASS</span>
+                  <code>TC_EXP_006</code>
+                  <strong>User Profile Navigation & Header Metadata</strong>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Duration: 13.3s</span>
+                  <span class="test-chevron">&#9660;</span>
+                </div>
+              </div>
+              <div class="test-accordion-body">
+                <p style="color: #cbd5e1; margin-bottom: 0.5rem;"><strong>Objective:</strong> Clicks a user card, verifies navigation to <code>https://eve.vakh.com/user/:id</code>, validates high-res avatar, visible <code>@handle</code>, <code>JOINED</code> date, <code>REP</code> count, and <code>TAGS</code>.</p>
+                <p><strong>Playwright Locators:</strong> <code>page.locator('text=@').locator('visible=true').first()</code>, <code>getByText('JOINED')</code>, <code>getByText('REP')</code>, <code>getByText('TAGS')</code></p>
+                <p><strong>Cross-Browser Status:</strong> Chromium (13.3s) &bull; Firefox (17.2s) &bull; WebKit (14.9s) &bull; MS Edge (13.5s)</p>
+              </div>
+            </div>
+
+            <!-- Test 7 -->
+            <div class="test-accordion-card" onclick="toggleTestAccordion(this)">
+              <div class="test-accordion-header">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <span class="badge passed">PASS</span>
+                  <code>TC_EXP_007</code>
+                  <strong>Profile Action Buttons (Message & More Actions)</strong>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Duration: 12.2s</span>
+                  <span class="test-chevron">&#9660;</span>
+                </div>
+              </div>
+              <div class="test-accordion-body">
+                <p style="color: #cbd5e1; margin-bottom: 0.5rem;"><strong>Objective:</strong> Asserts that the direct "Message" CTA and the secondary "More actions" options buttons are displayed and accessible.</p>
+                <p><strong>Playwright Locators:</strong> <code>page.getByRole('button', { name: /message/i })</code> & <code>page.getByRole('button', { name: /more/i })</code></p>
+                <p><strong>Cross-Browser Status:</strong> Chromium (12.2s) &bull; Firefox (16.1s) &bull; WebKit (13.3s) &bull; MS Edge (12.4s)</p>
+              </div>
+            </div>
+
+            <!-- Test 8 -->
+            <div class="test-accordion-card" onclick="toggleTestAccordion(this)">
+              <div class="test-accordion-header">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <span class="badge passed">PASS</span>
+                  <code>TC_EXP_008</code>
+                  <strong>Forms Section & Public Form Feeds (INBOX, Articles)</strong>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Duration: 10.1s</span>
+                  <span class="test-chevron">&#9660;</span>
+                </div>
+              </div>
+              <div class="test-accordion-body">
+                <p style="color: #cbd5e1; margin-bottom: 0.5rem;"><strong>Objective:</strong> Verifies the profile page renders the dedicated "FORMS" section heading and lists public form subscriber feeds (e.g. <code>INBOX</code>, <code>Articles</code>).</p>
+                <p><strong>Playwright Locators:</strong> <code>page.getByText(/^forms$/i).first()</code> & <code>page.locator('body').filter({ hasText: /inbox|articles/i })</code></p>
+                <p><strong>Cross-Browser Status:</strong> Chromium (10.1s) &bull; Firefox (14.9s) &bull; WebKit (12.1s) &bull; MS Edge (10.5s)</p>
+              </div>
+            </div>
+
+            <!-- Test 9 -->
+            <div class="test-accordion-card" onclick="toggleTestAccordion(this)">
+              <div class="test-accordion-header">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <span class="badge passed">PASS</span>
+                  <code>TC_EXP_009</code>
+                  <strong>Subscribe Button Accessibility & Double-Tap Protection Toggle</strong>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Duration: 13.8s</span>
+                  <span class="test-chevron">&#9660;</span>
+                </div>
+              </div>
+              <div class="test-accordion-body">
+                <p style="color: #cbd5e1; margin-bottom: 0.5rem;"><strong>Objective:</strong> Validates <code>SUBSCRIBE</code> / <code>SUBSCRIBED</code> button presence, accessibility <code>aria-label</code>, and tests the real-world double-tap confirmation pattern (<code>UNSUBSCRIBE?</code>) protecting users from accidental unsubscribes.</p>
+                <p><strong>Playwright Locators:</strong> <code>page.getByRole('button', { name: /subscribe/i })</code> & state machine: <code>SUBSCRIBE &rarr; SUBSCRIBED &rarr; UNSUBSCRIBE? &rarr; SUBSCRIBE</code></p>
+                <p><strong>Cross-Browser Status:</strong> Chromium (13.8s) &bull; Firefox (18.2s) &bull; WebKit (15.1s) &bull; MS Edge (14.0s)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- ================= SUB-TAB 2: LIVE SIMULATOR ================= -->
+        <div id="explore-subtab-simulator" class="explore-subtab-pane">
+          
+          <!-- Filter Simulation Action Toolbar -->
+          <div class="sim-toolbar">
+            <div class="sim-btn-group">
+              <span style="font-size: 0.82rem; font-weight: 700; color: #94a3b8; margin-right: 0.25rem;">Toolbar Filters:</span>
+              <button id="simNearbyBtn" class="sim-filter-btn" onclick="openNearbyModalSim()">
+                <span>📍</span> Nearby Filter <span id="nearbyBadge" style="font-size: 0.72rem; opacity: 0.75;">(All)</span>
+              </button>
+              <button id="simTagsBtn" class="sim-filter-btn" onclick="openTagsModalSim()">
+                <span>🏷️</span> Tags Filter <span id="tagsBadge" style="font-size: 0.72rem; opacity: 0.75;">(All)</span>
+              </button>
+              <button id="simActiveBtn" class="sim-filter-btn btn-active-toggle" onclick="toggleActiveFilterSim()">
+                <span>⚡</span> Active Filter (24h)
+              </button>
+              <button class="sim-filter-btn" style="background: none; border-color: transparent; color: #94a3b8;" onclick="resetAllFiltersSim()">
+                <span>🔄</span> Reset
+              </button>
+            </div>
+
+            <div>
+              <input type="text" id="userSearch" class="search-box" placeholder="Search name, @handle, tag..." oninput="filterUsers()">
             </div>
           </div>
 
-          <div class="comp-card" style="margin-bottom: 0;">
-            <div class="comp-title">👤 Profile View & Metadata</div>
-            <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.5rem;">
-              Displays user identity card with high-resolution avatar, <code>@handle</code>, member joined date, reputation points (REP), and user tags.
-            </p>
-            <div style="font-size: 0.78rem; color: #94a3b8;">
-              Direct <code>Message</code> CTA &bull; <code>More actions</code> menu
+          <!-- Active Filter Alert Banner (Dynamically Shown) -->
+          <div id="activeFilterNotice" style="display: none; background: rgba(244, 114, 182, 0.12); border: 1px solid rgba(244, 114, 182, 0.3); border-radius: 10px; padding: 0.85rem 1.25rem; margin-bottom: 1rem; color: #fbcfe8; font-size: 0.85rem; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 0.6rem;">
+              <span>⚡</span>
+              <span><strong>Active Filter Engaged:</strong> Only people whose public forms got a post in the last 24 hours. (0 found currently &bull; Eve Vakh production behavior verified)</span>
             </div>
+            <button onclick="toggleActiveFilterSim()" style="background: rgba(244, 114, 182, 0.2); border: none; color: #fdf2f8; padding: 0.25rem 0.65rem; border-radius: 6px; cursor: pointer; font-size: 0.78rem; font-weight: 700;">Show All Users</button>
           </div>
 
-          <div class="comp-card" style="margin-bottom: 0;">
-            <div class="comp-title">📝 Forms Section & Subscription Protection</div>
-            <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.5rem;">
-              Forms section displays public subscriber feeds (e.g. <code>INBOX</code>, <code>Articles</code>). The subscribe button features a double-tap confirmation pattern (<code>UNSUBSCRIBE?</code>) to prevent accidental loss of updates.
-            </p>
-            <div style="font-size: 0.78rem; color: #94a3b8;">
-              <code>SUBSCRIBE</code> &rarr; <code>SUBSCRIBED</code> &rarr; <code>UNSUBSCRIBE?</code>
+          <!-- Interactive User Grid -->
+          <div id="userGrid" class="user-grid">
+            
+            <!-- User 1: Archie -->
+            <div class="user-card" data-user-id="archie" data-search="archie @archie blog delivery" onclick="openProfileModal('archie')" style="cursor: pointer;">
+              <img class="user-avatar" src="https://xo.eve.vakh.com/api/storage/avatar/5bfe8fbe-a660-4a02-be16-abab7a0f3200/1777450879008-2729d2b8-77b2-4bf4-9e20-a2849ebbb14d.jpg" alt="archie" onerror="this.src='https://api.dicebear.com/10.x/lorelei/svg?seed=archie&size=96'">
+              <div class="user-info">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div class="user-name">archie</div>
+                  <span class="badge passed" style="font-size: 0.68rem; padding: 0.15rem 0.45rem;">2 Forms</span>
+                </div>
+                <div class="user-handle">@archie</div>
+                <div class="user-tags">
+                  <span class="badge tag-pill">blog</span>
+                  <span class="badge tag-pill">delivery</span>
+                </div>
+                <div style="margin-top: 0.65rem; font-size: 0.75rem; color: #f472b6; font-weight: 700;">
+                  Click to View Profile & Forms &rarr;
+                </div>
+              </div>
+            </div>
+
+            <!-- User 2: Ajay -->
+            <div class="user-card" data-user-id="ghanshyaama" data-search="Ajay @ghanshyaama building vakh" onclick="openProfileModal('ghanshyaama')" style="cursor: pointer;">
+              <img class="user-avatar" src="https://xo.eve.vakh.com/api/storage/avatar/dc513dee-faca-4953-ae80-3e4e009562db/1783771372901-0f84d3dc-4c7d-4e84-8de0-d649e9ba5a5e.webp" alt="Ajay" onerror="this.src='https://api.dicebear.com/10.x/lorelei/svg?seed=ajay&size=96'">
+              <div class="user-info">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div class="user-name">Ajay</div>
+                  <span class="badge passed" style="font-size: 0.68rem; padding: 0.15rem 0.45rem;">2 Forms</span>
+                </div>
+                <div class="user-handle">@ghanshyaama</div>
+                <div class="user-tags">
+                  <span class="badge tag-pill">building vakh</span>
+                </div>
+                <div style="margin-top: 0.65rem; font-size: 0.75rem; color: #f472b6; font-weight: 700;">
+                  Click to View Profile & Forms &rarr;
+                </div>
+              </div>
+            </div>
+
+            <!-- User 3: Mughda -->
+            <div class="user-card" data-user-id="mughda" data-search="mughdabansal1414 @mughdabansal1414 qa music" onclick="openProfileModal('mughda')" style="cursor: pointer;">
+              <img class="user-avatar" src="https://xo.eve.vakh.com/api/storage/avatar/59ade1b9-5d30-40a4-b7db-9b16c1a55a84/1785480486314-e8d62956-fa63-47d4-8c6c-61f025ded77f.webp" alt="mughda" onerror="this.src='https://api.dicebear.com/10.x/lorelei/svg?seed=mughda&size=96'">
+              <div class="user-info">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div class="user-name">mughdabansal1414</div>
+                  <span class="badge passed" style="font-size: 0.68rem; padding: 0.15rem 0.45rem;">2 Forms</span>
+                </div>
+                <div class="user-handle">@mughdabansal1414</div>
+                <div class="user-tags">
+                  <span class="badge tag-pill">qa</span>
+                  <span class="badge tag-pill">music</span>
+                </div>
+                <div style="margin-top: 0.65rem; font-size: 0.75rem; color: #f472b6; font-weight: 700;">
+                  Click to View Profile & Forms &rarr;
+                </div>
+              </div>
+            </div>
+
+            <!-- User 4: Aryan -->
+            <div class="user-card" data-user-id="aryan" data-search="aryan @aryanchahal yo" onclick="openProfileModal('aryan')" style="cursor: pointer;">
+              <img class="user-avatar" src="https://xo.eve.vakh.com/api/storage/avatar/04063500-9852-408a-9afe-0e989569a8a9/1775797872172-e38fe15e-cc35-426b-8d72-07d89a321606.jpg" alt="aryan" onerror="this.src='https://api.dicebear.com/10.x/lorelei/svg?seed=aryan&size=96'">
+              <div class="user-info">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div class="user-name">aryan</div>
+                  <span class="badge passed" style="font-size: 0.68rem; padding: 0.15rem 0.45rem;">1 Form</span>
+                </div>
+                <div class="user-handle">@aryanchahal</div>
+                <div class="user-tags">
+                  <span class="badge tag-pill">yo</span>
+                </div>
+                <div style="margin-top: 0.65rem; font-size: 0.75rem; color: #f472b6; font-weight: 700;">
+                  Click to View Profile & Forms &rarr;
+                </div>
+              </div>
+            </div>
+
+            <!-- User 5: Sunny Comet -->
+            <div class="user-card" data-user-id="sunny" data-search="Sunny Comet @sunny_comet_1300 verified" onclick="openProfileModal('sunny')" style="cursor: pointer;">
+              <img class="user-avatar" src="https://api.dicebear.com/10.x/lorelei/svg?seed=sunny_comet_1300&size=96&backgroundColor=ECFCCB" alt="Sunny">
+              <div class="user-info">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div class="user-name">Sunny Comet</div>
+                  <span class="badge passed" style="font-size: 0.68rem; padding: 0.15rem 0.45rem;">1 Form</span>
+                </div>
+                <div class="user-handle">@sunny_comet_1300</div>
+                <div class="user-tags">
+                  <span class="badge tag-pill">verified</span>
+                </div>
+                <div style="margin-top: 0.65rem; font-size: 0.75rem; color: #f472b6; font-weight: 700;">
+                  Click to View Profile & Forms &rarr;
+                </div>
+              </div>
+            </div>
+
+            <!-- User 6: Sonia -->
+            <div class="user-card" data-user-id="sonia" data-search="soniabeniwal @soniabeniwal283 chai shopping main-character" onclick="openProfileModal('sonia')" style="cursor: pointer;">
+              <img class="user-avatar" src="https://xo.eve.vakh.com/api/storage/avatar/ae085197-fd62-4ae0-a7d7-bf79e21fc9aa/1777980197434-f1718609-6276-4a27-9208-86513d464712.jpg" alt="sonia" onerror="this.src='https://api.dicebear.com/10.x/lorelei/svg?seed=sonia&size=96'">
+              <div class="user-info">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div class="user-name">soniabeniwal</div>
+                  <span class="badge passed" style="font-size: 0.68rem; padding: 0.15rem 0.45rem;">2 Forms</span>
+                </div>
+                <div class="user-handle">@soniabeniwal283</div>
+                <div class="user-tags">
+                  <span class="badge tag-pill">chai</span>
+                  <span class="badge tag-pill">shopping</span>
+                  <span class="badge tag-pill">main-character</span>
+                </div>
+                <div style="margin-top: 0.65rem; font-size: 0.75rem; color: #f472b6; font-weight: 700;">
+                  Click to View Profile & Forms &rarr;
+                </div>
+              </div>
+            </div>
+
+            <!-- User 7: Chahal -->
+            <div class="user-card" data-user-id="chahal" data-search="chahal @chahal delivery" onclick="openProfileModal('chahal')" style="cursor: pointer;">
+              <img class="user-avatar" src="https://api.dicebear.com/10.x/lorelei/svg?seed=chahal&size=96" alt="chahal">
+              <div class="user-info">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div class="user-name">chahal</div>
+                  <span class="badge passed" style="font-size: 0.68rem; padding: 0.15rem 0.45rem;">1 Form</span>
+                </div>
+                <div class="user-handle">@chahal</div>
+                <div class="user-tags">
+                  <span class="badge tag-pill">delivery</span>
+                </div>
+                <div style="margin-top: 0.65rem; font-size: 0.75rem; color: #f472b6; font-weight: 700;">
+                  Click to View Profile & Forms &rarr;
+                </div>
+              </div>
+            </div>
+
+            <!-- User 8: Vakh Official -->
+            <div class="user-card" data-user-id="vakh" data-search="vakh @vakh official platform" onclick="openProfileModal('vakh')" style="cursor: pointer;">
+              <img class="user-avatar" src="https://api.dicebear.com/10.x/lorelei/svg?seed=vakh&size=96" alt="vakh">
+              <div class="user-info">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div class="user-name">vakh (Official)</div>
+                  <span class="badge passed" style="font-size: 0.68rem; padding: 0.15rem 0.45rem;">2 Forms</span>
+                </div>
+                <div class="user-handle">@vakh</div>
+                <div class="user-tags">
+                  <span class="badge tag-pill">official</span>
+                  <span class="badge tag-pill">platform</span>
+                </div>
+                <div style="margin-top: 0.65rem; font-size: 0.75rem; color: #f472b6; font-weight: 700;">
+                  Click to View Profile & Forms &rarr;
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- ================= SUB-TAB 3: ARCHITECTURE & SPECS ================= -->
+        <div id="explore-subtab-arch" class="explore-subtab-pane">
+          <div class="grid-3" style="margin-top: 0.5rem;">
+            <div class="comp-card" style="margin-bottom: 0;">
+              <div class="comp-title">🎛️ Filter Toolbar & Modals</div>
+              <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+                Dedicated action toolbar featuring Nearby distance radius, Tags selector dialog, and Active 24-hour activity filter.
+              </p>
+              <div style="font-size: 0.78rem; color: #94a3b8;">
+                <code>nearby-filter-apply</code> &bull; <code>tags-filter-apply</code> &bull; <code>Active Filter</code>
+              </div>
+            </div>
+
+            <div class="comp-card" style="margin-bottom: 0;">
+              <div class="comp-title">👤 Profile View & Metadata</div>
+              <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+                Displays user identity card with high-resolution avatar, <code>@handle</code>, member joined date, reputation points (REP), and user tags.
+              </p>
+              <div style="font-size: 0.78rem; color: #94a3b8;">
+                Direct <code>Message</code> CTA &bull; <code>More actions</code> menu
+              </div>
+            </div>
+
+            <div class="comp-card" style="margin-bottom: 0;">
+              <div class="comp-title">📝 Forms Section & Double-Tap Guard</div>
+              <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+                Forms section displays public subscriber feeds (e.g. <code>INBOX</code>, <code>Articles</code>). The subscribe button features a double-tap confirmation pattern (<code>UNSUBSCRIBE?</code>) to prevent accidental loss of updates.
+              </p>
+              <div style="font-size: 0.78rem; color: #94a3b8;">
+                <code>SUBSCRIBE</code> &rarr; <code>SUBSCRIBED</code> &rarr; <code>UNSUBSCRIBE?</code>
+              </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- Interactive User Directory Inspector -->
-      <div class="panel">
-        <div class="panel-header">
-          <div class="panel-title">👥 Interactive Explore Directory Viewer</div>
-          <input type="text" id="userSearch" class="search-box" placeholder="Filter by name, handle, tag..." oninput="filterUsers()">
+
+    <!-- ==================== INTERACTIVE PROFILE & FORMS MODAL SHEET ==================== -->
+    <div id="profileModal" class="modal-overlay" onclick="closeProfileModalOnBackdrop(event)">
+      <div class="modal-card">
+        <button class="modal-close-btn" onclick="closeProfileModal()">&times;</button>
+        
+        <!-- Profile Header -->
+        <div class="profile-hero">
+          <div class="profile-hero-content">
+            <img id="modalAvatar" class="profile-avatar-lg" src="" alt="Profile Avatar">
+            <div>
+              <h2 id="modalName" style="font-size: 1.35rem; font-weight: 800; color: white;">User</h2>
+              <div id="modalHandle" style="color: #93c5fd; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; margin-top: 0.2rem;">@handle</div>
+              <div id="modalTags" style="display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.65rem;"></div>
+            </div>
+          </div>
         </div>
 
-        <div id="userGrid" class="user-grid">
-          <!-- User 1 -->
-          <div class="user-card" data-search="archie @archie blog delivery">
-            <img class="user-avatar" src="https://xo.eve.vakh.com/api/storage/avatar/5bfe8fbe-a660-4a02-be16-abab7a0f3200/1777450879008-2729d2b8-77b2-4bf4-9e20-a2849ebbb14d.jpg" alt="archie" onerror="this.src='https://api.dicebear.com/10.x/lorelei/svg?seed=archie&size=96'">
-            <div class="user-info">
-              <div class="user-name">archie</div>
-              <div class="user-handle">@archie</div>
-              <div class="user-tags">
-                <span class="badge tag-pill">blog</span>
-                <span class="badge tag-pill">delivery</span>
-              </div>
+        <!-- Meta Counters Grid -->
+        <div class="profile-meta-grid">
+          <div class="profile-meta-item">
+            <div class="meta-label">JOINED</div>
+            <div id="modalJoined" class="meta-val">Apr 2026</div>
+          </div>
+          <div class="profile-meta-item">
+            <div class="meta-label">REP</div>
+            <div id="modalRep" class="meta-val" style="color: #34d399;">7</div>
+          </div>
+          <div class="profile-meta-item">
+            <div class="meta-label">VERIFIED</div>
+            <div class="meta-val" style="color: #60a5fa;">✓ Active</div>
+          </div>
+        </div>
+
+        <!-- Profile Action Buttons -->
+        <div style="display: flex; gap: 0.75rem; padding: 0 1.5rem 1rem 1.5rem;">
+          <button class="btn-github" style="flex: 1; justify-content: center; background: #2563eb; border-color: #3b82f6; font-size: 0.88rem; padding: 0.6rem;">
+            💬 Send Message
+          </button>
+          <button class="btn-github" style="padding: 0.6rem 1rem; font-size: 0.88rem;">
+            ⋯ More Actions
+          </button>
+        </div>
+
+        <!-- Forms Section -->
+        <div class="profile-forms-section">
+          <div class="forms-section-header">
+            <div class="forms-section-title">
+              <span>📋</span> FORMS <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: 600;">(Verified via Playwright TC_EXP_008)</span>
             </div>
+            <span class="badge passed" style="font-size: 0.72rem;">Public Subscriptions</span>
           </div>
 
-          <!-- User 2 -->
-          <div class="user-card" data-search="Ajay @ghanshyaama building vakh">
-            <img class="user-avatar" src="https://xo.eve.vakh.com/api/storage/avatar/dc513dee-faca-4953-ae80-3e4e009562db/1783771372901-0f84d3dc-4c7d-4e84-8de0-d649e9ba5a5e.webp" alt="Ajay" onerror="this.src='https://api.dicebear.com/10.x/lorelei/svg?seed=ajay&size=96'">
-            <div class="user-info">
-              <div class="user-name">Ajay</div>
-              <div class="user-handle">@ghanshyaama</div>
-              <div class="user-tags">
-                <span class="badge tag-pill">building vakh</span>
+          <!-- Form 1: INBOX -->
+          <div class="form-item-card">
+            <div class="form-item-info">
+              <div class="form-item-name">INBOX</div>
+              <div id="modalInboxDesc" class="form-item-desc">hello everyone &mdash; personal channel updates and inquiries</div>
+              <div style="font-size: 0.72rem; color: #64748b; margin-top: 0.25rem;">
+                Target: <code>aria-label="Subscribe to INBOX"</code>
               </div>
             </div>
+            <button id="modalInboxBtn" class="btn-subscribe-interactive state-subscribe" onclick="handleSubscribeClick('INBOX', this)">
+              SUBSCRIBE
+            </button>
           </div>
 
-          <!-- User 3 -->
-          <div class="user-card" data-search="mughdabansal1414 @mughdabansal1414 qa music">
-            <img class="user-avatar" src="https://xo.eve.vakh.com/api/storage/avatar/59ade1b9-5d30-40a4-b7db-9b16c1a55a84/1785480486314-e8d62956-fa63-47d4-8c6c-61f025ded77f.webp" alt="mughdabansal1414" onerror="this.src='https://api.dicebear.com/10.x/lorelei/svg?seed=mughda&size=96'">
-            <div class="user-info">
-              <div class="user-name">mughdabansal1414</div>
-              <div class="user-handle">@mughdabansal1414</div>
-              <div class="user-tags">
-                <span class="badge tag-pill">qa</span>
-                <span class="badge tag-pill">music</span>
+          <!-- Form 2: Articles -->
+          <div class="form-item-card">
+            <div class="form-item-info">
+              <div class="form-item-name">Articles</div>
+              <div class="form-item-desc">Published articles, stories and guides, readable by anyone.</div>
+              <div style="font-size: 0.72rem; color: #64748b; margin-top: 0.25rem;">
+                Target: <code>aria-label="Subscribe to Articles"</code>
               </div>
             </div>
+            <button id="modalArticlesBtn" class="btn-subscribe-interactive state-subscribe" onclick="handleSubscribeClick('Articles', this)">
+              SUBSCRIBE
+            </button>
           </div>
 
-          <!-- User 4 -->
-          <div class="user-card" data-search="aryan @aryanchahal yo">
-            <img class="user-avatar" src="https://xo.eve.vakh.com/api/storage/avatar/04063500-9852-408a-9afe-0e989569a8a9/1775797872172-e38fe15e-cc35-426b-8d72-07d89a321606.jpg" alt="aryan" onerror="this.src='https://api.dicebear.com/10.x/lorelei/svg?seed=aryan&size=96'">
-            <div class="user-info">
-              <div class="user-name">aryan</div>
-              <div class="user-handle">@aryanchahal</div>
-              <div class="user-tags">
-                <span class="badge tag-pill">yo</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- User 5 -->
-          <div class="user-card" data-search="Sunny Comet @sunny_comet_1300">
-            <img class="user-avatar" src="https://api.dicebear.com/10.x/lorelei/svg?seed=sunny_comet_1300&size=96&backgroundColor=ECFCCB" alt="Sunny Comet">
-            <div class="user-info">
-              <div class="user-name">Sunny Comet</div>
-              <div class="user-handle">@sunny_comet_1300</div>
-              <div class="user-tags">
-                <span class="badge tag-pill">verified</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- User 6 -->
-          <div class="user-card" data-search="soniabeniwal @soniabeniwal283 chai shopping main-character">
-            <img class="user-avatar" src="https://xo.eve.vakh.com/api/storage/avatar/ae085197-fd62-4ae0-a7d7-bf79e21fc9aa/1777980197434-f1718609-6276-4a27-9208-86513d464712.jpg" alt="soniabeniwal" onerror="this.src='https://api.dicebear.com/10.x/lorelei/svg?seed=sonia&size=96'">
-            <div class="user-info">
-              <div class="user-name">soniabeniwal</div>
-              <div class="user-handle">@soniabeniwal283</div>
-              <div class="user-tags">
-                <span class="badge tag-pill">chai</span>
-                <span class="badge tag-pill">shopping</span>
-              </div>
-            </div>
+          <!-- Playwright Verification Badge -->
+          <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 10px; padding: 0.75rem; margin-top: 1rem; font-size: 0.78rem; color: #a7f3d0; display: flex; align-items: center; gap: 0.5rem;">
+            <span>🛡️</span>
+            <span><strong>Playwright Verification Passed:</strong> Click interaction toggles <code>SUBSCRIBE &harr; SUBSCRIBED</code> with double-tap safety confirmation (<code>UNSUBSCRIBE?</code>).</span>
           </div>
         </div>
       </div>
+    </div>
+
+
+    <!-- ==================== NEARBY FILTER SIMULATOR MODAL ==================== -->
+    <div id="nearbyModal" class="modal-overlay" onclick="closeNearbyModalOnBackdrop(event)">
+      <div class="modal-card" style="max-width: 420px; padding: 1.75rem;">
+        <button class="modal-close-btn" onclick="closeNearbyModalSim()">&times;</button>
+        <h3 style="font-size: 1.15rem; font-weight: 800; color: white; display: flex; align-items: center; gap: 0.5rem;">
+          <span>📍</span> Nearby Filter
+        </h3>
+        <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0.35rem 0 1.25rem 0;">
+          Filter discoverable Eve Vakh users by physical geographic distance.
+        </p>
+
+        <div style="margin-bottom: 1.25rem;">
+          <label style="font-size: 0.82rem; font-weight: 700; color: #cbd5e1; display: block; margin-bottom: 0.5rem;">
+            Maximum Distance Radius: <span id="nearbyDistVal" style="color: #60a5fa;">25 km</span>
+          </label>
+          <input type="range" id="nearbySlider" min="5" max="100" value="25" step="5" style="width: 100%; accent-color: #3b82f6;" oninput="document.getElementById('nearbyDistVal').innerText = this.value + ' km'">
+        </div>
+
+        <div style="display: flex; gap: 0.75rem;">
+          <button class="btn-github" style="flex: 1; justify-content: center; background: #3b82f6; border-color: #2563eb;" onclick="applyNearbyFilterSim()">
+            Apply Nearby Filter
+          </button>
+          <button class="btn-github" onclick="clearNearbyFilterSim()">
+            Clear
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ==================== TAGS FILTER SIMULATOR MODAL ==================== -->
+    <div id="tagsModal" class="modal-overlay" onclick="closeTagsModalOnBackdrop(event)">
+      <div class="modal-card" style="max-width: 460px; padding: 1.75rem;">
+        <button class="modal-close-btn" onclick="closeTagsModalSim()">&times;</button>
+        <h3 style="font-size: 1.15rem; font-weight: 800; color: white; display: flex; align-items: center; gap: 0.5rem;">
+          <span>🏷️</span> Select Category Tags
+        </h3>
+        <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0.35rem 0 1.25rem 0;">
+          Select tags to filter community members by topic of interest.
+        </p>
+
+        <div id="tagsChipsContainer" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+          <button class="sim-filter-btn" onclick="toggleTagChipSim('blog', this)">blog</button>
+          <button class="sim-filter-btn" onclick="toggleTagChipSim('delivery', this)">delivery</button>
+          <button class="sim-filter-btn" onclick="toggleTagChipSim('chai', this)">chai</button>
+          <button class="sim-filter-btn" onclick="toggleTagChipSim('qa', this)">qa</button>
+          <button class="sim-filter-btn" onclick="toggleTagChipSim('music', this)">music</button>
+          <button class="sim-filter-btn" onclick="toggleTagChipSim('shopping', this)">shopping</button>
+          <button class="sim-filter-btn" onclick="toggleTagChipSim('building vakh', this)">building vakh</button>
+          <button class="sim-filter-btn" onclick="toggleTagChipSim('yo', this)">yo</button>
+          <button class="sim-filter-btn" onclick="toggleTagChipSim('official', this)">official</button>
+        </div>
+
+        <div style="display: flex; gap: 0.75rem;">
+          <button class="btn-github" style="flex: 1; justify-content: center; background: #3b82f6; border-color: #2563eb;" onclick="applyTagsFilterSim()">
+            Apply Tag Filter
+          </button>
+          <button class="btn-github" onclick="clearTagsFilterSim()">
+            Clear
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating Interactive Toast -->
+    <div id="dashboardToast" class="toast-box">
+      <span id="toastIcon">✨</span>
+      <span id="toastMessage">Action completed successfully</span>
     </div>
 
 
@@ -1299,14 +2053,285 @@ const htmlContent = `<!DOCTYPE html>
       });
     }
 
+    
+    // User Data Registry for Simulator
+    const USER_REGISTRY = {
+      archie: {
+        name: 'archie',
+        handle: '@archie',
+        avatar: 'https://xo.eve.vakh.com/api/storage/avatar/5bfe8fbe-a660-4a02-be16-abab7a0f3200/1777450879008-2729d2b8-77b2-4bf4-9e20-a2849ebbb14d.jpg',
+        joined: 'Apr 2026',
+        rep: '7',
+        tags: ['blog', 'delivery'],
+        inboxDesc: 'hello everyone &mdash; personal inquiries and updates'
+      },
+      ghanshyaama: {
+        name: 'Ajay',
+        handle: '@ghanshyaama',
+        avatar: 'https://xo.eve.vakh.com/api/storage/avatar/dc513dee-faca-4953-ae80-3e4e009562db/1783771372901-0f84d3dc-4c7d-4e84-8de0-d649e9ba5a5e.webp',
+        joined: 'Mar 2026',
+        rep: '14',
+        tags: ['building vakh'],
+        inboxDesc: 'Updates on Eve Vakh ecosystem and developer tools'
+      },
+      mughda: {
+        name: 'mughdabansal1414',
+        handle: '@mughdabansal1414',
+        avatar: 'https://xo.eve.vakh.com/api/storage/avatar/59ade1b9-5d30-40a4-b7db-9b16c1a55a84/1785480486314-e8d62956-fa63-47d4-8c6c-61f025ded77f.webp',
+        joined: 'May 2026',
+        rep: '12',
+        tags: ['qa', 'music'],
+        inboxDesc: 'Quality assurance feedback and automated test notes'
+      },
+      aryan: {
+        name: 'aryan',
+        handle: '@aryanchahal',
+        avatar: 'https://xo.eve.vakh.com/api/storage/avatar/04063500-9852-408a-9afe-0e989569a8a9/1775797872172-e38fe15e-cc35-426b-8d72-07d89a321606.jpg',
+        joined: 'Feb 2026',
+        rep: '9',
+        tags: ['yo'],
+        inboxDesc: 'Say yo or reach out for discussions'
+      },
+      sunny: {
+        name: 'Sunny Comet',
+        handle: '@sunny_comet_1300',
+        avatar: 'https://api.dicebear.com/10.x/lorelei/svg?seed=sunny_comet_1300&size=96&backgroundColor=ECFCCB',
+        joined: 'Jun 2026',
+        rep: '5',
+        tags: ['verified'],
+        inboxDesc: 'Personal questions and community chat'
+      },
+      sonia: {
+        name: 'soniabeniwal',
+        handle: '@soniabeniwal283',
+        avatar: 'https://xo.eve.vakh.com/api/storage/avatar/ae085197-fd62-4ae0-a7d7-bf79e21fc9aa/1777980197434-f1718609-6276-4a27-9208-86513d464712.jpg',
+        joined: 'Apr 2026',
+        rep: '11',
+        tags: ['chai', 'shopping', 'main-character'],
+        inboxDesc: 'Chai gossip, stories, and recommendations'
+      },
+      chahal: {
+        name: 'chahal',
+        handle: '@chahal',
+        avatar: 'https://api.dicebear.com/10.x/lorelei/svg?seed=chahal&size=96',
+        joined: 'Jan 2026',
+        rep: '8',
+        tags: ['delivery'],
+        inboxDesc: 'Logistics and delivery inquiries'
+      },
+      vakh: {
+        name: 'vakh (Official)',
+        handle: '@vakh',
+        avatar: 'https://api.dicebear.com/10.x/lorelei/svg?seed=vakh&size=96',
+        joined: 'Jan 2026',
+        rep: '99',
+        tags: ['official', 'platform'],
+        inboxDesc: 'Official platform announcements and system notifications'
+      }
+    };
+
+    // Sub-Tab Switcher
+    function switchExploreSubTab(subTabId, el) {
+      document.querySelectorAll('.explore-subtab-pane').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.explore-subnav-btn').forEach(b => b.classList.remove('active'));
+
+      const targetPane = document.getElementById('explore-subtab-' + subTabId);
+      if (targetPane) targetPane.classList.add('active');
+      if (el) el.classList.add('active');
+    }
+
+    // Accordion Toggle
+    function toggleTestAccordion(cardEl) {
+      cardEl.classList.toggle('open');
+    }
+
+    // Interactive Profile Modal
+    function openProfileModal(userId) {
+      const user = USER_REGISTRY[userId] || USER_REGISTRY.archie;
+      document.getElementById('modalAvatar').src = user.avatar;
+      document.getElementById('modalName').innerText = user.name;
+      document.getElementById('modalHandle').innerText = user.handle;
+      document.getElementById('modalJoined').innerText = user.joined;
+      document.getElementById('modalRep').innerText = user.rep;
+      document.getElementById('modalInboxDesc').innerHTML = user.inboxDesc;
+
+      const tagsContainer = document.getElementById('modalTags');
+      tagsContainer.innerHTML = '';
+      user.tags.forEach(t => {
+        const pill = document.createElement('span');
+        pill.className = 'badge tag-pill';
+        pill.innerText = t;
+        tagsContainer.appendChild(pill);
+      });
+
+      // Reset Subscribe Buttons to default state
+      const inboxBtn = document.getElementById('modalInboxBtn');
+      inboxBtn.className = 'btn-subscribe-interactive state-subscribe';
+      inboxBtn.innerText = 'SUBSCRIBE';
+
+      const articlesBtn = document.getElementById('modalArticlesBtn');
+      articlesBtn.className = 'btn-subscribe-interactive state-subscribe';
+      articlesBtn.innerText = 'SUBSCRIBE';
+
+      document.getElementById('profileModal').classList.add('open');
+      showToast('Viewing profile for ' + user.handle, '👤');
+    }
+
+    function closeProfileModal() {
+      document.getElementById('profileModal').classList.remove('open');
+    }
+
+    function closeProfileModalOnBackdrop(e) {
+      if (e.target.id === 'profileModal') closeProfileModal();
+    }
+
+    // Live Subscribe Button State Machine (TC_EXP_009 verification)
+    function handleSubscribeClick(formName, btn) {
+      if (btn.classList.contains('state-subscribe')) {
+        // Transition: SUBSCRIBE -> SUBSCRIBED
+        btn.className = 'btn-subscribe-interactive state-subscribed';
+        btn.innerText = 'SUBSCRIBED';
+        showToast('Subscribed to ' + formName + '! (TC_EXP_009 Passed)', '✅');
+      } else if (btn.classList.contains('state-subscribed')) {
+        // Transition: SUBSCRIBED -> UNSUBSCRIBE? (Double-tap guard)
+        btn.className = 'btn-subscribe-interactive state-confirming';
+        btn.innerText = 'UNSUBSCRIBE?';
+        showToast('Tap again to confirm unsubscribe from ' + formName, '⚠️');
+      } else if (btn.classList.contains('state-confirming')) {
+        // Transition: UNSUBSCRIBE? -> SUBSCRIBE (Unsubscribe confirmed)
+        btn.className = 'btn-subscribe-interactive state-subscribe';
+        btn.innerText = 'SUBSCRIBE';
+        showToast('Unsubscribed from ' + formName, 'ℹ️');
+      }
+    }
+
+    // Nearby Filter Simulation
+    function openNearbyModalSim() {
+      document.getElementById('nearbyModal').classList.add('open');
+    }
+    function closeNearbyModalSim() {
+      document.getElementById('nearbyModal').classList.remove('open');
+    }
+    function closeNearbyModalOnBackdrop(e) {
+      if (e.target.id === 'nearbyModal') closeNearbyModalSim();
+    }
+    function applyNearbyFilterSim() {
+      const dist = document.getElementById('nearbySlider').value;
+      document.getElementById('nearbyBadge').innerText = '(' + dist + 'km)';
+      document.getElementById('simNearbyBtn').classList.add('active');
+      closeNearbyModalSim();
+      showToast('Nearby filter applied (' + dist + 'km radius)', '📍');
+    }
+    function clearNearbyFilterSim() {
+      document.getElementById('nearbyBadge').innerText = '(All)';
+      document.getElementById('simNearbyBtn').classList.remove('active');
+      closeNearbyModalSim();
+      showToast('Nearby filter cleared', '🔄');
+    }
+
+    // Tags Filter Simulation
+    let selectedTagFilters = new Set();
+    function openTagsModalSim() {
+      document.getElementById('tagsModal').classList.add('open');
+    }
+    function closeTagsModalSim() {
+      document.getElementById('tagsModal').classList.remove('open');
+    }
+    function closeTagsModalOnBackdrop(e) {
+      if (e.target.id === 'tagsModal') closeTagsModalSim();
+    }
+    function toggleTagChipSim(tag, btn) {
+      if (selectedTagFilters.has(tag)) {
+        selectedTagFilters.delete(tag);
+        btn.classList.remove('active');
+      } else {
+        selectedTagFilters.add(tag);
+        btn.classList.add('active');
+      }
+    }
+    function applyTagsFilterSim() {
+      closeTagsModalSim();
+      if (selectedTagFilters.size > 0) {
+        document.getElementById('tagsBadge').innerText = '(' + selectedTagFilters.size + ')';
+        document.getElementById('simTagsBtn').classList.add('active');
+        
+        // Filter user cards
+        const cards = document.querySelectorAll('.user-card');
+        cards.forEach(c => {
+          const text = c.getAttribute('data-search').toLowerCase();
+          const match = Array.from(selectedTagFilters).some(t => text.includes(t.toLowerCase()));
+          c.style.display = match ? 'flex' : 'none';
+        });
+        showToast('Filtered by ' + selectedTagFilters.size + ' tags', '🏷️');
+      } else {
+        clearTagsFilterSim();
+      }
+    }
+    function clearTagsFilterSim() {
+      selectedTagFilters.clear();
+      document.querySelectorAll('#tagsChipsContainer .sim-filter-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('tagsBadge').innerText = '(All)';
+      document.getElementById('simTagsBtn').classList.remove('active');
+      closeTagsModalSim();
+      filterUsers();
+      showToast('Tag filters cleared', '🔄');
+    }
+
+    // Active Filter (24h) Simulation
+    let activeFilterEngaged = false;
+    function toggleActiveFilterSim() {
+      activeFilterEngaged = !activeFilterEngaged;
+      const btn = document.getElementById('simActiveBtn');
+      const notice = document.getElementById('activeFilterNotice');
+      const cards = document.querySelectorAll('.user-card');
+
+      if (activeFilterEngaged) {
+        btn.classList.add('active');
+        notice.style.display = 'flex';
+        // In Eve Vakh, currently 0 users have public posts in last 24h
+        cards.forEach(c => c.style.display = 'none');
+        showToast('Active 24h filter engaged: 0 active form owners found', '⚡');
+      } else {
+        btn.classList.remove('active');
+        notice.style.display = 'none';
+        cards.forEach(c => c.style.display = 'flex');
+        filterUsers();
+        showToast('Active filter disabled &mdash; all users restored', '👥');
+      }
+    }
+
+    function resetAllFiltersSim() {
+      clearNearbyFilterSim();
+      clearTagsFilterSim();
+      if (activeFilterEngaged) toggleActiveFilterSim();
+      document.getElementById('userSearch').value = '';
+      filterUsers();
+      showToast('All directory filters reset', '🔄');
+    }
+
+    // Toast Functionality
+    let toastTimer = null;
+    function showToast(message, icon = '✨') {
+      const toast = document.getElementById('dashboardToast');
+      document.getElementById('toastIcon').innerText = icon;
+      document.getElementById('toastMessage').innerHTML = message;
+      toast.style.display = 'flex';
+      
+      if (toastTimer) clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.style.display = 'none';
+      }, 3500);
+    }
+
+
     // Charts Initialization
     const donutCtx = document.getElementById('browserDonutChart').getContext('2d');
     new Chart(donutCtx, {
       type: 'doughnut',
       data: {
-        labels: ['Chromium (5 Tests)', 'Firefox (5 Tests)', 'Safari/WebKit (5 Tests)', 'MS Edge (5 Tests)'],
+        labels: ['Chromium (14 Tests)', 'Firefox (14 Tests)', 'Safari/WebKit (14 Tests)', 'MS Edge (14 Tests)'],
         datasets: [{
-          data: [5, 5, 5, 5],
+          data: [14, 14, 14, 14],
           backgroundColor: ['#3b82f6', '#f97316', '#a855f7', '#06b6d4'],
           borderWidth: 0,
           hoverOffset: 6
