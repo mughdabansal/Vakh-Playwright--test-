@@ -96,7 +96,7 @@ Run these scripts from the project root:
 
 ### 1. [`src/config/constants.ts`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/src/config/constants.ts)
 - `APP_CONFIG`: Defines `BASE_URL`, `SIGN_IN_URL`, `MFA_URL`, `API_URL` (`https://xo.eve.vakh.com`), and timeout thresholds.
-- `TEST_USERS`: Stores test user credentials (`mughdabansal1414@gmail.com`).
+- `TEST_USERS`: Stores test user credentials (`mughdabansal2094@gmail.com`).
 - `PERF_CONFIG`: Benchmark parameters (`TARGET_THROUGHPUT: 200`).
 
 ---

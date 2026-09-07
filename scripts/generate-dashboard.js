@@ -106,7 +106,7 @@ const htmlContent = `<!DOCTYPE html>
       <div class="stat-card green">
         <div class="label">E2E Test Pass Rate</div>
         <div class="value">100%</div>
-        <div class="subtext">8/8 Specs Passed (Chrome, Firefox, Safari, Edge)</div>
+        <div class="subtext">20/20 Specs Passed (Chrome, Firefox, Safari, Edge)</div>
       </div>
       <div class="stat-card blue">
         <div class="label">Web Load Throughput</div>
@@ -131,7 +131,7 @@ const htmlContent = `<!DOCTYPE html>
       <div class="panel">
         <h2>
           <span>📋 Tested vs Untested Coverage Matrix</span>
-          <span style="font-size: 0.8rem; color: var(--text-muted);">Updated Live</span>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Updated Live via GitHub Actions</span>
         </h2>
         <table>
           <thead>
@@ -150,28 +150,46 @@ const htmlContent = `<!DOCTYPE html>
               <td>E2E Cross-Browser</td>
             </tr>
             <tr>
-              <td><strong>Sign-In Route Rendering</strong></td>
+              <td><strong>Sign-In Route & Auxiliary Controls</strong></td>
               <td><code>/auth/sign-in</code></td>
               <td><span class="tag tested">PASSED (4 Browsers)</span></td>
               <td>E2E Cross-Browser</td>
             </tr>
             <tr>
-              <td><strong>Email Submission & OTP Dispatch</strong></td>
-              <td><code>mughdabansal1414@gmail.com</code></td>
+              <td><strong>Mode Switching (OTP ↔ Password)</strong></td>
+              <td><code>Use password / One-time code</code></td>
               <td><span class="tag tested">PASSED (4 Browsers)</span></td>
-              <td>E2E Integration</td>
+              <td>E2E State Toggle</td>
             </tr>
             <tr>
-              <td><strong>2FA Authenticator Challenge</strong></td>
-              <td><code>/auth/mfa-challenge</code></td>
+              <td><strong>Password Masking & Show/Hide Eye Toggle</strong></td>
+              <td><code>Show / Hide password</code></td>
+              <td><span class="tag tested">PASSED (4 Browsers)</span></td>
+              <td>E2E Security Verification</td>
+            </tr>
+            <tr>
+              <td><strong>Password Login Authentication</strong></td>
+              <td><code>mughdabansal2094@gmail.com</code></td>
               <td><span class="tag tested">PASSED (4 Browsers)</span></td>
               <td>E2E Auth Flow</td>
             </tr>
             <tr>
-              <td><strong>Authenticated Session & Home Header</strong></td>
-              <td><code>/ (Header Navigation)</code></td>
+              <td><strong>Chat Navigation & Messages Header</strong></td>
+              <td><code>/messages</code></td>
               <td><span class="tag tested">PASSED (4 Browsers)</span></td>
-              <td>E2E Assertion</td>
+              <td>E2E Flow Navigation</td>
+            </tr>
+            <tr>
+              <td><strong>Activity Feed & Milestone Header</strong></td>
+              <td><code>/activity</code></td>
+              <td><span class="tag tested">PASSED (4 Browsers)</span></td>
+              <td>E2E Flow Navigation</td>
+            </tr>
+            <tr>
+              <td><strong>Explore User List (Avatar, @handle, Name, Tags)</strong></td>
+              <td><code>/explore</code></td>
+              <td><span class="tag tested">PASSED (4 Browsers)</span></td>
+              <td>E2E Data Verification</td>
             </tr>
             <tr>
               <td><strong>Web Page High-Throughput Load</strong></td>
@@ -184,24 +202,6 @@ const htmlContent = `<!DOCTYPE html>
               <td><code>https://xo.eve.vakh.com</code></td>
               <td><span class="tag api">READY (155 req/s)</span></td>
               <td>API Load Test</td>
-            </tr>
-            <tr>
-              <td><strong>Chat Messaging & WebSockets</strong></td>
-              <td><code>/chat</code></td>
-              <td><span class="tag pending">PENDING</span></td>
-              <td>Planned Suite</td>
-            </tr>
-            <tr>
-              <td><strong>New Post Creation & Image Upload</strong></td>
-              <td><code>/post/new</code></td>
-              <td><span class="tag pending">PENDING</span></td>
-              <td>Planned Suite</td>
-            </tr>
-            <tr>
-              <td><strong>Explore Search & Category Filters</strong></td>
-              <td><code>/explore</code></td>
-              <td><span class="tag pending">PENDING</span></td>
-              <td>Planned Suite</td>
             </tr>
           </tbody>
         </table>

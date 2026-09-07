@@ -12,7 +12,8 @@ export const APP_CONFIG = {
 
 export const TEST_USERS = {
   DEFAULT_USER: {
-    email: 'mughdabansal1414@gmail.com',
+    email: 'mughdabansal2094@gmail.com',
+    password: 'M@12345678',
   },
 };
 

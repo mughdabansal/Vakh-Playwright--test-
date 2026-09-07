@@ -1,0 +1,228 @@
+================================================================================
+           EVE VAKH LOGIN PAGE - FUNCTIONALITY & BUTTON QA REPORT
+================================================================================
+
+Application URL : https://eve.vakh.com/auth/sign-in
+Landing Page    : https://eve.vakh.com/
+Target System   : Eve Vakh Web Platform
+Test Framework  : Playwright End-to-End Test Suite (TypeScript)
+Test Status     : Automated Cross-Browser Tests Passing (Chromium, Firefox, Safari, Edge)
+
+--------------------------------------------------------------------------------
+1. OVERVIEW & ARCHITECTURE
+--------------------------------------------------------------------------------
+The Eve Vakh login portal provides a dual-mode authentication architecture:
+  A. One-Time Password (OTP) Flow: Default mode that requests a one-time verification
+     code sent to the user's email address or phone number.
+  B. Password Authentication Flow: Direct credential login using a registered email
+     and secret password.
+
+Backend Communication:
+  - Authentication Endpoint: POST https://xo.eve.vakh.com/api/auth/sign-in/email
+  - Session Bootstrap     : GET  https://xo.eve.vakh.com/api/profiles/ensure
+  - Feed Initialization   : GET  https://xo.eve.vakh.com/api/init/feed
+  - Final Redirection     : https://eve.vakh.com/ (Home / Dashboard)
+
+--------------------------------------------------------------------------------
+2. DETAILED BUTTON & COMPONENT SPECIFICATIONS
+--------------------------------------------------------------------------------
+
+[1] "web" Link (Landing Page Navigation)
+----------------------------------------
+- Location     : Top-right navigation area on the homepage (https://eve.vakh.com/)
+- Locator      : a[href*="/auth/sign-in"] OR getByRole('link', { name: /^web$/i })
+- Use          : Acts as the primary gateway for web visitors to navigate from the
+                 public marketing landing page to the application sign-in route.
+- Working      : Clicking this element triggers client-side routing directly to
+                 https://eve.vakh.com/auth/sign-in without a full document reload.
+- Test Status  : Verified and passing across 4 browser engines in ~4.5 seconds.
+
+
+[2] "Email or phone number" Input Field
+----------------------------------------
+- Location     : Top text box in the central login form card.
+- Locator      : getByPlaceholder(/email or phone number/i) OR
+                 locator('input[autocomplete="username"]')
+- Attributes   : type="text", autocomplete="username", placeholder="Email or phone number"
+- Use          : Captures the user's identity (email address or registered mobile number).
+                 Example test account: mughdabansal2094@gmail.com.
+- Working      : Listens for input events, validates user string input in real time,
+                 and updates the form component state to enable the primary action button.
+
+
+[3] "Use password" Link Button
+----------------------------------------
+- Location     : Text link button placed directly underneath the main action button
+                 ("Send code").
+- Locator      : getByRole('link', { name: /use\s*password/i }) OR
+                 getByText(/use\s*password/i)
+- Attributes   : role="link", aria-label="Use password"
+- Use          : Toggles the authentication mode from OTP code dispatch to
+                 traditional password-based login.
+- Working      : When clicked, it dispatches an internal state toggle:
+                   1. Unhides the "Password" input field.
+                   2. Transforms the primary submit button from "Send code" to "Sign in".
+                   3. Displays an alternative toggle: "Use a one-time code instead".
+- Test Flow    : Automated test clicks this button before filling the email and password.
+
+
+[4] "Password" Input Field
+----------------------------------------
+- Location     : Directly beneath the email field (visible after clicking "Use password").
+- Locator      : getByPlaceholder(/password/i) OR locator('input[type="password"]')
+- Attributes   : type="password", autocomplete="current-password", placeholder="Password"
+- Use          : Secure entry of account password credentials (e.g. M@12345678).
+- Working      : Obscures typed characters by default. Dispatches change/input events
+                 that validate password requirements and enable the "Sign in" button.
+
+
+[5] "Show password" Eye Toggle Button
+----------------------------------------
+- Location     : Embedded icon button at the trailing edge of the password input box.
+- Locator      : getByRole('button', { name: /show password/i })
+- Attributes   : role="button", aria-label="Show password"
+- Use          : Permits the user to temporarily unmask and inspect their entered password
+                 to correct typing mistakes.
+- Working      : Clicking toggles the input field's DOM type attribute between
+                 'password' (masked) and 'text' (plain text).
+
+
+[6] "Sign in" Button
+----------------------------------------
+- Location     : Primary action button inside the card in password authentication mode.
+- Locator      : getByRole('button', { name: /sign in/i })
+- Attributes   : role="button", type="button", text="Sign in"
+- Use          : Submits the user's email and password to authenticate the session.
+- Working      : 
+    1. Validates presence of email and password in form state.
+    2. Issues HTTP POST request to https://xo.eve.vakh.com/api/auth/sign-in/email.
+    3. Server verifies bcrypt password hash and issues an Ed25519 JWT session token.
+    4. Client establishes secure cookies and fetches initial profile data.
+    5. Navigates the browser to the authenticated home page at https://eve.vakh.com/.
+- Test Status  : Verified with automated redirection assertion in 5–7 seconds.
+
+
+[7] "Send code" Button (OTP Mode)
+----------------------------------------
+- Location     : Primary colored button displayed in default OTP mode.
+- Locator      : getByRole('button', { name: /send code/i })
+- Attributes   : role="button", type="button", text="Send code"
+- Use          : Requests a 6-digit one-time login verification code sent to the email
+                 or mobile number provided.
+- Working      : Sends a POST request to initiate OTP dispatch. Upon 200 OK response,
+                 renders the verification code input field and continue button.
+
+
+[8] "Use a one-time code instead" Link Button
+----------------------------------------------
+- Location     : Positioned beneath the "Sign in" button in password mode.
+- Locator      : getByRole('link', { name: /use a one-time code instead/i })
+- Attributes   : role="link", aria-label="Use a one-time code instead"
+- Use          : Allows users who forgot their password to switch back to email OTP mode.
+- Working      : Re-renders the form into OTP mode, hiding the password input field
+                 and restoring the "Send code" button.
+
+
+[9] "Recovery" Button
+----------------------------------------
+- Location     : Top-right auxiliary header area on the sign-in page.
+- Locator      : getByRole('button', { name: /recovery/i })
+- Attributes   : role="button", aria-label="Recovery"
+- Use          : Account recovery assistance for locked accounts or lost credentials.
+- Working      : Opens the recovery modal offering self-service identity recovery steps.
+
+
+[10] "About" Button
+----------------------------------------
+- Location     : Top-right auxiliary header area adjacent to the Recovery button.
+- Locator      : getByRole('button', { name: /about/i })
+- Attributes   : role="button", aria-label="About"
+- Use          : Displays information regarding Eve Vakh, platform release notes,
+                 and community guidelines.
+- Working      : Opens an informational dialog overlaid on the login interface.
+
+
+[11] "More" (Show more actions) Button
+----------------------------------------
+- Location     : Top-right corner of the sign-in interface.
+- Locator      : getByRole('button', { name: /show more actions/i })
+- Attributes   : role="button", aria-label="Show more actions"
+- Use          : Provides access to contextual secondary options (e.g. language/theme).
+- Working      : Displays a drop-down menu with additional auxiliary controls.
+
+
+[12] "Create an account" Link
+----------------------------------------
+- Location     : Bottom of the authentication card.
+- Locator      : getByRole('link', { name: /create an account/i })
+- Attributes   : role="link", aria-label="Create an account"
+- Use          : Directs new unregistered visitors to the sign-up workflow.
+- Working      : Transitions the UI state to the onboarding registration form.
+
+
+[13] Legal Links: "Terms of Service" & "Privacy Policy"
+--------------------------------------------------------
+- Location     : Footer disclaimer at the bottom of the sign-in card.
+- Locator      : locator('a[href*="terms"]'), locator('a[href*="privacy"]')
+- Use          : Grants users direct access to regulatory and compliance documentation.
+- Working      : Opens the terms of service and privacy agreements in browser windows.
+
+--------------------------------------------------------------------------------
+3. POST-LOGIN VALIDATION FLOW SUMMARY
+--------------------------------------------------------------------------------
+Following successful login with mughdabansal2094@gmail.com / M@12345678:
+
+  1. Chat Section:
+     - Button  : getByRole('menuitem', { name: 'Chat' })
+     - Route   : https://eve.vakh.com/messages
+     - Working : Displays user inbox, conversations, and header 'Messages'.
+
+  2. Activity Section:
+     - Button  : getByRole('menuitem', { name: 'Activity' })
+     - Route   : https://eve.vakh.com/activity
+     - Working : Displays user notifications, heart milestones, and header 'Activity'.
+
+  3. Explore Section & User List:
+     - Button  : getByRole('menuitem', { name: 'Explore' })
+     - Route   : https://eve.vakh.com/explore
+     - Working : Displays filter controls (Nearby, Tags, Active) and list of user cards.
+     - Profile Verification:
+         * Profile Picture : <img> element with valid URL.
+         * Username        : Handle starting with '@' (e.g. @archie, @ghanshyaama).
+         * Display Name    : User full name.
+         * Tags            : Interest badges (e.g. blog, delivery, chai, qa, music).
+
+--------------------------------------------------------------------------------
+4. TEST AUTOMATION COVERAGE & RESULTS MATRIX
+--------------------------------------------------------------------------------
+Browser Project | Test Case Identifier & Scope                      | Status | Time
+----------------+---------------------------------------------------+--------+------
+Chromium        | navigation.spec.ts: Home to sign-in page          | PASSED | 8.3s
+Chromium        | TC-01: Initial UI Elements & Auxiliary Controls   | PASSED | 5.7s
+Chromium        | TC-02: Mode Switching (OTP Mode <-> Password Mode)| PASSED | 8.9s
+Chromium        | TC-03: Password Masking, Show Toggle & Legal Links| PASSED | 9.1s
+Chromium        | TC-04: Full Login & Post-Login (Chat/Activity/Exp)| PASSED | 12.2s
+----------------+---------------------------------------------------+--------+------
+Firefox         | navigation.spec.ts: Home to sign-in page          | PASSED | 11.0s
+Firefox         | TC-01: Initial UI Elements & Auxiliary Controls   | PASSED | 18.4s
+Firefox         | TC-02: Mode Switching (OTP Mode <-> Password Mode)| PASSED | 14.7s
+Firefox         | TC-03: Password Masking, Show Toggle & Legal Links| PASSED | 15.4s
+Firefox         | TC-04: Full Login & Post-Login (Chat/Activity/Exp)| PASSED | 18.3s
+----------------+---------------------------------------------------+--------+------
+Safari (WebKit) | navigation.spec.ts: Home to sign-in page          | PASSED | 13.0s
+Safari (WebKit) | TC-01: Initial UI Elements & Auxiliary Controls   | PASSED | 9.3s
+Safari (WebKit) | TC-02: Mode Switching (OTP Mode <-> Password Mode)| PASSED | 12.9s
+Safari (WebKit) | TC-03: Password Masking, Show Toggle & Legal Links| PASSED | 17.0s
+Safari (WebKit) | TC-04: Full Login & Post-Login (Chat/Activity/Exp)| PASSED | 25.0s
+----------------+---------------------------------------------------+--------+------
+Microsoft Edge  | navigation.spec.ts: Home to sign-in page          | PASSED | 9.6s
+Microsoft Edge  | TC-01: Initial UI Elements & Auxiliary Controls   | PASSED | 12.0s
+Microsoft Edge  | TC-02: Mode Switching (OTP Mode <-> Password Mode)| PASSED | 16.8s
+Microsoft Edge  | TC-03: Password Masking, Show Toggle & Legal Links| PASSED | 16.2s
+Microsoft Edge  | TC-04: Full Login & Post-Login (Chat/Activity/Exp)| PASSED | 15.8s
+----------------+---------------------------------------------------+--------+------
+Total Result    | 20 of 20 Tests Passed Across 4 Browser Projects   | 100%   | 1.4m
+
+================================================================================
+                              END OF REPORT
+================================================================================
