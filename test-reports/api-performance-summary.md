@@ -2,7 +2,7 @@
 
 ## Target: `https://xo.eve.vakh.com`
 - **Target Throughput**: 200 req/sec
-- **Duration**: 15.2 seconds
+- **Duration**: 15.22 seconds
 - **Concurrent Connections**: 50
 
 ---
@@ -11,12 +11,12 @@
 
 | Metric | Measured Value |
 | :--- | :--- |
-| **Total Requests Sent** | **1,777** |
-| **Achieved Throughput** | **118.47 req/sec** |
-| **Total Bytes Transferred** | **2.75 MB** |
-| **Data Rate** | **0.18 MB/sec** |
-| **Successful Responses (2xx)** | **1467** |
-| **Non-2xx / Error Responses** | **310** |
+| **Total Requests Sent** | **2,467** |
+| **Achieved Throughput** | **164.47 req/sec** |
+| **Total Bytes Transferred** | **3.82 MB** |
+| **Data Rate** | **0.25 MB/sec** |
+| **Successful Responses (2xx)** | **1935** |
+| **Non-2xx / Error Responses** | **532** |
 | **Errors / Timeouts** | **0** |
 
 ---
@@ -25,12 +25,12 @@
 
 | Percentile / Stat | Latency (ms) |
 | :--- | :--- |
-| **Average (Mean)** | **245.06 ms** |
-| **P50 (Median)** | **210 ms** |
-| **P90** | **461 ms** |
-| **P97.5** | **833 ms** |
-| **P99** | **1045 ms** |
-| **Max Latency** | **1664 ms** |
+| **Average (Mean)** | **186.76 ms** |
+| **P50 (Median)** | **164 ms** |
+| **P90** | **371 ms** |
+| **P97.5** | **533 ms** |
+| **P99** | **641 ms** |
+| **Max Latency** | **948 ms** |
 
 ---
 

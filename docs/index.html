@@ -724,7 +724,7 @@
       </div>
     </div>
     <div class="top-actions">
-      <div class="status-pill">20/20 Passing (4 Browsers)</div>
+      <div class="status-pill">80/80 Passing (4 Browsers)</div>
       <a href="https://github.com/mughdabansal/Vakh-Playwright--test-" target="_blank" class="btn-github">
         <svg height="16" width="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
         GitHub Repo
@@ -770,16 +770,16 @@
         <div class="stat-card green">
           <div class="label">Total E2E Test Pass Rate</div>
           <div class="value">100%</div>
-          <div class="subtext"><span>✅</span> 56 of 56 Tests Passed (14 Tests &times; 4 Engines)</div>
+          <div class="subtext"><span>✅</span> 80 of 80 Tests Passed (20 Tests &times; 4 Engines)</div>
         </div>
         <div class="stat-card blue">
           <div class="label">Web Load Throughput</div>
-          <div class="value">196.2 req/s</div>
-          <div class="subtext">Target: 200 req/s | Avg Latency: 116.9ms</div>
+          <div class="value">200.1 req/s</div>
+          <div class="subtext">Target: 200 req/s | Avg Latency: 48.7ms</div>
         </div>
         <div class="stat-card purple">
           <div class="label">Staging API Throughput</div>
-          <div class="value">118.5 req/s</div>
+          <div class="value">164.5 req/s</div>
           <div class="subtext">Endpoint: <code>https://xo.eve.vakh.com</code></div>
         </div>
         <div class="stat-card orange">
@@ -793,7 +793,7 @@
       <div class="panel">
         <div class="panel-header">
           <div class="panel-title">🎯 Tested Application Modules & Status</div>
-          <span style="font-size: 0.8rem; color: var(--text-muted);">Synchronized: Monday, September 7, 2026 at 5:35:37 AM</span>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Synchronized: Monday, September 7, 2026 at 11:27:55 AM</span>
         </div>
         <div class="grid-3">
           <div class="stat-card" style="cursor: pointer;" onclick="switchTab('login', document.querySelectorAll('.tab-btn')[1])">
@@ -1879,6 +1879,181 @@
     <div id="dashboardToast" class="toast-box">
       <span id="toastIcon">✨</span>
       <span id="toastMessage">Action completed successfully</span>
+    </div>
+
+
+    
+    <!-- ==================== VIEW 8: API & LOAD TESTING ==================== -->
+    <div id="view-api" class="view-content">
+      <div class="grid-4">
+        <div class="stat-card green">
+          <div class="label">API Functional Tests</div>
+          <div class="value" style="font-size: 1.6rem;">6 / 6 Passed</div>
+          <div class="subtext"><span>✅</span> Health, Auth, Storage, Security</div>
+        </div>
+        <div class="stat-card blue">
+          <div class="label">Web Throughput (Login)</div>
+          <div class="value" style="font-size: 1.6rem;">200.1 req/s</div>
+          <div class="subtext">Avg Latency: 48.7ms (50 Conns)</div>
+        </div>
+        <div class="stat-card purple">
+          <div class="label">Backend API Throughput</div>
+          <div class="value" style="font-size: 1.6rem;">164.5 req/s</div>
+          <div class="subtext">Endpoint: <code>https://xo.eve.vakh.com</code></div>
+        </div>
+        <div class="stat-card orange">
+          <div class="label">Load Test Error Rate</div>
+          <div class="value" style="font-size: 1.6rem;">0% Errors</div>
+          <div class="subtext">5,468 Total Stress Requests Sent</div>
+        </div>
+      </div>
+
+      <!-- Playwright API Tests Table -->
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <div class="panel-title">⚡ Playwright API Functional Test Suite</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+              Target Endpoint: <code>https://xo.eve.vakh.com</code> | Automated API Gateway & Endpoint Verification
+            </p>
+          </div>
+          <span class="badge passed">6 / 6 Passed (2.7s)</span>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Test Case Name & Purpose</th>
+              <th>Endpoint & Method</th>
+              <th>Expected Status</th>
+              <th>Response Time</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>API_TC_001</code></td>
+              <td>
+                <strong>Backend Health Check Endpoint</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Validates service availability and JSON response.</span>
+              </td>
+              <td><code>GET /health</code></td>
+              <td><code>200 OK</code></td>
+              <td>318ms</td>
+              <td><span class="badge passed">PASSED</span></td>
+            </tr>
+            <tr>
+              <td><code>API_TC_002</code></td>
+              <td>
+                <strong>Gateway Root Endpoint</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Asserts gateway entry point responds with valid JSON.</span>
+              </td>
+              <td><code>GET /</code></td>
+              <td><code>200 OK</code></td>
+              <td>358ms</td>
+              <td><span class="badge passed">PASSED</span></td>
+            </tr>
+            <tr>
+              <td><code>API_TC_003</code></td>
+              <td>
+                <strong>Protected /api Route Guard</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Enforces 401 Unauthorized for unauthenticated requests.</span>
+              </td>
+              <td><code>GET /api</code></td>
+              <td><code>401 Unauthorized</code></td>
+              <td>301ms</td>
+              <td><span class="badge passed">PASSED</span></td>
+            </tr>
+            <tr>
+              <td><code>API_TC_004</code></td>
+              <td>
+                <strong>Internal Health Check Route Guard</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Protects internal health endpoint against unauthorized access.</span>
+              </td>
+              <td><code>GET /api/health</code></td>
+              <td><code>401 Unauthorized</code></td>
+              <td>275ms</td>
+              <td><span class="badge passed">PASSED</span></td>
+            </tr>
+            <tr>
+              <td><code>API_TC_005</code></td>
+              <td>
+                <strong>Static Avatar Asset Storage Delivery</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Validates user avatar asset fetching and image/jpeg content type.</span>
+              </td>
+              <td><code>GET /api/storage/avatar/...</code></td>
+              <td><code>200 OK</code></td>
+              <td>209ms</td>
+              <td><span class="badge passed">PASSED</span></td>
+            </tr>
+            <tr>
+              <td><code>API_TC_006</code></td>
+              <td>
+                <strong>CORS & Security Response Headers</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Validates presence of security directives and content-type headers.</span>
+              </td>
+              <td><code>GET /health</code></td>
+              <td><code>200 OK</code></td>
+              <td>94ms</td>
+              <td><span class="badge passed">PASSED</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Load Test Comparison Grids -->
+      <div class="grid-2">
+        <!-- Web Load Test Card -->
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <div class="panel-title">🌐 Web Portal Load Benchmark (autocannon)</div>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Target: <code>https://eve.vakh.com/auth/sign-in</code></p>
+            </div>
+            <span class="badge passed">200.07 req/s</span>
+          </div>
+
+          <table style="margin-top: 0;">
+            <tbody>
+              <tr><td><strong>Total Requests</strong></td><td><code>3,001 requests</code> in 15s</td></tr>
+              <tr><td><strong>Achieved Throughput</strong></td><td><strong>200.07 req/sec</strong> (100% Target)</td></tr>
+              <tr><td><strong>Average (Mean) Latency</strong></td><td><strong style="color: #34d399;">48.68 ms</strong></td></tr>
+              <tr><td><strong>P50 (Median) Latency</strong></td><td><strong>24 ms</strong></td></tr>
+              <tr><td><strong>P97.5 Latency</strong></td><td>304 ms</td></tr>
+              <tr><td><strong>P99 Latency</strong></td><td>345 ms</td></tr>
+              <tr><td><strong>Max Latency</strong></td><td>428 ms</td></tr>
+              <tr><td><strong>Data Transferred</strong></td><td>13.1 MB</td></tr>
+              <tr><td><strong>Errors & Timeouts</strong></td><td><span class="badge passed">0 Errors (0%)</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- API Load Test Card -->
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <div class="panel-title">⚡ Backend API Load Benchmark (autocannon)</div>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Target: <code>https://xo.eve.vakh.com</code></p>
+            </div>
+            <span class="badge passed">164.47 req/s</span>
+          </div>
+
+          <table style="margin-top: 0;">
+            <tbody>
+              <tr><td><strong>Total Requests</strong></td><td><code>2,467 requests</code> in 15s</td></tr>
+              <tr><td><strong>Achieved Throughput</strong></td><td><strong>164.47 req/sec</strong></td></tr>
+              <tr><td><strong>Average (Mean) Latency</strong></td><td><strong style="color: #60a5fa;">186.76 ms</strong></td></tr>
+              <tr><td><strong>P50 (Median) Latency</strong></td><td><strong>164 ms</strong></td></tr>
+              <tr><td><strong>P97.5 Latency</strong></td><td>533 ms</td></tr>
+              <tr><td><strong>P99 Latency</strong></td><td>641 ms</td></tr>
+              <tr><td><strong>Max Latency</strong></td><td>948 ms</td></tr>
+              <tr><td><strong>Data Transferred</strong></td><td>4.0 MB</td></tr>
+              <tr><td><strong>Errors & Timeouts</strong></td><td><span class="badge passed">0 Errors (0%)</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
 
 

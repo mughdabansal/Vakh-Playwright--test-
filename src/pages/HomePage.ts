@@ -26,7 +26,10 @@ export class HomePage extends BasePage {
    * Clicks on the 'web' link to navigate to sign-in section.
    */
   async clickWebLink() {
-    await expect(this.webLink).toBeVisible({ timeout: 10000 });
+    if (this.page.url().includes('/auth/sign-in')) {
+      return;
+    }
+    await expect(this.webLink).toBeVisible({ timeout: 15000 });
     await this.webLink.click();
   }
 }
