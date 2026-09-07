@@ -3,259 +3,1225 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eve Vakh — Test & Performance Dashboard</title>
+  <title>Eve Vakh — Quality, Test & CI/CD Dashboard</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #0b0f19;
-      --card-bg: #111827;
-      --card-border: #1f2937;
+      --bg-elevated: #111827;
+      --bg-card: #141e33;
+      --border: #1f293d;
+      --border-subtle: #2d3748;
       --text: #f9fafb;
-      --text-muted: #9ca3af;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
       --accent: #3b82f6;
+      --accent-glow: rgba(59, 130, 246, 0.15);
       --success: #10b981;
+      --success-glow: rgba(16, 185, 129, 0.15);
       --warning: #f59e0b;
       --danger: #ef4444;
       --purple: #8b5cf6;
+      --pink: #ec4899;
+      --cyan: #06b6d4;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
-    body { background-color: var(--bg); color: var(--text); padding: 2rem; line-height: 1.5; }
-    .container { max-width: 1300px; margin: 0 auto; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', -apple-system, sans-serif; }
+    body { background-color: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
     
-    header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; border-bottom: 1px solid var(--card-border); padding-bottom: 1.5rem; }
-    .logo-group h1 { font-size: 1.8rem; font-weight: 800; background: linear-gradient(135deg, #60a5fa, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .logo-group p { color: var(--text-muted); font-size: 0.9rem; margin-top: 0.2rem; }
-    .status-badge { background: rgba(16, 185, 129, 0.1); border: 1px solid var(--success); color: var(--success); padding: 0.4rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 0.5rem; }
-    .status-badge::before { content: ''; width: 8px; height: 8px; background: var(--success); border-radius: 50%; display: inline-block; animation: pulse 2s infinite; }
+    /* Top Bar */
+    .top-nav {
+      background: rgba(17, 24, 39, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0.85rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand-title {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .brand-title .logo-badge {
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      color: white;
+      font-weight: 800;
+      font-size: 1.1rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 8px;
+      letter-spacing: 0.5px;
+    }
+    .brand-title h1 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #f8fafc, #94a3b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .status-pill {
+      background: var(--success-glow);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: #34d399;
+      padding: 0.35rem 0.9rem;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .status-pill::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--success);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--success);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.3); } 100% { opacity: 1; transform: scale(1); } }
 
-    @keyframes pulse { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.2); } 100% { opacity: 1; transform: scale(1); } }
+    .btn-github {
+      background: #1e293b;
+      color: #f1f5f9;
+      border: 1px solid var(--border);
+      padding: 0.45rem 0.9rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+    }
+    .btn-github:hover {
+      background: #334155;
+      border-color: #475569;
+      color: white;
+    }
 
-    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.25rem; margin-bottom: 2rem; }
-    .stat-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 1.25rem; }
-    .stat-card .label { color: var(--text-muted); font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
-    .stat-card .value { font-size: 1.8rem; font-weight: 800; margin: 0.4rem 0; }
-    .stat-card .subtext { font-size: 0.8rem; color: var(--text-muted); }
-    .stat-card.green .value { color: var(--success); }
-    .stat-card.blue .value { color: var(--accent); }
-    .stat-card.purple .value { color: var(--purple); }
-    .stat-card.orange .value { color: var(--warning); }
+    /* Tab Navigation */
+    .tab-bar-container {
+      background: #0d1322;
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+    }
+    .tab-bar {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .tab-bar::-webkit-scrollbar { display: none; }
+    .tab-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      padding: 1rem 1.25rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .tab-btn:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .tab-btn.active {
+      color: #60a5fa;
+      border-bottom-color: #3b82f6;
+      background: rgba(59, 130, 246, 0.08);
+    }
+    .tab-count {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.1rem 0.45rem;
+      border-radius: 12px;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+    .tab-btn.active .tab-count {
+      background: rgba(59, 130, 246, 0.3);
+      color: #93c5fd;
+    }
 
+    /* Main Container */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* Views */
+    .view-content {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+    .view-content.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Grid & Panels */
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin-bottom: 2rem; }
     .grid-2 { display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
-    @media (max-width: 900px) { .grid-2 { grid-template-columns: 1fr; } }
-    
-    .panel { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 1.5rem; }
-    .panel h2 { font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; display: flex; align-items: center; justify-content: space-between; }
-    
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.25rem; margin-bottom: 2rem; }
+    @media (max-width: 1024px) { .grid-2 { grid-template-columns: 1fr; } }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.35rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .stat-card:hover { transform: translateY(-2px); border-color: var(--border-subtle); }
+    .stat-card .label { color: var(--text-muted); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+    .stat-card .value { font-size: 2rem; font-weight: 800; margin: 0.4rem 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+    .stat-card .subtext { font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.4rem; }
+    .stat-card.green .value { color: #34d399; }
+    .stat-card.blue .value { color: #60a5fa; }
+    .stat-card.purple .value { color: #a78bfa; }
+    .stat-card.orange .value { color: #fbbf24; }
+    .stat-card.pink .value { color: #f472b6; }
+
+    .panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.85rem;
+    }
+    .panel-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    /* Tables */
     table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; }
-    th { text-align: left; padding: 0.75rem; color: var(--text-muted); font-size: 0.8rem; border-bottom: 1px solid var(--card-border); text-transform: uppercase; }
-    td { padding: 0.85rem 0.75rem; font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
-    tr:last-child td { border-bottom: none; }
-    
-    .tag { padding: 0.2rem 0.6rem; border-radius: 6px; font-size: 0.75rem; font-weight: 700; display: inline-block; }
-    .tag.tested { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
-    .tag.pending { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
-    .tag.api { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+    th { text-align: left; padding: 0.85rem 0.75rem; color: var(--text-muted); font-size: 0.78rem; border-bottom: 1px solid var(--border); text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px; }
+    td { padding: 0.9rem 0.75rem; font-size: 0.88rem; border-bottom: 1px solid rgba(255,255,255,0.04); vertical-align: middle; }
+    tr:hover td { background: rgba(255, 255, 255, 0.02); }
+    code { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; background: rgba(255, 255, 255, 0.06); padding: 0.15rem 0.45rem; border-radius: 5px; color: #93c5fd; }
 
-    .chart-container { position: relative; height: 260px; margin-top: 1rem; }
+    /* Badges & Tags */
+    .badge { padding: 0.25rem 0.65rem; border-radius: 6px; font-size: 0.75rem; font-weight: 700; display: inline-flex; align-items: center; gap: 0.35rem; }
+    .badge.passed { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .badge.failed { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+    .badge.browser { background: rgba(59, 130, 246, 0.12); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.25); font-size: 0.72rem; }
+    .badge.tag-pill { background: rgba(139, 92, 246, 0.15); color: #c4b5fd; border: 1px solid rgba(139, 92, 246, 0.3); margin: 2px; }
 
-    footer { text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-top: 3rem; border-top: 1px solid var(--card-border); padding-top: 1.5rem; }
+    /* Search Input */
+    .search-box {
+      background: #0f172a;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.5rem 0.9rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      outline: none;
+      width: 260px;
+      transition: border-color 0.2s;
+    }
+    .search-box:focus { border-color: var(--accent); }
+
+    /* Component Card */
+    .comp-card {
+      background: #0f172a;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.15rem;
+      margin-bottom: 1rem;
+      transition: border-color 0.2s;
+    }
+    .comp-card:hover { border-color: var(--border-subtle); }
+    .comp-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem; }
+    .comp-title { font-weight: 700; font-size: 0.95rem; color: #f1f5f9; display: flex; align-items: center; gap: 0.5rem; }
+    .comp-desc { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+    .comp-detail { font-size: 0.8rem; color: var(--text-dim); display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 0.5rem; }
+
+    /* User Directory Cards (Explore) */
+    .user-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .user-card {
+      background: #0f172a;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      transition: all 0.2s ease;
+    }
+    .user-card:hover { border-color: #3b82f6; transform: translateY(-2px); }
+    .user-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 2px solid var(--border-subtle);
+      object-fit: cover;
+      background: #1e293b;
+    }
+    .user-info { flex: 1; min-width: 0; }
+    .user-name { font-weight: 700; font-size: 0.92rem; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .user-handle { font-size: 0.78rem; color: #60a5fa; font-family: 'JetBrains Mono', monospace; }
+    .user-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.5rem; }
+
+    /* CI/CD Pipeline Steps */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-top: 1rem;
+    }
+    .timeline-step {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: #0f172a;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.85rem 1.25rem;
+    }
+    .step-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(16, 185, 129, 0.2);
+      color: #34d399;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.85rem;
+    }
+    .step-info { flex: 1; }
+    .step-title { font-weight: 700; font-size: 0.9rem; color: var(--text); }
+    .step-desc { font-size: 0.78rem; color: var(--text-muted); }
+    .step-badge { font-size: 0.75rem; font-weight: 700; color: #34d399; background: rgba(16, 185, 129, 0.15); padding: 0.2rem 0.5rem; border-radius: 6px; }
+
+    footer {
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.82rem;
+      margin-top: 4rem;
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="logo-group">
-        <h1>Eve Vakh — Quality & Performance Dashboard</h1>
-        <p>Real-time Test Coverage, Cross-Browser E2E Results (Chrome, Firefox, Safari, Edge), & 200 Throughput Load Metrics</p>
-      </div>
-      <div class="status-badge">
-        All Systems Healthy (Monday, September 7, 2026 at 4:32:08 AM)
-      </div>
-    </header>
 
-    <!-- Top Summary Cards -->
-    <div class="grid-4">
-      <div class="stat-card green">
-        <div class="label">E2E Test Pass Rate</div>
-        <div class="value">100%</div>
-        <div class="subtext">20/20 Specs Passed (Chrome, Firefox, Safari, Edge)</div>
+  <!-- Top Navigation Header -->
+  <nav class="top-nav">
+    <div class="brand-title">
+      <span class="logo-badge">VAKH</span>
+      <div>
+        <h1>Quality & CI/CD Dashboard</h1>
       </div>
-      <div class="stat-card blue">
-        <div class="label">Web Load Throughput</div>
-        <div class="value">196.2 req/s</div>
-        <div class="subtext">Target: 200 req/s | Avg Latency: 116.9ms</div>
+    </div>
+    <div class="top-actions">
+      <div class="status-pill">20/20 Passing (4 Browsers)</div>
+      <a href="https://github.com/mughdabansal/Vakh-Playwright--test-" target="_blank" class="btn-github">
+        <svg height="16" width="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+        GitHub Repo
+      </a>
+      <a href="https://github.com/mughdabansal/Vakh-Playwright--test-/actions" target="_blank" class="btn-github">
+        ⚡ CI Actions
+      </a>
+    </div>
+  </nav>
+
+  <!-- Interactive Module Tabs -->
+  <div class="tab-bar-container">
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="switchTab('overview', this)">
+        📊 Overview
+      </button>
+      <button class="tab-btn" onclick="switchTab('login', this)">
+        🔐 Login Page <span class="tab-count">4 Tests</span>
+      </button>
+      <button class="tab-btn" onclick="switchTab('home', this)">
+        🏠 Home Page <span class="tab-count">1 Test</span>
+      </button>
+      <button class="tab-btn" onclick="switchTab('chat', this)">
+        💬 Chat Page <span class="tab-count">Verified</span>
+      </button>
+      <button class="tab-btn" onclick="switchTab('activity', this)">
+        🔔 Activity Page <span class="tab-count">Verified</span>
+      </button>
+      <button class="tab-btn" onclick="switchTab('explore', this)">
+        🧭 Explore Page <span class="tab-count">Directory</span>
+      </button>
+      <button class="tab-btn" onclick="switchTab('cicd', this)">
+        ⚙️ GitHub Actions CI/CD <span class="tab-count">Live</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- ==================== VIEW 1: OVERVIEW ==================== -->
+    <div id="view-overview" class="view-content active">
+      <div class="grid-4">
+        <div class="stat-card green">
+          <div class="label">Total E2E Test Pass Rate</div>
+          <div class="value">100%</div>
+          <div class="subtext"><span>✅</span> 20 of 20 Tests Passed (4 Engines)</div>
+        </div>
+        <div class="stat-card blue">
+          <div class="label">Web Load Throughput</div>
+          <div class="value">196.2 req/s</div>
+          <div class="subtext">Target: 200 req/s | Avg Latency: 116.9ms</div>
+        </div>
+        <div class="stat-card purple">
+          <div class="label">Staging API Throughput</div>
+          <div class="value">118.5 req/s</div>
+          <div class="subtext">Endpoint: <code>https://xo.eve.vakh.com</code></div>
+        </div>
+        <div class="stat-card orange">
+          <div class="label">CI/CD Pipeline Status</div>
+          <div class="value">Passing</div>
+          <div class="subtext">GitHub Actions Auto-Deploy: Active</div>
+        </div>
       </div>
-      <div class="stat-card purple">
-        <div class="label">API Load Throughput</div>
-        <div class="value">118.5 req/s</div>
-        <div class="subtext">Target: 200 req/s | 155 req/s Achieved</div>
+
+      <!-- Quick Module Health Cards -->
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-title">🎯 Tested Application Modules & Status</div>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Synchronized: Monday, September 7, 2026 at 10:07:45 AM</span>
+        </div>
+        <div class="grid-3">
+          <div class="stat-card" style="cursor: pointer;" onclick="switchTab('login', document.querySelectorAll('.tab-btn')[1])">
+            <div class="label">Authentication Module</div>
+            <div class="value" style="font-size: 1.4rem; color: #60a5fa;">Login Page</div>
+            <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.3rem;">OTP mode, Password mode, Show/Hide eye toggle, Sign in & auxiliary controls.</p>
+            <div style="margin-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
+              <span class="badge passed">4 Tests Passed</span>
+              <span style="font-size: 0.78rem; color: #60a5fa;">View Specs &rarr;</span>
+            </div>
+          </div>
+
+          <div class="stat-card" style="cursor: pointer;" onclick="switchTab('home', document.querySelectorAll('.tab-btn')[2])">
+            <div class="label">Landing Module</div>
+            <div class="value" style="font-size: 1.4rem; color: #34d399;">Home Page</div>
+            <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.3rem;">Landing hero branding, web routing link to sign-in portal.</p>
+            <div style="margin-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
+              <span class="badge passed">1 Test Passed</span>
+              <span style="font-size: 0.78rem; color: #34d399;">View Specs &rarr;</span>
+            </div>
+          </div>
+
+          <div class="stat-card" style="cursor: pointer;" onclick="switchTab('chat', document.querySelectorAll('.tab-btn')[3])">
+            <div class="label">Messaging Module</div>
+            <div class="value" style="font-size: 1.4rem; color: #a78bfa;">Chat Page</div>
+            <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.3rem;">Conversations inbox, Messages header verification, real-time channels.</p>
+            <div style="margin-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
+              <span class="badge passed">Verified</span>
+              <span style="font-size: 0.78rem; color: #a78bfa;">View Specs &rarr;</span>
+            </div>
+          </div>
+
+          <div class="stat-card" style="cursor: pointer;" onclick="switchTab('activity', document.querySelectorAll('.tab-btn')[4])">
+            <div class="label">Social Module</div>
+            <div class="value" style="font-size: 1.4rem; color: #fbbf24;">Activity Page</div>
+            <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.3rem;">Social alerts, Heart milestones, mentions, activity timeline.</p>
+            <div style="margin-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
+              <span class="badge passed">Verified</span>
+              <span style="font-size: 0.78rem; color: #fbbf24;">View Specs &rarr;</span>
+            </div>
+          </div>
+
+          <div class="stat-card" style="cursor: pointer;" onclick="switchTab('explore', document.querySelectorAll('.tab-btn')[5])">
+            <div class="label">Directory Module</div>
+            <div class="value" style="font-size: 1.4rem; color: #f472b6;">Explore Page</div>
+            <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.3rem;">Category filters (Nearby, Tags, Active) and user cards verification.</p>
+            <div style="margin-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
+              <span class="badge passed">Verified Directory</span>
+              <span style="font-size: 0.78rem; color: #f472b6;">View Specs &rarr;</span>
+            </div>
+          </div>
+
+          <div class="stat-card" style="cursor: pointer;" onclick="switchTab('cicd', document.querySelectorAll('.tab-btn')[6])">
+            <div class="label">DevOps Automation</div>
+            <div class="value" style="font-size: 1.4rem; color: #38bdf8;">CI/CD Pipeline</div>
+            <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.3rem;">GitHub Actions workflow testing all specs and auto-deploying to Pages.</p>
+            <div style="margin-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
+              <span class="badge passed">Auto-Deploy Active</span>
+              <span style="font-size: 0.78rem; color: #38bdf8;">View Pipeline &rarr;</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="stat-card orange">
-        <div class="label">Backend API Health</div>
-        <div class="value">Ready</div>
-        <div class="subtext">DB: 34ms | Cache: 277ms | Storage: 193ms</div>
+
+      <!-- Charts Grid -->
+      <div class="grid-2">
+        <div class="panel">
+          <div class="panel-header">
+            <div class="panel-title">🌐 Cross-Browser Pass Distribution</div>
+            <span class="badge browser">4 Engines</span>
+          </div>
+          <div style="height: 220px; position: relative;">
+            <canvas id="browserDonutChart"></canvas>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <div class="panel-title">⚡ Web Response Latency (ms)</div>
+            <span class="badge passed">Average: 116.8ms</span>
+          </div>
+          <div style="height: 220px; position: relative;">
+            <canvas id="latencyBarChart"></canvas>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- Main Content Grid -->
-    <div class="grid-2">
-      <!-- Tested vs Untested Coverage Matrix -->
+
+    <!-- ==================== VIEW 2: LOGIN PAGE ==================== -->
+    <div id="view-login" class="view-content">
       <div class="panel">
-        <h2>
-          <span>📋 Tested vs Untested Coverage Matrix</span>
-          <span style="font-size: 0.8rem; color: var(--text-muted);">Updated Live via GitHub Actions</span>
-        </h2>
+        <div class="panel-header">
+          <div>
+            <div class="panel-title">🔐 Eve Vakh — Login Page Functionality & Specs</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+              Target Endpoint: <code>https://eve.vakh.com/auth/sign-in</code> | Dual-Mode Authentication (OTP + Password)
+            </p>
+          </div>
+          <div style="display: flex; gap: 0.5rem;">
+            <span class="badge passed">4 Tests Passed</span>
+            <span class="badge failed">0 Failed</span>
+          </div>
+        </div>
+
+        <!-- Test Cases Accordion -->
+        <h3 style="margin-bottom: 0.75rem; font-size: 1rem; color: #cbd5e1;">🧪 Automated Test Cases (Passing across 4 Browsers)</h3>
+        
         <table>
           <thead>
             <tr>
-              <th>Feature / Module</th>
-              <th>Target Endpoint</th>
+              <th>ID</th>
+              <th>Test Case Name & Purpose</th>
               <th>Status</th>
-              <th>Test Type</th>
+              <th>Chromium</th>
+              <th>Firefox</th>
+              <th>Safari</th>
+              <th>Edge</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong>Home Page Landing & Web Link</strong></td>
-              <td><code>https://eve.vakh.com/</code></td>
-              <td><span class="tag tested">PASSED (4 Browsers)</span></td>
-              <td>E2E Cross-Browser</td>
+              <td><code>TC-01</code></td>
+              <td>
+                <strong>Initial UI Elements & Auxiliary Controls</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Validates email/phone input, Send code button, Use password link, Recovery, About, More buttons.</span>
+              </td>
+              <td><span class="badge passed">PASSED</span></td>
+              <td>5.7s</td>
+              <td>18.4s</td>
+              <td>9.3s</td>
+              <td>12.0s</td>
             </tr>
             <tr>
-              <td><strong>Sign-In Route & Auxiliary Controls</strong></td>
-              <td><code>/auth/sign-in</code></td>
-              <td><span class="tag tested">PASSED (4 Browsers)</span></td>
-              <td>E2E Cross-Browser</td>
+              <td><code>TC-02</code></td>
+              <td>
+                <strong>Mode Switching (OTP Mode &harr; Password Mode)</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Clicking "Use password" unhides password input. Clicking "Use a one-time code instead" restores OTP.</span>
+              </td>
+              <td><span class="badge passed">PASSED</span></td>
+              <td>8.9s</td>
+              <td>14.7s</td>
+              <td>12.9s</td>
+              <td>16.8s</td>
             </tr>
             <tr>
-              <td><strong>Mode Switching (OTP ↔ Password)</strong></td>
-              <td><code>Use password / One-time code</code></td>
-              <td><span class="tag tested">PASSED (4 Browsers)</span></td>
-              <td>E2E State Toggle</td>
+              <td><code>TC-03</code></td>
+              <td>
+                <strong>Password Masking, Show/Hide Eye Toggle & Legal Links</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Asserts password masked by default, eye button toggles plain text & masked, asserts Terms/Privacy links.</span>
+              </td>
+              <td><span class="badge passed">PASSED</span></td>
+              <td>9.1s</td>
+              <td>15.4s</td>
+              <td>17.0s</td>
+              <td>16.2s</td>
             </tr>
             <tr>
-              <td><strong>Password Masking & Show/Hide Eye Toggle</strong></td>
-              <td><code>Show / Hide password</code></td>
-              <td><span class="tag tested">PASSED (4 Browsers)</span></td>
-              <td>E2E Security Verification</td>
-            </tr>
-            <tr>
-              <td><strong>Password Login Authentication</strong></td>
-              <td><code>mughdabansal2094@gmail.com</code></td>
-              <td><span class="tag tested">PASSED (4 Browsers)</span></td>
-              <td>E2E Auth Flow</td>
-            </tr>
-            <tr>
-              <td><strong>Chat Navigation & Messages Header</strong></td>
-              <td><code>/messages</code></td>
-              <td><span class="tag tested">PASSED (4 Browsers)</span></td>
-              <td>E2E Flow Navigation</td>
-            </tr>
-            <tr>
-              <td><strong>Activity Feed & Milestone Header</strong></td>
-              <td><code>/activity</code></td>
-              <td><span class="tag tested">PASSED (4 Browsers)</span></td>
-              <td>E2E Flow Navigation</td>
-            </tr>
-            <tr>
-              <td><strong>Explore User List (Avatar, @handle, Name, Tags)</strong></td>
-              <td><code>/explore</code></td>
-              <td><span class="tag tested">PASSED (4 Browsers)</span></td>
-              <td>E2E Data Verification</td>
-            </tr>
-            <tr>
-              <td><strong>Web Page High-Throughput Load</strong></td>
-              <td><code>https://eve.vakh.com/auth/sign-in</code></td>
-              <td><span class="tag tested">PASSED (196 req/s)</span></td>
-              <td>Autocannon Benchmark</td>
-            </tr>
-            <tr>
-              <td><strong>Backend Staging API Health</strong></td>
-              <td><code>https://xo.eve.vakh.com</code></td>
-              <td><span class="tag api">READY (155 req/s)</span></td>
-              <td>API Load Test</td>
+              <td><code>TC-04</code></td>
+              <td>
+                <strong>Complete Password Authentication & Post-Login Redirection</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Submits credentials, acquires Ed25519 JWT session, redirects to dashboard, verifies Chat, Activity, Explore.</span>
+              </td>
+              <td><span class="badge passed">PASSED</span></td>
+              <td>12.2s</td>
+              <td>18.3s</td>
+              <td>25.0s</td>
+              <td>15.8s</td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <!-- Charts & Visual Stats -->
-      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-        <div class="panel">
-          <h2>⚡ Web Latency Breakdown (ms)</h2>
-          <div class="chart-container">
-            <canvas id="latencyChart"></canvas>
-          </div>
+      <!-- Component Breakdown Grid -->
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-title">🧩 Button & Component Specification Inspector</div>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Derived from LOGIN_PAGE_REPORT.txt</span>
         </div>
 
-        <div class="panel">
-          <h2>🌐 Browser Pass Distribution (4 Engines)</h2>
-          <div class="chart-container" style="height: 180px;">
-            <canvas id="browserChart"></canvas>
+        <div class="grid-2">
+          <div class="comp-card">
+            <div class="comp-header">
+              <span class="comp-title">1. "Email or phone number" Input</span>
+              <span class="badge passed">Interactive</span>
+            </div>
+            <p class="comp-desc">Accepts the user's registered account email (e.g. <code>mughdabansal2094@gmail.com</code>) or phone number.</p>
+            <div class="comp-detail">
+              <span><strong>Locator:</strong> <code>getByPlaceholder(/email or phone number/i)</code></span>
+              <span><strong>Type:</strong> <code>text</code></span>
+            </div>
+          </div>
+
+          <div class="comp-card">
+            <div class="comp-header">
+              <span class="comp-title">2. "Use password" Link Button</span>
+              <span class="badge passed">Mode Toggle</span>
+            </div>
+            <p class="comp-desc">Directly below the submit button. Switches the interface from OTP code dispatch to password authentication mode.</p>
+            <div class="comp-detail">
+              <span><strong>Locator:</strong> <code>getByRole('link', { name: /use password/i })</code></span>
+              <span><strong>Role:</strong> <code>link</code></span>
+            </div>
+          </div>
+
+          <div class="comp-card">
+            <div class="comp-header">
+              <span class="comp-title">3. "Password" Input Field</span>
+              <span class="badge passed">Masked / Secure</span>
+            </div>
+            <p class="comp-desc">Unhidden once "Use password" is clicked. Obscures typed characters by default (e.g. <code>M@12345678</code>).</p>
+            <div class="comp-detail">
+              <span><strong>Locator:</strong> <code>getByPlaceholder(/password/i)</code></span>
+              <span><strong>Type:</strong> <code>password</code></span>
+            </div>
+          </div>
+
+          <div class="comp-card">
+            <div class="comp-header">
+              <span class="comp-title">4. "Show/Hide password" Eye Toggle</span>
+              <span class="badge passed">Interactive</span>
+            </div>
+            <p class="comp-desc">Appears inside password field when characters are typed. Toggles input visibility between masked and plain text.</p>
+            <div class="comp-detail">
+              <span><strong>Locator:</strong> <code>getByRole('button', { name: /show password/i })</code></span>
+              <span><strong>State:</strong> Dynamic</span>
+            </div>
+          </div>
+
+          <div class="comp-card">
+            <div class="comp-header">
+              <span class="comp-title">5. "Sign in" Button</span>
+              <span class="badge passed">Auth Trigger</span>
+            </div>
+            <p class="comp-desc">Submits credentials via <code>POST /api/auth/sign-in/email</code>, obtains JWT token, and redirects to dashboard.</p>
+            <div class="comp-detail">
+              <span><strong>Locator:</strong> <code>getByRole('button', { name: /sign in/i })</code></span>
+              <span><strong>Action:</strong> Redirects to <code>/</code></span>
+            </div>
+          </div>
+
+          <div class="comp-card">
+            <div class="comp-header">
+              <span class="comp-title">6. "Send code" Button (OTP Mode)</span>
+              <span class="badge passed">OTP Dispatch</span>
+            </div>
+            <p class="comp-desc">Default primary button. Dispatches temporary 6-digit verification code to the entered email or mobile number.</p>
+            <div class="comp-detail">
+              <span><strong>Locator:</strong> <code>getByRole('button', { name: /send code/i })</code></span>
+              <span><strong>Step:</strong> OTP Screen</span>
+            </div>
+          </div>
+
+          <div class="comp-card">
+            <div class="comp-header">
+              <span class="comp-title">7. Auxiliary Header Controls</span>
+              <span class="badge passed">Visible</span>
+            </div>
+            <p class="comp-desc"><strong>Recovery:</strong> Opens account recovery modal. <strong>About:</strong> Displays platform overview dialog. <strong>More:</strong> Opens auxiliary action menu.</p>
+            <div class="comp-detail">
+              <span><strong>Buttons:</strong> <code>Recovery</code>, <code>About</code>, <code>More</code></span>
+            </div>
+          </div>
+
+          <div class="comp-card">
+            <div class="comp-header">
+              <span class="comp-title">8. Legal & Onboarding Links</span>
+              <span class="badge passed">Verified</span>
+            </div>
+            <p class="comp-desc"><strong>Create an account:</strong> Routes new users to sign-up. <strong>Terms & Privacy:</strong> Verified legal links presented upon credential entry.</p>
+            <div class="comp-detail">
+              <span><strong>Links:</strong> <code>Create an account</code>, <code>Terms</code>, <code>Privacy</code></span>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
+
+    <!-- ==================== VIEW 3: HOME PAGE ==================== -->
+    <div id="view-home" class="view-content">
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <div class="panel-title">🏠 Eve Vakh — Home Page & Navigation</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+              Target Endpoint: <code>https://eve.vakh.com/</code> | Public Entry Point & Routing
+            </p>
+          </div>
+          <span class="badge passed">1 Test Passed</span>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Spec File</th>
+              <th>Test Case Name</th>
+              <th>Target Selector</th>
+              <th>Expected Action</th>
+              <th>Status</th>
+              <th>Avg Duration</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>navigation.spec.ts</code></td>
+              <td><strong>Navigate from home page and click on web to reach login page</strong></td>
+              <td><code>a[href*="/auth/sign-in"]</code> / <code>web</code></td>
+              <td>Routes client to <code>/auth/sign-in</code></td>
+              <td><span class="badge passed">PASSED (4 Browsers)</span></td>
+              <td>~10.4s</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid-2">
+        <div class="panel">
+          <div class="panel-title" style="margin-bottom: 1rem;">🔍 Tested UI Behaviors on Home Page</div>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.88rem;">
+            <li style="display: flex; gap: 0.5rem;"><span>✅</span> <div><strong>Initial Page Load:</strong> Fast initial render with domcontentloaded state handled within 1.2 seconds.</div></li>
+            <li style="display: flex; gap: 0.5rem;"><span>✅</span> <div><strong>Web Gateway Link:</strong> Link labeled "web" is visible in desktop header navigation.</div></li>
+            <li style="display: flex; gap: 0.5rem;"><span>✅</span> <div><strong>Client-Side Transition:</strong> Clicking web link avoids full reload and mounts the React authentication root cleanly.</div></li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <div class="panel-title" style="margin-bottom: 1rem;">⏱️ Home Navigation Browser Breakdown</div>
+          <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+              <span>Chromium</span>
+              <span class="badge browser">8.3s</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+              <span>Firefox</span>
+              <span class="badge browser">11.0s</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+              <span>Safari (WebKit)</span>
+              <span class="badge browser">13.0s</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+              <span>Microsoft Edge</span>
+              <span class="badge browser">9.6s</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ==================== VIEW 4: CHAT PAGE ==================== -->
+    <div id="view-chat" class="view-content">
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <div class="panel-title">💬 Eve Vakh — Chat & Messaging Module</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+              Target Endpoint: <code>https://eve.vakh.com/messages</code> | Active Channel & Inboxes
+            </p>
+          </div>
+          <span class="badge passed">Header Verified</span>
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <h4 style="margin-bottom: 0.75rem; color: #cbd5e1;">Test Verification Summary</h4>
+            <table style="margin-top: 0;">
+              <tbody>
+                <tr>
+                  <td><strong>Navigation Trigger</strong></td>
+                  <td><code>getByRole('menuitem', { name: 'Chat' })</code></td>
+                </tr>
+                <tr>
+                  <td><strong>Target Route</strong></td>
+                  <td><code>https://eve.vakh.com/messages</code></td>
+                </tr>
+                <tr>
+                  <td><strong>Header Assertion</strong></td>
+                  <td>Asserts <code>Messages</code> heading is visible after routing</td>
+                </tr>
+                <tr>
+                  <td><strong>Automation Status</strong></td>
+                  <td><span class="badge passed">PASSED across Chromium, Firefox, WebKit, Edge</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="comp-card" style="margin-bottom: 0;">
+            <div class="comp-title" style="margin-bottom: 0.75rem;">📡 Real-Time Chat Features Detected</div>
+            <ul style="list-style: none; font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.5rem; color: var(--text-muted);">
+              <li>🔹 <strong>New Message Button:</strong> Allows direct messaging any active user.</li>
+              <li>🔹 <strong>Group Chat:</strong> Channels for group conversations.</li>
+              <li>🔹 <strong>Unread Counters:</strong> Synchronized with backend <code>/api/messages/unread-count</code>.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ==================== VIEW 5: ACTIVITY PAGE ==================== -->
+    <div id="view-activity" class="view-content">
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <div class="panel-title">🔔 Eve Vakh — Activity & Notifications Module</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+              Target Endpoint: <code>https://eve.vakh.com/activity</code> | Social Feed & Notifications
+            </p>
+          </div>
+          <span class="badge passed">Header Verified</span>
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <h4 style="margin-bottom: 0.75rem; color: #cbd5e1;">Test Verification Summary</h4>
+            <table style="margin-top: 0;">
+              <tbody>
+                <tr>
+                  <td><strong>Navigation Trigger</strong></td>
+                  <td><code>getByRole('menuitem', { name: 'Activity' })</code></td>
+                </tr>
+                <tr>
+                  <td><strong>Target Route</strong></td>
+                  <td><code>https://eve.vakh.com/activity</code></td>
+                </tr>
+                <tr>
+                  <td><strong>Header Assertion</strong></td>
+                  <td>Asserts <code>Activity</code> header is visible</td>
+                </tr>
+                <tr>
+                  <td><strong>Automation Status</strong></td>
+                  <td><span class="badge passed">PASSED across Chromium, Firefox, WebKit, Edge</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="comp-card" style="margin-bottom: 0;">
+            <div class="comp-title" style="margin-bottom: 0.75rem;">📢 Notification Events Detected</div>
+            <ul style="list-style: none; font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.5rem; color: var(--text-muted);">
+              <li>❤️ <strong>Heart Milestones:</strong> Alerts when posts receive reactions.</li>
+              <li>💬 <strong>Mentions & Replies:</strong> Post mentions and comments.</li>
+              <li>🚀 <strong>System Alerts:</strong> Community notifications and milestone tracking.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ==================== VIEW 6: EXPLORE PAGE ==================== -->
+    <div id="view-explore" class="view-content">
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <div class="panel-title">🧭 Eve Vakh — Explore Page & User Directory</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+              Target Endpoint: <code>https://eve.vakh.com/explore</code> | User Cards & Category Tags
+            </p>
+          </div>
+          <span class="badge passed">Verified Directory</span>
+        </div>
+
+        <!-- Verification Specs -->
+        <table>
+          <thead>
+            <tr>
+              <th>Verified Card Property</th>
+              <th>DOM Implementation</th>
+              <th>Assertion Rule</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Profile Picture (Avatar)</strong></td>
+              <td><code>&lt;img src="..."&gt;</code></td>
+              <td>Asserts <code>img</code> is visible and has a non-empty image source URL.</td>
+              <td><span class="badge passed">PASSED</span></td>
+            </tr>
+            <tr>
+              <td><strong>Username Handle</strong></td>
+              <td><code>div:has-text("@")</code></td>
+              <td>Asserts handle begins with <code>@</code> (e.g. <code>@archie</code>, <code>@ghanshyaama</code>).</td>
+              <td><span class="badge passed">PASSED</span></td>
+            </tr>
+            <tr>
+              <td><strong>User Display Name</strong></td>
+              <td><code>div.r-1njgeiw</code></td>
+              <td>Asserts display name is populated.</td>
+              <td><span class="badge passed">PASSED</span></td>
+            </tr>
+            <tr>
+              <td><strong>Topic Tags</strong></td>
+              <td><code>[aria-label*="Tags:"]</code></td>
+              <td>Asserts tag badges (e.g. <code>blog</code>, <code>delivery</code>, <code>chai</code>, <code>qa</code>) are displayed.</td>
+              <td><span class="badge passed">PASSED</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Interactive User Directory Inspector -->
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-title">👥 Interactive Explore Directory Viewer</div>
+          <input type="text" id="userSearch" class="search-box" placeholder="Filter by name, handle, tag..." oninput="filterUsers()">
+        </div>
+
+        <div id="userGrid" class="user-grid">
+          <!-- User 1 -->
+          <div class="user-card" data-search="archie @archie blog delivery">
+            <img class="user-avatar" src="https://xo.eve.vakh.com/api/storage/avatar/5bfe8fbe-a660-4a02-be16-abab7a0f3200/1777450879008-2729d2b8-77b2-4bf4-9e20-a2849ebbb14d.jpg" alt="archie" onerror="this.src='https://api.dicebear.com/10.x/lorelei/svg?seed=archie&size=96'">
+            <div class="user-info">
+              <div class="user-name">archie</div>
+              <div class="user-handle">@archie</div>
+              <div class="user-tags">
+                <span class="badge tag-pill">blog</span>
+                <span class="badge tag-pill">delivery</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- User 2 -->
+          <div class="user-card" data-search="Ajay @ghanshyaama building vakh">
+            <img class="user-avatar" src="https://xo.eve.vakh.com/api/storage/avatar/dc513dee-faca-4953-ae80-3e4e009562db/1783771372901-0f84d3dc-4c7d-4e84-8de0-d649e9ba5a5e.webp" alt="Ajay" onerror="this.src='https://api.dicebear.com/10.x/lorelei/svg?seed=ajay&size=96'">
+            <div class="user-info">
+              <div class="user-name">Ajay</div>
+              <div class="user-handle">@ghanshyaama</div>
+              <div class="user-tags">
+                <span class="badge tag-pill">building vakh</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- User 3 -->
+          <div class="user-card" data-search="mughdabansal1414 @mughdabansal1414 qa music">
+            <img class="user-avatar" src="https://xo.eve.vakh.com/api/storage/avatar/59ade1b9-5d30-40a4-b7db-9b16c1a55a84/1785480486314-e8d62956-fa63-47d4-8c6c-61f025ded77f.webp" alt="mughdabansal1414" onerror="this.src='https://api.dicebear.com/10.x/lorelei/svg?seed=mughda&size=96'">
+            <div class="user-info">
+              <div class="user-name">mughdabansal1414</div>
+              <div class="user-handle">@mughdabansal1414</div>
+              <div class="user-tags">
+                <span class="badge tag-pill">qa</span>
+                <span class="badge tag-pill">music</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- User 4 -->
+          <div class="user-card" data-search="aryan @aryanchahal yo">
+            <img class="user-avatar" src="https://xo.eve.vakh.com/api/storage/avatar/04063500-9852-408a-9afe-0e989569a8a9/1775797872172-e38fe15e-cc35-426b-8d72-07d89a321606.jpg" alt="aryan" onerror="this.src='https://api.dicebear.com/10.x/lorelei/svg?seed=aryan&size=96'">
+            <div class="user-info">
+              <div class="user-name">aryan</div>
+              <div class="user-handle">@aryanchahal</div>
+              <div class="user-tags">
+                <span class="badge tag-pill">yo</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- User 5 -->
+          <div class="user-card" data-search="Sunny Comet @sunny_comet_1300">
+            <img class="user-avatar" src="https://api.dicebear.com/10.x/lorelei/svg?seed=sunny_comet_1300&size=96&backgroundColor=ECFCCB" alt="Sunny Comet">
+            <div class="user-info">
+              <div class="user-name">Sunny Comet</div>
+              <div class="user-handle">@sunny_comet_1300</div>
+              <div class="user-tags">
+                <span class="badge tag-pill">verified</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- User 6 -->
+          <div class="user-card" data-search="soniabeniwal @soniabeniwal283 chai shopping main-character">
+            <img class="user-avatar" src="https://xo.eve.vakh.com/api/storage/avatar/ae085197-fd62-4ae0-a7d7-bf79e21fc9aa/1777980197434-f1718609-6276-4a27-9208-86513d464712.jpg" alt="soniabeniwal" onerror="this.src='https://api.dicebear.com/10.x/lorelei/svg?seed=sonia&size=96'">
+            <div class="user-info">
+              <div class="user-name">soniabeniwal</div>
+              <div class="user-handle">@soniabeniwal283</div>
+              <div class="user-tags">
+                <span class="badge tag-pill">chai</span>
+                <span class="badge tag-pill">shopping</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ==================== VIEW 7: GITHUB ACTIONS CI/CD ==================== -->
+    <div id="view-cicd" class="view-content">
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <div class="panel-title">⚙️ GitHub Actions CI/CD Pipeline & Deployment</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+              Workflow: <code>.github/workflows/test-and-deploy.yml</code> | Auto-runs on every push to <code>main</code>
+            </p>
+          </div>
+          <a href="https://github.com/mughdabansal/Vakh-Playwright--test-/actions" target="_blank" class="btn-github">
+            View on GitHub &rarr;
+          </a>
+        </div>
+
+        <div class="grid-4" style="margin-bottom: 1.5rem;">
+          <div class="stat-card green">
+            <div class="label">Trigger Condition</div>
+            <div class="value" style="font-size: 1.25rem;">push & pull_request</div>
+            <div class="subtext">Target: <code>main</code> branch</div>
+          </div>
+          <div class="stat-card blue">
+            <div class="label">Runner Environment</div>
+            <div class="value" style="font-size: 1.25rem;">ubuntu-latest</div>
+            <div class="subtext">Node.js 20 LTS</div>
+          </div>
+          <div class="stat-card purple">
+            <div class="label">Target Test Suites</div>
+            <div class="value" style="font-size: 1.25rem;">20 Tests</div>
+            <div class="subtext">4 Browser Projects</div>
+          </div>
+          <div class="stat-card orange">
+            <div class="label">Deployment Target</div>
+            <div class="value" style="font-size: 1.25rem;">GitHub Pages</div>
+            <div class="subtext">Auto-deploys <code>docs/</code></div>
+          </div>
+        </div>
+
+        <h4 style="margin-bottom: 0.75rem; color: #cbd5e1;">🚀 Pipeline Execution Flow</h4>
+        <div class="timeline">
+          <div class="timeline-step">
+            <div class="step-icon">1</div>
+            <div class="step-info">
+              <div class="step-title">Source Checkout</div>
+              <div class="step-desc"><code>actions/checkout@v4</code> &mdash; Clones repository branch with complete git history.</div>
+            </div>
+            <div class="step-badge">SUCCESS</div>
+          </div>
+
+          <div class="timeline-step">
+            <div class="step-icon">2</div>
+            <div class="step-info">
+              <div class="step-title">Node.js Environment Setup</div>
+              <div class="step-desc"><code>actions/setup-node@v4</code> &mdash; Sets up Node 20 environment with npm caching.</div>
+            </div>
+            <div class="step-badge">SUCCESS</div>
+          </div>
+
+          <div class="timeline-step">
+            <div class="step-icon">3</div>
+            <div class="step-info">
+              <div class="step-title">Dependency & Browser Installation</div>
+              <div class="step-desc"><code>npm ci</code> & <code>npx playwright install --with-deps</code> &mdash; Installs Chromium, Firefox, WebKit, and Edge.</div>
+            </div>
+            <div class="step-badge">SUCCESS</div>
+          </div>
+
+          <div class="timeline-step">
+            <div class="step-icon">4</div>
+            <div class="step-info">
+              <div class="step-title">Playwright Test Suite Execution</div>
+              <div class="step-desc"><code>npm test</code> &mdash; Runs navigation, login mode switching, security masking, and post-login exploration.</div>
+            </div>
+            <div class="step-badge">20/20 PASSED</div>
+          </div>
+
+          <div class="timeline-step">
+            <div class="step-icon">5</div>
+            <div class="step-info">
+              <div class="step-title">Live Dashboard Regeneration</div>
+              <div class="step-desc"><code>npm run generate:dashboard</code> &mdash; Updates metrics, timestamps, and test matrices into <code>docs/index.html</code>.</div>
+            </div>
+            <div class="step-badge">SUCCESS</div>
+          </div>
+
+          <div class="timeline-step">
+            <div class="step-icon">6</div>
+            <div class="step-info">
+              <div class="step-title">GitHub Pages Deployment</div>
+              <div class="step-desc"><code>actions/deploy-pages@v4</code> &mdash; Deploys the interactive dashboard live to <code>mughdabansal.github.io</code>.</div>
+            </div>
+            <div class="step-badge">DEPLOYED</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
     <footer>
-      <p>Eve Vakh Quality & Performance Automation Suite — Generated for Team Collaboration & Status Tracking.</p>
+      <p>Eve Vakh Quality, Test & CI/CD Automation Suite &mdash; Built with Playwright & GitHub Actions.</p>
+      <p style="margin-top: 0.35rem; color: var(--text-dim);">Live Dashboard: <a href="https://mughdabansal.github.io/Vakh-Playwright--test-/" style="color: #60a5fa;">https://mughdabansal.github.io/Vakh-Playwright--test-/</a></p>
     </footer>
+
   </div>
 
   <script>
-    // Latency Chart
-    const ctxLatency = document.getElementById('latencyChart').getContext('2d');
-    new Chart(ctxLatency, {
+    // Tab Switching Logic
+    function switchTab(tabId, el) {
+      document.querySelectorAll('.view-content').forEach(v => v.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      
+      const targetView = document.getElementById('view-' + tabId);
+      if (targetView) targetView.classList.add('active');
+      if (el) el.classList.add('active');
+
+      // Update URL hash
+      window.location.hash = tabId;
+    }
+
+    // Restore tab from URL hash on load
+    window.addEventListener('DOMContentLoaded', () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash) {
+        const matchingBtn = Array.from(document.querySelectorAll('.tab-btn')).find(b => b.getAttribute('onclick')?.includes(hash));
+        if (matchingBtn) {
+          switchTab(hash, matchingBtn);
+        }
+      }
+    });
+
+    // User Directory Live Search
+    function filterUsers() {
+      const query = document.getElementById('userSearch').value.toLowerCase();
+      const cards = document.querySelectorAll('.user-card');
+      cards.forEach(card => {
+        const searchData = card.getAttribute('data-search').toLowerCase();
+        if (searchData.includes(query)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Charts Initialization
+    const donutCtx = document.getElementById('browserDonutChart').getContext('2d');
+    new Chart(donutCtx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Chromium (5 Tests)', 'Firefox (5 Tests)', 'Safari/WebKit (5 Tests)', 'MS Edge (5 Tests)'],
+        datasets: [{
+          data: [5, 5, 5, 5],
+          backgroundColor: ['#3b82f6', '#f97316', '#a855f7', '#06b6d4'],
+          borderWidth: 0,
+          hoverOffset: 6
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: 'right',
+            labels: { color: '#94a3b8', font: { family: 'Plus Jakarta Sans', size: 12 } }
+          }
+        }
+      }
+    });
+
+    const latencyCtx = document.getElementById('latencyBarChart').getContext('2d');
+    new Chart(latencyCtx, {
       type: 'bar',
       data: {
         labels: ['P50 (Median)', 'Average (Mean)', 'P97.5', 'P99', 'Max'],
         datasets: [{
           label: 'Response Latency (ms)',
-          data: [
-            106,
-            116.9,
-            409,
-            564,
-            876
-          ],
-          backgroundColor: [
-            'rgba(59, 130, 246, 0.7)',
-            'rgba(16, 185, 129, 0.7)',
-            'rgba(245, 158, 11, 0.7)',
-            'rgba(139, 92, 246, 0.7)',
-            'rgba(239, 68, 68, 0.7)'
-          ],
-          borderRadius: 6
+          data: [106, 116.8, 409, 564, 876],
+          backgroundColor: 'rgba(59, 130, 246, 0.75)',
+          borderRadius: 6,
+          hoverBackgroundColor: '#60a5fa'
         }]
       },
       options: {
         responsive: true,
         maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
         scales: {
-          y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#9ca3af' } },
-          x: { grid: { display: false }, ticks: { color: '#9ca3af' } }
+          y: {
+            beginAtZero: true,
+            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+            ticks: { color: '#94a3b8' }
+          },
+          x: {
+            grid: { display: false },
+            ticks: { color: '#94a3b8' }
+          }
+        },
+        plugins: {
+          legend: { display: false }
         }
-      }
-    });
-
-    // Browser Pass Chart across 4 browsers (Chromium, Firefox, Safari, Edge)
-    const ctxBrowser = document.getElementById('browserChart').getContext('2d');
-    new Chart(ctxBrowser, {
-      type: 'doughnut',
-      data: {
-        labels: ['Chrome (2 Passed)', 'Firefox (2 Passed)', 'Safari (2 Passed)', 'Edge (2 Passed)'],
-        datasets: [{
-          data: [2, 2, 2, 2],
-          backgroundColor: ['#3b82f6', '#f97316', '#10b981', '#06b6d4'],
-          borderWidth: 0
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: { legend: { position: 'right', labels: { color: '#9ca3af', font: { size: 11 } } } }
       }
     });
   </script>
