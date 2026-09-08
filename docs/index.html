@@ -770,7 +770,7 @@
         <div class="stat-card green">
           <div class="label">Total E2E Test Pass Rate</div>
           <div class="value">100%</div>
-          <div class="subtext"><span>✅</span> 80 of 80 Tests Passed (20 Tests &times; 4 Engines)</div>
+          <div class="subtext"><span>✅</span> 120 of 120 Tests Passed (30 Tests &times; 4 Engines)</div>
         </div>
         <div class="stat-card blue">
           <div class="label">Web Load Throughput</div>
@@ -793,7 +793,7 @@
       <div class="panel">
         <div class="panel-header">
           <div class="panel-title">🎯 Tested Application Modules & Status</div>
-          <span style="font-size: 0.8rem; color: var(--text-muted);">Synchronized: Monday, September 7, 2026 at 6:47:29 AM</span>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Synchronized: Tuesday, September 8, 2026 at 9:37:28 AM</span>
         </div>
         <div class="grid-3">
           <div class="stat-card" style="cursor: pointer;" onclick="switchTab('login', document.querySelectorAll('.tab-btn')[1])">
@@ -1917,7 +1917,7 @@
               Target Endpoint: <code>https://xo.eve.vakh.com</code> | Automated API Gateway & Endpoint Verification
             </p>
           </div>
-          <span class="badge passed">6 / 6 Passed (2.7s)</span>
+          <span class="badge passed">16 / 16 Passed (Core + Auth)</span>
         </div>
 
         <table>
@@ -1996,6 +1996,118 @@
               <td><code>GET /health</code></td>
               <td><code>200 OK</code></td>
               <td>94ms</td>
+              <td><span class="badge passed">PASSED</span></td>
+            </tr>
+
+            <!-- Auth API Tests (ALL /api/auth/*) -->
+            <tr>
+              <td><code>API_AUTH_001</code></td>
+              <td>
+                <strong>Unauthenticated Session Probe</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Asserts session check returns 200 OK and null for unauthenticated client.</span>
+              </td>
+              <td><code>GET /api/auth/get-session</code></td>
+              <td><code>200 OK (null)</code></td>
+              <td>961ms</td>
+              <td><span class="badge passed">PASSED</span></td>
+            </tr>
+            <tr>
+              <td><code>API_AUTH_002</code></td>
+              <td>
+                <strong>Email Sign-In Body Validation</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Enforces VALIDATION_ERROR code on empty payload for email/password.</span>
+              </td>
+              <td><code>POST /api/auth/sign-in/email</code></td>
+              <td><code>400 Bad Request</code></td>
+              <td>1.0s</td>
+              <td><span class="badge passed">PASSED</span></td>
+            </tr>
+            <tr>
+              <td><code>API_AUTH_003</code></td>
+              <td>
+                <strong>Email Sign-In Credential Guard</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Enforces INVALID_EMAIL_OR_PASSWORD error code on incorrect credentials.</span>
+              </td>
+              <td><code>POST /api/auth/sign-in/email</code></td>
+              <td><code>401 Unauthorized</code></td>
+              <td>1.2s</td>
+              <td><span class="badge passed">PASSED</span></td>
+            </tr>
+            <tr>
+              <td><code>API_AUTH_004</code></td>
+              <td>
+                <strong>CORS Preflight Directives</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Validates OPTIONS preflight returns 204 No Content for eve.vakh.com.</span>
+              </td>
+              <td><code>OPTIONS /api/auth/sign-in/email</code></td>
+              <td><code>204 No Content</code></td>
+              <td>884ms</td>
+              <td><span class="badge passed">PASSED</span></td>
+            </tr>
+            <tr>
+              <td><code>API_AUTH_005</code></td>
+              <td>
+                <strong>Email OTP Sign-In Validation</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Validates required email and otp payload fields.</span>
+              </td>
+              <td><code>POST /api/auth/sign-in/email-otp</code></td>
+              <td><code>400 Bad Request</code></td>
+              <td>983ms</td>
+              <td><span class="badge passed">PASSED</span></td>
+            </tr>
+            <tr>
+              <td><code>API_AUTH_006</code></td>
+              <td>
+                <strong>Send Verification OTP Enum Guard</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Enforces email presence and valid type enum parameter.</span>
+              </td>
+              <td><code>POST /api/auth/email-otp/send-verification-otp</code></td>
+              <td><code>400 Bad Request</code></td>
+              <td>991ms</td>
+              <td><span class="badge passed">PASSED</span></td>
+            </tr>
+            <tr>
+              <td><code>API_AUTH_007</code></td>
+              <td>
+                <strong>Phone Number OTP Send Validation</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Enforces phoneNumber parameter validation on SMS OTP dispatch.</span>
+              </td>
+              <td><code>POST /api/auth/phone-number/send-otp</code></td>
+              <td><code>400 Bad Request</code></td>
+              <td>1.0s</td>
+              <td><span class="badge passed">PASSED</span></td>
+            </tr>
+            <tr>
+              <td><code>API_AUTH_008</code></td>
+              <td>
+                <strong>Phone Number OTP Verification Guard</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Enforces phoneNumber and code validation parameters.</span>
+              </td>
+              <td><code>POST /api/auth/phone-number/verify</code></td>
+              <td><code>400 Bad Request</code></td>
+              <td>1.1s</td>
+              <td><span class="badge passed">PASSED</span></td>
+            </tr>
+            <tr>
+              <td><code>API_AUTH_009</code></td>
+              <td>
+                <strong>OAuth2 Consent Meta Parameter Guard</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Validates consent_code requirement for OAuth2 metadata requests.</span>
+              </td>
+              <td><code>GET /api/auth/oauth2/consent-meta</code></td>
+              <td><code>400 Bad Request</code></td>
+              <td>971ms</td>
+              <td><span class="badge passed">PASSED</span></td>
+            </tr>
+            <tr>
+              <td><code>API_AUTH_010</code></td>
+              <td>
+                <strong>Auth Security & Rate Limit Resilience Contract</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Validates JSON compliance, RATE_LIMIT_EXCEEDED handling, and security formats.</span>
+              </td>
+              <td><code>POST /api/auth/*</code></td>
+              <td><code>400 / 401 / 429</code></td>
+              <td>975ms</td>
               <td><span class="badge passed">PASSED</span></td>
             </tr>
           </tbody>

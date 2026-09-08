@@ -10,10 +10,10 @@ Built with **Playwright Test**, **TypeScript**, **Autocannon**, and **GitHub Act
 
 - [Overview & Quick Links](#-overview--quick-links)
 - [Architecture & Repository Structure](#-architecture--repository-structure)
-- [Comprehensive Test Suites & Matrix (20 Tests)](#-comprehensive-test-suites--matrix-20-tests)
+- [Comprehensive Test Suites & Matrix (30 Tests)](#-comprehensive-test-suites--matrix-30-tests)
   - [1. Explore Page Test Suite (9 Tests)](#1-explore-page-test-suite-9-tests)
   - [2. Login & Authentication Suite (4 Tests)](#2-login--authentication-suite-4-tests)
-  - [3. Staging Backend API Suite (6 Tests)](#3-staging-backend-api-suite-6-tests)
+  - [3. Staging Backend API Suites (16 Tests)](#3-staging-backend-api-suites-16-tests)
   - [4. Navigation Suite (1 Test)](#4-navigation-suite-1-test)
 - [Sanity Testing Workflow](#-sanity-testing-workflow)
 - [Multi-Browser Cross-Platform Coverage](#-multi-browser-cross-platform-coverage)
@@ -66,7 +66,7 @@ Vakh-Playwright--test-/
 │   └── tests/                     # Playwright Test Spec definitions
 │       ├── explore.spec.ts        # 9 Explore UI/UX, modals, profile, forms & subscribe tests
 │       ├── login.spec.ts          # 4 Login UI/UX, OTP/Password toggles, masking & auth tests
-│       ├── api.spec.ts            # 6 Staging backend API health, DB & CORS tests
+│       ├── api.spec.ts            # 16 Staging backend API tests (6 Core Gateway + 10 Auth /api/auth/*)
 │       └── navigation.spec.ts     # 1 Home to Auth navigation smoke test
 ├── test-reports/                  # Test artifacts & performance telemetry
 │   ├── html-report/               # Interactive Playwright HTML Report
@@ -82,9 +82,9 @@ Vakh-Playwright--test-/
 
 ---
 
-## 🧪 Comprehensive Test Suites & Matrix (20 Tests)
+## 🧪 Comprehensive Test Suites & Matrix (30 Tests)
 
-The framework houses **20 automated test cases** across 4 dedicated test suites. When executed across all 4 browser engines, this yields **80 total browser assertions**.
+The framework houses **30 automated test cases** across 4 dedicated test suites. When executed across all 4 browser engines, this yields **120 total assertions** (56 cross-browser UI assertions + 16 direct backend API validations).
 
 ### 1. Explore Page Test Suite (9 Tests)
 Located in [`src/tests/explore.spec.ts`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/src/tests/explore.spec.ts) and backed by [`src/pages/ExplorePage.ts`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/src/pages/ExplorePage.ts):
@@ -115,17 +115,32 @@ Located in [`src/tests/login.spec.ts`](file:///c:/Users/Mughda%20Bansal/Vakh-Pla
 
 ---
 
-### 3. Staging Backend API Suite (6 Tests)
-Located in [`src/tests/api.spec.ts`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/src/tests/api.spec.ts):
+### 3. Staging Backend API Suites (16 Tests)
+Located in [`src/tests/api.spec.ts`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/src/tests/api.spec.ts) targeting `https://xo.eve.vakh.com`:
 
+#### A. Core Gateway & Storage Suite (6 Tests)
 | Test ID | Endpoint | Method | Expected Outcome |
-| :--- | :--- | :--- | :--- |
-| **`API-01`** | `/health` | `GET` | HTTP 200, returns `{ status: "ready" }` or equivalent health payload. |
-| **`API-02`** | `/health` | `GET` | Validates fast service responsiveness (`< 500ms`). |
-| **`API-03`** | `/auth/v1/settings` | `GET` | Returns authentication provider configuration & public keys. |
-| **`API-04`** | `/rest/v1/` | `GET` | Validates API gateway rejects unauthenticated DB queries with HTTP 401. |
-| **`API-05`** | `/storage/v1/status` | `GET` | Verifies object storage service availability. |
-| **`API-06`** | `/health` | `OPTIONS` | CORS preflight test validating `access-control-allow-origin` headers. |
+| :--- | :--- | :---: | :--- |
+| **`API_TC_001`** | `/health` | `GET` | HTTP 200 OK, returns `{ status: "ready" }` within latency threshold. |
+| **`API_TC_002`** | `/` | `GET` | HTTP 200 OK, gateway root responds with valid JSON payload. |
+| **`API_TC_003`** | `/api` | `GET` | HTTP 401 Unauthorized, enforces security guard on unauthenticated access. |
+| **`API_TC_004`** | `/api/health` | `GET` | HTTP 401 Unauthorized, protects internal health route against unauthorized probes. |
+| **`API_TC_005`** | `/api/storage/avatar/...` | `GET` | HTTP 200 OK, serves public avatar with valid `image/*` Content-Type. |
+| **`API_TC_006`** | `/health` | `GET` | HTTP 200 OK, verifies presence of essential HTTP security headers. |
+
+#### B. Dedicated Authentication API Suite — ALL `/api/auth/*` (10 Tests)
+| Test ID | Endpoint | Method | Scenario & Expected Validation |
+| :--- | :--- | :---: | :--- |
+| **`API_AUTH_001`** | `/api/auth/get-session` | `GET` | Asserts unauthenticated session probe returns `200 OK` with body `null`. |
+| **`API_AUTH_002`** | `/api/auth/sign-in/email` | `POST` | Submits empty payload `{}`; validates `400 Bad Request` with `VALIDATION_ERROR` for email/password. |
+| **`API_AUTH_003`** | `/api/auth/sign-in/email` | `POST` | Submits invalid credentials; validates `401 Unauthorized` with `INVALID_EMAIL_OR_PASSWORD`. |
+| **`API_AUTH_004`** | `/api/auth/sign-in/email` | `OPTIONS` | Validates CORS preflight returns `204 No Content` with appropriate CORS directives. |
+| **`API_AUTH_005`** | `/api/auth/sign-in/email-otp` | `POST` | Submits empty payload; validates `400 Bad Request` requiring `email` and `otp`. |
+| **`API_AUTH_006`** | `/api/auth/email-otp/send-verification-otp` | `POST` | Validates `400 Bad Request` enforcing `email` and allowed `type` enum (`"email-verification" \| "sign-in" \| "forget-password" \| "change-email"`). |
+| **`API_AUTH_007`** | `/api/auth/phone-number/send-otp` | `POST` | Validates `400 Bad Request` with `VALIDATION_ERROR` when `phoneNumber` is omitted. |
+| **`API_AUTH_008`** | `/api/auth/phone-number/verify` | `POST` | Validates `400 Bad Request` with `VALIDATION_ERROR` when `phoneNumber` or `code` are omitted. |
+| **`API_AUTH_009`** | `/api/auth/oauth2/consent-meta` | `GET` | Validates `400 Bad Request` requiring `consent_code` parameter. |
+| **`API_AUTH_010`** | `/api/auth/*` | `POST` | Validates security error schemas, JSON standards, and rate limiting resilience (`429 RATE_LIMIT_EXCEEDED`). |
 
 ---
 
@@ -232,10 +247,11 @@ The project maintains two production CI/CD workflows:
 
 | Command | Description |
 | :--- | :--- |
-| **`npm test`** | Runs all 20 Playwright E2E and API tests across all 4 browser engines. |
+| **`npm test`** | Runs all 30 Playwright E2E and API tests across configured engines. |
 | **`npm run test:sanity`** | Runs the 13 Sanity tests (Login + Explore) across all browsers. |
 | **`npm run test:sanity -- --project=chromium`** | Runs Sanity tests specifically on Chromium for rapid local validation. |
-| **`npm run test:api`** | Runs the 6 Staging Backend API tests against `https://xo.eve.vakh.com`. |
+| **`npm run test:api`** | Runs all 16 Staging Backend API tests (Core + Auth) against `https://xo.eve.vakh.com`. |
+| **`npm run test:api:auth`** | Runs the 10 dedicated Authentication API tests for ALL `/api/auth/*` endpoints. |
 | **`npm run test:headed`** | Runs Playwright tests in visible headed browser mode. |
 | **`npm run test:ui`** | Launches interactive Playwright UI mode with time-travel debugger. |
 | **`npm run test:report`** | Opens the Playwright HTML test report in the default web browser. |

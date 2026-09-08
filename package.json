@@ -7,6 +7,7 @@
     "test": "playwright test",
     "test:sanity": "playwright test src/tests/login.spec.ts src/tests/explore.spec.ts",
     "test:api": "playwright test src/tests/api.spec.ts",
+    "test:api:auth": "playwright test src/tests/api.spec.ts -g API_AUTH",
     "test:headed": "playwright test --headed",
     "test:ui": "playwright test --ui",
     "test:report": "playwright show-report test-reports/html-report",
