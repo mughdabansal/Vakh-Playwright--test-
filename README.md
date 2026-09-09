@@ -262,11 +262,14 @@ The repository includes a self-contained, responsive team dashboard built with H
 👉 **[https://mughdabansal.github.io/Vakh-Playwright--test-/](https://mughdabansal.github.io/Vakh-Playwright--test-/)**
 
 ### Dashboard Features:
-1. **Overview Tab**: Live pass rate donut charts, cross-browser compatibility matrix, and latest CI execution run metadata.
-2. **Login Page Tab**: Full pass/fail breakdown for `TC-01` through `TC-04`, UI/UX defect analysis, and OTP/Password audit.
-3. **Explore Page Tab**: Comprehensive status for `TC_EXP_001` through `TC_EXP_009`, modal verification, and subscription state checks.
-4. **Chat & Activity Tab**: Real-time messaging and activity feed test coverage and status tracker.
-5. **Staging API & CI/CD Tab**: High-throughput benchmark charts comparing Web Portal vs Staging Backend API, with direct links to GitHub Actions workflows.
+1. **Overview Tab**: Live automated test coverage KPIs (51 scenarios / 100% pass rate), cross-browser distribution charts, web & backend API benchmarks, and direct-action module cards.
+2. **Sanity Suites Tab (NEW ⚡)**: Dedicated interactive presentation of versioned sanity releases with instant version filtering (`All`, `Sanity 1.0`, `Sanity 2.0`), 21 test case breakdown tables, multi-browser timing matrix, and copyable CLI runner snippets.
+3. **Login Page Tab**: Full pass/fail breakdown for `TC-01` through `TC-04`, dual-mode OTP vs Password inspection, eye masking toggle, and auth submission audit.
+4. **Home Page Tab**: Public landing hero branding verification, desktop/mobile header navigation, and `/auth/sign-in` gateway routing smoke tests.
+5. **Explore Page Tab**: Comprehensive status for `TC_EXP_001` through `TC_EXP_009`, modal verification, interactive user simulator, and subscription state checks.
+6. **Chat Page Tab**: Real-time messaging channels, direct message buttons, and unread counters backend sync tracker.
+7. **Activity Page Tab**: Social feed, heart milestones, creator mentions, and activity timeline verification.
+8. **GitHub Actions CI/CD Tab**: High-throughput Autocannon benchmark charts comparing Web Portal vs Staging Backend API, pipeline step timeline, and direct GitHub Actions workflow links.
 
 ---
 
