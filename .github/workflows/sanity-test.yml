@@ -1,26 +1,31 @@
-name: Sanity Tests (Login & Explore)
+name: Versioned Sanity Test Suites (1.0, 2.0)
 
 on:
   push:
     branches: [ main ]
     paths:
-      - 'src/pages/LoginPage.ts'
-      - 'src/pages/ExplorePage.ts'
-      - 'src/tests/login.spec.ts'
-      - 'src/tests/explore.spec.ts'
+      - 'src/pages/**'
+      - 'src/tests/sanity/**'
       - 'src/config/**'
       - '.github/workflows/sanity-test.yml'
   pull_request:
     branches: [ main ]
     paths:
-      - 'src/pages/LoginPage.ts'
-      - 'src/pages/ExplorePage.ts'
-      - 'src/tests/login.spec.ts'
-      - 'src/tests/explore.spec.ts'
+      - 'src/pages/**'
+      - 'src/tests/sanity/**'
       - 'src/config/**'
       - '.github/workflows/sanity-test.yml'
   workflow_dispatch:
     inputs:
+      suite_version:
+        description: 'Sanity Suite Version to execute'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - '1.0'
+          - '2.0'
       browser:
         description: 'Browser engine to run sanity suite against'
         required: true
@@ -35,9 +40,9 @@ on:
 
 jobs:
   sanity-test:
-    name: Run Sanity Test Suite
+    name: Run Versioned Sanity Tests
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
 
     steps:
       - name: Checkout Code Repository
@@ -67,26 +72,35 @@ jobs:
             npx playwright install msedge || true
           fi
 
-      - name: Run Playwright Sanity Tests (Login & Explore)
+      - name: Run Playwright Sanity Tests
         run: |
           PROJECT_ARG=""
           if [ -n "${{ github.event.inputs.browser }}" ] && [ "${{ github.event.inputs.browser }}" != "all" ]; then
             PROJECT_ARG="--project=${{ github.event.inputs.browser }}"
           fi
-          echo "Executing: npm run test:sanity -- $PROJECT_ARG"
-          npm run test:sanity -- $PROJECT_ARG
+
+          if [ "${{ github.event.inputs.suite_version }}" = "1.0" ]; then
+            echo "Executing Sanity 1.0 (Login & Explore): npm run test:sanity:1.0 -- $PROJECT_ARG"
+            npm run test:sanity:1.0 -- $PROJECT_ARG
+          elif [ "${{ github.event.inputs.suite_version }}" = "2.0" ]; then
+            echo "Executing Sanity 2.0 (Posting & Moderation): npm run test:sanity:2.0 -- $PROJECT_ARG"
+            npm run test:sanity:2.0 -- $PROJECT_ARG
+          else
+            echo "Executing All Sanity Suites: npm run test:sanity -- $PROJECT_ARG"
+            npm run test:sanity -- $PROJECT_ARG
+          fi
         env:
           CI: true
 
       - name: Generate Sanity Run Summary
         if: always()
         run: |
-          echo "### 🚀 Sanity Test Suite Execution Summary" >> $GITHUB_STEP_SUMMARY
+          echo "### 🚀 Versioned Sanity Test Execution Summary" >> $GITHUB_STEP_SUMMARY
           echo "- **Trigger**: \`${{ github.event_name }}\`" >> $GITHUB_STEP_SUMMARY
-          echo "- **Target Pages**: Login Page (\`LoginPage.ts\`) & Explore Page (\`ExplorePage.ts\`)" >> $GITHUB_STEP_SUMMARY
-          echo "- **Target Test Files**: \`src/tests/login.spec.ts\` & \`src/tests/explore.spec.ts\`" >> $GITHUB_STEP_SUMMARY
+          echo "- **Sanity Suite Version**: \`${{ github.event.inputs.suite_version || 'all' }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "- **Sanity 1.0**: Login (\`login.spec.ts\`) & Explore (\`explore.spec.ts\`) — 13 Scenarios" >> $GITHUB_STEP_SUMMARY
+          echo "- **Sanity 2.0**: Home Posting (\`posting.spec.ts\`) & Form Moderation (\`moderation.spec.ts\`) — 8 Scenarios" >> $GITHUB_STEP_SUMMARY
           echo "- **Selected Browser**: \`${{ github.event.inputs.browser || 'all' }}\`" >> $GITHUB_STEP_SUMMARY
-          echo "- **Total Scenarios Evaluated**: 13 Unique Test Cases (4 Login + 9 Explore)" >> $GITHUB_STEP_SUMMARY
 
       - name: Archive Playwright HTML Test Report
         uses: actions/upload-artifact@v4

@@ -62,10 +62,19 @@ Vakh-Playwright--test-/
 │   │   ├── BasePage.ts            # Abstract base page with shared navigation & waits
 │   │   ├── HomePage.ts            # Landing page actions & header locators
 │   │   ├── LoginPage.ts           # Sign-in UI, mode toggling, OTP, 2FA, masking, legal links
-│   │   └── ExplorePage.ts         # Explore grid, search, filter modals, user profile view & forms
+│   │   ├── ExplorePage.ts         # Explore grid, search, filter modals, user profile view & forms
+│   │   ├── PostComposerPage.ts    # Home "New Post", form selector modal, composer tools, post submit
+│   │   └── ModerationPage.ts      # Form owner moderation queue, post approve (publish) & reject review
 │   └── tests/                     # Playwright Test Spec definitions
-│       ├── explore.spec.ts        # 9 Explore UI/UX, modals, profile, forms & subscribe tests
-│       ├── login.spec.ts          # 4 Login UI/UX, OTP/Password toggles, masking & auth tests
+│       ├── sanity/                # Versioned Sanity Testing Suites
+│       │   ├── 1.0/               # Sanity 1.0: Core Authentication & Discovery (13 Tests)
+│       │   │   ├── login.spec.ts   # 4 Login UI/UX, OTP/Password toggles, masking & auth tests
+│       │   │   └── explore.spec.ts # 9 Explore UI/UX, modals, profile, forms & subscribe tests
+│       │   └── 2.0/               # Sanity 2.0: Home Posting & Form Owner Moderation (8 Tests)
+│       │       ├── posting.spec.ts # 4 Home New Post, form selector, composer tools, post submit
+│       │       └── moderation.spec.ts # 4 Form queue, approve review, reject review, security guards
+│       ├── explore.spec.ts        # Explore regression suite (9 Tests)
+│       ├── login.spec.ts          # Login regression suite (4 Tests)
 │       ├── api.spec.ts            # 16 Staging backend API tests (6 Core Gateway + 10 Auth /api/auth/*)
 │       └── navigation.spec.ts     # 1 Home to Auth navigation smoke test
 ├── test-reports/                  # Test artifacts & performance telemetry
@@ -153,31 +162,82 @@ Located in [`src/tests/navigation.spec.ts`](file:///c:/Users/Mughda%20Bansal/Vak
 
 ---
 
-## ⚡ Sanity Testing Workflow
+## ⚡ Versioned Sanity Testing Workflow (1.0, 2.0, ...)
 
-Sanity testing focuses on rapid, high-confidence verification of critical customer-facing journeys: **Authentication** and **Content Exploration**.
+Sanity testing in Eve Vakh is organized into dedicated, versioned releases under `src/tests/sanity/<version>/` to provide targeted fast-feedback gates as the platform evolves:
 
-### Why Sanity Testing?
-- **Fast Feedback**: Runs only the 13 core UI tests (4 Login + 9 Explore) instead of running the entire suite.
-- **Pre-Deployment Gate**: Ideal for commit-level triggers, pull request validation, and pre-release smoke checks.
-- **Multi-Browser or Targeted Engine**: Can run across all 4 browser engines or a single targeted engine.
+```text
+src/tests/sanity/
+├── 1.0/                          # Sanity Release 1.0 (13 Tests)
+│   ├── login.spec.ts             # 4 Tests: Sign-in UI/UX, OTP vs Password, Masking, Submission
+│   └── explore.spec.ts           # 9 Tests: Explore Header, Grid, Nearby/Tags Modals, Profile, Forms, Subscribe
+└── 2.0/                          # Sanity Release 2.0 (8 Tests)
+    ├── posting.spec.ts           # 4 Tests: Home New Post CTA, Form Picker, Composer Tools, Submission
+    └── moderation.spec.ts        # 4 Tests: Form History Queue, Post Approve Review, Reject Review, Auth Guards
+```
+
+---
+
+### 📦 Sanity 1.0: Core Authentication & Discovery (13 Tests)
+- **Directory**: [`src/tests/sanity/1.0/`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/src/tests/sanity/1.0/)
+- **Command**: `npm run test:sanity:1.0`
+- **Scope**:
+  1. **Authentication (`login.spec.ts` - 4 Tests)**: Sign-in UI layout (`TC-01`), OTP vs Password mode switching (`TC-02`), password masking eye toggle & legal links (`TC-03`), credentials submission & MFA code view (`TC-04`).
+  2. **Explore Discovery (`explore.spec.ts` - 9 Tests)**: Header controls (`TC_EXP_001`), user card attributes (`TC_EXP_002`), Nearby filter slider (`TC_EXP_003`), category tags chips (`TC_EXP_004`), 24h active toggle (`TC_EXP_005`), user profile view (`TC_EXP_006`), profile CTAs (`TC_EXP_007`), profile forms & content sections (`TC_EXP_008`), subscription button toggle (`TC_EXP_009`).
+
+---
+
+### 🚀 Sanity 2.0: Home Posting & Form Owner Moderation (8 Tests)
+- **Directory**: [`src/tests/sanity/2.0/`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/src/tests/sanity/2.0/)
+- **Command**: `npm run test:sanity:2.0`
+- **Scope**:
+
+#### A. Home Posting & Composer Suite (`posting.spec.ts` - 4 Tests)
+Backed by [`src/pages/PostComposerPage.ts`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/src/pages/PostComposerPage.ts):
+
+| Test ID | Scenario Description | Target Locators & Actions | Expected Outcome |
+| :--- | :--- | :--- | :--- |
+| **`TC_POST_001`** | **Home New Post Button & Modal Launch** | `button[aria-label="New Post"]` &rarr; `[role="dialog"]` | Visible "New Post" button on authenticated home page launches the "CREATE FORMS" selection modal. |
+| **`TC_POST_002`** | **Target Form Selection & Composer View** | `button[aria-label="Create in posts"]` | Clicking target form transitions dialog into post composer view (`NEW POST IN @user / form`). |
+| **`TC_POST_003`** | **Composition Tools & Controls** | `Add Text`, `Add Media`, `Add Longform`, `Create` | Displays all composition block actions ("Add Text", "Add Media", "Add Longform", "Add Link", "Add Quote", "Add Mention") and Create button. |
+| **`TC_POST_004`** | **Text Content Entry & Post Submission** | `textarea / [contenteditable]` &rarr; `submitPost()` | Inputs text content, executes submission, and ensures clean lifecycle execution without auth redirects. |
+
+#### B. Form Owner Moderation & History Suite (`moderation.spec.ts` - 4 Tests)
+Backed by [`src/pages/ModerationPage.ts`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/src/pages/ModerationPage.ts):
+
+| Test ID | Scenario Description | Target Endpoint & Method | Expected Outcome |
+| :--- | :--- | :---: | :--- |
+| **`TC_MOD_001`** | **Form Moderation Queue Query** | `GET /api/forms/:formId/moderation-posts` | Queries pending posts in form history queue and validates JSON response structure and headers. |
+| **`TC_MOD_002`** | **Moderator Post Approval Review Contract** | `POST /api/posts/:postId/review/publish` | Validates form owner acceptance & publishing action contracts on queued posts. |
+| **`TC_MOD_003`** | **Moderator Post Rejection Review Contract** | `POST /api/posts/:postId/review/reject` | Validates form owner rejection review contract with optional feedback rationale payload. |
+| **`TC_MOD_004`** | **Strict Authentication & Security Guards** | `POST /api/posts/*/review/*` | Enforces HTTP 401/403 security protections preventing unauthenticated moderation. |
+
+---
 
 ### Running Sanity Tests Locally:
 ```powershell
-# Run sanity tests on default Chromium browser
-npm run test:sanity -- --project=chromium
-
-# Run sanity tests across all configured browsers (Chromium, Firefox, Safari/WebKit, Edge)
+# Run ALL Sanity test suites (1.0 + 2.0 = 21 Tests) across all browsers
 npm run test:sanity
 
-# Run sanity tests in visible (headed) mode for visual debugging
-npm run test:sanity -- --headed --project=chromium
+# Run Sanity 1.0 (Login + Explore - 13 Tests)
+npm run test:sanity:1.0
+
+# Run Sanity 2.0 (Home Posting + Form Moderation - 8 Tests)
+npm run test:sanity:2.0
+
+# Run Sanity 2.0 targeted on Google Chromium
+npx playwright test src/tests/sanity/2.0 --project=chromium
+
+# Run Sanity 2.0 in headed browser mode for visual inspection
+npx playwright test src/tests/sanity/2.0 --headed --project=chromium
 ```
 
 ### GitHub Actions Sanity Workflow:
-A dedicated GitHub Actions workflow is provided in [`.github/workflows/sanity-test.yml`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/.github/workflows/sanity-test.yml):
-- **Automatic Triggers**: Runs on `push` or `pull_request` targeting `main` whenever `LoginPage.ts`, `ExplorePage.ts`, `login.spec.ts`, or `explore.spec.ts` are modified.
-- **Manual Trigger (`workflow_dispatch`)**: Allows selecting a specific browser (`all`, `chromium`, `firefox`, `webkit`, `edge`) via dropdown in the GitHub Actions UI.
+Provided in [`.github/workflows/sanity-test.yml`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/.github/workflows/sanity-test.yml):
+- **Automatic Triggers**: Runs on `push` or `pull_request` whenever sanity tests or page objects are modified.
+- **Manual Trigger (`workflow_dispatch`)**:
+  - `suite_version`: Choose between `all`, `1.0`, or `2.0`.
+  - `browser`: Choose between `all`, `chromium`, `firefox`, `webkit`, or `edge`.
 - **Rich Summary**: Generates a GitHub Step Summary and publishes Playwright HTML artifacts on completion.
 
 ---
@@ -239,7 +299,7 @@ The project maintains two production CI/CD workflows:
 | Workflow | File | Triggers | Responsibilities |
 | :--- | :--- | :--- | :--- |
 | **E2E Tests & Dashboard** | [`.github/workflows/test-and-deploy.yml`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/.github/workflows/test-and-deploy.yml) | Push to `main`, Pull Requests, `workflow_dispatch` | Runs full test suite, regenerates `docs/index.html`, auto-commits metrics, deploys to GitHub Pages. |
-| **Sanity Test Suite** | [`.github/workflows/sanity-test.yml`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/.github/workflows/sanity-test.yml) | Push/PR on Login & Explore files, `workflow_dispatch` | Runs sanity tests (`login.spec.ts` + `explore.spec.ts`) on selected browser engine with step summaries. |
+| **Sanity Test Suite** | [`.github/workflows/sanity-test.yml`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/.github/workflows/sanity-test.yml) | Push/PR on Sanity & Page files, `workflow_dispatch` | Runs versioned sanity suites (`all`, `1.0`, or `2.0`) on selected browser engine with step summaries. |
 
 ---
 
@@ -248,8 +308,9 @@ The project maintains two production CI/CD workflows:
 | Command | Description |
 | :--- | :--- |
 | **`npm test`** | Runs all 30 Playwright E2E and API tests across configured engines. |
-| **`npm run test:sanity`** | Runs the 13 Sanity tests (Login + Explore) across all browsers. |
-| **`npm run test:sanity -- --project=chromium`** | Runs Sanity tests specifically on Chromium for rapid local validation. |
+| **`npm run test:sanity`** | Runs all Sanity test suites (1.0 + 2.0 = 21 Tests) across all browsers. |
+| **`npm run test:sanity:1.0`** | Runs Sanity 1.0 (Login + Explore - 13 Tests). |
+| **`npm run test:sanity:2.0`** | Runs Sanity 2.0 (Home Posting + Form Moderation - 8 Tests). |
 | **`npm run test:api`** | Runs all 16 Staging Backend API tests (Core + Auth) against `https://xo.eve.vakh.com`. |
 | **`npm run test:api:auth`** | Runs the 10 dedicated Authentication API tests for ALL `/api/auth/*` endpoints. |
 | **`npm run test:headed`** | Runs Playwright tests in visible headed browser mode. |

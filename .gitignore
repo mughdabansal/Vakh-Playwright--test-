@@ -13,3 +13,6 @@ test-reports/test-results/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Scratch & Temporary Scripts
+scratch/

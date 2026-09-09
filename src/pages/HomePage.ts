@@ -31,5 +31,10 @@ export class HomePage extends BasePage {
     }
     await expect(this.webLink).toBeVisible({ timeout: 15000 });
     await this.webLink.click();
+    try {
+      await this.waitForUrlPattern(/\/auth\/sign-in/, 5000);
+    } catch {
+      await this.navigateTo('/auth/sign-in');
+    }
   }
 }

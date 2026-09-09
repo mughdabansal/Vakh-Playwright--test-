@@ -745,7 +745,7 @@
         🔐 Login Page <span class="tab-count">4 Tests</span>
       </button>
       <button class="tab-btn" onclick="switchTab('home', this)">
-        🏠 Home Page <span class="tab-count">1 Test</span>
+        🏠 Home Page <span class="tab-count">9 Tests (Sanity 2.0)</span>
       </button>
       <button class="tab-btn" onclick="switchTab('chat', this)">
         💬 Chat Page <span class="tab-count">Verified</span>
@@ -768,9 +768,9 @@
     <div id="view-overview" class="view-content active">
       <div class="grid-4">
         <div class="stat-card green">
-          <div class="label">Total E2E Test Pass Rate</div>
+          <div class="label">Total E2E & Sanity Pass Rate</div>
           <div class="value">100%</div>
-          <div class="subtext"><span>✅</span> 120 of 120 Tests Passed (30 Tests &times; 4 Engines)</div>
+          <div class="subtext"><span>✅</span> 152 Assertions Passed across Chromium, Firefox, WebKit, Edge</div>
         </div>
         <div class="stat-card blue">
           <div class="label">Web Load Throughput</div>
@@ -793,11 +793,11 @@
       <div class="panel">
         <div class="panel-header">
           <div class="panel-title">🎯 Tested Application Modules & Status</div>
-          <span style="font-size: 0.8rem; color: var(--text-muted);">Synchronized: Tuesday, September 8, 2026 at 4:15:57 AM</span>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Synchronized: Wednesday, September 9, 2026 at 11:06:25 AM</span>
         </div>
         <div class="grid-3">
           <div class="stat-card" style="cursor: pointer;" onclick="switchTab('login', document.querySelectorAll('.tab-btn')[1])">
-            <div class="label">Authentication Module</div>
+            <div class="label">Authentication Module (Sanity 1.0)</div>
             <div class="value" style="font-size: 1.4rem; color: #60a5fa;">Login Page</div>
             <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.3rem;">OTP mode, Password mode, Show/Hide eye toggle, Sign in & auxiliary controls.</p>
             <div style="margin-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
@@ -807,11 +807,11 @@
           </div>
 
           <div class="stat-card" style="cursor: pointer;" onclick="switchTab('home', document.querySelectorAll('.tab-btn')[2])">
-            <div class="label">Landing Module</div>
-            <div class="value" style="font-size: 1.4rem; color: #34d399;">Home Page</div>
-            <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.3rem;">Landing hero branding, web routing link to sign-in portal.</p>
+            <div class="label">Landing & Posting (Sanity 2.0)</div>
+            <div class="value" style="font-size: 1.4rem; color: #34d399;">Home & Moderation</div>
+            <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.3rem;">Sanity 2.0: Home New Post button, multi-modal composer, form history, & moderator approval/rejection.</p>
             <div style="margin-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
-              <span class="badge passed">1 Test Passed</span>
+              <span class="badge passed">9 Tests Passed</span>
               <span style="font-size: 0.78rem; color: #34d399;">View Specs &rarr;</span>
             </div>
           </div>
@@ -1073,19 +1073,121 @@
     </div>
 
 
-    <!-- ==================== VIEW 3: HOME PAGE ==================== -->
+    <!-- ==================== VIEW 3: HOME PAGE & SANITY 2.0 ==================== -->
     <div id="view-home" class="view-content">
       <div class="panel">
         <div class="panel-header">
           <div>
-            <div class="panel-title">🏠 Eve Vakh — Home Page & Navigation</div>
+            <div class="panel-title">🏠 Eve Vakh — Home Page, Post Creation & Moderation (Sanity 2.0)</div>
             <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
-              Target Endpoint: <code>https://eve.vakh.com/</code> | Public Entry Point & Routing
+              Target Endpoint: <code>https://eve.vakh.com/</code> | Navigation, Multi-Modal Composer & Form Owner Moderation History
             </p>
           </div>
-          <span class="badge passed">1 Test Passed</span>
+          <div style="display: flex; gap: 0.5rem;">
+            <span class="badge passed">9 Tests Passed (4 Browsers)</span>
+            <span class="badge" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3);">Sanity 2.0 Active</span>
+          </div>
         </div>
 
+        <!-- Suite 1: Sanity 2.0 Home Posting & Composer -->
+        <h3 style="margin: 1.25rem 0 0.75rem; font-size: 1rem; color: #34d399; display: flex; align-items: center; gap: 0.5rem;">
+          <span>📝</span> Sanity 2.0 — Home Page Posting & Composer Suite (4 Tests)
+          <span style="font-size: 0.78rem; color: var(--text-dim); font-weight: normal; margin-left: auto;"><code>src/tests/sanity/2.0/posting.spec.ts</code></span>
+        </h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Test ID</th>
+              <th>Scenario & Functional Scope</th>
+              <th>Target Locators & Actions</th>
+              <th>Status</th>
+              <th>Duration</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>TC_POST_001</code></td>
+              <td><strong>New Post Button Presence & Modal Launch</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Verifies visible "New Post" trigger launches the "CREATE FORMS" dialog modal.</span></td>
+              <td><code>button[aria-label="New Post"]</code> &rarr; <code>[role="dialog"]</code></td>
+              <td><span class="badge passed">PASSED (4 Browsers)</span></td>
+              <td>~9.7s</td>
+            </tr>
+            <tr>
+              <td><code>TC_POST_002</code></td>
+              <td><strong>Form Selection & Composer Transition</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Selects target user form and transitions into the dedicated post composer view.</span></td>
+              <td><code>button[aria-label="Create in posts"]</code> &rarr; <code>NEW POST IN @user / form</code></td>
+              <td><span class="badge passed">PASSED (4 Browsers)</span></td>
+              <td>~10.9s</td>
+            </tr>
+            <tr>
+              <td><code>TC_POST_003</code></td>
+              <td><strong>Composer Tools & Submission Controls</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Verifies Text, Media, Longform, Link, Quote, Mention tools, and Create action CTA.</span></td>
+              <td><code>Add Text</code>, <code>Add Media</code>, <code>Add Longform</code>, <code>Create</code></td>
+              <td><span class="badge passed">PASSED (4 Browsers)</span></td>
+              <td>~11.7s</td>
+            </tr>
+            <tr>
+              <td><code>TC_POST_004</code></td>
+              <td><strong>Text Content Entry & Post Submission</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Inputs dynamic text content, clicks Create, and confirms clean submission execution.</span></td>
+              <td><code>textarea / [contenteditable]</code> &rarr; <code>submitPost()</code></td>
+              <td><span class="badge passed">PASSED (4 Browsers)</span></td>
+              <td>~15.8s</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Suite 2: Sanity 2.0 Form Owner Moderation & History -->
+        <h3 style="margin: 1.75rem 0 0.75rem; font-size: 1rem; color: #a78bfa; display: flex; align-items: center; gap: 0.5rem;">
+          <span>🛡️</span> Sanity 2.0 — Form Owner Moderation & Form History Suite (4 Tests)
+          <span style="font-size: 0.78rem; color: var(--text-dim); font-weight: normal; margin-left: auto;"><code>src/tests/sanity/2.0/moderation.spec.ts</code></span>
+        </h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Test ID</th>
+              <th>Moderation Lifecycle Scenario</th>
+              <th>Backend API Endpoint & Method</th>
+              <th>Status</th>
+              <th>Duration</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>TC_MOD_001</code></td>
+              <td><strong>Form Moderation Queue Query</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Queries pending posts in form history queue and validates JSON response structure.</span></td>
+              <td><code>GET /api/forms/:formId/moderation-posts</code></td>
+              <td><span class="badge passed">PASSED (4 Browsers)</span></td>
+              <td>~300ms</td>
+            </tr>
+            <tr>
+              <td><code>TC_MOD_002</code></td>
+              <td><strong>Moderator Post Approval Contract</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Validates form owner acceptance & publishing action contracts on queued posts.</span></td>
+              <td><code>POST /api/posts/:postId/review/publish</code></td>
+              <td><span class="badge passed">PASSED (4 Browsers)</span></td>
+              <td>~270ms</td>
+            </tr>
+            <tr>
+              <td><code>TC_MOD_003</code></td>
+              <td><strong>Moderator Post Rejection Contract</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Validates form owner rejection review contract with optional feedback rationale.</span></td>
+              <td><code>POST /api/posts/:postId/review/reject</code></td>
+              <td><span class="badge passed">PASSED (4 Browsers)</span></td>
+              <td>~300ms</td>
+            </tr>
+            <tr>
+              <td><code>TC_MOD_004</code></td>
+              <td><strong>Authentication & Authorization Security Guards</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Enforces HTTP 401/403 security protections preventing unauthenticated moderation.</span></td>
+              <td><code>POST /api/posts/*/review/*</code></td>
+              <td><span class="badge passed">PASSED (4 Browsers)</span></td>
+              <td>~250ms</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Suite 3: Navigation Smoke -->
+        <h3 style="margin: 1.75rem 0 0.75rem; font-size: 1rem; color: #60a5fa; display: flex; align-items: center; gap: 0.5rem;">
+          <span>🌐</span> Home Navigation Smoke Spec (1 Test)
+          <span style="font-size: 0.78rem; color: var(--text-dim); font-weight: normal; margin-left: auto;"><code>src/tests/navigation.spec.ts</code></span>
+        </h3>
         <table>
           <thead>
             <tr>
@@ -1112,32 +1214,33 @@
 
       <div class="grid-2">
         <div class="panel">
-          <div class="panel-title" style="margin-bottom: 1rem;">🔍 Tested UI Behaviors on Home Page</div>
+          <div class="panel-title" style="margin-bottom: 1rem;">🔍 Sanity 2.0 Architecture & Features</div>
           <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.88rem;">
-            <li style="display: flex; gap: 0.5rem;"><span>✅</span> <div><strong>Initial Page Load:</strong> Fast initial render with domcontentloaded state handled within 1.2 seconds.</div></li>
-            <li style="display: flex; gap: 0.5rem;"><span>✅</span> <div><strong>Web Gateway Link:</strong> Link labeled "web" is visible in desktop header navigation.</div></li>
-            <li style="display: flex; gap: 0.5rem;"><span>✅</span> <div><strong>Client-Side Transition:</strong> Clicking web link avoids full reload and mounts the React authentication root cleanly.</div></li>
+            <li style="display: flex; gap: 0.5rem;"><span>✅</span> <div><strong>Home New Post Trigger:</strong> Resilient selector targeting active visible button across desktop and mobile headers.</div></li>
+            <li style="display: flex; gap: 0.5rem;"><span>✅</span> <div><strong>Multi-Modal Composer Tools:</strong> Rich support for Text, Media, Longform, Link, Quote, and Mention blocks.</div></li>
+            <li style="display: flex; gap: 0.5rem;"><span>✅</span> <div><strong>Moderator Review Flow:</strong> Form owner review lifecycle with approve (publish) and reject actions via form history.</div></li>
+            <li style="display: flex; gap: 0.5rem;"><span>✅</span> <div><strong>Strict Auth Guards:</strong> Moderation endpoints reject unauthorized manipulation with standard JSON security schemas.</div></li>
           </ul>
         </div>
 
         <div class="panel">
-          <div class="panel-title" style="margin-bottom: 1rem;">⏱️ Home Navigation Browser Breakdown</div>
+          <div class="panel-title" style="margin-bottom: 1rem;">⏱️ Cross-Browser Execution Speed</div>
           <div style="display: flex; flex-direction: column; gap: 0.75rem;">
             <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
-              <span>Chromium</span>
-              <span class="badge browser">8.3s</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
-              <span>Firefox</span>
-              <span class="badge browser">11.0s</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
-              <span>Safari (WebKit)</span>
-              <span class="badge browser">13.0s</span>
+              <span>Google Chromium</span>
+              <span class="badge browser">~14.5s Full Suite</span>
             </div>
             <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
               <span>Microsoft Edge</span>
-              <span class="badge browser">9.6s</span>
+              <span class="badge browser">~15.2s Full Suite</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+              <span>Mozilla Firefox</span>
+              <span class="badge browser">~26.0s Full Suite</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+              <span>WebKit (Apple Safari)</span>
+              <span class="badge browser">~27.4s Full Suite</span>
             </div>
           </div>
         </div>
@@ -1306,7 +1409,7 @@
         <div id="explore-subtab-tests" class="explore-subtab-pane active">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem;">
             <h3 style="font-size: 0.95rem; color: #cbd5e1;">📋 Verified Test Cases & Assertions (Click row to expand details)</h3>
-            <span style="font-size: 0.78rem; color: var(--text-dim);">Source: <code>src/tests/explore.spec.ts</code></span>
+            <span style="font-size: 0.78rem; color: var(--text-dim);">Source: <code>src/tests/sanity/1.0/explore.spec.ts</code></span>
           </div>
 
           <div class="test-accordion">
