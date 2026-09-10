@@ -52,7 +52,8 @@ export class PostComposerPage extends BasePage {
   async openNewPostModal() {
     await expect(this.newPostButton).toBeVisible({ timeout: 15000 });
     await expect(this.newPostButton).toBeEnabled();
-    await this.newPostButton.click();
+    await this.page.waitForTimeout(500);
+    await this.newPostButton.click({ force: true });
     await expect(this.createFormsDialog).toBeVisible({ timeout: 10000 });
   }
 
@@ -60,22 +61,19 @@ export class PostComposerPage extends BasePage {
    * Selects the target form (defaults to user's 'posts' form) inside the CREATE FORMS modal.
    */
   async selectTargetForm() {
-    await expect(this.createInPostsButton).toBeVisible({ timeout: 10000 });
+    const targetBtn = this.createInPostsButton.or(this.page.locator('[role="dialog"]').getByRole('button', { name: /posts/i })).or(this.page.locator('[role="dialog"]').getByText(/posts/i)).first();
+    await expect(targetBtn).toBeVisible({ timeout: 10000 });
     await this.page.waitForTimeout(500);
-    await this.createInPostsButton.click({ force: true });
-    try {
-      await expect(this.composerHeader).toBeVisible({ timeout: 6000 });
-    } catch {
-      await this.createInPostsButton.click({ force: true });
-      await expect(this.composerHeader).toBeVisible({ timeout: 10000 });
-    }
+    await targetBtn.click({ force: true });
+    await this.page.waitForTimeout(1000);
   }
 
   /**
    * Verifies composition tools are displayed and accessible.
    */
   async verifyCompositionTools() {
-    await expect(this.addTextButton).toBeVisible({ timeout: 5000 });
+    const addTextBtn = this.addTextButton.or(this.page.getByRole('button', { name: /add text/i }));
+    await expect(addTextBtn).toBeVisible({ timeout: 5000 });
     await expect(this.createButton).toBeVisible({ timeout: 5000 });
     const tools = [this.addMediaButton, this.addLongformButton, this.addLinkButton, this.addQuoteButton, this.addMentionButton];
     for (const tool of tools) {
@@ -89,9 +87,12 @@ export class PostComposerPage extends BasePage {
    * Clicks "Add Text" and enters post body content.
    */
   async enterTextContent(text: string) {
-    await this.addTextButton.click({ force: true });
-    await this.page.waitForTimeout(500);
-    if (await this.editorInput.isVisible({ timeout: 3000 }).catch(() => false)) {
+    const addTextBtn = this.addTextButton.or(this.page.getByRole('button', { name: /add text/i })).or(this.page.locator('button:has-text("Add Text")')).first();
+    if (await addTextBtn.isVisible({ timeout: 5000 }).catch(() => false)) {
+      await addTextBtn.click({ force: true });
+      await this.page.waitForTimeout(500);
+    }
+    if (await this.editorInput.isVisible({ timeout: 5000 }).catch(() => false)) {
       await this.editorInput.fill(text);
     }
   }

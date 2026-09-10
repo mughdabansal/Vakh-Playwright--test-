@@ -91,11 +91,29 @@ Vakh-Playwright--test-/
 
 ---
 
-## 🧪 Comprehensive Test Suites & Matrix (30 Tests)
+## 🧪 Comprehensive Test Suites & Matrix (40 Tests)
 
-The framework houses **30 automated test cases** across 4 dedicated test suites. When executed across all 4 browser engines, this yields **120 total assertions** (56 cross-browser UI assertions + 16 direct backend API validations).
+The framework houses **40 automated test cases** across 5 dedicated test suites. When executed across all 4 browser engines, this yields **160 total assertions** (96 cross-browser UI assertions + 64 cross-browser regression validations + direct backend API validations).
 
-### 1. Explore Page Test Suite (9 Tests)
+### 1. Home Page Full UI, Feed, Posting & Settings Suite (10 Tests)
+Located in [`src/tests/home.spec.ts`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/src/tests/home.spec.ts) and backed by [`src/pages/HomePage.ts`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/src/pages/HomePage.ts):
+
+| Test ID | Scenario Description | Expected Outcome |
+| :--- | :--- | :--- |
+| **`TC_HOME_001`** | **Home Page UI Layout & Sidebar Navigation** | Asserts Home section header branding, sidebar navigation menu items (Home, Chat, Activity, Explore), New Post CTA, profile button (`@m_2094`), and sidebar More menu are visible. |
+| **`TC_HOME_002`** | **Allowed Creator Feed Filtering & Form Exclusion** | Asserts feed renders posts strictly from allowed creators (`happy_badger_2312`, `mughdabansal1414`) and enforces exclusion of tracking boards ("bug tracker", "test tracker"). |
+| **`TC_HOME_003`** | **Home Post Creation Flow in User's Own Form** | Launches New Post modal from Home page, selects target form (`@m_2094 / posts`), enters body content, and submits without session disruption. |
+| **`TC_HOME_004`** | **Click Post & Validate Text, Media & Interactive Links** | Clicks allowed post card to open detail view; verifies text readability, media elements (images/videos), and hyperlink `href` attributes. |
+| **`TC_HOME_005`** | **Post Selection & Quote Composer Flow** | Selects post using action toolbar, clicks "Quote selected posts", verifies modal launcher and cleanly dismisses without error. |
+| **`TC_HOME_006`** | **Post Sharing Flow Through Chat** | Selects allowed post and triggers "Chat about selected posts" to open conversation sharing dialog. |
+| **`TC_HOME_007`** | **Visit Post Author Profile Page** | Navigates from post view to author's profile page (`/user/happy_badger_2312`) and asserts profile handle. |
+| **`TC_HOME_008`** | **Navigation to Own Profile Page (@m_2094)** | Clicks profile button in sidebar, verifies navigation to user's profile view and handle badge rendering. |
+| **`TC_HOME_009`** | **Navigation to Settings Page via More Menu** | Opens sidebar More menu, clicks "Settings", asserts navigation to `/settings` and settings configuration sections. |
+| **`TC_HOME_010`** | **Navigation to Subscriptions Page via More Menu** | Opens sidebar More menu, clicks "Subscriptions", asserts navigation to subscriptions view and preferences. |
+
+---
+
+### 2. Explore Page Test Suite (9 Tests)
 Located in [`src/tests/explore.spec.ts`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/src/tests/explore.spec.ts) and backed by [`src/pages/ExplorePage.ts`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/src/pages/ExplorePage.ts):
 
 | Test ID | Scenario Description | Expected Outcome |
@@ -112,7 +130,7 @@ Located in [`src/tests/explore.spec.ts`](file:///c:/Users/Mughda%20Bansal/Vakh-P
 
 ---
 
-### 2. Login & Authentication Suite (4 Tests)
+### 3. Login & Authentication Suite (4 Tests)
 Located in [`src/tests/login.spec.ts`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/src/tests/login.spec.ts) and backed by [`src/pages/LoginPage.ts`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/src/pages/LoginPage.ts):
 
 | Test ID | Scenario Description | Expected Outcome |
@@ -124,7 +142,7 @@ Located in [`src/tests/login.spec.ts`](file:///c:/Users/Mughda%20Bansal/Vakh-Pla
 
 ---
 
-### 3. Staging Backend API Suites (16 Tests)
+### 4. Staging Backend API Suites (16 Tests)
 Located in [`src/tests/api.spec.ts`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/src/tests/api.spec.ts) targeting `https://xo.eve.vakh.com`:
 
 #### A. Core Gateway & Storage Suite (6 Tests)
@@ -153,7 +171,7 @@ Located in [`src/tests/api.spec.ts`](file:///c:/Users/Mughda%20Bansal/Vakh-Playw
 
 ---
 
-### 4. Navigation Suite (1 Test)
+### 5. Navigation Suite (1 Test)
 Located in [`src/tests/navigation.spec.ts`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/src/tests/navigation.spec.ts):
 
 | Test ID | Scenario Description | Expected Outcome |

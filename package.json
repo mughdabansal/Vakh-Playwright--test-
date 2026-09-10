@@ -8,6 +8,7 @@
     "test:sanity": "playwright test src/tests/sanity",
     "test:sanity:1.0": "playwright test src/tests/sanity/1.0",
     "test:sanity:2.0": "playwright test src/tests/sanity/2.0",
+    "test:home": "playwright test src/tests/home.spec.ts",
     "test:api": "playwright test src/tests/api.spec.ts",
     "test:api:auth": "playwright test src/tests/api.spec.ts -g API_AUTH",
     "test:headed": "playwright test --headed",

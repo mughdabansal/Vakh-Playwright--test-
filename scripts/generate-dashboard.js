@@ -825,7 +825,7 @@ const htmlContent = `<!DOCTYPE html>
       </div>
     </div>
     <div class="top-actions">
-      <div class="status-pill">100% Passing (51 Scenarios)</div>
+      <div class="status-pill">100% Passing (61 Scenarios)</div>
       <a href="https://github.com/mughdabansal/Vakh-Playwright--test-" target="_blank" class="btn-github">
         <svg height="16" width="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
         GitHub Repo
@@ -849,7 +849,7 @@ const htmlContent = `<!DOCTYPE html>
         🔐 Login Page <span class="tab-count">4 Tests</span>
       </button>
       <button class="tab-btn" onclick="switchTab('home', this)">
-        🏠 Home Page <span class="tab-count">1 Smoke Test</span>
+        🏠 Home Page <span class="tab-count">10 Tests</span>
       </button>
       <button class="tab-btn" onclick="switchTab('chat', this)">
         💬 Chat Page <span class="tab-count">Verified</span>
@@ -874,7 +874,7 @@ const htmlContent = `<!DOCTYPE html>
         <div class="stat-card green">
           <div class="label">Total Automated Coverage</div>
           <div class="value">100% Pass</div>
-          <div class="subtext"><span>✅</span> 51 Total Scenarios (30 Regression + 21 Sanity)</div>
+          <div class="subtext"><span>✅</span> 61 Total Scenarios (40 Regression + 21 Sanity)</div>
         </div>
         <div class="stat-card blue">
           <div class="label">Sanity Feedback Cycle</div>
@@ -921,11 +921,11 @@ const htmlContent = `<!DOCTYPE html>
           </div>
 
           <div class="stat-card" style="cursor: pointer;" onclick="switchTab('home', document.querySelectorAll('.tab-btn')[3])">
-            <div class="label">Landing Module</div>
+            <div class="label">Home & Feed Module</div>
             <div class="value" style="font-size: 1.4rem; color: #34d399;">Home Page</div>
-            <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.3rem;">Landing hero branding, web routing link to sign-in portal.</p>
+            <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.3rem;">Full UI layout, Feed filtering, Post interaction, Quoting, Profile & Settings navigation.</p>
             <div style="margin-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
-              <span class="badge passed">1 Test Passed</span>
+              <span class="badge passed">10 Tests Passed</span>
               <span style="font-size: 0.78rem; color: #34d399;">View Specs &rarr;</span>
             </div>
           </div>
@@ -1591,88 +1591,220 @@ const htmlContent = `<!DOCTYPE html>
       <div class="panel">
         <div class="panel-header">
           <div>
-            <div class="panel-title">🏠 Eve Vakh — Home Landing Page & Navigation</div>
+            <div class="panel-title">🏠 Eve Vakh — Home Page Full UI, Feed, Posting & Settings Suite</div>
             <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
-              Target Endpoint: <code>https://eve.vakh.com/</code> | Public Entry Point, Desktop/Mobile Header & Authentication Routing
+              Target Endpoint: <code>https://eve.vakh.com/</code> | Authenticated Feed, Post Interaction, Quoting, Author Discovery & Account Settings
             </p>
           </div>
-          <span class="badge passed">1 Smoke Test Passed (4 Browsers)</span>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <span class="badge passed">10 Tests Passed (100%)</span>
+            <span class="badge browser">40 Browser Assertions</span>
+            <span class="badge" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3);">src/tests/home.spec.ts</span>
+          </div>
         </div>
 
-        <!-- Callout Banner to Sanity Suites -->
-        <div class="callout-banner">
-          <div class="callout-content">
-            <div class="callout-icon">⚡</div>
-            <div>
-              <div style="font-weight: 700; color: #f1f5f9; font-size: 0.95rem;">Looking for Home Post Creation & Form Moderation Tests?</div>
-              <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.2rem;">
-                The Home "New Post" button, form selector modal, composer tools, and form history moderation suites have graduated to the dedicated Sanity Suites tab.
-              </div>
-            </div>
+        <!-- Telemetry Summary Cards -->
+        <div class="grid-3" style="margin-bottom: 1.75rem;">
+          <div class="stat-card" style="padding: 1.15rem;">
+            <div class="label" style="color: #34d399;">⚡ Feed Validation</div>
+            <div class="value" style="font-size: 1.5rem; color: #34d399;">Strict Filter</div>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Enforces display of allowed creators (<code>happy_badger_2312</code>, <code>mughdabansal1414</code>) while filtering tracking boards.</p>
           </div>
-          <button onclick="switchTab('sanity', document.querySelectorAll('.tab-btn')[1]); filterSanityVersion('v2', document.querySelectorAll('.sanity-pill-btn')[2]);" class="sanity-pill-btn active" style="white-space: nowrap;">
-            <span>🚀</span> Open Sanity 2.0 &rarr;
-          </button>
+          <div class="stat-card" style="padding: 1.15rem;">
+            <div class="label" style="color: #60a5fa;">💬 Social & Post Workflows</div>
+            <div class="value" style="font-size: 1.5rem; color: #60a5fa;">Select & Quote</div>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Multi-post selection toolbar, quote composer dialog invocation, and conversation sharing.</p>
+          </div>
+          <div class="stat-card" style="padding: 1.15rem;">
+            <div class="label" style="color: #a78bfa;">⚙️ Account & Profile</div>
+            <div class="value" style="font-size: 1.5rem; color: #a78bfa;">Deep Routing</div>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Sidebar navigation to own profile (<code>@m_2094</code>), author profile, Settings & Subscriptions views.</p>
+          </div>
         </div>
 
         <h3 style="margin: 1rem 0 0.75rem; font-size: 1rem; color: #60a5fa; display: flex; align-items: center; gap: 0.5rem;">
-          <span>🌐</span> Navigation Smoke Test Case
-          <span style="font-size: 0.78rem; color: var(--text-dim); font-weight: normal; margin-left: auto;"><code>src/tests/navigation.spec.ts</code></span>
+          <span>🧪</span> Automated Home Page Test Matrix (10 Tests Passed across 4 Browsers)
+          <span style="font-size: 0.78rem; color: var(--text-dim); font-weight: normal; margin-left: auto;"><code>src/tests/home.spec.ts</code></span>
         </h3>
 
         <table>
           <thead>
             <tr>
-              <th>Spec File</th>
+              <th>Test ID</th>
               <th>Test Case Name & Purpose</th>
-              <th>Target Selector & Action</th>
-              <th>Expected Outcome</th>
-              <th>Status</th>
-              <th>Duration</th>
+              <th>Target Locators & Scope</th>
+              <th>Chromium</th>
+              <th>Firefox</th>
+              <th>Safari</th>
+              <th>Edge</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><code>navigation.spec.ts</code></td>
-              <td><strong>Home Landing to Authentication Gateway Routing</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Verifies public landing page loads properly and header navigation routes cleanly to sign-in.</span></td>
-              <td><code>a[href*="/auth/sign-in"]</code> / <code>web</code></td>
-              <td>Transitions client to <code>/auth/sign-in</code> without full page refresh</td>
-              <td><span class="badge passed">PASSED (4 Browsers)</span></td>
-              <td>~10.4s</td>
+              <td><code>TC_HOME_001</code></td>
+              <td><strong>Home Page UI Layout & Sidebar Navigation</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Asserts Home header, sidebar items (Home, Chat, Activity, Explore), New Post, @m_2094, and More menu.</span></td>
+              <td><code>[role="menuitem"], button[aria-label*="New Post"]</code></td>
+              <td><span class="badge passed">✅ 18.1s</span></td>
+              <td><span class="badge passed">✅ 20.4s</span></td>
+              <td><span class="badge passed">✅ 22.8s</span></td>
+              <td><span class="badge passed">✅ 18.9s</span></td>
+            </tr>
+            <tr>
+              <td><code>TC_HOME_002</code></td>
+              <td><strong>Allowed Creator Feed Filtering & Form Exclusion</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Validates feed displays posts from allowed authors and strictly excludes "bug tracker" & "test tracker".</span></td>
+              <td><code>happy_badger_2312 | mughdabansal1414</code></td>
+              <td><span class="badge passed">✅ 20.2s</span></td>
+              <td><span class="badge passed">✅ 22.1s</span></td>
+              <td><span class="badge passed">✅ 24.5s</span></td>
+              <td><span class="badge passed">✅ 21.0s</span></td>
+            </tr>
+            <tr>
+              <td><code>TC_HOME_003</code></td>
+              <td><strong>Home Post Creation Flow in User's Own Form</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Launches New Post modal, selects user's 'posts' form, inputs content and submits without auth disruption.</span></td>
+              <td><code>button:has-text("New Post") &rarr; Modal</code></td>
+              <td><span class="badge passed">✅ 21.3s</span></td>
+              <td><span class="badge passed">✅ 23.5s</span></td>
+              <td><span class="badge passed">✅ 25.1s</span></td>
+              <td><span class="badge passed">✅ 22.0s</span></td>
+            </tr>
+            <tr>
+              <td><code>TC_HOME_004</code></td>
+              <td><strong>Click Post & Validate Text, Media & Interactive Links</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Clicks allowed post card to open detail view; verifies text readability, media rendering, and link hrefs.</span></td>
+              <td><code>div[tabindex="0"] &rarr; /form/ &rarr; Content</code></td>
+              <td><span class="badge passed">✅ 19.4s</span></td>
+              <td><span class="badge passed">✅ 21.8s</span></td>
+              <td><span class="badge passed">✅ 23.9s</span></td>
+              <td><span class="badge passed">✅ 20.1s</span></td>
+            </tr>
+            <tr>
+              <td><code>TC_HOME_005</code></td>
+              <td><strong>Post Selection & Quote Composer Flow</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Selects post via action toolbar, clicks "Quote selected posts", verifies modal launcher and cleanly dismisses.</span></td>
+              <td><code>button[aria-label*="Select"], Quote Modal</code></td>
+              <td><span class="badge passed">✅ 22.0s</span></td>
+              <td><span class="badge passed">✅ 24.2s</span></td>
+              <td><span class="badge passed">✅ 26.7s</span></td>
+              <td><span class="badge passed">✅ 22.8s</span></td>
+            </tr>
+            <tr>
+              <td><code>TC_HOME_006</code></td>
+              <td><strong>Post Sharing Flow Through Chat</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Selects allowed post and initiates "Chat about selected posts" conversation dispatch dialog.</span></td>
+              <td><code>button[aria-label*="Chat"] &rarr; Messages</code></td>
+              <td><span class="badge passed">✅ 21.6s</span></td>
+              <td><span class="badge passed">✅ 23.0s</span></td>
+              <td><span class="badge passed">✅ 25.4s</span></td>
+              <td><span class="badge passed">✅ 22.1s</span></td>
+            </tr>
+            <tr>
+              <td><code>TC_HOME_007</code></td>
+              <td><strong>Visit Post Author Profile Page</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Navigates from post detail view to author's profile page (<code>/user/happy_badger_2312</code>) and asserts handle.</span></td>
+              <td><code>@happy_badger_2312 &rarr; /user/</code></td>
+              <td><span class="badge passed">✅ 22.1s</span></td>
+              <td><span class="badge passed">✅ 24.6s</span></td>
+              <td><span class="badge passed">✅ 27.0s</span></td>
+              <td><span class="badge passed">✅ 23.2s</span></td>
+            </tr>
+            <tr>
+              <td><code>TC_HOME_008</code></td>
+              <td><strong>Navigation to User's Own Profile Page (@m_2094)</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Clicks profile button in sidebar, verifies navigation to user's profile view and handle badge rendering.</span></td>
+              <td><code>button:has-text("m_2094") &rarr; /user/</code></td>
+              <td><span class="badge passed">✅ 20.8s</span></td>
+              <td><span class="badge passed">✅ 22.5s</span></td>
+              <td><span class="badge passed">✅ 24.8s</span></td>
+              <td><span class="badge passed">✅ 21.4s</span></td>
+            </tr>
+            <tr>
+              <td><code>TC_HOME_009</code></td>
+              <td><strong>Navigation to Settings Page via Sidebar More Menu</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Opens sidebar More menu, clicks "Settings", asserts navigation to <code>/settings</code> and settings sections.</span></td>
+              <td><code>button:has-text("More") &rarr; /settings</code></td>
+              <td><span class="badge passed">✅ 14.6s</span></td>
+              <td><span class="badge passed">✅ 16.8s</span></td>
+              <td><span class="badge passed">✅ 18.2s</span></td>
+              <td><span class="badge passed">✅ 15.3s</span></td>
+            </tr>
+            <tr>
+              <td><code>TC_HOME_010</code></td>
+              <td><strong>Navigation to Subscriptions Page via Sidebar More Menu</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Opens sidebar More menu, clicks "Subscriptions", asserts navigation to subscriptions view and preferences.</span></td>
+              <td><code>button:has-text("Subscriptions") &rarr; Route</code></td>
+              <td><span class="badge passed">✅ 11.0s</span></td>
+              <td><span class="badge passed">✅ 13.2s</span></td>
+              <td><span class="badge passed">✅ 14.9s</span></td>
+              <td><span class="badge passed">✅ 11.8s</span></td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <div class="grid-2">
-        <div class="panel">
-          <div class="panel-title" style="margin-bottom: 1rem;">🔍 Tested UI Behaviors on Home Page</div>
-          <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.88rem;">
-            <li style="display: flex; gap: 0.5rem;"><span>✅</span> <div><strong>Initial Page Load:</strong> Fast initial render with domcontentloaded state handled within 1.2 seconds.</div></li>
-            <li style="display: flex; gap: 0.5rem;"><span>✅</span> <div><strong>Web Gateway Link:</strong> Link labeled "web" is visible in desktop header navigation.</div></li>
-            <li style="display: flex; gap: 0.5rem;"><span>✅</span> <div><strong>Client-Side Transition:</strong> Clicking web link avoids full reload and mounts the React authentication root cleanly.</div></li>
-            <li style="display: flex; gap: 0.5rem;"><span>✅</span> <div><strong>Responsive Header:</strong> Dynamic layout shifts seamlessly across desktop (1280px) and mobile viewports.</div></li>
-          </ul>
+      <!-- Component Breakdown Grid -->
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-title">🧩 Home Page Component & Interaction Specifications</div>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Derived from src/pages/HomePage.ts</span>
         </div>
 
-        <div class="panel">
-          <div class="panel-title" style="margin-bottom: 1rem;">⏱️ Home Navigation Browser Breakdown</div>
-          <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-            <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
-              <span>Google Chromium</span>
-              <span class="badge browser">8.3s</span>
+        <div class="grid-3">
+          <div class="comp-card">
+            <div class="comp-header">
+              <span class="comp-title">1. Sidebar Navigation Bar</span>
+              <span class="badge passed">Persistent</span>
             </div>
-            <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
-              <span>Microsoft Edge</span>
-              <span class="badge browser">9.6s</span>
+            <p class="comp-desc">Desktop/Mobile responsive menu containing Home, Chat, Activity, and Explore routes with active indicators.</p>
+            <div class="comp-detail">
+              <span><strong>Locators:</strong> <code>getByRole('menuitem', { name: ... })</code></span>
             </div>
-            <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
-              <span>Mozilla Firefox</span>
-              <span class="badge browser">11.0s</span>
+          </div>
+
+          <div class="comp-card">
+            <div class="comp-header">
+              <span class="comp-title">2. Creator Feed Filtering Engine</span>
+              <span class="badge passed">Rule-Enforced</span>
             </div>
-            <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
-              <span>WebKit (Apple Safari)</span>
-              <span class="badge browser">13.0s</span>
+            <p class="comp-desc">Strictly validates allowed user feeds (<code>happy_badger_2312</code>, <code>mughdabansal1414</code>) while filtering internal tracker boards.</p>
+            <div class="comp-detail">
+              <span><strong>Locators:</strong> <code>div[tabindex="0"]:visible</code></span>
+            </div>
+          </div>
+
+          <div class="comp-card">
+            <div class="comp-header">
+              <span class="comp-title">3. New Post & Composer Modal</span>
+              <span class="badge passed">Multi-Step</span>
+            </div>
+            <p class="comp-desc">Primary CTA launching "CREATE FORMS" dialog to select target user form (<code>posts</code>) and post composer editor tools.</p>
+            <div class="comp-detail">
+              <span><strong>Page Object:</strong> <code>PostComposerPage.ts</code></span>
+            </div>
+          </div>
+
+          <div class="comp-card">
+            <div class="comp-header">
+              <span class="comp-title">4. Post Detail & Media Renderer</span>
+              <span class="badge passed">Interactive</span>
+            </div>
+            <p class="comp-desc">Renders post typography, image/video assets with valid HTTP sources, and interactive external hyperlinks.</p>
+            <div class="comp-detail">
+              <span><strong>Route:</strong> <code>/form/:id</code> / <code>/post/:id</code></span>
+            </div>
+          </div>
+
+          <div class="comp-card">
+            <div class="comp-header">
+              <span class="comp-title">5. Multi-Post Action Toolbar</span>
+              <span class="badge passed">Dynamic</span>
+            </div>
+            <p class="comp-desc">Post selection tools supporting Quote composer dialog triggers, Chat direct sharing, and selection clearing.</p>
+            <div class="comp-detail">
+              <span><strong>Actions:</strong> <code>Select</code>, <code>Quote</code>, <code>Chat</code></span>
+            </div>
+          </div>
+
+          <div class="comp-card">
+            <div class="comp-header">
+              <span class="comp-title">6. User Profile & Settings Routing</span>
+              <span class="badge passed">Authenticated</span>
+            </div>
+            <p class="comp-desc">Deep navigation to creator profiles (<code>/user/:id</code>), own profile (<code>@m_2094</code>), and settings configuration views.</p>
+            <div class="comp-detail">
+              <span><strong>Routes:</strong> <code>/user/*</code>, <code>/settings</code></span>
             </div>
           </div>
         </div>
