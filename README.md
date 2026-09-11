@@ -91,11 +91,35 @@ Vakh-Playwright--test-/
 
 ---
 
-## 🧪 Comprehensive Test Suites & Matrix (40 Tests)
+## 🧪 Comprehensive Test Suites & Matrix (56 Regression Tests)
 
-The framework houses **40 automated test cases** across 5 dedicated test suites. When executed across all 4 browser engines, this yields **160 total assertions** (96 cross-browser UI assertions + 64 cross-browser regression validations + direct backend API validations).
+The framework houses **56 automated regression test cases** plus **21 versioned sanity test cases** (77 Total Scenarios). When executed across all 4 browser engines, this yields **308 total multi-browser assertions**.
 
-### 1. Home Page Full UI, Feed, Posting & Settings Suite (10 Tests)
+### 1. Chat & Messaging Comprehensive Suite (16 Tests)
+Located in [`src/tests/chat.spec.ts`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/src/tests/chat.spec.ts) and backed by [`src/pages/ChatPage.ts`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/src/pages/ChatPage.ts):
+
+| Test ID | Scenario Description | Expected Outcome |
+| :--- | :--- | :--- |
+| **`TC_CHAT_001`** | **Chat Page UI Layout, Header & Active Stream** | Asserts Messages heading, New Message CTA, and conversation cards stream container. |
+| **`TC_CHAT_002`** | **1-on-1 Direct Messaging & Real-Time Delivery** | Initiates 1-on-1 DM with `@happy_badger_2312`, transmits unique timestamped text, verifies bubble rendering. |
+| **`TC_CHAT_003`** | **Multi-Peer Group Chat Creation** | Searches & selects multiple allowed peers (`@happy_badger_2312`, `@mughdabansal1414`), triggers "Create Group". |
+| **`TC_CHAT_004`** | **Group Chat Name Editing by Admin / Owner** | Opens Conversation Settings, clicks "Edit group name", updates group title and asserts real-time heading reflection. |
+| **`TC_CHAT_005`** | **Adding Allowed Member to Existing Group Chat** | Opens group settings, clicks "Add members", searches for allowed contact and confirms roster expansion. |
+| **`TC_CHAT_006`** | **Promoting Eligible Member to Group Admin Role** | Selects eligible member in roster, clicks "Make admin", asserts admin role assignment in settings. |
+| **`TC_CHAT_007`** | **Demoting Admin Back to Regular Member** | Selects admin user, executes "Remove admin", asserts privilege revocation back to regular member. |
+| **`TC_CHAT_008`** | **Removing Member from Group Chat** | Group admin clicks "Remove [user]" to evict regular member from conversation. |
+| **`TC_CHAT_009`** | **Photo / Image Attachment Upload** | Opens attachment drawer, triggers "Attach photos", and uploads sample PNG image binary. |
+| **`TC_CHAT_010`** | **Document File Attachment Upload** | Opens attachment drawer, triggers "Attach files", and uploads sample text document fixture. |
+| **`TC_CHAT_011`** | **Cleanly Leaving Group Conversation** | Clicks "Leave conversation" in group settings, confirms exit and validates graceful navigation. |
+| **`TC_CHAT_012`** | **[Negative] Empty & Whitespace Message Submission Block** | Enforces that typing whitespace or leaving input empty disables send CTA or blocks empty dispatch. |
+| **`TC_CHAT_013`** | **[Negative] Group Creator Protection from Admin Removal** | Validates CREATOR badge on `@m_2094` and verifies other admins cannot remove or demote the owner. |
+| **`TC_CHAT_014`** | **[Negative] Regular Members Cannot Remove Admins** | Asserts non-admin members lack moderation actions over admins in the conversation roster. |
+| **`TC_CHAT_015`** | **[Negative] Admin Promotion Requires Accepted Membership** | Enforces that pending invitees cannot be elevated to admin status before joining the group. |
+| **`TC_CHAT_016`** | **[Edge] Rich Text, Emojis & Multi-Line Linebreaks** | Transmits multi-line messages with emojis (🚀, 🧪) and symbols (@#$%^&*) without escaping errors. |
+
+---
+
+### 2. Home Page Full UI, Feed, Posting & Settings Suite (10 Tests)
 Located in [`src/tests/home.spec.ts`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/src/tests/home.spec.ts) and backed by [`src/pages/HomePage.ts`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/src/pages/HomePage.ts):
 
 | Test ID | Scenario Description | Expected Outcome |

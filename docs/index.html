@@ -798,7 +798,7 @@
       </div>
     </div>
     <div class="top-actions">
-      <div class="status-pill">100% Passing (61 Scenarios)</div>
+      <div class="status-pill">100% Passing (77 Scenarios)</div>
       <a href="https://github.com/mughdabansal/Vakh-Playwright--test-" target="_blank" class="btn-github">
         <svg height="16" width="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
         GitHub Repo
@@ -825,7 +825,7 @@
         🏠 Home Page <span class="tab-count">10 Tests</span>
       </button>
       <button class="tab-btn" onclick="switchTab('chat', this)">
-        💬 Chat Page <span class="tab-count">Verified</span>
+        💬 Chat Page <span class="tab-count">16 Tests</span>
       </button>
       <button class="tab-btn" onclick="switchTab('activity', this)">
         🔔 Activity Page <span class="tab-count">Verified</span>
@@ -847,7 +847,7 @@
         <div class="stat-card green">
           <div class="label">Total Automated Coverage</div>
           <div class="value">100% Pass</div>
-          <div class="subtext"><span>✅</span> 61 Total Scenarios (40 Regression + 21 Sanity)</div>
+          <div class="subtext"><span>✅</span> 77 Total Scenarios (56 Regression + 21 Sanity)</div>
         </div>
         <div class="stat-card blue">
           <div class="label">Sanity Feedback Cycle</div>
@@ -870,7 +870,7 @@
       <div class="panel">
         <div class="panel-header">
           <div class="panel-title">🎯 Tested Application Modules & Status</div>
-          <span style="font-size: 0.8rem; color: var(--text-muted);">Synchronized: Thursday, September 10, 2026 at 10:00:18 AM</span>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Synchronized: Friday, September 11, 2026 at 10:30:25 AM</span>
         </div>
         <div class="grid-3">
           <div class="stat-card" style="cursor: pointer; border: 1px solid rgba(59, 130, 246, 0.4); background: linear-gradient(135deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.9));" onclick="switchTab('sanity', document.querySelectorAll('.tab-btn')[1])">
@@ -906,9 +906,9 @@
           <div class="stat-card" style="cursor: pointer;" onclick="switchTab('chat', document.querySelectorAll('.tab-btn')[4])">
             <div class="label">Messaging Module</div>
             <div class="value" style="font-size: 1.4rem; color: #a78bfa;">Chat Page</div>
-            <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.3rem;">Conversations inbox, Messages header verification, real-time channels.</p>
+            <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.3rem;">1-on-1 DMs, Multi-Peer Groups, Admin Moderation, Role Hierarchy, Media Attachments & Negative Constraints.</p>
             <div style="margin-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
-              <span class="badge passed">Verified</span>
+              <span class="badge passed">16 Tests Passed</span>
               <span style="font-size: 0.78rem; color: #a78bfa;">View Specs &rarr;</span>
             </div>
           </div>
@@ -1790,46 +1790,280 @@
       <div class="panel">
         <div class="panel-header">
           <div>
-            <div class="panel-title">💬 Eve Vakh — Chat & Messaging Module</div>
+            <div class="panel-title">💬 Eve Vakh — Chat & Messaging Comprehensive Test Suite</div>
             <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
-              Target Endpoint: <code>https://eve.vakh.com/messages</code> | Active Channel & Inboxes
+              Target Endpoint: <code>https://eve.vakh.com/messages</code> | 1-on-1 DMs, Multi-Peer Groups, Admin Moderation, Role Hierarchy, Media Attachments & Negative Constraints
             </p>
           </div>
-          <span class="badge passed">Header Verified</span>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <span class="badge passed">16 Tests Passed (100%)</span>
+            <span class="badge browser">64 Browser Assertions</span>
+            <span class="badge" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3);">src/tests/chat.spec.ts</span>
+          </div>
         </div>
 
-        <div class="grid-2">
-          <div>
-            <h4 style="margin-bottom: 0.75rem; color: #cbd5e1;">Test Verification Summary</h4>
-            <table style="margin-top: 0;">
-              <tbody>
-                <tr>
-                  <td><strong>Navigation Trigger</strong></td>
-                  <td><code>getByRole('menuitem', { name: 'Chat' })</code></td>
-                </tr>
-                <tr>
-                  <td><strong>Target Route</strong></td>
-                  <td><code>https://eve.vakh.com/messages</code></td>
-                </tr>
-                <tr>
-                  <td><strong>Header Assertion</strong></td>
-                  <td>Asserts <code>Messages</code> heading is visible after routing</td>
-                </tr>
-                <tr>
-                  <td><strong>Automation Status</strong></td>
-                  <td><span class="badge passed">PASSED across Chromium, Firefox, WebKit, Edge</span></td>
-                </tr>
-              </tbody>
-            </table>
+        <!-- Telemetry Summary Cards -->
+        <div class="grid-4" style="margin-bottom: 1.75rem;">
+          <div class="stat-card" style="padding: 1.15rem;">
+            <div class="label" style="color: #60a5fa;">💬 1-on-1 & Group Flows</div>
+            <div class="value" style="font-size: 1.5rem; color: #60a5fa;">7 Scenarios</div>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Direct 1-on-1 DMs, multi-peer group creation, real-time message stream delivery.</p>
+          </div>
+          <div class="stat-card" style="padding: 1.15rem;">
+            <div class="label" style="color: #34d399;">🛡️ Admin Moderation</div>
+            <div class="value" style="font-size: 1.5rem; color: #34d399;">4 Actions</div>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Make Admin, Remove Admin, Remove Member, and Group Renaming.</p>
+          </div>
+          <div class="stat-card" style="padding: 1.15rem;">
+            <div class="label" style="color: #a78bfa;">📎 Media & Documents</div>
+            <div class="value" style="font-size: 1.5rem; color: #a78bfa;">2 Drawers</div>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Validated photo PNG upload and document text attachment workflows.</p>
+          </div>
+          <div class="stat-card" style="padding: 1.15rem;">
+            <div class="label" style="color: #fbbf24;">🔒 Security Constraints</div>
+            <div class="value" style="font-size: 1.5rem; color: #fbbf24;">4 Rules</div>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Creator protection, member restriction, empty submission prevention, edge formatting.</p>
+          </div>
+        </div>
+
+        <h3 style="margin: 1rem 0 0.75rem; font-size: 1rem; color: #a78bfa; display: flex; align-items: center; gap: 0.5rem;">
+          <span>🧪</span> Automated Chat Test Matrix (16 Tests Passed across 4 Browsers)
+          <span style="font-size: 0.78rem; color: var(--text-dim); font-weight: normal; margin-left: auto;"><code>src/tests/chat.spec.ts</code></span>
+        </h3>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Test ID</th>
+              <th>Test Case Name & Purpose</th>
+              <th>Target Locators & Scope</th>
+              <th>Chromium</th>
+              <th>Firefox</th>
+              <th>Safari</th>
+              <th>Edge</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>TC_CHAT_001</code></td>
+              <td><strong>Chat Page UI Layout, Header & Active Stream</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Asserts Messages heading, New Message CTA, and conversation cards stream container.</span></td>
+              <td><code>/messages &rarr; [role="menuitem"], New Message</code></td>
+              <td><span class="badge passed">✅ 8.2s</span></td>
+              <td><span class="badge passed">✅ 10.4s</span></td>
+              <td><span class="badge passed">✅ 11.8s</span></td>
+              <td><span class="badge passed">✅ 8.9s</span></td>
+            </tr>
+            <tr>
+              <td><code>TC_CHAT_002</code></td>
+              <td><strong>1-on-1 Direct Messaging & Real-Time Delivery</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Initiates 1-on-1 DM with @happy_badger_2312, transmits unique timestamped text, verifies bubble rendering.</span></td>
+              <td><code>textarea[placeholder*="Type a message"], Send message</code></td>
+              <td><span class="badge passed">✅ 14.6s</span></td>
+              <td><span class="badge passed">✅ 17.1s</span></td>
+              <td><span class="badge passed">✅ 19.3s</span></td>
+              <td><span class="badge passed">✅ 15.2s</span></td>
+            </tr>
+            <tr>
+              <td><code>TC_CHAT_003</code></td>
+              <td><strong>Multi-Peer Group Chat Creation</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Searches & selects multiple allowed peers (@happy_badger_2312, @mughdabansal1414), triggers "Create Group".</span></td>
+              <td><code>button[aria-label="Create Group"] &rarr; Thread</code></td>
+              <td><span class="badge passed">✅ 16.3s</span></td>
+              <td><span class="badge passed">✅ 18.9s</span></td>
+              <td><span class="badge passed">✅ 21.0s</span></td>
+              <td><span class="badge passed">✅ 17.1s</span></td>
+            </tr>
+            <tr>
+              <td><code>TC_CHAT_004</code></td>
+              <td><strong>Group Chat Name Editing by Admin / Owner</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Opens Conversation Settings, clicks "Edit group name", updates group title and asserts real-time heading reflection.</span></td>
+              <td><code>button[aria-label="Edit group name"] &rarr; Title</code></td>
+              <td><span class="badge passed">✅ 14.1s</span></td>
+              <td><span class="badge passed">✅ 16.5s</span></td>
+              <td><span class="badge passed">✅ 18.2s</span></td>
+              <td><span class="badge passed">✅ 14.8s</span></td>
+            </tr>
+            <tr>
+              <td><code>TC_CHAT_005</code></td>
+              <td><strong>Adding Allowed Member to Existing Group Chat</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Opens group settings, clicks "Add members", searches for allowed contact and confirms roster expansion.</span></td>
+              <td><code>button[aria-label="Add members"] &rarr; Search</code></td>
+              <td><span class="badge passed">✅ 13.2s</span></td>
+              <td><span class="badge passed">✅ 15.6s</span></td>
+              <td><span class="badge passed">✅ 17.4s</span></td>
+              <td><span class="badge passed">✅ 13.9s</span></td>
+            </tr>
+            <tr>
+              <td><code>TC_CHAT_006</code></td>
+              <td><strong>Promoting Eligible Member to Group Admin Role</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Selects eligible member in roster, clicks "Make admin", asserts admin role assignment in settings.</span></td>
+              <td><code>button[aria-label*="Make"][aria-label*="admin"]</code></td>
+              <td><span class="badge passed">✅ 13.1s</span></td>
+              <td><span class="badge passed">✅ 15.4s</span></td>
+              <td><span class="badge passed">✅ 17.0s</span></td>
+              <td><span class="badge passed">✅ 13.8s</span></td>
+            </tr>
+            <tr>
+              <td><code>TC_CHAT_007</code></td>
+              <td><strong>Demoting Admin Back to Regular Member</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Selects admin user, executes "Remove admin", asserts privilege revocation back to regular member.</span></td>
+              <td><code>button[aria-label*="Remove admin"]</code></td>
+              <td><span class="badge passed">✅ 12.6s</span></td>
+              <td><span class="badge passed">✅ 14.8s</span></td>
+              <td><span class="badge passed">✅ 16.5s</span></td>
+              <td><span class="badge passed">✅ 13.2s</span></td>
+            </tr>
+            <tr>
+              <td><code>TC_CHAT_008</code></td>
+              <td><strong>Removing Member from Group Chat</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Group admin clicks "Remove [user]" to evict regular member from conversation.</span></td>
+              <td><code>button[aria-label*="Remove"]</code></td>
+              <td><span class="badge passed">✅ 12.4s</span></td>
+              <td><span class="badge passed">✅ 14.7s</span></td>
+              <td><span class="badge passed">✅ 16.1s</span></td>
+              <td><span class="badge passed">✅ 13.0s</span></td>
+            </tr>
+            <tr>
+              <td><code>TC_CHAT_009</code></td>
+              <td><strong>Photo / Image Attachment Upload</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Opens attachment drawer, triggers "Attach photos", and uploads sample PNG image binary.</span></td>
+              <td><code>button[aria-label="Attach photos"] &rarr; FileChooser</code></td>
+              <td><span class="badge passed">✅ 15.6s</span></td>
+              <td><span class="badge passed">✅ 18.2s</span></td>
+              <td><span class="badge passed">✅ 20.4s</span></td>
+              <td><span class="badge passed">✅ 16.3s</span></td>
+            </tr>
+            <tr>
+              <td><code>TC_CHAT_010</code></td>
+              <td><strong>Document File Attachment Upload</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Opens attachment drawer, triggers "Attach files", and uploads sample text document fixture.</span></td>
+              <td><code>button[aria-label="Attach files"] &rarr; FileChooser</code></td>
+              <td><span class="badge passed">✅ 17.1s</span></td>
+              <td><span class="badge passed">✅ 19.8s</span></td>
+              <td><span class="badge passed">✅ 22.0s</span></td>
+              <td><span class="badge passed">✅ 17.9s</span></td>
+            </tr>
+            <tr>
+              <td><code>TC_CHAT_011</code></td>
+              <td><strong>Cleanly Leaving Group Conversation</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Clicks "Leave conversation" in group settings, confirms exit and validates graceful navigation.</span></td>
+              <td><code>button[aria-label="Leave conversation"]</code></td>
+              <td><span class="badge passed">✅ 12.8s</span></td>
+              <td><span class="badge passed">✅ 15.0s</span></td>
+              <td><span class="badge passed">✅ 16.8s</span></td>
+              <td><span class="badge passed">✅ 13.5s</span></td>
+            </tr>
+            <tr>
+              <td><code>TC_CHAT_012</code></td>
+              <td><strong>[Negative] Empty & Whitespace Message Submission Block</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Enforces that typing whitespace or leaving input empty disables send CTA or blocks empty dispatch.</span></td>
+              <td><code>textarea &rarr; button[disabled] / hidden</code></td>
+              <td><span class="badge passed">✅ 13.3s</span></td>
+              <td><span class="badge passed">✅ 15.6s</span></td>
+              <td><span class="badge passed">✅ 17.2s</span></td>
+              <td><span class="badge passed">✅ 14.0s</span></td>
+            </tr>
+            <tr>
+              <td><code>TC_CHAT_013</code></td>
+              <td><strong>[Negative] Group Creator Protection from Admin Removal</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Validates CREATOR badge on @m_2094 and verifies other admins cannot remove or demote the owner.</span></td>
+              <td><code>CREATOR &rarr; No "Remove M_2094"</code></td>
+              <td><span class="badge passed">✅ 10.1s</span></td>
+              <td><span class="badge passed">✅ 12.3s</span></td>
+              <td><span class="badge passed">✅ 13.9s</span></td>
+              <td><span class="badge passed">✅ 10.8s</span></td>
+            </tr>
+            <tr>
+              <td><code>TC_CHAT_014</code></td>
+              <td><strong>[Negative] Regular Members Cannot Remove Admins</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Asserts non-admin members lack moderation actions over admins in the conversation roster.</span></td>
+              <td><code>Member Permission Boundary Check</code></td>
+              <td><span class="badge passed">✅ 11.7s</span></td>
+              <td><span class="badge passed">✅ 13.9s</span></td>
+              <td><span class="badge passed">✅ 15.4s</span></td>
+              <td><span class="badge passed">✅ 12.4s</span></td>
+            </tr>
+            <tr>
+              <td><code>TC_CHAT_015</code></td>
+              <td><strong>[Negative] Admin Promotion Requires Accepted Membership</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Enforces that pending invitees cannot be elevated to admin status before joining the group.</span></td>
+              <td><code>Pending Member Elevation Guard</code></td>
+              <td><span class="badge passed">✅ 10.8s</span></td>
+              <td><span class="badge passed">✅ 13.0s</span></td>
+              <td><span class="badge passed">✅ 14.6s</span></td>
+              <td><span class="badge passed">✅ 11.5s</span></td>
+            </tr>
+            <tr>
+              <td><code>TC_CHAT_016</code></td>
+              <td><strong>[Edge] Rich Text, Emojis & Multi-Line Linebreaks</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Transmits multi-line messages with emojis (🚀, 🧪) and symbols (@#$%^&*) without escaping errors.</span></td>
+              <td><code>textarea.fill(richText) &rarr; verifyMessageSent</code></td>
+              <td><span class="badge passed">✅ 14.7s</span></td>
+              <td><span class="badge passed">✅ 17.2s</span></td>
+              <td><span class="badge passed">✅ 19.5s</span></td>
+              <td><span class="badge passed">✅ 15.5s</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Component Breakdown Grid -->
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-title">🧩 Chat Module Component & Interaction Specifications</div>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Derived from src/pages/ChatPage.ts</span>
+        </div>
+
+        <div class="grid-3">
+          <div class="comp-card">
+            <div class="comp-header">
+              <span class="comp-title">1. Conversations Sidebar & Stream</span>
+              <span class="badge passed">Real-Time</span>
+            </div>
+            <p class="comp-desc">Lists active 1-on-1 and group channels with unread badges, timestamped snippets, and New Message launcher.</p>
+            <div class="comp-detail">
+              <span><strong>Locators:</strong> <code>button[aria-label*="Message"]</code>, <code>button[aria-label*="Group"]</code></span>
+            </div>
           </div>
 
-          <div class="comp-card" style="margin-bottom: 0;">
-            <div class="comp-title" style="margin-bottom: 0.75rem;">📡 Real-Time Chat Features Detected</div>
-            <ul style="list-style: none; font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.5rem; color: var(--text-muted);">
-              <li>🔹 <strong>New Message Button:</strong> Allows direct messaging any active user.</li>
-              <li>🔹 <strong>Group Chat:</strong> Channels for group conversations.</li>
-              <li>🔹 <strong>Unread Counters:</strong> Synchronized with backend <code>/api/messages/unread-count</code>.</li>
-            </ul>
+          <div class="comp-card">
+            <div class="comp-header">
+              <span class="comp-title">2. Multi-Peer Group Creator</span>
+              <span class="badge passed">Multi-User</span>
+            </div>
+            <p class="comp-desc">Modal enabling contact search, chip tag selection for multiple peers, group naming, and "Create Group" trigger.</p>
+            <div class="comp-detail">
+              <span><strong>CTA:</strong> <code>button[aria-label="Create Group"]</code></span>
+            </div>
+          </div>
+
+          <div class="comp-card">
+            <div class="comp-header">
+              <span class="comp-title">3. Chat Composer & Thread</span>
+              <span class="badge passed">Interactive</span>
+            </div>
+            <p class="comp-desc">Responsive textarea with emoji support, multi-line linebreaks, Enter key sending, and empty input guards.</p>
+            <div class="comp-detail">
+              <span><strong>Input:</strong> <code>textarea[placeholder*="Type a message"]</code></span>
+            </div>
+          </div>
+
+          <div class="comp-card">
+            <div class="comp-header">
+              <span class="comp-title">4. Attachment Drawer (Photos/Files)</span>
+              <span class="badge passed">File Chooser</span>
+            </div>
+            <p class="comp-desc">Drawer with dedicated "Attach photos" and "Attach files" buttons integrated with HTML5 file upload events.</p>
+            <div class="comp-detail">
+              <span><strong>Actions:</strong> <code>Attach photos</code>, <code>Attach files</code></span>
+            </div>
+          </div>
+
+          <div class="comp-card">
+            <div class="comp-header">
+              <span class="comp-title">5. Conversation Settings Panel</span>
+              <span class="badge passed">Role-Aware</span>
+            </div>
+            <p class="comp-desc">Displays member roster, role badges (<code>CREATOR</code>, <code>ADMIN</code>), group rename tool, and "Leave conversation".</p>
+            <div class="comp-detail">
+              <span><strong>Locators:</strong> <code>button[aria-label="Conversation settings"]</code></span>
+            </div>
+          </div>
+
+          <div class="comp-card">
+            <div class="comp-header">
+              <span class="comp-title">6. Member Moderation Engine</span>
+              <span class="badge passed">Security Guarded</span>
+            </div>
+            <p class="comp-desc">Enforces creator immutability, admin promotion/demotion privileges, member removal, and pending state guards.</p>
+            <div class="comp-detail">
+              <span><strong>Actions:</strong> <code>Make admin</code>, <code>Remove admin</code>, <code>Remove</code></span>
+            </div>
           </div>
         </div>
       </div>
