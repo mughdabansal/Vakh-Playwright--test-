@@ -387,6 +387,481 @@
       display: block;
     }
 
+    /* Chat Subnav & Simulator Styles */
+    .chat-subnav {
+      display: flex;
+      gap: 0.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1.5rem;
+      overflow-x: auto;
+    }
+    .chat-subnav-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      padding: 0.75rem 1.25rem;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .chat-subnav-btn:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .chat-subnav-btn.active {
+      color: #a78bfa;
+      border-bottom-color: #a78bfa;
+      background: rgba(167, 139, 250, 0.08);
+    }
+    .chat-subtab-pane {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+    .chat-subtab-pane.active {
+      display: block;
+    }
+
+    /* Chat App Layout Simulator */
+    .chat-sim-container {
+      display: grid;
+      grid-template-columns: 310px 1fr 290px;
+      height: 620px;
+      background: #0d1322;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    }
+    @media (max-width: 1150px) {
+      .chat-sim-container {
+        grid-template-columns: 270px 1fr;
+      }
+      .chat-sim-settings {
+        display: none;
+      }
+    }
+    @media (max-width: 768px) {
+      .chat-sim-container {
+        grid-template-columns: 1fr;
+        height: 680px;
+      }
+      .chat-sim-sidebar {
+        display: none;
+      }
+    }
+
+    /* Left Sidebar: Conversations */
+    .chat-sim-sidebar {
+      background: #090e18;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+    }
+    .chat-sidebar-header {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .chat-sidebar-title {
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: #f8fafc;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .chat-btn-new {
+      background: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 0.35rem 0.75rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: background 0.2s;
+    }
+    .chat-btn-new:hover { background: #2563eb; }
+    .chat-conv-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .chat-conv-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 0.85rem;
+      border-radius: 10px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+      background: transparent;
+      text-align: left;
+    }
+    .chat-conv-item:hover {
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .chat-conv-item.active {
+      background: rgba(59, 130, 246, 0.12);
+      border-color: rgba(59, 130, 246, 0.3);
+    }
+    .chat-conv-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #1e293b;
+      border: 2px solid var(--border);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .chat-conv-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .chat-conv-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.2rem;
+    }
+    .chat-conv-name {
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: #f1f5f9;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .chat-conv-time {
+      font-size: 0.72rem;
+      color: var(--text-dim);
+    }
+    .chat-conv-snippet {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Center: Chat Window */
+    .chat-sim-main {
+      display: flex;
+      flex-direction: column;
+      background: #0e1526;
+      position: relative;
+    }
+    .chat-main-header {
+      padding: 0.85rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #0d1322;
+    }
+    .chat-header-user {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .chat-header-title {
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: #f8fafc;
+    }
+    .chat-header-sub {
+      font-size: 0.75rem;
+      color: #34d399;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .chat-header-sub::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #34d399;
+      box-shadow: 0 0 6px #34d399;
+    }
+
+    /* Message Stream */
+    .chat-stream {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+    .chat-msg-row {
+      display: flex;
+      gap: 0.65rem;
+      max-width: 82%;
+    }
+    .chat-msg-row.out {
+      align-self: flex-end;
+      flex-direction: row-reverse;
+    }
+    .chat-msg-row.in {
+      align-self: flex-start;
+    }
+    .chat-msg-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background: #1e293b;
+    }
+    .chat-bubble {
+      padding: 0.65rem 0.95rem;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      line-height: 1.45;
+      position: relative;
+      word-break: break-word;
+    }
+    .chat-msg-row.out .chat-bubble {
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      color: white;
+      border-bottom-right-radius: 2px;
+    }
+    .chat-msg-row.in .chat-bubble {
+      background: #1e293b;
+      color: #f1f5f9;
+      border: 1px solid var(--border);
+      border-bottom-left-radius: 2px;
+    }
+    .chat-bubble-sender {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #93c5fd;
+      margin-bottom: 0.2rem;
+    }
+    .chat-bubble-time {
+      font-size: 0.68rem;
+      opacity: 0.75;
+      text-align: right;
+      margin-top: 0.25rem;
+    }
+    .chat-bubble-media {
+      margin-top: 0.4rem;
+      border-radius: 8px;
+      overflow: hidden;
+      max-width: 220px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .chat-bubble-media img {
+      width: 100%;
+      display: block;
+    }
+    .chat-bubble-doc {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 0.4rem 0.65rem;
+      border-radius: 6px;
+      margin-top: 0.4rem;
+      font-size: 0.78rem;
+    }
+
+    /* Composer Tray */
+    .chat-composer-tray {
+      padding: 0.75rem 1.25rem;
+      background: #0d1322;
+      border-top: 1px solid var(--border);
+    }
+    .chat-staged-attachment {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(59, 130, 246, 0.15);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+      font-size: 0.78rem;
+      color: #93c5fd;
+    }
+    .chat-composer-input-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 0.5rem;
+      background: #141e33;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.4rem 0.65rem;
+      transition: border-color 0.2s;
+    }
+    .chat-composer-input-row:focus-within {
+      border-color: #3b82f6;
+    }
+    .chat-textarea {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: var(--text);
+      font-size: 0.88rem;
+      resize: none;
+      outline: none;
+      min-height: 38px;
+      max-height: 100px;
+      font-family: inherit;
+    }
+    .chat-action-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 0.4rem;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      transition: all 0.2s;
+    }
+    .chat-action-btn:hover {
+      color: #60a5fa;
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .chat-send-btn {
+      background: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 0.45rem 0.95rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: all 0.2s;
+    }
+    .chat-send-btn:hover:not(:disabled) {
+      background: #2563eb;
+      transform: translateY(-1px);
+    }
+    .chat-send-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    /* Right Panel: Settings Drawer & Member Roster */
+    .chat-sim-settings {
+      background: #090e18;
+      border-left: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      padding: 1rem;
+    }
+    .chat-settings-section-title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 800;
+      color: var(--text-dim);
+      margin: 0.85rem 0 0.5rem;
+    }
+    .chat-member-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+    .chat-member-left {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      min-width: 0;
+    }
+    .chat-member-avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #1e293b;
+    }
+    .chat-member-name {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .chat-member-handle {
+      font-size: 0.72rem;
+      color: #60a5fa;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .chat-member-role-badge {
+      font-size: 0.68rem;
+      font-weight: 800;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .chat-member-role-badge.creator {
+      background: rgba(245, 158, 11, 0.15);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+    .chat-member-role-badge.admin {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+    .chat-member-role-badge.member {
+      background: rgba(148, 163, 184, 0.12);
+      color: #94a3b8;
+    }
+    .chat-member-actions {
+      display: flex;
+      gap: 0.25rem;
+    }
+    .chat-small-btn {
+      background: #1e293b;
+      border: 1px solid var(--border);
+      color: #cbd5e1;
+      padding: 0.2rem 0.45rem;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .chat-small-btn:hover {
+      background: #334155;
+      color: white;
+    }
+    .chat-small-btn.danger:hover {
+      background: rgba(239, 68, 68, 0.3);
+      color: #fca5a5;
+      border-color: #ef4444;
+    }
+
     /* Simulator Interactive Toolbar */
     .sim-toolbar {
       display: flex;
@@ -870,7 +1345,7 @@
       <div class="panel">
         <div class="panel-header">
           <div class="panel-title">🎯 Tested Application Modules & Status</div>
-          <span style="font-size: 0.8rem; color: var(--text-muted);">Synchronized: Friday, September 11, 2026 at 10:30:25 AM</span>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Synchronized: Friday, September 11, 2026 at 10:36:23 AM</span>
         </div>
         <div class="grid-3">
           <div class="stat-card" style="cursor: pointer; border: 1px solid rgba(59, 130, 246, 0.4); background: linear-gradient(135deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.9));" onclick="switchTab('sanity', document.querySelectorAll('.tab-btn')[1])">
@@ -1826,243 +2301,912 @@
           </div>
         </div>
 
-        <h3 style="margin: 1rem 0 0.75rem; font-size: 1rem; color: #a78bfa; display: flex; align-items: center; gap: 0.5rem;">
-          <span>🧪</span> Automated Chat Test Matrix (16 Tests Passed across 4 Browsers)
-          <span style="font-size: 0.78rem; color: var(--text-dim); font-weight: normal; margin-left: auto;"><code>src/tests/chat.spec.ts</code></span>
-        </h3>
-
-        <table>
-          <thead>
-            <tr>
-              <th>Test ID</th>
-              <th>Test Case Name & Purpose</th>
-              <th>Target Locators & Scope</th>
-              <th>Chromium</th>
-              <th>Firefox</th>
-              <th>Safari</th>
-              <th>Edge</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code>TC_CHAT_001</code></td>
-              <td><strong>Chat Page UI Layout, Header & Active Stream</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Asserts Messages heading, New Message CTA, and conversation cards stream container.</span></td>
-              <td><code>/messages &rarr; [role="menuitem"], New Message</code></td>
-              <td><span class="badge passed">✅ 8.2s</span></td>
-              <td><span class="badge passed">✅ 10.4s</span></td>
-              <td><span class="badge passed">✅ 11.8s</span></td>
-              <td><span class="badge passed">✅ 8.9s</span></td>
-            </tr>
-            <tr>
-              <td><code>TC_CHAT_002</code></td>
-              <td><strong>1-on-1 Direct Messaging & Real-Time Delivery</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Initiates 1-on-1 DM with @happy_badger_2312, transmits unique timestamped text, verifies bubble rendering.</span></td>
-              <td><code>textarea[placeholder*="Type a message"], Send message</code></td>
-              <td><span class="badge passed">✅ 14.6s</span></td>
-              <td><span class="badge passed">✅ 17.1s</span></td>
-              <td><span class="badge passed">✅ 19.3s</span></td>
-              <td><span class="badge passed">✅ 15.2s</span></td>
-            </tr>
-            <tr>
-              <td><code>TC_CHAT_003</code></td>
-              <td><strong>Multi-Peer Group Chat Creation</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Searches & selects multiple allowed peers (@happy_badger_2312, @mughdabansal1414), triggers "Create Group".</span></td>
-              <td><code>button[aria-label="Create Group"] &rarr; Thread</code></td>
-              <td><span class="badge passed">✅ 16.3s</span></td>
-              <td><span class="badge passed">✅ 18.9s</span></td>
-              <td><span class="badge passed">✅ 21.0s</span></td>
-              <td><span class="badge passed">✅ 17.1s</span></td>
-            </tr>
-            <tr>
-              <td><code>TC_CHAT_004</code></td>
-              <td><strong>Group Chat Name Editing by Admin / Owner</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Opens Conversation Settings, clicks "Edit group name", updates group title and asserts real-time heading reflection.</span></td>
-              <td><code>button[aria-label="Edit group name"] &rarr; Title</code></td>
-              <td><span class="badge passed">✅ 14.1s</span></td>
-              <td><span class="badge passed">✅ 16.5s</span></td>
-              <td><span class="badge passed">✅ 18.2s</span></td>
-              <td><span class="badge passed">✅ 14.8s</span></td>
-            </tr>
-            <tr>
-              <td><code>TC_CHAT_005</code></td>
-              <td><strong>Adding Allowed Member to Existing Group Chat</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Opens group settings, clicks "Add members", searches for allowed contact and confirms roster expansion.</span></td>
-              <td><code>button[aria-label="Add members"] &rarr; Search</code></td>
-              <td><span class="badge passed">✅ 13.2s</span></td>
-              <td><span class="badge passed">✅ 15.6s</span></td>
-              <td><span class="badge passed">✅ 17.4s</span></td>
-              <td><span class="badge passed">✅ 13.9s</span></td>
-            </tr>
-            <tr>
-              <td><code>TC_CHAT_006</code></td>
-              <td><strong>Promoting Eligible Member to Group Admin Role</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Selects eligible member in roster, clicks "Make admin", asserts admin role assignment in settings.</span></td>
-              <td><code>button[aria-label*="Make"][aria-label*="admin"]</code></td>
-              <td><span class="badge passed">✅ 13.1s</span></td>
-              <td><span class="badge passed">✅ 15.4s</span></td>
-              <td><span class="badge passed">✅ 17.0s</span></td>
-              <td><span class="badge passed">✅ 13.8s</span></td>
-            </tr>
-            <tr>
-              <td><code>TC_CHAT_007</code></td>
-              <td><strong>Demoting Admin Back to Regular Member</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Selects admin user, executes "Remove admin", asserts privilege revocation back to regular member.</span></td>
-              <td><code>button[aria-label*="Remove admin"]</code></td>
-              <td><span class="badge passed">✅ 12.6s</span></td>
-              <td><span class="badge passed">✅ 14.8s</span></td>
-              <td><span class="badge passed">✅ 16.5s</span></td>
-              <td><span class="badge passed">✅ 13.2s</span></td>
-            </tr>
-            <tr>
-              <td><code>TC_CHAT_008</code></td>
-              <td><strong>Removing Member from Group Chat</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Group admin clicks "Remove [user]" to evict regular member from conversation.</span></td>
-              <td><code>button[aria-label*="Remove"]</code></td>
-              <td><span class="badge passed">✅ 12.4s</span></td>
-              <td><span class="badge passed">✅ 14.7s</span></td>
-              <td><span class="badge passed">✅ 16.1s</span></td>
-              <td><span class="badge passed">✅ 13.0s</span></td>
-            </tr>
-            <tr>
-              <td><code>TC_CHAT_009</code></td>
-              <td><strong>Photo / Image Attachment Upload</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Opens attachment drawer, triggers "Attach photos", and uploads sample PNG image binary.</span></td>
-              <td><code>button[aria-label="Attach photos"] &rarr; FileChooser</code></td>
-              <td><span class="badge passed">✅ 15.6s</span></td>
-              <td><span class="badge passed">✅ 18.2s</span></td>
-              <td><span class="badge passed">✅ 20.4s</span></td>
-              <td><span class="badge passed">✅ 16.3s</span></td>
-            </tr>
-            <tr>
-              <td><code>TC_CHAT_010</code></td>
-              <td><strong>Document File Attachment Upload</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Opens attachment drawer, triggers "Attach files", and uploads sample text document fixture.</span></td>
-              <td><code>button[aria-label="Attach files"] &rarr; FileChooser</code></td>
-              <td><span class="badge passed">✅ 17.1s</span></td>
-              <td><span class="badge passed">✅ 19.8s</span></td>
-              <td><span class="badge passed">✅ 22.0s</span></td>
-              <td><span class="badge passed">✅ 17.9s</span></td>
-            </tr>
-            <tr>
-              <td><code>TC_CHAT_011</code></td>
-              <td><strong>Cleanly Leaving Group Conversation</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Clicks "Leave conversation" in group settings, confirms exit and validates graceful navigation.</span></td>
-              <td><code>button[aria-label="Leave conversation"]</code></td>
-              <td><span class="badge passed">✅ 12.8s</span></td>
-              <td><span class="badge passed">✅ 15.0s</span></td>
-              <td><span class="badge passed">✅ 16.8s</span></td>
-              <td><span class="badge passed">✅ 13.5s</span></td>
-            </tr>
-            <tr>
-              <td><code>TC_CHAT_012</code></td>
-              <td><strong>[Negative] Empty & Whitespace Message Submission Block</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Enforces that typing whitespace or leaving input empty disables send CTA or blocks empty dispatch.</span></td>
-              <td><code>textarea &rarr; button[disabled] / hidden</code></td>
-              <td><span class="badge passed">✅ 13.3s</span></td>
-              <td><span class="badge passed">✅ 15.6s</span></td>
-              <td><span class="badge passed">✅ 17.2s</span></td>
-              <td><span class="badge passed">✅ 14.0s</span></td>
-            </tr>
-            <tr>
-              <td><code>TC_CHAT_013</code></td>
-              <td><strong>[Negative] Group Creator Protection from Admin Removal</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Validates CREATOR badge on @m_2094 and verifies other admins cannot remove or demote the owner.</span></td>
-              <td><code>CREATOR &rarr; No "Remove M_2094"</code></td>
-              <td><span class="badge passed">✅ 10.1s</span></td>
-              <td><span class="badge passed">✅ 12.3s</span></td>
-              <td><span class="badge passed">✅ 13.9s</span></td>
-              <td><span class="badge passed">✅ 10.8s</span></td>
-            </tr>
-            <tr>
-              <td><code>TC_CHAT_014</code></td>
-              <td><strong>[Negative] Regular Members Cannot Remove Admins</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Asserts non-admin members lack moderation actions over admins in the conversation roster.</span></td>
-              <td><code>Member Permission Boundary Check</code></td>
-              <td><span class="badge passed">✅ 11.7s</span></td>
-              <td><span class="badge passed">✅ 13.9s</span></td>
-              <td><span class="badge passed">✅ 15.4s</span></td>
-              <td><span class="badge passed">✅ 12.4s</span></td>
-            </tr>
-            <tr>
-              <td><code>TC_CHAT_015</code></td>
-              <td><strong>[Negative] Admin Promotion Requires Accepted Membership</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Enforces that pending invitees cannot be elevated to admin status before joining the group.</span></td>
-              <td><code>Pending Member Elevation Guard</code></td>
-              <td><span class="badge passed">✅ 10.8s</span></td>
-              <td><span class="badge passed">✅ 13.0s</span></td>
-              <td><span class="badge passed">✅ 14.6s</span></td>
-              <td><span class="badge passed">✅ 11.5s</span></td>
-            </tr>
-            <tr>
-              <td><code>TC_CHAT_016</code></td>
-              <td><strong>[Edge] Rich Text, Emojis & Multi-Line Linebreaks</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Transmits multi-line messages with emojis (🚀, 🧪) and symbols (@#$%^&*) without escaping errors.</span></td>
-              <td><code>textarea.fill(richText) &rarr; verifyMessageSent</code></td>
-              <td><span class="badge passed">✅ 14.7s</span></td>
-              <td><span class="badge passed">✅ 17.2s</span></td>
-              <td><span class="badge passed">✅ 19.5s</span></td>
-              <td><span class="badge passed">✅ 15.5s</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Component Breakdown Grid -->
-      <div class="panel">
-        <div class="panel-header">
-          <div class="panel-title">🧩 Chat Module Component & Interaction Specifications</div>
-          <span style="font-size: 0.8rem; color: var(--text-muted);">Derived from src/pages/ChatPage.ts</span>
+        <!-- Chat Sub-Navigation -->
+        <div class="chat-subnav">
+          <button class="chat-subnav-btn active" onclick="switchChatSubTab('tests', this)">
+            🧪 Automated Tests (16 Specs)
+          </button>
+          <button class="chat-subnav-btn" onclick="switchChatSubTab('simulator', this)">
+            💬 Live Chat & Moderation Simulator
+          </button>
+          <button class="chat-subnav-btn" onclick="switchChatSubTab('security', this)">
+            🛡️ Security & Role Matrix
+          </button>
+          <button class="chat-subnav-btn" onclick="switchChatSubTab('arch', this)">
+            🧩 Component Architecture & POM
+          </button>
         </div>
 
-        <div class="grid-3">
-          <div class="comp-card">
-            <div class="comp-header">
-              <span class="comp-title">1. Conversations Sidebar & Stream</span>
-              <span class="badge passed">Real-Time</span>
+        <!-- ================= SUB-TAB 1: TEST CASES ACCORDION & MATRIX ================= -->
+        <div id="chat-subtab-tests" class="chat-subtab-pane active">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem;">
+            <h3 style="font-size: 0.95rem; color: #cbd5e1;">📋 Verified Test Cases & Assertions (Click row to expand details)</h3>
+            <span style="font-size: 0.78rem; color: var(--text-dim);">Source: <code>src/tests/chat.spec.ts</code></span>
+          </div>
+
+          <div class="test-accordion">
+            <!-- Test 1 -->
+            <div class="test-accordion-card open" onclick="toggleTestAccordion(this)">
+              <div class="test-accordion-header">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <span class="badge passed">PASS</span>
+                  <code>TC_CHAT_001</code>
+                  <strong>Chat Page UI Layout, Header & Active Stream</strong>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Duration: 8.2s</span>
+                  <span class="test-chevron">&#9660;</span>
+                </div>
+              </div>
+              <div class="test-accordion-body">
+                <p style="color: #cbd5e1; margin-bottom: 0.5rem;"><strong>Objective:</strong> Navigates to <code>/messages</code> via sidebar menuitem, asserts Messages heading is visible, validates New Message CTA button, and verifies conversation stream container rendering.</p>
+                <p><strong>Playwright Locators:</strong> <code>getByRole('menuitem', { name: /messages|chat/i })</code> & <code>page.getByRole('button', { name: /new message/i })</code></p>
+                <p><strong>Cross-Browser Status:</strong> Chromium (8.2s) &bull; Firefox (10.4s) &bull; WebKit (11.8s) &bull; MS Edge (8.9s)</p>
+              </div>
             </div>
-            <p class="comp-desc">Lists active 1-on-1 and group channels with unread badges, timestamped snippets, and New Message launcher.</p>
-            <div class="comp-detail">
-              <span><strong>Locators:</strong> <code>button[aria-label*="Message"]</code>, <code>button[aria-label*="Group"]</code></span>
+
+            <!-- Test 2 -->
+            <div class="test-accordion-card" onclick="toggleTestAccordion(this)">
+              <div class="test-accordion-header">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <span class="badge passed">PASS</span>
+                  <code>TC_CHAT_002</code>
+                  <strong>1-on-1 Direct Messaging & Real-Time Delivery</strong>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Duration: 14.6s</span>
+                  <span class="test-chevron">&#9660;</span>
+                </div>
+              </div>
+              <div class="test-accordion-body">
+                <p style="color: #cbd5e1; margin-bottom: 0.5rem;"><strong>Objective:</strong> Initiates direct message with allowed contact (<code>@happy_badger_2312</code>), fills unique timestamped text, clicks send, and asserts message bubble renders with verified text in active thread.</p>
+                <p><strong>Playwright Locators:</strong> <code>textarea[placeholder*="Type a message"]</code>, <code>button[aria-label="Send message"]</code></p>
+                <p><strong>Cross-Browser Status:</strong> Chromium (14.6s) &bull; Firefox (17.1s) &bull; WebKit (19.3s) &bull; MS Edge (15.2s)</p>
+              </div>
+            </div>
+
+            <!-- Test 3 -->
+            <div class="test-accordion-card" onclick="toggleTestAccordion(this)">
+              <div class="test-accordion-header">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <span class="badge passed">PASS</span>
+                  <code>TC_CHAT_003</code>
+                  <strong>Multi-Peer Group Chat Creation</strong>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Duration: 16.3s</span>
+                  <span class="test-chevron">&#9660;</span>
+                </div>
+              </div>
+              <div class="test-accordion-body">
+                <p style="color: #cbd5e1; margin-bottom: 0.5rem;"><strong>Objective:</strong> Launches new conversation modal, selects multiple allowed peers (<code>happy_badger_2312</code>, <code>mughdabansal1414</code>), handles dynamic button state transition from "Start Chat" to "Create Group", names group, and verifies channel creation.</p>
+                <p><strong>Playwright Locators:</strong> <code>button[aria-label="Create Group"]</code>, <code>input[placeholder*="Group name"]</code></p>
+                <p><strong>Cross-Browser Status:</strong> Chromium (16.3s) &bull; Firefox (18.9s) &bull; WebKit (21.0s) &bull; MS Edge (17.1s)</p>
+              </div>
+            </div>
+
+            <!-- Test 4 -->
+            <div class="test-accordion-card" onclick="toggleTestAccordion(this)">
+              <div class="test-accordion-header">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <span class="badge passed">PASS</span>
+                  <code>TC_CHAT_004</code>
+                  <strong>Group Chat Name Editing by Admin / Owner</strong>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Duration: 14.1s</span>
+                  <span class="test-chevron">&#9660;</span>
+                </div>
+              </div>
+              <div class="test-accordion-body">
+                <p style="color: #cbd5e1; margin-bottom: 0.5rem;"><strong>Objective:</strong> Opens Conversation Settings drawer, clicks "Edit group name", enters updated title (<code>QA Alpha Group Renamed</code>), saves and verifies real-time header reflection.</p>
+                <p><strong>Playwright Locators:</strong> <code>button[aria-label="Edit group name"]</code>, <code>input[placeholder*="Group name"]</code></p>
+                <p><strong>Cross-Browser Status:</strong> Chromium (14.1s) &bull; Firefox (16.5s) &bull; WebKit (18.2s) &bull; MS Edge (14.8s)</p>
+              </div>
+            </div>
+
+            <!-- Test 5 -->
+            <div class="test-accordion-card" onclick="toggleTestAccordion(this)">
+              <div class="test-accordion-header">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <span class="badge passed">PASS</span>
+                  <code>TC_CHAT_005</code>
+                  <strong>Adding Allowed Member to Existing Group Chat</strong>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Duration: 13.2s</span>
+                  <span class="test-chevron">&#9660;</span>
+                </div>
+              </div>
+              <div class="test-accordion-body">
+                <p style="color: #cbd5e1; margin-bottom: 0.5rem;"><strong>Objective:</strong> Opens group settings, triggers "Add members", searches for allowed contact (<code>mughdabansal1414</code>), confirms selection and validates member addition to roster.</p>
+                <p><strong>Playwright Locators:</strong> <code>button[aria-label="Add members"]</code>, <code>input[placeholder*="Search"]</code></p>
+                <p><strong>Cross-Browser Status:</strong> Chromium (13.2s) &bull; Firefox (15.6s) &bull; WebKit (17.4s) &bull; MS Edge (13.9s)</p>
+              </div>
+            </div>
+
+            <!-- Test 6 -->
+            <div class="test-accordion-card" onclick="toggleTestAccordion(this)">
+              <div class="test-accordion-header">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <span class="badge passed">PASS</span>
+                  <code>TC_CHAT_006</code>
+                  <strong>Promoting Eligible Member to Group Admin Role</strong>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Duration: 13.1s</span>
+                  <span class="test-chevron">&#9660;</span>
+                </div>
+              </div>
+              <div class="test-accordion-body">
+                <p style="color: #cbd5e1; margin-bottom: 0.5rem;"><strong>Objective:</strong> Creator locates peer member in settings roster, clicks "Make admin", asserts admin privilege badge assignment.</p>
+                <p><strong>Playwright Locators:</strong> <code>button[aria-label*="Make"][aria-label*="admin"]</code></p>
+                <p><strong>Cross-Browser Status:</strong> Chromium (13.1s) &bull; Firefox (15.4s) &bull; WebKit (17.0s) &bull; MS Edge (13.8s)</p>
+              </div>
+            </div>
+
+            <!-- Test 7 -->
+            <div class="test-accordion-card" onclick="toggleTestAccordion(this)">
+              <div class="test-accordion-header">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <span class="badge passed">PASS</span>
+                  <code>TC_CHAT_007</code>
+                  <strong>Demoting Admin Back to Regular Member</strong>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Duration: 12.6s</span>
+                  <span class="test-chevron">&#9660;</span>
+                </div>
+              </div>
+              <div class="test-accordion-body">
+                <p style="color: #cbd5e1; margin-bottom: 0.5rem;"><strong>Objective:</strong> Selects existing admin user, clicks "Remove admin", asserts privilege revocation back to regular member.</p>
+                <p><strong>Playwright Locators:</strong> <code>button[aria-label*="Remove admin"]</code></p>
+                <p><strong>Cross-Browser Status:</strong> Chromium (12.6s) &bull; Firefox (14.8s) &bull; WebKit (16.5s) &bull; MS Edge (13.2s)</p>
+              </div>
+            </div>
+
+            <!-- Test 8 -->
+            <div class="test-accordion-card" onclick="toggleTestAccordion(this)">
+              <div class="test-accordion-header">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <span class="badge passed">PASS</span>
+                  <code>TC_CHAT_008</code>
+                  <strong>Removing Member from Group Chat</strong>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Duration: 12.4s</span>
+                  <span class="test-chevron">&#9660;</span>
+                </div>
+              </div>
+              <div class="test-accordion-body">
+                <p style="color: #cbd5e1; margin-bottom: 0.5rem;"><strong>Objective:</strong> Group administrator clicks "Remove [user]" to evict regular member from conversation roster.</p>
+                <p><strong>Playwright Locators:</strong> <code>button[aria-label*="Remove"]</code></p>
+                <p><strong>Cross-Browser Status:</strong> Chromium (12.4s) &bull; Firefox (14.7s) &bull; WebKit (16.1s) &bull; MS Edge (13.0s)</p>
+              </div>
+            </div>
+
+            <!-- Test 9 -->
+            <div class="test-accordion-card" onclick="toggleTestAccordion(this)">
+              <div class="test-accordion-header">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <span class="badge passed">PASS</span>
+                  <code>TC_CHAT_009</code>
+                  <strong>Photo / Image Attachment Upload</strong>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Duration: 15.6s</span>
+                  <span class="test-chevron">&#9660;</span>
+                </div>
+              </div>
+              <div class="test-accordion-body">
+                <p style="color: #cbd5e1; margin-bottom: 0.5rem;"><strong>Objective:</strong> Opens attachment drawer in composer, triggers "Attach photos", sets input files with sample PNG image fixture, transmits and verifies upload.</p>
+                <p><strong>Playwright Locators:</strong> <code>button[aria-label="Attach photos"]</code> &rarr; <code>src/fixtures/sample-photo.png</code></p>
+                <p><strong>Cross-Browser Status:</strong> Chromium (15.6s) &bull; Firefox (18.2s) &bull; WebKit (20.4s) &bull; MS Edge (16.3s)</p>
+              </div>
+            </div>
+
+            <!-- Test 10 -->
+            <div class="test-accordion-card" onclick="toggleTestAccordion(this)">
+              <div class="test-accordion-header">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <span class="badge passed">PASS</span>
+                  <code>TC_CHAT_010</code>
+                  <strong>Document File Attachment Upload</strong>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Duration: 17.1s</span>
+                  <span class="test-chevron">&#9660;</span>
+                </div>
+              </div>
+              <div class="test-accordion-body">
+                <p style="color: #cbd5e1; margin-bottom: 0.5rem;"><strong>Objective:</strong> Opens attachment drawer, triggers "Attach files", attaches text document fixture, dispatches and asserts delivery.</p>
+                <p><strong>Playwright Locators:</strong> <code>button[aria-label="Attach files"]</code> &rarr; <code>src/fixtures/sample-doc.txt</code></p>
+                <p><strong>Cross-Browser Status:</strong> Chromium (17.1s) &bull; Firefox (19.8s) &bull; WebKit (22.0s) &bull; MS Edge (17.9s)</p>
+              </div>
+            </div>
+
+            <!-- Test 11 -->
+            <div class="test-accordion-card" onclick="toggleTestAccordion(this)">
+              <div class="test-accordion-header">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <span class="badge passed">PASS</span>
+                  <code>TC_CHAT_011</code>
+                  <strong>Cleanly Leaving Group Conversation</strong>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Duration: 12.8s</span>
+                  <span class="test-chevron">&#9660;</span>
+                </div>
+              </div>
+              <div class="test-accordion-body">
+                <p style="color: #cbd5e1; margin-bottom: 0.5rem;"><strong>Objective:</strong> Clicks "Leave conversation" in group settings, confirms exit dialog, and validates graceful navigation back to messages root.</p>
+                <p><strong>Playwright Locators:</strong> <code>button[aria-label="Leave conversation"]</code></p>
+                <p><strong>Cross-Browser Status:</strong> Chromium (12.8s) &bull; Firefox (15.0s) &bull; WebKit (16.8s) &bull; MS Edge (13.5s)</p>
+              </div>
+            </div>
+
+            <!-- Test 12 -->
+            <div class="test-accordion-card" onclick="toggleTestAccordion(this)">
+              <div class="test-accordion-header">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <span class="badge passed">PASS</span>
+                  <code>TC_CHAT_012</code>
+                  <strong>[Negative] Empty & Whitespace Message Submission Block</strong>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Duration: 13.3s</span>
+                  <span class="test-chevron">&#9660;</span>
+                </div>
+              </div>
+              <div class="test-accordion-body">
+                <p style="color: #cbd5e1; margin-bottom: 0.5rem;"><strong>Objective:</strong> Enforces that typing whitespace or leaving input empty disables the Send CTA button or prevents empty message dispatch.</p>
+                <p><strong>Playwright Locators:</strong> <code>textarea.fill('   ')</code> &rarr; <code>button[aria-label="Send message"][disabled]</code></p>
+                <p><strong>Cross-Browser Status:</strong> Chromium (13.3s) &bull; Firefox (15.6s) &bull; WebKit (17.2s) &bull; MS Edge (14.0s)</p>
+              </div>
+            </div>
+
+            <!-- Test 13 -->
+            <div class="test-accordion-card" onclick="toggleTestAccordion(this)">
+              <div class="test-accordion-header">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <span class="badge passed">PASS</span>
+                  <code>TC_CHAT_013</code>
+                  <strong>[Negative] Group Creator Protection from Admin Removal</strong>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Duration: 10.1s</span>
+                  <span class="test-chevron">&#9660;</span>
+                </div>
+              </div>
+              <div class="test-accordion-body">
+                <p style="color: #cbd5e1; margin-bottom: 0.5rem;"><strong>Objective:</strong> Validates CREATOR badge on <code>@m_2094</code> and verifies that other admins or members have NO remove or demote actions available against the creator.</p>
+                <p><strong>Playwright Locators:</strong> <code>CREATOR</code> badge check & <code>button[aria-label="Remove M_2094"]:not(:visible)</code></p>
+                <p><strong>Cross-Browser Status:</strong> Chromium (10.1s) &bull; Firefox (12.3s) &bull; WebKit (13.9s) &bull; MS Edge (10.8s)</p>
+              </div>
+            </div>
+
+            <!-- Test 14 -->
+            <div class="test-accordion-card" onclick="toggleTestAccordion(this)">
+              <div class="test-accordion-header">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <span class="badge passed">PASS</span>
+                  <code>TC_CHAT_014</code>
+                  <strong>[Negative] Regular Members Cannot Remove Admins</strong>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Duration: 11.7s</span>
+                  <span class="test-chevron">&#9660;</span>
+                </div>
+              </div>
+              <div class="test-accordion-body">
+                <p style="color: #cbd5e1; margin-bottom: 0.5rem;"><strong>Objective:</strong> Asserts non-admin regular members lack moderation action buttons over admins in the conversation roster.</p>
+                <p><strong>Playwright Locators:</strong> Permission boundary check on non-admin member roster entries</p>
+                <p><strong>Cross-Browser Status:</strong> Chromium (11.7s) &bull; Firefox (13.9s) &bull; WebKit (15.4s) &bull; MS Edge (12.4s)</p>
+              </div>
+            </div>
+
+            <!-- Test 15 -->
+            <div class="test-accordion-card" onclick="toggleTestAccordion(this)">
+              <div class="test-accordion-header">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <span class="badge passed">PASS</span>
+                  <code>TC_CHAT_015</code>
+                  <strong>[Negative] Admin Promotion Requires Accepted Membership</strong>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Duration: 10.8s</span>
+                  <span class="test-chevron">&#9660;</span>
+                </div>
+              </div>
+              <div class="test-accordion-body">
+                <p style="color: #cbd5e1; margin-bottom: 0.5rem;"><strong>Objective:</strong> Enforces that pending invitees who haven't accepted group membership cannot be promoted to admin status.</p>
+                <p><strong>Playwright Locators:</strong> Pending invitee state check & "Make admin" action suppression</p>
+                <p><strong>Cross-Browser Status:</strong> Chromium (10.8s) &bull; Firefox (13.0s) &bull; WebKit (14.6s) &bull; MS Edge (11.5s)</p>
+              </div>
+            </div>
+
+            <!-- Test 16 -->
+            <div class="test-accordion-card" onclick="toggleTestAccordion(this)">
+              <div class="test-accordion-header">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <span class="badge passed">PASS</span>
+                  <code>TC_CHAT_016</code>
+                  <strong>[Edge] Rich Text, Emojis & Multi-Line Linebreaks</strong>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Duration: 14.7s</span>
+                  <span class="test-chevron">&#9660;</span>
+                </div>
+              </div>
+              <div class="test-accordion-body">
+                <p style="color: #cbd5e1; margin-bottom: 0.5rem;"><strong>Objective:</strong> Transmits complex multi-line messages containing emojis (🚀, 🧪, 🛡️) and special symbol strings without escaping or layout distortion.</p>
+                <p><strong>Playwright Locators:</strong> <code>textarea.fill(multiLineWithEmojis)</code> &rarr; <code>verifyMessageSent()</code></p>
+                <p><strong>Cross-Browser Status:</strong> Chromium (14.7s) &bull; Firefox (17.2s) &bull; WebKit (19.5s) &bull; MS Edge (15.5s)</p>
+              </div>
             </div>
           </div>
 
-          <div class="comp-card">
-            <div class="comp-header">
-              <span class="comp-title">2. Multi-Peer Group Creator</span>
-              <span class="badge passed">Multi-User</span>
+          <!-- Full Test Matrix Table -->
+          <h3 style="margin: 1.5rem 0 0.75rem; font-size: 1rem; color: #a78bfa; display: flex; align-items: center; gap: 0.5rem;">
+            <span>📊</span> Cross-Browser Test Performance Matrix (64 Browser Runs)
+          </h3>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Test ID</th>
+                <th>Test Case Name & Purpose</th>
+                <th>Scope & POM Method</th>
+                <th>Chromium</th>
+                <th>Firefox</th>
+                <th>Safari</th>
+                <th>Edge</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>TC_CHAT_001</code></td>
+                <td><strong>Chat Page UI Layout, Header & Active Stream</strong></td>
+                <td><code>gotoMessages() &rarr; isMessagesHeadingVisible()</code></td>
+                <td><span class="badge passed">✅ 8.2s</span></td>
+                <td><span class="badge passed">✅ 10.4s</span></td>
+                <td><span class="badge passed">✅ 11.8s</span></td>
+                <td><span class="badge passed">✅ 8.9s</span></td>
+              </tr>
+              <tr>
+                <td><code>TC_CHAT_002</code></td>
+                <td><strong>1-on-1 Direct Messaging & Real-Time Delivery</strong></td>
+                <td><code>sendMessage('happy_badger_2312', msg)</code></td>
+                <td><span class="badge passed">✅ 14.6s</span></td>
+                <td><span class="badge passed">✅ 17.1s</span></td>
+                <td><span class="badge passed">✅ 19.3s</span></td>
+                <td><span class="badge passed">✅ 15.2s</span></td>
+              </tr>
+              <tr>
+                <td><code>TC_CHAT_003</code></td>
+                <td><strong>Multi-Peer Group Chat Creation</strong></td>
+                <td><code>createGroupChat(['happy_badger_2312', ...], name)</code></td>
+                <td><span class="badge passed">✅ 16.3s</span></td>
+                <td><span class="badge passed">✅ 18.9s</span></td>
+                <td><span class="badge passed">✅ 21.0s</span></td>
+                <td><span class="badge passed">✅ 17.1s</span></td>
+              </tr>
+              <tr>
+                <td><code>TC_CHAT_004</code></td>
+                <td><strong>Group Chat Name Editing by Admin / Owner</strong></td>
+                <td><code>editGroupName('QA Alpha Group Renamed')</code></td>
+                <td><span class="badge passed">✅ 14.1s</span></td>
+                <td><span class="badge passed">✅ 16.5s</span></td>
+                <td><span class="badge passed">✅ 18.2s</span></td>
+                <td><span class="badge passed">✅ 14.8s</span></td>
+              </tr>
+              <tr>
+                <td><code>TC_CHAT_005</code></td>
+                <td><strong>Adding Allowed Member to Existing Group Chat</strong></td>
+                <td><code>addMemberToGroup('mughdabansal1414')</code></td>
+                <td><span class="badge passed">✅ 13.2s</span></td>
+                <td><span class="badge passed">✅ 15.6s</span></td>
+                <td><span class="badge passed">✅ 17.4s</span></td>
+                <td><span class="badge passed">✅ 13.9s</span></td>
+              </tr>
+              <tr>
+                <td><code>TC_CHAT_006</code></td>
+                <td><strong>Promoting Eligible Member to Group Admin Role</strong></td>
+                <td><code>makeAdmin('happy_badger_2312')</code></td>
+                <td><span class="badge passed">✅ 13.1s</span></td>
+                <td><span class="badge passed">✅ 15.4s</span></td>
+                <td><span class="badge passed">✅ 17.0s</span></td>
+                <td><span class="badge passed">✅ 13.8s</span></td>
+              </tr>
+              <tr>
+                <td><code>TC_CHAT_007</code></td>
+                <td><strong>Demoting Admin Back to Regular Member</strong></td>
+                <td><code>removeAdmin('happy_badger_2312')</code></td>
+                <td><span class="badge passed">✅ 12.6s</span></td>
+                <td><span class="badge passed">✅ 14.8s</span></td>
+                <td><span class="badge passed">✅ 16.5s</span></td>
+                <td><span class="badge passed">✅ 13.2s</span></td>
+              </tr>
+              <tr>
+                <td><code>TC_CHAT_008</code></td>
+                <td><strong>Removing Member from Group Chat</strong></td>
+                <td><code>removeMember('happy_badger_2312')</code></td>
+                <td><span class="badge passed">✅ 12.4s</span></td>
+                <td><span class="badge passed">✅ 14.7s</span></td>
+                <td><span class="badge passed">✅ 16.1s</span></td>
+                <td><span class="badge passed">✅ 13.0s</span></td>
+              </tr>
+              <tr>
+                <td><code>TC_CHAT_009</code></td>
+                <td><strong>Photo / Image Attachment Upload</strong></td>
+                <td><code>attachPhoto('src/fixtures/sample-photo.png')</code></td>
+                <td><span class="badge passed">✅ 15.6s</span></td>
+                <td><span class="badge passed">✅ 18.2s</span></td>
+                <td><span class="badge passed">✅ 20.4s</span></td>
+                <td><span class="badge passed">✅ 16.3s</span></td>
+              </tr>
+              <tr>
+                <td><code>TC_CHAT_010</code></td>
+                <td><strong>Document File Attachment Upload</strong></td>
+                <td><code>attachDocument('src/fixtures/sample-doc.txt')</code></td>
+                <td><span class="badge passed">✅ 17.1s</span></td>
+                <td><span class="badge passed">✅ 19.8s</span></td>
+                <td><span class="badge passed">✅ 22.0s</span></td>
+                <td><span class="badge passed">✅ 17.9s</span></td>
+              </tr>
+              <tr>
+                <td><code>TC_CHAT_011</code></td>
+                <td><strong>Cleanly Leaving Group Conversation</strong></td>
+                <td><code>leaveConversation()</code></td>
+                <td><span class="badge passed">✅ 12.8s</span></td>
+                <td><span class="badge passed">✅ 15.0s</span></td>
+                <td><span class="badge passed">✅ 16.8s</span></td>
+                <td><span class="badge passed">✅ 13.5s</span></td>
+              </tr>
+              <tr>
+                <td><code>TC_CHAT_012</code></td>
+                <td><strong>[Negative] Empty & Whitespace Message Submission Block</strong></td>
+                <td><code>textarea.fill('   ') &rarr; button[disabled]</code></td>
+                <td><span class="badge passed">✅ 13.3s</span></td>
+                <td><span class="badge passed">✅ 15.6s</span></td>
+                <td><span class="badge passed">✅ 17.2s</span></td>
+                <td><span class="badge passed">✅ 14.0s</span></td>
+              </tr>
+              <tr>
+                <td><code>TC_CHAT_013</code></td>
+                <td><strong>[Negative] Group Creator Protection from Admin Removal</strong></td>
+                <td><code>CREATOR &rarr; No "Remove M_2094"</code></td>
+                <td><span class="badge passed">✅ 10.1s</span></td>
+                <td><span class="badge passed">✅ 12.3s</span></td>
+                <td><span class="badge passed">✅ 13.9s</span></td>
+                <td><span class="badge passed">✅ 10.8s</span></td>
+              </tr>
+              <tr>
+                <td><code>TC_CHAT_014</code></td>
+                <td><strong>[Negative] Regular Members Cannot Remove Admins</strong></td>
+                <td><code>Member Permission Boundary Check</code></td>
+                <td><span class="badge passed">✅ 11.7s</span></td>
+                <td><span class="badge passed">✅ 13.9s</span></td>
+                <td><span class="badge passed">✅ 15.4s</span></td>
+                <td><span class="badge passed">✅ 12.4s</span></td>
+              </tr>
+              <tr>
+                <td><code>TC_CHAT_015</code></td>
+                <td><strong>[Negative] Admin Promotion Requires Accepted Membership</strong></td>
+                <td><code>Pending Member Elevation Guard</code></td>
+                <td><span class="badge passed">✅ 10.8s</span></td>
+                <td><span class="badge passed">✅ 13.0s</span></td>
+                <td><span class="badge passed">✅ 14.6s</span></td>
+                <td><span class="badge passed">✅ 11.5s</span></td>
+              </tr>
+              <tr>
+                <td><code>TC_CHAT_016</code></td>
+                <td><strong>[Edge] Rich Text, Emojis & Multi-Line Linebreaks</strong></td>
+                <td><code>textarea.fill(richText) &rarr; verifyMessageSent</code></td>
+                <td><span class="badge passed">✅ 14.7s</span></td>
+                <td><span class="badge passed">✅ 17.2s</span></td>
+                <td><span class="badge passed">✅ 19.5s</span></td>
+                <td><span class="badge passed">✅ 15.5s</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- ================= SUB-TAB 2: LIVE CHAT & MODERATION SIMULATOR ================= -->
+        <div id="chat-subtab-simulator" class="chat-subtab-pane">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <div>
+              <h3 style="font-size: 1.05rem; font-weight: 800; color: #f8fafc; display: flex; align-items: center; gap: 0.5rem;">
+                <span>💬</span> Interactive Eve Vakh Chat & Moderation Console
+              </h3>
+              <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.2rem;">
+                Experience 1-on-1 direct messaging, group chat dynamics, admin moderation triggers, and attachment staging in real time.
+              </p>
             </div>
-            <p class="comp-desc">Modal enabling contact search, chip tag selection for multiple peers, group naming, and "Create Group" trigger.</p>
-            <div class="comp-detail">
-              <span><strong>CTA:</strong> <code>button[aria-label="Create Group"]</code></span>
+            <div style="display: flex; gap: 0.5rem;">
+              <button class="chat-small-btn" onclick="resetChatSimulator()" style="padding: 0.35rem 0.75rem; font-size: 0.78rem;">
+                🔄 Reset Simulator State
+              </button>
             </div>
           </div>
 
-          <div class="comp-card">
-            <div class="comp-header">
-              <span class="comp-title">3. Chat Composer & Thread</span>
-              <span class="badge passed">Interactive</span>
+          <!-- 3-Column Simulator Container -->
+          <div class="chat-sim-container">
+            
+            <!-- Column 1: Conversations Sidebar -->
+            <div class="chat-sim-sidebar">
+              <div class="chat-sidebar-header">
+                <div class="chat-sidebar-title">
+                  <span>Messages</span>
+                </div>
+                <button class="chat-btn-new" onclick="openChatNewGroupModal()">
+                  <span>+</span> New Group
+                </button>
+              </div>
+
+              <div class="chat-conv-list">
+                <!-- Conversation 1: 1-on-1 DM -->
+                <div id="conv-item-dm" class="chat-conv-item active" onclick="selectChatConversation('dm')">
+                  <img class="chat-conv-avatar" src="https://api.dicebear.com/10.x/lorelei/svg?seed=happy_badger_2312&size=96" alt="happy_badger">
+                  <div class="chat-conv-info">
+                    <div class="chat-conv-top">
+                      <span class="chat-conv-name">happy_badger_2312</span>
+                      <span class="chat-conv-time" id="conv-time-dm">Just now</span>
+                    </div>
+                    <div class="chat-conv-snippet" id="conv-snippet-dm">You: Automated test message...</div>
+                  </div>
+                </div>
+
+                <!-- Conversation 2: Group QA Alpha -->
+                <div id="conv-item-group" class="chat-conv-item" onclick="selectChatConversation('group')">
+                  <div class="chat-conv-avatar" style="background: linear-gradient(135deg, #3b82f6, #8b5cf6); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.85rem; color: white;">
+                    QA
+                  </div>
+                  <div class="chat-conv-info">
+                    <div class="chat-conv-top">
+                      <span class="chat-conv-name" id="conv-name-group">QA Alpha Group</span>
+                      <span class="chat-conv-time" id="conv-time-group">2m ago</span>
+                    </div>
+                    <div class="chat-conv-snippet" id="conv-snippet-group">Welcome everyone to QA Alpha!</div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <p class="comp-desc">Responsive textarea with emoji support, multi-line linebreaks, Enter key sending, and empty input guards.</p>
-            <div class="comp-detail">
-              <span><strong>Input:</strong> <code>textarea[placeholder*="Type a message"]</code></span>
+
+            <!-- Column 2: Chat Main Stream & Composer -->
+            <div class="chat-sim-main">
+              <!-- Header -->
+              <div class="chat-main-header">
+                <div class="chat-header-user">
+                  <img id="chatHeaderAvatar" class="chat-msg-avatar" style="width: 38px; height: 38px;" src="https://api.dicebear.com/10.x/lorelei/svg?seed=happy_badger_2312&size=96" alt="Avatar">
+                  <div>
+                    <div class="chat-header-title" id="chatHeaderTitle">happy_badger_2312</div>
+                    <div class="chat-header-sub" id="chatHeaderSub">Online &bull; Direct Message</div>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                  <button class="chat-action-btn" title="Conversation Settings" onclick="toggleChatSettings()">
+                    ⚙️
+                  </button>
+                </div>
+              </div>
+
+              <!-- Messages Stream -->
+              <div id="chatStream" class="chat-stream">
+                <!-- Messages populated via JS -->
+              </div>
+
+              <!-- Composer & Attachment Tray -->
+              <div class="chat-composer-tray">
+                <!-- Staged Attachment Preview -->
+                <div id="chatStagedAttachment" class="chat-staged-attachment">
+                  <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span id="stagedAttachIcon">📷</span>
+                    <span id="stagedAttachName">sample-photo.png (42 KB)</span>
+                  </div>
+                  <button onclick="removeChatStagedAttachment()" style="background: none; border: none; color: #fca5a5; cursor: pointer; font-weight: bold;">✕</button>
+                </div>
+
+                <!-- Input Row -->
+                <div class="chat-composer-input-row">
+                  <button class="chat-action-btn" title="Attach Photo (TC_CHAT_009)" onclick="stageChatAttachment('photo')">
+                    📷
+                  </button>
+                  <button class="chat-action-btn" title="Attach Document (TC_CHAT_010)" onclick="stageChatAttachment('doc')">
+                    📄
+                  </button>
+                  
+                  <textarea id="chatInput" class="chat-textarea" placeholder="Type a message..." rows="1" oninput="handleChatInput(this)" onkeydown="handleChatKeydown(event)"></textarea>
+
+                  <button id="chatSendBtn" class="chat-send-btn" disabled onclick="sendChatMessage()">
+                    <span>Send</span> &rarr;
+                  </button>
+                </div>
+
+                <!-- Quick Action Bar -->
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.5rem;">
+                  <div style="display: flex; align-items: center; gap: 0.35rem;">
+                    <span style="font-size: 0.72rem; color: var(--text-dim); margin-right: 0.2rem;">Quick Emojis:</span>
+                    <button class="chat-small-btn" onclick="insertChatEmoji('🚀')">🚀</button>
+                    <button class="chat-small-btn" onclick="insertChatEmoji('🧪')">🧪</button>
+                    <button class="chat-small-btn" onclick="insertChatEmoji('🛡️')">🛡️</button>
+                    <button class="chat-small-btn" onclick="insertChatEmoji('💬')">💬</button>
+                    <button class="chat-small-btn" onclick="insertChatEmoji('🔥')">🔥</button>
+                  </div>
+                  <div style="font-size: 0.72rem; color: var(--text-dim);">
+                    <span>Enter to send &bull; Shift+Enter for newline</span>
+                  </div>
+                </div>
+              </div>
             </div>
+
+            <!-- Column 3: Settings & Moderation Drawer -->
+            <div id="chatSettingsPanel" class="chat-sim-settings">
+              <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 0.75rem;">
+                <span style="font-weight: 800; font-size: 0.9rem; color: white;">Conversation Settings</span>
+                <span class="badge passed" id="chatSettingsRoleBadge">CREATOR</span>
+              </div>
+
+              <!-- Group Title Section -->
+              <div id="chatSettingsGroupSection" style="margin-top: 0.85rem;">
+                <div class="chat-settings-section-title">Group Name</div>
+                <div style="display: flex; align-items: center; justify-content: space-between; background: #141e33; padding: 0.5rem 0.75rem; border-radius: 8px; border: 1px solid var(--border);">
+                  <span id="chatSettingsGroupName" style="font-weight: 700; font-size: 0.85rem; color: white;">QA Alpha Group</span>
+                  <button class="chat-small-btn" onclick="openChatRenameModal()" title="Edit group name (TC_CHAT_004)">
+                    ✏️ Edit
+                  </button>
+                </div>
+
+                <div style="margin-top: 0.75rem;">
+                  <button class="btn-github" style="width: 100%; justify-content: center; background: rgba(59, 130, 246, 0.15); border-color: rgba(59, 130, 246, 0.3); color: #93c5fd; font-size: 0.8rem; padding: 0.45rem;" onclick="openChatAddMemberModal()">
+                    + Add Members (TC_CHAT_005)
+                  </button>
+                </div>
+              </div>
+
+              <!-- Member Roster -->
+              <div class="chat-settings-section-title">
+                Members (<span id="chatMemberCount">3</span>)
+              </div>
+              <div id="chatMembersList" style="display: flex; flex-direction: column; gap: 0.25rem;">
+                
+                <!-- Member 1: Owner (Creator) -->
+                <div class="chat-member-item">
+                  <div class="chat-member-left">
+                    <img class="chat-member-avatar" src="https://api.dicebear.com/10.x/lorelei/svg?seed=m_2094&size=64" alt="Owner">
+                    <div>
+                      <div class="chat-member-name">mughdabansal2094</div>
+                      <div class="chat-member-handle">@m_2094 (You)</div>
+                    </div>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 0.35rem;">
+                    <span class="chat-member-role-badge creator">CREATOR</span>
+                    <button class="chat-small-btn" onclick="attemptRemoveCreatorSim()" title="Security Guard Check">
+                      🛡️
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Member 2: Happy Badger -->
+                <div id="member-row-badger" class="chat-member-item">
+                  <div class="chat-member-left">
+                    <img class="chat-member-avatar" src="https://api.dicebear.com/10.x/lorelei/svg?seed=happy_badger_2312&size=64" alt="Badger">
+                    <div>
+                      <div class="chat-member-name">happy_badger_2312</div>
+                      <div class="chat-member-handle">@happy_badger</div>
+                    </div>
+                  </div>
+                  <div class="chat-member-actions">
+                    <span id="badger-role-badge" class="chat-member-role-badge member">MEMBER</span>
+                    <button id="badger-admin-btn" class="chat-small-btn" onclick="toggleAdminRoleSim('happy_badger')" title="Make/Remove Admin">
+                      Make Admin
+                    </button>
+                    <button class="chat-small-btn danger" onclick="removeMemberSim('happy_badger')" title="Remove Member">
+                      ✕
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Member 3: Mughda 1414 -->
+                <div id="member-row-mughda" class="chat-member-item">
+                  <div class="chat-member-left">
+                    <img class="chat-member-avatar" src="https://api.dicebear.com/10.x/lorelei/svg?seed=mughdabansal1414&size=64" alt="Mughda">
+                    <div>
+                      <div class="chat-member-name">mughdabansal1414</div>
+                      <div class="chat-member-handle">@mughda1414</div>
+                    </div>
+                  </div>
+                  <div class="chat-member-actions">
+                    <span id="mughda-role-badge" class="chat-member-role-badge member">MEMBER</span>
+                    <button id="mughda-admin-btn" class="chat-small-btn" onclick="toggleAdminRoleSim('mughda1414')" title="Make/Remove Admin">
+                      Make Admin
+                    </button>
+                    <button class="chat-small-btn danger" onclick="removeMemberSim('mughda1414')" title="Remove Member">
+                      ✕
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Leave Group Action -->
+              <div style="margin-top: auto; padding-top: 1.25rem;">
+                <button class="btn-github" style="width: 100%; justify-content: center; background: rgba(239, 68, 68, 0.15); border-color: rgba(239, 68, 68, 0.3); color: #fca5a5; font-size: 0.8rem; padding: 0.5rem;" onclick="leaveConversationSim()">
+                  🚪 Leave Conversation (TC_CHAT_011)
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ================= SUB-TAB 3: SECURITY & ROLE PERMISSIONS MATRIX ================= -->
+        <div id="chat-subtab-security" class="chat-subtab-pane">
+          <div style="margin-bottom: 1.25rem;">
+            <h3 style="font-size: 1.05rem; font-weight: 800; color: #f8fafc;">
+              🛡️ Role-Based Access Control & Security Invariants
+            </h3>
+            <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.2rem;">
+              Enforced permissions and security boundary guards across group conversations in Eve Vakh.
+            </p>
           </div>
 
-          <div class="comp-card">
-            <div class="comp-header">
-              <span class="comp-title">4. Attachment Drawer (Photos/Files)</span>
-              <span class="badge passed">File Chooser</span>
-            </div>
-            <p class="comp-desc">Drawer with dedicated "Attach photos" and "Attach files" buttons integrated with HTML5 file upload events.</p>
-            <div class="comp-detail">
-              <span><strong>Actions:</strong> <code>Attach photos</code>, <code>Attach files</code></span>
+          <table>
+            <thead>
+              <tr>
+                <th>Security Dimension / Action</th>
+                <th>Creator (<code>@m_2094</code>)</th>
+                <th>Group Admin (Promoted)</th>
+                <th>Regular Member</th>
+                <th>Pending Invitee</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Send Messages & Attachments</strong></td>
+                <td><span class="badge passed">Allowed</span></td>
+                <td><span class="badge passed">Allowed</span></td>
+                <td><span class="badge passed">Allowed</span></td>
+                <td><span class="badge failed">Blocked (Until Joined)</span></td>
+              </tr>
+              <tr>
+                <td><strong>Edit Group Title & Info</strong></td>
+                <td><span class="badge passed">Allowed</span></td>
+                <td><span class="badge passed">Allowed</span></td>
+                <td><span class="badge failed">Forbidden</span></td>
+                <td><span class="badge failed">Forbidden</span></td>
+              </tr>
+              <tr>
+                <td><strong>Invite & Add New Members</strong></td>
+                <td><span class="badge passed">Allowed</span></td>
+                <td><span class="badge passed">Allowed</span></td>
+                <td><span class="badge failed">Forbidden</span></td>
+                <td><span class="badge failed">Forbidden</span></td>
+              </tr>
+              <tr>
+                <td><strong>Promote Member to Admin</strong></td>
+                <td><span class="badge passed">Allowed</span></td>
+                <td><span class="badge passed">Allowed</span></td>
+                <td><span class="badge failed">Forbidden</span></td>
+                <td><span class="badge failed">Forbidden (TC_CHAT_015)</span></td>
+              </tr>
+              <tr>
+                <td><strong>Demote Admin to Member</strong></td>
+                <td><span class="badge passed">Allowed</span></td>
+                <td><span class="badge passed">Allowed (Other Admins)</span></td>
+                <td><span class="badge failed">Forbidden</span></td>
+                <td><span class="badge failed">Forbidden</span></td>
+              </tr>
+              <tr>
+                <td><strong>Remove Regular Member</strong></td>
+                <td><span class="badge passed">Allowed</span></td>
+                <td><span class="badge passed">Allowed</span></td>
+                <td><span class="badge failed">Forbidden</span></td>
+                <td><span class="badge failed">Forbidden</span></td>
+              </tr>
+              <tr>
+                <td><strong>Remove or Demote Creator</strong></td>
+                <td><span class="badge passed">Immutable (Self-Protected)</span></td>
+                <td><span class="badge failed">BLOCKED (TC_CHAT_013)</span></td>
+                <td><span class="badge failed">BLOCKED (TC_CHAT_014)</span></td>
+                <td><span class="badge failed">BLOCKED</span></td>
+              </tr>
+              <tr>
+                <td><strong>Leave Conversation</strong></td>
+                <td><span class="badge passed">Allowed</span></td>
+                <td><span class="badge passed">Allowed</span></td>
+                <td><span class="badge passed">Allowed</span></td>
+                <td><span class="badge passed">Decline Invite</span></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div style="background: rgba(59, 130, 246, 0.08); border: 1px solid rgba(59, 130, 246, 0.25); border-radius: 12px; padding: 1.15rem; margin-top: 1.5rem; display: flex; gap: 1rem; align-items: flex-start;">
+            <span style="font-size: 1.5rem;">🔒</span>
+            <div>
+              <h4 style="color: #93c5fd; font-size: 0.95rem; margin-bottom: 0.3rem;">Automated Security Negative Validations</h4>
+              <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
+                Playwright test suite explicitly asserts all negative constraints: <code>TC_CHAT_012</code> checks empty whitespace dispatches are blocked; <code>TC_CHAT_013</code> verifies that Creator (@m_2094) cannot be evicted by any promoted administrator; <code>TC_CHAT_014</code> ensures regular members cannot moderate admins; and <code>TC_CHAT_015</code> verifies pending invitees cannot be elevated to admin status before accepting group membership.
+              </p>
             </div>
           </div>
+        </div>
 
-          <div class="comp-card">
-            <div class="comp-header">
-              <span class="comp-title">5. Conversation Settings Panel</span>
-              <span class="badge passed">Role-Aware</span>
-            </div>
-            <p class="comp-desc">Displays member roster, role badges (<code>CREATOR</code>, <code>ADMIN</code>), group rename tool, and "Leave conversation".</p>
-            <div class="comp-detail">
-              <span><strong>Locators:</strong> <code>button[aria-label="Conversation settings"]</code></span>
-            </div>
+        <!-- ================= SUB-TAB 4: COMPONENT ARCHITECTURE & POM ================= -->
+        <div id="chat-subtab-arch" class="chat-subtab-pane">
+          <div style="margin-bottom: 1rem;">
+            <h3 style="font-size: 1.05rem; font-weight: 800; color: #f8fafc;">
+              🧩 Chat Module Component & Interaction Specifications
+            </h3>
+            <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.2rem;">
+              Derived from <code>src/pages/ChatPage.ts</code> Page Object Model.
+            </p>
           </div>
 
-          <div class="comp-card">
-            <div class="comp-header">
-              <span class="comp-title">6. Member Moderation Engine</span>
-              <span class="badge passed">Security Guarded</span>
+          <div class="grid-3">
+            <div class="comp-card">
+              <div class="comp-header">
+                <span class="comp-title">1. Conversations Sidebar & Stream</span>
+                <span class="badge passed">Real-Time</span>
+              </div>
+              <p class="comp-desc">Lists active 1-on-1 and group channels with unread badges, timestamped snippets, and New Message launcher.</p>
+              <div class="comp-detail">
+                <span><strong>Locators:</strong> <code>button[aria-label*="Message"]</code>, <code>button[aria-label*="Group"]</code></span>
+              </div>
             </div>
-            <p class="comp-desc">Enforces creator immutability, admin promotion/demotion privileges, member removal, and pending state guards.</p>
-            <div class="comp-detail">
-              <span><strong>Actions:</strong> <code>Make admin</code>, <code>Remove admin</code>, <code>Remove</code></span>
+
+            <div class="comp-card">
+              <div class="comp-header">
+                <span class="comp-title">2. Multi-Peer Group Creator</span>
+                <span class="badge passed">Multi-User</span>
+              </div>
+              <p class="comp-desc">Modal enabling contact search, chip tag selection for multiple peers, group naming, and "Create Group" trigger.</p>
+              <div class="comp-detail">
+                <span><strong>CTA:</strong> <code>button[aria-label="Create Group"]</code></span>
+              </div>
+            </div>
+
+            <div class="comp-card">
+              <div class="comp-header">
+                <span class="comp-title">3. Chat Composer & Thread</span>
+                <span class="badge passed">Interactive</span>
+              </div>
+              <p class="comp-desc">Responsive textarea with emoji support, multi-line linebreaks, Enter key sending, and empty input guards.</p>
+              <div class="comp-detail">
+                <span><strong>Input:</strong> <code>textarea[placeholder*="Type a message"]</code></span>
+              </div>
+            </div>
+
+            <div class="comp-card">
+              <div class="comp-header">
+                <span class="comp-title">4. Attachment Drawer (Photos/Files)</span>
+                <span class="badge passed">File Chooser</span>
+              </div>
+              <p class="comp-desc">Drawer with dedicated "Attach photos" and "Attach files" buttons integrated with HTML5 file upload events.</p>
+              <div class="comp-detail">
+                <span><strong>Actions:</strong> <code>Attach photos</code>, <code>Attach files</code></span>
+              </div>
+            </div>
+
+            <div class="comp-card">
+              <div class="comp-header">
+                <span class="comp-title">5. Conversation Settings Panel</span>
+                <span class="badge passed">Role-Aware</span>
+              </div>
+              <p class="comp-desc">Displays member roster, role badges (<code>CREATOR</code>, <code>ADMIN</code>), group rename tool, and "Leave conversation".</p>
+              <div class="comp-detail">
+                <span><strong>Locators:</strong> <code>button[aria-label="Conversation settings"]</code></span>
+              </div>
+            </div>
+
+            <div class="comp-card">
+              <div class="comp-header">
+                <span class="comp-title">6. Member Moderation Engine</span>
+                <span class="badge passed">Security Guarded</span>
+              </div>
+              <p class="comp-desc">Enforces creator immutability, admin promotion/demotion privileges, member removal, and pending state guards.</p>
+              <div class="comp-detail">
+                <span><strong>Actions:</strong> <code>Make admin</code>, <code>Remove admin</code>, <code>Remove</code></span>
+              </div>
             </div>
           </div>
         </div>
@@ -2749,6 +3893,148 @@
       </div>
     </div>
 
+    <!-- ==================== CHAT SIMULATOR: NEW GROUP MODAL ==================== -->
+    <div id="chatNewGroupModal" class="modal-overlay" onclick="closeChatModalOnBackdrop(event, 'chatNewGroupModal')">
+      <div class="modal-card" style="max-width: 480px; padding: 1.75rem;">
+        <button class="modal-close-btn" onclick="closeChatNewGroupModal()">&times;</button>
+        <h3 style="font-size: 1.15rem; font-weight: 800; color: white; display: flex; align-items: center; gap: 0.5rem;">
+          <span>👥</span> Create New Group Chat
+        </h3>
+        <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0.35rem 0 1.25rem 0;">
+          Select contacts to create a new multi-peer conversation (TC_CHAT_003).
+        </p>
+
+        <div style="margin-bottom: 1rem;">
+          <label style="font-size: 0.82rem; font-weight: 700; color: #cbd5e1; display: block; margin-bottom: 0.4rem;">
+            Group Name:
+          </label>
+          <input type="text" id="chatNewGroupNameInput" class="search-box" style="width: 100%;" placeholder="e.g. QA Alpha Group">
+        </div>
+
+        <div style="margin-bottom: 1.25rem;">
+          <label style="font-size: 0.82rem; font-weight: 700; color: #cbd5e1; display: block; margin-bottom: 0.4rem;">
+            Select Members:
+          </label>
+          <div style="display: flex; flex-direction: column; gap: 0.5rem; max-height: 180px; overflow-y: auto;">
+            <div class="chat-member-item" style="padding: 0.4rem 0;">
+              <div class="chat-member-left">
+                <img class="chat-member-avatar" src="https://api.dicebear.com/10.x/lorelei/svg?seed=happy_badger_2312&size=64" alt="badger">
+                <div>
+                  <div class="chat-member-name">happy_badger_2312</div>
+                  <div class="chat-member-handle">@happy_badger_2312</div>
+                </div>
+              </div>
+              <input type="checkbox" id="chk-group-badger" checked style="accent-color: #3b82f6; width: 18px; height: 18px;">
+            </div>
+
+            <div class="chat-member-item" style="padding: 0.4rem 0;">
+              <div class="chat-member-left">
+                <img class="chat-member-avatar" src="https://api.dicebear.com/10.x/lorelei/svg?seed=mughdabansal1414&size=64" alt="mughda">
+                <div>
+                  <div class="chat-member-name">mughdabansal1414</div>
+                  <div class="chat-member-handle">@mughdabansal1414</div>
+                </div>
+              </div>
+              <input type="checkbox" id="chk-group-mughda" checked style="accent-color: #3b82f6; width: 18px; height: 18px;">
+            </div>
+
+            <div class="chat-member-item" style="padding: 0.4rem 0;">
+              <div class="chat-member-left">
+                <img class="chat-member-avatar" src="https://api.dicebear.com/10.x/lorelei/svg?seed=archie&size=64" alt="archie">
+                <div>
+                  <div class="chat-member-name">archie</div>
+                  <div class="chat-member-handle">@archie</div>
+                </div>
+              </div>
+              <input type="checkbox" id="chk-group-archie" style="accent-color: #3b82f6; width: 18px; height: 18px;">
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 0.75rem;">
+          <button class="btn-github" style="flex: 1; justify-content: center; background: #3b82f6; border-color: #2563eb;" onclick="createChatGroupSim()">
+            Create Group
+          </button>
+          <button class="btn-github" onclick="closeChatNewGroupModal()">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== CHAT SIMULATOR: RENAME GROUP MODAL ==================== -->
+    <div id="chatRenameModal" class="modal-overlay" onclick="closeChatModalOnBackdrop(event, 'chatRenameModal')">
+      <div class="modal-card" style="max-width: 420px; padding: 1.75rem;">
+        <button class="modal-close-btn" onclick="closeChatRenameModal()">&times;</button>
+        <h3 style="font-size: 1.15rem; font-weight: 800; color: white; display: flex; align-items: center; gap: 0.5rem;">
+          <span>✏️</span> Edit Group Name
+        </h3>
+        <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0.35rem 0 1.25rem 0;">
+          Update the conversation title (TC_CHAT_004).
+        </p>
+
+        <div style="margin-bottom: 1.25rem;">
+          <input type="text" id="chatRenameInput" class="search-box" style="width: 100%;" value="QA Alpha Group">
+        </div>
+
+        <div style="display: flex; gap: 0.75rem;">
+          <button class="btn-github" style="flex: 1; justify-content: center; background: #3b82f6; border-color: #2563eb;" onclick="saveChatRenameSim()">
+            Save Name
+          </button>
+          <button class="btn-github" onclick="closeChatRenameModal()">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== CHAT SIMULATOR: ADD MEMBER MODAL ==================== -->
+    <div id="chatAddMemberModal" class="modal-overlay" onclick="closeChatModalOnBackdrop(event, 'chatAddMemberModal')">
+      <div class="modal-card" style="max-width: 440px; padding: 1.75rem;">
+        <button class="modal-close-btn" onclick="closeChatAddMemberModal()">&times;</button>
+        <h3 style="font-size: 1.15rem; font-weight: 800; color: white; display: flex; align-items: center; gap: 0.5rem;">
+          <span>➕</span> Add Member to Group
+        </h3>
+        <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0.35rem 0 1.25rem 0;">
+          Select an allowed contact to invite to the conversation (TC_CHAT_005).
+        </p>
+
+        <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.25rem;">
+          <div class="chat-member-item" style="padding: 0.5rem; background: #141e33; border-radius: 8px;">
+            <div class="chat-member-left">
+              <img class="chat-member-avatar" src="https://api.dicebear.com/10.x/lorelei/svg?seed=archie&size=64" alt="archie">
+              <div>
+                <div class="chat-member-name">archie</div>
+                <div class="chat-member-handle">@archie</div>
+              </div>
+            </div>
+            <button class="chat-small-btn" style="background: #3b82f6; color: white;" onclick="addMemberToGroupSim('archie')">
+              + Add
+            </button>
+          </div>
+
+          <div class="chat-member-item" style="padding: 0.5rem; background: #141e33; border-radius: 8px;">
+            <div class="chat-member-left">
+              <img class="chat-member-avatar" src="https://api.dicebear.com/10.x/lorelei/svg?seed=aryanchahal&size=64" alt="aryan">
+              <div>
+                <div class="chat-member-name">aryan</div>
+                <div class="chat-member-handle">@aryanchahal</div>
+              </div>
+            </div>
+            <button class="chat-small-btn" style="background: #3b82f6; color: white;" onclick="addMemberToGroupSim('aryanchahal')">
+              + Add
+            </button>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end;">
+          <button class="btn-github" onclick="closeChatAddMemberModal()">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+
     <!-- Floating Interactive Toast -->
     <div id="dashboardToast" class="toast-box">
       <span id="toastIcon">✨</span>
@@ -3283,6 +4569,365 @@
         inboxDesc: 'Official platform announcements and system notifications'
       }
     };
+
+    // ==================== CHAT PAGE SIMULATOR JAVASCRIPT ====================
+    let activeChatConv = 'dm';
+    let stagedChatAttachment = null;
+    let chatMembers = {
+      badger: { handle: 'happy_badger_2312', name: 'happy_badger_2312', role: 'member', avatar: 'https://api.dicebear.com/10.x/lorelei/svg?seed=happy_badger_2312&size=64' },
+      mughda: { handle: 'mughdabansal1414', name: 'mughdabansal1414', role: 'member', avatar: 'https://api.dicebear.com/10.x/lorelei/svg?seed=mughdabansal1414&size=64' }
+    };
+
+    const CHAT_CONVERSATIONS = {
+      dm: {
+        id: 'dm',
+        name: 'happy_badger_2312',
+        subtext: 'Online • Direct Message',
+        avatar: 'https://api.dicebear.com/10.x/lorelei/svg?seed=happy_badger_2312&size=96',
+        isGroup: false,
+        messages: [
+          { sender: 'happy_badger_2312', isOut: false, text: 'Hey Mughda! Welcome to Eve Vakh chat! 🚀', time: '10:14 AM' },
+          { sender: 'You', isOut: true, text: 'Automated test message sent via Playwright (TC_CHAT_002) 🧪', time: '10:15 AM' }
+        ]
+      },
+      group: {
+        id: 'group',
+        name: 'QA Alpha Group',
+        subtext: '3 members • Group Channel',
+        avatar: '',
+        isGroup: true,
+        messages: [
+          { sender: 'mughdabansal2094', isOut: true, text: 'Welcome everyone to QA Alpha Group! Testing multi-peer chat (TC_CHAT_003)', time: '10:00 AM' },
+          { sender: 'happy_badger_2312', isOut: false, text: 'Great to be here! Roster moderation & admin tests ready.', time: '10:02 AM' },
+          { sender: 'mughdabansal1414', isOut: false, text: 'Verified file & photo attachments drawer! 📷📄', time: '10:05 AM' }
+        ]
+      }
+    };
+
+    function switchChatSubTab(subTabId, el) {
+      document.querySelectorAll('.chat-subtab-pane').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.chat-subnav-btn').forEach(b => b.classList.remove('active'));
+
+      const targetPane = document.getElementById('chat-subtab-' + subTabId);
+      if (targetPane) targetPane.classList.add('active');
+      if (el) el.classList.add('active');
+      if (subTabId === 'simulator') {
+        renderChatMessages();
+      }
+    }
+
+    function selectChatConversation(convId) {
+      activeChatConv = convId;
+      document.getElementById('conv-item-dm').classList.toggle('active', convId === 'dm');
+      document.getElementById('conv-item-group').classList.toggle('active', convId === 'group');
+
+      const conv = CHAT_CONVERSATIONS[convId];
+      document.getElementById('chatHeaderTitle').innerText = conv.name;
+      document.getElementById('chatHeaderSub').innerText = conv.subtext;
+      
+      const avatarEl = document.getElementById('chatHeaderAvatar');
+      if (conv.avatar) {
+        avatarEl.src = conv.avatar;
+        avatarEl.style.display = 'block';
+      } else {
+        avatarEl.src = 'https://api.dicebear.com/10.x/lorelei/svg?seed=' + conv.name + '&size=96';
+      }
+
+      // Toggle group settings panel sections
+      const groupSection = document.getElementById('chatSettingsGroupSection');
+      if (groupSection) {
+        groupSection.style.display = conv.isGroup ? 'block' : 'none';
+      }
+
+      renderChatMessages();
+      showToast('Switched to ' + conv.name, '💬');
+    }
+
+    function renderChatMessages() {
+      const stream = document.getElementById('chatStream');
+      if (!stream) return;
+      stream.innerHTML = '';
+
+      const conv = CHAT_CONVERSATIONS[activeChatConv];
+      conv.messages.forEach(msg => {
+        const row = document.createElement('div');
+        row.className = 'chat-msg-row ' + (msg.isOut ? 'out' : 'in');
+
+        const avatar = document.createElement('img');
+        avatar.className = 'chat-msg-avatar';
+        avatar.src = msg.isOut 
+          ? 'https://api.dicebear.com/10.x/lorelei/svg?seed=m_2094&size=64' 
+          : 'https://api.dicebear.com/10.x/lorelei/svg?seed=' + msg.sender + '&size=64';
+
+        const bubble = document.createElement('div');
+        bubble.className = 'chat-bubble';
+
+        if (conv.isGroup && !msg.isOut) {
+          const senderLabel = document.createElement('div');
+          senderLabel.className = 'chat-bubble-sender';
+          senderLabel.innerText = msg.sender;
+          bubble.appendChild(senderLabel);
+        }
+
+        const textEl = document.createElement('div');
+        textEl.style.whiteSpace = 'pre-wrap';
+        textEl.innerText = msg.text;
+        bubble.appendChild(textEl);
+
+        if (msg.media) {
+          const mediaBox = document.createElement('div');
+          mediaBox.className = 'chat-bubble-media';
+          const img = document.createElement('img');
+          img.src = msg.media;
+          mediaBox.appendChild(img);
+          bubble.appendChild(mediaBox);
+        }
+
+        if (msg.doc) {
+          const docBox = document.createElement('div');
+          docBox.className = 'chat-bubble-doc';
+          docBox.innerHTML = '<span>📄</span> <span>' + msg.doc + '</span> <span style="font-size: 0.7rem; color: #94a3b8; margin-left: auto;">(Download)</span>';
+          bubble.appendChild(docBox);
+        }
+
+        const timeEl = document.createElement('div');
+        timeEl.className = 'chat-bubble-time';
+        timeEl.innerText = msg.time;
+        bubble.appendChild(timeEl);
+
+        row.appendChild(avatar);
+        row.appendChild(bubble);
+        stream.appendChild(row);
+      });
+
+      stream.scrollTop = stream.scrollHeight;
+    }
+
+    function handleChatInput(textarea) {
+      const btn = document.getElementById('chatSendBtn');
+      const hasText = textarea.value.trim().length > 0;
+      const hasAttachment = stagedChatAttachment !== null;
+      btn.disabled = !(hasText || hasAttachment);
+
+      // Auto grow
+      textarea.style.height = 'auto';
+      textarea.style.height = Math.min(textarea.scrollHeight, 100) + 'px';
+    }
+
+    function handleChatKeydown(e) {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendChatMessage();
+      }
+    }
+
+    function sendChatMessage() {
+      const input = document.getElementById('chatInput');
+      const text = input.value.trim();
+      
+      // TC_CHAT_012 Guard: empty submission prevention
+      if (!text && !stagedChatAttachment) {
+        showToast('Cannot send empty message (TC_CHAT_012 Guard)', '⚠️');
+        return;
+      }
+
+      const now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      const newMsg = {
+        sender: 'You',
+        isOut: true,
+        text: text || (stagedChatAttachment ? 'Sent an attachment' : ''),
+        time: now
+      };
+
+      if (stagedChatAttachment) {
+        if (stagedChatAttachment.type === 'photo') {
+          newMsg.media = 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&q=80';
+        } else if (stagedChatAttachment.type === 'doc') {
+          newMsg.doc = stagedChatAttachment.name;
+        }
+      }
+
+      CHAT_CONVERSATIONS[activeChatConv].messages.push(newMsg);
+      input.value = '';
+      input.style.height = 'auto';
+      removeChatStagedAttachment();
+      handleChatInput(input);
+      renderChatMessages();
+
+      // Update snippet in sidebar
+      if (activeChatConv === 'dm') {
+        document.getElementById('conv-snippet-dm').innerText = 'You: ' + (text || 'Attachment');
+        document.getElementById('conv-time-dm').innerText = 'Just now';
+      } else {
+        document.getElementById('conv-snippet-group').innerText = 'You: ' + (text || 'Attachment');
+        document.getElementById('conv-time-group').innerText = 'Just now';
+      }
+
+      showToast('Message delivered in ' + CHAT_CONVERSATIONS[activeChatConv].name, '🚀');
+    }
+
+    function insertChatEmoji(emoji) {
+      const input = document.getElementById('chatInput');
+      input.value += emoji;
+      handleChatInput(input);
+      input.focus();
+    }
+
+    function stageChatAttachment(type) {
+      const tray = document.getElementById('chatStagedAttachment');
+      const icon = document.getElementById('stagedAttachIcon');
+      const name = document.getElementById('stagedAttachName');
+
+      if (type === 'photo') {
+        stagedChatAttachment = { type: 'photo', name: 'sample-photo.png', size: '42 KB' };
+        icon.innerText = '📷';
+        name.innerText = 'sample-photo.png (42 KB) — Photo Attached (TC_CHAT_009)';
+        showToast('Attached sample photo fixture (TC_CHAT_009)', '📷');
+      } else {
+        stagedChatAttachment = { type: 'doc', name: 'sample-doc.txt', size: '1.2 KB' };
+        icon.innerText = '📄';
+        name.innerText = 'sample-doc.txt (1.2 KB) — Document Attached (TC_CHAT_010)';
+        showToast('Attached sample document fixture (TC_CHAT_010)', '📄');
+      }
+
+      tray.style.display = 'flex';
+      handleChatInput(document.getElementById('chatInput'));
+    }
+
+    function removeChatStagedAttachment() {
+      stagedChatAttachment = null;
+      document.getElementById('chatStagedAttachment').style.display = 'none';
+      handleChatInput(document.getElementById('chatInput'));
+    }
+
+    function toggleChatSettings() {
+      const panel = document.getElementById('chatSettingsPanel');
+      if (panel.style.display === 'none' || window.getComputedStyle(panel).display === 'none') {
+        panel.style.display = 'flex';
+      } else {
+        panel.style.display = 'none';
+      }
+    }
+
+    function toggleAdminRoleSim(userKey) {
+      const badge = document.getElementById(userKey === 'happy_badger' ? 'badger-role-badge' : 'mughda-role-badge');
+      const btn = document.getElementById(userKey === 'happy_badger' ? 'badger-admin-btn' : 'mughda-admin-btn');
+      
+      if (badge.classList.contains('member')) {
+        // Promote to ADMIN (TC_CHAT_006)
+        badge.className = 'chat-member-role-badge admin';
+        badge.innerText = 'ADMIN';
+        btn.innerText = 'Remove Admin';
+        showToast('Promoted ' + userKey + ' to Group Admin (TC_CHAT_006 Passed)', '🛡️');
+      } else {
+        // Demote back to MEMBER (TC_CHAT_007)
+        badge.className = 'chat-member-role-badge member';
+        badge.innerText = 'MEMBER';
+        btn.innerText = 'Make Admin';
+        showToast('Demoted ' + userKey + ' back to regular member (TC_CHAT_007 Passed)', 'ℹ️');
+      }
+    }
+
+    function removeMemberSim(userKey) {
+      const row = document.getElementById(userKey === 'happy_badger' ? 'member-row-badger' : 'member-row-mughda');
+      if (row) {
+        row.style.display = 'none';
+        const countEl = document.getElementById('chatMemberCount');
+        countEl.innerText = Math.max(1, parseInt(countEl.innerText) - 1);
+        showToast('Removed ' + userKey + ' from conversation (TC_CHAT_008 Passed)', '❌');
+      }
+    }
+
+    function attemptRemoveCreatorSim() {
+      showToast('🔒 Security Guard TC_CHAT_013: Creator (@m_2094) is immutable and cannot be removed or demoted.', '🛡️');
+    }
+
+    function openChatRenameModal() {
+      document.getElementById('chatRenameModal').classList.add('open');
+    }
+    function closeChatRenameModal() {
+      document.getElementById('chatRenameModal').classList.remove('open');
+    }
+    function saveChatRenameSim() {
+      const newName = document.getElementById('chatRenameInput').value.trim() || 'QA Alpha Group';
+      CHAT_CONVERSATIONS.group.name = newName;
+      document.getElementById('conv-name-group').innerText = newName;
+      document.getElementById('chatSettingsGroupName').innerText = newName;
+      if (activeChatConv === 'group') {
+        document.getElementById('chatHeaderTitle').innerText = newName;
+      }
+      closeChatRenameModal();
+      showToast('Group renamed to "' + newName + '" (TC_CHAT_004 Passed)', '✏️');
+    }
+
+    function openChatNewGroupModal() {
+      document.getElementById('chatNewGroupModal').classList.add('open');
+    }
+    function closeChatNewGroupModal() {
+      document.getElementById('chatNewGroupModal').classList.remove('open');
+    }
+    function createChatGroupSim() {
+      const groupName = document.getElementById('chatNewGroupNameInput').value.trim() || 'QA Alpha Group 2.0';
+      CHAT_CONVERSATIONS.group.name = groupName;
+      document.getElementById('conv-name-group').innerText = groupName;
+      document.getElementById('chatSettingsGroupName').innerText = groupName;
+      closeChatNewGroupModal();
+      selectChatConversation('group');
+      showToast('Multi-peer group "' + groupName + '" created! (TC_CHAT_003 Passed)', '👥');
+    }
+
+    function openChatAddMemberModal() {
+      document.getElementById('chatAddMemberModal').classList.add('open');
+    }
+    function closeChatAddMemberModal() {
+      document.getElementById('chatAddMemberModal').classList.remove('open');
+    }
+    function addMemberToGroupSim(handle) {
+      const countEl = document.getElementById('chatMemberCount');
+      countEl.innerText = parseInt(countEl.innerText) + 1;
+      closeChatAddMemberModal();
+      showToast('Added @' + handle + ' to group roster (TC_CHAT_005 Passed)', '➕');
+    }
+
+    function leaveConversationSim() {
+      showToast('Left conversation cleanly (TC_CHAT_011 Passed)', '🚪');
+      selectChatConversation('dm');
+    }
+
+    function resetChatSimulator() {
+      CHAT_CONVERSATIONS.dm.messages = [
+        { sender: 'happy_badger_2312', isOut: false, text: 'Hey Mughda! Welcome to Eve Vakh chat! 🚀', time: '10:14 AM' },
+        { sender: 'You', isOut: true, text: 'Automated test message sent via Playwright (TC_CHAT_002) 🧪', time: '10:15 AM' }
+      ];
+      CHAT_CONVERSATIONS.group.messages = [
+        { sender: 'mughdabansal2094', isOut: true, text: 'Welcome everyone to QA Alpha Group! Testing multi-peer chat (TC_CHAT_003)', time: '10:00 AM' },
+        { sender: 'happy_badger_2312', isOut: false, text: 'Great to be here! Roster moderation & admin tests ready.', time: '10:02 AM' },
+        { sender: 'mughdabansal1414', isOut: false, text: 'Verified file & photo attachments drawer! 📷📄', time: '10:05 AM' }
+      ];
+      CHAT_CONVERSATIONS.group.name = 'QA Alpha Group';
+      document.getElementById('conv-name-group').innerText = 'QA Alpha Group';
+      document.getElementById('chatSettingsGroupName').innerText = 'QA Alpha Group';
+      
+      const r1 = document.getElementById('member-row-badger');
+      const r2 = document.getElementById('member-row-mughda');
+      if (r1) r1.style.display = 'flex';
+      if (r2) r2.style.display = 'flex';
+
+      const b1 = document.getElementById('badger-role-badge');
+      const b2 = document.getElementById('mughda-role-badge');
+      if (b1) { b1.className = 'chat-member-role-badge member'; b1.innerText = 'MEMBER'; }
+      if (b2) { b2.className = 'chat-member-role-badge member'; b2.innerText = 'MEMBER'; }
+
+      document.getElementById('chatMemberCount').innerText = '3';
+      selectChatConversation('dm');
+      showToast('Chat simulator state reset to default', '🔄');
+    }
+
+    function closeChatModalOnBackdrop(e, modalId) {
+      if (e.target.id === modalId) {
+        document.getElementById(modalId).classList.remove('open');
+      }
+    }
 
     // Sub-Tab Switcher
     function switchExploreSubTab(subTabId, el) {
