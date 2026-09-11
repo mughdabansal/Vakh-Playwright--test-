@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "vakh-staging": {
+      "serverUrl": "https://xo.eve.vakh.com/mcp"
+    }
+  }
+}
