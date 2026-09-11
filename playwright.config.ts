@@ -32,6 +32,10 @@ export default defineConfig({
       use: { ...devices['Desktop Safari'] },
     },
     {
+      name: 'webkit',
+      use: { ...devices['Desktop Safari'] },
+    },
+    {
       name: 'edge',
       use: { ...devices['Desktop Edge'], channel: 'msedge' },
     },
