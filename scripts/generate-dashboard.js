@@ -3156,6 +3156,16 @@ const htmlContent = `<!DOCTYPE html>
               </p>
             </div>
           </div>
+
+          <div style="background: rgba(139, 92, 246, 0.08); border: 1px solid rgba(139, 92, 246, 0.25); border-radius: 12px; padding: 1.15rem; margin-top: 1rem; display: flex; gap: 1rem; align-items: flex-start;">
+            <span style="font-size: 1.5rem;">🤖</span>
+            <div>
+              <h4 style="color: #c4b5fd; font-size: 0.95rem; margin-bottom: 0.3rem;">Staging MCP Server & Privacy Invariant (<code>https://xo.eve.vakh.com/mcp</code>)</h4>
+              <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
+                Eve Vakh's Staging Model Context Protocol (MCP) server allows AI assistants to manage forms, publish posts, query data entries, and inspect schemas with user OAuth permission. However, <strong>Chat & Direct Messaging are strictly air-gapped from MCP tools</strong> to guarantee end-to-end user privacy &mdash; ensuring private 1-on-1 and group conversations remain strictly human-only in the client app.
+              </p>
+            </div>
+          </div>
         </div>
 
         <!-- ================= SUB-TAB 4: COMPONENT ARCHITECTURE & POM ================= -->
