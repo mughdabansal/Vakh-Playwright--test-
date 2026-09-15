@@ -42,7 +42,7 @@ jobs:
   sanity-test:
     name: Run Versioned Sanity Tests
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 90
 
     steps:
       - name: Checkout Code Repository

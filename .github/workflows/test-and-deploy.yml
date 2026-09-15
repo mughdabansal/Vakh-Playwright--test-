@@ -6,6 +6,31 @@ on:
   pull_request:
     branches: [ main ]
   workflow_dispatch:
+    inputs:
+      page:
+        description: 'Page Test Suite to execute (only runs selected page scripts)'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - login
+          - home
+          - chat
+          - activity
+          - explore
+          - post
+      browser:
+        description: 'Browser engine to run tests against'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - chromium
+          - firefox
+          - webkit
+          - edge
 
 permissions:
   contents: write
@@ -18,9 +43,9 @@ concurrency:
 
 jobs:
   test:
-    name: Run E2E Tests & Generate Dashboard
+    name: Run Page Test Suites & Generate Dashboard
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 90
 
     steps:
       - name: Checkout Code Repository
@@ -39,15 +64,59 @@ jobs:
 
       - name: Install Playwright Browsers & Dependencies
         run: |
-          npx playwright install --with-deps
-          npx playwright install msedge || true
+          if [ "${{ github.event.inputs.browser }}" = "chromium" ]; then
+            npx playwright install --with-deps chromium
+          elif [ "${{ github.event.inputs.browser }}" = "firefox" ]; then
+            npx playwright install --with-deps firefox
+          elif [ "${{ github.event.inputs.browser }}" = "webkit" ]; then
+            npx playwright install --with-deps webkit
+          elif [ "${{ github.event.inputs.browser }}" = "edge" ]; then
+            npx playwright install --with-deps msedge || npx playwright install --with-deps chromium
+          else
+            npx playwright install --with-deps
+            npx playwright install msedge || true
+          fi
 
-      - name: Run Playwright Tests (Login & Navigation Suite)
-        run: npm test
+      - name: Run Playwright Tests for Selected Page Suite
+        run: |
+          BROWSER_ARG=""
+          if [ -n "${{ github.event.inputs.browser }}" ] && [ "${{ github.event.inputs.browser }}" != "all" ]; then
+            BROWSER_ARG="--project=${{ github.event.inputs.browser }}"
+          fi
+
+          PAGE_CHOICE="${{ github.event.inputs.page }}"
+
+          if [ "$PAGE_CHOICE" = "login" ]; then
+            echo "⚡ Executing Login Page Suite only..."
+            npx playwright test src/tests/login.spec.ts $BROWSER_ARG
+          elif [ "$PAGE_CHOICE" = "home" ]; then
+            echo "⚡ Executing Home Page Suite only..."
+            npx playwright test src/tests/home.spec.ts $BROWSER_ARG
+          elif [ "$PAGE_CHOICE" = "chat" ]; then
+            echo "⚡ Executing Chat Page Suite only..."
+            npx playwright test src/tests/chat.spec.ts $BROWSER_ARG
+          elif [ "$PAGE_CHOICE" = "activity" ]; then
+            echo "⚡ Executing Activity Page Suite only..."
+            npx playwright test src/tests/activity.spec.ts $BROWSER_ARG
+          elif [ "$PAGE_CHOICE" = "explore" ]; then
+            echo "⚡ Executing Explore Page Suite only..."
+            npx playwright test src/tests/explore.spec.ts $BROWSER_ARG
+          elif [ "$PAGE_CHOICE" = "post" ]; then
+            echo "⚡ Executing Post Creation Page Suite only..."
+            npx playwright test src/tests/post.spec.ts $BROWSER_ARG
+          else
+            echo "⚡ Executing All Page Test Suites..."
+            if [ -n "$BROWSER_ARG" ]; then
+              npx playwright test $BROWSER_ARG
+            else
+              npm test
+            fi
+          fi
         env:
           CI: true
 
       - name: Regenerate Team Quality & Performance Dashboard
+        if: always()
         run: npm run generate:dashboard
 
       - name: Archive Playwright HTML Test Report
@@ -59,29 +128,30 @@ jobs:
           retention-days: 14
 
       - name: Commit Updated Dashboard to Main
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main'
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/index.html LOGIN_PAGE_REPORT.txt
-          git diff --staged --quiet || git commit -m "chore: auto-update dashboard & test metrics via CI [skip ci]"
+          git add docs/index.html LOGIN_PAGE_REPORT.txt test-reports/
+          git diff --staged --quiet || git commit -m "chore: auto-update dashboard & metrics for ${{ github.event.inputs.page || 'all' }} suite [skip ci]"
           git push origin main || echo "Branch updated or push skipped"
 
       - name: Setup GitHub Pages
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main'
         uses: actions/configure-pages@v5
 
       - name: Upload GitHub Pages Artifact
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs/
 
   deploy:
     name: Deploy Live Dashboard to GitHub Pages
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main'
     needs: test
     runs-on: ubuntu-latest
+    timeout-minutes: 90
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

@@ -1273,7 +1273,10 @@
       </div>
     </div>
     <div class="top-actions">
-      <div class="status-pill">100% Passing (77 Scenarios)</div>
+      <div class="status-pill">Activity Page, api, Chat Page, Explore Page, Home Page, Login Page, navigation, Create Post, Moderation, Create Post (420/420 Passed)</div>
+      <div style="font-size: 0.78rem; color: var(--text-muted); background: rgba(255,255,255,0.05); padding: 0.35rem 0.75rem; border-radius: 8px; border: 1px solid var(--border);">
+        🕒 Updated: Tuesday, September 15, 2026 at 12:23:35 PM
+      </div>
       <a href="https://github.com/mughdabansal/Vakh-Playwright--test-" target="_blank" class="btn-github">
         <svg height="16" width="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
         GitHub Repo
@@ -1291,7 +1294,7 @@
         📊 Overview
       </button>
       <button class="tab-btn" onclick="switchTab('sanity', this)">
-        ⚡ Sanity Suites <span class="tab-count">21 Tests (1.0 & 2.0)</span>
+        ⚡ Sanity Suites <span class="tab-count">21 Tests</span>
       </button>
       <button class="tab-btn" onclick="switchTab('login', this)">
         🔐 Login Page <span class="tab-count">4 Tests</span>
@@ -1303,13 +1306,16 @@
         💬 Chat Page <span class="tab-count">16 Tests</span>
       </button>
       <button class="tab-btn" onclick="switchTab('activity', this)">
-        🔔 Activity Page <span class="tab-count">Verified</span>
+        🔔 Activity Page <span class="tab-count">3 Tests</span>
       </button>
       <button class="tab-btn" onclick="switchTab('explore', this)">
         🧭 Explore Page <span class="tab-count">9 Tests</span>
       </button>
+      <button class="tab-btn" onclick="switchTab('post', this)">
+        📝 Create Post <span class="tab-count">4 Tests</span>
+      </button>
       <button class="tab-btn" onclick="switchTab('cicd', this)">
-        ⚙️ GitHub Actions CI/CD <span class="tab-count">Live</span>
+        ⚙️ GitHub Actions CI/CD <span class="tab-count">Live (90m)</span>
       </button>
     </div>
   </div>
@@ -1345,7 +1351,7 @@
       <div class="panel">
         <div class="panel-header">
           <div class="panel-title">🎯 Tested Application Modules & Status</div>
-          <span style="font-size: 0.8rem; color: var(--text-muted);">Synchronized: Friday, September 11, 2026 at 7:57:01 AM</span>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Synchronized: Tuesday, September 15, 2026 at 12:23:35 PM</span>
         </div>
         <div class="grid-3">
           <div class="stat-card" style="cursor: pointer; border: 1px solid rgba(59, 130, 246, 0.4); background: linear-gradient(135deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.9));" onclick="switchTab('sanity', document.querySelectorAll('.tab-btn')[1])">
@@ -4329,6 +4335,87 @@
     </div>
 
 
+    <!-- ==================== VIEW 9: POST CREATION PAGE ==================== -->
+    <div id="view-post" class="view-content">
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <div class="panel-title">📝 Eve Vakh — Post Creation & Composer Module</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+              Target Endpoint: <code>https://eve.vakh.com/</code> | Post Creation & Multi-Tool Composer Suite
+            </p>
+          </div>
+          <span class="badge passed">4 / 4 Tests Passed</span>
+        </div>
+
+        <div class="grid-4" style="margin-bottom: 1.5rem;">
+          <div class="stat-card green">
+            <div class="label">Composer Launch</div>
+            <div class="value" style="font-size: 1.4rem;">New Post</div>
+            <div class="subtext"><span>✅</span> TC_POST_001 Verified</div>
+          </div>
+          <div class="stat-card blue">
+            <div class="label">Target Form Selector</div>
+            <div class="value" style="font-size: 1.4rem;">@m_2094 / posts</div>
+            <div class="subtext"><span>✅</span> TC_POST_002 Verified</div>
+          </div>
+          <div class="stat-card purple">
+            <div class="label">Tooling Palette</div>
+            <div class="value" style="font-size: 1.4rem;">6 Tools</div>
+            <div class="subtext"><span>✅</span> Text, Media, Link, Quote...</div>
+          </div>
+          <div class="stat-card orange">
+            <div class="label">Content Publishing</div>
+            <div class="value" style="font-size: 1.4rem;">100% Passed</div>
+            <div class="subtext"><span>✅</span> TC_POST_004 Verified</div>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Test ID</th>
+              <th>Scenario Description</th>
+              <th>Interaction Target</th>
+              <th>Expected Outcome</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>TC_POST_001</code></td>
+              <td>Home page "New Post" button & modal launch</td>
+              <td><code>button:has-text("New Post")</code></td>
+              <td>Opens "CREATE FORMS" target selector modal</td>
+              <td><span class="badge passed">PASSED</span></td>
+            </tr>
+            <tr>
+              <td><code>TC_POST_002</code></td>
+              <td>Target form selection & composer view transition</td>
+              <td><code>div:has-text("posts")</code></td>
+              <td>Opens composer with "NEW POST IN" header</td>
+              <td><span class="badge passed">PASSED</span></td>
+            </tr>
+            <tr>
+              <td><code>TC_POST_003</code></td>
+              <td>Composition tools & actions verification</td>
+              <td><code>Add Text, Media, Longform, Link, Quote, Mention</code></td>
+              <td>All tool buttons active and accessible</td>
+              <td><span class="badge passed">PASSED</span></td>
+            </tr>
+            <tr>
+              <td><code>TC_POST_004</code></td>
+              <td>Text content entry and post publishing flow</td>
+              <td><code>textarea / contenteditable + Create button</code></td>
+              <td>Submits post and preserves session</td>
+              <td><span class="badge passed">PASSED</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
     <!-- ==================== VIEW 7: GITHUB ACTIONS CI/CD ==================== -->
     <div id="view-cicd" class="view-content">
       <div class="panel">
@@ -4336,7 +4423,7 @@
           <div>
             <div class="panel-title">⚙️ GitHub Actions CI/CD Pipeline & Deployment</div>
             <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
-              Workflow: <code>.github/workflows/test-and-deploy.yml</code> | Auto-runs on every push to <code>main</code>
+              Workflows: <code>.github/workflows/*.yml</code> | Timeout: <strong>90 Minutes (1h 30m)</strong> | Supports Manual UI & Automated Triggers
             </p>
           </div>
           <a href="https://github.com/mughdabansal/Vakh-Playwright--test-/actions" target="_blank" class="btn-github">
@@ -4346,19 +4433,19 @@
 
         <div class="grid-4" style="margin-bottom: 1.5rem;">
           <div class="stat-card green">
-            <div class="label">Trigger Condition</div>
-            <div class="value" style="font-size: 1.25rem;">push & pull_request</div>
-            <div class="subtext">Target: <code>main</code> branch</div>
+            <div class="label">Trigger Conditions</div>
+            <div class="value" style="font-size: 1.15rem;">Manual UI & Push</div>
+            <div class="subtext">workflow_dispatch & push</div>
           </div>
           <div class="stat-card blue">
-            <div class="label">Runner Environment</div>
-            <div class="value" style="font-size: 1.25rem;">ubuntu-latest</div>
-            <div class="subtext">Node.js 20 LTS</div>
+            <div class="label">Runner Timeout</div>
+            <div class="value" style="font-size: 1.25rem;">90 Minutes</div>
+            <div class="subtext">Increased to 1h 30m</div>
           </div>
           <div class="stat-card purple">
-            <div class="label">Target Test Suites</div>
-            <div class="value" style="font-size: 1.25rem;">20 Tests</div>
-            <div class="subtext">4 Browser Projects</div>
+            <div class="label">Modular Page Suites</div>
+            <div class="value" style="font-size: 1.25rem;">6 Pages</div>
+            <div class="subtext">Login, Home, Chat, Activity, Explore, Post</div>
           </div>
           <div class="stat-card orange">
             <div class="label">Deployment Target</div>
@@ -4367,7 +4454,57 @@
           </div>
         </div>
 
-        <h4 style="margin-bottom: 0.75rem; color: #cbd5e1;">🚀 Pipeline Execution Flow</h4>
+        <h4 style="margin-bottom: 0.75rem; color: #cbd5e1;">🚀 Page-Specific CI/CD Execution Matrix</h4>
+        <table>
+          <thead>
+            <tr>
+              <th>Module / Page</th>
+              <th>Single Command Package</th>
+              <th>Dedicated GitHub Actions Workflow</th>
+              <th>Dashboard Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>🔐 <strong>Login Page</strong></td>
+              <td><code>npm run test:login</code></td>
+              <td><code>Page Suite: Login Page (.github/workflows/test-login.yml)</code></td>
+              <td>Auto-generates & deploys on completion</td>
+            </tr>
+            <tr>
+              <td>🏠 <strong>Home Page</strong></td>
+              <td><code>npm run test:home</code></td>
+              <td><code>Page Suite: Home Page (.github/workflows/test-home.yml)</code></td>
+              <td>Auto-generates & deploys on completion</td>
+            </tr>
+            <tr>
+              <td>💬 <strong>Chat Page</strong></td>
+              <td><code>npm run test:chat</code></td>
+              <td><code>Page Suite: Chat Page (.github/workflows/test-chat.yml)</code></td>
+              <td>Auto-generates & deploys on completion</td>
+            </tr>
+            <tr>
+              <td>🔔 <strong>Activity Page</strong></td>
+              <td><code>npm run test:activity</code></td>
+              <td><code>Page Suite: Activity Page (.github/workflows/test-activity.yml)</code></td>
+              <td>Auto-generates & deploys on completion</td>
+            </tr>
+            <tr>
+              <td>🧭 <strong>Explore Page</strong></td>
+              <td><code>npm run test:explore</code></td>
+              <td><code>Page Suite: Explore Page (.github/workflows/test-explore.yml)</code></td>
+              <td>Auto-generates & deploys on completion</td>
+            </tr>
+            <tr>
+              <td>📝 <strong>Create Post Page</strong></td>
+              <td><code>npm run test:post</code></td>
+              <td><code>Page Suite: Create Post Page (.github/workflows/test-post.yml)</code></td>
+              <td>Auto-generates & deploys on completion</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4 style="margin-top: 1.5rem; margin-bottom: 0.75rem; color: #cbd5e1;">🚀 Pipeline Execution Flow</h4>
         <div class="timeline">
           <div class="timeline-step">
             <div class="step-icon">1</div>
@@ -4382,7 +4519,7 @@
             <div class="step-icon">2</div>
             <div class="step-info">
               <div class="step-title">Node.js Environment Setup</div>
-              <div class="step-desc"><code>actions/setup-node@v4</code> &mdash; Sets up Node 20 environment with npm caching.</div>
+              <div class="step-desc"><code>actions/setup-node@v4</code> &mdash; Sets up Node 22 environment with npm caching.</div>
             </div>
             <div class="step-badge">SUCCESS</div>
           </div>
@@ -4399,10 +4536,10 @@
           <div class="timeline-step">
             <div class="step-icon">4</div>
             <div class="step-info">
-              <div class="step-title">Playwright Test Suite Execution</div>
-              <div class="step-desc"><code>npm test</code> &mdash; Runs navigation, login mode switching, security masking, and post-login exploration.</div>
+              <div class="step-title">Page-Specific or Full Suite Test Execution</div>
+              <div class="step-desc">Runs chosen page command (e.g. <code>npm run test:login</code>) with 90-minute timeout guard.</div>
             </div>
-            <div class="step-badge">20/20 PASSED</div>
+            <div class="step-badge">PASSED</div>
           </div>
 
           <div class="timeline-step">
@@ -4411,7 +4548,7 @@
               <div class="step-title">Live Dashboard Regeneration</div>
               <div class="step-desc"><code>npm run generate:dashboard</code> &mdash; Updates metrics, timestamps, and test matrices into <code>docs/index.html</code>.</div>
             </div>
-            <div class="step-badge">SUCCESS</div>
+            <div class="step-badge">UPDATED</div>
           </div>
 
           <div class="timeline-step">
@@ -4429,7 +4566,7 @@
     <!-- Footer -->
     <footer>
       <p>Eve Vakh Quality, Test & CI/CD Automation Suite &mdash; Built with Playwright & GitHub Actions.</p>
-      <p style="margin-top: 0.35rem; color: var(--text-dim);">Live Dashboard: <a href="https://mughdabansal.github.io/Vakh-Playwright--test-/" style="color: #60a5fa;">https://mughdabansal.github.io/Vakh-Playwright--test-/</a></p>
+      <p style="margin-top: 0.35rem; color: var(--text-dim);">Live Dashboard: <a href="https://mughdabansal.github.io/Vakh-Playwright--test-/" style="color: #60a5fa;">https://mughdabansal.github.io/Vakh-Playwright--test-/</a> | Last updated: <strong>Tuesday, September 15, 2026 at 12:23:35 PM</strong></p>
     </footer>
 
   </div>

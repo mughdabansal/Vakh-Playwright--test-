@@ -1,0 +1,1763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vakh QA Test Cases &amp; Execution Matrix</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card-bg: #161b22;
+      --border: #30363d;
+      --text: #c9d1d9;
+      --text-bright: #f0f6fc;
+      --text-muted: #8b949e;
+      --accent: #58a6ff;
+      --success: #3fb950;
+      --danger: #f85149;
+      --warning: #d29922;
+      --table-row-alt: #1a202c;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    body { background: var(--bg); color: var(--text); padding: 32px 24px; line-height: 1.5; }
+    .container { max-width: 1440px; margin: 0 auto; }
+    header { margin-bottom: 24px; border-bottom: 1px solid var(--border); padding-bottom: 16px; }
+    h1 { color: var(--text-bright); font-size: 26px; font-weight: 600; display: flex; align-items: center; gap: 12px; }
+    .subtitle { color: var(--text-muted); font-size: 14px; margin-top: 6px; }
+    
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px; }
+    .stat-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 16px; display: flex; flex-direction: column; }
+    .stat-label { font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+    .stat-value { font-size: 28px; font-weight: 700; margin-top: 4px; color: var(--text-bright); }
+    .stat-card.passed .stat-value { color: var(--success); }
+    .stat-card.blocked .stat-value { color: var(--danger); }
+    .stat-card.pending .stat-value { color: var(--warning); }
+    
+    .controls { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; align-items: center; background: var(--card-bg); padding: 14px; border-radius: 8px; border: 1px solid var(--border); }
+    .search-box { flex: 1; min-width: 240px; }
+    .search-box input { width: 100%; background: #0d1117; border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px; color: #fff; font-size: 14px; }
+    .filter-select { background: #0d1117; border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px; color: #fff; font-size: 14px; }
+    
+    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 8px; background: var(--card-bg); }
+    table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13px; }
+    th { background: #1f242c; color: var(--text-bright); padding: 12px 14px; font-weight: 600; border-bottom: 1px solid var(--border); position: sticky; top: 0; }
+    td { padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tr:nth-child(even) td { background: rgba(255, 255, 255, 0.015); }
+    tr:hover td { background: rgba(255, 255, 255, 0.04); }
+    
+    .badge { display: inline-flex; align-items: center; gap: 6px; padding: 3px 8px; border-radius: 12px; font-size: 12px; font-weight: 600; text-transform: uppercase; }
+    .badge.passed { background: rgba(63, 185, 80, 0.15); color: var(--success); border: 1px solid rgba(63, 185, 80, 0.3); }
+    .badge.blocked { background: rgba(248, 81, 73, 0.15); color: var(--danger); border: 1px solid rgba(248, 81, 73, 0.3); }
+    .badge.pending { background: rgba(210, 153, 34, 0.15); color: var(--warning); border: 1px solid rgba(210, 153, 34, 0.3); }
+    
+    .module-tag { font-weight: 600; color: #e6edf3; white-space: nowrap; }
+    .notes-box { color: #8b949e; font-size: 12px; background: rgba(255,255,255,0.03); padding: 6px 8px; border-radius: 4px; border-left: 3px solid var(--accent); }
+    .notes-box.blocked-notes { border-left-color: var(--danger); color: #fca7a1; }
+    .date-cell { white-space: nowrap; color: var(--text-muted); font-size: 12px; font-family: monospace; }
+    .id-cell { font-family: monospace; font-size: 11px; color: var(--text-muted); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📋 Vakh QA Test Cases &amp; Execution Matrix</h1>
+      <div class="subtitle">Complete catalog of 178 functional, regression, and sanity test execution cases</div>
+    </header>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-label">Total Tests</span>
+        <span class="stat-value">178</span>
+      </div>
+      <div class="stat-card passed">
+        <span class="stat-label">Passed</span>
+        <span class="stat-value">166 <span style="font-size: 15px; font-weight: normal;">(93.3%)</span></span>
+      </div>
+      <div class="stat-card blocked">
+        <span class="stat-label">Blocked (Issues)</span>
+        <span class="stat-value">8 <span style="font-size: 15px; font-weight: normal;">(4.5%)</span></span>
+      </div>
+      <div class="stat-card pending">
+        <span class="stat-label">Pending</span>
+        <span class="stat-value">4 <span style="font-size: 15px; font-weight: normal;">(2.2%)</span></span>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search scenarios, modules, notes, IDs..." onkeyup="filterTable()">
+      </div>
+      <select id="statusFilter" class="filter-select" onchange="filterTable()">
+        <option value="">All Statuses</option>
+        <option value="Passed">Passed</option>
+        <option value="Blocked">Blocked</option>
+        <option value="Pending">Pending</option>
+      </select>
+      <select id="moduleFilter" class="filter-select" onchange="filterTable()">
+        <option value="">All Modules</option>
+      </select>
+      <span id="counter" style="font-size: 13px; color: var(--text-muted); margin-left: auto;">Showing 178 of 178</span>
+    </div>
+
+    <div class="table-wrap">
+      <table id="testTable">
+        <thead>
+          <tr>
+            <th style="width: 48px; text-align: center;">#</th>
+            <th style="width: 160px;">Module / Screen</th>
+            <th>Feature / Test Scenario</th>
+            <th style="width: 110px; text-align: center;">Status</th>
+            <th style="width: 250px;">QA Notes / Issues</th>
+            <th style="width: 105px;">Test Date</th>
+            <th style="width: 100px;">Entry ID</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-status="Passed" data-module="Settings">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">1</td>
+            <td><span class="module-tag">Settings</span></td>
+            <td>To validate that when custom input values is enabled for any form field, user is able to add the custom values, and if it&#039;s disabled then user should not get the option to add custom values to the fields. <br><br>values add for one posts, will not be visible in the future posts and only be visible to the user&#039;s adding the value and not all the user&#039;s having access to the posts.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-09-15</td>
+            <td class="id-cell" title="e4ccd83c-4498-430a-bbe4-ffb83d28b872">e4ccd83c...</td>
+          </tr>
+          <tr data-status="Pending" data-module="badge">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">2</td>
+            <td><span class="module-tag">badge</span></td>
+            <td>verify that users now can edit the access for the badge view : <br>internal- &gt; only admins can see the badge members<br>private-&gt; only members can see each other. <br>public -&gt; everyone can see the badge members</td>
+            <td style="text-align: center;"><span class="badge pending">Pending</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-09-15</td>
+            <td class="id-cell" title="25d9f485-1732-4896-8d65-687c0972f0d6">25d9f485...</td>
+          </tr>
+          <tr data-status="Pending" data-module="Edit badge page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">3</td>
+            <td><span class="module-tag">Edit badge page</span></td>
+            <td>to validate that user is able to delete badge, by clicking on the edit badge option.  the deleted badge should be removed from the application and no users should be able to interact with it.</td>
+            <td style="text-align: center;"><span class="badge pending">Pending</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-09-15</td>
+            <td class="id-cell" title="91deb45c-6853-4a9e-bb30-267d8ee1484d">91deb45c...</td>
+          </tr>
+          <tr data-status="Pending" data-module="Chat Page / Edit Form Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">4</td>
+            <td><span class="module-tag">Chat Page / Edit Form Page</span></td>
+            <td>to validate that user is able to delete a form by clicking on the edit form button and then clicking on the more -&gt; delete form, the form should gets deleted and all the posts from that form should also get deleted and removed from the application.</td>
+            <td style="text-align: center;"><span class="badge pending">Pending</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-09-14</td>
+            <td class="id-cell" title="c4613d3e-d161-491c-ade7-4175a79bd49e">c4613d3e...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Notifications">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">5</td>
+            <td><span class="module-tag">Notifications</span></td>
+            <td>to validate that the notifications gets displayed in the phone&#039;s notifications panel when turned from the application.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-09-11</td>
+            <td class="id-cell" title="706434ba-d182-4d9a-9087-691bb2393df6">706434ba...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">6</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to validate that the scoll to the bottoms of the page is displayed in the chat window when the user is quite above in old chats and clicking on the button, directs the user to the bottom of the chats.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-09-11</td>
+            <td class="id-cell" title="ae9a8cff-2e3f-4bea-9c03-8de5430390fd">ae9a8cff...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Home Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">7</td>
+            <td><span class="module-tag">Home Page</span></td>
+            <td>validate that the popular posts section is displayed at the top of the home page, and the posts gets refreshed in every 24 hrs.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-09-11</td>
+            <td class="id-cell" title="5cc7e99e-93f4-4ebf-b60e-2b089e87894c">5cc7e99e...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Activity Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">8</td>
+            <td><span class="module-tag">Activity Page</span></td>
+            <td>validate that the user gets message if they are removed from any group chat by the admin.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-09-09</td>
+            <td class="id-cell" title="518cbace-7a5f-4431-8c0c-9dba5abf4660">518cbace...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Home Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">9</td>
+            <td><span class="module-tag">Home Page</span></td>
+            <td>to validate when moderation is turned on for the form the submit button changes to submit to review</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-09-09</td>
+            <td class="id-cell" title="f05eead9-2105-45a6-8308-fa7aacd92001">f05eead9...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Home Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">10</td>
+            <td><span class="module-tag">Home Page</span></td>
+            <td>to validate that the notification is displayed to the user to subscribe the form if not subscribed but have access to create, edit and deleted in the form.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-09-09</td>
+            <td class="id-cell" title="7ded897c-7fe7-49e9-8956-1b5dfd753be1">7ded897c...</td>
+          </tr>
+          <tr data-status="Passed" data-module="General / Sanity">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">11</td>
+            <td><span class="module-tag">General / Sanity</span></td>
+            <td>Sanity Test 2.0</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><div class="notes-box ">posting the posts including, texts, media, links, longform, and others. <br>moderation</div></td>
+            <td class="date-cell">2026-09-09</td>
+            <td class="id-cell" title="69937f9d-22fe-4575-aa96-d46bd4fd160e">69937f9d...</td>
+          </tr>
+          <tr data-status="Passed" data-module="General / Sanity">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">12</td>
+            <td><span class="module-tag">General / Sanity</span></td>
+            <td>sanity testing 1.0</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><div class="notes-box ">This sanity test covers the following parts : <br>sign up welcome tour chat media/file - post, chats, quote</div></td>
+            <td class="date-cell">2026-09-03</td>
+            <td class="id-cell" title="f5f7219a-bfa3-46c6-b4ab-572bf004b1a9">f5f7219a...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Activity Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">13</td>
+            <td><span class="module-tag">Activity Page</span></td>
+            <td>to verify that when a form is subscribed or milestones related to subscription is displayed to only the form owner in the activity page. <br><br>to verify that messages related to the likes/hearts and milestones related to hearts/likes is only displayed to the post author in the activity page.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-09-02</td>
+            <td class="id-cell" title="d2fbe038-2513-4515-90b6-29bd16138672">d2fbe038...</td>
+          </tr>
+          <tr data-status="Pending" data-module="Login Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">14</td>
+            <td><span class="module-tag">Login Page</span></td>
+            <td>verify if there is any limit upto which user can enter wrong password or code during login</td>
+            <td style="text-align: center;"><span class="badge pending">Pending</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-09-02</td>
+            <td class="id-cell" title="30411527-d564-4673-ac3f-aa6ed13b02b0">30411527...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Login Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">15</td>
+            <td><span class="module-tag">Login Page</span></td>
+            <td>to validate then when user&#039;s account is deleted after 7 days, user can create new account using the old account phone number and email</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-09-02</td>
+            <td class="id-cell" title="64c4d17b-bb97-4432-ae9e-af0774ea4948">64c4d17b...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Activity Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">16</td>
+            <td><span class="module-tag">Activity Page</span></td>
+            <td>verify if the user gets the messages in the activity page for the post acceptance and rejection.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-09-02</td>
+            <td class="id-cell" title="2f6975cc-384f-4967-9616-94f25f311abd">2f6975cc...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Home Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">17</td>
+            <td><span class="module-tag">Home Page</span></td>
+            <td>validate that if the config is set as manual review then the form owner and admin will have the permissions to verify the posts and then if they allow to publish in the form then only it will be published otherwise, it will get rejected and user&#039;s can track the posts under review, accepted and rejected posts in the application under post history.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-09-02</td>
+            <td class="id-cell" title="475422ff-2aa4-49ba-81fe-b885b1156b02">475422ff...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Login Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">18</td>
+            <td><span class="module-tag">Login Page</span></td>
+            <td>to validate that the when the user deletes their account their forms and badges must be deleted from the application.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-09-02</td>
+            <td class="id-cell" title="3d1809e1-eb84-461d-a6fa-f85b1aaa28b1">3d1809e1...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Login Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">19</td>
+            <td><span class="module-tag">Login Page</span></td>
+            <td>to validate that deleted user&#039;s account is displayed as deleted user in the posts tagged and the profile and and the posts should be displayed from the application and if they are in the group chat then their account should be removed from the chats.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-09-02</td>
+            <td class="id-cell" title="44070d53-a2c6-4e07-9f3c-2c148b485a7a">44070d53...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Login Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">20</td>
+            <td><span class="module-tag">Login Page</span></td>
+            <td>to validate that the user is able to navigate to the sign up page and is able to create account if not already created and login -&gt; if the account is already created successfully.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-31</td>
+            <td class="id-cell" title="c656a283-41f9-464d-8eff-25262db790e4">c656a283...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Login Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">21</td>
+            <td><span class="module-tag">Login Page</span></td>
+            <td>to validate that user is able to login with the password it they have added through settings</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-31</td>
+            <td class="id-cell" title="c6d61542-8eaa-4a5d-bcf2-1b1793ab78f7">c6d61542...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Activity Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">22</td>
+            <td><span class="module-tag">Activity Page</span></td>
+            <td>to validate that notification message is displayed for the first like and subscribe in the activity page to the form owner  and for the further milestones  of 5/10/15</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><div class="notes-box ">also check that if the user who created the posts also gets the message for the first like in the activity page.</div></td>
+            <td class="date-cell">2026-08-31</td>
+            <td class="id-cell" title="eced9046-fafb-4ecd-b267-240335c631af">eced9046...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Home Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">23</td>
+            <td><span class="module-tag">Home Page</span></td>
+            <td>to validate that heart button is displayed when clicked on any posts and each posts should have its own heart button. Each user gets 7 hearts in a day and verify that by clicking on the hearts button, they use one heart and can like a single or multiple posts upto 7 in a day. (UTC 00:00 time. So for India, it resets at 5:30 AM.) verify that the hearts are refilled after the time and user is able to like the posts again. <br><br>Also verify that user is not able to use more than 7 hearts in a day.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-27</td>
+            <td class="id-cell" title="b45da67a-33f4-488d-90d0-cfc512653f54">b45da67a...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Home Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">24</td>
+            <td><span class="module-tag">Home Page</span></td>
+            <td>to validate that the user is able to archive the form fields by clicking on the edit form and also able to archive the form&#039;s fields which already has records created.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-27</td>
+            <td class="id-cell" title="9167d9ed-0e69-401c-a1f5-4786a505a1b6">9167d9ed...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Home Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">25</td>
+            <td><span class="module-tag">Home Page</span></td>
+            <td>to validate that the user is able to delete the posts and the deleted posts cannot be restored and the confirmation message for the same is displayed to the user and the posts should be removed from the application.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-27</td>
+            <td class="id-cell" title="812d793b-1c18-4eb4-b5d3-d23f0402b77f">812d793b...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Home Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">26</td>
+            <td><span class="module-tag">Home Page</span></td>
+            <td>validate that user is able to report the post and user who posted that posts separately and it should get reported separately and message should be displayed in the activity page to the user for the same.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-27</td>
+            <td class="id-cell" title="7ca6304e-57e2-47ff-8257-8498b7be0183">7ca6304e...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Activity Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">27</td>
+            <td><span class="module-tag">Activity Page</span></td>
+            <td>to validate that the mark as all read button when clicked all the unread messages   -&gt; read and the count also removed from the active page button.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-27</td>
+            <td class="id-cell" title="eac7dbb6-9d4f-4f5d-921b-493a0a6e1719">eac7dbb6...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">28</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>validate that only members who has accepted the request to join the group chat can be the group admins.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-27</td>
+            <td class="id-cell" title="e8a53a49-c0a1-4a83-ac26-7cedecec9b3c">e8a53a49...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">29</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to validate that if a member shares a post that has only access to some members of the group and not all then validate that those members who do not have permission to it can not view it.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><div class="notes-box ">those members who does not have permission to access the posts, to them it is displayed as &quot;Posts not found&quot;</div></td>
+            <td class="date-cell">2026-08-27</td>
+            <td class="id-cell" title="3bf30d1d-957e-4b81-b717-7d858723561d">3bf30d1d...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">30</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>verify that the members are not able to remove other members from the group chat</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-27</td>
+            <td class="id-cell" title="28e90faa-5570-4ed3-8193-6e776142d204">28e90faa...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">31</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to validate that one admin cannot remove other admin from the group but not the group owner,  the group owner can remove the admins and the members from the group.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-27</td>
+            <td class="id-cell" title="8679df22-eedc-4fe2-a12b-e3a837cd46ad">8679df22...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">32</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to validate that one admin is able to remove other from admin except the group owner and group owner can remove all the admins from the position. Also validate that the group admins can make members as admin</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-27</td>
+            <td class="id-cell" title="3a2c046c-9b48-4f1b-871a-d604d90d30aa">3a2c046c...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">33</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to validate that the user&#039;s rejects the group chat requests, user must not be added in the group chat - must not be able to send and receive messages and the chat should be removed from the user&#039;s chat page.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-27</td>
+            <td class="id-cell" title="0ffee401-8869-4378-a2f1-6ab922766018">0ffee401...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">34</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to validate, when user is added in a new group chat, they should receive it as a request and must first accept it from the requests in order to send messages and receive messages and the chat will appear in the chat page.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-27</td>
+            <td class="id-cell" title="b93b6830-b682-4004-a18d-b803a3cf9aca">b93b6830...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Home Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">35</td>
+            <td><span class="module-tag">Home Page</span></td>
+            <td>to validate that the notifications count should be displayed in the taskbar upon each sections page button and the count must be updated as per the unread notifications also validate when the user reads the notifications the count should be decreased.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><div class="notes-box ">the count upon the home page button gets stuck sometimes.</div></td>
+            <td class="date-cell">2026-08-21</td>
+            <td class="id-cell" title="606383e2-2299-4361-b1f2-bd0d4cd98b1d">606383e2...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Home Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">36</td>
+            <td><span class="module-tag">Home Page</span></td>
+            <td>to validate that when user clicks on the new post button, all the forms created by the user and those to which user have access to add should be displayed. <br><br>also verify that selecting the form --&gt; navigate the user to the page to fil the form details as added during the form creations and clicking on create will add it as a post and all the user&#039;s subscribing the form will be able to view it on their home page.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-21</td>
+            <td class="id-cell" title="8f40ecf4-5a2b-4c90-a895-40b99a043f5f">8f40ecf4...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Home Page / My Profile">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">37</td>
+            <td><span class="module-tag">Home Page / My Profile</span></td>
+            <td>to validate that the user is able to create a new form by clicking on the new form button and the page to create new form is loaded successfully displaying all the options to add the name and descriptions for the form, to add the fields, configure the fields, to add the views for  the form and also to manage the access for the form. <br><br>validate that user is able to add the form name, form description and also some pre-added templates to use or have option to select and add the fields as required from the given options and to configure the same, by adding names and  input configurations and colour using the hex code. <br><br>also validate that the colour must be picked as per the hex code added. <br><br>also validate that the user is able to add view for the form suing different options . <br><br>also user must be able to give access to the user by searching the name and add the access to add, delete, edit and update also can remove the access. <br><br>the form can be saved by clicking on the save form button. also validate if the form is not saved and the user tries to navigate to the previous page, it should show alert for the same. <br><br>also validate that the saved form should be displayed in the user&#039;s profile and also when clicked on the new post button</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-21</td>
+            <td class="id-cell" title="c254fd35-02eb-414f-aa14-ed937ad62b05">c254fd35...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Settings">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">38</td>
+            <td><span class="module-tag">Settings</span></td>
+            <td>to validate that the user is able to navigate to the user manual and the page is loaded successfully. <br><br>Also validate that all the required pages buttons are present and able to navigate to the respective pages.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-21</td>
+            <td class="id-cell" title="f50e30e8-83ab-4660-9dad-9dc588d1c6ea">f50e30e8...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Settings">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">39</td>
+            <td><span class="module-tag">Settings</span></td>
+            <td>to validate that the user is able to navigate to the post history page to view the post in review, rejected and archived and the post should be displayed successfully.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-21</td>
+            <td class="id-cell" title="f6dc7761-ac4f-4cf8-bc09-dffd36b5c1fb">f6dc7761...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Settings">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">40</td>
+            <td><span class="module-tag">Settings</span></td>
+            <td>to validate that clicking on the subscriptions button will direct user to the subscriptions page and the page must be loaded successfully and should display the list of all the forms subscribed by the user.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-21</td>
+            <td class="id-cell" title="af7d8035-6715-4c9d-a1c1-73f24b245c50">af7d8035...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Settings">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">41</td>
+            <td><span class="module-tag">Settings</span></td>
+            <td>to validate that the user is able to navigate to the notifications page by clicking on the notifications button and the page must be loaded successfully. <br><br>also validate that the page must contain options to configure different notification settings including -&gt; general notification, device permissions status, email notifications, activity, messages and activity feed. <br><br>also validate that all the toggle buttons to ON and select the notifications type is enabled and use is able to interact and should work as expected.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-21</td>
+            <td class="id-cell" title="f40d5c0f-3036-4043-983b-3012a29bfb42">f40d5c0f...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Settings">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">42</td>
+            <td><span class="module-tag">Settings</span></td>
+            <td>to validate that the user is able to navigate to the autofill and the page is loaded successfully. to verify that the user is able to view the saved places (if added), also validate the button to add the place. <br><br>verify that the add place button is enable and clicking on it opens the search bar to search for the place and also user can add tags such as home, work and other to the places. <br><br>validate the user is able to search for the place successfully and that the searched results should match the searched keyword and clicking on  the save place button the place added must be saved under the saved places section.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-21</td>
+            <td class="id-cell" title="bb9fe5c6-f21c-4ead-a644-7f5d9fee7f4b">bb9fe5c6...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Settings">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">43</td>
+            <td><span class="module-tag">Settings</span></td>
+            <td>validate that the user is able to navigate to the reports page by clicking on the reports button and the page is loaded successfully. <br><br>also validate that the user is able to navigate to the my report page by clicking on the my reports button to view and track the reports submitted by the user. <br><br>there should also be certain filters to categorize the reports for easy view and access. <br><br>in the safety page also validate that the user is able to view the blocked and muted users under their respective sections successfully.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-21</td>
+            <td class="id-cell" title="10dac33b-2bd3-45a6-987f-bc47bf68ec93">10dac33b...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Settings">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">44</td>
+            <td><span class="module-tag">Settings</span></td>
+            <td>to validate that clicking on account, user is directed to the account page, also the primary contact either email or phone number should be displayed used by the user at the time of account creation. <br><br>there should be button to add the phone number or email as per the user&#039;s account and user must be able to add either of them successfully. <br><br>there should be option to add the account admins --&gt; by searching the ser and adding them as the account admin successfully and added admins should be displayed successfully.<br><br>user must be able to navigate to the security screen --&gt; to add or change the password and also to add the two factor authentication successfully. user must be able to add or change the password successfully. <br><br>user must be able to verify their identity, add view the active sessions across all the devices and connected apps including MCP. <br><br>there should also be option to delete the account and once confirmed for deletion the selected account should be deleted after 7 days and the countdown for the same should also be displayed here, with the option to cancel the deletion scheduled.  <br><br>user must still be able to login to the account until the account is deleted.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-20</td>
+            <td class="id-cell" title="0e8a29cb-0412-4d46-a3ce-d111301dec91">0e8a29cb...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Settings">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">45</td>
+            <td><span class="module-tag">Settings</span></td>
+            <td>to validate that clicking on the discoverability should direct user to the discoverability page successfully and the page should show options to add location, tags, and configurations for messaging -&gt; all the features must work correctly.   <br><br>user must be able to add location for the explore page and search <br><br>tags added by the user here -&gt; must appear on the user profile and explore page.  user must also be able to add new tags by themselves. <br><br>messaging configurations should work as expected and selected by the user.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-20</td>
+            <td class="id-cell" title="4df6485d-1313-44e1-9348-9f7c61bd5a17">4df6485d...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Settings">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">46</td>
+            <td><span class="module-tag">Settings</span></td>
+            <td>to verify that clicking on the profile button, directs the user to the profile of the user, displaying options to add photo, profile photo, name, username, bio, also edit button should be present. <br><br>clicking on the edit button-&gt; user must be able to edit the name, username and bio for the profile. <br><br>clicking on the add photo button -&gt; user must be able to select and add photo as the profile photo and the photo should be updated in the minimum time successfully. <br><br>also at the bottom-&gt; settings button should be present -&gt; clicking on it, the user will be reverted back to the settings page. <br><br>clicking on the toggle button (:) -&gt; should show discoverability and the account button -&gt; directing user to the respective pages successfully.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-20</td>
+            <td class="id-cell" title="92590e60-808f-4b5b-b4b5-f9ea2ad1cef8">92590e60...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Settings">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">47</td>
+            <td><span class="module-tag">Settings</span></td>
+            <td>to verify that the all the screen buttons including -&gt;<br>profile, discoverability, account, safety, autofill, notifications, subscriptions, post history and user manual are present and interactive, also has a little info about the page, the settings page also must have the my profile button and the sign out button at the bottom of the page.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-20</td>
+            <td class="id-cell" title="2bd91d17-ad4f-45fd-b1c1-a9f1dc293acc">2bd91d17...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Settings">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">48</td>
+            <td><span class="module-tag">Settings</span></td>
+            <td>to verify that the user is able to navigate to the settings page by clicking on the settings button from the home page and the page is loaded successfully.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-20</td>
+            <td class="id-cell" title="548f6ef6-9250-48c1-980d-b102ff807fcb">548f6ef6...</td>
+          </tr>
+          <tr data-status="Passed" data-module="My Profile">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">49</td>
+            <td><span class="module-tag">My Profile</span></td>
+            <td>validate that the user is able to navigate to their own profile by clicking on the user name and the page is loaded successfully with joined date, rep count, badge details (if any) and the forms details (which are created by the user). Also validate that the user is able to navigate to the respective forms by clicking on it and the forms must be opened and loaded successfully</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-20</td>
+            <td class="id-cell" title="69ca3e3c-f7e5-4b96-8794-cc88fbb913a6">69ca3e3c...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Subscriptions">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">50</td>
+            <td><span class="module-tag">Subscriptions</span></td>
+            <td>verify that the user is able to navigate to the subscripts page and all the forms subscribed by the user is displayed in here as list successfully.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-20</td>
+            <td class="id-cell" title="973b95ed-8c08-46d4-8664-2d43b4cd78d4">973b95ed...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Explore Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">51</td>
+            <td><span class="module-tag">Explore Page</span></td>
+            <td>to verify that the user is able to click on the share button and it open the dialog box to share the profile link and user is able to share the same on different platforms like whatsapp, instagram and others as  required.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><div class="notes-box ">also verify the scenario on how the receiver&#039;s is able to open the same profile through link and if the login page was displayed at first if not  a user or not logged in</div></td>
+            <td class="date-cell">2026-08-14</td>
+            <td class="id-cell" title="3f7263dc-f81a-4eeb-a7a9-483735c75099">3f7263dc...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Explore Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">52</td>
+            <td><span class="module-tag">Explore Page</span></td>
+            <td>to verify that the user is able to block another user and the confirmation message for the same is displayed, also the safety button will be changed to the blocked</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-14</td>
+            <td class="id-cell" title="5637b0f1-834b-4265-974e-7e9bbc547cc5">5637b0f1...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Explore Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">53</td>
+            <td><span class="module-tag">Explore Page</span></td>
+            <td>to verify that the user is able to report another user by clicking on the report user button and the confirmation message for the same is displayed successfully</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-14</td>
+            <td class="id-cell" title="8c7c95a2-e6a7-4591-9c93-9f7f3e091538">8c7c95a2...</td>
+          </tr>
+          <tr data-status="Blocked" data-module="Explore Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">54</td>
+            <td><span class="module-tag">Explore Page</span></td>
+            <td>to verify that the mute the user button, mute the user successfully and a message should be displayed for the same to confirm that the user has been muted.</td>
+            <td style="text-align: center;"><span class="badge blocked">Blocked</span></td>
+            <td><div class="notes-box blocked-notes">after muting the user, the confirmation message for the same is not displayed, hence marked as issue in the bug tracker.</div></td>
+            <td class="date-cell">2026-08-14</td>
+            <td class="id-cell" title="6a28b299-26cb-4399-8b22-bfe5d558be53">6a28b299...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Explore Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">55</td>
+            <td><span class="module-tag">Explore Page</span></td>
+            <td>to verify that the user is able to click on the toggle button at the bottom and then click on the safety page and options appears to mute the user, report the user or block the user</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-14</td>
+            <td class="id-cell" title="74f7f849-1c88-44bf-a740-020581b84e00">74f7f849...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Explore Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">56</td>
+            <td><span class="module-tag">Explore Page</span></td>
+            <td>to verify that the user is able to click on the message button and is directed to the chat window of the user and is able to send messages and view all the previous conversation (if any).</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-14</td>
+            <td class="id-cell" title="a7eef259-d18b-4d0d-b606-8b4efca676a3">a7eef259...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Explore Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">57</td>
+            <td><span class="module-tag">Explore Page</span></td>
+            <td>to verify that the user is able to click on the form and is directed to the particular form successfully and the form is also loaded successfully.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-14</td>
+            <td class="id-cell" title="916f2ec2-099b-48f9-89f0-2db8299007f1">916f2ec2...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Explore Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">58</td>
+            <td><span class="module-tag">Explore Page</span></td>
+            <td>to verify that the user&#039;s profile page contains the profile picture, name, username, joined month and year, rep count, forms by the user (in-case no forms - empty with message), message button at the bottom and the toggle button containing safety and share button</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-14</td>
+            <td class="id-cell" title="10e427bd-aa9f-4c39-a403-0517d62d6796">10e427bd...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Explore Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">59</td>
+            <td><span class="module-tag">Explore Page</span></td>
+            <td>to verify that the user is able to click on the user&#039;s profile and are directed to their respective profiles successfully and all the elements of the page are loaded successfully</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-14</td>
+            <td class="id-cell" title="993e2436-4b69-4843-be4a-6c63d58a16bf">993e2436...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Explore Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">60</td>
+            <td><span class="module-tag">Explore Page</span></td>
+            <td>to verify that the user is able to save multiple filters and all the filters are displayed at the bottom of the screen</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><div class="notes-box ">limit for the tags - 5 tags at a time <br>total no of filters that can be saved - 10</div></td>
+            <td class="date-cell">2026-08-14</td>
+            <td class="id-cell" title="54bfbbe6-e8d4-4ff3-ba17-37e209157220">54bfbbe6...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Explore Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">61</td>
+            <td><span class="module-tag">Explore Page</span></td>
+            <td>to verify that the save button appears when any of the filters is used by the user and it saves the filter and the filter is displayed in the bottom of the screen</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-11</td>
+            <td class="id-cell" title="05958566-1466-4ba5-aa8f-81dd3e8325ba">05958566...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Explore Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">62</td>
+            <td><span class="module-tag">Explore Page</span></td>
+            <td>to verify that the save button is displayed and enabled when clicked on the active button, and the searched parameters used for the results should be saved and displayed in the bottom of the page.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-11</td>
+            <td class="id-cell" title="871ce0e4-7069-4b94-81b3-59b62e87e189">871ce0e4...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Explore Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">63</td>
+            <td><span class="module-tag">Explore Page</span></td>
+            <td>to verify that the search box is enabled and user is able to type and search for the user&#039;s using the search box. Also validate that the searched results are displayed as per the searched keywords and clicking on the profiles of the user will direct the user to their respective profiles.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-11</td>
+            <td class="id-cell" title="a40c3d70-bc04-4b89-b37c-af4a28209e4b">a40c3d70...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Explore Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">64</td>
+            <td><span class="module-tag">Explore Page</span></td>
+            <td>to verify that the active button is enabled and clicking on it will display all the active members on the application successfully. Also, validate that the search results are correct and the profiles are displayed successfully and also that clicking on the profiles will direct the user to their respective profiles.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-11</td>
+            <td class="id-cell" title="ec795cab-aed9-4398-b1ba-45920e470b76">ec795cab...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Explore Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">65</td>
+            <td><span class="module-tag">Explore Page</span></td>
+            <td>to verify that the searched results are displayed based on the tags added by the user with their profiles. Also validate that clicking on the profile directs the user to their respective profiles.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-11</td>
+            <td class="id-cell" title="546a9605-391e-4581-9e10-0f148b0ddada">546a9605...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Explore Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">66</td>
+            <td><span class="module-tag">Explore Page</span></td>
+            <td>to verify that the tags button is enabled and clicking on it open the dialog box to add the select the tags from the pre-set group or to add the tags by themselves. validate that the user is able to add the tags and the added tags are displayed.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-11</td>
+            <td class="id-cell" title="68f76dd3-6240-4fe9-a30e-3c704ac3e01f">68f76dd3...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Explore Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">67</td>
+            <td><span class="module-tag">Explore Page</span></td>
+            <td>to verify that the searched results for the location is displayed to the user  successfully and is correct and clicking on the profiles will direct the user to their respective profiles.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-11</td>
+            <td class="id-cell" title="3797184d-ae25-4233-bbcd-2c6c2c50a3d4">3797184d...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Explore Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">68</td>
+            <td><span class="module-tag">Explore Page</span></td>
+            <td>to verify that the user is able to add and search the location, the search location is added and the distance is calculated accurately. validate the added distance and verify the search results.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-11</td>
+            <td class="id-cell" title="e2fec8e6-361f-49e9-9184-bbda0c534de6">e2fec8e6...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Explore Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">69</td>
+            <td><span class="module-tag">Explore Page</span></td>
+            <td>to verify that the nearby button is enabled and clicking on it opens a dialog box to add the location and distance.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-11</td>
+            <td class="id-cell" title="e460bc65-c8fb-4dea-8dad-5c4bfc2b12c3">e460bc65...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Explore Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">70</td>
+            <td><span class="module-tag">Explore Page</span></td>
+            <td>to verify that the user&#039;s profiles are available with profile name, username, profile picture, profile tags added by the user and the bio added by the user.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-11</td>
+            <td class="id-cell" title="d61db1a7-75f3-404f-9e40-47cf085354c4">d61db1a7...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Explore Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">71</td>
+            <td><span class="module-tag">Explore Page</span></td>
+            <td>to verify that the user is able to navigate to the explore page by clicking on the explore button and the page is successfully loaded and all the user&#039;s on the application are displayed, the page must also contains nearby, tags, active button and search bar</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-11</td>
+            <td class="id-cell" title="40ee2edb-f13c-4efb-af67-6d3af1d1dddb">40ee2edb...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Activity Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">72</td>
+            <td><span class="module-tag">Activity Page</span></td>
+            <td>to verify that clicking on mentioned post message will navigate the user to the post, they were mentioned in</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-11</td>
+            <td class="id-cell" title="a45a7949-1ba1-4336-af75-68fc71d62b08">a45a7949...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Activity Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">73</td>
+            <td><span class="module-tag">Activity Page</span></td>
+            <td>to verify that the user is able to click on the message is navigated to the post for the mention and edit message</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-10</td>
+            <td class="id-cell" title="b383c083-660c-4af9-adbf-45c630f4904c">b383c083...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Activity Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">74</td>
+            <td><span class="module-tag">Activity Page</span></td>
+            <td>to verify that the message is displayed to the user if the submitted report is resolved by the moderator</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-10</td>
+            <td class="id-cell" title="737cf1a3-a714-42c3-9950-2ea1f689ca1c">737cf1a3...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Activity Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">75</td>
+            <td><span class="module-tag">Activity Page</span></td>
+            <td>to verify that the message is displayed for the message redacted, hidden or restored by the moderator</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-10</td>
+            <td class="id-cell" title="076ccb72-3582-4d13-a1a6-9d4ace1d6ba8">076ccb72...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Activity Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">76</td>
+            <td><span class="module-tag">Activity Page</span></td>
+            <td>to verify that the message is displayed if the post is removed, restricted or restored by the moderator</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-10</td>
+            <td class="id-cell" title="fcb3a389-9eb3-4767-8cc9-0be3a7204f9a">fcb3a389...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Activity Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">77</td>
+            <td><span class="module-tag">Activity Page</span></td>
+            <td>to verify that the message is displayed for the warning received by the moderator for the unusual activity</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-10</td>
+            <td class="id-cell" title="c6150487-773c-4b17-acd8-fb218b56ee36">c6150487...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Activity Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">78</td>
+            <td><span class="module-tag">Activity Page</span></td>
+            <td>to verify that the message is displayed when  the user is given access to a form</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-10</td>
+            <td class="id-cell" title="4d1b9143-cfaa-43cd-9145-11ea08364d45">4d1b9143...</td>
+          </tr>
+          <tr data-status="Blocked" data-module="Activity Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">79</td>
+            <td><span class="module-tag">Activity Page</span></td>
+            <td>to verify that the message is displayed when someone requests membership in a group/badge you manage</td>
+            <td style="text-align: center;"><span class="badge blocked">Blocked</span></td>
+            <td><div class="notes-box blocked-notes">issue in the group/badge</div></td>
+            <td class="date-cell">2026-08-10</td>
+            <td class="id-cell" title="29af8d3d-c212-4b99-a032-c1b875e03b08">29af8d3d...</td>
+          </tr>
+          <tr data-status="Blocked" data-module="Activity Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">80</td>
+            <td><span class="module-tag">Activity Page</span></td>
+            <td>to verify that the message is displayed when the user is added in the group/badge</td>
+            <td style="text-align: center;"><span class="badge blocked">Blocked</span></td>
+            <td><div class="notes-box blocked-notes">user did not get updated and not visible from the member side --&gt; added as a issue</div></td>
+            <td class="date-cell">2026-08-10</td>
+            <td class="id-cell" title="98015629-327c-4468-8716-69bdcb76e283">98015629...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Activity Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">81</td>
+            <td><span class="module-tag">Activity Page</span></td>
+            <td>to verify that the message is displayed when the post mentioning the user is edited</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-10</td>
+            <td class="id-cell" title="5dcc620e-cb61-4e6b-b060-39062b271f29">5dcc620e...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Activity Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">82</td>
+            <td><span class="module-tag">Activity Page</span></td>
+            <td>to verify that the message is displayed when the post is edited by other user who has access to edit the post</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-10</td>
+            <td class="id-cell" title="9a9c6334-ddc4-4c11-8bd0-53d8a4c3e5c8">9a9c6334...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Activity Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">83</td>
+            <td><span class="module-tag">Activity Page</span></td>
+            <td>to verify that message is displayed when someone quotes/references the user&#039;s post</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-10</td>
+            <td class="id-cell" title="556468ec-813a-44cd-951b-2f3bbf561627">556468ec...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Activity Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">84</td>
+            <td><span class="module-tag">Activity Page</span></td>
+            <td>to verify that the message is displayed in the activity tab when a user is mentioned in a post</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-10</td>
+            <td class="id-cell" title="d348dcc4-2d01-4721-aab1-ca3b32e31706">d348dcc4...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Activity Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">85</td>
+            <td><span class="module-tag">Activity Page</span></td>
+            <td>to verify that user is able to navigate to the activity tab successfully and the page is loaded properly and if there were previous messages they should also be loaded successfully</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-07</td>
+            <td class="id-cell" title="4fb36107-45f8-4354-89a8-1bf50f20ef90">4fb36107...</td>
+          </tr>
+          <tr data-status="Blocked" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">86</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to verify that the user is able to report the chat by clicking on the report button in the settings button and the it opens a dialogue box to select the reason and field to add more details for the report</td>
+            <td style="text-align: center;"><span class="badge blocked">Blocked</span></td>
+            <td><div class="notes-box blocked-notes">check the case when the chat is reported what happens in the chat, does it remain same until the moderator review the report.</div></td>
+            <td class="date-cell">2026-08-07</td>
+            <td class="id-cell" title="a0a671a0-b99e-45d4-9de5-2b04249717f4">a0a671a0...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">87</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to validate that there should not be a block button in the group chat settings screen</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-07</td>
+            <td class="id-cell" title="3888bb40-9cda-415e-8d19-847ebe2ae362">3888bb40...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">88</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to verify that the user is able to delete the chat from the chat group</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><div class="notes-box ">the message is overlapped with a black solid block</div></td>
+            <td class="date-cell">2026-08-07</td>
+            <td class="id-cell" title="988fc17f-cba7-427b-9216-c2927eafb8bb">988fc17f...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">89</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to verify that the user is able to leave the group successfully and also verify if the group is still there in the chat screen and does it have delete chat button</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><div class="notes-box ">the group is deleted successfully and the notification for the same is displayed, also no delete group option was displayed --&gt; directly the group was deleted when clicked on the leave conversation button.</div></td>
+            <td class="date-cell">2026-08-07</td>
+            <td class="id-cell" title="d74ce064-a9a7-4355-9670-b68dfd0f7a53">d74ce064...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">90</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to verify that all the members name and username and profiles are displayed in the settings screen after clicking on the settings screen and user is able to remove them by clicking on the remove button and the members must be removed.  (also check the case how the application handles for the member, is it directly deleted from their chat screen and do they receive messages or notification in the app or the activity tab)</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><div class="notes-box ">the user&#039;s when removed, they the chat is deleted from their side and they get notification and message in the activity page for the same.</div></td>
+            <td class="date-cell">2026-08-07</td>
+            <td class="id-cell" title="d77773ec-760a-4f0d-9725-c939087a4a0c">d77773ec...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">91</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to verify that the user is able to mute the group chat by clicking on the settings button and clicking on the mute button and the mute button should be changes to unmute button and a muted tag should be displayed and the the user should not be able to receive notification of the group chat</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-07</td>
+            <td class="id-cell" title="88be5d6f-5bc9-46a9-94f4-480d8b42efc5">88be5d6f...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">92</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to verify that the user&#039;s are able to open the files and photos shared in the group chat successfully</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><div class="notes-box ">same as normal individual chat, thee word/spreadsheet/ppt --&gt; issue</div></td>
+            <td class="date-cell">2026-08-07</td>
+            <td class="id-cell" title="8b87b9fa-3129-421c-9ebb-d0b2640574ab">8b87b9fa...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">93</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to validate that the members in the group chat receives notification for the new messages in the chat, and all the members receives the notification excepts the sender and the notification content should be correct</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><div class="notes-box ">they do receive the notification, but the time taken by notifications to be displayed take a little too long. --&gt; added as the issue.</div></td>
+            <td class="date-cell">2026-08-07</td>
+            <td class="id-cell" title="78ea0c2c-3fad-4c3e-ba6d-eea138baecad">78ea0c2c...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">94</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to verify that user&#039;s in the group chat are able to send and receive messages successfully and also able to share photos and files</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-07</td>
+            <td class="id-cell" title="9a0a36f3-844d-446b-b7e7-63aede326d7e">9a0a36f3...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">95</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to verify that all the members in the group chat gets the group chat in the chat screen and they are able to access it and send messages successfully.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><div class="notes-box ">they get it as a request in the request division and they have to accept it to send and receive messages in the group chat</div></td>
+            <td class="date-cell">2026-08-07</td>
+            <td class="id-cell" title="f61c596d-ab89-400f-80f8-4f4684be1a92">f61c596d...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">96</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to verify that the group chat is created successfully and user is able to click on it and open the chat window successfully and the start of something banner should be displayed with no UI errors and the group chat name and the picture for the group chat given on random should be displayed.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-07</td>
+            <td class="id-cell" title="293d078c-8972-4452-9113-8c0dab8eddb4">293d078c...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">97</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to verify that while creating group chat after clicking on the create, user gets option to add the group chat name and that name should be displayed in the chat screen and the chat window.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><div class="notes-box ">user gets the option to add the name after the group i created, they can add by clicking on the settings button and add the name</div></td>
+            <td class="date-cell">2026-08-07</td>
+            <td class="id-cell" title="3d037f88-8d98-4315-8795-80a1cad4fea3">3d037f88...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">98</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to verify that user is able to create a group chat by clicking on the new message button and selecting the user to add by searching the user and then clicking on the create and the group chat created should be displayed in the chat screen</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-07</td>
+            <td class="id-cell" title="d4a03a97-3611-4545-a32b-a38c1764a933">d4a03a97...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">99</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to validate that the messages exchange in the chats is sorted on the time stamps and should be organized and not overlapped</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-07</td>
+            <td class="id-cell" title="b3209f06-5f01-4277-8ad0-aa2acede9536">b3209f06...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">100</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to validate that the receiver side receives notification for the messages send by the sender in the application and the content of the notification should be correct as per the sender who sent the messages.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><div class="notes-box ">the notifications takes a little too much longer to appear which is added as a suggestion in the bug tracker.</div></td>
+            <td class="date-cell">2026-08-07</td>
+            <td class="id-cell" title="d0e350ef-51a2-4f2b-b155-bc222a1f8e47">d0e350ef...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">101</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to validate that the user is able to send multiple files at the same time successfully</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-07</td>
+            <td class="id-cell" title="4db0fce4-2263-4f4a-9a4b-baadf8bf178b">4db0fce4...</td>
+          </tr>
+          <tr data-status="Blocked" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">102</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to validate that user is able to send files in the chat as pdf, videos, mp3 files another file formats successfully and the receiver is able to open them in the chat.</td>
+            <td style="text-align: center;"><span class="badge blocked">Blocked</span></td>
+            <td><div class="notes-box blocked-notes">audio files, videos, pdf, pictures - works fine <br>word/spreadsheet/ppt - issues is added in the bug tracker</div></td>
+            <td class="date-cell">2026-08-07</td>
+            <td class="id-cell" title="bd65bbd0-6f00-40dd-9692-ee7b66bf05b9">bd65bbd0...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">103</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to validate that the user is able to send images in the chat and is able to send one and more images in the chat the same time successfully.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-07</td>
+            <td class="id-cell" title="5f68aa6f-9b4f-4b30-b609-da6a11e842c5">5f68aa6f...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">104</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to validate that user is able to send and receive messages in the chat successfully</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-07</td>
+            <td class="id-cell" title="6b7f9eab-4f62-4dd6-a430-c139544be47b">6b7f9eab...</td>
+          </tr>
+          <tr data-status="Blocked" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">105</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to verify that when the user clicks on the chat and and opens the chat window and all the previous messages from the chat is loaded successfully with photos and file. Also the messages should take minimum time to load.</td>
+            <td style="text-align: center;"><span class="badge blocked">Blocked</span></td>
+            <td><div class="notes-box blocked-notes">added as issue as many time the messages are not loaded and the screen appears to be blank.</div></td>
+            <td class="date-cell">2026-08-07</td>
+            <td class="id-cell" title="c5322c63-c952-409c-a27c-6789a2ab431a">c5322c63...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">106</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to verify that the profile button with the user&#039;s username with whom the user is chatting should navigate the use to the user&#039;s profile. the profile should be displayed successfully.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-06</td>
+            <td class="id-cell" title="6e826707-1d21-4952-b338-9729bc4dc5ab">6e826707...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">107</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>messages button should direct the user to the chat screen</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-06</td>
+            <td class="id-cell" title="38786254-4ff4-4ce7-875f-709efe840513">38786254...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">108</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to verify that clicking on the report button, will open a dialog box to allow user to select the reason for report from a pre defined reasons already mentioned also a details input box to write more details for report. Also display two button to cancel and submit the report. after the report is submitted, a confirmation message should be displayed to the user for the same.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-06</td>
+            <td class="id-cell" title="6068d31d-257e-46d2-84fb-c2e3a797fbd1">6068d31d...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">109</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to verify that user is able to unblock the user by clicking on the unblock button and the confirmation message for the same is displayed on the top of the chat. unblocking the user will again open the chat and user will be able to receive and sent messages to the user. notifications should also be displayed for the same</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-06</td>
+            <td class="id-cell" title="f6305494-4fb4-416c-af7a-f353a4b42ec0">f6305494...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">110</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to validate that the once the user is blocked on both the sides of the chat the window the message box should not be displayed and in the bottom it should be prompted as - &quot;you can&#039;t send message in this conversation&quot;</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-06</td>
+            <td class="id-cell" title="49baeef2-89db-49cb-9922-9760afbfa1c8">49baeef2...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">111</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to verify that the user is able to block the user using the block button and the confirmation message should be displayed on top of the screen to confirm that the user is blocked, blocked user&#039;s should not be able to send message to the user and user should also not be able to send message. notifications should also be blocked</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-06</td>
+            <td class="id-cell" title="fb88d5fc-7b96-4dba-9fc2-73ef67b994c0">fb88d5fc...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">112</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to verify that the user is able to unmute chat by clicking on the unmute button</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-18</td>
+            <td class="id-cell" title="ab94b461-ee9e-4d22-9c2f-63ad363ae087">ab94b461...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">113</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to verify that the mute button mute the chats and once the chat is muted it shows the muted tag above the mute button and no notifications should be displayed for the particular muted chat</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-06</td>
+            <td class="id-cell" title="d447119a-20aa-4d94-9368-f21f4d449dc6">d447119a...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">114</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to validate that the settings page is loaded successfully displaying the profile picture and name and user name of the user, archive button to archive the chat and a dedicated safety section containing buttons like mute, block, report. In the bottom message button and profile button should be present</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-06</td>
+            <td class="id-cell" title="22ab5542-5107-47a8-9a2a-909600b9fa31">22ab5542...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">115</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to verify that settings button is present at the right top of the chat window and is enabled and directs the user to the chat window settings.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-06</td>
+            <td class="id-cell" title="03970b02-ba69-4ced-9ecf-5919f8e70e1c">03970b02...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">116</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to verify that the user profile and name in the chat window should match the name and profile from the chat screen and both should be displayed at the top left of the chat window</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-06</td>
+            <td class="id-cell" title="7bd7baa9-90ab-46e4-8665-980d476667e5">7bd7baa9...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">117</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to verify that the time stamps and dates in the chat is displayed and is correct as per the current date and time.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-06</td>
+            <td class="id-cell" title="2b87e80c-6885-4d33-82c7-0348be3e03f0">2b87e80c...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">118</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to verify that the start of something banner should be loaded and displayed at the top of the chat</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-06</td>
+            <td class="id-cell" title="44280f29-9d17-46fa-a120-898a6d6f089f">44280f29...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">119</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to verify that user is able to click on the chat to open the chat window, and the window should be opened successfully</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-06</td>
+            <td class="id-cell" title="ffdcfae4-8277-4f31-9a9f-ee6259b156bb">ffdcfae4...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">120</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to validate that in the chat screen the chats should be sorted in the most recent chat from top to bottom</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-06</td>
+            <td class="id-cell" title="c4c9b202-f93c-45b1-b8ca-2a4089a88e2b">c4c9b202...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">121</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to verify that the newly created chat should be displayed in the chat screen on the top</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-06</td>
+            <td class="id-cell" title="b7a4e0b9-ecd3-4e2a-8749-4e93eba5ce65">b7a4e0b9...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">122</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to validate that the chat screen is loaded successfully and user is able to type and send messages in the chat.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-06</td>
+            <td class="id-cell" title="b033f082-b98a-48f4-8353-b27e8d132f0a">b033f082...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">123</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to verify that after searching the user, users selects the name to chat and then clicks on the start chat button to open the chat window and user should be directed to the chat screen successfully</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-06</td>
+            <td class="id-cell" title="18b22fa6-759d-431f-961a-78e04ed8f1a3">18b22fa6...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">124</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to validate that user is able to search for the other users to chat by using the search box and the results are correct and as per the user&#039;s searched keyword.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-06</td>
+            <td class="id-cell" title="e28ed0df-7586-450c-80cb-20c0750d5aae">e28ed0df...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">125</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to verify that clicking on the new chat page open&#039;s the page to search for the user to start chat with.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-06</td>
+            <td class="id-cell" title="389cb063-3293-4dd2-bfe1-a592c4c3fed4">389cb063...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">126</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to verify that the new message button is displayed in the bottom of the screen and is enabled</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-06</td>
+            <td class="id-cell" title="4df95bbf-cdf1-455a-be35-419b8407af69">4df95bbf...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">127</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>verify that the chats are displayed with the user&#039;s profile picture and name with the last message and time stamp for the same.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-06</td>
+            <td class="id-cell" title="a3e2c33b-1ee6-4e02-879a-a3a59fd4f980">a3e2c33b...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">128</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to verify that if the user has chatted with others previously those chats should be displayed otherwise it should be empty</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-06</td>
+            <td class="id-cell" title="7f75f226-63bb-4f34-8a68-3183831ad67f">7f75f226...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Chat Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">129</td>
+            <td><span class="module-tag">Chat Page</span></td>
+            <td>to verify that user is able to navigate to the chat page and chat page is loaded successfully</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-06</td>
+            <td class="id-cell" title="d25eb03c-b631-4d59-a457-459ab9bbbd8b">d25eb03c...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Home Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">130</td>
+            <td><span class="module-tag">Home Page</span></td>
+            <td>verify that when user clicks on the post on the home page and is navigated to the form page, again clicking on the home page will open the post preview displaying the whole post, such as if media is added then full picture will be displayed and links, text and other attachments will be displayed with open and close button. open button will redirect the user to view the full post with send to and quotes button to quote or to view the previous all quotes. Edit button should only be displayed to those users who has access to edit the post from the post owner</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-06</td>
+            <td class="id-cell" title="02bdf1de-ff0f-49e9-88f6-44cdcba6ef34">02bdf1de...</td>
+          </tr>
+          <tr data-status="Blocked" data-module="Home Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">131</td>
+            <td><span class="module-tag">Home Page</span></td>
+            <td>to verify that the user is able to navigate to the edit form page after clicking on the edit form button, allowing user to edit the form name, description, fields,m layout of the form and the access for the form, it should also display button to save the form and archive the form. clicking on the notes button in the bottom will directs back to the form page.</td>
+            <td style="text-align: center;"><span class="badge blocked">Blocked</span></td>
+            <td><div class="notes-box blocked-notes">this can only be done by the author of the form i guess</div></td>
+            <td class="date-cell">2026-08-04</td>
+            <td class="id-cell" title="db0cb06f-9387-419b-ab0b-0f7ee7bab38d">db0cb06f...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Home Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">132</td>
+            <td><span class="module-tag">Home Page</span></td>
+            <td>to verify that the mute and share button are displayed after clicking on the (:) button to all the user to mute the form or to share the form across different applications or channels.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><div class="notes-box ">only for the mute the confirmation message is not displayed, hence added that as a issue</div></td>
+            <td class="date-cell">2026-08-04</td>
+            <td class="id-cell" title="ca56a67d-efdc-41dc-9343-99b8f178e486">ca56a67d...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Home Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">133</td>
+            <td><span class="module-tag">Home Page</span></td>
+            <td>to verify that the user is able to edit the form, manage access, manage data for the form and these options should only display to the form owner</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-04</td>
+            <td class="id-cell" title="a8059b1a-d542-4c15-9768-cbb8870f7bed">a8059b1a...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Home Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">134</td>
+            <td><span class="module-tag">Home Page</span></td>
+            <td>to validate that the select button allows the user to select the posts and further display the option share with other user on the application by displaying the most contacted one, button to copy the post as a link to share on other applications or to quote the post</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-04</td>
+            <td class="id-cell" title="e722f4ea-dcd3-431c-b8f0-b61ae5b2b2db">e722f4ea...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Home Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">135</td>
+            <td><span class="module-tag">Home Page</span></td>
+            <td>to validate that the new post, edit and archive button is only displayed to those users who have permission from the form owner to create, update and delete.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-04</td>
+            <td class="id-cell" title="879a7a49-13cc-40b4-aa6c-7b300a12cfd6">879a7a49...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Home Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">136</td>
+            <td><span class="module-tag">Home Page</span></td>
+            <td>to validate that the user is able to group the similar posts using the subscribed button and the posts is displayed on the home screen under different section</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-04</td>
+            <td class="id-cell" title="ea596ef9-7a4b-422a-9354-230c73325184">ea596ef9...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Home Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">137</td>
+            <td><span class="module-tag">Home Page</span></td>
+            <td>to validate that the subscribed button is present in the bottom of the form page and opens a form to group the similar posts together and also displayed the unsubscribe button to unsubscribe the form.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-04</td>
+            <td class="id-cell" title="5b8bf6d9-2dbb-41f5-a1ed-88b9311ba218">5b8bf6d9...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Home Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">138</td>
+            <td><span class="module-tag">Home Page</span></td>
+            <td>to validate that the form page after clicking on the posts contains user profile picture to navigate to the profile of the user and it should also successfully navigates the user to the profile of the user created the post.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-04</td>
+            <td class="id-cell" title="4c8fb5db-5cbf-42b9-aaf1-0cddad977a2d">4c8fb5db...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Home Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">139</td>
+            <td><span class="module-tag">Home Page</span></td>
+            <td>to validate that all the posts created under a form must be displayed when clicked on the post by the user</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-04</td>
+            <td class="id-cell" title="5468a3f2-4cba-4b85-9de3-9d360b84533f">5468a3f2...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Home Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">140</td>
+            <td><span class="module-tag">Home Page</span></td>
+            <td>to validate that the user is able to click on the post and is directed to the particular form of the posts, displaying form name, username, picture of the form and shows a short bio added by the user with the number of subscriber.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-04</td>
+            <td class="id-cell" title="ba1697ff-e075-4da8-bc28-6cc5bdd57ce6">ba1697ff...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Home Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">141</td>
+            <td><span class="module-tag">Home Page</span></td>
+            <td>to verify that when the screen or page is refreshed by swiping down the new posts are displayed on the top or new posts should be displayed on the home screen with minimum time latency after posting</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-04</td>
+            <td class="id-cell" title="6a98f0cd-93a3-4d32-ba7e-50448e70924c">6a98f0cd...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Home Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">142</td>
+            <td><span class="module-tag">Home Page</span></td>
+            <td>to verify that the mention and text for the posts is displayed on the home screen</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-04</td>
+            <td class="id-cell" title="af1d2833-f5e8-4bfc-a509-ab2a776ec224">af1d2833...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Home Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">143</td>
+            <td><span class="module-tag">Home Page</span></td>
+            <td>to validate if the form is only created and no posts are added, then on the home screen it is displayed with &quot;no posts yet&quot; text</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-04</td>
+            <td class="id-cell" title="3cb127fb-0dec-4864-9f9c-b7681d4ee4eb">3cb127fb...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Home Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">144</td>
+            <td><span class="module-tag">Home Page</span></td>
+            <td>to verify that the time stamp is displayed in the home screen under each post.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-04</td>
+            <td class="id-cell" title="c4892a19-bc5c-4dfd-b955-ae64485ffc7e">c4892a19...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Home Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">145</td>
+            <td><span class="module-tag">Home Page</span></td>
+            <td>to verify that if media files are not attached then links are displaced in the home page with the website logo</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-08-04</td>
+            <td class="id-cell" title="a905575c-c21a-44fc-ac56-3f5ee3645f00">a905575c...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Home Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">146</td>
+            <td><span class="module-tag">Home Page</span></td>
+            <td>to verify that the media and files attached in the post must be displayed in the home screen (only for media and attached files)</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-07-31</td>
+            <td class="id-cell" title="b562ed4b-1669-4b51-b68f-0098fe3d75f3">b562ed4b...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Home Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">147</td>
+            <td><span class="module-tag">Home Page</span></td>
+            <td>to verify that the post is displayed with profile photo, username and the form name by the user.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-07-31</td>
+            <td class="id-cell" title="125ea17e-3940-4d0a-b7f4-cc73140541e5">125ea17e...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Home Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">148</td>
+            <td><span class="module-tag">Home Page</span></td>
+            <td>to verify that only those posts or forms are displayed in the home screen which are subscribed by the user</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-07-31</td>
+            <td class="id-cell" title="bedab2e4-877b-49a1-a76b-4fd8b4f2c538">bedab2e4...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Home Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">149</td>
+            <td><span class="module-tag">Home Page</span></td>
+            <td>to verify that the post subscribed by the user is displayed in the sort order (newest -&gt; oldest)</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-07-31</td>
+            <td class="id-cell" title="32b68a8c-6c78-4135-afa0-bcb7d89b7a64">32b68a8c...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Home Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">150</td>
+            <td><span class="module-tag">Home Page</span></td>
+            <td>to verify that the settings and subscriptions button are present after clicking on the (:) button</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-07-31</td>
+            <td class="id-cell" title="2d18f6e2-85b0-4639-8fcf-2569cdb70eed">2d18f6e2...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Home Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">151</td>
+            <td><span class="module-tag">Home Page</span></td>
+            <td>to verify that the profile button displaying username is present at the bottom of the home page</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-07-31</td>
+            <td class="id-cell" title="f5f9db25-c1a7-4068-b05a-ed6a7c34f328">f5f9db25...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Home Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">152</td>
+            <td><span class="module-tag">Home Page</span></td>
+            <td>to verify that new post button is present at the bottom of the home page</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-07-31</td>
+            <td class="id-cell" title="62b610a5-46ed-4561-9926-d86113e9ae04">62b610a5...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Home Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">153</td>
+            <td><span class="module-tag">Home Page</span></td>
+            <td>to verify that the home page is loaded successfully and has no ui issues</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-07-31</td>
+            <td class="id-cell" title="7348c8e5-a2a2-44a6-9452-b52bc490f6cd">7348c8e5...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Login Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">154</td>
+            <td><span class="module-tag">Login Page</span></td>
+            <td>to verify that after login the user is navigated or directed to the home page</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-07-31</td>
+            <td class="id-cell" title="113e16bb-0b46-4af6-b541-7f94e348b45e">113e16bb...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Login Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">155</td>
+            <td><span class="module-tag">Login Page</span></td>
+            <td>to verify that the password is masked by default and password masking button is working as expected</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-07-31</td>
+            <td class="id-cell" title="3dd94d68-af41-445b-8fce-13b1df16d01d">3dd94d68...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Login Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">156</td>
+            <td><span class="module-tag">Login Page</span></td>
+            <td>to verify that the error message is displayed in case of wrong credentials for email, phone number, codes and password.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-07-31</td>
+            <td class="id-cell" title="4a4c7c6f-3503-4932-bd23-942acc4b8fc5">4a4c7c6f...</td>
+          </tr>
+          <tr data-status="Blocked" data-module="Login Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">157</td>
+            <td><span class="module-tag">Login Page</span></td>
+            <td>to verify that for the phone number country code is selected automatically and is correct as per the phone number added</td>
+            <td style="text-align: center;"><span class="badge blocked">Blocked</span></td>
+            <td><div class="notes-box blocked-notes">the country code is not changing, hence added as the issue in the bug tracker</div></td>
+            <td class="date-cell">2026-07-31</td>
+            <td class="id-cell" title="01e89d59-77dc-405a-98bd-b8707782d701">01e89d59...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Recovery page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">158</td>
+            <td><span class="module-tag">Recovery page</span></td>
+            <td>to verify that the user is able to navigate back to the login page successfully</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-07-31</td>
+            <td class="id-cell" title="cf5bbc9e-bfa9-4cfe-ac47-7c3a221d9459">cf5bbc9e...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Login Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">159</td>
+            <td><span class="module-tag">Login Page</span></td>
+            <td>to verify that the user is able to navigate to the about page from the login page</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-07-31</td>
+            <td class="id-cell" title="ea47895c-a0ab-4948-a46c-31bb0016bd4c">ea47895c...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Recovery page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">160</td>
+            <td><span class="module-tag">Recovery page</span></td>
+            <td>to verify that the user is able to navigate to the about page from the recovery page successfully</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-07-31</td>
+            <td class="id-cell" title="1a3ba629-7f3c-4a6c-a8c9-1109dce3ecef">1a3ba629...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Login Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">161</td>
+            <td><span class="module-tag">Login Page</span></td>
+            <td>to verify that the user is able to navigate to the contract, privacy and terms page from the login page</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-07-31</td>
+            <td class="id-cell" title="e05054d9-583f-4af4-bc1e-91de75a599ed">e05054d9...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Recovery page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">162</td>
+            <td><span class="module-tag">Recovery page</span></td>
+            <td>to verify that the user is able to navigate to the contract privacy and terms page from the recovery page successfully</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-07-31</td>
+            <td class="id-cell" title="4cf7f4fc-d0a3-410f-81b2-be66626f8347">4cf7f4fc...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Recovery page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">163</td>
+            <td><span class="module-tag">Recovery page</span></td>
+            <td>to verify that the user is able to verify the account using the authenticator</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-07-31</td>
+            <td class="id-cell" title="1b6b71e2-330f-4dd1-895a-e0043b92987e">1b6b71e2...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Recovery page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">164</td>
+            <td><span class="module-tag">Recovery page</span></td>
+            <td>to verify that the user is able to recover the account using the password</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-07-31</td>
+            <td class="id-cell" title="6f3f56bd-fca7-4707-b07c-c06747ecd2cc">6f3f56bd...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Recovery page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">165</td>
+            <td><span class="module-tag">Recovery page</span></td>
+            <td>to verify that the page has two options to recover the account - password and authenticator and both the buttons are enabled and interactable by the user</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-07-31</td>
+            <td class="id-cell" title="801eebfe-d972-4e8a-8844-447eb748544f">801eebfe...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Recovery page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">166</td>
+            <td><span class="module-tag">Recovery page</span></td>
+            <td>to verify that the page contains login button, about button, contract, privacy, terms button</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-07-31</td>
+            <td class="id-cell" title="94a07532-3d21-44e6-bf17-b91640bd4d89">94a07532...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Recovery page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">167</td>
+            <td><span class="module-tag">Recovery page</span></td>
+            <td>to verify that the recovery page is successfully loaded and there is no UI issues</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-07-31</td>
+            <td class="id-cell" title="a571aa92-0fd4-41e9-adbc-7d243a5f5359">a571aa92...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Recovery page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">168</td>
+            <td><span class="module-tag">Recovery page</span></td>
+            <td>to verify that the recovery button is enabled and user is able to direct to the recovery page</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-07-31</td>
+            <td class="id-cell" title="2c3dc455-eec7-4472-a237-62db3c6153d6">2c3dc455...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Login Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">169</td>
+            <td><span class="module-tag">Login Page</span></td>
+            <td>to verify that the login page must contain recovery button, about button, contact, button, privacy button and terms button</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-07-31</td>
+            <td class="id-cell" title="42fea5d8-e6f9-4ad6-8055-e640177474d2">42fea5d8...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Login Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">170</td>
+            <td><span class="module-tag">Login Page</span></td>
+            <td>to verify that the login page is loaded successfully and there is no rendering or UI issue</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-07-31</td>
+            <td class="id-cell" title="8785ed1d-c44e-42ea-85e5-e2c180a0e0b1">8785ed1d...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Login Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">171</td>
+            <td><span class="module-tag">Login Page</span></td>
+            <td>to verify that the use is not able to login to the application using the wrong credentials and outdated or expired codes.</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-07-31</td>
+            <td class="id-cell" title="f417aca3-6ecc-4ac4-a7e1-5ad9ef323373">f417aca3...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Login Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">172</td>
+            <td><span class="module-tag">Login Page</span></td>
+            <td>to verify that the resend code button works both for the email and the phone number</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-07-31</td>
+            <td class="id-cell" title="9ee0efbf-db51-4dde-8fb6-88466dc5c5d4">9ee0efbf...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Login Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">173</td>
+            <td><span class="module-tag">Login Page</span></td>
+            <td>to verify that the user is able to login to the application using the phone number and the password</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-07-31</td>
+            <td class="id-cell" title="0e490556-a726-4bcf-9736-bdfaab904d71">0e490556...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Login Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">174</td>
+            <td><span class="module-tag">Login Page</span></td>
+            <td>to verify that the user is able to login to the application using the email and the password</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-07-31</td>
+            <td class="id-cell" title="0f55d28d-29ac-4367-b740-42a32b164f2a">0f55d28d...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Login Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">175</td>
+            <td><span class="module-tag">Login Page</span></td>
+            <td>to verify that the user is able to login to the application using the phone number and password</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-07-31</td>
+            <td class="id-cell" title="32b09da8-5214-448a-9bbe-86c63ace8d90">32b09da8...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Login Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">176</td>
+            <td><span class="module-tag">Login Page</span></td>
+            <td>To validate that the user is able to login to the application using the email and the passcode sent to the email</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-07-31</td>
+            <td class="id-cell" title="a4cd5886-14f1-4671-984e-a0abe27ecac8">a4cd5886...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Login Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">177</td>
+            <td><span class="module-tag">Login Page</span></td>
+            <td>to validate that the passcode field is interactable and user is able to add and interact with the user</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-07-31</td>
+            <td class="id-cell" title="945d6982-59eb-4ff2-883c-92590bdd47ac">945d6982...</td>
+          </tr>
+          <tr data-status="Passed" data-module="Login Page">
+            <td style="text-align: center; color: var(--text-muted); font-size: 12px;">178</td>
+            <td><span class="module-tag">Login Page</span></td>
+            <td>to validate that the email/phone number email field is interactable and user is able to add and interact with the field successfully</td>
+            <td style="text-align: center;"><span class="badge passed">Passed</span></td>
+            <td><span style="color:#555">-</span></td>
+            <td class="date-cell">2026-07-31</td>
+            <td class="id-cell" title="94c23eb4-eb45-442e-a6ac-1fed3c093287">94c23eb4...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    // Populate modules filter
+    const rows = Array.from(document.querySelectorAll('#testTable tbody tr'));
+    const modules = new Set();
+    rows.forEach(r => modules.add(r.getAttribute('data-module')));
+    const modSelect = document.getElementById('moduleFilter');
+    Array.from(modules).sort().forEach(m => {
+      const opt = document.createElement('option');
+      opt.value = m;
+      opt.textContent = m;
+      modSelect.appendChild(opt);
+    });
+
+    function filterTable() {
+      const q = document.getElementById('searchInput').value.toLowerCase();
+      const status = document.getElementById('statusFilter').value;
+      const mod = document.getElementById('moduleFilter').value;
+      let visible = 0;
+
+      rows.forEach(r => {
+        const rStatus = r.getAttribute('data-status');
+        const rMod = r.getAttribute('data-module');
+        const text = r.textContent.toLowerCase();
+
+        const matchSearch = !q || text.includes(q);
+        const matchStatus = !status || rStatus === status;
+        const matchMod = !mod || rMod === mod;
+
+        if (matchSearch && matchStatus && matchMod) {
+          r.style.display = '';
+          visible++;
+        } else {
+          r.style.display = 'none';
+        }
+      });
+
+      document.getElementById('counter').textContent = 'Showing ' + visible + ' of ' + rows.length;
+    }
+  </script>
+</body>
+</html>
