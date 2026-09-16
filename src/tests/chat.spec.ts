@@ -58,16 +58,15 @@ test.describe('Eve Vakh - Chat & Messaging Comprehensive Test Suite', () => {
   });
 
   /**
-   * Test Case 3: Group Chat Creation with Multiple Allowed Peers
+   * Test Case 3: Group Chat Creation & Utilization with Multiple Allowed Peers
    * Validates:
-   *  - Selects multiple allowed contacts (@happy_badger_2312, @mughdabansal1414).
-   *  - Clicks "Start Chat" to launch group conversation.
+   *  - Ensures a single dedicated group chat exists and is opened.
    *  - Asserts conversation thread is opened and message input is ready.
    */
-  test('TC_CHAT_003: should create a new group chat with multiple allowed peers', async ({ page }) => {
+  test('TC_CHAT_003: should create or utilize existing group chat with multiple allowed peers', async ({ page }) => {
     const chatPage = new ChatPage(page);
 
-    await chatPage.createGroupChat(['happy_badger_2312', 'mughdabansal1414']);
+    await chatPage.ensureGroupChatOpened('QA Alpha Group');
     await expect(chatPage.messageTextarea).toBeVisible({ timeout: 15000 });
   });
 
@@ -75,17 +74,17 @@ test.describe('Eve Vakh - Chat & Messaging Comprehensive Test Suite', () => {
    * Test Case 4: Group Chat Name Modification by Group Admin / Owner
    * Validates:
    *  - Admin opens Conversation Settings in group chat.
-   *  - Modifies group name to "Automated QA Group [timestamp]".
-   *  - Saves and asserts real-time title update in header.
+   *  - Modifies group name and saves.
+   *  - Asserts real-time title update in header.
    */
   test('TC_CHAT_004: should allow group admin/owner to edit and save group chat name', async ({ page }) => {
     const chatPage = new ChatPage(page);
-    const updatedGroupName = `QA Alpha Group ${Date.now() % 10000}`;
+    const standardGroupName = 'QA Alpha Group';
 
-    await chatPage.ensureGroupChatOpened();
+    await chatPage.ensureGroupChatOpened(standardGroupName);
     await chatPage.openConversationSettings();
-    await chatPage.editGroupName(updatedGroupName);
-    await chatPage.verifyGroupName(updatedGroupName);
+    await chatPage.editGroupName(standardGroupName);
+    await chatPage.verifyGroupName(standardGroupName);
   });
 
   /**

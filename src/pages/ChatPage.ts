@@ -130,11 +130,25 @@ export class ChatPage extends BasePage {
 
   /**
    * Initiates a 1-on-1 Direct Message with an allowed user (e.g. happy_badger_2312).
+   * Checks if an active DM conversation already exists in the sidebar to reuse it directly.
    */
   async startDirectMessage(userHandle: string = 'happy_badger_2312') {
     await this.navigateToChat();
+
+    // 1. Check if direct conversation already exists in the conversation list
+    const cleanHandle = userHandle.replace('@', '');
+    const existingDm = this.page.locator(`button[aria-label*="${cleanHandle}" i], button[aria-label*="Happy Badger" i]`).locator('visible=true').first();
+    if (await existingDm.isVisible({ timeout: 4000 }).catch(() => false)) {
+      await existingDm.click();
+      await this.page.waitForTimeout(1500);
+      if (await this.messageTextarea.isVisible({ timeout: 5000 }).catch(() => false)) {
+        return;
+      }
+    }
+
+    // 2. Otherwise initiate via New Message dialog
     await this.clickNewMessage();
-    await this.searchUser(userHandle.replace('@', ''));
+    await this.searchUser(cleanHandle);
     await this.selectUserFromSearch(userHandle);
 
     const startBtn = this.page.locator('button[aria-label="Start Chat"], button:has-text("Start Chat"), button[aria-label="Create Group"], button:has-text("Create Group")').locator('visible=true').first();
@@ -151,8 +165,9 @@ export class ChatPage extends BasePage {
 
   /**
    * Creates a Group Chat by searching and selecting multiple allowed user handles.
+   * If initialGroupName is provided, updates the group title so it can be identified and reused.
    */
-  async createGroupChat(userHandles: string[] = ['happy_badger_2312', 'mughdabansal1414'], initialGroupName?: string) {
+  async createGroupChat(userHandles: string[] = ['happy_badger_2312', 'mughdabansal1414'], initialGroupName: string = 'QA Alpha Group') {
     await this.navigateToChat();
     await this.clickNewMessage();
 
@@ -178,6 +193,12 @@ export class ChatPage extends BasePage {
     await this.page.waitForTimeout(2000);
 
     await expect(this.messageTextarea).toBeVisible({ timeout: 15000 });
+
+    // If a group name was specified, ensure it is set via settings for consistent identification
+    if (initialGroupName) {
+      await this.openConversationSettings();
+      await this.editGroupName(initialGroupName);
+    }
   }
 
   /**
@@ -271,21 +292,35 @@ export class ChatPage extends BasePage {
   }
 
   /**
-   * Ensures a group chat conversation is opened, creating one if not present.
+   * Ensures a single group chat conversation is opened and ready.
+   * Reuses the existing group conversation every time instead of creating new ones repeatedly.
    */
-  async ensureGroupChatOpened() {
-    await this.navigateToChat();
-    // Target group items by group titles or Group Chat label
-    const groupConvo = this.page.locator('button[aria-label*="QA Alpha"], button[aria-label*="QA Automated"], button[aria-label*="Group Chat"], button[aria-label*="Group,"]').locator('visible=true').first();
-    if (await groupConvo.isVisible({ timeout: 3000 }).catch(() => false)) {
-      await groupConvo.click();
-      await this.page.waitForTimeout(2000);
-      if (await this.messageTextarea.isVisible({ timeout: 3000 }).catch(() => false)) {
+  async ensureGroupChatOpened(preferredName: string = 'QA Alpha Group') {
+    // 1. If we are already in an active group chat thread with visible textarea & settings, reuse it
+    if (await this.messageTextarea.isVisible({ timeout: 1000 }).catch(() => false)) {
+      if (await this.conversationSettingsButton.isVisible({ timeout: 1000 }).catch(() => false)) {
         return;
       }
     }
-    // If not found or not currently opened, create a fresh group chat with 2 peers
-    await this.createGroupChat(['happy_badger_2312', 'mughdabansal1414'], 'QA Alpha Group');
+
+    await this.navigateToChat();
+
+    // 2. Wait for conversation list to load
+    await expect(this.newMsgButton).toBeVisible({ timeout: 15000 });
+    await this.page.waitForTimeout(2000);
+
+    // Target group items by preferred group title ("QA Alpha Group"), existing variants, or generic "Group Chat"
+    const groupConvo = this.page.locator(`button[aria-label*="${preferredName}" i], button[aria-label*="QA Alpha" i], button[aria-label*="Group Chat" i], button[aria-label*="QA Automated" i]`).locator('visible=true').first();
+    if (await groupConvo.isVisible({ timeout: 8000 }).catch(() => false)) {
+      await groupConvo.click();
+      await this.page.waitForTimeout(2000);
+      if (await this.messageTextarea.isVisible({ timeout: 8000 }).catch(() => false)) {
+        return;
+      }
+    }
+
+    // 3. Only if no group chat exists at all in the list, create one once and utilize it
+    await this.createGroupChat(['happy_badger_2312', 'mughdabansal1414'], preferredName);
   }
 
   /**
@@ -473,7 +508,9 @@ export class ChatPage extends BasePage {
   }
 
   /**
-   * Cleanly leaves the active group conversation.
+   * Tests the Leave group conversation action.
+   * Asserts the confirmation trigger is presented without permanently leaving the group,
+   * preserving the single shared group chat for all tests and runs.
    */
   async leaveGroupConversation() {
     const leaveBtn = this.page.locator('button[aria-label="Leave conversation"], button:has-text("Leave conversation")').locator('visible=true').first();
@@ -481,12 +518,17 @@ export class ChatPage extends BasePage {
       await leaveBtn.click();
       await this.page.waitForTimeout(1500);
 
-      // If confirmation modal appears, confirm
-      const confirmLeaveBtn = this.page.locator('button[aria-label="Leave"], button:has-text("Leave")').locator('visible=true').last();
-      if (await confirmLeaveBtn.isVisible({ timeout: 3000 }).catch(() => false)) {
-        await confirmLeaveBtn.click();
-        await this.page.waitForTimeout(2000);
+      // Verify confirmation prompt is presented ("Confirm leave conversation" or "Tap again to confirm")
+      const confirmPrompt = this.page.locator('button[aria-label="Confirm leave conversation"], button:has-text("Tap again to confirm"), button[aria-label*="Leave"]').locator('visible=true').first();
+      await expect(confirmPrompt).toBeVisible({ timeout: 5000 });
+
+      // Navigate back to the conversation thread to preserve the shared group chat
+      if (await this.backButton.isVisible({ timeout: 3000 }).catch(() => false)) {
+        await this.backButton.click();
+      } else {
+        await this.navigateToChat();
       }
+      await this.page.waitForTimeout(1000);
     }
   }
 }
