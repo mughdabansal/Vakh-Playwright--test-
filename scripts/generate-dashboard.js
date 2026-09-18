@@ -95,6 +95,14 @@ const htmlContent = `<!DOCTYPE html>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eve Vakh — Quality, Test & CI/CD Dashboard</title>
+  <script>
+    (function() {
+      try {
+        const saved = localStorage.getItem('vakh_theme');
+        if (saved) document.documentElement.setAttribute('data-theme', saved);
+      } catch (e) {}
+    })();
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -118,13 +126,60 @@ const htmlContent = `<!DOCTYPE html>
       --purple: #8b5cf6;
       --pink: #ec4899;
       --cyan: #06b6d4;
+      --top-nav-bg: rgba(17, 24, 39, 0.85);
+      --tab-bar-bg: #0d1322;
+      --card-bg-subtle: #0f172a;
+      --accordion-body-bg: #0a0f1d;
+      --code-bg: rgba(255, 255, 255, 0.06);
+      --code-color: #93c5fd;
+      --table-hover: rgba(255, 255, 255, 0.02);
+      --table-border: rgba(255, 255, 255, 0.04);
+      --btn-github-bg: #1e293b;
+      --btn-github-text: #f1f5f9;
+      --input-bg: #0f172a;
+      --brand-gradient: linear-gradient(135deg, #f8fafc, #94a3b8);
+      --card-shadow: none;
     }
+
+    [data-theme="light"] {
+      --bg: #f4f8f5;
+      --bg-elevated: #ffffff;
+      --bg-card: #ffffff;
+      --border: #d6e5dc;
+      --border-subtle: #e5f0ea;
+      --text: #132a21;
+      --text-muted: #3d6352;
+      --text-dim: #5c8572;
+      --accent: #059669;
+      --accent-glow: rgba(5, 150, 105, 0.18);
+      --success: #10b981;
+      --success-glow: rgba(16, 185, 129, 0.2);
+      --warning: #d97706;
+      --danger: #dc2626;
+      --purple: #7c3aed;
+      --pink: #db2777;
+      --cyan: #0891b2;
+      --top-nav-bg: rgba(255, 255, 255, 0.92);
+      --tab-bar-bg: #eaf3ed;
+      --card-bg-subtle: #f8fbf9;
+      --accordion-body-bg: #f3f8f5;
+      --code-bg: #e5f3eb;
+      --code-color: #065f46;
+      --table-hover: rgba(16, 185, 129, 0.05);
+      --table-border: #e3efe7;
+      --btn-github-bg: #ffffff;
+      --btn-github-text: #17382b;
+      --input-bg: #ffffff;
+      --brand-gradient: linear-gradient(135deg, #132a21, #059669);
+      --card-shadow: 0 4px 20px -2px rgba(16, 185, 129, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+    }
+
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', -apple-system, sans-serif; }
-    body { background-color: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    body { background-color: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; transition: background-color 0.25s ease, color 0.25s ease; }
     
     /* Top Bar */
     .top-nav {
-      background: rgba(17, 24, 39, 0.85);
+      background: var(--top-nav-bg);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
       position: sticky;
@@ -134,6 +189,7 @@ const htmlContent = `<!DOCTYPE html>
       display: flex;
       justify-content: space-between;
       align-items: center;
+      transition: background 0.25s ease, border-color 0.25s ease;
     }
     .brand-title {
       display: flex;
@@ -152,9 +208,197 @@ const htmlContent = `<!DOCTYPE html>
     .brand-title h1 {
       font-size: 1.25rem;
       font-weight: 800;
-      background: linear-gradient(135deg, #f8fafc, #94a3b8);
+      background: var(--brand-gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      transition: all 0.25s ease;
+    }
+
+    /* Theme Toggle Switch */
+    .theme-toggle-btn {
+      background: var(--card-bg-subtle);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.38rem 0.85rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      user-select: none;
+    }
+    .theme-toggle-btn:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px var(--accent-glow);
+    }
+    .theme-icon-indicator {
+      font-size: 0.95rem;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+    .theme-toggle-btn:hover .theme-icon-indicator {
+      transform: rotate(20deg) scale(1.15);
+    }
+    .theme-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+    .theme-pill-track {
+      width: 32px;
+      height: 18px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      position: relative;
+      border: 1px solid var(--border);
+      transition: background 0.25s ease, border-color 0.25s ease;
+      display: inline-block;
+    }
+    [data-theme="light"] .theme-pill-track {
+      background: #a7f3d0;
+      border-color: #6ee7b7;
+    }
+    .theme-pill-thumb {
+      width: 12px;
+      height: 12px;
+      background: #ffffff;
+      border-radius: 50%;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+    [data-theme="light"] .theme-pill-thumb {
+      transform: translateX(14px);
+      background: #059669;
+    }
+
+    /* Light Mode Component Overrides */
+    [data-theme="light"] .tab-btn:hover {
+      color: #047857;
+      background: rgba(5, 150, 105, 0.05);
+    }
+    [data-theme="light"] .tab-btn.active {
+      color: #047857;
+      border-bottom-color: #059669;
+      background: rgba(5, 150, 105, 0.09);
+    }
+    [data-theme="light"] .tab-btn.active .tab-count {
+      background: rgba(5, 150, 105, 0.2);
+      color: #065f46;
+    }
+    [data-theme="light"] .badge.passed {
+      background: rgba(16, 185, 129, 0.12);
+      color: #047857;
+      border-color: rgba(16, 185, 129, 0.28);
+    }
+    [data-theme="light"] .badge.browser {
+      background: rgba(5, 150, 105, 0.1);
+      color: #065f46;
+      border-color: rgba(5, 150, 105, 0.25);
+    }
+    [data-theme="light"] .status-pill {
+      background: rgba(16, 185, 129, 0.12);
+      border-color: rgba(16, 185, 129, 0.35);
+      color: #047857;
+    }
+    [data-theme="light"] .user-card {
+      background: #ffffff;
+      border-color: var(--border);
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.05);
+    }
+    [data-theme="light"] .user-card:hover {
+      border-color: var(--accent);
+    }
+    [data-theme="light"] .timeline-step {
+      background: #ffffff;
+      border-color: var(--border);
+    }
+    [data-theme="light"] .modal-card {
+      background: #ffffff;
+      border-color: var(--border);
+      color: var(--text);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 30px rgba(5, 150, 105, 0.12);
+    }
+    [data-theme="light"] .chat-sim-container {
+      background: #edf5f0;
+      border-color: var(--border);
+      box-shadow: 0 15px 30px rgba(16, 185, 129, 0.1);
+    }
+    [data-theme="light"] .chat-sim-sidebar,
+    [data-theme="light"] .chat-sidebar-header,
+    [data-theme="light"] .chat-main-header,
+    [data-theme="light"] .chat-composer-tray,
+    [data-theme="light"] .chat-sim-settings {
+      background: #e5f0e9;
+      border-color: var(--border);
+    }
+    [data-theme="light"] .chat-sim-main {
+      background: #f7faf8;
+    }
+    [data-theme="light"] .chat-composer-input-row {
+      background: #ffffff;
+      border-color: var(--border);
+    }
+    [data-theme="light"] .chat-textarea {
+      color: var(--text);
+    }
+    [data-theme="light"] .chat-conv-item:hover {
+      background: rgba(5, 150, 105, 0.08);
+    }
+    [data-theme="light"] .chat-conv-item.active {
+      background: rgba(5, 150, 105, 0.14);
+      border-color: rgba(5, 150, 105, 0.3);
+    }
+    [data-theme="light"] .chat-msg-row.in .chat-bubble {
+      background: #e2ede5;
+      color: var(--text);
+      border-color: var(--border);
+    }
+    [data-theme="light"] .sanity-pill-btn {
+      background: #ffffff;
+      border-color: var(--border);
+      color: var(--text);
+    }
+    [data-theme="light"] .sanity-pill-btn.active {
+      background: rgba(5, 150, 105, 0.12);
+      border-color: #059669;
+      color: #047857;
+    }
+    [data-theme="light"] .callout-banner {
+      background: linear-gradient(135deg, #e8f5ed, #daf0e3);
+      border-color: #a7d9b9;
+      color: #132a21;
+    }
+    [data-theme="light"] .sim-filter-btn {
+      background: #ffffff;
+      border-color: var(--border);
+      color: var(--text);
+    }
+    [data-theme="light"] .form-item-card {
+      background: #ffffff;
+      border-color: var(--border);
+    }
+    [data-theme="light"] .form-item-name {
+      color: var(--text);
+    }
+    [data-theme="light"] .sim-toolbar {
+      background: #ffffff;
+      border-color: var(--border);
+    }
+    [data-theme="light"] .toast-box {
+      background: #ffffff;
+      color: #132a21;
+      border-color: #059669;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1), 0 0 20px rgba(5, 150, 105, 0.2);
     }
     .top-actions {
       display: flex;
@@ -1364,6 +1608,15 @@ const htmlContent = `<!DOCTYPE html>
       </div>
     </div>
     <div class="top-actions">
+      <!-- Theme Switcher Toggle -->
+      <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()" aria-label="Toggle Light and Dark Theme" title="Toggle Mint Light / Obsidian Dark Theme">
+        <span class="theme-icon-indicator" id="themeIcon">🌙</span>
+        <span class="theme-label" id="themeLabel">Dark Mode</span>
+        <div class="theme-pill-track">
+          <div class="theme-pill-thumb"></div>
+        </div>
+      </button>
+
       <div class="status-pill">${latestRunInfo}</div>
       <div style="font-size: 0.78rem; color: var(--text-muted); background: rgba(255,255,255,0.05); padding: 0.35rem 0.75rem; border-radius: 8px; border: 1px solid var(--border);">
         🕒 Updated: ${lastUpdated}
@@ -5628,10 +5881,55 @@ const htmlContent = `<!DOCTYPE html>
       }, 3500);
     }
 
+    // Theme Switcher & Storage Persistence
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+      const nextTheme = currentTheme === 'light' ? 'dark' : 'light';
+      applyTheme(nextTheme);
+      if (nextTheme === 'light') {
+        showToast('Switched to Mint Light theme with Emerald tint 🌿', '🌿');
+      } else {
+        showToast('Switched to Obsidian Dark theme 🌙', '🌙');
+      }
+    }
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('vakh_theme', theme); } catch (e) {}
+
+      const themeIcon = document.getElementById('themeIcon');
+      const themeLabel = document.getElementById('themeLabel');
+      const isLight = theme === 'light';
+
+      if (themeIcon && themeLabel) {
+        if (isLight) {
+          themeIcon.innerText = '🌿';
+          themeLabel.innerText = 'Mint Light';
+        } else {
+          themeIcon.innerText = '🌙';
+          themeLabel.innerText = 'Dark Mode';
+        }
+      }
+
+      // Dynamic Charts Palette Adaptation
+      const chartTextColor = isLight ? '#38604e' : '#94a3b8';
+      const chartGridColor = isLight ? 'rgba(5, 150, 105, 0.09)' : 'rgba(255, 255, 255, 0.05)';
+
+      if (window.donutChartInstance) {
+        window.donutChartInstance.options.plugins.legend.labels.color = chartTextColor;
+        window.donutChartInstance.update();
+      }
+      if (window.latencyChartInstance) {
+        window.latencyChartInstance.options.scales.y.ticks.color = chartTextColor;
+        window.latencyChartInstance.options.scales.x.ticks.color = chartTextColor;
+        window.latencyChartInstance.options.scales.y.grid.color = chartGridColor;
+        window.latencyChartInstance.update();
+      }
+    }
 
     // Charts Initialization
     const donutCtx = document.getElementById('browserDonutChart').getContext('2d');
-    new Chart(donutCtx, {
+    window.donutChartInstance = new Chart(donutCtx, {
       type: 'doughnut',
       data: {
         labels: ['Chromium (14 Tests)', 'Firefox (14 Tests)', 'Safari/WebKit (14 Tests)', 'MS Edge (14 Tests)'],
@@ -5655,7 +5953,7 @@ const htmlContent = `<!DOCTYPE html>
     });
 
     const latencyCtx = document.getElementById('latencyBarChart').getContext('2d');
-    new Chart(latencyCtx, {
+    window.latencyChartInstance = new Chart(latencyCtx, {
       type: 'bar',
       data: {
         labels: ['P50 (Median)', 'Average (Mean)', 'P97.5', 'P99', 'Max'],
@@ -5686,6 +5984,14 @@ const htmlContent = `<!DOCTYPE html>
         }
       }
     });
+
+    // Initialize Theme On Load
+    (function() {
+      try {
+        const saved = localStorage.getItem('vakh_theme') || 'dark';
+        applyTheme(saved);
+      } catch (e) {}
+    })();
   </script>
 </body>
 </html>
