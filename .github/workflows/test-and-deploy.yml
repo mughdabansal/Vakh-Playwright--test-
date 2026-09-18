@@ -105,7 +105,7 @@ jobs:
             echo "⚡ Executing Post Creation Page Suite only..."
             npx playwright test src/tests/post.spec.ts $BROWSER_ARG
           else
-            echo "⚡ Executing All Page Test Suites..."
+            echo "⚡ Executing All Page Test Suites (isolated Chat suite excluded; only runs on explicit manual trigger)..."
             if [ -n "$BROWSER_ARG" ]; then
               npx playwright test $BROWSER_ARG
             else

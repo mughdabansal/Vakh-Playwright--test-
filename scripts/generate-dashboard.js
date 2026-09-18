@@ -2899,6 +2899,7 @@ const htmlContent = `<!DOCTYPE html>
             </p>
           </div>
           <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <span class="badge" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3);">🔒 Isolated Suite (Manual Run Only)</span>
             <span class="badge passed">16 Tests Passed (100%)</span>
             <span class="badge browser">64 Browser Assertions</span>
             <span class="badge" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3);">src/tests/chat.spec.ts</span>
@@ -5381,7 +5382,7 @@ const htmlContent = `<!DOCTYPE html>
               <td>💬 <strong>Chat Page</strong></td>
               <td><code>npm run test:chat</code></td>
               <td><code>Page Suite: Chat Page (.github/workflows/test-chat.yml)</code></td>
-              <td>Auto-generates & deploys on completion</td>
+              <td>🔒 Isolated &mdash; Manual run only (<code>workflow_dispatch</code>)</td>
             </tr>
             <tr>
               <td>🔔 <strong>Activity Page</strong></td>

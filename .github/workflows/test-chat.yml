@@ -1,18 +1,7 @@
 name: Test Suite - Chat Page
 
 on:
-  push:
-    branches: [ main ]
-    paths:
-      - 'src/pages/ChatPage.ts'
-      - 'src/tests/chat.spec.ts'
-      - '.github/workflows/test-chat.yml'
-  pull_request:
-    branches: [ main ]
-    paths:
-      - 'src/pages/ChatPage.ts'
-      - 'src/tests/chat.spec.ts'
-      - '.github/workflows/test-chat.yml'
+  # Isolated suite: ONLY runs on manual execution (no automated push or PR triggers)
   workflow_dispatch:
     inputs:
       browser:
