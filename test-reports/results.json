@@ -1,15 +1,15 @@
 {
   "config": {
     "argv": [
-      "/opt/hostedtoolcache/node/22.23.2/x64/bin/node",
-      "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/node_modules/.bin/playwright",
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\node_modules\\@playwright\\test\\cli.js",
       "test",
-      "src/tests/chat.spec.ts"
+      "src/tests/activity.spec.ts"
     ],
-    "configFile": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/playwright.config.ts",
-    "rootDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
+    "configFile": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\playwright.config.ts",
+    "rootDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
     "failOnFlakyTests": false,
-    "forbidOnly": true,
+    "forbidOnly": false,
     "fullyParallel": true,
     "globalSetup": null,
     "globalTeardown": null,
@@ -18,64 +18,20 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "ci": {
-        "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/d327a74415c51969fa169303eddfbff8c394640b",
-        "commitHash": "d327a74415c51969fa169303eddfbff8c394640b",
-        "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/35060530646"
-      },
-      "gitCommit": {
-        "shortHash": "d327a74",
-        "hash": "d327a74415c51969fa169303eddfbff8c394640b",
-        "subject": "feat(chat): reuse single group chat across tests and add push triggers to workflow",
-        "body": "feat(chat): reuse single group chat across tests and add push triggers to workflow\n",
-        "author": {
-          "name": "Mughda Bansal",
-          "email": "mughdabansal1414@gmail.com",
-          "time": 1789537288000
-        },
-        "committer": {
-          "name": "Mughda Bansal",
-          "email": "mughdabansal1414@gmail.com",
-          "time": 1789537288000
-        },
-        "branch": "main"
-      },
-      "actualWorkers": 1
+      "actualWorkers": 4
     },
     "preserveOutput": "always",
     "projects": [
       {
-        "outputDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results",
+        "outputDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/test-reports/test-results",
         "repeatEach": 1,
-        "retries": 2,
+        "retries": 0,
         "metadata": {
-          "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/d327a74415c51969fa169303eddfbff8c394640b",
-            "commitHash": "d327a74415c51969fa169303eddfbff8c394640b",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/35060530646"
-          },
-          "gitCommit": {
-            "shortHash": "d327a74",
-            "hash": "d327a74415c51969fa169303eddfbff8c394640b",
-            "subject": "feat(chat): reuse single group chat across tests and add push triggers to workflow",
-            "body": "feat(chat): reuse single group chat across tests and add push triggers to workflow\n",
-            "author": {
-              "name": "Mughda Bansal",
-              "email": "mughdabansal1414@gmail.com",
-              "time": 1789537288000
-            },
-            "committer": {
-              "name": "Mughda Bansal",
-              "email": "mughdabansal1414@gmail.com",
-              "time": 1789537288000
-            },
-            "branch": "main"
-          },
-          "actualWorkers": 1
+          "actualWorkers": 4
         },
         "id": "chromium",
         "name": "chromium",
-        "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
+        "testDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -83,37 +39,15 @@
         "timeout": 30000
       },
       {
-        "outputDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results",
+        "outputDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/test-reports/test-results",
         "repeatEach": 1,
-        "retries": 2,
+        "retries": 0,
         "metadata": {
-          "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/d327a74415c51969fa169303eddfbff8c394640b",
-            "commitHash": "d327a74415c51969fa169303eddfbff8c394640b",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/35060530646"
-          },
-          "gitCommit": {
-            "shortHash": "d327a74",
-            "hash": "d327a74415c51969fa169303eddfbff8c394640b",
-            "subject": "feat(chat): reuse single group chat across tests and add push triggers to workflow",
-            "body": "feat(chat): reuse single group chat across tests and add push triggers to workflow\n",
-            "author": {
-              "name": "Mughda Bansal",
-              "email": "mughdabansal1414@gmail.com",
-              "time": 1789537288000
-            },
-            "committer": {
-              "name": "Mughda Bansal",
-              "email": "mughdabansal1414@gmail.com",
-              "time": 1789537288000
-            },
-            "branch": "main"
-          },
-          "actualWorkers": 1
+          "actualWorkers": 4
         },
         "id": "firefox",
         "name": "firefox",
-        "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
+        "testDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -121,37 +55,15 @@
         "timeout": 30000
       },
       {
-        "outputDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results",
+        "outputDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/test-reports/test-results",
         "repeatEach": 1,
-        "retries": 2,
+        "retries": 0,
         "metadata": {
-          "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/d327a74415c51969fa169303eddfbff8c394640b",
-            "commitHash": "d327a74415c51969fa169303eddfbff8c394640b",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/35060530646"
-          },
-          "gitCommit": {
-            "shortHash": "d327a74",
-            "hash": "d327a74415c51969fa169303eddfbff8c394640b",
-            "subject": "feat(chat): reuse single group chat across tests and add push triggers to workflow",
-            "body": "feat(chat): reuse single group chat across tests and add push triggers to workflow\n",
-            "author": {
-              "name": "Mughda Bansal",
-              "email": "mughdabansal1414@gmail.com",
-              "time": 1789537288000
-            },
-            "committer": {
-              "name": "Mughda Bansal",
-              "email": "mughdabansal1414@gmail.com",
-              "time": 1789537288000
-            },
-            "branch": "main"
-          },
-          "actualWorkers": 1
+          "actualWorkers": 4
         },
         "id": "safari",
         "name": "safari",
-        "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
+        "testDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -159,37 +71,15 @@
         "timeout": 30000
       },
       {
-        "outputDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results",
+        "outputDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/test-reports/test-results",
         "repeatEach": 1,
-        "retries": 2,
+        "retries": 0,
         "metadata": {
-          "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/d327a74415c51969fa169303eddfbff8c394640b",
-            "commitHash": "d327a74415c51969fa169303eddfbff8c394640b",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/35060530646"
-          },
-          "gitCommit": {
-            "shortHash": "d327a74",
-            "hash": "d327a74415c51969fa169303eddfbff8c394640b",
-            "subject": "feat(chat): reuse single group chat across tests and add push triggers to workflow",
-            "body": "feat(chat): reuse single group chat across tests and add push triggers to workflow\n",
-            "author": {
-              "name": "Mughda Bansal",
-              "email": "mughdabansal1414@gmail.com",
-              "time": 1789537288000
-            },
-            "committer": {
-              "name": "Mughda Bansal",
-              "email": "mughdabansal1414@gmail.com",
-              "time": 1789537288000
-            },
-            "branch": "main"
-          },
-          "actualWorkers": 1
+          "actualWorkers": 4
         },
         "id": "webkit",
         "name": "webkit",
-        "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
+        "testDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -197,37 +87,15 @@
         "timeout": 30000
       },
       {
-        "outputDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results",
+        "outputDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/test-reports/test-results",
         "repeatEach": 1,
-        "retries": 2,
+        "retries": 0,
         "metadata": {
-          "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/d327a74415c51969fa169303eddfbff8c394640b",
-            "commitHash": "d327a74415c51969fa169303eddfbff8c394640b",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/35060530646"
-          },
-          "gitCommit": {
-            "shortHash": "d327a74",
-            "hash": "d327a74415c51969fa169303eddfbff8c394640b",
-            "subject": "feat(chat): reuse single group chat across tests and add push triggers to workflow",
-            "body": "feat(chat): reuse single group chat across tests and add push triggers to workflow\n",
-            "author": {
-              "name": "Mughda Bansal",
-              "email": "mughdabansal1414@gmail.com",
-              "time": 1789537288000
-            },
-            "committer": {
-              "name": "Mughda Bansal",
-              "email": "mughdabansal1414@gmail.com",
-              "time": 1789537288000
-            },
-            "branch": "main"
-          },
-          "actualWorkers": 1
+          "actualWorkers": 4
         },
         "id": "edge",
         "name": "edge",
-        "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
+        "testDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -264,25 +132,25 @@
     "updateSnapshots": "missing",
     "updateSourceMethod": "patch",
     "version": "1.62.1",
-    "workers": 1,
+    "workers": 4,
     "webServer": null
   },
   "suites": [
     {
-      "title": "chat.spec.ts",
-      "file": "chat.spec.ts",
+      "title": "activity.spec.ts",
+      "file": "activity.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Eve Vakh - Chat & Messaging Comprehensive Test Suite",
-          "file": "chat.spec.ts",
+          "title": "Eve Vakh - Activity & Notifications Page Test Suite",
+          "file": "activity.spec.ts",
           "line": 7,
           "column": 6,
           "specs": [
             {
-              "title": "TC_CHAT_001: should validate chat page UI layout, navigation and conversation stream",
+              "title": "TC_ACT_001: should navigate to activity page and verify header display",
               "ok": true,
               "tags": [],
               "tests": [
@@ -297,12 +165,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 7239,
+                      "duration": 6912,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:47:17.831Z",
+                      "startTime": "2026-09-18T05:21:42.753Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -310,13 +178,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-5ffcfb6706a51062d4d7",
-              "file": "chat.spec.ts",
+              "id": "616be4781cf8c32ae453-3f190bd5eb820169b025",
+              "file": "activity.spec.ts",
               "line": 36,
               "column": 7
             },
             {
-              "title": "TC_CHAT_002: should initiate 1-on-1 direct chat and deliver text message to allowed user",
+              "title": "TC_ACT_002: should display activity feed and verify content layout",
               "ok": true,
               "tags": [],
               "tests": [
@@ -331,12 +199,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 9776,
+                      "duration": 7524,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:47:25.561Z",
+                      "startTime": "2026-09-18T05:21:49.986Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -344,13 +212,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-79cec2191096017ba6ba",
-              "file": "chat.spec.ts",
-              "line": 51,
+              "id": "616be4781cf8c32ae453-6b9f5ccc60cf9d78ed63",
+              "file": "activity.spec.ts",
+              "line": 52,
               "column": 7
             },
             {
-              "title": "TC_CHAT_003: should create or utilize existing group chat with multiple allowed peers",
+              "title": "TC_ACT_003: should verify badge and role assignment notification message",
               "ok": true,
               "tags": [],
               "tests": [
@@ -365,12 +233,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 10039,
+                      "duration": 7553,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:47:35.347Z",
+                      "startTime": "2026-09-18T05:21:57.633Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -378,13 +246,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-9d05ba28d6c9d284acf3",
-              "file": "chat.spec.ts",
-              "line": 66,
+              "id": "616be4781cf8c32ae453-c29ea7d4e1b00c79571b",
+              "file": "activity.spec.ts",
+              "line": 65,
               "column": 7
             },
             {
-              "title": "TC_CHAT_004: should allow group admin/owner to edit and save group chat name",
+              "title": "TC_ACT_004: should verify form publication approval notification and media preview",
               "ok": true,
               "tags": [],
               "tests": [
@@ -399,12 +267,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 14761,
+                      "duration": 8058,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:47:45.397Z",
+                      "startTime": "2026-09-18T05:22:05.315Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -412,13 +280,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-68847ba6d45e72b754ea",
-              "file": "chat.spec.ts",
-              "line": 80,
+              "id": "616be4781cf8c32ae453-67db8b34566fa5053e57",
+              "file": "activity.spec.ts",
+              "line": 78,
               "column": 7
             },
             {
-              "title": "TC_CHAT_005: should add allowed member to an existing group chat",
+              "title": "TC_ACT_005: should verify content moderation policy rejection message and quoted post",
               "ok": true,
               "tags": [],
               "tests": [
@@ -433,12 +301,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 14233,
+                      "duration": 6301,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:48:00.171Z",
+                      "startTime": "2026-09-18T05:22:13.441Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -446,13 +314,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-2d43ae618a6847f5df81",
-              "file": "chat.spec.ts",
-              "line": 97,
+              "id": "616be4781cf8c32ae453-393880cc1dc48ebd6e0c",
+              "file": "activity.spec.ts",
+              "line": 91,
               "column": 7
             },
             {
-              "title": "TC_CHAT_006: should promote eligible member to group admin role",
+              "title": "TC_ACT_006: should verify post heart reaction notification and referenced post snippet",
               "ok": true,
               "tags": [],
               "tests": [
@@ -467,12 +335,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 13611,
+                      "duration": 12457,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:48:14.415Z",
+                      "startTime": "2026-09-18T05:22:19.801Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -480,13 +348,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-926ad5384f84c6b61de0",
-              "file": "chat.spec.ts",
-              "line": 112,
+              "id": "616be4781cf8c32ae453-d7f5233c5c23afe7d138",
+              "file": "activity.spec.ts",
+              "line": 105,
               "column": 7
             },
             {
-              "title": "TC_CHAT_007: should demote admin back to regular member",
+              "title": "TC_ACT_007: should verify access and permissions granted notification messages",
               "ok": true,
               "tags": [],
               "tests": [
@@ -501,12 +369,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 13655,
+                      "duration": 8301,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:48:28.034Z",
+                      "startTime": "2026-09-18T05:22:32.312Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -514,13 +382,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-bacbf1e57a97e620da13",
-              "file": "chat.spec.ts",
-              "line": 127,
+              "id": "616be4781cf8c32ae453-5e5a1148aebb4a57f1f6",
+              "file": "activity.spec.ts",
+              "line": 119,
               "column": 7
             },
             {
-              "title": "TC_CHAT_008: should allow group admin to remove member from group",
+              "title": "TC_ACT_008: should verify user activity and post mention notification details",
               "ok": true,
               "tags": [],
               "tests": [
@@ -535,12 +403,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 13693,
+                      "duration": 9582,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:48:41.700Z",
+                      "startTime": "2026-09-18T05:22:40.657Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -548,13 +416,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-119266254de6e702bdd3",
-              "file": "chat.spec.ts",
-              "line": 141,
+              "id": "616be4781cf8c32ae453-6ffbc56d5467988266ce",
+              "file": "activity.spec.ts",
+              "line": 132,
               "column": 7
             },
             {
-              "title": "TC_CHAT_009: should open attachment drawer and select photo attachment",
+              "title": "TC_ACT_009: should verify end-of-feed indicator and chronological sequence",
               "ok": true,
               "tags": [],
               "tests": [
@@ -569,12 +437,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 10567,
+                      "duration": 8130,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:48:55.402Z",
+                      "startTime": "2026-09-18T05:22:50.291Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -582,13 +450,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-3776d67c01f3690eb6a7",
-              "file": "chat.spec.ts",
-              "line": 155,
+              "id": "616be4781cf8c32ae453-204e0705c334e3fba5a2",
+              "file": "activity.spec.ts",
+              "line": 145,
               "column": 7
             },
             {
-              "title": "TC_CHAT_010: should open attachment drawer and select document file attachment",
+              "title": "TC_ACT_010: should preserve authenticated session upon direct activity navigation",
               "ok": true,
               "tags": [],
               "tests": [
@@ -603,12 +471,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 10672,
+                      "duration": 7474,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:49:05.980Z",
+                      "startTime": "2026-09-18T05:22:58.458Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -616,217 +484,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-bac4c2c2c45e1755d133",
-              "file": "chat.spec.ts",
-              "line": 169,
+              "id": "616be4781cf8c32ae453-43bf40385ed0aa08bb1a",
+              "file": "activity.spec.ts",
+              "line": 159,
               "column": 7
             },
             {
-              "title": "TC_CHAT_011: should allow user to leave group conversation",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 14283,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-16T06:49:16.661Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-119c7c32a4602b958b24",
-              "file": "chat.spec.ts",
-              "line": 183,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_012: [Negative] should disable send button for empty or whitespace-only messages",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 8124,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-16T06:49:30.956Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-5d799c9864f0dad00a18",
-              "file": "chat.spec.ts",
-              "line": 196,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_013: [Negative] should protect group creator from removal by other admins",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 11613,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-16T06:49:39.090Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-07cf3fa46100dfb8f36d",
-              "file": "chat.spec.ts",
-              "line": 208,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_014: [Negative] should restrict regular members from removing admin users",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 11681,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-16T06:49:50.712Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-fe5533135943352e69c7",
-              "file": "chat.spec.ts",
-              "line": 221,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_015: [Negative] should enforce that only accepted members can be promoted to admin",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 11527,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-16T06:50:02.401Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-328305d53314205af0ba",
-              "file": "chat.spec.ts",
-              "line": 234,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_016: [Edge] should successfully send rich text with emojis and multi-line linebreaks",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 9576,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-16T06:50:13.936Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-d6f8400bbea59930f650",
-              "file": "chat.spec.ts",
-              "line": 247,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_001: should validate chat page UI layout, navigation and conversation stream",
+              "title": "TC_ACT_001: should navigate to activity page and verify header display",
               "ok": true,
               "tags": [],
               "tests": [
@@ -839,14 +503,14 @@
                   "results": [
                     {
                       "workerIndex": 1,
-                      "parallelIndex": 0,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 7247,
+                      "duration": 15646,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:50:23.882Z",
+                      "startTime": "2026-09-18T05:21:42.738Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -854,13 +518,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-36fbd14ec86afde2f471",
-              "file": "chat.spec.ts",
+              "id": "616be4781cf8c32ae453-2331fb97787c953d3c1d",
+              "file": "activity.spec.ts",
               "line": 36,
               "column": 7
             },
             {
-              "title": "TC_CHAT_002: should initiate 1-on-1 direct chat and deliver text message to allowed user",
+              "title": "TC_ACT_002: should display activity feed and verify content layout",
               "ok": true,
               "tags": [],
               "tests": [
@@ -873,14 +537,14 @@
                   "results": [
                     {
                       "workerIndex": 1,
-                      "parallelIndex": 0,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 10372,
+                      "duration": 12804,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:50:31.668Z",
+                      "startTime": "2026-09-18T05:22:00.599Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -888,13 +552,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-2955923b72c2ffd87512",
-              "file": "chat.spec.ts",
-              "line": 51,
+              "id": "616be4781cf8c32ae453-c84f944cf178f8f682be",
+              "file": "activity.spec.ts",
+              "line": 52,
               "column": 7
             },
             {
-              "title": "TC_CHAT_003: should create or utilize existing group chat with multiple allowed peers",
+              "title": "TC_ACT_003: should verify badge and role assignment notification message",
               "ok": true,
               "tags": [],
               "tests": [
@@ -907,14 +571,14 @@
                   "results": [
                     {
                       "workerIndex": 1,
-                      "parallelIndex": 0,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 10813,
+                      "duration": 11698,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:50:42.054Z",
+                      "startTime": "2026-09-18T05:22:13.497Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -922,13 +586,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-01065871689b2ea2d6ac",
-              "file": "chat.spec.ts",
-              "line": 66,
+              "id": "616be4781cf8c32ae453-846f87e99cd7b42f8373",
+              "file": "activity.spec.ts",
+              "line": 65,
               "column": 7
             },
             {
-              "title": "TC_CHAT_004: should allow group admin/owner to edit and save group chat name",
+              "title": "TC_ACT_004: should verify form publication approval notification and media preview",
               "ok": true,
               "tags": [],
               "tests": [
@@ -941,14 +605,14 @@
                   "results": [
                     {
                       "workerIndex": 1,
-                      "parallelIndex": 0,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 15701,
+                      "duration": 11277,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:50:52.883Z",
+                      "startTime": "2026-09-18T05:22:25.267Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -956,13 +620,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-5e36f60742451e7f8277",
-              "file": "chat.spec.ts",
-              "line": 80,
+              "id": "616be4781cf8c32ae453-2bed74c4b20134e1da61",
+              "file": "activity.spec.ts",
+              "line": 78,
               "column": 7
             },
             {
-              "title": "TC_CHAT_005: should add allowed member to an existing group chat",
+              "title": "TC_ACT_005: should verify content moderation policy rejection message and quoted post",
               "ok": true,
               "tags": [],
               "tests": [
@@ -975,14 +639,14 @@
                   "results": [
                     {
                       "workerIndex": 1,
-                      "parallelIndex": 0,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 14668,
+                      "duration": 15396,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:51:08.596Z",
+                      "startTime": "2026-09-18T05:22:36.617Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -990,13 +654,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-232a6d1914896696c96b",
-              "file": "chat.spec.ts",
-              "line": 97,
+              "id": "616be4781cf8c32ae453-8751050b2c020ef8d8bb",
+              "file": "activity.spec.ts",
+              "line": 91,
               "column": 7
             },
             {
-              "title": "TC_CHAT_006: should promote eligible member to group admin role",
+              "title": "TC_ACT_006: should verify post heart reaction notification and referenced post snippet",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1009,14 +673,14 @@
                   "results": [
                     {
                       "workerIndex": 1,
-                      "parallelIndex": 0,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 14451,
+                      "duration": 12874,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:51:23.274Z",
+                      "startTime": "2026-09-18T05:22:52.070Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1024,13 +688,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-ade6b1501783cf4c0ef6",
-              "file": "chat.spec.ts",
-              "line": 112,
+              "id": "616be4781cf8c32ae453-adbd9a602b42fa338bb4",
+              "file": "activity.spec.ts",
+              "line": 105,
               "column": 7
             },
             {
-              "title": "TC_CHAT_007: should demote admin back to regular member",
+              "title": "TC_ACT_007: should verify access and permissions granted notification messages",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1043,14 +707,14 @@
                   "results": [
                     {
                       "workerIndex": 1,
-                      "parallelIndex": 0,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 14238,
+                      "duration": 12845,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:51:37.736Z",
+                      "startTime": "2026-09-18T05:23:04.997Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1058,13 +722,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-20e790ad71378a3f8d21",
-              "file": "chat.spec.ts",
-              "line": 127,
+              "id": "616be4781cf8c32ae453-81c9cea473df043b0cbd",
+              "file": "activity.spec.ts",
+              "line": 119,
               "column": 7
             },
             {
-              "title": "TC_CHAT_008: should allow group admin to remove member from group",
+              "title": "TC_ACT_008: should verify user activity and post mention notification details",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1077,14 +741,14 @@
                   "results": [
                     {
                       "workerIndex": 1,
-                      "parallelIndex": 0,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 14250,
+                      "duration": 19283,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:51:51.985Z",
+                      "startTime": "2026-09-18T05:23:17.888Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1092,13 +756,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-97414c30be973d38bab0",
-              "file": "chat.spec.ts",
-              "line": 141,
+              "id": "616be4781cf8c32ae453-5515a795000eb6b05aff",
+              "file": "activity.spec.ts",
+              "line": 132,
               "column": 7
             },
             {
-              "title": "TC_CHAT_009: should open attachment drawer and select photo attachment",
+              "title": "TC_ACT_009: should verify end-of-feed indicator and chronological sequence",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1111,14 +775,14 @@
                   "results": [
                     {
                       "workerIndex": 1,
-                      "parallelIndex": 0,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 11370,
+                      "duration": 11201,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:52:06.244Z",
+                      "startTime": "2026-09-18T05:23:37.239Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1126,13 +790,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-ca5199a4b377bd0b9df3",
-              "file": "chat.spec.ts",
-              "line": 155,
+              "id": "616be4781cf8c32ae453-793b5458db392c657d2a",
+              "file": "activity.spec.ts",
+              "line": 145,
               "column": 7
             },
             {
-              "title": "TC_CHAT_010: should open attachment drawer and select document file attachment",
+              "title": "TC_ACT_010: should preserve authenticated session upon direct activity navigation",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1145,14 +809,14 @@
                   "results": [
                     {
                       "workerIndex": 1,
-                      "parallelIndex": 0,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 12308,
+                      "duration": 17574,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:52:17.625Z",
+                      "startTime": "2026-09-18T05:23:48.495Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1160,217 +824,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-dfd8fdcf994dd76afddc",
-              "file": "chat.spec.ts",
-              "line": 169,
+              "id": "616be4781cf8c32ae453-5e3cbefe68b586879541",
+              "file": "activity.spec.ts",
+              "line": 159,
               "column": 7
             },
             {
-              "title": "TC_CHAT_011: should allow user to leave group conversation",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 15175,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-16T06:52:29.942Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-088c3652e30d2cffed51",
-              "file": "chat.spec.ts",
-              "line": 183,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_012: [Negative] should disable send button for empty or whitespace-only messages",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 8588,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-16T06:52:45.127Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-a2ba583e79ddcac3050e",
-              "file": "chat.spec.ts",
-              "line": 196,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_013: [Negative] should protect group creator from removal by other admins",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 12326,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-16T06:52:53.722Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-4b1646877001cb3ba63e",
-              "file": "chat.spec.ts",
-              "line": 208,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_014: [Negative] should restrict regular members from removing admin users",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 12440,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-16T06:53:06.057Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-4d4a14bde312712e064d",
-              "file": "chat.spec.ts",
-              "line": 221,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_015: [Negative] should enforce that only accepted members can be promoted to admin",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 12222,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-16T06:53:18.505Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-c9ab006d64a600e1ee17",
-              "file": "chat.spec.ts",
-              "line": 234,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_016: [Edge] should successfully send rich text with emojis and multi-line linebreaks",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 10365,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-16T06:53:30.737Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-90e21f5f3fe3363ec3f8",
-              "file": "chat.spec.ts",
-              "line": 247,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_001: should validate chat page UI layout, navigation and conversation stream",
+              "title": "TC_ACT_001: should navigate to activity page and verify header display",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1383,14 +843,14 @@
                   "results": [
                     {
                       "workerIndex": 2,
-                      "parallelIndex": 0,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 15090,
+                      "duration": 20989,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:53:41.743Z",
+                      "startTime": "2026-09-18T05:21:42.733Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1398,13 +858,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-3061b368a0639a0c829e",
-              "file": "chat.spec.ts",
+              "id": "616be4781cf8c32ae453-86b628efa445796550fc",
+              "file": "activity.spec.ts",
               "line": 36,
               "column": 7
             },
             {
-              "title": "TC_CHAT_002: should initiate 1-on-1 direct chat and deliver text message to allowed user",
+              "title": "TC_ACT_002: should display activity feed and verify content layout",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1417,14 +877,14 @@
                   "results": [
                     {
                       "workerIndex": 2,
-                      "parallelIndex": 0,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 10608,
+                      "duration": 15387,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:53:57.809Z",
+                      "startTime": "2026-09-18T05:22:04.905Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1432,13 +892,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-47f300ca0fdff9bd50c9",
-              "file": "chat.spec.ts",
-              "line": 51,
+              "id": "616be4781cf8c32ae453-466d8c2570be59b72cd8",
+              "file": "activity.spec.ts",
+              "line": 52,
               "column": 7
             },
             {
-              "title": "TC_CHAT_003: should create or utilize existing group chat with multiple allowed peers",
+              "title": "TC_ACT_003: should verify badge and role assignment notification message",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1451,14 +911,14 @@
                   "results": [
                     {
                       "workerIndex": 2,
-                      "parallelIndex": 0,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 10875,
+                      "duration": 18132,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:54:08.433Z",
+                      "startTime": "2026-09-18T05:22:20.352Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1466,13 +926,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-162fa0912b8fb7157ea4",
-              "file": "chat.spec.ts",
-              "line": 66,
+              "id": "616be4781cf8c32ae453-35bcf477471f266a40a7",
+              "file": "activity.spec.ts",
+              "line": 65,
               "column": 7
             },
             {
-              "title": "TC_CHAT_004: should allow group admin/owner to edit and save group chat name",
+              "title": "TC_ACT_004: should verify form publication approval notification and media preview",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1485,14 +945,14 @@
                   "results": [
                     {
                       "workerIndex": 2,
-                      "parallelIndex": 0,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 15672,
+                      "duration": 18677,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:54:19.329Z",
+                      "startTime": "2026-09-18T05:22:38.566Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1500,13 +960,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-82b52a85c8b4b256aa52",
-              "file": "chat.spec.ts",
-              "line": 80,
+              "id": "616be4781cf8c32ae453-56811e3a9a8f4c22fce1",
+              "file": "activity.spec.ts",
+              "line": 78,
               "column": 7
             },
             {
-              "title": "TC_CHAT_005: should add allowed member to an existing group chat",
+              "title": "TC_ACT_005: should verify content moderation policy rejection message and quoted post",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1519,14 +979,14 @@
                   "results": [
                     {
                       "workerIndex": 2,
-                      "parallelIndex": 0,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 15236,
+                      "duration": 17337,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:54:35.016Z",
+                      "startTime": "2026-09-18T05:22:57.305Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1534,13 +994,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-019eeb7dd2b691210fd8",
-              "file": "chat.spec.ts",
-              "line": 97,
+              "id": "616be4781cf8c32ae453-d91f84538fcff8f879a5",
+              "file": "activity.spec.ts",
+              "line": 91,
               "column": 7
             },
             {
-              "title": "TC_CHAT_006: should promote eligible member to group admin role",
+              "title": "TC_ACT_006: should verify post heart reaction notification and referenced post snippet",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1553,14 +1013,14 @@
                   "results": [
                     {
                       "workerIndex": 2,
-                      "parallelIndex": 0,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 14477,
+                      "duration": 15744,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:54:50.266Z",
+                      "startTime": "2026-09-18T05:23:14.708Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1568,13 +1028,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-fcc0c8b53a20aa6ffa47",
-              "file": "chat.spec.ts",
-              "line": 112,
+              "id": "616be4781cf8c32ae453-41a1255f7b45e76fb6e7",
+              "file": "activity.spec.ts",
+              "line": 105,
               "column": 7
             },
             {
-              "title": "TC_CHAT_007: should demote admin back to regular member",
+              "title": "TC_ACT_007: should verify access and permissions granted notification messages",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1587,14 +1047,14 @@
                   "results": [
                     {
                       "workerIndex": 2,
-                      "parallelIndex": 0,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 14731,
+                      "duration": 17237,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:55:04.754Z",
+                      "startTime": "2026-09-18T05:23:30.525Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1602,13 +1062,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-9b43df6f0775dfb09121",
-              "file": "chat.spec.ts",
-              "line": 127,
+              "id": "616be4781cf8c32ae453-4056a3db1215c12cb042",
+              "file": "activity.spec.ts",
+              "line": 119,
               "column": 7
             },
             {
-              "title": "TC_CHAT_008: should allow group admin to remove member from group",
+              "title": "TC_ACT_008: should verify user activity and post mention notification details",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1621,14 +1081,14 @@
                   "results": [
                     {
                       "workerIndex": 2,
-                      "parallelIndex": 0,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 14355,
+                      "duration": 17678,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:55:19.497Z",
+                      "startTime": "2026-09-18T05:23:47.810Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1636,13 +1096,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-15c505a774eb2779b978",
-              "file": "chat.spec.ts",
-              "line": 141,
+              "id": "616be4781cf8c32ae453-574fb9109cc5662834cd",
+              "file": "activity.spec.ts",
+              "line": 132,
               "column": 7
             },
             {
-              "title": "TC_CHAT_009: should open attachment drawer and select photo attachment",
+              "title": "TC_ACT_009: should verify end-of-feed indicator and chronological sequence",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1655,14 +1115,14 @@
                   "results": [
                     {
                       "workerIndex": 2,
-                      "parallelIndex": 0,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 11560,
+                      "duration": 13568,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:55:33.863Z",
+                      "startTime": "2026-09-18T05:24:05.528Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1670,13 +1130,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-80916cc3a202fef7dbe7",
-              "file": "chat.spec.ts",
-              "line": 155,
+              "id": "616be4781cf8c32ae453-46555e622f5bf0dbfd3c",
+              "file": "activity.spec.ts",
+              "line": 145,
               "column": 7
             },
             {
-              "title": "TC_CHAT_010: should open attachment drawer and select document file attachment",
+              "title": "TC_ACT_010: should preserve authenticated session upon direct activity navigation",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1689,14 +1149,14 @@
                   "results": [
                     {
                       "workerIndex": 2,
-                      "parallelIndex": 0,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 11418,
+                      "duration": 12274,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:55:45.436Z",
+                      "startTime": "2026-09-18T05:24:19.145Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1704,217 +1164,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-6b3063e8aede180d06b8",
-              "file": "chat.spec.ts",
-              "line": 169,
+              "id": "616be4781cf8c32ae453-aa13dc1a3ec992a7c8a3",
+              "file": "activity.spec.ts",
+              "line": 159,
               "column": 7
             },
             {
-              "title": "TC_CHAT_011: should allow user to leave group conversation",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "safari",
-                  "projectName": "safari",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 14910,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-16T06:55:56.864Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-cf2447a5c70b96951e11",
-              "file": "chat.spec.ts",
-              "line": 183,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_012: [Negative] should disable send button for empty or whitespace-only messages",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "safari",
-                  "projectName": "safari",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 8825,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-16T06:56:11.783Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-4aa4c0f4ed204bc7e847",
-              "file": "chat.spec.ts",
-              "line": 196,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_013: [Negative] should protect group creator from removal by other admins",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "safari",
-                  "projectName": "safari",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 12404,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-16T06:56:20.621Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-c04aa1d48da85476edc8",
-              "file": "chat.spec.ts",
-              "line": 208,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_014: [Negative] should restrict regular members from removing admin users",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "safari",
-                  "projectName": "safari",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 12436,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-16T06:56:33.039Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-8a398c1404a5e0fe3c2c",
-              "file": "chat.spec.ts",
-              "line": 221,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_015: [Negative] should enforce that only accepted members can be promoted to admin",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "safari",
-                  "projectName": "safari",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 12584,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-16T06:56:45.487Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-b8419ab690cde15fa24b",
-              "file": "chat.spec.ts",
-              "line": 234,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_016: [Edge] should successfully send rich text with emojis and multi-line linebreaks",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "safari",
-                  "projectName": "safari",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 10418,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-16T06:56:58.084Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-c7681767da9044b879f5",
-              "file": "chat.spec.ts",
-              "line": 247,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_001: should validate chat page UI layout, navigation and conversation stream",
+              "title": "TC_ACT_001: should navigate to activity page and verify header display",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1927,14 +1183,14 @@
                   "results": [
                     {
                       "workerIndex": 3,
-                      "parallelIndex": 0,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 6763,
+                      "duration": 22235,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:57:08.887Z",
+                      "startTime": "2026-09-18T05:21:42.736Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1942,13 +1198,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-f9a004256cd9ed03e302",
-              "file": "chat.spec.ts",
+              "id": "616be4781cf8c32ae453-40eeb2640590a90411cb",
+              "file": "activity.spec.ts",
               "line": 36,
               "column": 7
             },
             {
-              "title": "TC_CHAT_002: should initiate 1-on-1 direct chat and deliver text message to allowed user",
+              "title": "TC_ACT_002: should display activity feed and verify content layout",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1961,14 +1217,14 @@
                   "results": [
                     {
                       "workerIndex": 3,
-                      "parallelIndex": 0,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 10379,
+                      "duration": 17131,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:57:15.767Z",
+                      "startTime": "2026-09-18T05:22:06.120Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1976,13 +1232,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-60a43643e28b237e3ef6",
-              "file": "chat.spec.ts",
-              "line": 51,
+              "id": "616be4781cf8c32ae453-c9d350d3e8448011ace5",
+              "file": "activity.spec.ts",
+              "line": 52,
               "column": 7
             },
             {
-              "title": "TC_CHAT_003: should create or utilize existing group chat with multiple allowed peers",
+              "title": "TC_ACT_003: should verify badge and role assignment notification message",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1995,14 +1251,14 @@
                   "results": [
                     {
                       "workerIndex": 3,
-                      "parallelIndex": 0,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 11432,
+                      "duration": 16556,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:57:26.160Z",
+                      "startTime": "2026-09-18T05:22:23.300Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2010,13 +1266,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-a5b2cadb08bbfe71253d",
-              "file": "chat.spec.ts",
-              "line": 66,
+              "id": "616be4781cf8c32ae453-7dd9d7499ddc80269ca9",
+              "file": "activity.spec.ts",
+              "line": 65,
               "column": 7
             },
             {
-              "title": "TC_CHAT_004: should allow group admin/owner to edit and save group chat name",
+              "title": "TC_ACT_004: should verify form publication approval notification and media preview",
               "ok": true,
               "tags": [],
               "tests": [
@@ -2029,14 +1285,14 @@
                   "results": [
                     {
                       "workerIndex": 3,
-                      "parallelIndex": 0,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 15634,
+                      "duration": 15358,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:57:37.602Z",
+                      "startTime": "2026-09-18T05:22:39.925Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2044,13 +1300,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-028ca7f9d3006bc649d3",
-              "file": "chat.spec.ts",
-              "line": 80,
+              "id": "616be4781cf8c32ae453-741c710d1bd040e90ec4",
+              "file": "activity.spec.ts",
+              "line": 78,
               "column": 7
             },
             {
-              "title": "TC_CHAT_005: should add allowed member to an existing group chat",
+              "title": "TC_ACT_005: should verify content moderation policy rejection message and quoted post",
               "ok": true,
               "tags": [],
               "tests": [
@@ -2063,14 +1319,14 @@
                   "results": [
                     {
                       "workerIndex": 3,
-                      "parallelIndex": 0,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 15012,
+                      "duration": 15107,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:57:53.248Z",
+                      "startTime": "2026-09-18T05:22:55.348Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2078,13 +1334,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-9dceb280a90c528abdd2",
-              "file": "chat.spec.ts",
-              "line": 97,
+              "id": "616be4781cf8c32ae453-2547bcf08994cb690835",
+              "file": "activity.spec.ts",
+              "line": 91,
               "column": 7
             },
             {
-              "title": "TC_CHAT_006: should promote eligible member to group admin role",
+              "title": "TC_ACT_006: should verify post heart reaction notification and referenced post snippet",
               "ok": true,
               "tags": [],
               "tests": [
@@ -2097,14 +1353,14 @@
                   "results": [
                     {
                       "workerIndex": 3,
-                      "parallelIndex": 0,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 14508,
+                      "duration": 18292,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:58:08.272Z",
+                      "startTime": "2026-09-18T05:23:10.573Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2112,13 +1368,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-583f44477779124fdeae",
-              "file": "chat.spec.ts",
-              "line": 112,
+              "id": "616be4781cf8c32ae453-133c3032c684d3e1af75",
+              "file": "activity.spec.ts",
+              "line": 105,
               "column": 7
             },
             {
-              "title": "TC_CHAT_007: should demote admin back to regular member",
+              "title": "TC_ACT_007: should verify access and permissions granted notification messages",
               "ok": true,
               "tags": [],
               "tests": [
@@ -2131,14 +1387,14 @@
                   "results": [
                     {
                       "workerIndex": 3,
-                      "parallelIndex": 0,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 14500,
+                      "duration": 17120,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:58:22.791Z",
+                      "startTime": "2026-09-18T05:23:28.978Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2146,13 +1402,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-d78c135c1cfe68238e11",
-              "file": "chat.spec.ts",
-              "line": 127,
+              "id": "616be4781cf8c32ae453-11ef22923c1d57f754b5",
+              "file": "activity.spec.ts",
+              "line": 119,
               "column": 7
             },
             {
-              "title": "TC_CHAT_008: should allow group admin to remove member from group",
+              "title": "TC_ACT_008: should verify user activity and post mention notification details",
               "ok": true,
               "tags": [],
               "tests": [
@@ -2165,14 +1421,14 @@
                   "results": [
                     {
                       "workerIndex": 3,
-                      "parallelIndex": 0,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 14416,
+                      "duration": 15750,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:58:37.303Z",
+                      "startTime": "2026-09-18T05:23:46.177Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2180,13 +1436,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-1ba3b011d1177337dc9a",
-              "file": "chat.spec.ts",
-              "line": 141,
+              "id": "616be4781cf8c32ae453-5f3e6f12776098cae9f5",
+              "file": "activity.spec.ts",
+              "line": 132,
               "column": 7
             },
             {
-              "title": "TC_CHAT_009: should open attachment drawer and select photo attachment",
+              "title": "TC_ACT_009: should verify end-of-feed indicator and chronological sequence",
               "ok": true,
               "tags": [],
               "tests": [
@@ -2199,14 +1455,14 @@
                   "results": [
                     {
                       "workerIndex": 3,
-                      "parallelIndex": 0,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 11482,
+                      "duration": 15237,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:58:51.735Z",
+                      "startTime": "2026-09-18T05:24:02.026Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2214,13 +1470,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-1798a9346e6b457f5c34",
-              "file": "chat.spec.ts",
-              "line": 155,
+              "id": "616be4781cf8c32ae453-70713ba243a079258a49",
+              "file": "activity.spec.ts",
+              "line": 145,
               "column": 7
             },
             {
-              "title": "TC_CHAT_010: should open attachment drawer and select document file attachment",
+              "title": "TC_ACT_010: should preserve authenticated session upon direct activity navigation",
               "ok": true,
               "tags": [],
               "tests": [
@@ -2233,14 +1489,14 @@
                   "results": [
                     {
                       "workerIndex": 3,
-                      "parallelIndex": 0,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 11405,
+                      "duration": 12590,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T06:59:03.240Z",
+                      "startTime": "2026-09-18T05:24:17.386Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2248,217 +1504,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-621879babf847863ec85",
-              "file": "chat.spec.ts",
-              "line": 169,
+              "id": "616be4781cf8c32ae453-e73792c7347a25ffd70c",
+              "file": "activity.spec.ts",
+              "line": 159,
               "column": 7
             },
             {
-              "title": "TC_CHAT_011: should allow user to leave group conversation",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 15124,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-16T06:59:14.656Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-624b575c59d191492763",
-              "file": "chat.spec.ts",
-              "line": 183,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_012: [Negative] should disable send button for empty or whitespace-only messages",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 9464,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-16T06:59:29.794Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-d1935539088cdfd614a1",
-              "file": "chat.spec.ts",
-              "line": 196,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_013: [Negative] should protect group creator from removal by other admins",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 12455,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-16T06:59:39.269Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-ab4ec8a32ce763b2b40f",
-              "file": "chat.spec.ts",
-              "line": 208,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_014: [Negative] should restrict regular members from removing admin users",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 12927,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-16T06:59:51.738Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-303efaf41afc0c6d57e1",
-              "file": "chat.spec.ts",
-              "line": 221,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_015: [Negative] should enforce that only accepted members can be promoted to admin",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 12376,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-16T07:00:04.678Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-2dd306834dbcd2be20df",
-              "file": "chat.spec.ts",
-              "line": 234,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_016: [Edge] should successfully send rich text with emojis and multi-line linebreaks",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 10630,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-16T07:00:17.068Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-8798441922c1eed13670",
-              "file": "chat.spec.ts",
-              "line": 247,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_001: should validate chat page UI layout, navigation and conversation stream",
+              "title": "TC_ACT_001: should navigate to activity page and verify header display",
               "ok": true,
               "tags": [],
               "tests": [
@@ -2473,12 +1525,12 @@
                       "workerIndex": 4,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 6419,
+                      "duration": 7584,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T07:00:28.093Z",
+                      "startTime": "2026-09-18T05:23:07.999Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2486,13 +1538,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-39343a66eec6e74cff71",
-              "file": "chat.spec.ts",
+              "id": "616be4781cf8c32ae453-dfd318d377df3c58b902",
+              "file": "activity.spec.ts",
               "line": 36,
               "column": 7
             },
             {
-              "title": "TC_CHAT_002: should initiate 1-on-1 direct chat and deliver text message to allowed user",
+              "title": "TC_ACT_002: should display activity feed and verify content layout",
               "ok": true,
               "tags": [],
               "tests": [
@@ -2507,12 +1559,12 @@
                       "workerIndex": 4,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 9909,
+                      "duration": 7335,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T07:00:34.703Z",
+                      "startTime": "2026-09-18T05:23:16.293Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2520,13 +1572,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-6156f23f61aed3f3e36e",
-              "file": "chat.spec.ts",
-              "line": 51,
+              "id": "616be4781cf8c32ae453-7f259c2e4b32c4bd4d7e",
+              "file": "activity.spec.ts",
+              "line": 52,
               "column": 7
             },
             {
-              "title": "TC_CHAT_003: should create or utilize existing group chat with multiple allowed peers",
+              "title": "TC_ACT_003: should verify badge and role assignment notification message",
               "ok": true,
               "tags": [],
               "tests": [
@@ -2541,12 +1593,12 @@
                       "workerIndex": 4,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 10461,
+                      "duration": 6893,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T07:00:44.634Z",
+                      "startTime": "2026-09-18T05:23:23.714Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2554,13 +1606,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-b79f81b2a1a982cac8a8",
-              "file": "chat.spec.ts",
-              "line": 66,
+              "id": "616be4781cf8c32ae453-de1c7f98325063cf54f3",
+              "file": "activity.spec.ts",
+              "line": 65,
               "column": 7
             },
             {
-              "title": "TC_CHAT_004: should allow group admin/owner to edit and save group chat name",
+              "title": "TC_ACT_004: should verify form publication approval notification and media preview",
               "ok": true,
               "tags": [],
               "tests": [
@@ -2575,12 +1627,12 @@
                       "workerIndex": 4,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 14898,
+                      "duration": 8090,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T07:00:55.118Z",
+                      "startTime": "2026-09-18T05:23:30.744Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2588,13 +1640,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-f940dbaf8db354715f7a",
-              "file": "chat.spec.ts",
-              "line": 80,
+              "id": "616be4781cf8c32ae453-32d1908eabde58e58bce",
+              "file": "activity.spec.ts",
+              "line": 78,
               "column": 7
             },
             {
-              "title": "TC_CHAT_005: should add allowed member to an existing group chat",
+              "title": "TC_ACT_005: should verify content moderation policy rejection message and quoted post",
               "ok": true,
               "tags": [],
               "tests": [
@@ -2609,12 +1661,12 @@
                       "workerIndex": 4,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 14385,
+                      "duration": 7823,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T07:01:10.028Z",
+                      "startTime": "2026-09-18T05:23:38.922Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2622,13 +1674,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-dc318361eb3c48f59a85",
-              "file": "chat.spec.ts",
-              "line": 97,
+              "id": "616be4781cf8c32ae453-def33e31fd9a58454012",
+              "file": "activity.spec.ts",
+              "line": 91,
               "column": 7
             },
             {
-              "title": "TC_CHAT_006: should promote eligible member to group admin role",
+              "title": "TC_ACT_006: should verify post heart reaction notification and referenced post snippet",
               "ok": true,
               "tags": [],
               "tests": [
@@ -2643,12 +1695,12 @@
                       "workerIndex": 4,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 13901,
+                      "duration": 8802,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T07:01:24.427Z",
+                      "startTime": "2026-09-18T05:23:46.803Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2656,13 +1708,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-8d9ff94af56da6e8ea8a",
-              "file": "chat.spec.ts",
-              "line": 112,
+              "id": "616be4781cf8c32ae453-ed64de53ce53a5f66b04",
+              "file": "activity.spec.ts",
+              "line": 105,
               "column": 7
             },
             {
-              "title": "TC_CHAT_007: should demote admin back to regular member",
+              "title": "TC_ACT_007: should verify access and permissions granted notification messages",
               "ok": true,
               "tags": [],
               "tests": [
@@ -2677,12 +1729,12 @@
                       "workerIndex": 4,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 13818,
+                      "duration": 6869,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T07:01:38.342Z",
+                      "startTime": "2026-09-18T05:23:55.668Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2690,13 +1742,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-d6023e6fdc93c6bf7713",
-              "file": "chat.spec.ts",
-              "line": 127,
+              "id": "616be4781cf8c32ae453-56bbcb5f8dc0ef694d23",
+              "file": "activity.spec.ts",
+              "line": 119,
               "column": 7
             },
             {
-              "title": "TC_CHAT_008: should allow group admin to remove member from group",
+              "title": "TC_ACT_008: should verify user activity and post mention notification details",
               "ok": true,
               "tags": [],
               "tests": [
@@ -2711,12 +1763,12 @@
                       "workerIndex": 4,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 13805,
+                      "duration": 7929,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T07:01:52.175Z",
+                      "startTime": "2026-09-18T05:24:02.605Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2724,13 +1776,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-924703c27d69012e4fc9",
-              "file": "chat.spec.ts",
-              "line": 141,
+              "id": "616be4781cf8c32ae453-d11f8a8c97761a6c3f91",
+              "file": "activity.spec.ts",
+              "line": 132,
               "column": 7
             },
             {
-              "title": "TC_CHAT_009: should open attachment drawer and select photo attachment",
+              "title": "TC_ACT_009: should verify end-of-feed indicator and chronological sequence",
               "ok": true,
               "tags": [],
               "tests": [
@@ -2745,12 +1797,12 @@
                       "workerIndex": 4,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 10869,
+                      "duration": 7047,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T07:02:05.995Z",
+                      "startTime": "2026-09-18T05:24:10.621Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2758,13 +1810,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-1dee15364322239bfcd1",
-              "file": "chat.spec.ts",
-              "line": 155,
+              "id": "616be4781cf8c32ae453-76053fde6740df1bb26e",
+              "file": "activity.spec.ts",
+              "line": 145,
               "column": 7
             },
             {
-              "title": "TC_CHAT_010: should open attachment drawer and select document file attachment",
+              "title": "TC_ACT_010: should preserve authenticated session upon direct activity navigation",
               "ok": true,
               "tags": [],
               "tests": [
@@ -2779,12 +1831,12 @@
                       "workerIndex": 4,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 10922,
+                      "duration": 7948,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-16T07:02:16.874Z",
+                      "startTime": "2026-09-18T05:24:17.716Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2792,213 +1844,9 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-c0b9d958438f43ab9854",
-              "file": "chat.spec.ts",
-              "line": 169,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_011: should allow user to leave group conversation",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "edge",
-                  "projectName": "edge",
-                  "results": [
-                    {
-                      "workerIndex": 4,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 14401,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-16T07:02:27.808Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-84ff8857306d07c06a64",
-              "file": "chat.spec.ts",
-              "line": 183,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_012: [Negative] should disable send button for empty or whitespace-only messages",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "edge",
-                  "projectName": "edge",
-                  "results": [
-                    {
-                      "workerIndex": 4,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 8422,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-16T07:02:42.220Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-6e0b5728b39bb40df37a",
-              "file": "chat.spec.ts",
-              "line": 196,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_013: [Negative] should protect group creator from removal by other admins",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "edge",
-                  "projectName": "edge",
-                  "results": [
-                    {
-                      "workerIndex": 4,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 11808,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-16T07:02:50.652Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-939e287c53b626b758cf",
-              "file": "chat.spec.ts",
-              "line": 208,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_014: [Negative] should restrict regular members from removing admin users",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "edge",
-                  "projectName": "edge",
-                  "results": [
-                    {
-                      "workerIndex": 4,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 11800,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-16T07:03:02.472Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-6cc0751df4db4ccaa523",
-              "file": "chat.spec.ts",
-              "line": 221,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_015: [Negative] should enforce that only accepted members can be promoted to admin",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "edge",
-                  "projectName": "edge",
-                  "results": [
-                    {
-                      "workerIndex": 4,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 11791,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-16T07:03:14.286Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-c1667c77271048bf12d1",
-              "file": "chat.spec.ts",
-              "line": 234,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_016: [Edge] should successfully send rich text with emojis and multi-line linebreaks",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "edge",
-                  "projectName": "edge",
-                  "results": [
-                    {
-                      "workerIndex": 4,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 9938,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-16T07:03:26.087Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-881d2195aa5998ab085b",
-              "file": "chat.spec.ts",
-              "line": 247,
+              "id": "616be4781cf8c32ae453-ae1b223d50b1f1c52e97",
+              "file": "activity.spec.ts",
+              "line": 159,
               "column": 7
             }
           ]
@@ -3008,9 +1856,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-09-16T06:47:17.224Z",
-    "duration": 979088.253,
-    "expected": 80,
+    "startTime": "2026-09-18T05:21:41.354Z",
+    "duration": 170175.329,
+    "expected": 50,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

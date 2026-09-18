@@ -218,4 +218,23 @@ This document contains the complete set of **178 QA test cases and execution rec
 
 ---
 
-*Generated automatically from test records. Total records: 178*
+## 🤖 Automated Playwright Test Suite — Activity & Notifications Page
+
+The following 10 end-to-end automated test cases are implemented in [`src/tests/activity.spec.ts`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/src/tests/activity.spec.ts) and verified across Chromium, Firefox, WebKit, Safari, and Edge:
+
+| Test ID | Test Case Title | Target Verification & Validation | Status | Cross-Browser Status |
+| :---: | :--- | :--- | :---: | :--- |
+| **`TC_ACT_001`** | **Activity Page Navigation & Header Render** | Navigates via sidebar menu item `Activity`, asserts URL matches `/activity`, validates header `Activity` is visible. | 🟢 Passed | Chromium, Firefox, WebKit, Edge |
+| **`TC_ACT_002`** | **Feed Container Layout & Active State** | Validates sidebar Activity menuitem is in active/highlighted state, notification feed container renders without layout shifts. | 🟢 Passed | Chromium, Firefox, WebKit, Edge |
+| **`TC_ACT_003`** | **Badge & Role Assignment Notification** | Validates message `Happy Badger added you to Test badge 3.0`, badge icon presence, and relative timestamp (`2d`). | 🟢 Passed | Chromium, Firefox, WebKit, Edge |
+| **`TC_ACT_004`** | **Form Publication & Approval Notification** | Validates publication message `It is now published in test form .`, publication icon, timestamp (`9d`), and attached media thumbnail. | 🟢 Passed | Chromium, Firefox, WebKit, Edge |
+| **`TC_ACT_005`** | **Content Moderation Policy Rejection Alert** | Validates moderation message `It wasn’t published. Review the form’s rules and the app policy.` and referenced post snippet `this is the third posts for the moderation review`. | 🟢 Passed | Chromium, Firefox, WebKit, Edge |
+| **`TC_ACT_006`** | **Post Reaction & Heart Notification** | Validates reaction notification `Your post received its first Heart.`, referenced test post text `this is a test post for the sanity purpose`, heart icon, media thumbnail, and `+ more` toggle. | 🟢 Passed | Chromium, Firefox, WebKit, Edge |
+| **`TC_ACT_007`** | **Access & Permissions Granted Notifications** | Validates permission grant messages: `mughdabansal1414 gave you access to test form` and `Happy Badger gave you access to posts` with key credential icons. | 🟢 Passed | Chromium, Firefox, WebKit, Edge |
+| **`TC_ACT_008`** | **User Activity & Post Interaction Notification** | Validates author display `Happy Badger` / `happy_badger_2312`, post label `posts Test post 2`, timestamp (`2w ago`), and attached media thumbnail. | 🟢 Passed | Chromium, Firefox, WebKit, Edge |
+| **`TC_ACT_009`** | **End of Feed Terminus & Chronological Sequence** | Validates the feed terminus message `You've reached the end` and verifies notifications follow reverse-chronological order (`2d` &rarr; `9d` &rarr; `15d` &rarr; `2w ago`). | 🟢 Passed | Chromium, Firefox, WebKit, Edge |
+| **`TC_ACT_010`** | **Direct URL Access & Session Preservation** | Validates direct navigation to `https://eve.vakh.com/activity` preserves user authentication and does not redirect to sign-in. | 🟢 Passed | Chromium, Firefox, WebKit, Edge |
+
+---
+
+*Generated automatically from test records. Total manual records: 178 | Automated Playwright suites: 77+ scenarios*

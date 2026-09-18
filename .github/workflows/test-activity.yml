@@ -1,6 +1,18 @@
 name: Test Suite - Activity Page
 
 on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'src/pages/ActivityPage.ts'
+      - 'src/tests/activity.spec.ts'
+      - '.github/workflows/test-activity.yml'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'src/pages/ActivityPage.ts'
+      - 'src/tests/activity.spec.ts'
+      - '.github/workflows/test-activity.yml'
   workflow_dispatch:
     inputs:
       browser:
