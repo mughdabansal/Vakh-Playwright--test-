@@ -159,16 +159,16 @@ const htmlContent = `<!DOCTYPE html>
       --purple: #7c3aed;
       --pink: #db2777;
       --cyan: #0891b2;
-      --top-nav-bg: rgba(255, 255, 255, 0.92);
-      --tab-bar-bg: #eaf3ed;
+      --top-nav-bg: rgba(255, 255, 255, 0.94);
+      --tab-bar-bg: linear-gradient(135deg, #064e3b 0%, #047857 50%, #059669 100%);
       --card-bg-subtle: #f8fbf9;
       --accordion-body-bg: #f3f8f5;
       --code-bg: #e5f3eb;
       --code-color: #065f46;
       --table-hover: rgba(16, 185, 129, 0.05);
       --table-border: #e3efe7;
-      --btn-github-bg: #ffffff;
-      --btn-github-text: #17382b;
+      --btn-github-bg: linear-gradient(135deg, #059669, #047857);
+      --btn-github-text: #ffffff;
       --input-bg: #ffffff;
       --brand-gradient: linear-gradient(135deg, #132a21, #059669);
       --card-shadow: 0 4px 20px -2px rgba(16, 185, 129, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
@@ -429,8 +429,8 @@ const htmlContent = `<!DOCTYPE html>
     @keyframes pulse { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.3); } 100% { opacity: 1; transform: scale(1); } }
 
     .btn-github {
-      background: #1e293b;
-      color: #f1f5f9;
+      background: var(--btn-github-bg);
+      color: var(--btn-github-text);
       border: 1px solid var(--border);
       padding: 0.45rem 0.9rem;
       border-radius: 8px;
@@ -450,7 +450,7 @@ const htmlContent = `<!DOCTYPE html>
 
     /* Tab Navigation */
     .tab-bar-container {
-      background: #0d1322;
+      background: var(--tab-bar-bg);
       border-bottom: 1px solid var(--border);
       padding: 0 2rem;
     }
@@ -1587,6 +1587,284 @@ const htmlContent = `<!DOCTYPE html>
       border-radius: 10px;
     }
 
+    /* ============================================================
+       EMERALD GREEN LIGHT THEME NAVIGATION & ACTION CONTROLS
+       ============================================================ */
+    .overview-fast-gate-card {
+      cursor: pointer;
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.9));
+    }
+    .overview-gate-label { color: #60a5fa; }
+    .overview-gate-value { font-size: 1.4rem; color: #93c5fd; }
+    .overview-gate-link { font-size: 0.78rem; color: #60a5fa; }
+
+    .sanity-suite-box {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Emerald Green Task Bar containing module/page buttons */
+    [data-theme="light"] .tab-bar-container {
+      background: linear-gradient(135deg, #064e3b 0%, #047857 50%, #059669 100%) !important;
+      border-bottom: 2px solid #059669 !important;
+      box-shadow: 0 4px 14px rgba(6, 78, 59, 0.18) !important;
+    }
+    [data-theme="light"] .tab-bar-container .tab-btn {
+      color: #d1fae5 !important;
+      border-bottom: 3px solid transparent !important;
+    }
+    [data-theme="light"] .tab-bar-container .tab-btn:hover {
+      color: #ffffff !important;
+      background: rgba(255, 255, 255, 0.16) !important;
+      border-radius: 8px 8px 0 0;
+    }
+    [data-theme="light"] .tab-bar-container .tab-btn.active {
+      color: #ffffff !important;
+      background: rgba(0, 0, 0, 0.25) !important;
+      border-bottom: 3px solid #34d399 !important;
+      box-shadow: inset 0 -2px 0 #34d399 !important;
+      border-radius: 8px 8px 0 0;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    }
+    [data-theme="light"] .tab-bar-container .tab-btn .tab-count {
+      background: rgba(255, 255, 255, 0.2) !important;
+      color: #ffffff !important;
+    }
+    [data-theme="light"] .tab-bar-container .tab-btn.active .tab-count {
+      background: #34d399 !important;
+      color: #064e3b !important;
+      font-weight: 800 !important;
+    }
+
+    /* Emerald Green GitHub Repo and CI Actions Buttons */
+    [data-theme="light"] .btn-github,
+    [data-theme="light"] .top-actions .btn-github {
+      background: linear-gradient(135deg, #059669, #047857) !important;
+      color: #ffffff !important;
+      border: 1px solid #047857 !important;
+      box-shadow: 0 2px 8px rgba(5, 150, 105, 0.3) !important;
+      font-weight: 700 !important;
+    }
+    [data-theme="light"] .btn-github:hover,
+    [data-theme="light"] .top-actions .btn-github:hover {
+      background: linear-gradient(135deg, #047857, #064e3b) !important;
+      border-color: #064e3b !important;
+      color: #ffffff !important;
+      box-shadow: 0 4px 14px rgba(5, 150, 105, 0.42) !important;
+      transform: translateY(-1px);
+    }
+    [data-theme="light"] .btn-github svg,
+    [data-theme="light"] .top-actions .btn-github svg {
+      fill: #ffffff !important;
+    }
+
+    /* Emerald Green Overview Tab Cards & Sanity Highlights */
+    [data-theme="light"] .overview-fast-gate-card {
+      background: linear-gradient(135deg, #ecfdf5, #d1fae5) !important;
+      border: 1px solid #10b981 !important;
+      box-shadow: 0 4px 16px rgba(16, 185, 129, 0.12) !important;
+    }
+    [data-theme="light"] .overview-fast-gate-card:hover {
+      border-color: #059669 !important;
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.2) !important;
+    }
+    [data-theme="light"] .overview-fast-gate-card .overview-gate-label {
+      color: #059669 !important;
+    }
+    [data-theme="light"] .overview-fast-gate-card .overview-gate-value {
+      color: #065f46 !important;
+    }
+    [data-theme="light"] .overview-fast-gate-card .overview-gate-link {
+      color: #059669 !important;
+      font-weight: 700 !important;
+    }
+    [data-theme="light"] .stat-card.green .value {
+      color: #059669 !important;
+    }
+
+    /* Sanity Suite Blocks in Light Theme */
+    [data-theme="light"] .sanity-suite-box {
+      background: #ffffff !important;
+      border-color: var(--border) !important;
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.05);
+    }
+
+    /* CLI command & member boxes in dark theme */
+    .cli-cmd-box {
+      background: #090d16;
+      padding: 0.5rem 0.85rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      margin-top: 0.25rem;
+    }
+    .chat-settings-name-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #141e33;
+      padding: 0.5rem 0.75rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      color: white;
+    }
+    .chat-member-card {
+      padding: 0.5rem;
+      background: #141e33;
+      border-radius: 8px;
+    }
+
+    /* ============================================================
+       TRANSPARENT EMERALD GREEN TEST CASES & ZERO DARK AREAS (LIGHT THEME)
+       ============================================================ */
+    /* 1. Test Case Accordions (Chat, Activity, Explore, etc.) */
+    [data-theme="light"] .test-accordion-card {
+      background: rgba(16, 185, 129, 0.08) !important;
+      border: 1px solid rgba(16, 185, 129, 0.28) !important;
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.06) !important;
+    }
+    [data-theme="light"] .test-accordion-card:hover {
+      border-color: rgba(16, 185, 129, 0.5) !important;
+      background: rgba(16, 185, 129, 0.12) !important;
+    }
+    [data-theme="light"] .test-accordion-header {
+      background: rgba(16, 185, 129, 0.12) !important;
+      color: #064e3b !important;
+    }
+    [data-theme="light"] .test-accordion-header:hover {
+      background: rgba(16, 185, 129, 0.18) !important;
+    }
+    [data-theme="light"] .test-accordion-header strong {
+      color: #064e3b !important;
+      font-weight: 700 !important;
+    }
+    [data-theme="light"] .test-accordion-body {
+      background: rgba(16, 185, 129, 0.04) !important;
+      border-top: 1px solid rgba(16, 185, 129, 0.2) !important;
+      color: #132a21 !important;
+    }
+    [data-theme="light"] .test-accordion-body p {
+      color: #132a21 !important;
+    }
+    [data-theme="light"] .test-accordion-body p strong {
+      color: #065f46 !important;
+    }
+    [data-theme="light"] .test-accordion-body code,
+    [data-theme="light"] .test-accordion-header code {
+      background: rgba(16, 185, 129, 0.18) !important;
+      color: #047857 !important;
+      border: 1px solid rgba(16, 185, 129, 0.3) !important;
+      font-weight: 600;
+    }
+    [data-theme="light"] .test-chevron {
+      color: #059669 !important;
+    }
+    [data-theme="light"] .test-accordion-card.open .test-chevron {
+      color: #047857 !important;
+    }
+
+    /* 2. Tables across all pages (Sanity, Login, Home, Post, CI/CD, Activity) */
+    [data-theme="light"] table {
+      background: transparent !important;
+    }
+    [data-theme="light"] th {
+      background: rgba(16, 185, 129, 0.09) !important;
+      color: #065f46 !important;
+      border-bottom: 2px solid rgba(16, 185, 129, 0.25) !important;
+      font-weight: 700 !important;
+    }
+    [data-theme="light"] td {
+      border-bottom: 1px solid rgba(16, 185, 129, 0.12) !important;
+      color: #132a21 !important;
+    }
+    [data-theme="light"] tr:nth-child(even) td {
+      background: rgba(16, 185, 129, 0.035) !important;
+    }
+    [data-theme="light"] tr:hover td {
+      background: rgba(16, 185, 129, 0.1) !important;
+    }
+    [data-theme="light"] td strong {
+      color: #064e3b !important;
+    }
+    [data-theme="light"] code {
+      background: rgba(16, 185, 129, 0.14) !important;
+      color: #047857 !important;
+      border: 1px solid rgba(16, 185, 129, 0.25) !important;
+    }
+
+    /* 3. Elimination of All Dark Areas Across All Pages */
+    [data-theme="light"] .panel,
+    [data-theme="light"] .activity-payload-panel {
+      background: #ffffff !important;
+      border: 1px solid var(--border) !important;
+      color: var(--text) !important;
+    }
+    [data-theme="light"] .comp-card {
+      background: rgba(16, 185, 129, 0.06) !important;
+      border: 1px solid rgba(16, 185, 129, 0.2) !important;
+    }
+    [data-theme="light"] .comp-title {
+      color: #064e3b !important;
+    }
+    [data-theme="light"] .search-box {
+      background: #ffffff !important;
+      color: #132a21 !important;
+      border: 1px solid var(--border) !important;
+    }
+    [data-theme="light"] .user-card {
+      background: #ffffff !important;
+      border: 1px solid var(--border) !important;
+    }
+    [data-theme="light"] .user-avatar {
+      background: rgba(16, 185, 129, 0.1) !important;
+      border-color: rgba(16, 185, 129, 0.25) !important;
+    }
+    [data-theme="light"] .cli-cmd-box {
+      background: rgba(16, 185, 129, 0.08) !important;
+      border: 1px solid rgba(16, 185, 129, 0.25) !important;
+    }
+    [data-theme="light"] .chat-settings-name-box {
+      background: rgba(16, 185, 129, 0.08) !important;
+      border: 1px solid rgba(16, 185, 129, 0.25) !important;
+      color: #064e3b !important;
+    }
+    [data-theme="light"] .chat-settings-name-box span {
+      color: #064e3b !important;
+    }
+    [data-theme="light"] .chat-member-card {
+      background: rgba(16, 185, 129, 0.08) !important;
+      border: 1px solid rgba(16, 185, 129, 0.2) !important;
+    }
+    [data-theme="light"] .chat-member-name {
+      color: #064e3b !important;
+    }
+    [data-theme="light"] .chat-sim-container {
+      background: #f4fbf7 !important;
+      border: 1px solid rgba(16, 185, 129, 0.25) !important;
+      box-shadow: 0 15px 30px rgba(16, 185, 129, 0.1) !important;
+    }
+    [data-theme="light"] .chat-sim-sidebar,
+    [data-theme="light"] .chat-sim-settings {
+      background: #eaf5ee !important;
+      border-color: rgba(16, 185, 129, 0.2) !important;
+    }
+    [data-theme="light"] .chat-sidebar-header,
+    [data-theme="light"] .chat-main-header,
+    [data-theme="light"] .chat-composer-tray {
+      background: #eaf5ee !important;
+      border-color: rgba(16, 185, 129, 0.2) !important;
+    }
+    [data-theme="light"] .chat-sim-main {
+      background: #f9fcf9 !important;
+    }
+    [data-theme="light"] h3,
+    [data-theme="light"] h4 {
+      color: #064e3b !important;
+    }
+
     footer {
       text-align: center;
       color: var(--text-dim);
@@ -1698,13 +1976,13 @@ const htmlContent = `<!DOCTYPE html>
           <span style="font-size: 0.8rem; color: var(--text-muted);">Synchronized: ${lastUpdated}</span>
         </div>
         <div class="grid-3">
-          <div class="stat-card" style="cursor: pointer; border: 1px solid rgba(59, 130, 246, 0.4); background: linear-gradient(135deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.9));" onclick="switchTab('sanity', document.querySelectorAll('.tab-btn')[1])">
-            <div class="label" style="color: #60a5fa;">⚡ Fast-Feedback Gate</div>
-            <div class="value" style="font-size: 1.4rem; color: #93c5fd;">Sanity Suites (1.0 & 2.0)</div>
+          <div class="stat-card overview-fast-gate-card" onclick="switchTab('sanity', document.querySelectorAll('.tab-btn')[1])">
+            <div class="label overview-gate-label">⚡ Fast-Feedback Gate</div>
+            <div class="value overview-gate-value">Sanity Suites (1.0 & 2.0)</div>
             <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.3rem;">21 critical user journeys: Authentication, Explore discovery, Home post creation, & form history moderation.</p>
             <div style="margin-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
               <span class="badge passed">21 Tests Passed (4 Browsers)</span>
-              <span style="font-size: 0.78rem; color: #60a5fa;">Open Sanity Suites &rarr;</span>
+              <span class="overview-gate-link">Open Sanity Suites &rarr;</span>
             </div>
           </div>
 
@@ -1846,7 +2124,7 @@ const htmlContent = `<!DOCTYPE html>
 
         <!-- ================= SECTION: SANITY 1.0 ================= -->
         <div id="sanity-section-v1" class="sanity-section">
-          <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; margin-bottom: 1.5rem;">
+          <div class="sanity-suite-box">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
               <div>
                 <h3 style="font-size: 1.05rem; color: #60a5fa; display: flex; align-items: center; gap: 0.5rem;">
@@ -2024,7 +2302,7 @@ const htmlContent = `<!DOCTYPE html>
 
         <!-- ================= SECTION: SANITY 2.0 ================= -->
         <div id="sanity-section-v2" class="sanity-section">
-          <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; margin-bottom: 1.5rem;">
+          <div class="sanity-suite-box">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
               <div>
                 <h3 style="font-size: 1.05rem; color: #34d399; display: flex; align-items: center; gap: 0.5rem;">
@@ -2162,19 +2440,19 @@ const htmlContent = `<!DOCTYPE html>
             <div style="display: flex; flex-direction: column; gap: 0.65rem; font-size: 0.85rem;">
               <div>
                 <span style="color: var(--text-muted); font-size: 0.78rem;">Run all 21 Sanity tests across all browsers:</span>
-                <div style="background: #090d16; padding: 0.5rem 0.85rem; border-radius: 8px; border: 1px solid var(--border); margin-top: 0.25rem;">
+                <div class="cli-cmd-box">
                   <code>npm run test:sanity</code>
                 </div>
               </div>
               <div>
                 <span style="color: var(--text-muted); font-size: 0.78rem;">Run Sanity 1.0 (Login + Explore - 13 tests):</span>
-                <div style="background: #090d16; padding: 0.5rem 0.85rem; border-radius: 8px; border: 1px solid var(--border); margin-top: 0.25rem;">
+                <div class="cli-cmd-box">
                   <code>npm run test:sanity:1.0</code>
                 </div>
               </div>
               <div>
                 <span style="color: var(--text-muted); font-size: 0.78rem;">Run Sanity 2.0 (Home Posting + Moderation - 8 tests):</span>
-                <div style="background: #090d16; padding: 0.5rem 0.85rem; border: 1px solid var(--border); margin-top: 0.25rem;">
+                <div class="cli-cmd-box">
                   <code>npm run test:sanity:2.0</code>
                 </div>
               </div>
@@ -3300,8 +3578,8 @@ const htmlContent = `<!DOCTYPE html>
               <!-- Group Title Section -->
               <div id="chatSettingsGroupSection" style="margin-top: 0.85rem;">
                 <div class="chat-settings-section-title">Group Name</div>
-                <div style="display: flex; align-items: center; justify-content: space-between; background: #141e33; padding: 0.5rem 0.75rem; border-radius: 8px; border: 1px solid var(--border);">
-                  <span id="chatSettingsGroupName" style="font-weight: 700; font-size: 0.85rem; color: white;">QA Alpha Group</span>
+                <div class="chat-settings-name-box">
+                  <span id="chatSettingsGroupName" style="font-weight: 700; font-size: 0.85rem;">QA Alpha Group</span>
                   <button class="chat-small-btn" onclick="openChatRenameModal()" title="Edit group name (TC_CHAT_004)">
                     ✏️ Edit
                   </button>
@@ -3813,7 +4091,7 @@ const htmlContent = `<!DOCTYPE html>
         </div>
 
         <!-- Verified Notification Types Showcase -->
-        <div class="panel" style="margin-top: 1.5rem; background: #090e18; border: 1px solid var(--border);">
+        <div class="panel activity-payload-panel" style="margin-top: 1.5rem;">
           <div class="panel-header" style="border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 0.75rem;">
             <div class="panel-title" style="font-size: 1rem;">📢 Verified Notification Payloads on Eve Vakh Activity Feed</div>
             <span class="badge passed">Live DOM Verified</span>
@@ -4628,7 +4906,7 @@ const htmlContent = `<!DOCTYPE html>
         </p>
 
         <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.25rem;">
-          <div class="chat-member-item" style="padding: 0.5rem; background: #141e33; border-radius: 8px;">
+          <div class="chat-member-item chat-member-card">
             <div class="chat-member-left">
               <img class="chat-member-avatar" src="https://api.dicebear.com/10.x/lorelei/svg?seed=archie&size=64" alt="archie">
               <div>
@@ -4641,7 +4919,7 @@ const htmlContent = `<!DOCTYPE html>
             </button>
           </div>
 
-          <div class="chat-member-item" style="padding: 0.5rem; background: #141e33; border-radius: 8px;">
+          <div class="chat-member-item chat-member-card">
             <div class="chat-member-left">
               <img class="chat-member-avatar" src="https://api.dicebear.com/10.x/lorelei/svg?seed=aryanchahal&size=64" alt="aryan">
               <div>
