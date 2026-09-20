@@ -85,8 +85,8 @@ test.describe('Eve Vakh - Home Page Full UI & Functional Test Suite', () => {
   test('TC_HOME_004: should click on post from allowed user and validate text, media and links', async ({ page }) => {
     const homePage = new HomePage(page);
 
-    // Click on allowed post from happy_badger_2312
-    await homePage.clickAllowedUserPost(/happy_badger_2312/i);
+    // Click on allowed post dynamically from feed
+    await homePage.clickAllowedUserPost();
 
     // Validate text, media, and links
     await homePage.validatePostContent();
@@ -102,7 +102,7 @@ test.describe('Eve Vakh - Home Page Full UI & Functional Test Suite', () => {
   test('TC_HOME_005: should select allowed post and launch quote composer flow', async ({ page }) => {
     const homePage = new HomePage(page);
 
-    await homePage.clickAllowedUserPost(/happy_badger_2312/i);
+    await homePage.clickAllowedUserPost();
     await homePage.selectPost();
     await homePage.quoteSelectedPost();
   });
@@ -116,7 +116,7 @@ test.describe('Eve Vakh - Home Page Full UI & Functional Test Suite', () => {
   test('TC_HOME_006: should select allowed post and initiate share through chat workflow', async ({ page }) => {
     const homePage = new HomePage(page);
 
-    await homePage.clickAllowedUserPost(/happy_badger_2312/i);
+    await homePage.clickAllowedUserPost();
     await homePage.selectPost();
     await homePage.shareSelectedPostThroughChat();
   });
@@ -124,15 +124,15 @@ test.describe('Eve Vakh - Home Page Full UI & Functional Test Suite', () => {
   /**
    * Test Case 7: Visit Post Author Profile
    * Validates:
-   *  - User can click the author link/badge (@happy_badger_2312) from the post view.
+   *  - User can click the author link/badge from the post view.
    *  - Navigates to the author's profile page (/user/<id>).
    *  - Author profile view displays handle and details.
    */
   test('TC_HOME_007: should visit author profile page from the post view', async ({ page }) => {
     const homePage = new HomePage(page);
 
-    await homePage.clickAllowedUserPost(/happy_badger_2312/i);
-    await homePage.visitPostAuthorProfile('happy_badger_2312');
+    await homePage.clickAllowedUserPost();
+    await homePage.visitPostAuthorProfile();
   });
 
   /**

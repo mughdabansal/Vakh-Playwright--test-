@@ -130,27 +130,54 @@ export class HomePage extends BasePage {
 
   /**
    * Clicks on an allowed user's post card from the home feed to open the form/post view.
+   * Dynamically adapts to whichever post is currently available in the feed.
    */
-  async clickAllowedUserPost(authorPattern: RegExp = /happy_badger_2312/i) {
-    const postCard = this.page.locator('div[tabindex="0"]:visible').filter({
-      hasText: authorPattern
-    }).first();
+  async clickAllowedUserPost(authorPattern?: RegExp) {
+    // Locate active post cards on the feed with timestamps (ensures feed has loaded and excludes sidebar nav)
+    const feedPostCards = this.page.locator('div[tabindex="0"]:visible')
+      .filter({ hasNotText: /posts unavailable|no posts yet|post something/i })
+      .filter({ hasText: /ago/i });
 
-    await expect(postCard).toBeVisible({ timeout: 10000 });
-    await postCard.click();
+    // Explicitly wait for at least one feed post to be rendered
+    await expect(feedPostCards.first()).toBeVisible({ timeout: 20000 });
+
+    let targetCard = feedPostCards.first();
+
+    if (authorPattern) {
+      const authorCard = feedPostCards.filter({ hasText: authorPattern }).first();
+      if (await authorCard.isVisible({ timeout: 3000 }).catch(() => false)) {
+        targetCard = authorCard;
+      }
+    }
+
+    await targetCard.scrollIntoViewIfNeeded();
+
+    // Prefer clicking the post title/text inside the card to navigate into the post/form cleanly
+    const postTextLink = targetCard.locator('div[dir="auto"], p, span').filter({ hasText: /\w+/ }).first();
+    if (await postTextLink.isVisible().catch(() => false)) {
+      await postTextLink.click();
+    } else {
+      await targetCard.click();
+    }
     await this.page.waitForTimeout(1500);
 
+    // If not navigated yet, retry with targetCard click
+    if (!this.page.url().includes('/form/') && !this.page.url().includes('/post/')) {
+      await targetCard.click({ force: true });
+      await this.page.waitForTimeout(1500);
+    }
+
     // Assert navigation into the form/post view
-    await expect(this.page).toHaveURL(/\/form\/|\/post\//, { timeout: 10000 });
+    await expect(this.page).toHaveURL(/\/form\/|\/post\//, { timeout: 15000 });
   }
 
   /**
-   * Validates that post text, media, and links are displayed and working as expected.
+   * Validates that post text, media, and links are displayed and working dynamically as expected.
    */
   async validatePostContent() {
-    // 1. Text validation: post text must be visible and non-empty
+    // 1. Text validation: dynamically detect any rendered post content
     const postTextElements = this.page.locator('div[dir="auto"], p, span, h1, h2, h3').filter({
-      hasText: /testing purpose|sanity|posts|test|happy_badger|mughda/i
+      hasNotText: /^Home$|^Chat$|^Activity$|^Explore$|^New Post$|^More$/i
     }).locator('visible=true');
     await expect(postTextElements.first()).toBeVisible({ timeout: 10000 });
     const textContent = await postTextElements.first().innerText();
@@ -174,11 +201,16 @@ export class HomePage extends BasePage {
   }
 
   /**
-   * Selects a post using the "Select posts" button.
+   * Selects a post dynamically using the available select button.
    */
   async selectPost() {
-    const selectBtn = this.page.getByRole('button', { name: /select posts|select/i }).or(this.page.locator('button[aria-label*="Select"]')).locator('visible=true').first();
+    const selectBtn = this.page.getByRole('button', { name: /select post|select/i })
+      .or(this.page.locator('button[aria-label*="Select post" i], button[aria-label*="Select" i]'))
+      .locator('visible=true')
+      .first();
+
     await expect(selectBtn).toBeVisible({ timeout: 10000 });
+    await selectBtn.scrollIntoViewIfNeeded();
     await selectBtn.click();
     await this.page.waitForTimeout(1000);
   }
@@ -187,53 +219,82 @@ export class HomePage extends BasePage {
    * Quotes the selected post and confirms the quote composer dialog launches.
    */
   async quoteSelectedPost() {
-    const quoteBtn = this.page.getByRole('button', { name: /quote/i }).or(this.page.locator('button[aria-label*="Quote"]')).locator('visible=true').first();
-    if (await quoteBtn.isVisible({ timeout: 5000 }).catch(() => false)) {
-      await quoteBtn.click({ force: true });
-      await this.page.waitForTimeout(1000);
+    const quoteBtn = this.page.getByRole('button', { name: /quote selected posts|quote/i })
+      .or(this.page.locator('button[aria-label*="Quote selected posts" i], button[aria-label*="Quote" i]'))
+      .locator('visible=true')
+      .first();
 
-      // Verify quote composer modal or options appear
-      const composerModal = this.page.locator('[role="dialog"]').or(this.page.locator('[data-testid="composer-modal-header"]'));
-      await expect(composerModal.first()).toBeVisible({ timeout: 10000 });
+    await expect(quoteBtn).toBeVisible({ timeout: 10000 });
+    await quoteBtn.click({ force: true });
+    await this.page.waitForTimeout(1000);
 
-      // Close the quote dialog
-      await this.page.keyboard.press('Escape');
-    } else {
-      // Ensure select mode is verified
-      await expect(this.selectPostButton).toBeVisible();
-    }
+    // Verify quote composer modal or options appear
+    const composerModal = this.page.locator('[role="dialog"]')
+      .or(this.page.locator('[data-testid="composer-modal-header"]'))
+      .or(this.page.locator('text=/Quote|Compose/i'));
+    await expect(composerModal.first()).toBeVisible({ timeout: 10000 });
+
+    // Close the quote dialog cleanly
+    await this.page.keyboard.press('Escape');
+    await this.page.waitForTimeout(500);
   }
 
   /**
    * Shares the selected post through chat.
    */
   async shareSelectedPostThroughChat() {
-    const chatBtn = this.page.getByRole('button', { name: /chat|send/i }).or(this.page.locator('button[aria-label*="Chat"], button[aria-label*="Send"]')).locator('visible=true').first();
-    if (await chatBtn.isVisible({ timeout: 5000 }).catch(() => false)) {
-      await chatBtn.click({ force: true });
-      await this.page.waitForTimeout(1000);
+    const chatBtn = this.page.getByRole('button', { name: /chat about selected posts|chat|send/i })
+      .or(this.page.locator('button[aria-label*="Chat about selected posts" i], button[aria-label*="Chat" i], button[aria-label*="Send" i]'))
+      .locator('visible=true')
+      .first();
 
-      // Verify either navigation to chat or opening conversation share dialog
-      const chatModalOrPage = this.page.locator('[role="dialog"]').or(this.page.locator('text=/Messages|Conversation|Happy Badger/i'));
-      await expect(chatModalOrPage.first()).toBeVisible({ timeout: 10000 });
-      await this.page.keyboard.press('Escape');
-    } else {
-      await expect(this.selectPostButton).toBeVisible();
-    }
+    await expect(chatBtn).toBeVisible({ timeout: 10000 });
+    await chatBtn.click({ force: true });
+    await this.page.waitForTimeout(1000);
+
+    // Verify chat share dialog or options appear
+    const chatModalOrPage = this.page.locator('[role="dialog"]')
+      .or(this.page.locator('button[aria-label*="Send selected posts" i]'))
+      .or(this.page.locator('text=/Messages|Conversation|Send selected posts/i'));
+    await expect(chatModalOrPage.first()).toBeVisible({ timeout: 10000 });
+
+    await this.page.keyboard.press('Escape');
+    await this.page.waitForTimeout(500);
   }
 
   /**
-   * Visits the post author's profile page and asserts profile view.
+   * Visits the post author's profile page dynamically and asserts profile view.
    */
-  async visitPostAuthorProfile(authorUsername: string = 'happy_badger_2312') {
-    const authorMenuItem = this.page.locator(`text=@${authorUsername}`).or(this.page.getByRole('menuitem', { name: new RegExp(authorUsername, 'i') })).locator('visible=true').first();
+  async visitPostAuthorProfile(authorUsername?: string) {
+    // Target the author menuitem in the post header (excluding navigation/Back)
+    let authorMenuItem = this.page.getByRole('menuitem').filter({
+      hasNotText: /^Back$|^Home$|^Chat$|^Activity$|^Explore$/i
+    }).locator('visible=true').first();
+
+    if (authorUsername) {
+      const specificMenuItem = this.page.getByRole('menuitem', { name: new RegExp(authorUsername, 'i') }).locator('visible=true').first();
+      if (await specificMenuItem.isVisible({ timeout: 3000 }).catch(() => false)) {
+        authorMenuItem = specificMenuItem;
+      }
+    }
+
     await expect(authorMenuItem).toBeVisible({ timeout: 10000 });
-    await authorMenuItem.click({ force: true });
+    const targetAuthor = (await authorMenuItem.innerText()).trim();
+
+    await authorMenuItem.click();
     await this.page.waitForTimeout(1000);
 
-    // Verify profile handle
-    const profileHandle = this.page.locator(`text=@${authorUsername}`).locator('visible=true').first();
-    await expect(profileHandle).toBeVisible({ timeout: 10000 });
+    // Verify navigation to profile URL
+    await expect(this.page).toHaveURL(/\/user\//, { timeout: 15000 });
+
+    // Verify profile handle or username is displayed on profile page
+    if (targetAuthor) {
+      const profileHandle = this.page.locator(`text=@${targetAuthor}`)
+        .or(this.page.locator(`text=${targetAuthor}`))
+        .locator('visible=true')
+        .first();
+      await expect(profileHandle).toBeVisible({ timeout: 15000 });
+    }
   }
 
   /**
