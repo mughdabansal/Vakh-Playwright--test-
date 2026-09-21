@@ -89,4 +89,54 @@ test.describe('Eve Vakh - Post Creation & Composer Full Test Suite', () => {
     expect(page.url()).not.toContain('/auth/sign-in');
   });
 
+  /**
+   * Test Case 5: Poll Field in Form and Interactive Poll Post Creation & Voting
+   * Validates:
+   *  - User can configure a form with the newly introduced "Poll" advanced field.
+   *  - Inside that form, post composer renders the "Add poll" capability.
+   *  - User can specify a poll question and voting options, then publish the poll post.
+   *  - The poll post renders in the feed with question, options, and duration/voter status.
+   *  - Users can interactively vote on an option and see real-time vote percentage confirmation.
+   */
+  test('TC_POST_005: should create form with poll field and publish interactive poll post with voting', async ({ page }) => {
+    test.setTimeout(90000);
+    const composerPage = new PostComposerPage(page);
+
+    const testFormName = `Poll Form ${Date.now().toString().slice(-4)}`;
+    const formViewUrl = await composerPage.createFormWithPollField(testFormName);
+
+    // Navigate to the new poll form page
+    await page.goto(formViewUrl);
+    await page.waitForTimeout(2000);
+
+    // Open post composer inside this poll-enabled form
+    const newPostBtn = page.locator('button[aria-label="New Post"], button:has-text("New Post")').locator('visible=true').first();
+    await expect(newPostBtn).toBeVisible({ timeout: 10000 });
+    await newPostBtn.click();
+    await page.waitForTimeout(1500);
+
+    // Verify "Add poll" button is available in composer
+    await expect(composerPage.addPollButton).toBeVisible({ timeout: 10000 });
+
+    // Fill poll details
+    const pollQuestion = `Which tool do you prefer ${Date.now().toString().slice(-4)}?`;
+    const pollOptions = ['Playwright Framework', 'Interactive Polls'];
+    await composerPage.fillPoll(pollQuestion, pollOptions);
+
+    // Submit post
+    await composerPage.submitPost();
+
+    // Reload form view to ensure feed reflects newly published poll
+    await page.reload();
+    await page.waitForTimeout(3000);
+
+    // Verify rendered poll post with question and options
+    await composerPage.verifyPollRendered(pollQuestion, pollOptions);
+
+    // Cast a vote and verify confirmation
+    await composerPage.voteOnPollOption(pollOptions[0]);
+    await composerPage.verifyVoteRegistered();
+  });
+
 });
+

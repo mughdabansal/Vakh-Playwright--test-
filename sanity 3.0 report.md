@@ -58,6 +58,14 @@ Unlike previous sanity suites that targeted isolated modules, Sanity 3.0 deliver
 
 ### 5. Explore Discovery & Dedicated Subscriptions Management
 - **Creator Discovery Grid:** Navigating to `/explore` renders user cards with verified avatar images, display names, `@` handles, and categorized tags (`blog`, `qa`, etc.).
+- **Search Filtering:** Keyword searching within `/explore` filters users dynamically without triggering full page reloads.
+- **Batch Selection Mode:** Navigating to `/settings/subscriptions` and clicking `SELECT` toggles multi-select mode with batch action confirmation buttons.
+
+### 6. 🗳️ New Feature Verification: Interactive Polls in Forms & Posts
+- **Poll Field Addition in Form Builder:** Form creators can add the newly introduced `Poll` advanced field (`Add Poll field`) when constructing or editing forms. Form configuration settings support voting durations (`Minutes`, `Hours`, `Days`), `ALLOW MULTIPLE CHOICES`, `ALLOW VOTE CHANGES`, and default questions.
+- **Poll Post Creation in Composer:** In any form configured with the Poll field, clicking `New Post` exposes the dedicated `Add poll` action. Users can specify a poll question and voting choices (Option 1, Option 2, and add further options).
+- **Interactive Voting & Real-Time Aggregation:** Published poll posts render interactive voting buttons, countdown timelines (`Closes in X days`), and real-time voter aggregation. Casting a vote immediately displays the voter confirmation checkmark (`✓`), total vote count, and percentage distribution (e.g. `1 (100%)`).
+- **Automated Test Coverage:** Added automated test scenario `TC_POST_005` in [post.spec.ts](file:///src/tests/post.spec.ts) covering the full end-to-end poll lifecycle: form configuration ➔ composer poll input ➔ post submission ➔ feed rendering ➔ voting confirmation.
 - **Filtering Modals:** The **Nearby filter** modal (distance slider) and **Tags filter** modal (category chips) open and dismiss smoothly.
 - **Dedicated Subscriptions View (`/settings/subscriptions`):** Offers real-time search filtering across subscribed forms, and features a robust batch selection mode (`Select` ➔ checkboxes ➔ `Done`).
 
