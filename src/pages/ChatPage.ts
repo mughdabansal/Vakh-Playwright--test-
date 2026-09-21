@@ -327,13 +327,23 @@ export class ChatPage extends BasePage {
    * Adds a new member to an existing group chat via Conversation Settings.
    */
   async addMemberToGroup(userHandle: string) {
+    const cleanHandle = userHandle.replace('@', '');
+
+    // 1. Check if user is already present in the group roster
+    const existingMember = this.page.locator('button, [role="button"], div').filter({
+      hasText: new RegExp(cleanHandle, 'i')
+    }).locator('visible=true').first();
+
+    if (await existingMember.isVisible({ timeout: 2000 }).catch(() => false)) {
+      return;
+    }
+
     const addBtn = this.page.locator('button[aria-label="Add members"], button:has-text("Add members")').locator('visible=true').first();
     if (await addBtn.isVisible({ timeout: 10000 }).catch(() => false)) {
       await addBtn.click();
       await this.page.waitForTimeout(1000);
     }
 
-    const cleanHandle = userHandle.replace('@', '');
     const searchInAdd = this.page.getByPlaceholder(/search/i).last();
     if (await searchInAdd.isVisible({ timeout: 5000 }).catch(() => false)) {
       await searchInAdd.fill('');
@@ -344,17 +354,26 @@ export class ChatPage extends BasePage {
         hasText: new RegExp(cleanHandle, 'i')
       }).locator('visible=true').first();
 
-      if (await userBtn.isVisible({ timeout: 5000 }).catch(() => false)) {
+      if (await userBtn.isVisible({ timeout: 3000 }).catch(() => false)) {
         await userBtn.click();
         await this.page.waitForTimeout(1000);
-      }
 
-      const confirmBtn = this.page.locator('button[aria-label*="Add"], button:has-text("Add")').locator('visible=true').last();
-      if (await confirmBtn.isVisible({ timeout: 5000 }).catch(() => false)) {
-        if (await confirmBtn.isEnabled({ timeout: 5000 }).catch(() => false)) {
-          await confirmBtn.click();
-          await this.page.waitForTimeout(2000);
+        const confirmBtn = this.page.locator('button[aria-label*="Add"], button:has-text("Add")').locator('visible=true').last();
+        if (await confirmBtn.isVisible({ timeout: 5000 }).catch(() => false)) {
+          if (await confirmBtn.isEnabled({ timeout: 5000 }).catch(() => false)) {
+            await confirmBtn.click();
+            await this.page.waitForTimeout(2000);
+          }
         }
+      } else {
+        // User not found in Add Members search (e.g. already added) - return to Conversation Settings
+        const backBtn = this.page.locator('button[aria-label="Back"], button:has-text("Back")').or(this.page.locator('button[aria-label*="back" i]')).locator('visible=true').first();
+        if (await backBtn.isVisible({ timeout: 2000 }).catch(() => false)) {
+          await backBtn.click();
+        } else {
+          await this.page.keyboard.press('Escape');
+        }
+        await this.page.waitForTimeout(1000);
       }
     }
   }
@@ -363,7 +382,7 @@ export class ChatPage extends BasePage {
    * Opens the action menu for a specific member in Group Settings.
    */
   async openMemberActionMenu(userHandle: string) {
-    const memberItem = this.page.locator('button, [role="button"]').filter({
+    const memberItem = this.page.locator('button, [role="button"], div').filter({
       hasText: new RegExp(userHandle, 'i')
     }).locator('visible=true').first();
 
@@ -379,7 +398,7 @@ export class ChatPage extends BasePage {
   async promoteMemberToAdmin(userHandle: string) {
     const cleanHandle = userHandle.replace('@', '');
     const makeAdminBtn = this.page.locator(`button[aria-label*="Make"][aria-label*="admin"], button:has-text("Make admin")`).locator('visible=true').first();
-    if (await makeAdminBtn.isVisible({ timeout: 5000 }).catch(() => false)) {
+    if (await makeAdminBtn.isVisible({ timeout: 3000 }).catch(() => false)) {
       await makeAdminBtn.click();
       await this.page.waitForTimeout(2000);
     } else {
@@ -390,7 +409,7 @@ export class ChatPage extends BasePage {
       }
     }
 
-    const memberOrAdminBadge = this.page.locator('button, [role="button"]').filter({
+    const memberOrAdminBadge = this.page.locator('button, [role="button"], div').filter({
       hasText: new RegExp(cleanHandle, 'i')
     }).locator('visible=true').first();
     await expect(memberOrAdminBadge).toBeVisible({ timeout: 10000 });

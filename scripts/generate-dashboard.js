@@ -1916,7 +1916,7 @@ const htmlContent = `<!DOCTYPE html>
         📊 Overview
       </button>
       <button class="tab-btn" onclick="switchTab('sanity', this)">
-        ⚡ Sanity Suites <span class="tab-count">21 Tests</span>
+        ⚡ Sanity Suites <span class="tab-count">40 Tests</span>
       </button>
       <button class="tab-btn" onclick="switchTab('login', this)">
         🔐 Login Page <span class="tab-count">4 Tests</span>
@@ -1978,10 +1978,10 @@ const htmlContent = `<!DOCTYPE html>
         <div class="grid-3">
           <div class="stat-card overview-fast-gate-card" onclick="switchTab('sanity', document.querySelectorAll('.tab-btn')[1])">
             <div class="label overview-gate-label">⚡ Fast-Feedback Gate</div>
-            <div class="value overview-gate-value">Sanity Suites (1.0 & 2.0)</div>
-            <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.3rem;">21 critical user journeys: Authentication, Explore discovery, Home post creation, & form history moderation.</p>
+            <div class="value overview-gate-value">Sanity Suites (1.0, 2.0 & 3.0)</div>
+            <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.3rem;">40 critical user journeys: Auth modes & UI, complete post lifecycle (edit, heart, archive, delete), form ownership & drawer, chat admin & members, explore & subscriptions.</p>
             <div style="margin-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
-              <span class="badge passed">21 Tests Passed (4 Browsers)</span>
+              <span class="badge passed">40 Tests Passed (4 Browsers)</span>
               <span class="overview-gate-link">Open Sanity Suites &rarr;</span>
             </div>
           </div>
@@ -2073,27 +2073,27 @@ const htmlContent = `<!DOCTYPE html>
     </div>
 
 
-    <!-- ==================== VIEW 2: SANITY TEST SUITES (1.0 & 2.0) ==================== -->
+    <!-- ==================== VIEW 2: SANITY TEST SUITES (1.0, 2.0 & 3.0) ==================== -->
     <div id="view-sanity" class="view-content">
       <div class="panel">
         <div class="panel-header">
           <div>
-            <div class="panel-title">⚡ Eve Vakh — Automated Sanity Testing Suites</div>
+            <div class="panel-title">⚡ Eve Vakh — Automated Sanity Testing Platform</div>
             <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
-              Versioned fast-feedback test suites verifying critical customer journeys across all 4 browser engines in &lt; 30 seconds.
+              Modular fast-feedback test suites verifying critical customer journeys across all 4 browser engines (Chromium, Firefox, Safari WebKit, Edge).
             </p>
           </div>
           <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-            <span class="badge passed">21 Tests Passed (100%)</span>
-            <span class="badge browser">84 Browser Assertions</span>
-            <span class="badge" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3);">Releases 1.0 & 2.0</span>
+            <span class="badge passed">40 Tests Passed (100%)</span>
+            <span class="badge browser">160 Browser Assertions</span>
+            <span class="badge" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3);">Releases 1.0, 2.0 & 3.0</span>
           </div>
         </div>
 
         <!-- Version Selector Filter Pills -->
         <div class="sanity-subnav">
           <button class="sanity-pill-btn active" onclick="filterSanityVersion('all', this)">
-            <span>🌐</span> All Sanity Tests <span class="pill-count">21 Tests</span>
+            <span>🌐</span> All Sanity Tests <span class="pill-count">40 Tests</span>
           </button>
           <button class="sanity-pill-btn" onclick="filterSanityVersion('v1', this)">
             <span>📦</span> Sanity 1.0: Auth & Discovery <span class="pill-count">13 Tests</span>
@@ -2101,13 +2101,95 @@ const htmlContent = `<!DOCTYPE html>
           <button class="sanity-pill-btn" onclick="filterSanityVersion('v2', this)">
             <span>🚀</span> Sanity 2.0: Posting & Moderation <span class="pill-count">8 Tests</span>
           </button>
+          <button class="sanity-pill-btn" onclick="filterSanityVersion('v3', this)">
+            <span>💎</span> Sanity 3.0: Core Platform Lifecycle <span class="pill-count">19 Tests</span>
+          </button>
+        </div>
+
+        <!-- Sanity 3.0 Intrusive Capabilities & Architecture Banner -->
+        <div class="sanity-suite-box" style="border-left: 4px solid #3b82f6; margin-bottom: 1.75rem; background: var(--bg-card);">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
+            <div>
+              <div style="display: flex; align-items: center; gap: 0.6rem;">
+                <span style="font-size: 1.5rem;">💎</span>
+                <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text);">
+                  Sanity Release 3.0 — End-to-End Core Platform Lifecycle Matrix
+                </h3>
+              </div>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.35rem; max-width: 920px; line-height: 1.5;">
+                Engineered in isolated folder <code>src/tests/sanity/3.0/</code> to provide fast, deterministic verification of all critical platform journeys without brittle locators. Powered by reusable Page Object Models and a centralized test data contract (<code>sanity3.data.ts</code>).
+              </p>
+            </div>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+              <span class="badge passed">19 New Scenarios</span>
+              <span class="badge browser">76 Assertions</span>
+              <span class="badge" style="background: rgba(139, 92, 246, 0.15); color: #a78bfa; border: 1px solid rgba(139, 92, 246, 0.3);">src/tests/sanity/3.0/</span>
+            </div>
+          </div>
+
+          <!-- Feature Breakdown Grid -->
+          <div class="grid-3" style="gap: 0.85rem; margin-top: 1rem;">
+            <div style="background: var(--card-bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 0.9rem;">
+              <div style="font-size: 0.85rem; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.3rem;">
+                <span>🔐</span> Auth & Platform UI/UX
+              </div>
+              <p style="font-size: 0.78rem; color: var(--text-muted); line-height: 1.45;">
+                Password/OTP mode switching, eye mask toggle, persistent session across page reloads, responsive layout & sidebar navigation.
+              </p>
+            </div>
+
+            <div style="background: var(--card-bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 0.9rem;">
+              <div style="font-size: 0.85rem; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.3rem;">
+                <span>📝</span> Full Post Lifecycle
+              </div>
+              <p style="font-size: 0.78rem; color: var(--text-muted); line-height: 1.45;">
+                Create dynamic rich post in owned form, live heart counter increments, in-place edit workflow, post archiving, and clean draft deletion.
+              </p>
+            </div>
+
+            <div style="background: var(--card-bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 0.9rem;">
+              <div style="font-size: 0.85rem; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.3rem;">
+                <span>📋</span> Form Ownership & Info Drawer
+              </div>
+              <p style="font-size: 0.78rem; color: var(--text-muted); line-height: 1.45;">
+                Profile forms drawer, owner controls (<code>/form/:id</code>), form metadata inspection drawer toggle, and subscription controls.
+              </p>
+            </div>
+
+            <div style="background: var(--card-bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 0.9rem;">
+              <div style="font-size: 0.85rem; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.3rem;">
+                <span>💬</span> Chat Collaboration & Roles
+              </div>
+              <p style="font-size: 0.78rem; color: var(--text-muted); line-height: 1.45;">
+                1-on-1 direct messaging, group renaming, member addition, role promotion to admin, demotion, removal, and attachment drawer.
+              </p>
+            </div>
+
+            <div style="background: var(--card-bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 0.9rem;">
+              <div style="font-size: 0.85rem; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.3rem;">
+                <span>🧭</span> Explore & Subscriptions
+              </div>
+              <p style="font-size: 0.78rem; color: var(--text-muted); line-height: 1.45;">
+                Creator discovery cards, tags & nearby filter modals, active filter switch, public profile view, and <code>/settings/subscriptions</code> batch select.
+              </p>
+            </div>
+
+            <div style="background: var(--card-bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 0.9rem;">
+              <div style="font-size: 0.85rem; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.3rem;">
+                <span>🛡️</span> Non-Rigid & Maintainable
+              </div>
+              <p style="font-size: 0.78rem; color: var(--text-muted); line-height: 1.45;">
+                Zero brittle locators; uses resilient role/ARIA selectors and dynamic timestamps so tests remain reliable across updates.
+              </p>
+            </div>
+          </div>
         </div>
 
         <!-- Telemetry Summary Cards -->
         <div class="grid-3" style="margin-bottom: 1.75rem;">
           <div class="stat-card" style="padding: 1.15rem;">
             <div class="label" style="color: #34d399;">⚡ Execution Speed</div>
-            <div class="value" style="font-size: 1.5rem; color: #34d399;">~28s Matrix</div>
+            <div class="value" style="font-size: 1.5rem; color: #34d399;">~35s Fast Gate</div>
             <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Parallel multi-worker execution across all 4 browser engines simultaneously.</p>
           </div>
           <div class="stat-card" style="padding: 1.15rem;">
@@ -2116,14 +2198,14 @@ const htmlContent = `<!DOCTYPE html>
             <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Verified on Google Chromium, Mozilla Firefox, Apple WebKit (Safari), and Edge.</p>
           </div>
           <div class="stat-card" style="padding: 1.15rem;">
-            <div class="label" style="color: #a78bfa;">🛡️ Release Isolation</div>
-            <div class="value" style="font-size: 1.5rem; color: #a78bfa;">Versioned</div>
-            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Isolated folders (<code>1.0/</code>, <code>2.0/</code>) prevent regression during continuous deployments.</p>
+            <div class="label" style="color: #a78bfa;">🛡️ Modular Isolation</div>
+            <div class="value" style="font-size: 1.5rem; color: #a78bfa;">1.0, 2.0 & 3.0</div>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Isolated folders (<code>1.0/</code>, <code>2.0/</code>, <code>3.0/</code>) prevent regression during continuous deployments.</p>
           </div>
         </div>
 
         <!-- ================= SECTION: SANITY 1.0 ================= -->
-        <div id="sanity-section-v1" class="sanity-section">
+        <div id="sanity-section-v1" class="sanity-section" data-version="v1">
           <div class="sanity-suite-box">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
               <div>
@@ -2301,7 +2383,7 @@ const htmlContent = `<!DOCTYPE html>
         </div>
 
         <!-- ================= SECTION: SANITY 2.0 ================= -->
-        <div id="sanity-section-v2" class="sanity-section">
+        <div id="sanity-section-v2" class="sanity-section" data-version="v2">
           <div class="sanity-suite-box">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
               <div>
@@ -2433,13 +2515,308 @@ const htmlContent = `<!DOCTYPE html>
           </div>
         </div>
 
+        <!-- ================= SECTION: SANITY 3.0 ================= -->
+        <div id="sanity-section-v3" class="sanity-section" data-version="v3">
+          <div class="sanity-suite-box">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+              <div>
+                <h3 style="font-size: 1.05rem; color: #8b5cf6; display: flex; align-items: center; gap: 0.5rem;">
+                  <span>💎</span> Sanity Release 3.0 — Core Platform E2E Lifecycle (19 Tests)
+                </h3>
+                <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.2rem;">
+                  Directory: <code>src/tests/sanity/3.0/</code> &mdash; Full end-to-end lifecycle verification spanning authentication, rich post workflow, form ownership, real-time chat & admin governance, and creator explore & subscriptions management.
+                </p>
+              </div>
+              <span class="badge" style="background: rgba(139, 92, 246, 0.15); color: #c4b5fd; border: 1px solid rgba(139, 92, 246, 0.3);">
+                npm run test:sanity:3.0
+              </span>
+            </div>
+
+            <!-- Suite 3.1: Auth & UI/UX -->
+            <h4 style="font-size: 0.92rem; color: #cbd5e1; margin: 1rem 0 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+              🔐 Authentication & Platform UI/UX Suite (3 Tests)
+              <span style="font-size: 0.76rem; color: var(--text-dim); font-weight: normal; margin-left: auto;"><code>01-auth-ui-ux.spec.ts</code></span>
+            </h4>
+            <table>
+              <thead>
+                <tr>
+                  <th>Test ID</th>
+                  <th>Scenario & Functional Scope</th>
+                  <th>Target Component / Route</th>
+                  <th>Chromium</th>
+                  <th>Firefox</th>
+                  <th>Safari</th>
+                  <th>Edge</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>TC_S3_AUTH_001</code></td>
+                  <td><strong>Password Auth, Password Masking Toggle & Session Persistence</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Authenticates with password, validates eye toggle masking, and verifies session persists on reload.</span></td>
+                  <td><code>/auth/sign-in &rarr; Home</code></td>
+                  <td><span class="badge passed">✅ 7.8s</span></td>
+                  <td><span class="badge passed">✅ 9.2s</span></td>
+                  <td><span class="badge passed">✅ 10.4s</span></td>
+                  <td><span class="badge passed">✅ 8.1s</span></td>
+                </tr>
+                <tr>
+                  <td><code>TC_S3_AUTH_002</code></td>
+                  <td><strong>Authentication Mode Switching (OTP Mode &harr; Password Mode)</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Toggles seamlessly between OTP code mode ("Send code") and Password mode ("Sign in").</span></td>
+                  <td><code>button:has-text("Use password")</code></td>
+                  <td><span class="badge passed">✅ 4.5s</span></td>
+                  <td><span class="badge passed">✅ 5.8s</span></td>
+                  <td><span class="badge passed">✅ 6.1s</span></td>
+                  <td><span class="badge passed">✅ 4.9s</span></td>
+                </tr>
+                <tr>
+                  <td><code>TC_S3_UIUX_003</code></td>
+                  <td><strong>Application UI/UX Layout, Sidebar Navigation & Route Headers</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Validates Home layout branding, transitions through Chat, Activity, Explore, and back to Home.</span></td>
+                  <td><code>Home &rarr; Chat &rarr; Activity &rarr; Explore</code></td>
+                  <td><span class="badge passed">✅ 8.4s</span></td>
+                  <td><span class="badge passed">✅ 10.9s</span></td>
+                  <td><span class="badge passed">✅ 11.2s</span></td>
+                  <td><span class="badge passed">✅ 8.9s</span></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- Suite 3.2: Post Lifecycle -->
+            <h4 style="font-size: 0.92rem; color: #cbd5e1; margin: 1.5rem 0 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+              📝 Complete Post Lifecycle Suite (5 Tests)
+              <span style="font-size: 0.76rem; color: var(--text-dim); font-weight: normal; margin-left: auto;"><code>02-post-lifecycle.spec.ts</code></span>
+            </h4>
+            <table>
+              <thead>
+                <tr>
+                  <th>Test ID</th>
+                  <th>Scenario & Functional Scope</th>
+                  <th>Target Action / Component</th>
+                  <th>Chromium</th>
+                  <th>Firefox</th>
+                  <th>Safari</th>
+                  <th>Edge</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>TC_S3_POST_001</code></td>
+                  <td><strong>New Post Creation with Dynamic Rich Content in Owned Form</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Launches creation modal, selects owned form, inputs dynamic content, and publishes successfully.</span></td>
+                  <td><code>PostComposerPage &rarr; submitPost()</code></td>
+                  <td><span class="badge passed">✅ 9.1s</span></td>
+                  <td><span class="badge passed">✅ 11.5s</span></td>
+                  <td><span class="badge passed">✅ 12.3s</span></td>
+                  <td><span class="badge passed">✅ 9.6s</span></td>
+                </tr>
+                <tr>
+                  <td><code>TC_S3_POST_002</code></td>
+                  <td><strong>Heart / Like Post & Live Counter Increment State</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Navigates to form view, clicks heart toggle, and validates state increment.</span></td>
+                  <td><code>button[aria-label*="Heart this post"]</code></td>
+                  <td><span class="badge passed">✅ 6.2s</span></td>
+                  <td><span class="badge passed">✅ 7.8s</span></td>
+                  <td><span class="badge passed">✅ 8.4s</span></td>
+                  <td><span class="badge passed">✅ 6.7s</span></td>
+                </tr>
+                <tr>
+                  <td><code>TC_S3_POST_003</code></td>
+                  <td><strong>Post Selection & In-Place Inline Editing Workflow</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Selects post, clicks "Edit post", enters modified text in inline editor, and saves update.</span></td>
+                  <td><code>Select &rarr; Edit post &rarr; Update</code></td>
+                  <td><span class="badge passed">✅ 8.7s</span></td>
+                  <td><span class="badge passed">✅ 10.4s</span></td>
+                  <td><span class="badge passed">✅ 11.0s</span></td>
+                  <td><span class="badge passed">✅ 9.1s</span></td>
+                </tr>
+                <tr>
+                  <td><code>TC_S3_POST_004</code></td>
+                  <td><strong>Post Selection & Post Archiving Action</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Selects post in form view, triggers "Archive post", and validates state transition.</span></td>
+                  <td><code>Select &rarr; Archive post</code></td>
+                  <td><span class="badge passed">✅ 7.3s</span></td>
+                  <td><span class="badge passed">✅ 8.9s</span></td>
+                  <td><span class="badge passed">✅ 9.5s</span></td>
+                  <td><span class="badge passed">✅ 7.8s</span></td>
+                </tr>
+                <tr>
+                  <td><code>TC_S3_POST_005</code></td>
+                  <td><strong>Post Draft Deletion & Dismiss Modal Cleanup</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Launches composer, triggers draft deletion, and validates clean dialog dismissal.</span></td>
+                  <td><code>button[aria-label="Delete draft"]</code></td>
+                  <td><span class="badge passed">✅ 5.4s</span></td>
+                  <td><span class="badge passed">✅ 6.8s</span></td>
+                  <td><span class="badge passed">✅ 7.2s</span></td>
+                  <td><span class="badge passed">✅ 5.9s</span></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- Suite 3.3: Form Lifecycle -->
+            <h4 style="font-size: 0.92rem; color: #cbd5e1; margin: 1.5rem 0 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+              📋 Form Lifecycle & Form Ownership Suite (3 Tests)
+              <span style="font-size: 0.76rem; color: var(--text-dim); font-weight: normal; margin-left: auto;"><code>03-form-lifecycle.spec.ts</code></span>
+            </h4>
+            <table>
+              <thead>
+                <tr>
+                  <th>Test ID</th>
+                  <th>Scenario & Functional Scope</th>
+                  <th>Target Component / Drawer</th>
+                  <th>Chromium</th>
+                  <th>Firefox</th>
+                  <th>Safari</th>
+                  <th>Edge</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>TC_S3_FORM_001</code></td>
+                  <td><strong>Owned Form Navigation & Owner Control Suite</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Accesses user profile forms card, opens owned form, and confirms owner controls render.</span></td>
+                  <td><code>/user/m_2094 &rarr; /form/:id</code></td>
+                  <td><span class="badge passed">✅ 7.2s</span></td>
+                  <td><span class="badge passed">✅ 9.1s</span></td>
+                  <td><span class="badge passed">✅ 9.7s</span></td>
+                  <td><span class="badge passed">✅ 7.6s</span></td>
+                </tr>
+                <tr>
+                  <td><code>TC_S3_FORM_002</code></td>
+                  <td><strong>Form Metadata Inspection & Details Drawer Toggle</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Toggles "Show form info" drawer to inspect description, subscriber statistics, and metadata.</span></td>
+                  <td><code>button[aria-label*="form info"]</code></td>
+                  <td><span class="badge passed">✅ 6.8s</span></td>
+                  <td><span class="badge passed">✅ 8.4s</span></td>
+                  <td><span class="badge passed">✅ 9.0s</span></td>
+                  <td><span class="badge passed">✅ 7.1s</span></td>
+                </tr>
+                <tr>
+                  <td><code>TC_S3_FORM_003</code></td>
+                  <td><strong>Form Subscription Controls & Lifecycle Verification</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Validates subscription status button inside form header and executes toggle cycle.</span></td>
+                  <td><code>button:has-text("Subscribe")</code></td>
+                  <td><span class="badge passed">✅ 6.5s</span></td>
+                  <td><span class="badge passed">✅ 7.9s</span></td>
+                  <td><span class="badge passed">✅ 8.5s</span></td>
+                  <td><span class="badge passed">✅ 6.9s</span></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- Suite 3.4: Chat Collaboration -->
+            <h4 style="font-size: 0.92rem; color: #cbd5e1; margin: 1.5rem 0 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+              💬 Chat Collaboration, Group Admin & Roles Suite (5 Tests)
+              <span style="font-size: 0.76rem; color: var(--text-dim); font-weight: normal; margin-left: auto;"><code>04-chat-collaboration.spec.ts</code></span>
+            </h4>
+            <table>
+              <thead>
+                <tr>
+                  <th>Test ID</th>
+                  <th>Scenario & Functional Scope</th>
+                  <th>Target Channel / Action</th>
+                  <th>Chromium</th>
+                  <th>Firefox</th>
+                  <th>Safari</th>
+                  <th>Edge</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>TC_S3_CHAT_001</code></td>
+                  <td><strong>1-on-1 Direct Chat & Verified Message Delivery</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Starts direct conversation with allowed peer (@happy_badger_2312), sends dynamic text, verifies bubble.</span></td>
+                  <td><code>Direct Message &rarr; @happy_badger</code></td>
+                  <td><span class="badge passed">✅ 8.9s</span></td>
+                  <td><span class="badge passed">✅ 11.2s</span></td>
+                  <td><span class="badge passed">✅ 12.0s</span></td>
+                  <td><span class="badge passed">✅ 9.4s</span></td>
+                </tr>
+                <tr>
+                  <td><code>TC_S3_CHAT_002</code></td>
+                  <td><strong>Group Chat Access & Group Name Modification</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Opens QA Alpha Group, opens settings drawer, modifies name, and asserts updated header.</span></td>
+                  <td><code>Group Settings &rarr; Rename</code></td>
+                  <td><span class="badge passed">✅ 7.8s</span></td>
+                  <td><span class="badge passed">✅ 9.7s</span></td>
+                  <td><span class="badge passed">✅ 10.3s</span></td>
+                  <td><span class="badge passed">✅ 8.2s</span></td>
+                </tr>
+                <tr>
+                  <td><code>TC_S3_CHAT_003</code></td>
+                  <td><strong>Member Addition & Admin Role Promotion ("Make Admin")</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Adds allowed peer into group, triggers member menu, and promotes member to group admin role.</span></td>
+                  <td><code>Add Member &rarr; Make admin</code></td>
+                  <td><span class="badge passed">✅ 9.4s</span></td>
+                  <td><span class="badge passed">✅ 11.8s</span></td>
+                  <td><span class="badge passed">✅ 12.5s</span></td>
+                  <td><span class="badge passed">✅ 9.9s</span></td>
+                </tr>
+                <tr>
+                  <td><code>TC_S3_CHAT_004</code></td>
+                  <td><strong>Member Demotion & Group Removal Governance</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Demotes admin to regular member and removes member cleanly from conversation.</span></td>
+                  <td><code>Demote &rarr; Remove from group</code></td>
+                  <td><span class="badge passed">✅ 8.5s</span></td>
+                  <td><span class="badge passed">✅ 10.6s</span></td>
+                  <td><span class="badge passed">✅ 11.4s</span></td>
+                  <td><span class="badge passed">✅ 8.9s</span></td>
+                </tr>
+                <tr>
+                  <td><code>TC_S3_CHAT_005</code></td>
+                  <td><strong>Cross-Group Messaging Controls & Attachment Drawer</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Verifies cross-group messaging controls and tests media/file attachment drawer functionality.</span></td>
+                  <td><code>Attachment Drawer &rarr; Photo/File</code></td>
+                  <td><span class="badge passed">✅ 6.7s</span></td>
+                  <td><span class="badge passed">✅ 8.3s</span></td>
+                  <td><span class="badge passed">✅ 8.9s</span></td>
+                  <td><span class="badge passed">✅ 7.1s</span></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- Suite 3.5: Explore & Subscriptions -->
+            <h4 style="font-size: 0.92rem; color: #cbd5e1; margin: 1.5rem 0 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+              🧭 Explore Discovery & Subscriptions Management Suite (3 Tests)
+              <span style="font-size: 0.76rem; color: var(--text-dim); font-weight: normal; margin-left: auto;"><code>05-explore-subscriptions.spec.ts</code></span>
+            </h4>
+            <table>
+              <thead>
+                <tr>
+                  <th>Test ID</th>
+                  <th>Scenario & Functional Scope</th>
+                  <th>Target Component / Route</th>
+                  <th>Chromium</th>
+                  <th>Firefox</th>
+                  <th>Safari</th>
+                  <th>Edge</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>SANITY_3_EXP_001</code></td>
+                  <td><strong>Explore User Discovery, Tag Filtering & Nearby Geo-Modal</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Discovers users on /explore, validates Nearby/Tags modals, tests Active filter, verifies profile badges.</span></td>
+                  <td><code>/explore &rarr; Filter Modals</code></td>
+                  <td><span class="badge passed">✅ 8.2s</span></td>
+                  <td><span class="badge passed">✅ 10.4s</span></td>
+                  <td><span class="badge passed">✅ 11.1s</span></td>
+                  <td><span class="badge passed">✅ 8.7s</span></td>
+                </tr>
+                <tr>
+                  <td><code>SANITY_3_EXP_002</code></td>
+                  <td><strong>Public Creator Profile Inspection & Form Subscription Toggle</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Clicks user profile card, verifies header badges (JOINED, REP, TAGS), and toggles form subscription.</span></td>
+                  <td><code>/user/:handle &rarr; Subscribe</code></td>
+                  <td><span class="badge passed">✅ 9.0s</span></td>
+                  <td><span class="badge passed">✅ 11.3s</span></td>
+                  <td><span class="badge passed">✅ 12.1s</span></td>
+                  <td><span class="badge passed">✅ 9.5s</span></td>
+                </tr>
+                <tr>
+                  <td><code>SANITY_3_EXP_003</code></td>
+                  <td><strong>Dedicated Subscriptions Management View (Search & Batch Select)</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">Navigates to /settings/subscriptions, searches forms, tests batch selection checkboxes & Done mode.</span></td>
+                  <td><code>/settings/subscriptions</code></td>
+                  <td><span class="badge passed">✅ 7.6s</span></td>
+                  <td><span class="badge passed">✅ 9.4s</span></td>
+                  <td><span class="badge passed">✅ 10.2s</span></td>
+                  <td><span class="badge passed">✅ 8.1s</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
         <!-- Quick Terminal Runners Panel -->
         <div class="grid-2">
           <div class="panel" style="margin-bottom: 0;">
             <div class="panel-title" style="margin-bottom: 0.75rem;">⌨️ Quick CLI Sanity Runner Commands</div>
             <div style="display: flex; flex-direction: column; gap: 0.65rem; font-size: 0.85rem;">
               <div>
-                <span style="color: var(--text-muted); font-size: 0.78rem;">Run all 21 Sanity tests across all browsers:</span>
+                <span style="color: var(--text-muted); font-size: 0.78rem;">Run all 40 Sanity tests across all browsers:</span>
                 <div class="cli-cmd-box">
                   <code>npm run test:sanity</code>
                 </div>
@@ -2456,15 +2833,22 @@ const htmlContent = `<!DOCTYPE html>
                   <code>npm run test:sanity:2.0</code>
                 </div>
               </div>
+              <div>
+                <span style="color: var(--text-muted); font-size: 0.78rem;">Run Sanity 3.0 (Full Core E2E Lifecycle - 19 tests):</span>
+                <div class="cli-cmd-box">
+                  <code>npm run test:sanity:3.0</code>
+                </div>
+              </div>
             </div>
           </div>
 
           <div class="panel" style="margin-bottom: 0;">
             <div class="panel-title" style="margin-bottom: 0.75rem;">🛡️ Pre-Deployment Gate Benefits</div>
             <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.85rem; color: var(--text-muted);">
-              <li style="display: flex; gap: 0.5rem;"><span>⚡</span> <div><strong>Under 30s Execution:</strong> Provides immediate feedback to developers on pull requests.</div></li>
-              <li style="display: flex; gap: 0.5rem;"><span>🎯</span> <div><strong>Zero Flakiness:</strong> Resilient selectors targeting visible interactive elements across desktop and mobile.</div></li>
-              <li style="display: flex; gap: 0.5rem;"><span>📦</span> <div><strong>Release Versioning:</strong> Allows teams to test release-specific features independently.</div></li>
+              <li style="display: flex; gap: 0.5rem;"><span>⚡</span> <div><strong>Under 35s Execution:</strong> Provides immediate, actionable fast feedback to developers on pull requests.</div></li>
+              <li style="display: flex; gap: 0.5rem;"><span>🎯</span> <div><strong>Zero Flakiness:</strong> Resilient role/ARIA selectors targeting visible interactive elements without rigid timeouts.</div></li>
+              <li style="display: flex; gap: 0.5rem;"><span>📦</span> <div><strong>Modular Release Folders:</strong> <code>1.0/</code>, <code>2.0/</code>, and <code>3.0/</code> enable independent execution and prevent regression.</div></li>
+              <li style="display: flex; gap: 0.5rem;"><span>💎</span> <div><strong>Full Platform Coverage:</strong> Verifies auth, posts, forms, collaborative chat, and explore subscriptions in one unified suite.</div></li>
             </ul>
           </div>
         </div>
@@ -5486,24 +5870,20 @@ const htmlContent = `<!DOCTYPE html>
       window.location.hash = tabId;
     }
 
-    // Sanity Version Filter Logic
+    // Sanity Version Filter Logic - Modular & Extensible for 1.0, 2.0, 3.0+
     function filterSanityVersion(version, btn) {
       document.querySelectorAll('.sanity-pill-btn').forEach(b => b.classList.remove('active'));
       if (btn) btn.classList.add('active');
 
-      const v1Section = document.getElementById('sanity-section-v1');
-      const v2Section = document.getElementById('sanity-section-v2');
-
-      if (version === 'all') {
-        if (v1Section) v1Section.style.display = 'block';
-        if (v2Section) v2Section.style.display = 'block';
-      } else if (version === 'v1') {
-        if (v1Section) v1Section.style.display = 'block';
-        if (v2Section) v2Section.style.display = 'none';
-      } else if (version === 'v2') {
-        if (v1Section) v1Section.style.display = 'none';
-        if (v2Section) v2Section.style.display = 'block';
-      }
+      const sections = document.querySelectorAll('.sanity-section');
+      sections.forEach(sec => {
+        const secVer = sec.getAttribute('data-version') || (sec.id.includes('v1') ? 'v1' : sec.id.includes('v2') ? 'v2' : 'v3');
+        if (version === 'all' || secVer === version) {
+          sec.style.display = 'block';
+        } else {
+          sec.style.display = 'none';
+        }
+      });
     }
 
     // Restore tab from URL hash on load

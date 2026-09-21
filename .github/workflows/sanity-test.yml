@@ -1,4 +1,4 @@
-name: Versioned Sanity Test Suites (1.0, 2.0)
+name: Versioned Sanity Test Suites (1.0, 2.0, 3.0)
 
 on:
   push:
@@ -26,6 +26,7 @@ on:
           - all
           - '1.0'
           - '2.0'
+          - '3.0'
       browser:
         description: 'Browser engine to run sanity suite against'
         required: true
@@ -85,6 +86,9 @@ jobs:
           elif [ "${{ github.event.inputs.suite_version }}" = "2.0" ]; then
             echo "Executing Sanity 2.0 (Posting & Moderation): npm run test:sanity:2.0 -- $PROJECT_ARG"
             npm run test:sanity:2.0 -- $PROJECT_ARG
+          elif [ "${{ github.event.inputs.suite_version }}" = "3.0" ]; then
+            echo "Executing Sanity 3.0 (Full E2E Core Lifecycle): npm run test:sanity:3.0 -- $PROJECT_ARG"
+            npm run test:sanity:3.0 -- $PROJECT_ARG
           else
             echo "Executing All Sanity Suites: npm run test:sanity -- $PROJECT_ARG"
             npm run test:sanity -- $PROJECT_ARG
@@ -100,6 +104,7 @@ jobs:
           echo "- **Sanity Suite Version**: \`${{ github.event.inputs.suite_version || 'all' }}\`" >> $GITHUB_STEP_SUMMARY
           echo "- **Sanity 1.0**: Login (\`login.spec.ts\`) & Explore (\`explore.spec.ts\`) — 13 Scenarios" >> $GITHUB_STEP_SUMMARY
           echo "- **Sanity 2.0**: Home Posting (\`posting.spec.ts\`) & Form Moderation (\`moderation.spec.ts\`) — 8 Scenarios" >> $GITHUB_STEP_SUMMARY
+          echo "- **Sanity 3.0**: Full Platform E2E (Auth/UI, Posts, Forms, Chat Collaboration, Explore/Subscriptions) — 17 Scenarios" >> $GITHUB_STEP_SUMMARY
           echo "- **Selected Browser**: \`${{ github.event.inputs.browser || 'all' }}\`" >> $GITHUB_STEP_SUMMARY
 
       - name: Archive Playwright HTML Test Report

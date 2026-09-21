@@ -15,6 +15,8 @@
     "test:sanity": "playwright test src/tests/sanity && npm run generate:dashboard",
     "test:sanity:1.0": "playwright test src/tests/sanity/1.0 && npm run generate:dashboard",
     "test:sanity:2.0": "playwright test src/tests/sanity/2.0 && npm run generate:dashboard",
+    "test:sanity:3.0": "playwright test src/tests/sanity/3.0 && npm run generate:dashboard",
+    "test:sanity:3.0:only": "playwright test src/tests/sanity/3.0",
     "test:login:only": "playwright test src/tests/login.spec.ts",
     "test:home:only": "playwright test src/tests/home.spec.ts",
     "test:chat:only": "playwright test src/tests/chat.spec.ts",
