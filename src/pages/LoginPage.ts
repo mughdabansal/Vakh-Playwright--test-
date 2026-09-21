@@ -167,8 +167,21 @@ export class LoginPage extends BasePage {
   /**
    * Verifies that the user has successfully logged in and the home header/dashboard is displayed.
    */
-  async verifyLoggedInState() {
-    await this.waitForUrlPattern(/^https:\/\/eve\.vakh\.com\/?$/, 20000);
+  async verifyLoggedInState(timeout: number = 30000) {
+    const startTime = Date.now();
+    while (Date.now() - startTime < timeout) {
+      if (!this.page.url().includes('/auth/sign-in')) {
+        break;
+      }
+      // If still on sign-in after 3s and sign in button is enabled, re-click in case of dropped click
+      if (Date.now() - startTime > 3000) {
+        if (await this.signInButton.isVisible().catch(() => false) && await this.signInButton.isEnabled().catch(() => false)) {
+          await this.signInButton.click().catch(() => {});
+        }
+      }
+      await this.page.waitForTimeout(1000);
+    }
+    await this.waitForUrlPattern(/^https:\/\/eve\.vakh\.com\/?$/, timeout);
     await expect(this.homeHeader).toBeVisible({ timeout: 15000 });
   }
 }

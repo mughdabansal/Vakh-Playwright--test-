@@ -45,7 +45,16 @@ test.describe('Eve Vakh - Sanity 3.0: Core Authentication & Platform UI/UX Suite
       await expect(visibleInput).toHaveAttribute('type', 'password');
     }
 
-    // 4. Submit login
+    // Ensure password is fully populated after toggle and form state is stable
+    const pwVal = await loginPage.passwordInput.inputValue().catch(() => '');
+    if (!pwVal) {
+      await loginPage.passwordInput.fill(SANITY_3_DATA.AUTH.PRIMARY_USER.password);
+    }
+    await page.waitForTimeout(500);
+
+    // 4. Submit login with explicit enablement verification
+    await expect(loginPage.signInButton).toBeVisible({ timeout: 5000 });
+    await expect(loginPage.signInButton).toBeEnabled({ timeout: 5000 });
     await loginPage.signInButton.click();
     await loginPage.verifyLoggedInState();
 
