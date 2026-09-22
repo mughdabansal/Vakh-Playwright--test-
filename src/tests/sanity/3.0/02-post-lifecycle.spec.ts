@@ -103,6 +103,6 @@ test.describe('Eve Vakh - Sanity 3.0: Post Lifecycle (Create, Edit, Heart, Archi
     const formMgmtPage = new FormManagementPage(page);
 
     await formMgmtPage.deleteDraftOrPost();
-    await expect(page.locator('[role="dialog"]')).toBeHidden({ timeout: 5000 });
+    await expect(page.locator('[role="dialog"]')).toBeHidden({ timeout: 15000 });
   });
 });

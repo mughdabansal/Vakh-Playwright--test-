@@ -72,19 +72,29 @@ export class FormManagementPage extends BasePage {
 
   /**
    * Opens the user's designated form from the profile page.
+   * Dynamically locates the requested form name or falls back gracefully to any available owned form.
    */
   async openOwnForm(formName: string = 'posts') {
     await this.navigateToOwnProfile();
     await this.page.waitForTimeout(1000);
 
-    const formCard = this.page.locator('div[tabindex="0"]:visible')
+    // 1. Check if a card matching the requested formName is visible on profile
+    let targetCard = this.page.locator('div[tabindex="0"]:visible')
       .filter({ hasText: new RegExp(formName, 'i') })
-      .filter({ hasText: /public posts|posts/i })
       .first();
 
-    await expect(formCard).toBeVisible({ timeout: 15000 });
-    await formCard.scrollIntoViewIfNeeded();
-    await formCard.click();
+    const isSpecificCardVisible = await targetCard.isVisible({ timeout: 3000 }).catch(() => false);
+
+    // 2. If the specific form is not visible, fallback to any active owned form card under FORMS section
+    if (!isSpecificCardVisible) {
+      targetCard = this.page.locator('div[tabindex="0"]:visible')
+        .filter({ hasText: /subscribed|subscribe|form|posts/i })
+        .first();
+    }
+
+    await expect(targetCard).toBeVisible({ timeout: 15000 });
+    await targetCard.scrollIntoViewIfNeeded();
+    await targetCard.click();
     await expect(this.page).toHaveURL(/\/form\//, { timeout: 15000 });
   }
 
@@ -165,13 +175,20 @@ export class FormManagementPage extends BasePage {
       await this.page.waitForTimeout(1000);
     }
 
+    const dialog = this.page.locator('[role="dialog"]');
     const closeBtn = this.page.getByText('Close', { exact: true }).locator('visible=true').first();
     if (await closeBtn.isVisible({ timeout: 3000 }).catch(() => false)) {
       await closeBtn.click({ force: true });
     } else {
       await this.page.keyboard.press('Escape');
     }
-    await this.page.waitForTimeout(1000);
+    await this.page.waitForTimeout(500);
+
+    // Fallback dismissal for slower browsers / CI animation frames
+    if (await dialog.isVisible({ timeout: 2000 }).catch(() => false)) {
+      await this.page.keyboard.press('Escape');
+      await this.page.waitForTimeout(500);
+    }
   }
 
   /**

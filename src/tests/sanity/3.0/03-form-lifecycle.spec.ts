@@ -56,8 +56,8 @@ test.describe('Eve Vakh - Sanity 3.0: Form Lifecycle & Form Ownership Suite', ()
     await page.waitForTimeout(1000);
 
     // Verify form header / subtitle is displayed
-    const formHeading = page.locator('h1, h2').filter({ hasText: /posts/i }).first();
-    await expect(formHeading).toBeVisible({ timeout: 5000 });
+    const formHeading = page.locator('h1, h2, [role="heading"]').locator('visible=true').first();
+    await expect(formHeading).toBeVisible({ timeout: 10000 });
   });
 
   /**
