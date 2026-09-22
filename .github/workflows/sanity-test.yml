@@ -75,26 +75,24 @@ jobs:
 
       - name: Run Playwright Sanity Tests
         run: |
-          PROJECT_ARG=""
+          PROJECT_ARG="--project=chromium"
           if [ -n "${{ github.event.inputs.browser }}" ] && [ "${{ github.event.inputs.browser }}" != "all" ]; then
             PROJECT_ARG="--project=${{ github.event.inputs.browser }}"
-          elif [ "${{ github.event_name }}" = "push" ]; then
-            PROJECT_ARG="--project=chromium"
+          elif [ "${{ github.event.inputs.browser }}" = "all" ]; then
+            PROJECT_ARG=""
           fi
 
+          TARGET_DIR="src/tests/sanity/3.0"
           if [ "${{ github.event.inputs.suite_version }}" = "1.0" ]; then
-            echo "Executing Sanity 1.0 (Login & Explore): npm run test:sanity:1.0 -- $PROJECT_ARG"
-            npm run test:sanity:1.0 -- $PROJECT_ARG
+            TARGET_DIR="src/tests/sanity/1.0"
           elif [ "${{ github.event.inputs.suite_version }}" = "2.0" ]; then
-            echo "Executing Sanity 2.0 (Posting & Moderation): npm run test:sanity:2.0 -- $PROJECT_ARG"
-            npm run test:sanity:2.0 -- $PROJECT_ARG
+            TARGET_DIR="src/tests/sanity/2.0"
           elif [ "${{ github.event.inputs.suite_version }}" = "all" ]; then
-            echo "Executing All Sanity Suites: npm run test:sanity -- $PROJECT_ARG"
-            npm run test:sanity -- $PROJECT_ARG
-          else
-            echo "Executing Sanity 3.0 (Full E2E Core Lifecycle): npm run test:sanity:3.0 -- $PROJECT_ARG"
-            npm run test:sanity:3.0 -- $PROJECT_ARG
+            TARGET_DIR="src/tests/sanity"
           fi
+
+          echo "⚡ Executing Sanity Suite: npx playwright test $TARGET_DIR $PROJECT_ARG"
+          npx playwright test $TARGET_DIR $PROJECT_ARG && npm run generate:dashboard
         env:
           CI: true
 

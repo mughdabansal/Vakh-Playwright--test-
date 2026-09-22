@@ -135,3 +135,21 @@ This living document tracks key technical decisions, architectural rationales, a
    * Where possible, utilize Playwright storage state (`storageState`) to avoid repeated sign-ins that invalidate active session tokens across concurrent workers.
 4. **Align Chat Isolation**:
    * Ensure any automated CI triggers respect the user's requirement to keep chat test flows isolated to manual invocations.
+
+---
+
+### Failure Report 2 (Commit `f99fa73`, Workflow Run `35695488452`)
+* **Workflow Name**: `Versioned Sanity Test Suites (1.0, 2.0, 3.0)`
+* **Observed Failure Symptom**: Process completed with exit code 1 during `Run Playwright Sanity Tests`.
+* **Root Cause Diagnosed**:
+  * In `sanity-test.yml`, the step invoked:
+    `npm run test:sanity:3.0 -- $PROJECT_ARG` where `$PROJECT_ARG` was `--project=chromium`.
+  * In `package.json`, `test:sanity:3.0` was defined as:
+    `"playwright test src/tests/sanity/3.0 && npm run generate:dashboard"`
+  * When flags are passed to an npm compound script via `--`, npm appends the flags to the **second command** (`npm run generate:dashboard --project=chromium`), printing:
+    `npm warn Unknown cli config "--project"`.
+  * Consequently, `playwright test src/tests/sanity/3.0` received **NO `--project` flag** and launched all 76 tests across all 4 configured browser engines simultaneously, causing token collisions on the shared account.
+* **Actionable Fix Implemented**:
+  * Updated `sanity-test.yml` to directly invoke Playwright:
+    `npx playwright test $TARGET_DIR $PROJECT_ARG && npm run generate:dashboard`
+  * This guarantees `$PROJECT_ARG` (`--project=chromium`) is directly accepted by the Playwright CLI, executing strictly the 19 tests of Sanity 3.0 sequentially on Chromium.
