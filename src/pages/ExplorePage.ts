@@ -264,6 +264,9 @@ export class ExplorePage extends BasePage {
       await card.click({ force: true });
     }
     await this.waitForUrlPattern(/\/user\//, 15000);
+    // Wait for the profile view to finish loading
+    await expect(this.page.getByText(/loading/i).first()).toBeHidden({ timeout: 15000 }).catch(() => {});
+    await expect(this.profileUsername).toBeVisible({ timeout: 15000 });
   }
 
   /**

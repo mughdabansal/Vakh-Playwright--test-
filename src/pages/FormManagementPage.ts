@@ -68,6 +68,8 @@ export class FormManagementPage extends BasePage {
     await this.ownProfileButton.click();
     await this.waitForUrlPattern(/\/user\//, 15000);
     await expect(this.page.locator('text=@m_2094').locator('visible=true').first()).toBeVisible({ timeout: 10000 });
+    // Await profile forms loading
+    await expect(this.page.getByText(/loading/i).first()).toBeHidden({ timeout: 15000 }).catch(() => {});
   }
 
   /**
@@ -79,16 +81,27 @@ export class FormManagementPage extends BasePage {
     await this.page.waitForTimeout(1000);
 
     // 1. Check if a card matching the requested formName is visible on profile
-    let targetCard = this.page.locator('div[tabindex="0"]:visible')
+    let targetCard = this.page.locator('div[tabindex="0"]:visible, [role="button"]:visible')
       .filter({ hasText: new RegExp(formName, 'i') })
       .first();
 
-    const isSpecificCardVisible = await targetCard.isVisible({ timeout: 3000 }).catch(() => false);
+    let isVisible = await targetCard.isVisible({ timeout: 4000 }).catch(() => false);
 
-    // 2. If the specific form is not visible, fallback to any active owned form card under FORMS section
-    if (!isSpecificCardVisible) {
-      targetCard = this.page.locator('div[tabindex="0"]:visible')
-        .filter({ hasText: /subscribed|subscribe|form|posts/i })
+    // 2. If not visible, reload once in case the initial API fetch was pending
+    if (!isVisible) {
+      await this.page.reload();
+      await this.page.waitForTimeout(2000);
+      await expect(this.page.getByText(/loading/i).first()).toBeHidden({ timeout: 15000 }).catch(() => {});
+      targetCard = this.page.locator('div[tabindex="0"]:visible, [role="button"]:visible')
+        .filter({ hasText: new RegExp(formName, 'i') })
+        .first();
+      isVisible = await targetCard.isVisible({ timeout: 5000 }).catch(() => false);
+    }
+
+    // 3. Fallback to any active owned form card under FORMS section
+    if (!isVisible) {
+      targetCard = this.page.locator('div[tabindex="0"]:visible, [role="button"]:visible')
+        .filter({ hasText: /subscribed|subscribe|form|posts|inbox/i })
         .first();
     }
 

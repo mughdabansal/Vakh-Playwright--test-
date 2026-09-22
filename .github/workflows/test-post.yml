@@ -54,10 +54,9 @@ jobs:
           elif [ "${{ github.event.inputs.browser }}" = "webkit" ]; then
             npx playwright install --with-deps webkit
           elif [ "${{ github.event.inputs.browser }}" = "edge" ]; then
-            npx playwright install --with-deps msedge || npx playwright install --with-deps chromium
+            npx playwright install --with-deps chromium
           else
             npx playwright install --with-deps
-            npx playwright install msedge || true
           fi
 
       - name: Run Post Creation Page Tests (Single Command Package)

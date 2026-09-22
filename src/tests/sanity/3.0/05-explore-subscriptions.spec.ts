@@ -6,6 +6,7 @@ import { FormManagementPage } from '../../../pages/FormManagementPage';
 import { SANITY_3_DATA } from './data/sanity3.data';
 
 test.describe('Sanity 3.0: Explore, Profiles & Subscriptions Management Suite', () => {
+  test.describe.configure({ mode: 'serial' });
   test.setTimeout(90000);
 
   let homePage: HomePage;

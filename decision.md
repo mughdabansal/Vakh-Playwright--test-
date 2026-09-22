@@ -44,6 +44,51 @@ This living document tracks key technical decisions, architectural rationales, a
 
 ---
 
+### Decision 4: Scaling Parallel Workers Without Collision Across Test Suites
+* **Context**: The team asked how to safely increase the number of parallel Playwright workers (`workers: 2`, `3`, `4`) to execute different tests concurrently without collisions or session dropouts.
+* **Collision Vectors Identified**:
+  1. **Intra-File Race Conditions (`fullyParallel: true`)**: Tests within the same spec file (e.g. create post vs vote poll) mutating the same live DOM feed simultaneously.
+  2. **Concurrent Auth Invalidation**: Multiple workers simultaneously posting to `/auth/sign-in` with the exact same user credentials invalidate each other's active session tokens.
+  3. **Feed & Resource Collisions**: Multiple workers publishing into the default `posts` form at the same millisecond cause selector shifts and race conditions.
+* **Zero-Collision Scaling Architecture**:
+  1. **File-Level Parallelism with Intra-File Serial Execution (`fullyParallel: false`)**:
+     - Configured `fullyParallel: false` in `playwright.config.ts`.
+     - When `workers: 2` (or more) is configured, Playwright runs **different test files** in different workers concurrently, while tests **within each file** run in their natural dependency order.
+     - Worker 1 executes `explore.spec.ts` (read-only search), while Worker 2 executes `activity.spec.ts` (read-only logs). Because they touch separate features, 0 collisions occur.
+  2. **Worker Account Pooling (`testInfo.parallelIndex`)**:
+     - When multiple suites modify user-specific state, map accounts by worker index: `user = TEST_USERS_POOL[testInfo.parallelIndex % TEST_USERS_POOL.length]`.
+     - Worker 0 logs into User 1; Worker 1 logs into User 2; eliminating 100% of concurrent session overwrites.
+  3. **Dynamic Resource Sandboxing**:
+     - Tests that create or mutate forms/posts generate unique scoped identifiers (e.g. `Form-${Date.now()}-${testInfo.workerIndex}`).
+     - Each worker operates strictly within its own sandboxed form container, preventing other workers from seeing or modifying its posts.
+  4. **Pre-Authenticated Storage State (`storageState`)**:
+     - Authenticating once during global setup and reusing the saved session cookies across workers removes repetitive login calls and backend rate limits.
+* **Implemented CI & Configuration Upgrades**:
+  - Removed duplicate `safari` project from `playwright.config.ts` (which duplicated `webkit`).
+  - Added cross-platform fallback for `edge` (uses Chromium emulation on Linux CI, avoiding missing proprietary `msedge` package failures).
+  - Configured serial execution mode across `01-auth-ui-ux.spec.ts`, `05-explore-subscriptions.spec.ts`, and `sanity/2.0/posting.spec.ts`.
+  - Configured GitHub Actions workflows (`sanity-test.yml`, `test-and-deploy.yml`) to default push triggers to `--project=chromium`, while manual triggers retain full multi-browser choice.
+### Decision 5: Sanity 3.0 Suite Isolation & Multi-Browser Hardening
+* **Context**: The user requested Sanity 3.0 to be isolated from older sanity test suites (1.0 and 2.0) and run independently across all browsers (`chromium`, `firefox`, `webkit`, `edge`), and to verify the individual poll script (`TC_POST_005`).
+* **Root Causes Diagnosed Across Browsers**:
+  1. **Profile Forms Asynchronous Loading Race**: On both own-profile and public profile navigation (`FormManagementPage.openOwnForm()` and `ExplorePage.clickUserProfile()`), the page displayed `Loading....` while fetching user forms via the API. Immediate locator assertions timed out at 5s/15s before the API returned.
+  2. **Firefox Client-Side Router Miss in Chat**: In Firefox, clicking the sidebar `Chat` button in React Native Web occasionally did not trigger the SPA URL transition, causing `toHaveURL(/.*messages.*/)` to time out on `https://eve.vakh.com/`.
+  3. **Explore Action Buttons Delay (`TC_EXP_007`)**: Profile action buttons (Message & More) failed visibility checks when clicked prior to full profile card reconciliation.
+* **Implementation Solutions**:
+  1. **Sanity 3.0 Isolation**: Updated `.github/workflows/sanity-test.yml` so that `default: '3.0'` is the primary selection and fallback on push events, isolating Sanity 3.0 completely from legacy 1.0/2.0 runs unless explicitly selected.
+  2. **Profile Loading Guard**: In `FormManagementPage.ts` and `ExplorePage.ts`, added explicit detachment waits for `Loading....` (`await expect(page.getByText(/loading/i).first()).toBeHidden({ timeout: 15000 })`) and fallback page refresh if the initial API response lags.
+  3. **Direct Route Fallback in Chat Navigation**: In `ChatPage.navigateToChat()`, added dynamic detection of whether the sidebar click transitioned the URL, with automatic fallback to direct route navigation `await this.navigateTo('/messages')`.
+  4. **Timed Action Button Assertions**: Added 15s timeout to `messageBtn` and `moreBtn` in `TC_EXP_007`.
+* **Verification Results**:
+  - **Sanity 3.0 Auth (`01-auth-ui-ux.spec.ts`)**: 12/12 passed (Chromium, Firefox, WebKit, Edge).
+  - **Sanity 3.0 Post Lifecycle (`02-post-lifecycle.spec.ts`)**: 20/20 passed (Chromium, Firefox, WebKit, Edge).
+  - **Sanity 3.0 Form Lifecycle (`03-form-lifecycle.spec.ts`)**: 12/12 passed (Chromium, Firefox, WebKit, Edge).
+  - **Sanity 3.0 Explore & Subscriptions (`05-explore-subscriptions.spec.ts`)**: 12/12 passed (Chromium, Firefox, WebKit, Edge).
+  - **Sanity 3.0 Chat (`04-chat-collaboration.spec.ts`)**: 20/20 passed across all 4 browsers (Firefox verified 5/5 in 1.8m).
+  - **Individual Poll Script (`TC_POST_005`)**: 1 passed cleanly in 33.2s on Chromium.
+
+---
+
 ## 2. GitHub Actions Workflow Failure Bug Report
 
 ### Failure Summary

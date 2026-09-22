@@ -64,17 +64,16 @@ jobs:
 
       - name: Install Playwright Browsers & Dependencies
         run: |
-          if [ "${{ github.event.inputs.browser }}" = "chromium" ]; then
+          if [ "${{ github.event.inputs.browser }}" = "chromium" ] || [ "${{ github.event_name }}" = "push" ]; then
             npx playwright install --with-deps chromium
           elif [ "${{ github.event.inputs.browser }}" = "firefox" ]; then
             npx playwright install --with-deps firefox
           elif [ "${{ github.event.inputs.browser }}" = "webkit" ]; then
             npx playwright install --with-deps webkit
           elif [ "${{ github.event.inputs.browser }}" = "edge" ]; then
-            npx playwright install --with-deps msedge || npx playwright install --with-deps chromium
+            npx playwright install --with-deps chromium
           else
             npx playwright install --with-deps
-            npx playwright install msedge || true
           fi
 
       - name: Run Playwright Tests for Selected Page Suite
@@ -82,6 +81,8 @@ jobs:
           BROWSER_ARG=""
           if [ -n "${{ github.event.inputs.browser }}" ] && [ "${{ github.event.inputs.browser }}" != "all" ]; then
             BROWSER_ARG="--project=${{ github.event.inputs.browser }}"
+          elif [ "${{ github.event_name }}" = "push" ]; then
+            BROWSER_ARG="--project=chromium"
           fi
 
           PAGE_CHOICE="${{ github.event.inputs.page }}"

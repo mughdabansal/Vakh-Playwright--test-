@@ -20,13 +20,13 @@ on:
       suite_version:
         description: 'Sanity Suite Version to execute'
         required: true
-        default: 'all'
+        default: '3.0'
         type: choice
         options:
-          - all
+          - '3.0'
           - '1.0'
           - '2.0'
-          - '3.0'
+          - all
       browser:
         description: 'Browser engine to run sanity suite against'
         required: true
@@ -60,17 +60,16 @@ jobs:
 
       - name: Install Playwright Browsers & System Dependencies
         run: |
-          if [ "${{ github.event.inputs.browser }}" = "chromium" ]; then
+          if [ "${{ github.event.inputs.browser }}" = "chromium" ] || [ "${{ github.event_name }}" = "push" ]; then
             npx playwright install --with-deps chromium
           elif [ "${{ github.event.inputs.browser }}" = "firefox" ]; then
             npx playwright install --with-deps firefox
           elif [ "${{ github.event.inputs.browser }}" = "webkit" ]; then
             npx playwright install --with-deps webkit
           elif [ "${{ github.event.inputs.browser }}" = "edge" ]; then
-            npx playwright install --with-deps msedge || npx playwright install --with-deps chromium
+            npx playwright install --with-deps chromium
           else
             npx playwright install --with-deps
-            npx playwright install msedge || true
           fi
 
       - name: Run Playwright Sanity Tests
@@ -78,6 +77,8 @@ jobs:
           PROJECT_ARG=""
           if [ -n "${{ github.event.inputs.browser }}" ] && [ "${{ github.event.inputs.browser }}" != "all" ]; then
             PROJECT_ARG="--project=${{ github.event.inputs.browser }}"
+          elif [ "${{ github.event_name }}" = "push" ]; then
+            PROJECT_ARG="--project=chromium"
           fi
 
           if [ "${{ github.event.inputs.suite_version }}" = "1.0" ]; then
@@ -86,12 +87,12 @@ jobs:
           elif [ "${{ github.event.inputs.suite_version }}" = "2.0" ]; then
             echo "Executing Sanity 2.0 (Posting & Moderation): npm run test:sanity:2.0 -- $PROJECT_ARG"
             npm run test:sanity:2.0 -- $PROJECT_ARG
-          elif [ "${{ github.event.inputs.suite_version }}" = "3.0" ]; then
-            echo "Executing Sanity 3.0 (Full E2E Core Lifecycle): npm run test:sanity:3.0 -- $PROJECT_ARG"
-            npm run test:sanity:3.0 -- $PROJECT_ARG
-          else
+          elif [ "${{ github.event.inputs.suite_version }}" = "all" ]; then
             echo "Executing All Sanity Suites: npm run test:sanity -- $PROJECT_ARG"
             npm run test:sanity -- $PROJECT_ARG
+          else
+            echo "Executing Sanity 3.0 (Full E2E Core Lifecycle): npm run test:sanity:3.0 -- $PROJECT_ARG"
+            npm run test:sanity:3.0 -- $PROJECT_ARG
           fi
         env:
           CI: true

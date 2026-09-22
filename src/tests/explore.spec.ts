@@ -126,8 +126,8 @@ test.describe('Eve Vakh - Explore Page Functional, UI/UX & Profile Forms Test Su
     const explorePage = new ExplorePage(page);
 
     await explorePage.clickUserProfile(0);
-    await expect(explorePage.messageBtn).toBeVisible();
-    await expect(explorePage.moreBtn).toBeVisible();
+    await expect(explorePage.messageBtn).toBeVisible({ timeout: 15000 });
+    await expect(explorePage.moreBtn).toBeVisible({ timeout: 15000 });
   });
 
   /**

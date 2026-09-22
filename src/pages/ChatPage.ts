@@ -75,10 +75,13 @@ export class ChatPage extends BasePage {
     }
     if (await this.chatNavButton.isVisible({ timeout: 5000 }).catch(() => false)) {
       await this.chatNavButton.click();
-    } else {
-      await this.navigateTo('/messages');
     }
-    await this.page.waitForTimeout(2000);
+    const hasNavigated = await this.page.waitForURL(url => url.pathname.includes('/messages'), { timeout: 4000 }).then(() => true).catch(() => false);
+    if (!hasNavigated) {
+      await this.navigateTo('/messages');
+      await this.page.waitForURL(url => url.pathname.includes('/messages'), { timeout: 10000 });
+    }
+    await this.page.waitForTimeout(1000);
     await expect(this.page).toHaveURL(/.*messages.*/, { timeout: 10000 });
   }
 
