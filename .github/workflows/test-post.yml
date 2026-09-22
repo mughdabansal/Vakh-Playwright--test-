@@ -1,16 +1,30 @@
-name: Test Suite - Create Post Page
+name: Test Suite - Create Post & Poll
 
 on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'src/tests/post.spec.ts'
+      - 'src/pages/PostComposerPage.ts'
+      - '.github/workflows/test-post.yml'
   workflow_dispatch:
     inputs:
-      browser:
-        description: 'Browser engine to execute post creation tests against'
+      test_target:
+        description: 'Test target to execute'
         required: true
-        default: 'all'
+        default: 'poll'
         type: choice
         options:
+          - poll
           - all
+      browser:
+        description: 'Browser engine to execute tests against'
+        required: true
+        default: 'chromium'
+        type: choice
+        options:
           - chromium
+          - all
           - firefox
           - webkit
           - edge
@@ -26,7 +40,7 @@ concurrency:
 
 jobs:
   test-post:
-    name: Run Post Creation Page Suite & Update Dashboard
+    name: Run Post & Poll Test Suite
     runs-on: ubuntu-latest
     timeout-minutes: 90
 
@@ -47,7 +61,7 @@ jobs:
 
       - name: Install Playwright Browsers & Dependencies
         run: |
-          if [ "${{ github.event.inputs.browser }}" = "chromium" ]; then
+          if [ "${{ github.event.inputs.browser }}" = "chromium" ] || [ -z "${{ github.event.inputs.browser }}" ]; then
             npx playwright install --with-deps chromium
           elif [ "${{ github.event.inputs.browser }}" = "firefox" ]; then
             npx playwright install --with-deps firefox
@@ -59,12 +73,21 @@ jobs:
             npx playwright install --with-deps
           fi
 
-      - name: Run Post Creation Page Tests (Single Command Package)
+      - name: Run Post / Poll Tests
         run: |
+          BROWSER_ARG="--project=chromium"
           if [ -n "${{ github.event.inputs.browser }}" ] && [ "${{ github.event.inputs.browser }}" != "all" ]; then
-            npx playwright test src/tests/post.spec.ts --project=${{ github.event.inputs.browser }} && npm run generate:dashboard
+            BROWSER_ARG="--project=${{ github.event.inputs.browser }}"
+          elif [ "${{ github.event.inputs.browser }}" = "all" ]; then
+            BROWSER_ARG=""
+          fi
+
+          if [ "${{ github.event.inputs.test_target }}" = "all" ]; then
+            echo "⚡ Running Full Post Suite: src/tests/post.spec.ts $BROWSER_ARG"
+            npx playwright test src/tests/post.spec.ts $BROWSER_ARG && npm run generate:dashboard
           else
-            npm run test:post
+            echo "⚡ Running Individual Poll Test: src/tests/post.spec.ts -g TC_POST_005 $BROWSER_ARG"
+            npx playwright test src/tests/post.spec.ts -g "TC_POST_005" $BROWSER_ARG && npm run generate:dashboard
           fi
         env:
           CI: true

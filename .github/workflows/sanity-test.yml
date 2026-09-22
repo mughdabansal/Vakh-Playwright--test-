@@ -1,3 +1,4 @@
+# Sanity 3.0 Isolated CI Workflow
 name: Versioned Sanity Test Suites (1.0, 2.0, 3.0)
 
 on:

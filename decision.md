@@ -89,6 +89,23 @@ This living document tracks key technical decisions, architectural rationales, a
 
 ---
 
+### Decision 6: Dual Workflow Isolation for Sanity 3.0 and Poll Test
+* **Context**: The user requested executing strictly 2 workflows in GitHub Actions: one for Sanity 3.0 and one for the Poll test, preventing other suites or monolithic pipelines from running.
+* **Workflow Audit & Changes**:
+  1. **Monolithic Pipeline Decoupling (`test-and-deploy.yml`)**:
+     - Removed `push` and `pull_request` triggers so it no longer executes on every code commit. It is now strictly manual via `workflow_dispatch`.
+  2. **Poll Workflow Push Scoping (`test-post.yml`)**:
+     - Added `push` triggers matching `src/tests/post.spec.ts`, `src/pages/PostComposerPage.ts`, and `.github/workflows/test-post.yml`.
+     - Added `test_target` parameter defaulting to `poll` (`TC_POST_005`) while supporting `all` for the full post creation suite.
+     - Defaults to `--project=chromium` for fast and clean headless CI verification.
+  3. **Sanity 3.0 Workflow Push Scoping (`sanity-test.yml`)**:
+     - Configured to run exclusively Sanity 3.0 by default on push (`npm run test:sanity:3.0 -- --project=chromium`).
+  4. **Strict Dual Execution**:
+     - All other suite workflows (`login`, `home`, `chat`, `explore`, `activity`) remain isolated behind `workflow_dispatch`.
+     - Only the 2 designated workflows (`sanity-test.yml` and `test-post.yml`) execute on push.
+
+---
+
 ## 2. GitHub Actions Workflow Failure Bug Report
 
 ### Failure Summary
