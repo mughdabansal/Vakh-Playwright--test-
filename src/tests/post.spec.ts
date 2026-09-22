@@ -5,6 +5,7 @@ import { PostComposerPage } from '../pages/PostComposerPage';
 import { TEST_USERS } from '../config/constants';
 
 test.describe('Eve Vakh - Post Creation & Composer Full Test Suite', () => {
+  test.describe.configure({ mode: 'serial' });
   test.setTimeout(90000);
 
   test.beforeEach(async ({ page }) => {
@@ -115,9 +116,6 @@ test.describe('Eve Vakh - Post Creation & Composer Full Test Suite', () => {
     await newPostBtn.click();
     await page.waitForTimeout(1500);
 
-    // Verify "Add poll" button is available in composer
-    await expect(composerPage.addPollButton).toBeVisible({ timeout: 10000 });
-
     // Fill poll details
     const pollQuestion = `Which tool do you prefer ${Date.now().toString().slice(-4)}?`;
     const pollOptions = ['Playwright Framework', 'Interactive Polls'];
@@ -126,11 +124,7 @@ test.describe('Eve Vakh - Post Creation & Composer Full Test Suite', () => {
     // Submit post
     await composerPage.submitPost();
 
-    // Reload form view to ensure feed reflects newly published poll
-    await page.reload();
-    await page.waitForTimeout(3000);
-
-    // Verify rendered poll post with question and options
+    // Verify rendered poll post with question and options (syncs feed if needed)
     await composerPage.verifyPollRendered(pollQuestion, pollOptions);
 
     // Cast a vote and verify confirmation

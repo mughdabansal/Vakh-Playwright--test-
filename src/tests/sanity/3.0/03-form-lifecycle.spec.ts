@@ -5,6 +5,7 @@ import { FormManagementPage } from '../../../pages/FormManagementPage';
 import { SANITY_3_DATA } from './data/sanity3.data';
 
 test.describe('Eve Vakh - Sanity 3.0: Form Lifecycle & Form Ownership Suite', () => {
+  test.describe.configure({ mode: 'serial' });
   test.setTimeout(90000);
 
   test.beforeEach(async ({ page }) => {
