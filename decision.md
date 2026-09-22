@@ -106,6 +106,36 @@ This living document tracks key technical decisions, architectural rationales, a
 
 ---
 
+### Decision 7: Non-Disruptive Dashboard Update for Poll Test & Sanity 3.0 Rerun Results
+* **Context**:
+  - The Poll test (`TC_POST_005: should create form with poll field and publish interactive poll post with voting`) and Sanity 3.0 rerun completed with 100% success on both local runs and GitHub Actions CI runs (`35695488615` and `35696376678`).
+  - The user requested updating the dashboard with both the Poll test and Sanity 3.0 rerun results without interrupting or breaking any previous data, styling tokens, or baseline metrics.
+* **Important Decisions & Technical Rationale**:
+  1. **Preservation of All Baseline Data**:
+     - All legacy tables and metrics (Sanity 1.0 with 13 tests, Sanity 2.0 with 8 tests, Login Page with 4 tests, Home Page with 10 tests, Chat Page with 16 tests, Activity Page with 10 tests, Explore Page with 9 tests, CI/CD, and Autocannon load performance metrics) were preserved 100% untouched.
+     - Color tokens, theme toggles, and layout structure remain unaltered.
+  2. **Poll Test Integration (`TC_POST_005`)**:
+     - In the Post Creation module (`#view-post`):
+       - Updated header badge from `4 / 4 Tests Passed` to `5 / 5 Tests Passed`.
+       - Updated navigation tab count from `4 Tests` to `5 Tests`.
+       - Added `TC_POST_005` row to the Post Creation test table with full test specifications, selectors, expected outcomes, and `PASSED` badge.
+       - Added an "Interactive Poll Voting" telemetry card (TC_POST_005 Verified, 100% Passed) to the module grid.
+     - In the Overview Quick Health Cards:
+       - Added the `Create Post & Poll` module card (5 Tests Passed) with navigation to `#view-post`.
+  3. **Sanity 3.0 Rerun Results Presentation**:
+     - In Overview tab summary cards:
+       - Updated `Total Automated Coverage` to `97 Total Scenarios (57 Regression + 40 Sanity)`.
+       - Updated `Sanity Feedback Cycle` to `40 / 40` (`Releases 1.0, 2.0 & 3.0 verified across all 4 browser engines`).
+     - In Sanity 3.0 section (`#sanity-section-v3`):
+       - Added the verified rerun badge: `✅ Latest Rerun: 19 / 19 Passed (100%)`.
+       - Maintained all 19 scenarios with their verified cross-browser execution timings.
+  4. **Dynamic Results Parser Refinement**:
+     - Updated `scripts/generate-dashboard.js` to correctly classify Sanity 3.0 suite files as `Sanity 3.0 (Full Lifecycle)` rather than matching substring file names (`02-post-lifecycle` as `Create Post`, etc.), avoiding distorted status pills in the top bar.
+  5. **NPM Developer Experience**:
+     - Added `"test:post:poll": "playwright test src/tests/post.spec.ts -g TC_POST_005 && npm run generate:dashboard"` to `package.json` for rapid local verification.
+
+---
+
 ## 2. GitHub Actions Workflow Failure Bug Report
 
 ### Failure Summary

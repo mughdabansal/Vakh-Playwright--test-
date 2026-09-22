@@ -1804,9 +1804,9 @@
         </div>
       </button>
 
-      <div class="status-pill">Create Post (1/1 Passed)</div>
+      <div class="status-pill">Create Post & Poll (1/1 Passed)</div>
       <div style="font-size: 0.78rem; color: var(--text-muted); background: rgba(255,255,255,0.05); padding: 0.35rem 0.75rem; border-radius: 8px; border: 1px solid var(--border);">
-        🕒 Updated: Tuesday, September 22, 2026 at 6:36:23 AM
+        🕒 Updated: Tuesday, September 22, 2026 at 12:33:22 PM
       </div>
       <a href="https://github.com/mughdabansal/Vakh-Playwright--test-" target="_blank" class="btn-github">
         <svg height="16" width="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
@@ -1843,7 +1843,7 @@
         🧭 Explore Page <span class="tab-count">9 Tests</span>
       </button>
       <button class="tab-btn" onclick="switchTab('post', this)">
-        📝 Create Post <span class="tab-count">4 Tests</span>
+        📝 Create Post <span class="tab-count">5 Tests</span>
       </button>
       <button class="tab-btn" onclick="switchTab('cicd', this)">
         ⚙️ GitHub Actions CI/CD <span class="tab-count">Live (90m)</span>
@@ -1859,12 +1859,12 @@
         <div class="stat-card green">
           <div class="label">Total Automated Coverage</div>
           <div class="value">100% Pass</div>
-          <div class="subtext"><span>✅</span> 77 Total Scenarios (56 Regression + 21 Sanity)</div>
+          <div class="subtext"><span>✅</span> 97 Total Scenarios (57 Regression + 40 Sanity)</div>
         </div>
         <div class="stat-card blue">
           <div class="label">Sanity Feedback Cycle</div>
-          <div class="value">21 / 21</div>
-          <div class="subtext"><span>⚡</span> Releases 1.0 & 2.0 passed across all 4 browser engines</div>
+          <div class="value">40 / 40</div>
+          <div class="subtext"><span>⚡</span> Releases 1.0, 2.0 & 3.0 verified across all 4 browser engines</div>
         </div>
         <div class="stat-card purple">
           <div class="label">Web Load Throughput</div>
@@ -1882,7 +1882,7 @@
       <div class="panel">
         <div class="panel-header">
           <div class="panel-title">🎯 Tested Application Modules & Status</div>
-          <span style="font-size: 0.8rem; color: var(--text-muted);">Synchronized: Tuesday, September 22, 2026 at 6:36:23 AM</span>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Synchronized: Tuesday, September 22, 2026 at 12:33:22 PM</span>
         </div>
         <div class="grid-3">
           <div class="stat-card overview-fast-gate-card" onclick="switchTab('sanity', document.querySelectorAll('.tab-btn')[1])">
@@ -1945,7 +1945,17 @@
             </div>
           </div>
 
-          <div class="stat-card" style="cursor: pointer;" onclick="switchTab('cicd', document.querySelectorAll('.tab-btn')[7])">
+          <div class="stat-card" style="cursor: pointer;" onclick="switchTab('post', document.querySelectorAll('.tab-btn')[7])">
+            <div class="label">Composer & Poll Module</div>
+            <div class="value" style="font-size: 1.4rem; color: #10b981;">Create Post & Poll</div>
+            <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.3rem;">Modal launch, target form selection, composition palette, rich text publishing, and interactive poll voting.</p>
+            <div style="margin-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
+              <span class="badge passed">5 Tests Passed</span>
+              <span style="font-size: 0.78rem; color: #10b981;">View Specs &rarr;</span>
+            </div>
+          </div>
+
+          <div class="stat-card" style="cursor: pointer;" onclick="switchTab('cicd', document.querySelectorAll('.tab-btn')[8])">
             <div class="label">DevOps Automation</div>
             <div class="value" style="font-size: 1.4rem; color: #38bdf8;">CI/CD Pipeline</div>
             <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.3rem;">GitHub Actions workflow testing all specs and auto-deploying to Pages.</p>
@@ -2436,9 +2446,12 @@
                   Directory: <code>src/tests/sanity/3.0/</code> &mdash; Full end-to-end lifecycle verification spanning authentication, rich post workflow, form ownership, real-time chat & admin governance, and creator explore & subscriptions management.
                 </p>
               </div>
-              <span class="badge" style="background: rgba(139, 92, 246, 0.15); color: #c4b5fd; border: 1px solid rgba(139, 92, 246, 0.3);">
-                npm run test:sanity:3.0
-              </span>
+              <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+                <span class="badge passed" style="font-weight: 600;">✅ Latest Rerun: 19 / 19 Passed (100%)</span>
+                <span class="badge" style="background: rgba(139, 92, 246, 0.15); color: #c4b5fd; border: 1px solid rgba(139, 92, 246, 0.3);">
+                  npm run test:sanity:3.0
+                </span>
+              </div>
             </div>
 
             <!-- Suite 3.1: Auth & UI/UX -->
@@ -5536,10 +5549,10 @@
           <div>
             <div class="panel-title">📝 Eve Vakh — Post Creation & Composer Module</div>
             <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
-              Target Endpoint: <code>https://eve.vakh.com/</code> | Post Creation & Multi-Tool Composer Suite
+              Target Endpoint: <code>https://eve.vakh.com/</code> | Post Creation, Multi-Tool Composer & Interactive Polls Suite
             </p>
           </div>
-          <span class="badge passed">4 / 4 Tests Passed</span>
+          <span class="badge passed">5 / 5 Tests Passed</span>
         </div>
 
         <div class="grid-4" style="margin-bottom: 1.5rem;">
@@ -5555,13 +5568,18 @@
           </div>
           <div class="stat-card purple">
             <div class="label">Tooling Palette</div>
-            <div class="value" style="font-size: 1.4rem;">6 Tools</div>
-            <div class="subtext"><span>✅</span> Text, Media, Link, Quote...</div>
+            <div class="value" style="font-size: 1.4rem;">6 Tools + Polls</div>
+            <div class="subtext"><span>✅</span> Text, Media, Poll, Link...</div>
           </div>
           <div class="stat-card orange">
             <div class="label">Content Publishing</div>
             <div class="value" style="font-size: 1.4rem;">100% Passed</div>
             <div class="subtext"><span>✅</span> TC_POST_004 Verified</div>
+          </div>
+          <div class="stat-card" style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25);">
+            <div class="label" style="color: #34d399;">Interactive Poll Voting</div>
+            <div class="value" style="font-size: 1.4rem; color: #34d399;">100% Passed</div>
+            <div class="subtext"><span>✅</span> TC_POST_005 Verified</div>
           </div>
         </div>
 
@@ -5602,6 +5620,13 @@
               <td>Text content entry and post publishing flow</td>
               <td><code>textarea / contenteditable + Create button</code></td>
               <td>Submits post and preserves session</td>
+              <td><span class="badge passed">PASSED</span></td>
+            </tr>
+            <tr>
+              <td><code>TC_POST_005</code></td>
+              <td>Create form with poll field and publish interactive poll post with voting</td>
+              <td><code>Form Builder (Poll Field) &rarr; Composer (Add Poll) &rarr; Voting</code></td>
+              <td>Configures poll-enabled form, publishes poll question/options, casts vote & verifies real-time percentage confirmation</td>
               <td><span class="badge passed">PASSED</span></td>
             </tr>
           </tbody>
@@ -5695,6 +5720,12 @@
               <td><code>Page Suite: Create Post Page (.github/workflows/test-post.yml)</code></td>
               <td>Auto-generates & deploys on completion</td>
             </tr>
+            <tr>
+              <td>💎 <strong>Sanity Suites (1.0, 2.0, 3.0)</strong></td>
+              <td><code>npm run test:sanity:3.0</code></td>
+              <td><code>Versioned Sanity Suites (.github/workflows/sanity-test.yml)</code></td>
+              <td>Isolated Fast Gate execution</td>
+            </tr>
           </tbody>
         </table>
 
@@ -5760,7 +5791,7 @@
     <!-- Footer -->
     <footer>
       <p>Eve Vakh Quality, Test & CI/CD Automation Suite &mdash; Built with Playwright & GitHub Actions.</p>
-      <p style="margin-top: 0.35rem; color: var(--text-dim);">Live Dashboard: <a href="https://mughdabansal.github.io/Vakh-Playwright--test-/" style="color: #60a5fa;">https://mughdabansal.github.io/Vakh-Playwright--test-/</a> | Last updated: <strong>Tuesday, September 22, 2026 at 6:36:23 AM</strong></p>
+      <p style="margin-top: 0.35rem; color: var(--text-dim);">Live Dashboard: <a href="https://mughdabansal.github.io/Vakh-Playwright--test-/" style="color: #60a5fa;">https://mughdabansal.github.io/Vakh-Playwright--test-/</a> | Last updated: <strong>Tuesday, September 22, 2026 at 12:33:22 PM</strong></p>
     </footer>
 
   </div>

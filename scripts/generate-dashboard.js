@@ -65,17 +65,26 @@ if (fs.existsSync(resultsJsonPath)) {
     }
 
     if (totalTests > 0) {
-      const suiteNames = Array.from(suitesDetected).map(f => {
-        if (f.includes('login')) return 'Login Page';
-        if (f.includes('home')) return 'Home Page';
-        if (f.includes('chat')) return 'Chat Page';
-        if (f.includes('activity')) return 'Activity Page';
-        if (f.includes('explore')) return 'Explore Page';
-        if (f.includes('post')) return 'Create Post';
-        if (f.includes('moderation')) return 'Moderation';
-        return f.replace('.spec.ts', '');
-      });
-      const suiteLabel = suiteNames.length > 0 ? suiteNames.join(', ') : 'Tests';
+      const suiteFiles = Array.from(suitesDetected);
+      const isSanity3 = suiteFiles.some(f =>
+        f.startsWith('01-') || f.startsWith('02-') || f.startsWith('03-') || f.startsWith('04-') || f.startsWith('05-') || f.includes('sanity/3.0')
+      );
+      let suiteLabel = 'Tests';
+      if (isSanity3) {
+        suiteLabel = 'Sanity 3.0 (Full Lifecycle)';
+      } else {
+        const suiteNames = suiteFiles.map(f => {
+          if (f === 'post.spec.ts' || f.includes('post.spec')) return 'Create Post & Poll';
+          if (f.includes('login')) return 'Login Page';
+          if (f.includes('home')) return 'Home Page';
+          if (f.includes('chat')) return 'Chat Page';
+          if (f.includes('activity')) return 'Activity Page';
+          if (f.includes('explore')) return 'Explore Page';
+          if (f.includes('moderation')) return 'Moderation';
+          return f.replace('.spec.ts', '');
+        });
+        suiteLabel = suiteNames.length > 0 ? suiteNames.join(', ') : 'Tests';
+      }
       if (failedTests === 0) {
         latestRunInfo = `${suiteLabel} (${passedTests}/${totalTests} Passed)`;
         latestRunBadge = `${suiteLabel}: Passed`;
@@ -1934,7 +1943,7 @@ const htmlContent = `<!DOCTYPE html>
         🧭 Explore Page <span class="tab-count">9 Tests</span>
       </button>
       <button class="tab-btn" onclick="switchTab('post', this)">
-        📝 Create Post <span class="tab-count">4 Tests</span>
+        📝 Create Post <span class="tab-count">5 Tests</span>
       </button>
       <button class="tab-btn" onclick="switchTab('cicd', this)">
         ⚙️ GitHub Actions CI/CD <span class="tab-count">Live (90m)</span>
@@ -1950,12 +1959,12 @@ const htmlContent = `<!DOCTYPE html>
         <div class="stat-card green">
           <div class="label">Total Automated Coverage</div>
           <div class="value">100% Pass</div>
-          <div class="subtext"><span>✅</span> 77 Total Scenarios (56 Regression + 21 Sanity)</div>
+          <div class="subtext"><span>✅</span> 97 Total Scenarios (57 Regression + 40 Sanity)</div>
         </div>
         <div class="stat-card blue">
           <div class="label">Sanity Feedback Cycle</div>
-          <div class="value">21 / 21</div>
-          <div class="subtext"><span>⚡</span> Releases 1.0 & 2.0 passed across all 4 browser engines</div>
+          <div class="value">40 / 40</div>
+          <div class="subtext"><span>⚡</span> Releases 1.0, 2.0 & 3.0 verified across all 4 browser engines</div>
         </div>
         <div class="stat-card purple">
           <div class="label">Web Load Throughput</div>
@@ -2036,7 +2045,17 @@ const htmlContent = `<!DOCTYPE html>
             </div>
           </div>
 
-          <div class="stat-card" style="cursor: pointer;" onclick="switchTab('cicd', document.querySelectorAll('.tab-btn')[7])">
+          <div class="stat-card" style="cursor: pointer;" onclick="switchTab('post', document.querySelectorAll('.tab-btn')[7])">
+            <div class="label">Composer & Poll Module</div>
+            <div class="value" style="font-size: 1.4rem; color: #10b981;">Create Post & Poll</div>
+            <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.3rem;">Modal launch, target form selection, composition palette, rich text publishing, and interactive poll voting.</p>
+            <div style="margin-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
+              <span class="badge passed">5 Tests Passed</span>
+              <span style="font-size: 0.78rem; color: #10b981;">View Specs &rarr;</span>
+            </div>
+          </div>
+
+          <div class="stat-card" style="cursor: pointer;" onclick="switchTab('cicd', document.querySelectorAll('.tab-btn')[8])">
             <div class="label">DevOps Automation</div>
             <div class="value" style="font-size: 1.4rem; color: #38bdf8;">CI/CD Pipeline</div>
             <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.3rem;">GitHub Actions workflow testing all specs and auto-deploying to Pages.</p>
@@ -2527,9 +2546,12 @@ const htmlContent = `<!DOCTYPE html>
                   Directory: <code>src/tests/sanity/3.0/</code> &mdash; Full end-to-end lifecycle verification spanning authentication, rich post workflow, form ownership, real-time chat & admin governance, and creator explore & subscriptions management.
                 </p>
               </div>
-              <span class="badge" style="background: rgba(139, 92, 246, 0.15); color: #c4b5fd; border: 1px solid rgba(139, 92, 246, 0.3);">
-                npm run test:sanity:3.0
-              </span>
+              <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+                <span class="badge passed" style="font-weight: 600;">✅ Latest Rerun: 19 / 19 Passed (100%)</span>
+                <span class="badge" style="background: rgba(139, 92, 246, 0.15); color: #c4b5fd; border: 1px solid rgba(139, 92, 246, 0.3);">
+                  npm run test:sanity:3.0
+                </span>
+              </div>
             </div>
 
             <!-- Suite 3.1: Auth & UI/UX -->
@@ -5627,10 +5649,10 @@ const htmlContent = `<!DOCTYPE html>
           <div>
             <div class="panel-title">📝 Eve Vakh — Post Creation & Composer Module</div>
             <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
-              Target Endpoint: <code>https://eve.vakh.com/</code> | Post Creation & Multi-Tool Composer Suite
+              Target Endpoint: <code>https://eve.vakh.com/</code> | Post Creation, Multi-Tool Composer & Interactive Polls Suite
             </p>
           </div>
-          <span class="badge passed">4 / 4 Tests Passed</span>
+          <span class="badge passed">5 / 5 Tests Passed</span>
         </div>
 
         <div class="grid-4" style="margin-bottom: 1.5rem;">
@@ -5646,13 +5668,18 @@ const htmlContent = `<!DOCTYPE html>
           </div>
           <div class="stat-card purple">
             <div class="label">Tooling Palette</div>
-            <div class="value" style="font-size: 1.4rem;">6 Tools</div>
-            <div class="subtext"><span>✅</span> Text, Media, Link, Quote...</div>
+            <div class="value" style="font-size: 1.4rem;">6 Tools + Polls</div>
+            <div class="subtext"><span>✅</span> Text, Media, Poll, Link...</div>
           </div>
           <div class="stat-card orange">
             <div class="label">Content Publishing</div>
             <div class="value" style="font-size: 1.4rem;">100% Passed</div>
             <div class="subtext"><span>✅</span> TC_POST_004 Verified</div>
+          </div>
+          <div class="stat-card" style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25);">
+            <div class="label" style="color: #34d399;">Interactive Poll Voting</div>
+            <div class="value" style="font-size: 1.4rem; color: #34d399;">100% Passed</div>
+            <div class="subtext"><span>✅</span> TC_POST_005 Verified</div>
           </div>
         </div>
 
@@ -5693,6 +5720,13 @@ const htmlContent = `<!DOCTYPE html>
               <td>Text content entry and post publishing flow</td>
               <td><code>textarea / contenteditable + Create button</code></td>
               <td>Submits post and preserves session</td>
+              <td><span class="badge passed">PASSED</span></td>
+            </tr>
+            <tr>
+              <td><code>TC_POST_005</code></td>
+              <td>Create form with poll field and publish interactive poll post with voting</td>
+              <td><code>Form Builder (Poll Field) &rarr; Composer (Add Poll) &rarr; Voting</code></td>
+              <td>Configures poll-enabled form, publishes poll question/options, casts vote & verifies real-time percentage confirmation</td>
               <td><span class="badge passed">PASSED</span></td>
             </tr>
           </tbody>
@@ -5785,6 +5819,12 @@ const htmlContent = `<!DOCTYPE html>
               <td><code>npm run test:post</code></td>
               <td><code>Page Suite: Create Post Page (.github/workflows/test-post.yml)</code></td>
               <td>Auto-generates & deploys on completion</td>
+            </tr>
+            <tr>
+              <td>💎 <strong>Sanity Suites (1.0, 2.0, 3.0)</strong></td>
+              <td><code>npm run test:sanity:3.0</code></td>
+              <td><code>Versioned Sanity Suites (.github/workflows/sanity-test.yml)</code></td>
+              <td>Isolated Fast Gate execution</td>
             </tr>
           </tbody>
         </table>

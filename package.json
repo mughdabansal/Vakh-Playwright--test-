@@ -12,6 +12,7 @@
     "test:activity": "playwright test src/tests/activity.spec.ts && npm run generate:dashboard",
     "test:explore": "playwright test src/tests/explore.spec.ts && npm run generate:dashboard",
     "test:post": "playwright test src/tests/post.spec.ts && npm run generate:dashboard",
+    "test:post:poll": "playwright test src/tests/post.spec.ts -g TC_POST_005 && npm run generate:dashboard",
     "test:sanity": "playwright test src/tests/sanity && npm run generate:dashboard",
     "test:sanity:1.0": "playwright test src/tests/sanity/1.0 && npm run generate:dashboard",
     "test:sanity:2.0": "playwright test src/tests/sanity/2.0 && npm run generate:dashboard",
