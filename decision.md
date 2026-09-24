@@ -183,3 +183,48 @@ This living document tracks key technical decisions, architectural rationales, a
   * Updated `sanity-test.yml` to directly invoke Playwright:
     `npx playwright test $TARGET_DIR $PROJECT_ARG && npm run generate:dashboard`
   * This guarantees `$PROJECT_ARG` (`--project=chromium`) is directly accepted by the Playwright CLI, executing strictly the 19 tests of Sanity 3.0 sequentially on Chromium.
+
+---
+
+### Decision 8: Risk-Tiered API Testing Framework, Gotchas & Security Fuzzing Suite
+* **Context**: The team required an automated API test suite covering Vakh's session-based auth (Better Auth), OpenFGA permission matrix, async queues, WebSocket real-time actors, rate limiting at multiple levels, security fuzzing (SSRF, IDOR, CSRF, Zod injection), and documented edge-case behaviors (privacy invariants, hearts budget, popular ranking windows, archived forms).
+* **Constraints Enforced**:
+  1. **Strict Account Isolation**: Exclusively used `m@2094` (`mughdabansal2094@gmail.com`) for all authenticated test routines.
+  2. **Zero-Mutation / Zero-Deletion for Other Accounts**: Prohibited any destructive actions or mutation against any real users or other accounts. IDOR and deletion tests were strictly isolated using ephemeral dummy IDs and mock scopes.
+* **Architecture & Implementation**:
+  1. **Core Client Layer (`src/api/client/`)**:
+     - `ApiClient.ts`: Playwright `APIRequestContext` wrapper supporting latency instrumentation, `X-Min-Consistency-Token`, and `Idempotency-Key` headers.
+     - `AuthSessionManager.ts`: Session lifecycle manager with cookie sanitization (`formatCookieForRequest`) ensuring `set-cookie` directives (path, domain, samesite) do not cause header format rejections.
+     - `WebSocketActor.ts`: Native WebSocket client testing connection lifecycles, reconnection close code classification (`1001`, `1008 transient` vs `1008 permission_revoked`), and 6th concurrent session eviction.
+  2. **Tier 1 Critical Suite (`src/tests/api/tier1-critical/`, 18 Tests)**:
+     - Better Auth sign-in, session resolution, sign-out invalidation, MFA backup codes (`twoFactor.verifyBackupCode`), 2FA persistence, and legacy `/api/mfa/*` 404 verification.
+     - OpenFGA permission tiers (`can_read`, `can_get`, `can_create`, `can_admin`), `purgeFormPermissions` race condition guard, and batch-check coalescing.
+     - Messaging consent model: message requests, auto-accept, block-implies-decline, and decline privacy timing/shape indistinguishability fuzzing.
+     - Storage upload security: magic-byte mismatch, path traversal filename sanitization, 16 MiB boundary (15.9 MiB pass vs 16.1 MiB fail `FILE_TOO_LARGE`), and signed-URL expiry.
+     - Account deletion lifecycle: request -> cancel -> re-request and purge alarm contract without touching active production accounts.
+  3. **Tier 2 Core CRUD & Business Logic (`src/tests/api/tier2-core/`, 15 Tests)**:
+     - Cursor pagination contract (`cursor`, `has_more`, `next_cursor`) across feed and listings.
+     - Hearts budget: 1–7 batch validation, 7/UTC-day cap, self-hearts allowed without notification, and idempotency key deduplication.
+     - Popular discovery: 7-day rolling window, ranking formula `(2*references + hearts)/max(age_hours, 1)`, cursor stability across pages, and cache-bypass consistency token.
+     - CSV import pipeline: async phases (`validate` -> `import` -> `publish` -> `cleanup`), 5 MiB pre-parse body limit, and mid-phase cancellation.
+     - Archived forms: discovery-only archive (hidden from feeds/subscriptions/profiles; direct access and publishing functional).
+  4. **Tier 3 Supporting Features (`src/tests/api/tier3-supporting/`, 7 Tests)**:
+     - Geocode proxy caching semantics (`suggest` no-store vs `resolve` cacheable).
+     - AI schema generation graceful layout fallback on step 2 inference failure.
+     - RestApi field proxy: GET-only on `/execute` (POST returns 405), strict HTTPS enforcement, CRLF injection defenses, and 1,000/day shared quota tracking.
+  5. **Specific Gotchas Suite (`src/tests/api/gotchas/`, 5 Tests)**:
+     - Anti-enumeration recovery OTP dispatch timing and response parity.
+     - Sending message to conversation with deleted counterparty expects specific 400 error.
+     - WebSocket close code classifier and 6th concurrent session eviction (evicted client receives 1001).
+     - Dynamic read-time exclusion of archived forms from subscription unread counts.
+  6. **Security Testing Pass (`src/tests/api/security/`, 31 Tests)**:
+     - Comprehensive SSRF defense fuzzing across IPv4 private ranges, cloud metadata, and complete IPv6 encodings (loopback, link-local, ULA, and all 3 IPv4-mapped encodings).
+     - IDOR sweep across all parameterized `:id` endpoints.
+     - CSRF origin validation on state-changing routes.
+     - Zod injection and prototype pollution robustness asserting uniform 400s (zero unhandled 500s).
+  7. **Performance & CI Integration (`performance/`, `.github/workflows/test-api.yml`)**:
+     - `api-rate-limiting.js` (Autocannon rate-limiting and DO isolation benchmark) and `api-websocket-load.js` (concurrent WebSocket latency benchmark).
+     - Automated GitHub Actions pipeline (`test-api.yml`) and granular npm scripts in `package.json`.
+* **Execution Verification**:
+  - Full suite (`npm run test:api:all`): **92 passed out of 92 tests (100% success)** in 28.2s.
+  - Quality dashboard regenerated at `docs/index.html`.

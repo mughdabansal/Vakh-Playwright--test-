@@ -1,0 +1,92 @@
+name: "API Risk-Tiered & Security Test Suites"
+
+on:
+  push:
+    paths:
+      - 'src/api/**'
+      - 'src/tests/api/**'
+      - 'performance/api-*.js'
+      - '.github/workflows/test-api.yml'
+  pull_request:
+    paths:
+      - 'src/api/**'
+      - 'src/tests/api/**'
+  schedule:
+    # Run full security sweep & perf tests at 2:00 AM IST on Thursdays and Sundays
+    # 2:00 AM IST = 20:30 UTC on Wednesday (day 3) and Saturday (day 6)
+    - cron: '30 20 * * 3,6'
+  workflow_dispatch:
+    inputs:
+      tier:
+        description: 'API Test Tier to execute'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - 'all'
+          - 'tier1'
+          - 'tier2'
+          - 'tier3'
+          - 'gotchas'
+          - 'security'
+          - 'perf'
+
+jobs:
+  api-tests:
+    name: "Vakh API Test Matrix"
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Install Playwright Browsers (for Request context)
+        run: npx playwright install --with-deps chromium
+
+      - name: Run Tier 1 Critical Tests
+        if: ${{ github.event.inputs.tier == 'all' || github.event.inputs.tier == 'tier1' || github.event_name == 'push' || github.event_name == 'pull_request' }}
+        run: npm run test:api:tier1
+
+      - name: Run Tier 2 Core CRUD Tests
+        if: ${{ github.event.inputs.tier == 'all' || github.event.inputs.tier == 'tier2' || github.event_name == 'push' || github.event_name == 'pull_request' }}
+        run: npm run test:api:tier2
+
+      - name: Run Tier 3 Supporting Tests
+        if: ${{ github.event.inputs.tier == 'all' || github.event.inputs.tier == 'tier3' || github.event_name == 'schedule' }}
+        run: npm run test:api:tier3
+
+      - name: Run Gotchas Edge-Case Tests
+        if: ${{ github.event.inputs.tier == 'all' || github.event.inputs.tier == 'gotchas' || github.event_name == 'schedule' }}
+        run: npm run test:api:gotchas
+
+      - name: Run Security & SSRF Fuzzing Sweep
+        if: ${{ github.event.inputs.tier == 'all' || github.event.inputs.tier == 'security' || github.event_name == 'schedule' }}
+        run: npm run test:api:security
+
+      - name: Run Rate Limiting & Concurrency Load Test
+        if: ${{ github.event.inputs.tier == 'all' || github.event.inputs.tier == 'perf' || github.event_name == 'schedule' }}
+        run: npm run test:api:perf
+
+      - name: Generate Quality Dashboard
+        if: always()
+        run: npm run generate:dashboard
+
+      - name: Upload Test Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-test-reports
+          path: |
+            test-reports/
+            docs/
+          retention-days: 14

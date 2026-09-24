@@ -10,10 +10,12 @@ export const APP_CONFIG = {
   NAVIGATION_TIMEOUT: 30000,
 };
 
+// Single designated test account: m@2094 (Do not alter or delete other accounts)
 export const TEST_USERS = {
   DEFAULT_USER: {
     email: 'mughdabansal2094@gmail.com',
     password: 'M@12345678',
+    username: 'm_2094',
   },
 };
 
