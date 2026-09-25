@@ -31,15 +31,26 @@ on:
           - 'security'
           - 'perf'
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: false
+
 jobs:
   api-tests:
     name: "Vakh API Test Matrix"
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js 20.x
         uses: actions/setup-node@v4
@@ -53,31 +64,35 @@ jobs:
       - name: Install Playwright Browsers (for Request context)
         run: npx playwright install --with-deps chromium
 
-      - name: Run Tier 1 Critical Tests
-        if: ${{ github.event.inputs.tier == 'all' || github.event.inputs.tier == 'tier1' || github.event_name == 'push' || github.event_name == 'pull_request' }}
+      - name: Run Full API Test Suite (All Tiers)
+        if: ${{ github.event.inputs.tier == 'all' || github.event.inputs.tier == '' || github.event_name == 'push' || github.event_name == 'pull_request' || github.event_name == 'schedule' }}
+        run: npm run test:api:all
+
+      - name: Run Tier 1 Critical Tests Only
+        if: ${{ github.event.inputs.tier == 'tier1' }}
         run: npm run test:api:tier1
 
-      - name: Run Tier 2 Core CRUD Tests
-        if: ${{ github.event.inputs.tier == 'all' || github.event.inputs.tier == 'tier2' || github.event_name == 'push' || github.event_name == 'pull_request' }}
+      - name: Run Tier 2 Core CRUD Tests Only
+        if: ${{ github.event.inputs.tier == 'tier2' }}
         run: npm run test:api:tier2
 
-      - name: Run Tier 3 Supporting Tests
-        if: ${{ github.event.inputs.tier == 'all' || github.event.inputs.tier == 'tier3' || github.event_name == 'schedule' }}
+      - name: Run Tier 3 Supporting Tests Only
+        if: ${{ github.event.inputs.tier == 'tier3' }}
         run: npm run test:api:tier3
 
-      - name: Run Gotchas Edge-Case Tests
-        if: ${{ github.event.inputs.tier == 'all' || github.event.inputs.tier == 'gotchas' || github.event_name == 'schedule' }}
+      - name: Run Gotchas Edge-Case Tests Only
+        if: ${{ github.event.inputs.tier == 'gotchas' }}
         run: npm run test:api:gotchas
 
-      - name: Run Security & SSRF Fuzzing Sweep
-        if: ${{ github.event.inputs.tier == 'all' || github.event.inputs.tier == 'security' || github.event_name == 'schedule' }}
+      - name: Run Security & SSRF Fuzzing Sweep Only
+        if: ${{ github.event.inputs.tier == 'security' }}
         run: npm run test:api:security
 
-      - name: Run Rate Limiting & Concurrency Load Test
+      - name: Run Rate Limiting & Concurrency Benchmarks
         if: ${{ github.event.inputs.tier == 'all' || github.event.inputs.tier == 'perf' || github.event_name == 'schedule' }}
         run: npm run test:api:perf
 
-      - name: Generate Quality Dashboard
+      - name: Regenerate Team Quality & Performance Dashboard
         if: always()
         run: npm run generate:dashboard
 
@@ -90,3 +105,37 @@ jobs:
             test-reports/
             docs/
           retention-days: 14
+
+      - name: Commit Updated Dashboard to Main
+        if: (github.event_name == 'push' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main'
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/index.html test-reports/
+          git diff --staged --quiet || git commit -m "chore: auto-update API test results & live dashboard [skip ci]"
+          git push origin main || echo "Branch updated or push skipped"
+
+      - name: Setup GitHub Pages
+        if: (github.event_name == 'push' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main'
+        uses: actions/configure-pages@v5
+
+      - name: Upload GitHub Pages Artifact
+        if: (github.event_name == 'push' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/
+
+  deploy:
+    name: Deploy Live Dashboard to GitHub Pages
+    if: (github.event_name == 'push' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main'
+    needs: api-tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy Dashboard to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

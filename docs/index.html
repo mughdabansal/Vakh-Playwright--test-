@@ -282,6 +282,16 @@
       border-color: #059669;
       color: #047857;
     }
+    [data-theme="light"] .tier-pill-btn {
+      background: #ffffff;
+      border-color: var(--border);
+      color: var(--text);
+    }
+    [data-theme="light"] .tier-pill-btn.active {
+      background: rgba(5, 150, 105, 0.12);
+      border-color: #059669;
+      color: #047857;
+    }
     [data-theme="light"] .callout-banner {
       background: linear-gradient(135deg, #e8f5ed, #daf0e3);
       border-color: #a7d9b9;
@@ -490,6 +500,41 @@
     .badge.failed { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
     .badge.browser { background: rgba(59, 130, 246, 0.12); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.25); font-size: 0.72rem; }
     .badge.tag-pill { background: rgba(139, 92, 246, 0.15); color: #c4b5fd; border: 1px solid rgba(139, 92, 246, 0.3); margin: 2px; }
+    .badge.purple { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
+    .badge.orange { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+
+    /* HTTP Method Badges */
+    .method-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.18rem 0.45rem;
+      border-radius: 4px;
+      display: inline-block;
+    }
+    .method-get { background: rgba(59, 130, 246, 0.18); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.35); }
+    .method-post { background: rgba(16, 185, 129, 0.18); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.35); }
+    .method-delete { background: rgba(239, 68, 68, 0.18); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.35); }
+    .method-options { background: rgba(168, 85, 247, 0.18); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.35); }
+    .method-ws { background: rgba(245, 158, 11, 0.18); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.35); }
+
+    /* Tier Filter Pills */
+    .tier-pill-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 0.4rem 0.85rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .tier-pill-btn:hover { color: var(--text); border-color: var(--accent); }
+    .tier-pill-btn.active { background: rgba(59, 130, 246, 0.15); border-color: var(--accent); color: #60a5fa; }
 
     /* Search Input */
     .search-box {
@@ -1806,7 +1851,7 @@
 
       <div class="status-pill">anti-enumeration, Chat Page, subscription-unread, websocket-actors, csrf-origin, idor-sweep, ssrf-fuzzing, zod-injection, account-deletion, auth-session, messaging-consent, openfga-perms, storage-upload, archived-forms, crud-pagination, csv-import, hearts-budget, popular-discovery, ai-schema, geocode-proxy, rest-api-field, api (92/92 Passed)</div>
       <div style="font-size: 0.78rem; color: var(--text-muted); background: rgba(255,255,255,0.05); padding: 0.35rem 0.75rem; border-radius: 8px; border: 1px solid var(--border);">
-        🕒 Updated: Wednesday, September 23, 2026 at 10:36:45 PM
+        🕒 Updated: Friday, September 25, 2026 at 8:13:13 AM
       </div>
       <a href="https://github.com/mughdabansal/Vakh-Playwright--test-" target="_blank" class="btn-github">
         <svg height="16" width="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
@@ -1826,6 +1871,9 @@
       </button>
       <button class="tab-btn" onclick="switchTab('sanity', this)">
         ⚡ Sanity Suites <span class="tab-count">40 Tests</span>
+      </button>
+      <button class="tab-btn" onclick="switchTab('api', this)">
+        ⚡ API Tests <span class="tab-count">92 Tests</span>
       </button>
       <button class="tab-btn" onclick="switchTab('login', this)">
         🔐 Login Page <span class="tab-count">4 Tests</span>
@@ -1859,7 +1907,7 @@
         <div class="stat-card green">
           <div class="label">Total Automated Coverage</div>
           <div class="value">100% Pass</div>
-          <div class="subtext"><span>✅</span> 97 Total Scenarios (57 Regression + 40 Sanity)</div>
+          <div class="subtext"><span>✅</span> 189 Total Scenarios (97 UI + 92 API Matrix)</div>
         </div>
         <div class="stat-card blue">
           <div class="label">Sanity Feedback Cycle</div>
@@ -1871,10 +1919,10 @@
           <div class="value">200.1 req/s</div>
           <div class="subtext">Zero dropped requests | Avg Latency: 48.7ms</div>
         </div>
-        <div class="stat-card orange">
-          <div class="label">Staging Backend API</div>
-          <div class="value">100% Ready</div>
-          <div class="subtext">164.5 req/s benchmarked on <code>xo.eve.vakh.com</code></div>
+        <div class="stat-card orange" style="cursor: pointer;" onclick="switchTab('api')">
+          <div class="label">Backend API Test Matrix</div>
+          <div class="value">92 / 92 Passed</div>
+          <div class="subtext">6 Risk Tiers &bull; 164.5 req/s on <code>xo.eve.vakh.com</code></div>
         </div>
       </div>
 
@@ -1882,7 +1930,7 @@
       <div class="panel">
         <div class="panel-header">
           <div class="panel-title">🎯 Tested Application Modules & Status</div>
-          <span style="font-size: 0.8rem; color: var(--text-muted);">Synchronized: Wednesday, September 23, 2026 at 10:36:45 PM</span>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Synchronized: Friday, September 25, 2026 at 8:13:13 AM</span>
         </div>
         <div class="grid-3">
           <div class="stat-card overview-fast-gate-card" onclick="switchTab('sanity', document.querySelectorAll('.tab-btn')[1])">
@@ -1962,6 +2010,16 @@
             <div style="margin-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
               <span class="badge passed">Auto-Deploy Active</span>
               <span style="font-size: 0.78rem; color: #38bdf8;">View Pipeline &rarr;</span>
+            </div>
+          </div>
+
+          <div class="stat-card" style="cursor: pointer;" onclick="switchTab('api')">
+            <div class="label" style="color: #a855f7;">Backend &amp; Security Matrix</div>
+            <div class="value" style="font-size: 1.4rem; color: #c084fc;">⚡ API Test Suite</div>
+            <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.3rem;">6 risk tiers: Better Auth sessions, OpenFGA perms, message requests, storage magic bytes, SSRF/IDOR fuzzing &amp; WebSocket actors.</p>
+            <div style="margin-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
+              <span class="badge passed">92 / 92 Passed (100.0%)</span>
+              <span style="font-size: 0.78rem; color: #c084fc;">View API Matrix &rarr;</span>
             </div>
           </div>
         </div>
@@ -5256,290 +5314,1456 @@
 
 
     
-    <!-- ==================== VIEW 8: API & LOAD TESTING ==================== -->
+    
+    <!-- ==================== VIEW 8: RISK-TIERED API & SECURITY SUITES ==================== -->
     <div id="view-api" class="view-content">
-      <div class="grid-4">
-        <div class="stat-card green">
-          <div class="label">API Functional Tests</div>
-          <div class="value" style="font-size: 1.6rem;">6 / 6 Passed</div>
-          <div class="subtext"><span>✅</span> Health, Auth, Storage, Security</div>
+      <!-- Section Header -->
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <h2 style="font-size: 1.5rem; font-weight: 800; display: flex; align-items: center; gap: 0.6rem; color: var(--text);">
+            <span>⚡</span> Eve Vakh &mdash; Risk-Tiered API &amp; Security Test Suite
+          </h2>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 0.35rem;">
+            Automated Gateway &amp; Service Verification &bull; Endpoint: <code>https://xo.eve.vakh.com</code> &bull; Better Auth Session &amp; OpenFGA Protocol
+          </p>
         </div>
-        <div class="stat-card blue">
-          <div class="label">Web Throughput (Login)</div>
-          <div class="value" style="font-size: 1.6rem;">200.1 req/s</div>
-          <div class="subtext">Avg Latency: 48.7ms (50 Conns)</div>
-        </div>
-        <div class="stat-card purple">
-          <div class="label">Backend API Throughput</div>
-          <div class="value" style="font-size: 1.6rem;">164.5 req/s</div>
-          <div class="subtext">Endpoint: <code>https://xo.eve.vakh.com</code></div>
-        </div>
-        <div class="stat-card orange">
-          <div class="label">Load Test Error Rate</div>
-          <div class="value" style="font-size: 1.6rem;">0% Errors</div>
-          <div class="subtext">5,468 Total Stress Requests Sent</div>
+        <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <span class="badge passed" style="font-size: 0.92rem; padding: 0.4rem 0.85rem;">
+            ✅ 92 / 92 Passed (100.0%)
+          </span>
+          <span class="badge browser" style="font-size: 0.88rem; padding: 0.4rem 0.85rem;">
+            ⏱️ 69.4s Suite Runtime
+          </span>
+          <span style="font-size: 0.78rem; color: var(--text-dim);">
+            Updated: <strong>Friday, September 25, 2026 at 8:13:13 AM</strong>
+          </span>
         </div>
       </div>
 
-      <!-- Playwright API Tests Table -->
-      <div class="panel">
-        <div class="panel-header">
-          <div>
-            <div class="panel-title">⚡ Playwright API Functional Test Suite</div>
-            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
-              Target Endpoint: <code>https://xo.eve.vakh.com</code> | Automated API Gateway & Endpoint Verification
-            </p>
-          </div>
-          <span class="badge passed">16 / 16 Passed (Core + Auth)</span>
+      <!-- 6-Tier Metrics KPI Grid -->
+      <div class="grid-3" style="margin-bottom: 1.5rem;">
+        <div class="stat-card green" style="cursor: pointer;" onclick="filterApiTier('tier1')">
+          <div class="label" style="color: #34d399;">Tier 1 Critical Business</div>
+          <div class="value" style="font-size: 1.7rem; color: #34d399;">18 / 18</div>
+          <div class="subtext"><span>🔒</span> Auth Sessions, OpenFGA, Consent, Storage &amp; Deletion</div>
         </div>
 
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Test Case Name & Purpose</th>
-              <th>Endpoint & Method</th>
-              <th>Expected Status</th>
-              <th>Response Time</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code>API_TC_001</code></td>
-              <td>
-                <strong>Backend Health Check Endpoint</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Validates service availability and JSON response.</span>
-              </td>
-              <td><code>GET /health</code></td>
-              <td><code>200 OK</code></td>
-              <td>318ms</td>
-              <td><span class="badge passed">PASSED</span></td>
-            </tr>
-            <tr>
-              <td><code>API_TC_002</code></td>
-              <td>
-                <strong>Gateway Root Endpoint</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Asserts gateway entry point responds with valid JSON.</span>
-              </td>
-              <td><code>GET /</code></td>
-              <td><code>200 OK</code></td>
-              <td>358ms</td>
-              <td><span class="badge passed">PASSED</span></td>
-            </tr>
-            <tr>
-              <td><code>API_TC_003</code></td>
-              <td>
-                <strong>Protected /api Route Guard</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Enforces 401 Unauthorized for unauthenticated requests.</span>
-              </td>
-              <td><code>GET /api</code></td>
-              <td><code>401 Unauthorized</code></td>
-              <td>301ms</td>
-              <td><span class="badge passed">PASSED</span></td>
-            </tr>
-            <tr>
-              <td><code>API_TC_004</code></td>
-              <td>
-                <strong>Internal Health Check Route Guard</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Protects internal health endpoint against unauthorized access.</span>
-              </td>
-              <td><code>GET /api/health</code></td>
-              <td><code>401 Unauthorized</code></td>
-              <td>275ms</td>
-              <td><span class="badge passed">PASSED</span></td>
-            </tr>
-            <tr>
-              <td><code>API_TC_005</code></td>
-              <td>
-                <strong>Static Avatar Asset Storage Delivery</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Validates user avatar asset fetching and image/jpeg content type.</span>
-              </td>
-              <td><code>GET /api/storage/avatar/...</code></td>
-              <td><code>200 OK</code></td>
-              <td>209ms</td>
-              <td><span class="badge passed">PASSED</span></td>
-            </tr>
-            <tr>
-              <td><code>API_TC_006</code></td>
-              <td>
-                <strong>CORS & Security Response Headers</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Validates presence of security directives and content-type headers.</span>
-              </td>
-              <td><code>GET /health</code></td>
-              <td><code>200 OK</code></td>
-              <td>94ms</td>
-              <td><span class="badge passed">PASSED</span></td>
-            </tr>
+        <div class="stat-card blue" style="cursor: pointer;" onclick="filterApiTier('tier2')">
+          <div class="label" style="color: #60a5fa;">Tier 2 Core CRUD &amp; Logic</div>
+          <div class="value" style="font-size: 1.7rem; color: #60a5fa;">15 / 15</div>
+          <div class="subtext"><span>⚡</span> Keyset Pagination, Hearts Budget, Discovery &amp; CSV</div>
+        </div>
 
-            <!-- Auth API Tests (ALL /api/auth/*) -->
-            <tr>
-              <td><code>API_AUTH_001</code></td>
-              <td>
-                <strong>Unauthenticated Session Probe</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Asserts session check returns 200 OK and null for unauthenticated client.</span>
-              </td>
-              <td><code>GET /api/auth/get-session</code></td>
-              <td><code>200 OK (null)</code></td>
-              <td>961ms</td>
-              <td><span class="badge passed">PASSED</span></td>
-            </tr>
-            <tr>
-              <td><code>API_AUTH_002</code></td>
-              <td>
-                <strong>Email Sign-In Body Validation</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Enforces VALIDATION_ERROR code on empty payload for email/password.</span>
-              </td>
-              <td><code>POST /api/auth/sign-in/email</code></td>
-              <td><code>400 Bad Request</code></td>
-              <td>1.0s</td>
-              <td><span class="badge passed">PASSED</span></td>
-            </tr>
-            <tr>
-              <td><code>API_AUTH_003</code></td>
-              <td>
-                <strong>Email Sign-In Credential Guard</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Enforces INVALID_EMAIL_OR_PASSWORD error code on incorrect credentials.</span>
-              </td>
-              <td><code>POST /api/auth/sign-in/email</code></td>
-              <td><code>401 Unauthorized</code></td>
-              <td>1.2s</td>
-              <td><span class="badge passed">PASSED</span></td>
-            </tr>
-            <tr>
-              <td><code>API_AUTH_004</code></td>
-              <td>
-                <strong>CORS Preflight Directives</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Validates OPTIONS preflight returns 204 No Content for eve.vakh.com.</span>
-              </td>
-              <td><code>OPTIONS /api/auth/sign-in/email</code></td>
-              <td><code>204 No Content</code></td>
-              <td>884ms</td>
-              <td><span class="badge passed">PASSED</span></td>
-            </tr>
-            <tr>
-              <td><code>API_AUTH_005</code></td>
-              <td>
-                <strong>Email OTP Sign-In Validation</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Validates required email and otp payload fields.</span>
-              </td>
-              <td><code>POST /api/auth/sign-in/email-otp</code></td>
-              <td><code>400 Bad Request</code></td>
-              <td>983ms</td>
-              <td><span class="badge passed">PASSED</span></td>
-            </tr>
-            <tr>
-              <td><code>API_AUTH_006</code></td>
-              <td>
-                <strong>Send Verification OTP Enum Guard</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Enforces email presence and valid type enum parameter.</span>
-              </td>
-              <td><code>POST /api/auth/email-otp/send-verification-otp</code></td>
-              <td><code>400 Bad Request</code></td>
-              <td>991ms</td>
-              <td><span class="badge passed">PASSED</span></td>
-            </tr>
-            <tr>
-              <td><code>API_AUTH_007</code></td>
-              <td>
-                <strong>Phone Number OTP Send Validation</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Enforces phoneNumber parameter validation on SMS OTP dispatch.</span>
-              </td>
-              <td><code>POST /api/auth/phone-number/send-otp</code></td>
-              <td><code>400 Bad Request</code></td>
-              <td>1.0s</td>
-              <td><span class="badge passed">PASSED</span></td>
-            </tr>
-            <tr>
-              <td><code>API_AUTH_008</code></td>
-              <td>
-                <strong>Phone Number OTP Verification Guard</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Enforces phoneNumber and code validation parameters.</span>
-              </td>
-              <td><code>POST /api/auth/phone-number/verify</code></td>
-              <td><code>400 Bad Request</code></td>
-              <td>1.1s</td>
-              <td><span class="badge passed">PASSED</span></td>
-            </tr>
-            <tr>
-              <td><code>API_AUTH_009</code></td>
-              <td>
-                <strong>OAuth2 Consent Meta Parameter Guard</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Validates consent_code requirement for OAuth2 metadata requests.</span>
-              </td>
-              <td><code>GET /api/auth/oauth2/consent-meta</code></td>
-              <td><code>400 Bad Request</code></td>
-              <td>971ms</td>
-              <td><span class="badge passed">PASSED</span></td>
-            </tr>
-            <tr>
-              <td><code>API_AUTH_010</code></td>
-              <td>
-                <strong>Auth Security & Rate Limit Resilience Contract</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Validates JSON compliance, RATE_LIMIT_EXCEEDED handling, and security formats.</span>
-              </td>
-              <td><code>POST /api/auth/*</code></td>
-              <td><code>400 / 401 / 429</code></td>
-              <td>975ms</td>
-              <td><span class="badge passed">PASSED</span></td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="stat-card purple" style="cursor: pointer;" onclick="filterApiTier('tier3')">
+          <div class="label" style="color: #c084fc;">Tier 3 Supporting Proxies</div>
+          <div class="value" style="font-size: 1.7rem; color: #c084fc;">7 / 7</div>
+          <div class="subtext"><span>🌐</span> Geocode Cache Invalidation, AI Prompt Fallback &amp; Quotas</div>
+        </div>
+
+        <div class="stat-card orange" style="cursor: pointer;" onclick="filterApiTier('gotchas')">
+          <div class="label" style="color: #fbbf24;">Edge Case Gotchas</div>
+          <div class="value" style="font-size: 1.7rem; color: #fbbf24;">5 / 5</div>
+          <div class="subtext"><span>⚠️</span> Anti-Enumeration OTP, Deleted Counterparty, WS Eviction</div>
+        </div>
+
+        <div class="stat-card pink" style="cursor: pointer;" onclick="filterApiTier('security')">
+          <div class="label" style="color: #f472b6;">Security &amp; SSRF Fuzzing</div>
+          <div class="value" style="font-size: 1.7rem; color: #f472b6;">31 / 31</div>
+          <div class="subtext"><span>🛡️</span> SSRF (RFC1918/Metadata), IDOR Mutation, CSRF Origin, Zod</div>
+        </div>
+
+        <div class="stat-card" style="cursor: pointer;" onclick="filterApiTier('gateway')">
+          <div class="label" style="color: #38bdf8;">Gateway &amp; Auth Probes</div>
+          <div class="value" style="font-size: 1.7rem; color: #38bdf8;">16 / 16</div>
+          <div class="subtext"><span>🚪</span> Health Checks, Protected Route Guards &amp; CORS Preflight</div>
+        </div>
       </div>
 
-      <!-- Load Test Comparison Grids -->
+      <!-- Performance & Concurrency Telemetry (Side-by-Side) -->
       <div class="grid-2">
-        <!-- Web Load Test Card -->
         <div class="panel">
           <div class="panel-header">
             <div>
-              <div class="panel-title">🌐 Web Portal Load Benchmark (autocannon)</div>
-              <p style="font-size: 0.8rem; color: var(--text-muted);">Target: <code>https://eve.vakh.com/auth/sign-in</code></p>
+              <div class="panel-title">⚡ API Rate-Limiting &amp; Throughput Benchmark</div>
+              <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">
+                Target: <code>https://xo.eve.vakh.com</code> &bull; Autocannon High-Concurrency Load
+              </p>
             </div>
-            <span class="badge passed">200.07 req/s</span>
+            <span class="badge passed">164.5 req/s</span>
           </div>
 
           <table style="margin-top: 0;">
             <tbody>
-              <tr><td><strong>Total Requests</strong></td><td><code>3,001 requests</code> in 15s</td></tr>
-              <tr><td><strong>Achieved Throughput</strong></td><td><strong>200.07 req/sec</strong> (100% Target)</td></tr>
-              <tr><td><strong>Average (Mean) Latency</strong></td><td><strong style="color: #34d399;">48.68 ms</strong></td></tr>
-              <tr><td><strong>P50 (Median) Latency</strong></td><td><strong>24 ms</strong></td></tr>
-              <tr><td><strong>P97.5 Latency</strong></td><td>304 ms</td></tr>
-              <tr><td><strong>P99 Latency</strong></td><td>345 ms</td></tr>
-              <tr><td><strong>Max Latency</strong></td><td>428 ms</td></tr>
-              <tr><td><strong>Data Transferred</strong></td><td>13.1 MB</td></tr>
-              <tr><td><strong>Errors & Timeouts</strong></td><td><span class="badge passed">0 Errors (0%)</span></td></tr>
+              <tr><td><strong>Achieved Throughput</strong></td><td><strong>164.5 req/sec</strong> (Stress load verified)</td></tr>
+              <tr><td><strong>Average Latency</strong></td><td><strong style="color: #60a5fa;">186.8 ms</strong></td></tr>
+              <tr><td><strong>P50 / P97.5 / P99 Latency</strong></td><td><strong>164ms</strong> / <strong>533ms</strong> / <strong>641ms</strong></td></tr>
+              <tr><td><strong>Burst Rate-Limiting Defense</strong></td><td><span class="badge passed">150 Burst Reqs &rarr; 429 Enforced</span></td></tr>
+              <tr><td><strong>Cross-User Rate Isolation</strong></td><td><span class="badge passed">User B Unthrottled During User A Burst</span></td></tr>
             </tbody>
           </table>
         </div>
 
-        <!-- API Load Test Card -->
         <div class="panel">
           <div class="panel-header">
             <div>
-              <div class="panel-title">⚡ Backend API Load Benchmark (autocannon)</div>
-              <p style="font-size: 0.8rem; color: var(--text-muted);">Target: <code>https://xo.eve.vakh.com</code></p>
+              <div class="panel-title">🔌 WebSocket Concurrency &amp; Protocol Benchmark</div>
+              <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">
+                Target: <code>wss://xo.eve.vakh.com/ws</code> &bull; Real-Time Actor Connection Sweep
+              </p>
             </div>
-            <span class="badge passed">164.47 req/s</span>
+            <span class="badge passed">Actor Protocol Verified</span>
           </div>
 
           <table style="margin-top: 0;">
             <tbody>
-              <tr><td><strong>Total Requests</strong></td><td><code>2,467 requests</code> in 15s</td></tr>
-              <tr><td><strong>Achieved Throughput</strong></td><td><strong>164.47 req/sec</strong></td></tr>
-              <tr><td><strong>Average (Mean) Latency</strong></td><td><strong style="color: #60a5fa;">186.76 ms</strong></td></tr>
-              <tr><td><strong>P50 (Median) Latency</strong></td><td><strong>164 ms</strong></td></tr>
-              <tr><td><strong>P97.5 Latency</strong></td><td>533 ms</td></tr>
-              <tr><td><strong>P99 Latency</strong></td><td>641 ms</td></tr>
-              <tr><td><strong>Max Latency</strong></td><td>948 ms</td></tr>
-              <tr><td><strong>Data Transferred</strong></td><td>4.0 MB</td></tr>
-              <tr><td><strong>Errors & Timeouts</strong></td><td><span class="badge passed">0 Errors (0%)</span></td></tr>
+              <tr><td><strong>Concurrent Actors Attempted</strong></td><td><code>30 concurrent connections</code></td></tr>
+              <tr><td><strong>Session Eviction Boundary</strong></td><td><span class="badge passed">6th Connection &rarr; Code 1001 Eviction</span></td></tr>
+              <tr><td><strong>Reconnection Classifier</strong></td><td><span class="badge passed">1000/1001/4000 Protocol Handled</span></td></tr>
+              <tr><td><strong>Connection Handshake Contract</strong></td><td><span class="badge passed">Handshake Timings &amp; Auth Verified</span></td></tr>
+              <tr><td><strong>Account Data Isolation</strong></td><td><span class="badge passed">Test Account m@2094 Guarded</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Interactive Filter Toolbar & Live Test Matrix -->
+      <div class="panel">
+        <div class="panel-header" style="flex-wrap: wrap; gap: 0.75rem;">
+          <div class="panel-title">
+            <span>📋</span> Interactive API Test Execution Matrix
+          </div>
+          <div style="font-size: 0.82rem; color: var(--text-muted);">
+            Showing <strong id="apiVisibleCount" style="color: #60a5fa;">92</strong> of 92 Scenarios
+          </div>
+        </div>
+
+        <!-- Filter Buttons & Search -->
+        <div style="display: flex; gap: 0.75rem; margin-bottom: 1.25rem; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; align-items: center;">
+            <button class="tier-pill-btn active" onclick="filterApiTier('all', this)">All (92)</button>
+            <button class="tier-pill-btn" onclick="filterApiTier('tier1', this)">Tier 1 (18)</button>
+            <button class="tier-pill-btn" onclick="filterApiTier('tier2', this)">Tier 2 (15)</button>
+            <button class="tier-pill-btn" onclick="filterApiTier('tier3', this)">Tier 3 (7)</button>
+            <button class="tier-pill-btn" onclick="filterApiTier('gotchas', this)">Gotchas (5)</button>
+            <button class="tier-pill-btn" onclick="filterApiTier('security', this)">Security (31)</button>
+            <button class="tier-pill-btn" onclick="filterApiTier('gateway', this)">Gateway (16)</button>
+          </div>
+
+          <div style="display: flex; gap: 0.5rem; align-items: center;">
+            <input type="text" id="apiSearchInput" class="search-box" style="width: 280px; font-size: 0.82rem;" placeholder="🔍 Search endpoint, ID, or keyword..." onkeyup="filterApiTests()">
+          </div>
+        </div>
+
+        <!-- Responsive Test Table -->
+        <div style="overflow-x: auto;">
+          <table id="apiTestsTable">
+            <thead>
+              <tr>
+                <th style="width: 130px;">Test ID</th>
+                <th style="width: 170px;">Risk Tier</th>
+                <th style="width: 70px;">Method</th>
+                <th style="width: 220px;">Target Endpoint</th>
+                <th>Scenario Description &amp; Verification</th>
+                <th style="width: 140px;">Expected Status</th>
+                <th style="width: 80px;">Latency</th>
+                <th style="width: 90px;">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+      <tr class="api-test-row" data-tier="gotchas" data-status="passed" data-search="tc-gotcha-001 post /api/auth/email-otp/send-verification-otp recovery otp dispatch must not leak existence via timing or response difference gotchas: edge cases 400 / timing invariant">
+        <td style="white-space: nowrap;"><code>TC-GOTCHA-001</code></td>
+        <td><span class="badge orange">Gotchas: Edge Cases</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/auth/email-otp/send-verification-otp"><code>/api/auth/email-otp/send-verification-otp</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">recovery OTP dispatch must not leak existence via timing or response difference</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/gotchas/anti-enumeration.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">400 / Timing Invariant</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #fbbf24;">2.71s</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="gotchas" data-status="passed" data-search="tc-gotcha-002 post /api/chat/message sending message to deleted counterparty must return specific 400 error gotchas: edge cases 400 bad request">
+        <td style="white-space: nowrap;"><code>TC-GOTCHA-002</code></td>
+        <td><span class="badge orange">Gotchas: Edge Cases</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/chat/message"><code>/api/chat/message</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">sending message to deleted counterparty must return specific 400 error</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/gotchas/deleted-account-chat.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">400 Bad Request</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">552ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="gotchas" data-status="passed" data-search="tc-gotcha-005 get /api/subscriptions/unread unread count must exclude archived forms dynamically at read-time and restore upon unarchiving gotchas: edge cases 200 ok (dynamic)">
+        <td style="white-space: nowrap;"><code>TC-GOTCHA-005</code></td>
+        <td><span class="badge orange">Gotchas: Edge Cases</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/subscriptions/unread"><code>/api/subscriptions/unread</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">unread count must exclude archived forms dynamically at read-time and restore upon unarchiving</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/gotchas/subscription-unread.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK (Dynamic)</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">534ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="gotchas" data-status="passed" data-search="tc-gotcha-003 ws wss://xo.eve.vakh.com/ws close code classifier must adhere to reconnection contract gotchas: edge cases 1000 / 1001 eviction">
+        <td style="white-space: nowrap;"><code>TC-GOTCHA-003</code></td>
+        <td><span class="badge orange">Gotchas: Edge Cases</span></td>
+        <td><span class="method-badge method-ws">WS</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="wss://xo.eve.vakh.com/ws"><code>wss://xo.eve.vakh.com/ws</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">close code classifier must adhere to reconnection contract</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/gotchas/websocket-actors.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">1000 / 1001 Eviction</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">29ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="gotchas" data-status="passed" data-search="tc-gotcha-004 ws wss://xo.eve.vakh.com/ws 6th concurrent session per user must evict oldest with close code 1001 gotchas: edge cases 1000 / 1001 eviction">
+        <td style="white-space: nowrap;"><code>TC-GOTCHA-004</code></td>
+        <td><span class="badge orange">Gotchas: Edge Cases</span></td>
+        <td><span class="method-badge method-ws">WS</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="wss://xo.eve.vakh.com/ws"><code>wss://xo.eve.vakh.com/ws</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">6th concurrent session per user must evict oldest with close code 1001</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/gotchas/websocket-actors.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">1000 / 1001 Eviction</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #fbbf24;">12.07s</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="security" data-status="passed" data-search="tc-sec-csrf-001 post /api/forms state-changing route /api/forms must reject untrusted origin headers security &amp; ssrf fuzzing 403 forbidden">
+        <td style="white-space: nowrap;"><code>TC-SEC-CSRF-001</code></td>
+        <td><span class="badge failed">Security &amp; SSRF Fuzzing</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/forms"><code>/api/forms</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">state-changing route /api/forms must reject untrusted Origin headers</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/security/csrf-origin.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">403 Forbidden</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">406ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="security" data-status="passed" data-search="tc-sec-csrf-002 post /api/posts state-changing route /api/posts must reject untrusted origin headers security &amp; ssrf fuzzing 403 forbidden">
+        <td style="white-space: nowrap;"><code>TC-SEC-CSRF-002</code></td>
+        <td><span class="badge failed">Security &amp; SSRF Fuzzing</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/posts"><code>/api/posts</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">state-changing route /api/posts must reject untrusted Origin headers</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/security/csrf-origin.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">403 Forbidden</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">404ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="security" data-status="passed" data-search="tc-sec-csrf-003 post /api/auth/sign-out state-changing route /api/auth/sign-out must reject untrusted origin headers security &amp; ssrf fuzzing 403 forbidden">
+        <td style="white-space: nowrap;"><code>TC-SEC-CSRF-003</code></td>
+        <td><span class="badge failed">Security &amp; SSRF Fuzzing</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/auth/sign-out"><code>/api/auth/sign-out</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">state-changing route /api/auth/sign-out must reject untrusted Origin headers</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/security/csrf-origin.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">403 Forbidden</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">487ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="security" data-status="passed" data-search="tc-sec-csrf-004 post /api/posts/mock-post-1 state-changing route /api/posts/mock-post-1 must reject untrusted origin headers security &amp; ssrf fuzzing 403 forbidden">
+        <td style="white-space: nowrap;"><code>TC-SEC-CSRF-004</code></td>
+        <td><span class="badge failed">Security &amp; SSRF Fuzzing</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/posts/mock-post-1"><code>/api/posts/mock-post-1</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">state-changing route /api/posts/mock-post-1 must reject untrusted Origin headers</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/security/csrf-origin.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">403 Forbidden</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">391ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="security" data-status="passed" data-search="tc-sec-idor-001 get /api/forms/foreign-private-form-id unauthorized user access attempt on private form read (/api/forms/foreign-private-form-id) must be blocked security &amp; ssrf fuzzing 401 / 403 / 404">
+        <td style="white-space: nowrap;"><code>TC-SEC-IDOR-001</code></td>
+        <td><span class="badge failed">Security &amp; SSRF Fuzzing</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/forms/foreign-private-form-id"><code>/api/forms/foreign-private-form-id</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">unauthorized user access attempt on Private Form Read (/api/forms/foreign-private-form-id) must be blocked</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/security/idor-sweep.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">401 / 403 / 404</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">381ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="security" data-status="passed" data-search="tc-sec-idor-002 delete /api/forms/foreign-private-form-id unauthorized user access attempt on foreign form delete (/api/forms/foreign-private-form-id) must be blocked security &amp; ssrf fuzzing 401 / 403 / 404">
+        <td style="white-space: nowrap;"><code>TC-SEC-IDOR-002</code></td>
+        <td><span class="badge failed">Security &amp; SSRF Fuzzing</span></td>
+        <td><span class="method-badge method-delete">DELETE</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/forms/foreign-private-form-id"><code>/api/forms/foreign-private-form-id</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">unauthorized user access attempt on Foreign Form Delete (/api/forms/foreign-private-form-id) must be blocked</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/security/idor-sweep.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">401 / 403 / 404</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">393ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="security" data-status="passed" data-search="tc-sec-idor-003 patch /api/posts/foreign-post-id unauthorized user access attempt on foreign post edit (/api/posts/foreign-post-id) must be blocked security &amp; ssrf fuzzing 401 / 403 / 404">
+        <td style="white-space: nowrap;"><code>TC-SEC-IDOR-003</code></td>
+        <td><span class="badge failed">Security &amp; SSRF Fuzzing</span></td>
+        <td><span class="method-badge method-patch">PATCH</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/posts/foreign-post-id"><code>/api/posts/foreign-post-id</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">unauthorized user access attempt on Foreign Post Edit (/api/posts/foreign-post-id) must be blocked</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/security/idor-sweep.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">401 / 403 / 404</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">377ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="security" data-status="passed" data-search="tc-sec-idor-004 delete /api/posts/foreign-post-id unauthorized user access attempt on foreign post delete (/api/posts/foreign-post-id) must be blocked security &amp; ssrf fuzzing 401 / 403 / 404">
+        <td style="white-space: nowrap;"><code>TC-SEC-IDOR-004</code></td>
+        <td><span class="badge failed">Security &amp; SSRF Fuzzing</span></td>
+        <td><span class="method-badge method-delete">DELETE</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/posts/foreign-post-id"><code>/api/posts/foreign-post-id</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">unauthorized user access attempt on Foreign Post Delete (/api/posts/foreign-post-id) must be blocked</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/security/idor-sweep.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">401 / 403 / 404</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">367ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="security" data-status="passed" data-search="tc-sec-idor-005 get /api/conversations/foreign-conversation-id unauthorized user access attempt on foreign conversation access (/api/conversations/foreign-conversation-id) must be blocked security &amp; ssrf fuzzing 401 / 403 / 404">
+        <td style="white-space: nowrap;"><code>TC-SEC-IDOR-005</code></td>
+        <td><span class="badge failed">Security &amp; SSRF Fuzzing</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/conversations/foreign-conversation-id"><code>/api/conversations/foreign-conversation-id</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">unauthorized user access attempt on Foreign Conversation Access (/api/conversations/foreign-conversation-id) must be blocked</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/security/idor-sweep.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">401 / 403 / 404</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">374ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="security" data-status="passed" data-search="tc-sec-idor-006 get /api/badges/foreign-private-badge-id unauthorized user access attempt on private badge members access (/api/badges/foreign-private-badge-id) must be blocked security &amp; ssrf fuzzing 401 / 403 / 404">
+        <td style="white-space: nowrap;"><code>TC-SEC-IDOR-006</code></td>
+        <td><span class="badge failed">Security &amp; SSRF Fuzzing</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/badges/foreign-private-badge-id"><code>/api/badges/foreign-private-badge-id</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">unauthorized user access attempt on Private Badge Members Access (/api/badges/foreign-private-badge-id) must be blocked</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/security/idor-sweep.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">401 / 403 / 404</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">368ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="security" data-status="passed" data-search="tc-sec-idor-007 delete /api/badges/foreign-badge-id unauthorized user access attempt on foreign badge delete (/api/badges/foreign-badge-id) must be blocked security &amp; ssrf fuzzing 401 / 403 / 404">
+        <td style="white-space: nowrap;"><code>TC-SEC-IDOR-007</code></td>
+        <td><span class="badge failed">Security &amp; SSRF Fuzzing</span></td>
+        <td><span class="method-badge method-delete">DELETE</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/badges/foreign-badge-id"><code>/api/badges/foreign-badge-id</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">unauthorized user access attempt on Foreign Badge Delete (/api/badges/foreign-badge-id) must be blocked</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/security/idor-sweep.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">401 / 403 / 404</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">362ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="security" data-status="passed" data-search="tc-sec-ssrf-001 get /api/proxy?url=http%3a%2f%2f127.0.0.1%3a8080%2fadmin proxy must reject restricted ssrf target: http://127.0.0.1:8080/admin security &amp; ssrf fuzzing 400 / 403 (blocked)">
+        <td style="white-space: nowrap;"><code>TC-SEC-SSRF-001</code></td>
+        <td><span class="badge failed">Security &amp; SSRF Fuzzing</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/proxy?url=http%3A%2F%2F127.0.0.1%3A8080%2Fadmin"><code>/api/proxy?url=http%3A%2F%2F127.0.0.1%3A8080%2Fadmin</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">proxy must reject restricted SSRF target: http://127.0.0.1:8080/admin</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/security/ssrf-fuzzing.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">400 / 403 (Blocked)</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">374ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="security" data-status="passed" data-search="tc-sec-ssrf-002 get /api/proxy?url=http%3a%2f%2f127.1%3a80 proxy must reject restricted ssrf target: http://127.1:80 security &amp; ssrf fuzzing 400 / 403 (blocked)">
+        <td style="white-space: nowrap;"><code>TC-SEC-SSRF-002</code></td>
+        <td><span class="badge failed">Security &amp; SSRF Fuzzing</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/proxy?url=http%3A%2F%2F127.1%3A80"><code>/api/proxy?url=http%3A%2F%2F127.1%3A80</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">proxy must reject restricted SSRF target: http://127.1:80</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/security/ssrf-fuzzing.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">400 / 403 (Blocked)</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">369ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="security" data-status="passed" data-search="tc-sec-ssrf-003 get /api/proxy?url=http%3a%2f%2flocalhost%3a5432 proxy must reject restricted ssrf target: http://localhost:5432 security &amp; ssrf fuzzing 400 / 403 (blocked)">
+        <td style="white-space: nowrap;"><code>TC-SEC-SSRF-003</code></td>
+        <td><span class="badge failed">Security &amp; SSRF Fuzzing</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/proxy?url=http%3A%2F%2Flocalhost%3A5432"><code>/api/proxy?url=http%3A%2F%2Flocalhost%3A5432</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">proxy must reject restricted SSRF target: http://localhost:5432</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/security/ssrf-fuzzing.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">400 / 403 (Blocked)</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">391ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="security" data-status="passed" data-search="tc-sec-ssrf-004 get /api/proxy?url=http%3a%2f%2f10.0.0.1%2finternal proxy must reject restricted ssrf target: http://10.0.0.1/internal security &amp; ssrf fuzzing 400 / 403 (blocked)">
+        <td style="white-space: nowrap;"><code>TC-SEC-SSRF-004</code></td>
+        <td><span class="badge failed">Security &amp; SSRF Fuzzing</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/proxy?url=http%3A%2F%2F10.0.0.1%2Finternal"><code>/api/proxy?url=http%3A%2F%2F10.0.0.1%2Finternal</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">proxy must reject restricted SSRF target: http://10.0.0.1/internal</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/security/ssrf-fuzzing.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">400 / 403 (Blocked)</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">370ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="security" data-status="passed" data-search="tc-sec-ssrf-005 get /api/proxy?url=http%3a%2f%2f172.16.0.1%2fsecrets proxy must reject restricted ssrf target: http://172.16.0.1/secrets security &amp; ssrf fuzzing 400 / 403 (blocked)">
+        <td style="white-space: nowrap;"><code>TC-SEC-SSRF-005</code></td>
+        <td><span class="badge failed">Security &amp; SSRF Fuzzing</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/proxy?url=http%3A%2F%2F172.16.0.1%2Fsecrets"><code>/api/proxy?url=http%3A%2F%2F172.16.0.1%2Fsecrets</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">proxy must reject restricted SSRF target: http://172.16.0.1/secrets</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/security/ssrf-fuzzing.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">400 / 403 (Blocked)</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">381ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="security" data-status="passed" data-search="tc-sec-ssrf-006 get /api/proxy?url=http%3a%2f%2f192.168.1.1%2frouter proxy must reject restricted ssrf target: http://192.168.1.1/router security &amp; ssrf fuzzing 400 / 403 (blocked)">
+        <td style="white-space: nowrap;"><code>TC-SEC-SSRF-006</code></td>
+        <td><span class="badge failed">Security &amp; SSRF Fuzzing</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/proxy?url=http%3A%2F%2F192.168.1.1%2Frouter"><code>/api/proxy?url=http%3A%2F%2F192.168.1.1%2Frouter</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">proxy must reject restricted SSRF target: http://192.168.1.1/router</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/security/ssrf-fuzzing.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">400 / 403 (Blocked)</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">376ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="security" data-status="passed" data-search="tc-sec-ssrf-007 get /api/proxy?url=http%3a%2f%2f169.254.169.254%2flatest%2fmeta-data%2f proxy must reject restricted ssrf target: http://169.254.169.254/latest/meta-data/ security &amp; ssrf fuzzing 400 / 403 (blocked)">
+        <td style="white-space: nowrap;"><code>TC-SEC-SSRF-007</code></td>
+        <td><span class="badge failed">Security &amp; SSRF Fuzzing</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/proxy?url=http%3A%2F%2F169.254.169.254%2Flatest%2Fmeta-data%2F"><code>/api/proxy?url=http%3A%2F%2F169.254.169.254%2Flatest%2Fmeta-data%2F</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">proxy must reject restricted SSRF target: http://169.254.169.254/latest/meta-data/</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/security/ssrf-fuzzing.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">400 / 403 (Blocked)</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">376ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="security" data-status="passed" data-search="tc-sec-ssrf-008 get /api/proxy?url=http%3a%2f%2fmetadata.google.internal%2fcomputemetadata%2fv1%2f proxy must reject restricted ssrf target: http://metadata.google.internal/computemetadata/v1/ security &amp; ssrf fuzzing 400 / 403 (blocked)">
+        <td style="white-space: nowrap;"><code>TC-SEC-SSRF-008</code></td>
+        <td><span class="badge failed">Security &amp; SSRF Fuzzing</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/proxy?url=http%3A%2F%2Fmetadata.google.internal%2FcomputeMetadata%2Fv1%2F"><code>/api/proxy?url=http%3A%2F%2Fmetadata.google.internal%2FcomputeMetadata%2Fv1%2F</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">proxy must reject restricted SSRF target: http://metadata.google.internal/computeMetadata/v1/</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/security/ssrf-fuzzing.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">400 / 403 (Blocked)</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">376ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="security" data-status="passed" data-search="tc-sec-ssrf-009 get /api/proxy?url=http%3a%2f%2f100.100.100.200%2flatest%2fmeta-data%2f proxy must reject restricted ssrf target: http://100.100.100.200/latest/meta-data/ security &amp; ssrf fuzzing 400 / 403 (blocked)">
+        <td style="white-space: nowrap;"><code>TC-SEC-SSRF-009</code></td>
+        <td><span class="badge failed">Security &amp; SSRF Fuzzing</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/proxy?url=http%3A%2F%2F100.100.100.200%2Flatest%2Fmeta-data%2F"><code>/api/proxy?url=http%3A%2F%2F100.100.100.200%2Flatest%2Fmeta-data%2F</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">proxy must reject restricted SSRF target: http://100.100.100.200/latest/meta-data/</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/security/ssrf-fuzzing.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">400 / 403 (Blocked)</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">366ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="security" data-status="passed" data-search="tc-sec-ssrf-010 get /api/proxy?url=http%3a%2f%2f%5b%3a%3a1%5d%3a8080%2fstatus proxy must reject restricted ssrf target: http://[::1]:8080/status security &amp; ssrf fuzzing 400 / 403 (blocked)">
+        <td style="white-space: nowrap;"><code>TC-SEC-SSRF-010</code></td>
+        <td><span class="badge failed">Security &amp; SSRF Fuzzing</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/proxy?url=http%3A%2F%2F%5B%3A%3A1%5D%3A8080%2Fstatus"><code>/api/proxy?url=http%3A%2F%2F%5B%3A%3A1%5D%3A8080%2Fstatus</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">proxy must reject restricted SSRF target: http://[::1]:8080/status</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/security/ssrf-fuzzing.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">400 / 403 (Blocked)</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">369ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="security" data-status="passed" data-search="tc-sec-ssrf-011 get /api/proxy?url=http%3a%2f%2f%5bfe80%3a%3a1ff%3afe23%3a4567%3a890a%5d%2f proxy must reject restricted ssrf target: http://[fe80::1ff:fe23:4567:890a]/ security &amp; ssrf fuzzing 400 / 403 (blocked)">
+        <td style="white-space: nowrap;"><code>TC-SEC-SSRF-011</code></td>
+        <td><span class="badge failed">Security &amp; SSRF Fuzzing</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/proxy?url=http%3A%2F%2F%5Bfe80%3A%3A1ff%3Afe23%3A4567%3A890a%5D%2F"><code>/api/proxy?url=http%3A%2F%2F%5Bfe80%3A%3A1ff%3Afe23%3A4567%3A890a%5D%2F</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">proxy must reject restricted SSRF target: http://[fe80::1ff:fe23:4567:890a]/</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/security/ssrf-fuzzing.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">400 / 403 (Blocked)</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">364ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="security" data-status="passed" data-search="tc-sec-ssrf-012 get /api/proxy?url=http%3a%2f%2f%5bfc00%3a%3a1%5d%2finternal proxy must reject restricted ssrf target: http://[fc00::1]/internal security &amp; ssrf fuzzing 400 / 403 (blocked)">
+        <td style="white-space: nowrap;"><code>TC-SEC-SSRF-012</code></td>
+        <td><span class="badge failed">Security &amp; SSRF Fuzzing</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/proxy?url=http%3A%2F%2F%5Bfc00%3A%3A1%5D%2Finternal"><code>/api/proxy?url=http%3A%2F%2F%5Bfc00%3A%3A1%5D%2Finternal</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">proxy must reject restricted SSRF target: http://[fc00::1]/internal</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/security/ssrf-fuzzing.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">400 / 403 (Blocked)</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">373ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="security" data-status="passed" data-search="tc-sec-ssrf-013 get /api/proxy?url=http%3a%2f%2f%5bfd00%3a%3a1%5d%2finternal proxy must reject restricted ssrf target: http://[fd00::1]/internal security &amp; ssrf fuzzing 400 / 403 (blocked)">
+        <td style="white-space: nowrap;"><code>TC-SEC-SSRF-013</code></td>
+        <td><span class="badge failed">Security &amp; SSRF Fuzzing</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/proxy?url=http%3A%2F%2F%5Bfd00%3A%3A1%5D%2Finternal"><code>/api/proxy?url=http%3A%2F%2F%5Bfd00%3A%3A1%5D%2Finternal</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">proxy must reject restricted SSRF target: http://[fd00::1]/internal</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/security/ssrf-fuzzing.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">400 / 403 (Blocked)</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">368ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="security" data-status="passed" data-search="tc-sec-ssrf-014 get /api/proxy?url=http%3a%2f%2f%5b%3a%3affff%3a127.0.0.1%5d%3a8080%2fdata proxy must reject restricted ssrf target: http://[::ffff:127.0.0.1]:8080/data security &amp; ssrf fuzzing 400 / 403 (blocked)">
+        <td style="white-space: nowrap;"><code>TC-SEC-SSRF-014</code></td>
+        <td><span class="badge failed">Security &amp; SSRF Fuzzing</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/proxy?url=http%3A%2F%2F%5B%3A%3Affff%3A127.0.0.1%5D%3A8080%2Fdata"><code>/api/proxy?url=http%3A%2F%2F%5B%3A%3Affff%3A127.0.0.1%5D%3A8080%2Fdata</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">proxy must reject restricted SSRF target: http://[::ffff:127.0.0.1]:8080/data</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/security/ssrf-fuzzing.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">400 / 403 (Blocked)</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">380ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="security" data-status="passed" data-search="tc-sec-ssrf-015 get /api/proxy?url=http%3a%2f%2f%5b%3a%3affff%3a7f00%3a1%5d%3a8080%2fdata proxy must reject restricted ssrf target: http://[::ffff:7f00:1]:8080/data security &amp; ssrf fuzzing 400 / 403 (blocked)">
+        <td style="white-space: nowrap;"><code>TC-SEC-SSRF-015</code></td>
+        <td><span class="badge failed">Security &amp; SSRF Fuzzing</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/proxy?url=http%3A%2F%2F%5B%3A%3Affff%3A7f00%3A1%5D%3A8080%2Fdata"><code>/api/proxy?url=http%3A%2F%2F%5B%3A%3Affff%3A7f00%3A1%5D%3A8080%2Fdata</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">proxy must reject restricted SSRF target: http://[::ffff:7f00:1]:8080/data</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/security/ssrf-fuzzing.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">400 / 403 (Blocked)</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">373ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="security" data-status="passed" data-search="tc-sec-ssrf-016 get /api/proxy?url=http%3a%2f%2f%5b0%3a0%3a0%3a0%3a0%3affff%3a7f00%3a0001%5d%3a8080%2fdata proxy must reject restricted ssrf target: http://[0:0:0:0:0:ffff:7f00:0001]:8080/data security &amp; ssrf fuzzing 400 / 403 (blocked)">
+        <td style="white-space: nowrap;"><code>TC-SEC-SSRF-016</code></td>
+        <td><span class="badge failed">Security &amp; SSRF Fuzzing</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/proxy?url=http%3A%2F%2F%5B0%3A0%3A0%3A0%3A0%3Affff%3A7f00%3A0001%5D%3A8080%2Fdata"><code>/api/proxy?url=http%3A%2F%2F%5B0%3A0%3A0%3A0%3A0%3Affff%3A7f00%3A0001%5D%3A8080%2Fdata</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">proxy must reject restricted SSRF target: http://[0:0:0:0:0:ffff:7f00:0001]:8080/data</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/security/ssrf-fuzzing.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">400 / 403 (Blocked)</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">363ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="security" data-status="passed" data-search="tc-sec-zod-001 post /api/posts malformed input (prototype pollution keys) must uniformly 400 and never throw 500 security &amp; ssrf fuzzing 400 bad request">
+        <td style="white-space: nowrap;"><code>TC-SEC-ZOD-001</code></td>
+        <td><span class="badge failed">Security &amp; SSRF Fuzzing</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/posts"><code>/api/posts</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">malformed input (Prototype pollution keys) must uniformly 400 and NEVER throw 500</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/security/zod-injection.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">400 Bad Request</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">371ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="security" data-status="passed" data-search="tc-sec-zod-002 post /api/posts malformed input (array where string expected) must uniformly 400 and never throw 500 security &amp; ssrf fuzzing 400 bad request">
+        <td style="white-space: nowrap;"><code>TC-SEC-ZOD-002</code></td>
+        <td><span class="badge failed">Security &amp; SSRF Fuzzing</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/posts"><code>/api/posts</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">malformed input (Array where string expected) must uniformly 400 and NEVER throw 500</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/security/zod-injection.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">400 Bad Request</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">387ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="security" data-status="passed" data-search="tc-sec-zod-003 post /api/posts malformed input (oversized string field) must uniformly 400 and never throw 500 security &amp; ssrf fuzzing 400 bad request">
+        <td style="white-space: nowrap;"><code>TC-SEC-ZOD-003</code></td>
+        <td><span class="badge failed">Security &amp; SSRF Fuzzing</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/posts"><code>/api/posts</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">malformed input (Oversized string field) must uniformly 400 and NEVER throw 500</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/security/zod-injection.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">400 Bad Request</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">451ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="security" data-status="passed" data-search="tc-sec-zod-004 post /api/posts malformed input (sql/nosql special characters) must uniformly 400 and never throw 500 security &amp; ssrf fuzzing 400 bad request">
+        <td style="white-space: nowrap;"><code>TC-SEC-ZOD-004</code></td>
+        <td><span class="badge failed">Security &amp; SSRF Fuzzing</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/posts"><code>/api/posts</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">malformed input (SQL/NoSQL special characters) must uniformly 400 and NEVER throw 500</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/security/zod-injection.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">400 Bad Request</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">348ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier1" data-status="passed" data-search="tc-t1-del-001 post /api/user/delete-account should support request -&gt; cancel -&gt; re-request lifecycle tier 1: critical security 200 ok / 202 accepted">
+        <td style="white-space: nowrap;"><code>TC-T1-DEL-001</code></td>
+        <td><span class="badge purple">Tier 1: Critical Security</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/user/delete-account"><code>/api/user/delete-account</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">should support request -&gt; cancel -&gt; re-request lifecycle</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier1-critical/account-deletion.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK / 202 Accepted</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">504ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier1" data-status="passed" data-search="tc-t1-del-002 post /api/user/delete-account should verify deletion schedule alarm and purge order contract tier 1: critical security 200 ok / 202 accepted">
+        <td style="white-space: nowrap;"><code>TC-T1-DEL-002</code></td>
+        <td><span class="badge purple">Tier 1: Critical Security</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/user/delete-account"><code>/api/user/delete-account</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">should verify deletion schedule alarm and purge order contract</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier1-critical/account-deletion.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK / 202 Accepted</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">384ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier1" data-status="passed" data-search="tc-t1-auth-001 post /api/auth/sign-in/email should authenticate valid user and persist session cookie tier 1: critical security 200 ok">
+        <td style="white-space: nowrap;"><code>TC-T1-AUTH-001</code></td>
+        <td><span class="badge purple">Tier 1: Critical Security</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/auth/sign-in/email"><code>/api/auth/sign-in/email</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">should authenticate valid user and persist session cookie</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier1-critical/auth-session.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">905ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier1" data-status="passed" data-search="tc-t1-auth-002 post /api/auth/sign-in/email should return null session for unauthenticated client tier 1: critical security 200 ok">
+        <td style="white-space: nowrap;"><code>TC-T1-AUTH-002</code></td>
+        <td><span class="badge purple">Tier 1: Critical Security</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/auth/sign-in/email"><code>/api/auth/sign-in/email</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">should return null session for unauthenticated client</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier1-critical/auth-session.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">392ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier1" data-status="passed" data-search="tc-t1-auth-003 post /api/auth/mfa/totp should verify mfa backup code and guarantee 2fa stays enabled tier 1: critical security 200 ok">
+        <td style="white-space: nowrap;"><code>TC-T1-AUTH-003</code></td>
+        <td><span class="badge purple">Tier 1: Critical Security</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/auth/mfa/totp"><code>/api/auth/mfa/totp</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">should verify MFA backup code and guarantee 2FA stays enabled</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier1-critical/auth-session.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #fbbf24;">1.32s</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier1" data-status="passed" data-search="tc-t1-auth-004 post /api/auth/mfa/totp legacy /api/mfa/* endpoints must return strict http 404 (or 401 when unauthenticated) tier 1: critical security 200 ok">
+        <td style="white-space: nowrap;"><code>TC-T1-AUTH-004</code></td>
+        <td><span class="badge purple">Tier 1: Critical Security</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/auth/mfa/totp"><code>/api/auth/mfa/totp</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">legacy /api/mfa/* endpoints must return strict HTTP 404 (or 401 when unauthenticated)</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier1-critical/auth-session.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">872ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier1" data-status="passed" data-search="tc-t1-auth-005 post /api/auth/sign-out should invalidate session immediately upon sign-out tier 1: critical security 200 ok">
+        <td style="white-space: nowrap;"><code>TC-T1-AUTH-005</code></td>
+        <td><span class="badge purple">Tier 1: Critical Security</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/auth/sign-out"><code>/api/auth/sign-out</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">should invalidate session immediately upon sign-out</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier1-critical/auth-session.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">819ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier1" data-status="passed" data-search="tc-t1-msg-001 post /api/messages/requests initiating contact must create a pending message request tier 1: critical security 200 ok / 204 no content">
+        <td style="white-space: nowrap;"><code>TC-T1-MSG-001</code></td>
+        <td><span class="badge purple">Tier 1: Critical Security</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/messages/requests"><code>/api/messages/requests</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">initiating contact must create a pending message request</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier1-critical/messaging-consent.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK / 204 No Content</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">385ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier1" data-status="passed" data-search="tc-t1-msg-002 post /api/messages/requests replying to message request must auto-accept consent state tier 1: critical security 200 ok / 204 no content">
+        <td style="white-space: nowrap;"><code>TC-T1-MSG-002</code></td>
+        <td><span class="badge purple">Tier 1: Critical Security</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/messages/requests"><code>/api/messages/requests</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">replying to message request must auto-accept consent state</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier1-critical/messaging-consent.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK / 204 No Content</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">369ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier1" data-status="passed" data-search="tc-t1-msg-003 delete /api/messages/requests blocking user must decline and purge active message requests tier 1: critical security 200 ok / 204 no content">
+        <td style="white-space: nowrap;"><code>TC-T1-MSG-003</code></td>
+        <td><span class="badge purple">Tier 1: Critical Security</span></td>
+        <td><span class="method-badge method-delete">DELETE</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/messages/requests"><code>/api/messages/requests</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">blocking user must decline and purge active message requests</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier1-critical/messaging-consent.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK / 204 No Content</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">377ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier1" data-status="passed" data-search="tc-t1-msg-004 post /api/messages/requests privacy invariant — sender cannot detect request decline via timing or response shape tier 1: critical security 200 ok / 204 no content">
+        <td style="white-space: nowrap;"><code>TC-T1-MSG-004</code></td>
+        <td><span class="badge purple">Tier 1: Critical Security</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/messages/requests"><code>/api/messages/requests</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">privacy invariant — sender cannot detect request decline via timing or response shape</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier1-critical/messaging-consent.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK / 204 No Content</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">450ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier1" data-status="passed" data-search="tc-t1-fga-001 get /api/forms/check-permission unauthenticated requests must be denied across all permission tiers tier 1: critical security 200 ok / 401 unauthorized">
+        <td style="white-space: nowrap;"><code>TC-T1-FGA-001</code></td>
+        <td><span class="badge purple">Tier 1: Critical Security</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/forms/check-permission"><code>/api/forms/check-permission</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">unauthenticated requests must be denied across all permission tiers</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier1-critical/openfga-perms.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK / 401 Unauthorized</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">493ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier1" data-status="passed" data-search="tc-t1-fga-002 get /api/forms/check-permission purgeformpermissions must be strictly awaited to prevent stale allow tier 1: critical security 200 ok / 401 unauthorized">
+        <td style="white-space: nowrap;"><code>TC-T1-FGA-002</code></td>
+        <td><span class="badge purple">Tier 1: Critical Security</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/forms/check-permission"><code>/api/forms/check-permission</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">purgeFormPermissions must be strictly awaited to prevent stale allow</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier1-critical/openfga-perms.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK / 401 Unauthorized</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">448ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier1" data-status="passed" data-search="tc-t1-fga-003 get /api/forms/check-permission multi-resource feed must coalesce permission checks without n+1 queries tier 1: critical security 200 ok / 401 unauthorized">
+        <td style="white-space: nowrap;"><code>TC-T1-FGA-003</code></td>
+        <td><span class="badge purple">Tier 1: Critical Security</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/forms/check-permission"><code>/api/forms/check-permission</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">multi-resource feed must coalesce permission checks without N+1 queries</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier1-critical/openfga-perms.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK / 401 Unauthorized</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">375ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier1" data-status="passed" data-search="tc-t1-store-001 post /api/storage/upload should reject file when magic-bytes do not match file extension tier 1: critical security 400 bad request">
+        <td style="white-space: nowrap;"><code>TC-T1-STORE-001</code></td>
+        <td><span class="badge purple">Tier 1: Critical Security</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/storage/upload"><code>/api/storage/upload</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">should reject file when magic-bytes do not match file extension</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier1-critical/storage-upload.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">400 Bad Request</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">384ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier1" data-status="passed" data-search="tc-t1-store-002 post /api/storage/upload path traversal filenames must be sanitized or rejected tier 1: critical security 400 bad request">
+        <td style="white-space: nowrap;"><code>TC-T1-STORE-002</code></td>
+        <td><span class="badge purple">Tier 1: Critical Security</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/storage/upload"><code>/api/storage/upload</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">path traversal filenames must be sanitized or rejected</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier1-critical/storage-upload.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">400 Bad Request</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #fbbf24;">1.01s</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier1" data-status="passed" data-search="tc-t1-store-003 post /api/storage/upload 16 mib boundary check (15.9 mib pass vs 16.1 mib fail) tier 1: critical security 400 bad request">
+        <td style="white-space: nowrap;"><code>TC-T1-STORE-003</code></td>
+        <td><span class="badge purple">Tier 1: Critical Security</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/storage/upload"><code>/api/storage/upload</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">16 MiB boundary check (15.9 MiB pass vs 16.1 MiB fail)</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier1-critical/storage-upload.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">400 Bad Request</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #fbbf24;">6.38s</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier1" data-status="passed" data-search="tc-t1-store-004 post /api/storage/upload signed url/grant must expire and enforce single verification tier 1: critical security 200 ok">
+        <td style="white-space: nowrap;"><code>TC-T1-STORE-004</code></td>
+        <td><span class="badge purple">Tier 1: Critical Security</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/storage/upload"><code>/api/storage/upload</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">signed URL/grant must expire and enforce single verification</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier1-critical/storage-upload.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">393ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier2" data-status="passed" data-search="tc-t2-arc-001 get /api/forms/archived archived forms must be excluded from discovery feeds and profile listings tier 2: core crud &amp; logic 200 ok / 404">
+        <td style="white-space: nowrap;"><code>TC-T2-ARC-001</code></td>
+        <td><span class="badge browser">Tier 2: Core CRUD &amp; Logic</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/forms/archived"><code>/api/forms/archived</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">archived forms must be excluded from discovery feeds and profile listings</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier2-core/archived-forms.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK / 404</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">366ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier2" data-status="passed" data-search="tc-t2-arc-002 get /api/forms/archived archived forms must still allow authorized post creation and direct url access tier 2: core crud &amp; logic 200 ok / 404">
+        <td style="white-space: nowrap;"><code>TC-T2-ARC-002</code></td>
+        <td><span class="badge browser">Tier 2: Core CRUD &amp; Logic</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/forms/archived"><code>/api/forms/archived</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">archived forms must still allow authorized post creation and direct URL access</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier2-core/archived-forms.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK / 404</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #fbbf24;">1.17s</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier2" data-status="passed" data-search="tc-t2-crud-001 get /api/feed feed listing must adhere to cursor, has_more, next_cursor contract tier 2: core crud &amp; logic 200 ok (paginated)">
+        <td style="white-space: nowrap;"><code>TC-T2-CRUD-001</code></td>
+        <td><span class="badge browser">Tier 2: Core CRUD &amp; Logic</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/feed"><code>/api/feed</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">feed listing must adhere to cursor, has_more, next_cursor contract</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier2-core/crud-pagination.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK (Paginated)</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">364ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier2" data-status="passed" data-search="tc-t2-crud-002 get /api/feed should verify subscriptions and notifications listing schemas tier 2: core crud &amp; logic 200 ok (paginated)">
+        <td style="white-space: nowrap;"><code>TC-T2-CRUD-002</code></td>
+        <td><span class="badge browser">Tier 2: Core CRUD &amp; Logic</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/feed"><code>/api/feed</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">should verify subscriptions and notifications listing schemas</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier2-core/crud-pagination.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK (Paginated)</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #fbbf24;">1.09s</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier2" data-status="passed" data-search="tc-t2-crud-003 get /api/feed badge discovery and member access contract tier 2: core crud &amp; logic 200 ok (paginated)">
+        <td style="white-space: nowrap;"><code>TC-T2-CRUD-003</code></td>
+        <td><span class="badge browser">Tier 2: Core CRUD &amp; Logic</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/feed"><code>/api/feed</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">badge discovery and member access contract</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier2-core/crud-pagination.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK (Paginated)</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">404ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier2" data-status="passed" data-search="tc-t2-csv-001 post /api/import/csv csv payloads exceeding 5 mib must be rejected prior to parsing tier 2: core crud &amp; logic 400 bad request">
+        <td style="white-space: nowrap;"><code>TC-T2-CSV-001</code></td>
+        <td><span class="badge browser">Tier 2: Core CRUD &amp; Logic</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/import/csv"><code>/api/import/csv</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">CSV payloads exceeding 5 MiB must be rejected prior to parsing</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier2-core/csv-import.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">400 Bad Request</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #fbbf24;">2.26s</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier2" data-status="passed" data-search="tc-t2-csv-002 post /api/import/csv csv import job must transition through valid async phases tier 2: core crud &amp; logic 200 ok">
+        <td style="white-space: nowrap;"><code>TC-T2-CSV-002</code></td>
+        <td><span class="badge browser">Tier 2: Core CRUD &amp; Logic</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/import/csv"><code>/api/import/csv</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">CSV import job must transition through valid async phases</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier2-core/csv-import.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">405ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier2" data-status="passed" data-search="tc-t2-csv-003 delete /api/import/csv in-flight csv import job must support mid-phase cancellation tier 2: core crud &amp; logic 200 ok">
+        <td style="white-space: nowrap;"><code>TC-T2-CSV-003</code></td>
+        <td><span class="badge browser">Tier 2: Core CRUD &amp; Logic</span></td>
+        <td><span class="method-badge method-delete">DELETE</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/import/csv"><code>/api/import/csv</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">in-flight CSV import job must support mid-phase cancellation</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier2-core/csv-import.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">385ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier2" data-status="passed" data-search="tc-t2-heart-001 post /api/posts/heart heart batch count must be constrained between 1 and 7 tier 2: core crud &amp; logic 200 ok">
+        <td style="white-space: nowrap;"><code>TC-T2-HEART-001</code></td>
+        <td><span class="badge browser">Tier 2: Core CRUD &amp; Logic</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/posts/heart"><code>/api/posts/heart</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">heart batch count must be constrained between 1 and 7</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier2-core/hearts-budget.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">562ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier2" data-status="passed" data-search="tc-t2-heart-002 post /api/posts/heart identical idempotency-key must deduplicate retry requests tier 2: core crud &amp; logic 200 ok">
+        <td style="white-space: nowrap;"><code>TC-T2-HEART-002</code></td>
+        <td><span class="badge browser">Tier 2: Core CRUD &amp; Logic</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/posts/heart"><code>/api/posts/heart</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">identical Idempotency-Key must deduplicate retry requests</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier2-core/hearts-budget.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">479ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier2" data-status="passed" data-search="tc-t2-heart-003 post /api/posts/heart 7 hearts per utc-day limit enforcement tier 2: core crud &amp; logic 429 / 400">
+        <td style="white-space: nowrap;"><code>TC-T2-HEART-003</code></td>
+        <td><span class="badge browser">Tier 2: Core CRUD &amp; Logic</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/posts/heart"><code>/api/posts/heart</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">7 hearts per UTC-day limit enforcement</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier2-core/hearts-budget.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">429 / 400</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">393ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier2" data-status="passed" data-search="tc-t2-heart-004 post /api/posts/heart self-hearts must not dispatch notification to author tier 2: core crud &amp; logic 200 ok">
+        <td style="white-space: nowrap;"><code>TC-T2-HEART-004</code></td>
+        <td><span class="badge browser">Tier 2: Core CRUD &amp; Logic</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/posts/heart"><code>/api/posts/heart</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">self-hearts must not dispatch notification to author</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier2-core/hearts-budget.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">399ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier2" data-status="passed" data-search="tc-t2-pop-001 get /api/feed/popular popular feed items must be bounded within 7-day window and ordered by ranking score tier 2: core crud &amp; logic 200 ok">
+        <td style="white-space: nowrap;"><code>TC-T2-POP-001</code></td>
+        <td><span class="badge browser">Tier 2: Core CRUD &amp; Logic</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/feed/popular"><code>/api/feed/popular</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">popular feed items must be bounded within 7-day window and ordered by ranking score</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier2-core/popular-discovery.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">515ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier2" data-status="passed" data-search="tc-t2-pop-002 get /api/feed/popular rankingat cursor must provide deterministic snapshot across pages tier 2: core crud &amp; logic 200 ok">
+        <td style="white-space: nowrap;"><code>TC-T2-POP-002</code></td>
+        <td><span class="badge browser">Tier 2: Core CRUD &amp; Logic</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/feed/popular"><code>/api/feed/popular</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">rankingAt cursor must provide deterministic snapshot across pages</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier2-core/popular-discovery.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">410ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier2" data-status="passed" data-search="tc-t2-pop-003 get /api/feed/popular x-min-consistency-token must bypass edge-cache tier 2: core crud &amp; logic 200 ok">
+        <td style="white-space: nowrap;"><code>TC-T2-POP-003</code></td>
+        <td><span class="badge browser">Tier 2: Core CRUD &amp; Logic</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/feed/popular"><code>/api/feed/popular</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">X-Min-Consistency-Token must bypass edge-cache</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier2-core/popular-discovery.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">479ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier3" data-status="passed" data-search="tc-t3-ai-001 post /api/ai/schema step 2 layout inference failure must trigger default fallback schema tier 3: supporting proxies 200 ok (fallback)">
+        <td style="white-space: nowrap;"><code>TC-T3-AI-001</code></td>
+        <td><span class="badge browser">Tier 3: Supporting Proxies</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/ai/schema"><code>/api/ai/schema</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">step 2 layout inference failure must trigger default fallback schema</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier3-supporting/ai-schema.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK (Fallback)</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">399ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier3" data-status="passed" data-search="tc-t3-geo-001 get /api/proxy/geocode geocode suggestions must never be cacheable tier 3: supporting proxies 200 ok (no-cache)">
+        <td style="white-space: nowrap;"><code>TC-T3-GEO-001</code></td>
+        <td><span class="badge browser">Tier 3: Supporting Proxies</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/proxy/geocode"><code>/api/proxy/geocode</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">geocode suggestions must NEVER be cacheable</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier3-supporting/geocode-proxy.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK (No-Cache)</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">726ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier3" data-status="passed" data-search="tc-t3-geo-002 get /api/proxy/geocode resolved geocode locations may permit public/private caching tier 3: supporting proxies 200 ok (no-cache)">
+        <td style="white-space: nowrap;"><code>TC-T3-GEO-002</code></td>
+        <td><span class="badge browser">Tier 3: Supporting Proxies</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/proxy/geocode"><code>/api/proxy/geocode</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">resolved geocode locations may permit public/private caching</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier3-supporting/geocode-proxy.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK (No-Cache)</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">467ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier3" data-status="passed" data-search="tc-t3-rest-001 get and execute route must accept get and reject post with http 405 tier 3: supporting proxies 200 ok">
+        <td style="white-space: nowrap;"><code>TC-T3-REST-001</code></td>
+        <td><span class="badge browser">Tier 3: Supporting Proxies</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="and"><code>and</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">execute route must accept GET and reject POST with HTTP 405</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier3-supporting/rest-api-field.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">842ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier3" data-status="passed" data-search="tc-t3-rest-002 get /api/proxy/rest-field plain http endpoints must be rejected (https-only enforcement) tier 3: supporting proxies 400 / 405 / 429">
+        <td style="white-space: nowrap;"><code>TC-T3-REST-002</code></td>
+        <td><span class="badge browser">Tier 3: Supporting Proxies</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/proxy/rest-field"><code>/api/proxy/rest-field</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">plain HTTP endpoints must be rejected (HTTPS-only enforcement)</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier3-supporting/rest-api-field.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">400 / 405 / 429</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">374ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier3" data-status="passed" data-search="tc-t3-rest-003 get /api/proxy/rest-field crlf injection in proxy headers or query parameters must be rejected tier 3: supporting proxies 400 / 405 / 429">
+        <td style="white-space: nowrap;"><code>TC-T3-REST-003</code></td>
+        <td><span class="badge browser">Tier 3: Supporting Proxies</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/proxy/rest-field"><code>/api/proxy/rest-field</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">CRLF injection in proxy headers or query parameters must be rejected</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier3-supporting/rest-api-field.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">400 / 405 / 429</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">376ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="tier3" data-status="passed" data-search="tc-t3-rest-004 get /api/proxy/rest-field restapi field daily quota (1,000/day) must be tracked and enforced tier 3: supporting proxies 400 / 405 / 429">
+        <td style="white-space: nowrap;"><code>TC-T3-REST-004</code></td>
+        <td><span class="badge browser">Tier 3: Supporting Proxies</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/proxy/rest-field"><code>/api/proxy/rest-field</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">RestApi field daily quota (1,000/day) must be tracked and enforced</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api/tier3-supporting/rest-api-field.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">400 / 405 / 429</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">397ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="gateway" data-status="passed" data-search="api_tc_001 get /api should return 200 ok for backend health check endpoint gateway &amp; route guards 200 ok">
+        <td style="white-space: nowrap;"><code>API_TC_001</code></td>
+        <td><span class="badge browser">Gateway &amp; Route Guards</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api"><code>/api</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">should return 200 OK for backend health check endpoint</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">172ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="gateway" data-status="passed" data-search="api_tc_002 get /api should return 200 ok and valid json from gateway root gateway &amp; route guards 200 ok">
+        <td style="white-space: nowrap;"><code>API_TC_002</code></td>
+        <td><span class="badge browser">Gateway &amp; Route Guards</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api"><code>/api</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">should return 200 OK and valid JSON from gateway root</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #fbbf24;">1.18s</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="gateway" data-status="passed" data-search="api_tc_003 get /api should enforce 401 unauthorized on protected /api routes without credentials gateway &amp; route guards 200 ok">
+        <td style="white-space: nowrap;"><code>API_TC_003</code></td>
+        <td><span class="badge browser">Gateway &amp; Route Guards</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api"><code>/api</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">should enforce 401 Unauthorized on protected /api routes without credentials</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">564ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="gateway" data-status="passed" data-search="api_tc_004 get /api should protect internal /api/health endpoint against unauthenticated access gateway &amp; route guards 200 ok">
+        <td style="white-space: nowrap;"><code>API_TC_004</code></td>
+        <td><span class="badge browser">Gateway &amp; Route Guards</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api"><code>/api</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">should protect internal /api/health endpoint against unauthenticated access</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">60ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="gateway" data-status="passed" data-search="api_tc_005 get /api should retrieve public avatar asset with valid image content-type gateway &amp; route guards 200 ok">
+        <td style="white-space: nowrap;"><code>API_TC_005</code></td>
+        <td><span class="badge browser">Gateway &amp; Route Guards</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api"><code>/api</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">should retrieve public avatar asset with valid image content-type</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">353ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="gateway" data-status="passed" data-search="api_tc_006 get /api should verify api response headers and security directives gateway &amp; route guards 200 ok">
+        <td style="white-space: nowrap;"><code>API_TC_006</code></td>
+        <td><span class="badge browser">Gateway &amp; Route Guards</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api"><code>/api</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">should verify API response headers and security directives</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">75ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="gateway" data-status="passed" data-search="api_auth_001 get /api/auth/get-session get /api/auth/get-session returns 200 ok and null for unauthenticated client gateway &amp; route guards 200 ok">
+        <td style="white-space: nowrap;"><code>API_AUTH_001</code></td>
+        <td><span class="badge browser">Gateway &amp; Route Guards</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/auth/get-session"><code>/api/auth/get-session</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">GET /api/auth/get-session returns 200 OK and null for unauthenticated client</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">905ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="gateway" data-status="passed" data-search="api_auth_002 post /api/auth/sign-in/email post /api/auth/sign-in/email returns 400 with validation_error on empty payload gateway &amp; route guards 200 ok">
+        <td style="white-space: nowrap;"><code>API_AUTH_002</code></td>
+        <td><span class="badge browser">Gateway &amp; Route Guards</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/auth/sign-in/email"><code>/api/auth/sign-in/email</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">POST /api/auth/sign-in/email returns 400 with VALIDATION_ERROR on empty payload</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">1.00s</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="gateway" data-status="passed" data-search="api_auth_003 post /api/auth/sign-in/email post /api/auth/sign-in/email returns 401 on incorrect credentials gateway &amp; route guards 200 ok">
+        <td style="white-space: nowrap;"><code>API_AUTH_003</code></td>
+        <td><span class="badge browser">Gateway &amp; Route Guards</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/auth/sign-in/email"><code>/api/auth/sign-in/email</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">POST /api/auth/sign-in/email returns 401 on incorrect credentials</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #fbbf24;">1.15s</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="gateway" data-status="passed" data-search="api_auth_004 options /api/auth/sign-in/email options /api/auth/sign-in/email handles cors preflight with 204 no content gateway &amp; route guards 200 ok">
+        <td style="white-space: nowrap;"><code>API_AUTH_004</code></td>
+        <td><span class="badge browser">Gateway &amp; Route Guards</span></td>
+        <td><span class="method-badge method-options">OPTIONS</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/auth/sign-in/email"><code>/api/auth/sign-in/email</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">OPTIONS /api/auth/sign-in/email handles CORS preflight with 204 No Content</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">892ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="gateway" data-status="passed" data-search="api_auth_005 post /api/auth/sign-in/email-otp post /api/auth/sign-in/email-otp validates required email and otp payload fields gateway &amp; route guards 200 ok">
+        <td style="white-space: nowrap;"><code>API_AUTH_005</code></td>
+        <td><span class="badge browser">Gateway &amp; Route Guards</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/auth/sign-in/email-otp"><code>/api/auth/sign-in/email-otp</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">POST /api/auth/sign-in/email-otp validates required email and otp payload fields</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #fbbf24;">1.01s</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="gateway" data-status="passed" data-search="api_auth_006 post /api/auth/email-otp/send-verification-otp post /api/auth/email-otp/send-verification-otp enforces email and type enum requirements gateway &amp; route guards 200 ok">
+        <td style="white-space: nowrap;"><code>API_AUTH_006</code></td>
+        <td><span class="badge browser">Gateway &amp; Route Guards</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/auth/email-otp/send-verification-otp"><code>/api/auth/email-otp/send-verification-otp</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">POST /api/auth/email-otp/send-verification-otp enforces email and type enum requirements</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">981ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="gateway" data-status="passed" data-search="api_auth_007 post /api/auth/phone-number/send-otp post /api/auth/phone-number/send-otp enforces phonenumber parameter validation gateway &amp; route guards 200 ok">
+        <td style="white-space: nowrap;"><code>API_AUTH_007</code></td>
+        <td><span class="badge browser">Gateway &amp; Route Guards</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/auth/phone-number/send-otp"><code>/api/auth/phone-number/send-otp</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">POST /api/auth/phone-number/send-otp enforces phoneNumber parameter validation</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">963ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="gateway" data-status="passed" data-search="api_auth_008 post /api/auth/phone-number/verify post /api/auth/phone-number/verify enforces phonenumber and code validation gateway &amp; route guards 200 ok">
+        <td style="white-space: nowrap;"><code>API_AUTH_008</code></td>
+        <td><span class="badge browser">Gateway &amp; Route Guards</span></td>
+        <td><span class="method-badge method-post">POST</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/auth/phone-number/verify"><code>/api/auth/phone-number/verify</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">POST /api/auth/phone-number/verify enforces phoneNumber and code validation</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">967ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="gateway" data-status="passed" data-search="api_auth_009 get /api/auth/oauth2/consent-meta get /api/auth/oauth2/consent-meta enforces consent_code requirement gateway &amp; route guards 200 ok">
+        <td style="white-space: nowrap;"><code>API_AUTH_009</code></td>
+        <td><span class="badge browser">Gateway &amp; Route Guards</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api/auth/oauth2/consent-meta"><code>/api/auth/oauth2/consent-meta</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">GET /api/auth/oauth2/consent-meta enforces consent_code requirement</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">937ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
+
+      <tr class="api-test-row" data-tier="gateway" data-status="passed" data-search="api_auth_010 get /api should verify security error and rate limit schema contracts on auth routes gateway &amp; route guards 200 ok">
+        <td style="white-space: nowrap;"><code>API_AUTH_010</code></td>
+        <td><span class="badge browser">Gateway &amp; Route Guards</span></td>
+        <td><span class="method-badge method-get">GET</span></td>
+        <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="/api"><code>/api</code></td>
+        <td>
+          <div style="font-weight: 600; color: var(--text);">should verify security error and rate limit schema contracts on auth routes</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem;">Source: <code>api.spec.ts</code></div>
+        </td>
+        <td style="white-space: nowrap;"><span style="font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">200 OK</span></td>
+        <td style="white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #34d399;">975ms</td>
+        <td style="white-space: nowrap;"><span class="badge passed">PASSED</span></td>
+      </tr>
             </tbody>
           </table>
         </div>
       </div>
     </div>
+  
 
 
     <!-- ==================== VIEW 9: POST CREATION PAGE ==================== -->
@@ -5791,7 +7015,7 @@
     <!-- Footer -->
     <footer>
       <p>Eve Vakh Quality, Test & CI/CD Automation Suite &mdash; Built with Playwright & GitHub Actions.</p>
-      <p style="margin-top: 0.35rem; color: var(--text-dim);">Live Dashboard: <a href="https://mughdabansal.github.io/Vakh-Playwright--test-/" style="color: #60a5fa;">https://mughdabansal.github.io/Vakh-Playwright--test-/</a> | Last updated: <strong>Wednesday, September 23, 2026 at 10:36:45 PM</strong></p>
+      <p style="margin-top: 0.35rem; color: var(--text-dim);">Live Dashboard: <a href="https://mughdabansal.github.io/Vakh-Playwright--test-/" style="color: #60a5fa;">https://mughdabansal.github.io/Vakh-Playwright--test-/</a> | Last updated: <strong>Friday, September 25, 2026 at 8:13:13 AM</strong></p>
     </footer>
 
   </div>
@@ -5804,10 +7028,51 @@
       
       const targetView = document.getElementById('view-' + tabId);
       if (targetView) targetView.classList.add('active');
-      if (el) el.classList.add('active');
+      const targetBtn = el || Array.from(document.querySelectorAll('.tab-btn')).find(b => (b.getAttribute('onclick') || '').indexOf("'" + tabId + "'") !== -1);
+      if (targetBtn) targetBtn.classList.add('active');
 
       // Update URL hash
       window.location.hash = tabId;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // API Tests Interactive Filter Logic
+    let currentApiTier = 'all';
+
+    function filterApiTier(tier, btn) {
+      currentApiTier = tier;
+      document.querySelectorAll('.tier-pill-btn').forEach(b => b.classList.remove('active'));
+      if (btn) {
+        btn.classList.add('active');
+      } else {
+        const matching = Array.from(document.querySelectorAll('.tier-pill-btn')).find(b => (b.getAttribute('onclick') || '').indexOf("'" + tier + "'") !== -1);
+        if (matching) matching.classList.add('active');
+      }
+      filterApiTests();
+    }
+
+    function filterApiTests() {
+      const query = (document.getElementById('apiSearchInput')?.value || '').trim().toLowerCase();
+      const rows = document.querySelectorAll('.api-test-row');
+      let visible = 0;
+
+      rows.forEach(row => {
+        const tier = row.getAttribute('data-tier');
+        const searchBlob = row.getAttribute('data-search') || '';
+
+        const tierMatch = currentApiTier === 'all' || tier === currentApiTier;
+        const queryMatch = !query || searchBlob.includes(query);
+
+        if (tierMatch && queryMatch) {
+          row.style.display = '';
+          visible++;
+        } else {
+          row.style.display = 'none';
+        }
+      });
+
+      const countEl = document.getElementById('apiVisibleCount');
+      if (countEl) countEl.textContent = visible;
     }
 
     // Sanity Version Filter Logic - Modular & Extensible for 1.0, 2.0, 3.0+

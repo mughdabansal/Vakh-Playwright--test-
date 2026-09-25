@@ -98,6 +98,11 @@ if (fs.existsSync(resultsJsonPath)) {
   }
 }
 
+// Load / Extract Risk-Tiered API Test Execution Results & Benchmarks
+const { loadApiTestData, generateApiViewHtml } = require('./api-dashboard-helper');
+const { apiTestsSummary, rateLimitBench, wsBench } = loadApiTestData(reportsDir, resultsJsonPath, lastUpdated);
+const apiViewHtml = generateApiViewHtml(apiTestsSummary, apiPerf, rateLimitBench, wsBench);
+
 const htmlContent = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -382,6 +387,16 @@ const htmlContent = `<!DOCTYPE html>
       border-color: #059669;
       color: #047857;
     }
+    [data-theme="light"] .tier-pill-btn {
+      background: #ffffff;
+      border-color: var(--border);
+      color: var(--text);
+    }
+    [data-theme="light"] .tier-pill-btn.active {
+      background: rgba(5, 150, 105, 0.12);
+      border-color: #059669;
+      color: #047857;
+    }
     [data-theme="light"] .callout-banner {
       background: linear-gradient(135deg, #e8f5ed, #daf0e3);
       border-color: #a7d9b9;
@@ -590,6 +605,41 @@ const htmlContent = `<!DOCTYPE html>
     .badge.failed { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
     .badge.browser { background: rgba(59, 130, 246, 0.12); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.25); font-size: 0.72rem; }
     .badge.tag-pill { background: rgba(139, 92, 246, 0.15); color: #c4b5fd; border: 1px solid rgba(139, 92, 246, 0.3); margin: 2px; }
+    .badge.purple { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
+    .badge.orange { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+
+    /* HTTP Method Badges */
+    .method-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.18rem 0.45rem;
+      border-radius: 4px;
+      display: inline-block;
+    }
+    .method-get { background: rgba(59, 130, 246, 0.18); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.35); }
+    .method-post { background: rgba(16, 185, 129, 0.18); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.35); }
+    .method-delete { background: rgba(239, 68, 68, 0.18); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.35); }
+    .method-options { background: rgba(168, 85, 247, 0.18); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.35); }
+    .method-ws { background: rgba(245, 158, 11, 0.18); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.35); }
+
+    /* Tier Filter Pills */
+    .tier-pill-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 0.4rem 0.85rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .tier-pill-btn:hover { color: var(--text); border-color: var(--accent); }
+    .tier-pill-btn.active { background: rgba(59, 130, 246, 0.15); border-color: var(--accent); color: #60a5fa; }
 
     /* Search Input */
     .search-box {
@@ -1927,6 +1977,9 @@ const htmlContent = `<!DOCTYPE html>
       <button class="tab-btn" onclick="switchTab('sanity', this)">
         ⚡ Sanity Suites <span class="tab-count">40 Tests</span>
       </button>
+      <button class="tab-btn" onclick="switchTab('api', this)">
+        ⚡ API Tests <span class="tab-count">${apiTestsSummary.totalTests} Tests</span>
+      </button>
       <button class="tab-btn" onclick="switchTab('login', this)">
         🔐 Login Page <span class="tab-count">4 Tests</span>
       </button>
@@ -1959,7 +2012,7 @@ const htmlContent = `<!DOCTYPE html>
         <div class="stat-card green">
           <div class="label">Total Automated Coverage</div>
           <div class="value">100% Pass</div>
-          <div class="subtext"><span>✅</span> 97 Total Scenarios (57 Regression + 40 Sanity)</div>
+          <div class="subtext"><span>✅</span> ${97 + apiTestsSummary.totalTests} Total Scenarios (97 UI + ${apiTestsSummary.totalTests} API Matrix)</div>
         </div>
         <div class="stat-card blue">
           <div class="label">Sanity Feedback Cycle</div>
@@ -1971,10 +2024,10 @@ const htmlContent = `<!DOCTYPE html>
           <div class="value">${(webPerf.requests?.average || 196.2).toFixed(1)} req/s</div>
           <div class="subtext">Zero dropped requests | Avg Latency: ${(webPerf.latency?.average || 116.86).toFixed(1)}ms</div>
         </div>
-        <div class="stat-card orange">
-          <div class="label">Staging Backend API</div>
-          <div class="value">100% Ready</div>
-          <div class="subtext">164.5 req/s benchmarked on <code>xo.eve.vakh.com</code></div>
+        <div class="stat-card orange" style="cursor: pointer;" onclick="switchTab('api')">
+          <div class="label">Backend API Test Matrix</div>
+          <div class="value">${apiTestsSummary.passedTests} / ${apiTestsSummary.totalTests} Passed</div>
+          <div class="subtext">6 Risk Tiers &bull; ${(apiPerf.requests?.average || 164.5).toFixed(1)} req/s on <code>xo.eve.vakh.com</code></div>
         </div>
       </div>
 
@@ -2062,6 +2115,16 @@ const htmlContent = `<!DOCTYPE html>
             <div style="margin-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
               <span class="badge passed">Auto-Deploy Active</span>
               <span style="font-size: 0.78rem; color: #38bdf8;">View Pipeline &rarr;</span>
+            </div>
+          </div>
+
+          <div class="stat-card" style="cursor: pointer;" onclick="switchTab('api')">
+            <div class="label" style="color: #a855f7;">Backend &amp; Security Matrix</div>
+            <div class="value" style="font-size: 1.4rem; color: #c084fc;">⚡ API Test Suite</div>
+            <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.3rem;">6 risk tiers: Better Auth sessions, OpenFGA perms, message requests, storage magic bytes, SSRF/IDOR fuzzing &amp; WebSocket actors.</p>
+            <div style="margin-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
+              <span class="badge passed">${apiTestsSummary.passedTests} / ${apiTestsSummary.totalTests} Passed (${apiTestsSummary.passRate}%)</span>
+              <span style="font-size: 0.78rem; color: #c084fc;">View API Matrix &rarr;</span>
             </div>
           </div>
         </div>
@@ -5356,290 +5419,7 @@ const htmlContent = `<!DOCTYPE html>
 
 
     
-    <!-- ==================== VIEW 8: API & LOAD TESTING ==================== -->
-    <div id="view-api" class="view-content">
-      <div class="grid-4">
-        <div class="stat-card green">
-          <div class="label">API Functional Tests</div>
-          <div class="value" style="font-size: 1.6rem;">6 / 6 Passed</div>
-          <div class="subtext"><span>✅</span> Health, Auth, Storage, Security</div>
-        </div>
-        <div class="stat-card blue">
-          <div class="label">Web Throughput (Login)</div>
-          <div class="value" style="font-size: 1.6rem;">${(webPerf.requests?.average || 200.07).toFixed(1)} req/s</div>
-          <div class="subtext">Avg Latency: ${(webPerf.latency?.average || 48.68).toFixed(1)}ms (50 Conns)</div>
-        </div>
-        <div class="stat-card purple">
-          <div class="label">Backend API Throughput</div>
-          <div class="value" style="font-size: 1.6rem;">${(apiPerf.requests?.average || 164.47).toFixed(1)} req/s</div>
-          <div class="subtext">Endpoint: <code>https://xo.eve.vakh.com</code></div>
-        </div>
-        <div class="stat-card orange">
-          <div class="label">Load Test Error Rate</div>
-          <div class="value" style="font-size: 1.6rem;">0% Errors</div>
-          <div class="subtext">5,468 Total Stress Requests Sent</div>
-        </div>
-      </div>
-
-      <!-- Playwright API Tests Table -->
-      <div class="panel">
-        <div class="panel-header">
-          <div>
-            <div class="panel-title">⚡ Playwright API Functional Test Suite</div>
-            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
-              Target Endpoint: <code>https://xo.eve.vakh.com</code> | Automated API Gateway & Endpoint Verification
-            </p>
-          </div>
-          <span class="badge passed">16 / 16 Passed (Core + Auth)</span>
-        </div>
-
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Test Case Name & Purpose</th>
-              <th>Endpoint & Method</th>
-              <th>Expected Status</th>
-              <th>Response Time</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code>API_TC_001</code></td>
-              <td>
-                <strong>Backend Health Check Endpoint</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Validates service availability and JSON response.</span>
-              </td>
-              <td><code>GET /health</code></td>
-              <td><code>200 OK</code></td>
-              <td>318ms</td>
-              <td><span class="badge passed">PASSED</span></td>
-            </tr>
-            <tr>
-              <td><code>API_TC_002</code></td>
-              <td>
-                <strong>Gateway Root Endpoint</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Asserts gateway entry point responds with valid JSON.</span>
-              </td>
-              <td><code>GET /</code></td>
-              <td><code>200 OK</code></td>
-              <td>358ms</td>
-              <td><span class="badge passed">PASSED</span></td>
-            </tr>
-            <tr>
-              <td><code>API_TC_003</code></td>
-              <td>
-                <strong>Protected /api Route Guard</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Enforces 401 Unauthorized for unauthenticated requests.</span>
-              </td>
-              <td><code>GET /api</code></td>
-              <td><code>401 Unauthorized</code></td>
-              <td>301ms</td>
-              <td><span class="badge passed">PASSED</span></td>
-            </tr>
-            <tr>
-              <td><code>API_TC_004</code></td>
-              <td>
-                <strong>Internal Health Check Route Guard</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Protects internal health endpoint against unauthorized access.</span>
-              </td>
-              <td><code>GET /api/health</code></td>
-              <td><code>401 Unauthorized</code></td>
-              <td>275ms</td>
-              <td><span class="badge passed">PASSED</span></td>
-            </tr>
-            <tr>
-              <td><code>API_TC_005</code></td>
-              <td>
-                <strong>Static Avatar Asset Storage Delivery</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Validates user avatar asset fetching and image/jpeg content type.</span>
-              </td>
-              <td><code>GET /api/storage/avatar/...</code></td>
-              <td><code>200 OK</code></td>
-              <td>209ms</td>
-              <td><span class="badge passed">PASSED</span></td>
-            </tr>
-            <tr>
-              <td><code>API_TC_006</code></td>
-              <td>
-                <strong>CORS & Security Response Headers</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Validates presence of security directives and content-type headers.</span>
-              </td>
-              <td><code>GET /health</code></td>
-              <td><code>200 OK</code></td>
-              <td>94ms</td>
-              <td><span class="badge passed">PASSED</span></td>
-            </tr>
-
-            <!-- Auth API Tests (ALL /api/auth/*) -->
-            <tr>
-              <td><code>API_AUTH_001</code></td>
-              <td>
-                <strong>Unauthenticated Session Probe</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Asserts session check returns 200 OK and null for unauthenticated client.</span>
-              </td>
-              <td><code>GET /api/auth/get-session</code></td>
-              <td><code>200 OK (null)</code></td>
-              <td>961ms</td>
-              <td><span class="badge passed">PASSED</span></td>
-            </tr>
-            <tr>
-              <td><code>API_AUTH_002</code></td>
-              <td>
-                <strong>Email Sign-In Body Validation</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Enforces VALIDATION_ERROR code on empty payload for email/password.</span>
-              </td>
-              <td><code>POST /api/auth/sign-in/email</code></td>
-              <td><code>400 Bad Request</code></td>
-              <td>1.0s</td>
-              <td><span class="badge passed">PASSED</span></td>
-            </tr>
-            <tr>
-              <td><code>API_AUTH_003</code></td>
-              <td>
-                <strong>Email Sign-In Credential Guard</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Enforces INVALID_EMAIL_OR_PASSWORD error code on incorrect credentials.</span>
-              </td>
-              <td><code>POST /api/auth/sign-in/email</code></td>
-              <td><code>401 Unauthorized</code></td>
-              <td>1.2s</td>
-              <td><span class="badge passed">PASSED</span></td>
-            </tr>
-            <tr>
-              <td><code>API_AUTH_004</code></td>
-              <td>
-                <strong>CORS Preflight Directives</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Validates OPTIONS preflight returns 204 No Content for eve.vakh.com.</span>
-              </td>
-              <td><code>OPTIONS /api/auth/sign-in/email</code></td>
-              <td><code>204 No Content</code></td>
-              <td>884ms</td>
-              <td><span class="badge passed">PASSED</span></td>
-            </tr>
-            <tr>
-              <td><code>API_AUTH_005</code></td>
-              <td>
-                <strong>Email OTP Sign-In Validation</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Validates required email and otp payload fields.</span>
-              </td>
-              <td><code>POST /api/auth/sign-in/email-otp</code></td>
-              <td><code>400 Bad Request</code></td>
-              <td>983ms</td>
-              <td><span class="badge passed">PASSED</span></td>
-            </tr>
-            <tr>
-              <td><code>API_AUTH_006</code></td>
-              <td>
-                <strong>Send Verification OTP Enum Guard</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Enforces email presence and valid type enum parameter.</span>
-              </td>
-              <td><code>POST /api/auth/email-otp/send-verification-otp</code></td>
-              <td><code>400 Bad Request</code></td>
-              <td>991ms</td>
-              <td><span class="badge passed">PASSED</span></td>
-            </tr>
-            <tr>
-              <td><code>API_AUTH_007</code></td>
-              <td>
-                <strong>Phone Number OTP Send Validation</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Enforces phoneNumber parameter validation on SMS OTP dispatch.</span>
-              </td>
-              <td><code>POST /api/auth/phone-number/send-otp</code></td>
-              <td><code>400 Bad Request</code></td>
-              <td>1.0s</td>
-              <td><span class="badge passed">PASSED</span></td>
-            </tr>
-            <tr>
-              <td><code>API_AUTH_008</code></td>
-              <td>
-                <strong>Phone Number OTP Verification Guard</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Enforces phoneNumber and code validation parameters.</span>
-              </td>
-              <td><code>POST /api/auth/phone-number/verify</code></td>
-              <td><code>400 Bad Request</code></td>
-              <td>1.1s</td>
-              <td><span class="badge passed">PASSED</span></td>
-            </tr>
-            <tr>
-              <td><code>API_AUTH_009</code></td>
-              <td>
-                <strong>OAuth2 Consent Meta Parameter Guard</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Validates consent_code requirement for OAuth2 metadata requests.</span>
-              </td>
-              <td><code>GET /api/auth/oauth2/consent-meta</code></td>
-              <td><code>400 Bad Request</code></td>
-              <td>971ms</td>
-              <td><span class="badge passed">PASSED</span></td>
-            </tr>
-            <tr>
-              <td><code>API_AUTH_010</code></td>
-              <td>
-                <strong>Auth Security & Rate Limit Resilience Contract</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Validates JSON compliance, RATE_LIMIT_EXCEEDED handling, and security formats.</span>
-              </td>
-              <td><code>POST /api/auth/*</code></td>
-              <td><code>400 / 401 / 429</code></td>
-              <td>975ms</td>
-              <td><span class="badge passed">PASSED</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Load Test Comparison Grids -->
-      <div class="grid-2">
-        <!-- Web Load Test Card -->
-        <div class="panel">
-          <div class="panel-header">
-            <div>
-              <div class="panel-title">🌐 Web Portal Load Benchmark (autocannon)</div>
-              <p style="font-size: 0.8rem; color: var(--text-muted);">Target: <code>https://eve.vakh.com/auth/sign-in</code></p>
-            </div>
-            <span class="badge passed">200.07 req/s</span>
-          </div>
-
-          <table style="margin-top: 0;">
-            <tbody>
-              <tr><td><strong>Total Requests</strong></td><td><code>3,001 requests</code> in 15s</td></tr>
-              <tr><td><strong>Achieved Throughput</strong></td><td><strong>200.07 req/sec</strong> (100% Target)</td></tr>
-              <tr><td><strong>Average (Mean) Latency</strong></td><td><strong style="color: #34d399;">48.68 ms</strong></td></tr>
-              <tr><td><strong>P50 (Median) Latency</strong></td><td><strong>24 ms</strong></td></tr>
-              <tr><td><strong>P97.5 Latency</strong></td><td>304 ms</td></tr>
-              <tr><td><strong>P99 Latency</strong></td><td>345 ms</td></tr>
-              <tr><td><strong>Max Latency</strong></td><td>428 ms</td></tr>
-              <tr><td><strong>Data Transferred</strong></td><td>13.1 MB</td></tr>
-              <tr><td><strong>Errors & Timeouts</strong></td><td><span class="badge passed">0 Errors (0%)</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- API Load Test Card -->
-        <div class="panel">
-          <div class="panel-header">
-            <div>
-              <div class="panel-title">⚡ Backend API Load Benchmark (autocannon)</div>
-              <p style="font-size: 0.8rem; color: var(--text-muted);">Target: <code>https://xo.eve.vakh.com</code></p>
-            </div>
-            <span class="badge passed">164.47 req/s</span>
-          </div>
-
-          <table style="margin-top: 0;">
-            <tbody>
-              <tr><td><strong>Total Requests</strong></td><td><code>2,467 requests</code> in 15s</td></tr>
-              <tr><td><strong>Achieved Throughput</strong></td><td><strong>164.47 req/sec</strong></td></tr>
-              <tr><td><strong>Average (Mean) Latency</strong></td><td><strong style="color: #60a5fa;">186.76 ms</strong></td></tr>
-              <tr><td><strong>P50 (Median) Latency</strong></td><td><strong>164 ms</strong></td></tr>
-              <tr><td><strong>P97.5 Latency</strong></td><td>533 ms</td></tr>
-              <tr><td><strong>P99 Latency</strong></td><td>641 ms</td></tr>
-              <tr><td><strong>Max Latency</strong></td><td>948 ms</td></tr>
-              <tr><td><strong>Data Transferred</strong></td><td>4.0 MB</td></tr>
-              <tr><td><strong>Errors & Timeouts</strong></td><td><span class="badge passed">0 Errors (0%)</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
+    ${apiViewHtml}
 
 
     <!-- ==================== VIEW 9: POST CREATION PAGE ==================== -->
@@ -5904,10 +5684,51 @@ const htmlContent = `<!DOCTYPE html>
       
       const targetView = document.getElementById('view-' + tabId);
       if (targetView) targetView.classList.add('active');
-      if (el) el.classList.add('active');
+      const targetBtn = el || Array.from(document.querySelectorAll('.tab-btn')).find(b => (b.getAttribute('onclick') || '').indexOf("'" + tabId + "'") !== -1);
+      if (targetBtn) targetBtn.classList.add('active');
 
       // Update URL hash
       window.location.hash = tabId;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // API Tests Interactive Filter Logic
+    let currentApiTier = 'all';
+
+    function filterApiTier(tier, btn) {
+      currentApiTier = tier;
+      document.querySelectorAll('.tier-pill-btn').forEach(b => b.classList.remove('active'));
+      if (btn) {
+        btn.classList.add('active');
+      } else {
+        const matching = Array.from(document.querySelectorAll('.tier-pill-btn')).find(b => (b.getAttribute('onclick') || '').indexOf("'" + tier + "'") !== -1);
+        if (matching) matching.classList.add('active');
+      }
+      filterApiTests();
+    }
+
+    function filterApiTests() {
+      const query = (document.getElementById('apiSearchInput')?.value || '').trim().toLowerCase();
+      const rows = document.querySelectorAll('.api-test-row');
+      let visible = 0;
+
+      rows.forEach(row => {
+        const tier = row.getAttribute('data-tier');
+        const searchBlob = row.getAttribute('data-search') || '';
+
+        const tierMatch = currentApiTier === 'all' || tier === currentApiTier;
+        const queryMatch = !query || searchBlob.includes(query);
+
+        if (tierMatch && queryMatch) {
+          row.style.display = '';
+          visible++;
+        } else {
+          row.style.display = 'none';
+        }
+      });
+
+      const countEl = document.getElementById('apiVisibleCount');
+      if (countEl) countEl.textContent = visible;
     }
 
     // Sanity Version Filter Logic - Modular & Extensible for 1.0, 2.0, 3.0+
