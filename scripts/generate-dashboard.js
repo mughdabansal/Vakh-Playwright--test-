@@ -1954,7 +1954,6 @@ const htmlContent = `<!DOCTYPE html>
         </div>
       </button>
 
-      <div class="status-pill">${latestRunInfo}</div>
       <div style="font-size: 0.78rem; color: var(--text-muted); background: rgba(255,255,255,0.05); padding: 0.35rem 0.75rem; border-radius: 8px; border: 1px solid var(--border);">
         🕒 Updated: ${lastUpdated}
       </div>
