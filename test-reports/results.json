@@ -1,22 +1,15 @@
 {
   "config": {
     "argv": [
-      "C:\\Program Files\\nodejs\\node.exe",
-      "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\node_modules\\@playwright\\test\\cli.js",
+      "/opt/hostedtoolcache/node/22.23.2/x64/bin/node",
+      "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/node_modules/.bin/playwright",
       "test",
-      "src/tests/login.spec.ts",
-      "src/tests/recovery.spec.ts",
-      "src/tests/chat.spec.ts",
-      "src/tests/home.spec.ts",
-      "src/tests/post.spec.ts",
-      "-g",
-      "TC-05|TC_REC_001|TC_CHAT_019|TC_CHAT_020|TC_CHAT_021|TC_HOME_011|TC_POST_006",
-      "--project=chromium"
+      "src/tests/activity.spec.ts"
     ],
-    "configFile": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\playwright.config.ts",
-    "rootDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
+    "configFile": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/playwright.config.ts",
+    "rootDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
     "failOnFlakyTests": false,
-    "forbidOnly": false,
+    "forbidOnly": true,
     "fullyParallel": false,
     "globalSetup": null,
     "globalTeardown": null,
@@ -25,69 +18,191 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "actualWorkers": 4
+      "ci": {
+        "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/b042a1a1f5e8d08ed7a3debc7888fe9de852bbb2",
+        "commitHash": "b042a1a1f5e8d08ed7a3debc7888fe9de852bbb2",
+        "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36438650946"
+      },
+      "gitCommit": {
+        "shortHash": "b042a1a",
+        "hash": "b042a1a1f5e8d08ed7a3debc7888fe9de852bbb2",
+        "subject": "feat(tests): add edge-case and boundary test suites, update tracking and dashboard",
+        "body": "feat(tests): add edge-case and boundary test suites, update tracking and dashboard\n",
+        "author": {
+          "name": "Mughda Bansal",
+          "email": "mughdabansal1414@gmail.com",
+          "time": 1790606833000
+        },
+        "committer": {
+          "name": "Mughda Bansal",
+          "email": "mughdabansal1414@gmail.com",
+          "time": 1790606833000
+        },
+        "branch": "main"
+      },
+      "actualWorkers": 1
     },
     "preserveOutput": "always",
     "projects": [
       {
-        "outputDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/test-reports/test-results",
+        "outputDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results",
         "repeatEach": 1,
-        "retries": 0,
+        "retries": 2,
         "metadata": {
-          "actualWorkers": 4
+          "ci": {
+            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/b042a1a1f5e8d08ed7a3debc7888fe9de852bbb2",
+            "commitHash": "b042a1a1f5e8d08ed7a3debc7888fe9de852bbb2",
+            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36438650946"
+          },
+          "gitCommit": {
+            "shortHash": "b042a1a",
+            "hash": "b042a1a1f5e8d08ed7a3debc7888fe9de852bbb2",
+            "subject": "feat(tests): add edge-case and boundary test suites, update tracking and dashboard",
+            "body": "feat(tests): add edge-case and boundary test suites, update tracking and dashboard\n",
+            "author": {
+              "name": "Mughda Bansal",
+              "email": "mughdabansal1414@gmail.com",
+              "time": 1790606833000
+            },
+            "committer": {
+              "name": "Mughda Bansal",
+              "email": "mughdabansal1414@gmail.com",
+              "time": 1790606833000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 1
         },
         "id": "chromium",
         "name": "chromium",
-        "testDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
-        "testIgnore": [],
+        "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
+        "testIgnore": [
+          "**/chat.spec.ts",
+          "**/04-chat-collaboration.spec.ts"
+        ],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
         "timeout": 30000
       },
       {
-        "outputDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/test-reports/test-results",
+        "outputDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results",
         "repeatEach": 1,
-        "retries": 0,
+        "retries": 2,
         "metadata": {
-          "actualWorkers": 4
+          "ci": {
+            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/b042a1a1f5e8d08ed7a3debc7888fe9de852bbb2",
+            "commitHash": "b042a1a1f5e8d08ed7a3debc7888fe9de852bbb2",
+            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36438650946"
+          },
+          "gitCommit": {
+            "shortHash": "b042a1a",
+            "hash": "b042a1a1f5e8d08ed7a3debc7888fe9de852bbb2",
+            "subject": "feat(tests): add edge-case and boundary test suites, update tracking and dashboard",
+            "body": "feat(tests): add edge-case and boundary test suites, update tracking and dashboard\n",
+            "author": {
+              "name": "Mughda Bansal",
+              "email": "mughdabansal1414@gmail.com",
+              "time": 1790606833000
+            },
+            "committer": {
+              "name": "Mughda Bansal",
+              "email": "mughdabansal1414@gmail.com",
+              "time": 1790606833000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 1
         },
         "id": "firefox",
         "name": "firefox",
-        "testDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
-        "testIgnore": [],
+        "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
+        "testIgnore": [
+          "**/chat.spec.ts",
+          "**/04-chat-collaboration.spec.ts"
+        ],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
         "timeout": 30000
       },
       {
-        "outputDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/test-reports/test-results",
+        "outputDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results",
         "repeatEach": 1,
-        "retries": 0,
+        "retries": 2,
         "metadata": {
-          "actualWorkers": 4
+          "ci": {
+            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/b042a1a1f5e8d08ed7a3debc7888fe9de852bbb2",
+            "commitHash": "b042a1a1f5e8d08ed7a3debc7888fe9de852bbb2",
+            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36438650946"
+          },
+          "gitCommit": {
+            "shortHash": "b042a1a",
+            "hash": "b042a1a1f5e8d08ed7a3debc7888fe9de852bbb2",
+            "subject": "feat(tests): add edge-case and boundary test suites, update tracking and dashboard",
+            "body": "feat(tests): add edge-case and boundary test suites, update tracking and dashboard\n",
+            "author": {
+              "name": "Mughda Bansal",
+              "email": "mughdabansal1414@gmail.com",
+              "time": 1790606833000
+            },
+            "committer": {
+              "name": "Mughda Bansal",
+              "email": "mughdabansal1414@gmail.com",
+              "time": 1790606833000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 1
         },
         "id": "webkit",
         "name": "webkit",
-        "testDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
-        "testIgnore": [],
+        "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
+        "testIgnore": [
+          "**/chat.spec.ts",
+          "**/04-chat-collaboration.spec.ts"
+        ],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
         "timeout": 30000
       },
       {
-        "outputDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/test-reports/test-results",
+        "outputDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results",
         "repeatEach": 1,
-        "retries": 0,
+        "retries": 2,
         "metadata": {
-          "actualWorkers": 4
+          "ci": {
+            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/b042a1a1f5e8d08ed7a3debc7888fe9de852bbb2",
+            "commitHash": "b042a1a1f5e8d08ed7a3debc7888fe9de852bbb2",
+            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36438650946"
+          },
+          "gitCommit": {
+            "shortHash": "b042a1a",
+            "hash": "b042a1a1f5e8d08ed7a3debc7888fe9de852bbb2",
+            "subject": "feat(tests): add edge-case and boundary test suites, update tracking and dashboard",
+            "body": "feat(tests): add edge-case and boundary test suites, update tracking and dashboard\n",
+            "author": {
+              "name": "Mughda Bansal",
+              "email": "mughdabansal1414@gmail.com",
+              "time": 1790606833000
+            },
+            "committer": {
+              "name": "Mughda Bansal",
+              "email": "mughdabansal1414@gmail.com",
+              "time": 1790606833000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 1
         },
         "id": "edge",
         "name": "edge",
-        "testDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
-        "testIgnore": [],
+        "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
+        "testIgnore": [
+          "**/chat.spec.ts",
+          "**/04-chat-collaboration.spec.ts"
+        ],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
@@ -123,25 +238,25 @@
     "updateSnapshots": "missing",
     "updateSourceMethod": "patch",
     "version": "1.62.1",
-    "workers": 4,
+    "workers": 1,
     "webServer": null
   },
   "suites": [
     {
-      "title": "chat.spec.ts",
-      "file": "chat.spec.ts",
+      "title": "activity.spec.ts",
+      "file": "activity.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Eve Vakh - Chat & Messaging Comprehensive Test Suite",
-          "file": "chat.spec.ts",
+          "title": "Eve Vakh - Activity & Notifications Page Test Suite",
+          "file": "activity.spec.ts",
           "line": 7,
           "column": 6,
           "specs": [
             {
-              "title": "TC_CHAT_019: network disconnect during media/file upload stops progress, displays retry option, and prevents app freeze",
+              "title": "TC_ACT_001: should navigate to activity page and verify header display",
               "ok": true,
               "tags": [],
               "tests": [
@@ -156,12 +271,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 28635,
+                      "duration": 6898,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-28T13:18:14.175Z",
+                      "startTime": "2026-09-28T14:48:55.405Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -169,13 +284,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-3220d0ea810e35d6967c",
-              "file": "chat.spec.ts",
-              "line": 414,
+              "id": "616be4781cf8c32ae453-3f190bd5eb820169b025",
+              "file": "activity.spec.ts",
+              "line": 36,
               "column": 7
             },
             {
-              "title": "TC_CHAT_020: sending messages while offline marks messages as Pending/Queued and automatically dispatches upon network restoration",
+              "title": "TC_ACT_002: should display activity feed and verify content layout",
               "ok": true,
               "tags": [],
               "tests": [
@@ -190,12 +305,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 18658,
+                      "duration": 5990,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-28T13:18:43.197Z",
+                      "startTime": "2026-09-28T14:49:02.565Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -203,13 +318,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-996b14a043a0d28aaf45",
-              "file": "chat.spec.ts",
-              "line": 458,
+              "id": "616be4781cf8c32ae453-6b9f5ccc60cf9d78ed63",
+              "file": "activity.spec.ts",
+              "line": 52,
               "column": 7
             },
             {
-              "title": "TC_CHAT_021: unblocked user immediately restores real-time messaging capabilities without requiring app reload",
+              "title": "TC_ACT_003: should verify badge and role assignment notification message",
               "ok": true,
               "tags": [],
               "tests": [
@@ -224,12 +339,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 14743,
+                      "duration": 6796,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-28T13:19:01.885Z",
+                      "startTime": "2026-09-28T14:49:08.572Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -237,30 +352,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-c9de3ff870385ff73cc3",
-              "file": "chat.spec.ts",
-              "line": 500,
+              "id": "616be4781cf8c32ae453-c29ea7d4e1b00c79571b",
+              "file": "activity.spec.ts",
+              "line": 65,
               "column": 7
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "home.spec.ts",
-      "file": "home.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Eve Vakh - Home Page Full UI & Functional Test Suite",
-          "file": "home.spec.ts",
-          "line": 7,
-          "column": 6,
-          "specs": [
+            },
             {
-              "title": "TC_HOME_011: unhearting/unliking a post verifies whether daily heart budget is refunded or remains expended according to business rules",
+              "title": "TC_ACT_004: should verify form publication approval notification and media preview",
               "ok": true,
               "tags": [],
               "tests": [
@@ -270,17 +368,289 @@
                   "expectedStatus": "passed",
                   "projectId": "chromium",
                   "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8103,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:49:15.386Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-67db8b34566fa5053e57",
+              "file": "activity.spec.ts",
+              "line": 78,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_005: should verify content moderation policy rejection message and quoted post",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7218,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:49:23.503Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-393880cc1dc48ebd6e0c",
+              "file": "activity.spec.ts",
+              "line": 91,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_006: should verify post heart reaction notification and referenced post snippet",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8325,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:49:30.735Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-d7f5233c5c23afe7d138",
+              "file": "activity.spec.ts",
+              "line": 105,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_007: should verify access and permissions granted notification messages",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 11076,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:49:39.077Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-5e5a1148aebb4a57f1f6",
+              "file": "activity.spec.ts",
+              "line": 119,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_008: should verify user activity and post mention notification details",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 10105,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:49:50.170Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-6ffbc56d5467988266ce",
+              "file": "activity.spec.ts",
+              "line": 132,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_009: should verify end-of-feed indicator and chronological sequence",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6602,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:50:00.286Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-204e0705c334e3fba5a2",
+              "file": "activity.spec.ts",
+              "line": 145,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_010: should preserve authenticated session upon direct activity navigation",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4994,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:50:06.902Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-43bf40385ed0aa08bb1a",
+              "file": "activity.spec.ts",
+              "line": 159,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_011: should group high-frequency reactions (50+ likes in 1 minute) into a single summary notification",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7532,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:50:11.908Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-6abd8c32a14f50f76d9e",
+              "file": "activity.spec.ts",
+              "line": 177,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_001: should navigate to activity page and verify header display",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
                   "results": [
                     {
                       "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 14307,
+                      "duration": 6593,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-28T13:18:14.242Z",
+                      "startTime": "2026-09-28T14:50:19.895Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -288,81 +658,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "d318381359a9b96acb1e-3091295ebb1b98d486cf",
-              "file": "home.spec.ts",
-              "line": 185,
+              "id": "616be4781cf8c32ae453-2331fb97787c953d3c1d",
+              "file": "activity.spec.ts",
+              "line": 36,
               "column": 7
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "login.spec.ts",
-      "file": "login.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Eve Vakh - Login Page Functional & Button Test Suite",
-          "file": "login.spec.ts",
-          "line": 7,
-          "column": 6,
-          "specs": [
+            },
             {
-              "title": "TC-05: submitting password exceeding 128 characters is handled cleanly without server timeout or 500 error",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
-                      "status": "passed",
-                      "duration": 8677,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-28T13:18:14.138Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "41d3fd2474a19feb00a1-623af21503f8a98de1d7",
-              "file": "login.spec.ts",
-              "line": 140,
-              "column": 7
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "post.spec.ts",
-      "file": "post.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Eve Vakh - Post Creation & Composer Full Test Suite",
-          "file": "post.spec.ts",
-          "line": 7,
-          "column": 6,
-          "specs": [
-            {
-              "title": "TC_POST_006: uploading corrupt or oversized media attachment halts submission and displays inline file error",
+              "title": "TC_ACT_002: should display activity feed and verify content layout",
               "ok": true,
               "tags": [],
               "tests": [
@@ -370,19 +672,19 @@
                   "timeout": 90000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 3,
-                      "parallelIndex": 3,
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 45831,
+                      "duration": 6965,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-28T13:18:14.183Z",
+                      "startTime": "2026-09-28T14:50:27.068Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -390,50 +692,33 @@
                   "status": "expected"
                 }
               ],
-              "id": "852d2ff9c4320f80b981-3bedb8761c58a4f9910b",
-              "file": "post.spec.ts",
-              "line": 144,
+              "id": "616be4781cf8c32ae453-c84f944cf178f8f682be",
+              "file": "activity.spec.ts",
+              "line": 52,
               "column": 7
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "recovery.spec.ts",
-      "file": "recovery.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Eve Vakh - Account Recovery & 2FA Security Suite",
-          "file": "recovery.spec.ts",
-          "line": 7,
-          "column": 6,
-          "specs": [
+            },
             {
-              "title": "TC_REC_001: entering incorrect 2FA authenticator TOTP code 5 times disables further attempts for 15 minutes",
+              "title": "TC_ACT_003: should verify badge and role assignment notification message",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 90000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 9840,
+                      "duration": 7091,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-28T13:18:23.545Z",
+                      "startTime": "2026-09-28T14:50:34.054Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -441,9 +726,1029 @@
                   "status": "expected"
                 }
               ],
-              "id": "ef78f3da5c9c24fceacf-615a320ce7d2faa2cf1a",
-              "file": "recovery.spec.ts",
-              "line": 18,
+              "id": "616be4781cf8c32ae453-846f87e99cd7b42f8373",
+              "file": "activity.spec.ts",
+              "line": 65,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_004: should verify form publication approval notification and media preview",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7276,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:50:41.160Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-2bed74c4b20134e1da61",
+              "file": "activity.spec.ts",
+              "line": 78,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_005: should verify content moderation policy rejection message and quoted post",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 10534,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:50:48.449Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-8751050b2c020ef8d8bb",
+              "file": "activity.spec.ts",
+              "line": 91,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_006: should verify post heart reaction notification and referenced post snippet",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 12712,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:50:58.996Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-adbd9a602b42fa338bb4",
+              "file": "activity.spec.ts",
+              "line": 105,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_007: should verify access and permissions granted notification messages",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7613,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:51:11.721Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-81c9cea473df043b0cbd",
+              "file": "activity.spec.ts",
+              "line": 119,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_008: should verify user activity and post mention notification details",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 14723,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:51:19.348Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-5515a795000eb6b05aff",
+              "file": "activity.spec.ts",
+              "line": 132,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_009: should verify end-of-feed indicator and chronological sequence",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7016,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:51:34.084Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-793b5458db392c657d2a",
+              "file": "activity.spec.ts",
+              "line": 145,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_010: should preserve authenticated session upon direct activity navigation",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7898,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:51:41.111Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-5e3cbefe68b586879541",
+              "file": "activity.spec.ts",
+              "line": 159,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_011: should group high-frequency reactions (50+ likes in 1 minute) into a single summary notification",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6798,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:51:49.025Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-3f6c34ed56556d6717d4",
+              "file": "activity.spec.ts",
+              "line": 177,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_001: should navigate to activity page and verify header display",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 12225,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:51:56.601Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-40eeb2640590a90411cb",
+              "file": "activity.spec.ts",
+              "line": 36,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_002: should display activity feed and verify content layout",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7971,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:52:09.357Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-c9d350d3e8448011ace5",
+              "file": "activity.spec.ts",
+              "line": 52,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_003: should verify badge and role assignment notification message",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7266,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:52:17.348Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-7dd9d7499ddc80269ca9",
+              "file": "activity.spec.ts",
+              "line": 65,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_004: should verify form publication approval notification and media preview",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 13073,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:52:24.636Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-741c710d1bd040e90ec4",
+              "file": "activity.spec.ts",
+              "line": 78,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_005: should verify content moderation policy rejection message and quoted post",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 9254,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:52:37.724Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-2547bcf08994cb690835",
+              "file": "activity.spec.ts",
+              "line": 91,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_006: should verify post heart reaction notification and referenced post snippet",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 10325,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:52:46.992Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-133c3032c684d3e1af75",
+              "file": "activity.spec.ts",
+              "line": 105,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_007: should verify access and permissions granted notification messages",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7202,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:52:57.332Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-11ef22923c1d57f754b5",
+              "file": "activity.spec.ts",
+              "line": 119,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_008: should verify user activity and post mention notification details",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8853,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:53:04.551Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-5f3e6f12776098cae9f5",
+              "file": "activity.spec.ts",
+              "line": 132,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_009: should verify end-of-feed indicator and chronological sequence",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6795,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:53:13.421Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-70713ba243a079258a49",
+              "file": "activity.spec.ts",
+              "line": 145,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_010: should preserve authenticated session upon direct activity navigation",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6455,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:53:20.234Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-e73792c7347a25ffd70c",
+              "file": "activity.spec.ts",
+              "line": 159,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_011: should group high-frequency reactions (50+ likes in 1 minute) into a single summary notification",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7900,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:53:26.704Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-d33480fdda16920f080e",
+              "file": "activity.spec.ts",
+              "line": 177,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_001: should navigate to activity page and verify header display",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "edge",
+                  "projectName": "edge",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4175,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:53:35.090Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-dfd318d377df3c58b902",
+              "file": "activity.spec.ts",
+              "line": 36,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_002: should display activity feed and verify content layout",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "edge",
+                  "projectName": "edge",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5526,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:53:39.387Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-7f259c2e4b32c4bd4d7e",
+              "file": "activity.spec.ts",
+              "line": 52,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_003: should verify badge and role assignment notification message",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "edge",
+                  "projectName": "edge",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7386,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:53:44.927Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-de1c7f98325063cf54f3",
+              "file": "activity.spec.ts",
+              "line": 65,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_004: should verify form publication approval notification and media preview",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "edge",
+                  "projectName": "edge",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6968,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:53:52.327Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-32d1908eabde58e58bce",
+              "file": "activity.spec.ts",
+              "line": 78,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_005: should verify content moderation policy rejection message and quoted post",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "edge",
+                  "projectName": "edge",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8304,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:53:59.310Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-def33e31fd9a58454012",
+              "file": "activity.spec.ts",
+              "line": 91,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_006: should verify post heart reaction notification and referenced post snippet",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "edge",
+                  "projectName": "edge",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7222,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:54:07.627Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-ed64de53ce53a5f66b04",
+              "file": "activity.spec.ts",
+              "line": 105,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_007: should verify access and permissions granted notification messages",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "edge",
+                  "projectName": "edge",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6838,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:54:14.860Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-56bbcb5f8dc0ef694d23",
+              "file": "activity.spec.ts",
+              "line": 119,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_008: should verify user activity and post mention notification details",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "edge",
+                  "projectName": "edge",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7372,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:54:21.708Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-d11f8a8c97761a6c3f91",
+              "file": "activity.spec.ts",
+              "line": 132,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_009: should verify end-of-feed indicator and chronological sequence",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "edge",
+                  "projectName": "edge",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6938,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:54:29.093Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-76053fde6740df1bb26e",
+              "file": "activity.spec.ts",
+              "line": 145,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_010: should preserve authenticated session upon direct activity navigation",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "edge",
+                  "projectName": "edge",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5511,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:54:36.043Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-ae1b223d50b1f1c52e97",
+              "file": "activity.spec.ts",
+              "line": 159,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_011: should group high-frequency reactions (50+ likes in 1 minute) into a single summary notification",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "edge",
+                  "projectName": "edge",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5949,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-28T14:54:41.565Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-713a3269cdca083988eb",
+              "file": "activity.spec.ts",
+              "line": 177,
               "column": 7
             }
           ]
@@ -453,9 +1758,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-09-28T13:18:11.943Z",
-    "duration": 64867.513999999996,
-    "expected": 7,
+    "startTime": "2026-09-28T14:48:54.703Z",
+    "duration": 352879.75399999996,
+    "expected": 44,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
