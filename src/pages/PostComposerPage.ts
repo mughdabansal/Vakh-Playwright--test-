@@ -78,23 +78,35 @@ export class PostComposerPage extends BasePage {
    * Selects the target form (defaults to user's 'posts' form) inside the CREATE FORMS modal.
    */
   async selectTargetForm(formName: string = 'posts') {
+    await this.page.locator('[role="dialog"] button[aria-label*="Create in"]').first().waitFor({ state: 'visible', timeout: 10000 }).catch(() => {});
+
     const targetFormBtn = this.page.locator(`[role="dialog"] button[aria-label*="Create in ${formName}" i], [role="dialog"] button[aria-label="Create in posts"]`).first();
 
-    // If target form button is not yet in view in virtualized list, scroll modal container
-    for (let i = 0; i < 10; i++) {
-      if (await targetFormBtn.isVisible().catch(() => false)) {
+    // Scroll virtualized container if targetFormBtn is not yet mounted
+    for (let i = 0; i < 20; i++) {
+      if (await targetFormBtn.count() > 0) {
         break;
       }
-      const box = await this.page.locator('[role="dialog"]').boundingBox();
-      if (box) {
-        await this.page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
-        await this.page.mouse.wheel(0, 400);
-      }
-      await this.page.waitForTimeout(300);
+      await this.page.evaluate(() => {
+        const dialog = document.querySelector('[role="dialog"]');
+        if (!dialog) return;
+        const scrollable = Array.from(dialog.querySelectorAll('div')).find(d => {
+          const style = window.getComputedStyle(d);
+          return (style.overflowY === 'auto' || style.overflowY === 'scroll') && d.scrollHeight > d.clientHeight;
+        });
+        if (scrollable) {
+          scrollable.scrollTop += 600;
+        } else {
+          dialog.scrollTop += 600;
+        }
+      });
+      await this.page.waitForTimeout(250);
     }
 
     let targetBtn = targetFormBtn;
-    if (!(await targetBtn.isVisible().catch(() => false))) {
+    if (await targetFormBtn.count() > 0) {
+      targetBtn = targetFormBtn;
+    } else {
       targetBtn = this.page.locator('[role="dialog"] button[aria-label*="Create in"]').first();
     }
 
@@ -135,6 +147,43 @@ export class PostComposerPage extends BasePage {
   }
 
   /**
+   * Uploads an image or media attachment using file chooser event or input element.
+   */
+  async uploadMediaAttachment(filename: string, mimeType: string, buffer: Buffer) {
+    const mediaBtn = this.addMediaButton.or(this.page.getByRole('button', { name: /add media/i })).or(this.page.locator('button:has-text("Add Media")')).first();
+    if (await mediaBtn.isVisible({ timeout: 5000 }).catch(() => false)) {
+      await mediaBtn.click({ force: true });
+      await this.page.waitForTimeout(500);
+    }
+
+    const dropzoneBtn = this.page.locator('button:has-text("Add media or drop files"), [role="button"]:has-text("Add media or drop files"), button[aria-label*="drop files" i]').first();
+    const fileChooserPromise = this.page.waitForEvent('filechooser', { timeout: 10000 }).catch(() => null);
+
+    if (await dropzoneBtn.isVisible({ timeout: 5000 }).catch(() => false)) {
+      await dropzoneBtn.click({ force: true });
+    }
+
+    const fileChooser = await fileChooserPromise;
+    if (fileChooser) {
+      await fileChooser.setFiles([{
+        name: filename,
+        mimeType: mimeType,
+        buffer: buffer,
+      }]);
+    } else {
+      const fileInput = this.page.locator('input[type="file"]').last();
+      if (await fileInput.isVisible({ timeout: 3000 }).catch(() => false)) {
+        await fileInput.setInputFiles([{
+          name: filename,
+          mimeType: mimeType,
+          buffer: buffer,
+        }]);
+      }
+    }
+    await this.page.waitForTimeout(1500);
+  }
+
+  /**
    * Submits the post creation by clicking the "Create" button.
    */
   async submitPost() {
@@ -165,8 +214,10 @@ export class PostComposerPage extends BasePage {
    * Closes the composer dialog.
    */
   async closeDialog() {
-    if (await this.closeButton.isVisible({ timeout: 3000 }).catch(() => false)) {
-      await this.closeButton.click();
+    await this.page.keyboard.press('Escape');
+    await this.page.waitForTimeout(300);
+    if (await this.closeButton.isVisible({ timeout: 1000 }).catch(() => false)) {
+      await this.closeButton.click({ force: true }).catch(() => {});
     }
   }
 

@@ -158,4 +158,194 @@ test.describe('Eve Vakh - Explore Page Functional, UI/UX & Profile Forms Test Su
     await explorePage.verifyAndClickSubscribeButton();
   });
 
+  /**
+   * Test Case 10: Profile Card Click for Deleted User (Race Condition Handling)
+   * Validates:
+   *  - User searches and sees target user in search results.
+   *  - Target user deletes account immediately before the profile card click (backend returns 404/410).
+   *  - Application handles response gracefully without an unhandled exception or app crash.
+   *  - DOM shell remains interactive and user can continue navigating.
+   */
+  test('TC_EXP_010: clicking profile card from search results for deleted user alerts/handles gracefully without app crash', async ({ page }) => {
+    const explorePage = new ExplorePage(page);
+
+    // Track unhandled errors & dialogs
+    const pageErrors: Error[] = [];
+    page.on('pageerror', err => pageErrors.push(err));
+
+    const dialogMessages: string[] = [];
+    page.on('dialog', async dialog => {
+      dialogMessages.push(dialog.message());
+      await dialog.dismiss().catch(() => {});
+    });
+
+    // 1. Search for a user on explore page to populate search results
+    await explorePage.searchUsers('archie');
+    await expect(explorePage.userCards.first()).toBeVisible({ timeout: 15000 });
+
+    // 2. Intercept profile and user data requests just before click to simulate deleted account (404 Not Found)
+    await page.route(url => {
+      const u = url.toString();
+      return u.includes('/api/init/users/') || u.includes('/api/profiles/5bfe8fbe') || u.includes('/api/profiles/4763e1b5');
+    }, async route => {
+      await route.fulfill({
+        status: 404,
+        contentType: 'application/json',
+        body: JSON.stringify({
+          error: 'USER_NOT_FOUND',
+          code: 'ACCOUNT_DELETED',
+          message: 'The requested user account has been deleted.'
+        })
+      });
+    });
+
+    // 3. Click the target profile card from search results
+    const card = explorePage.userCards.first();
+    await card.scrollIntoViewIfNeeded();
+    await card.click();
+    await page.waitForTimeout(2000);
+
+    // 4. Assert no unhandled runtime exceptions or React white-screen crash occurred
+    expect(pageErrors).toHaveLength(0);
+
+    // 5. Assert UI shell remains rendered, visible, and stable
+    await expect(page.locator('body')).toBeVisible();
+    await expect(explorePage.homeNavButton.or(explorePage.exploreNavButton).first()).toBeVisible();
+
+    // 6. Verify user can still interact and navigate back to explore
+    await explorePage.clickExploreButton();
+    await explorePage.verifyExploreHeader();
+    expect(pageErrors).toHaveLength(0);
+  });
+
+  /**
+   * Test Case 11: Profile Card Click for User Who Blocked Requester (Race Condition Handling)
+   * Validates:
+   *  - User searches and sees target user in search results.
+   *  - Target user blocks the requester immediately before the click (backend returns 403 Forbidden).
+   *  - Application handles blocked state gracefully without unhandled exception or crash.
+   *  - UI shell remains intact and user can continue navigating.
+   */
+  test('TC_EXP_011: clicking profile card from search results for user who blocked requester alerts/handles gracefully without app crash', async ({ page }) => {
+    const explorePage = new ExplorePage(page);
+
+    // Track unhandled errors & dialogs
+    const pageErrors: Error[] = [];
+    page.on('pageerror', err => pageErrors.push(err));
+
+    const dialogMessages: string[] = [];
+    page.on('dialog', async dialog => {
+      dialogMessages.push(dialog.message());
+      await dialog.dismiss().catch(() => {});
+    });
+
+    // 1. Search for a user on explore page to populate search results
+    await explorePage.searchUsers('archie');
+    await expect(explorePage.userCards.first()).toBeVisible({ timeout: 15000 });
+
+    // 2. Intercept profile and user data requests just before click to simulate blocked requester (403 Forbidden)
+    await page.route(url => {
+      const u = url.toString();
+      return u.includes('/api/init/users/') || u.includes('/api/profiles/5bfe8fbe') || u.includes('/api/profiles/4763e1b5');
+    }, async route => {
+      await route.fulfill({
+        status: 403,
+        contentType: 'application/json',
+        body: JSON.stringify({
+          error: 'ACCESS_DENIED',
+          code: 'USER_BLOCKED',
+          message: 'You cannot view this profile because this user has blocked you.'
+        })
+      });
+    });
+
+    // 3. Click the target profile card from search results
+    const card = explorePage.userCards.first();
+    await card.scrollIntoViewIfNeeded();
+    await card.click();
+    await page.waitForTimeout(2000);
+
+    // 4. Assert no unhandled runtime exceptions or React white-screen crash occurred
+    expect(pageErrors).toHaveLength(0);
+
+    // 5. Assert UI shell remains rendered, visible, and stable
+    await expect(page.locator('body')).toBeVisible();
+    await expect(explorePage.homeNavButton.or(explorePage.exploreNavButton).first()).toBeVisible();
+
+    // 6. Verify user can still interact and navigate back to explore
+    await explorePage.clickExploreButton();
+    await explorePage.verifyExploreHeader();
+    expect(pageErrors).toHaveLength(0);
+  });
+
+  /**
+   * Test Case 12: Nearby Distance Slider Boundary & Clamping Validation
+   * Validates:
+   *  - Boundary values for Nearby distance slider/input:
+   *      1. 0 km is validated and clamped to the valid default radius (100 km).
+   *      2. Negative values (e.g. -50 km) are validated and clamped to the valid default radius (100 km).
+   *      3. Values exceeding the maximum slider radius (e.g. >5,000 km, 50,000 km) are clamped to the maximum radius capacity (10,000 km).
+   *  - No application runtime crashes or unhandled page errors occur.
+   */
+  test('TC_EXP_012: should validate and clamp boundary values for Nearby distance slider (0 km, negative, and >5000 km)', async ({ page }) => {
+    const pageErrors: Error[] = [];
+    page.on('pageerror', err => pageErrors.push(err));
+
+    await page.context().grantPermissions(['geolocation']);
+    await page.context().setGeolocation({ latitude: 28.6139, longitude: 77.2090 });
+
+    const explorePage = new ExplorePage(page);
+
+    const capturedRadii: string[] = [];
+    await page.route('**/api/profiles/explore/nearby*', async route => {
+      const url = new URL(route.request().url());
+      const radius = url.searchParams.get('radius');
+      if (radius) {
+        capturedRadii.push(radius);
+      }
+      await route.continue();
+    });
+
+    // 1. Boundary Test 1: Enter 0 km -> clamped to default radius (100 km)
+    await explorePage.openNearbyFilterModal();
+    await explorePage.setNearbyDistance('0');
+    expect(await explorePage.nearbyDistanceInput.inputValue()).toBe('0');
+    const radiusCountBefore0 = capturedRadii.length;
+    await explorePage.applyNearbyFilter();
+    await expect(explorePage.nearbyFilterBtn).toContainText('100km');
+    const newRadii0 = capturedRadii.slice(radiusCountBefore0);
+    if (newRadii0.length > 0) {
+      expect(newRadii0[newRadii0.length - 1]).toBe('100');
+    }
+
+    // 2. Boundary Test 2: Enter distance exceeding maximum radius (>5,000 km, e.g. 50,000 km) -> clamped to max slider radius (10,000 km)
+    await explorePage.openNearbyFilterModal();
+    await explorePage.setNearbyDistance('50000');
+    expect(await explorePage.nearbyDistanceInput.inputValue()).toBe('50000');
+    const radiusCountBeforeMax = capturedRadii.length;
+    await explorePage.applyNearbyFilter();
+    await expect(explorePage.nearbyFilterBtn).toContainText('10000km');
+    const newRadiiMax = capturedRadii.slice(radiusCountBeforeMax);
+    if (newRadiiMax.length > 0) {
+      expect(newRadiiMax[newRadiiMax.length - 1]).toBe('10000');
+    }
+
+    // 3. Boundary Test 3: Enter negative distance (-50 km) -> clamped to valid default radius (100 km)
+    await explorePage.openNearbyFilterModal();
+    await explorePage.setNearbyDistance('-50');
+    expect(await explorePage.nearbyDistanceInput.inputValue()).toBe('-50');
+    const radiusCountBeforeNeg = capturedRadii.length;
+    await explorePage.applyNearbyFilter();
+    await expect(explorePage.nearbyFilterBtn).toContainText('100km');
+    const newRadiiNeg = capturedRadii.slice(radiusCountBeforeNeg);
+    if (newRadiiNeg.length > 0) {
+      expect(newRadiiNeg[newRadiiNeg.length - 1]).toBe('100');
+    }
+
+    // Assert zero runtime crashes
+    expect(pageErrors).toHaveLength(0);
+  });
+
 });
+
+

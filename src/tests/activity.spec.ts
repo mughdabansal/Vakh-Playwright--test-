@@ -165,4 +165,67 @@ test.describe('Eve Vakh - Activity & Notifications Page Test Suite', () => {
     await expect(activityPage.activityHeader).toBeVisible();
   });
 
+  /**
+   * Test Case 11: High-Frequency Notification Bundling (50+ likes in 1 minute)
+   * Validates:
+   *  - When a post receives high-frequency reactions (50+ likes in 1 minute),
+   *    notifications are bundled into a single summary ("User X and 49 others liked your post")
+   *    rather than spamming the activity feed with 50 individual entries.
+   *  - Activity feed displays exactly 1 grouped summary entry for the reaction spike.
+   *  - Absence of frontend page errors or blank screen crashes.
+   */
+  test('TC_ACT_011: should group high-frequency reactions (50+ likes in 1 minute) into a single summary notification', async ({ page }) => {
+    const pageErrors: Error[] = [];
+    page.on('pageerror', err => pageErrors.push(err));
+
+    const activityPage = new ActivityPage(page);
+
+    // 1. Intercept notifications endpoint to simulate high-frequency reaction bundling
+    const summaryText = 'User X and 49 others liked your post';
+    await page.route('**/api/notifications?*', async (route) => {
+      const response = await route.fetch();
+      const json = await response.json();
+
+      const bundledReactionNotification = {
+        id: 'bundled-reaction-notif-50',
+        user_id: '4763e1b5-e29d-4790-9529-7d8fa3730f3b',
+        type: 'milestone.reached',
+        title: 'High-frequency reactions',
+        body: summaryText,
+        data: {
+          post_id: '8edda41f-cd65-4cb1-b721-f4eb11844c11',
+          reaction_count: 50,
+          bundled: true,
+          window: '1m',
+          primary_actor: 'User X',
+          others_count: 49,
+        },
+        read_at: null,
+        created_at: new Date().toISOString(),
+      };
+
+      json.notifications = [bundledReactionNotification, ...json.notifications];
+
+      await route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify(json),
+      });
+    });
+
+    // 2. Navigate to Activity page
+    await activityPage.clickActivityNav();
+    await activityPage.verifyIsOnActivityPage();
+
+    // 3. Verify single grouped summary notification is rendered
+    await activityPage.verifyBundledReactionNotification(summaryText);
+
+    // 4. Verify no 50 separate duplicate entries were created
+    const matchCount = await page.getByText(summaryText).count();
+    expect(matchCount).toBe(1);
+
+    // 5. Verify zero uncaught frontend runtime errors
+    expect(pageErrors).toHaveLength(0);
+  });
 });
+

@@ -21,11 +21,13 @@ export class ExplorePage extends BasePage {
   readonly nearbyFilterBtn: Locator;
   readonly tagsFilterBtn: Locator;
   readonly activeFilterBtn: Locator;
+  readonly searchInput: Locator;
 
   // Nearby Filter Modal elements
   readonly nearbyModalApply: Locator;
   readonly nearbyModalClear: Locator;
   readonly nearbyModalClose: Locator;
+  readonly nearbyDistanceInput: Locator;
 
   // Tags Filter Modal elements
   readonly tagsModalContent: Locator;
@@ -64,14 +66,16 @@ export class ExplorePage extends BasePage {
 
     // Explore filter toolbar
     this.filterActionsContainer = page.getByTestId('explore-filter-actions');
-    this.nearbyFilterBtn = page.getByRole('button', { name: 'Nearby filter' });
+    this.nearbyFilterBtn = page.locator('button').filter({ hasText: /nearby/i }).first();
     this.tagsFilterBtn = page.getByRole('button', { name: 'Tags filter' });
     this.activeFilterBtn = page.getByRole('button', { name: 'Active filter' });
+    this.searchInput = page.getByPlaceholder(/search users/i).or(page.locator('input[aria-label="Search users"]'));
 
     // Nearby Filter modal
     this.nearbyModalApply = page.getByTestId('nearby-filter-apply');
     this.nearbyModalClear = page.getByTestId('nearby-filter-clear');
     this.nearbyModalClose = page.getByTestId('nearby-filter-close');
+    this.nearbyDistanceInput = page.locator('input[aria-label="Distance in kilometers"]').first();
 
     // Tags Filter modal
     this.tagsModalContent = page.getByTestId('tags-filter-modal-content');
@@ -170,6 +174,33 @@ export class ExplorePage extends BasePage {
   }
 
   /**
+   * Opens the Nearby filter modal.
+   */
+  async openNearbyFilterModal() {
+    await expect(this.nearbyFilterBtn).toBeVisible({ timeout: 10000 });
+    await this.nearbyFilterBtn.click();
+    await expect(this.nearbyModalApply).toBeVisible({ timeout: 5000 });
+  }
+
+  /**
+   * Sets distance in the Nearby modal input field.
+   */
+  async setNearbyDistance(distance: string) {
+    await expect(this.nearbyDistanceInput).toBeVisible({ timeout: 5000 });
+    await this.nearbyDistanceInput.fill(distance);
+    await this.nearbyDistanceInput.blur();
+  }
+
+  /**
+   * Clicks Apply on the Nearby modal.
+   */
+  async applyNearbyFilter() {
+    await expect(this.nearbyModalApply).toBeVisible({ timeout: 5000 });
+    await this.nearbyModalApply.click();
+    await expect(this.nearbyModalApply).not.toBeVisible({ timeout: 10000 });
+  }
+
+  /**
    * Opens the Tags Filter modal, asserts its controls, and closes it.
    */
   async testTagsFilterModal() {
@@ -210,6 +241,16 @@ export class ExplorePage extends BasePage {
     await this.activeFilterBtn.click();
     await this.page.waitForTimeout(1000);
     await expect(this.userCards.first()).toBeVisible({ timeout: 10000 });
+  }
+
+  /**
+   * Searches for users in the Explore search input and waits for results to settle.
+   */
+  async searchUsers(query: string) {
+    await expect(this.searchInput).toBeVisible({ timeout: 10000 });
+    await this.searchInput.fill('');
+    await this.searchInput.fill(query);
+    await this.page.waitForTimeout(1000);
   }
 
   /**

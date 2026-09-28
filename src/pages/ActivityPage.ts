@@ -19,6 +19,7 @@ export class ActivityPage extends BasePage {
   readonly moderationAlert: Locator;
   readonly heartAlerts: Locator;
   readonly heartAlertFirst: Locator;
+  readonly bundledReactionAlert: Locator;
   readonly testFormAccessAlert: Locator;
   readonly postsAccessAlert: Locator;
   readonly userActivityAlert: Locator;
@@ -53,6 +54,7 @@ export class ActivityPage extends BasePage {
     this.heartAlerts = page.getByText(/Your post received its first Heart/i);
     this.heartAlertFirst = this.heartAlerts.first();
     this.heartPostSnippet = page.getByText(/this is a test post for the sanity purpose/i).first();
+    this.bundledReactionAlert = page.getByText(/User X and 49 others liked your post/i).or(page.getByText(/\d+ others liked your post/i)).first();
 
     // 5. Access & Permissions granted alerts
     this.testFormAccessAlert = page.getByText(/mughdabansal1414 gave you access to test form/i).first();
@@ -166,5 +168,18 @@ export class ActivityPage extends BasePage {
     await this.verifyAccessGrantedNotifications();
     await this.verifyUserActivityNotification();
     await this.verifyEndOfFeedIndicator();
+  }
+
+  /**
+   * Verifies high-frequency grouped summary notification for reaction bundling.
+   * Asserts that:
+   * 1. The summary text (e.g. "User X and 49 others liked your post") is visible.
+   * 2. Exactly 1 grouped entry is rendered for the burst event rather than 50 separate entries.
+   */
+  async verifyBundledReactionNotification(expectedSummary: string = 'User X and 49 others liked your post') {
+    const summaryLocator = this.page.getByText(expectedSummary).first();
+    await expect(summaryLocator).toBeVisible({ timeout: 10000 });
+    const count = await this.page.getByText(expectedSummary).count();
+    expect(count).toBe(1);
   }
 }

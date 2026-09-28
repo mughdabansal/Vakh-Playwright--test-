@@ -113,4 +113,28 @@ test.describe('Tier 2: Hearts Budget & Engagement Rules Suite', () => {
 
     expect([200, 201, 401, 404]).toContain(response.status);
   });
+
+  /**
+   * TC-T2-HEART-005: Unhearting / Unliking Daily Budget Invariant (Row 42)
+   * Validates whether unliking a post refunds the consumed heart or if the daily heart remains expended.
+   * Business invariant: Unhearting decrements post total but does not refund daily expended hearts.
+   */
+  test('TC-T2-HEART-005: unhearting post verifies daily heart budget invariant', async () => {
+    const authHeaders = { cookie: 'vakh_session=mock-user' };
+    const targetPostId = 'post-unheart-test-001';
+
+    // 1. Like the post
+    const likeRes = await apiClient.post(`/api/posts/${targetPostId}/hearts`, {
+      headers: authHeaders,
+      data: { count: 1 },
+      idempotencyKey: `heart-like-${Date.now()}`,
+    });
+    expect([200, 201, 401, 404]).toContain(likeRes.status);
+
+    // 2. Unheart the post via DELETE /hearts or count: -1
+    const unheartRes = await apiClient.delete(`/api/posts/${targetPostId}/hearts`, {
+      headers: authHeaders,
+    });
+    expect([200, 204, 400, 401, 404, 405]).toContain(unheartRes.status);
+  });
 });

@@ -132,5 +132,77 @@ test.describe('Eve Vakh - Post Creation & Composer Full Test Suite', () => {
     await composerPage.verifyVoteRegistered();
   });
 
+  /**
+   * Test Case 6: Corrupt & Oversized Media Attachments Validation (Row 48)
+   * Validates:
+   *  - Uploading a corrupted file or media exceeding maximum size (>15MB) in post composer
+   *    immediately halts submission.
+   *  - Displays an inline file error or validation toast.
+   *  - Create / Submit button is disabled or blocked.
+   *  - Modal can be closed cleanly without uncaught frontend exceptions.
+   */
+  test('TC_POST_006: uploading corrupt or oversized media attachment halts submission and displays inline file error', async ({ page }) => {
+    const pageErrors: Error[] = [];
+    page.on('pageerror', err => pageErrors.push(err));
+
+    const composerPage = new PostComposerPage(page);
+
+    // 1. Intercept upload endpoints to enforce file size / corruption rejection
+    await page.route(url => {
+      const u = url.toString();
+      return u.includes('/storage') || u.includes('/upload') || u.includes('/media');
+    }, async route => {
+      await route.fulfill({
+        status: 400,
+        contentType: 'application/json',
+        body: JSON.stringify({
+          error: 'FILE_TOO_LARGE',
+          code: 'FILE_TOO_LARGE',
+          message: 'File size exceeds maximum limit.'
+        })
+      });
+    });
+
+    // 2. Open New Post modal and select target form
+    await composerPage.openNewPostModal();
+    await composerPage.selectTargetForm();
+
+    // 3. Prepare oversized (16MB) image buffer
+    const jpegHeader = Buffer.from([0xFF, 0xD8, 0xFF, 0xE0, 0x00, 0x10, 0x4A, 0x46, 0x49, 0x46, 0x00, 0x01]);
+    const largeBuffer = Buffer.concat([jpegHeader, Buffer.alloc(16 * 1024 * 1024)]);
+
+    // 4. Upload oversized image attachment
+    await composerPage.uploadMediaAttachment('oversized_test_image.jpg', 'image/jpeg', largeBuffer);
+    await page.waitForTimeout(1000);
+
+    // 5. Verify submission is halted (Create button is disabled or file error / required indicator displayed)
+    const createBtn = page.locator('[role="dialog"] button[aria-label="Create post"], [role="dialog"] button:has-text("Create")').first();
+    let isNativeDisabled = await createBtn.isDisabled().catch(() => false);
+    let isAriaDisabled = (await createBtn.getAttribute('aria-disabled')) === 'true';
+    let isCreateDisabled = isNativeDisabled || isAriaDisabled;
+    const fileError = page.locator('text=/exceeds|too large|file error|invalid|corrupt|under 5 MB|under 10 MB|under 15 MB|required|saving/i').or(
+      page.locator('[role="alert"], [class*="error" i], [class*="toast" i]')
+    );
+    let hasError = await fileError.first().isVisible({ timeout: 2000 }).catch(() => false);
+
+    // If create button appears clickable, clicking it must not submit or dismiss modal
+    if (!isCreateDisabled && await createBtn.isVisible()) {
+      await createBtn.click({ force: true }).catch(() => {});
+      await page.waitForTimeout(1000);
+      isNativeDisabled = await createBtn.isDisabled().catch(() => false);
+      isAriaDisabled = (await createBtn.getAttribute('aria-disabled')) === 'true';
+      isCreateDisabled = isNativeDisabled || isAriaDisabled;
+      hasError = hasError || await fileError.first().isVisible({ timeout: 1000 }).catch(() => false);
+    }
+    const isModalStillOpen = await page.locator('[role="dialog"]').isVisible().catch(() => true);
+
+    expect(isModalStillOpen && (isCreateDisabled || hasError)).toBeTruthy();
+
+    // 6. Close composer dialog cleanly
+    await composerPage.closeDialog();
+    expect(pageErrors).toHaveLength(0);
+  });
+
 });
+
 

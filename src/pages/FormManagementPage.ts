@@ -32,6 +32,20 @@ export class FormManagementPage extends BasePage {
   readonly doneModeButton: Locator;
   readonly groupModeButton: Locator;
 
+  // Edit Form and Delete Form elements
+  readonly editFormHeader: Locator;
+  readonly editFormMoreButton: Locator;
+  readonly deleteFormMenuItem: Locator;
+  readonly deleteFormHeading: Locator;
+  readonly deleteFormWarningHeading: Locator;
+  readonly deleteFormConfirmButton: Locator;
+  readonly deleteFormBackButton: Locator;
+
+  // Form Builder and Field Limits
+  readonly formNameInput: Locator;
+  readonly saveFormButton: Locator;
+  readonly fieldLimitErrorAlert: Locator;
+
   constructor(page: Page) {
     super(page);
 
@@ -58,6 +72,21 @@ export class FormManagementPage extends BasePage {
     this.selectModeButton = page.getByRole('button', { name: /^select$/i }).or(page.locator('button:has-text("Select")')).first();
     this.doneModeButton = page.getByRole('button', { name: /^done$/i }).or(page.locator('button:has-text("Done")')).first();
     this.groupModeButton = page.getByRole('button', { name: /^group$/i }).first();
+
+    // Edit Form and Delete Form elements
+    this.editFormHeader = page.getByRole('heading', { name: /edit form/i }).or(page.getByText('Edit Form')).first();
+    this.editFormMoreButton = page.getByRole('button', { name: /^more$/i }).or(page.locator('button:has-text("More")')).first();
+    this.deleteFormMenuItem = page.locator('text=Delete Form').first();
+    this.deleteFormHeading = page.getByRole('heading', { name: 'Delete Form' }).first();
+    this.deleteFormWarningHeading = page.getByRole('heading', { name: /what happens when you delete this form/i }).first();
+    this.deleteFormConfirmButton = page.locator('button').filter({ hasText: /^delete form$/i }).locator('visible=true').last();
+    this.deleteFormBackButton = page.getByRole('menuitem', { name: 'Back' });
+
+    // Form Builder and Field Limits
+    this.formNameInput = page.getByPlaceholder(/form name/i).or(page.locator('input[aria-label*="Form Name" i]')).first();
+    this.saveFormButton = page.locator('button[aria-label="Save Form"], button:has-text("Save Form"), [role="button"]:has-text("Save Form")').first();
+    this.fieldLimitErrorAlert = page.locator('[role="alert"], [class*="alert" i], [class*="toast" i], [class*="error" i]')
+      .filter({ hasText: /expected array to have <=50 items|too big|maximum.*field/i }).first();
   }
 
   /**
@@ -251,5 +280,147 @@ export class FormManagementPage extends BasePage {
       await formSubscriptionBtn.click();
       await this.page.waitForTimeout(1500);
     }
+  }
+
+  /**
+   * Navigates to the edit view of the user's owned form.
+   */
+  async navigateToEditForm(formName: string = 'posts') {
+    await this.openOwnForm(formName);
+    const formUrl = this.page.url();
+    await this.page.goto(`${formUrl}/edit`);
+    await expect(this.editFormHeader).toBeVisible({ timeout: 15000 });
+  }
+
+  /**
+   * Triggers the first step of form deletion double-confirmation via Edit Form More menu.
+   */
+  async openDeleteFormConfirmation() {
+    await expect(this.editFormMoreButton).toBeVisible({ timeout: 10000 });
+    await this.editFormMoreButton.click();
+    await this.page.waitForTimeout(500);
+
+    await expect(this.deleteFormMenuItem).toBeVisible({ timeout: 5000 });
+    await this.deleteFormMenuItem.click();
+    await this.waitForUrlPattern(/\/delete/, 15000);
+    await expect(this.deleteFormHeading).toBeVisible({ timeout: 10000 });
+  }
+
+  /**
+   * Validates the cascade impact warning disclosures displayed on the double-confirmation screen:
+   * 1. Permanently deleted (immediate and irreversible)
+   * 2. Posts and subscriptions are removed (all posts, drafts, and subscriber links deleted)
+   * 3. References lose their content (external cross-references cleared)
+   */
+  async verifyDeleteFormCascadeWarnings() {
+    await expect(this.deleteFormHeading).toBeVisible({ timeout: 10000 });
+    await expect(this.deleteFormWarningHeading).toBeVisible({ timeout: 5000 });
+
+    await expect(this.page.getByText('Permanently deleted', { exact: true })).toBeVisible({ timeout: 5000 });
+    await expect(this.page.getByText('Deletion takes effect immediately and cannot be undone.')).toBeVisible({ timeout: 5000 });
+
+    await expect(this.page.getByText('Posts and subscriptions are removed')).toBeVisible({ timeout: 5000 });
+    await expect(this.page.getByText(/all its posts and drafts, and its subscriptions are permanently deleted/i)).toBeVisible({ timeout: 5000 });
+
+    await expect(this.page.getByText('References lose their content')).toBeVisible({ timeout: 5000 });
+    await expect(this.page.getByText(/reference this form's posts will no longer show the original content/i)).toBeVisible({ timeout: 5000 });
+
+    await expect(this.deleteFormBackButton).toBeVisible({ timeout: 5000 });
+    await expect(this.deleteFormConfirmButton).toBeVisible({ timeout: 5000 });
+  }
+
+  /**
+   * Cancels form deletion from the confirmation screen via the Back action control.
+   */
+  async cancelDeleteForm() {
+    await expect(this.deleteFormBackButton).toBeVisible({ timeout: 5000 });
+    await this.deleteFormBackButton.click();
+    await this.page.waitForTimeout(1500);
+    await expect(this.page).not.toHaveURL(/\/delete/);
+  }
+
+  /**
+   * Confirms form deletion (Step 2 of double confirmation), triggering the cascade deletion API request.
+   */
+  async confirmDeleteForm() {
+    await expect(this.deleteFormConfirmButton).toBeVisible({ timeout: 5000 });
+    await this.deleteFormConfirmButton.click();
+    await this.page.waitForTimeout(2000);
+  }
+
+  /**
+   * Navigates directly to the new form creation builder route.
+   */
+  async navigateToNewForm() {
+    await this.page.goto(`${APP_CONFIG.BASE_URL}/form/new/edit`, { waitUntil: 'domcontentloaded' });
+    await expect(this.formNameInput).toBeVisible({ timeout: 15000 });
+  }
+
+  /**
+   * Fills form name in the form builder.
+   */
+  async fillFormName(name: string) {
+    await expect(this.formNameInput).toBeVisible({ timeout: 10000 });
+    await this.formNameInput.fill(name);
+  }
+
+  /**
+   * Clicks Save Form in the form builder.
+   */
+  async clickSaveForm() {
+    await expect(this.saveFormButton).toBeVisible({ timeout: 10000 });
+    await this.saveFormButton.click();
+  }
+
+  /**
+   * Verifies the maximum field capacity threshold error notification and alerts.
+   * Asserts that:
+   * 1. The validation error message ("expected array to have <=50 items" / "Could not save this form") is displayed.
+   * 2. The form is prevented from saving (user remains on edit route).
+   */
+  async verifyMaximumFieldLimitThreshold() {
+    const errorText = this.page.getByText(/expected array to have <=50 items|too big: expected array to have <=50 items/i).first();
+    await expect(errorText).toBeVisible({ timeout: 10000 });
+    const genericAlert = this.page.getByText(/Could not save this form/i).first();
+    await expect(genericAlert).toBeVisible({ timeout: 5000 });
+    expect(this.page.url()).toContain('/edit');
+  }
+
+  /**
+   * Adds a Text field in the form builder.
+   */
+  async addTextField() {
+    const addFieldBtn = this.page.locator('button').filter({ hasText: /add field/i }).or(this.page.getByText('add_field')).last();
+    await expect(addFieldBtn).toBeVisible({ timeout: 10000 });
+    await addFieldBtn.click();
+    await this.page.waitForTimeout(500);
+
+    const textChoice = this.page.locator('button, [role="button"]')
+      .filter({ hasText: /A line or paragraph of text/i })
+      .or(this.page.getByText('A line or paragraph of text.'))
+      .first();
+    await expect(textChoice).toBeVisible({ timeout: 5000 });
+    await textChoice.click();
+    await this.page.waitForTimeout(1000);
+  }
+
+  /**
+   * Sets field_id on an existing field row by its zero-based index.
+   */
+  async setFieldId(index: number, id: string) {
+    const fieldIdInputs = this.page.locator('input[placeholder="field_id"]');
+    await expect(fieldIdInputs.nth(index)).toBeVisible({ timeout: 5000 });
+    await fieldIdInputs.nth(index).fill(id);
+    await fieldIdInputs.nth(index).blur();
+    await this.page.waitForTimeout(500);
+  }
+
+  /**
+   * Verifies duplicate field ID warning is displayed and saving is blocked.
+   */
+  async verifyDuplicateFieldWarning(id: string, field1: number = 1, field2: number = 2) {
+    const warning = this.page.getByText(`Field ID "${id}" is used by both field #${field1} and field #${field2}`).first();
+    await expect(warning).toBeVisible({ timeout: 10000 });
+    expect(this.page.url()).toContain('/edit');
   }
 }

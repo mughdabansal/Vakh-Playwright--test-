@@ -129,4 +129,50 @@ test.describe('Eve Vakh - Login Page Functional & Button Test Suite', () => {
     await explorePage.verifyExploreUsersList();
   });
 
+  /**
+   * Test Case 5: Password Maximum Character Boundary Validation (>128 Characters)
+   * Validates:
+   *  - Submitting an extremely long password (>128 characters) is handled cleanly.
+   *  - Server does not return 500 Internal Server Error or time out.
+   *  - UI either enforces input length constraint or surfaces an appropriate validation message.
+   *  - Zero uncaught frontend exceptions.
+   */
+  test('TC-05: submitting password exceeding 128 characters is handled cleanly without server timeout or 500 error', async ({ page }) => {
+    const pageErrors: Error[] = [];
+    page.on('pageerror', err => pageErrors.push(err));
+
+    const loginPage = new LoginPage(page);
+
+    // 1. Enter password mode
+    await loginPage.clickUsePassword();
+
+    // 2. Fill email and an extremely long password (150 characters)
+    const longPassword = 'P@ssword123_' + 'A'.repeat(140);
+    await loginPage.emailInput.fill(TEST_USERS.DEFAULT_USER.email);
+    await loginPage.passwordInput.fill(longPassword);
+
+    // 3. Track response from sign-in API
+    let signInStatus: number | null = null;
+    page.on('response', res => {
+      if (res.url().includes('/api/auth/sign-in')) {
+        signInStatus = res.status();
+      }
+    });
+
+    // 4. Submit login attempt
+    await loginPage.signInButton.click();
+    await page.waitForTimeout(2000);
+
+    // 5. Verify server responds safely without 500 or timeout
+    if (signInStatus !== null) {
+      expect(signInStatus).not.toBe(500);
+      expect([400, 401, 422]).toContain(signInStatus);
+    }
+
+    // 6. Verify UI does not crash and remains responsive
+    await expect(loginPage.signInButton).toBeVisible();
+    expect(pageErrors).toHaveLength(0);
+  });
+
 });
+
