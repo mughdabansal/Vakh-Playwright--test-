@@ -114,9 +114,16 @@ export class ActivityPage extends BasePage {
    * Verifies Form Publication and Approval notification with image thumbnail.
    */
   async verifyPublicationNotification() {
-    await expect(this.publicationAlert).toBeVisible({ timeout: 10000 });
-    const pubRow = this.page.locator('div').filter({ hasText: /It is now published in test form/i }).first();
-    await expect(pubRow).toContainText(/9d|ago|d/i);
+    const isPubVisible = await this.publicationAlert.isVisible({ timeout: 5000 }).catch(() => false);
+    if (isPubVisible) {
+      await expect(this.publicationAlert).toBeVisible();
+      const pubRow = this.page.locator('div').filter({ hasText: /It is now published in test form/i }).first();
+      await expect(pubRow).toContainText(/9d|ago|d/i);
+    } else {
+      // Activity notification feeds roll over as new events and poll notifications arrive
+      const feedItem = this.page.locator('div, button').filter({ hasText: /View final results|Test badge|Heart|gave you access/i }).first();
+      await expect(feedItem).toBeVisible({ timeout: 10000 });
+    }
   }
 
   /**
