@@ -66,9 +66,9 @@ export class ExplorePage extends BasePage {
 
     // Explore filter toolbar
     this.filterActionsContainer = page.getByTestId('explore-filter-actions');
-    this.nearbyFilterBtn = page.locator('button').filter({ hasText: /nearby/i }).first();
-    this.tagsFilterBtn = page.getByRole('button', { name: 'Tags filter' });
-    this.activeFilterBtn = page.getByRole('button', { name: 'Active filter' });
+    this.nearbyFilterBtn = page.getByRole('button', { name: /nearby filter|nearby/i }).or(page.locator('button').filter({ hasText: /nearby/i })).first();
+    this.tagsFilterBtn = page.getByRole('button', { name: /tags filter|tags/i }).or(page.locator('button').filter({ hasText: /tags/i })).first();
+    this.activeFilterBtn = page.getByRole('button', { name: /discover filter|active filter/i }).or(page.getByRole('button', { name: /discover|active/i }).filter({ hasNotText: /nearby|tags/i })).first();
     this.searchInput = page.getByPlaceholder(/search users/i).or(page.locator('input[aria-label="Search users"]'));
 
     // Nearby Filter modal
@@ -84,7 +84,7 @@ export class ExplorePage extends BasePage {
     this.tagsModalApply = page.getByTestId('tags-filter-apply');
 
     // User cards in explore list
-    this.userCards = page.locator('[role="button"][aria-label]').filter({ hasText: '@' });
+    this.userCards = page.locator('button, [role="button"]').filter({ hasText: '@' });
 
     // Profile view elements - use visible=true to select active foreground profile handle
     this.profileUsername = page.locator('text=@').locator('visible=true').first();
@@ -233,7 +233,7 @@ export class ExplorePage extends BasePage {
     await expect(this.page).toHaveURL(/\/explore/);
     const hasActiveCards = (await this.userCards.count()) > 0;
     if (!hasActiveCards) {
-      const emptyStateNotice = this.page.getByText(/Only people whose public forms got a post|No active form owners found/i);
+      const emptyStateNotice = this.page.getByText(/A fresh mix of people to discover|Only people whose public forms got a post|No active form owners found/i);
       await expect(emptyStateNotice.first()).toBeVisible({ timeout: 5000 });
     }
 
