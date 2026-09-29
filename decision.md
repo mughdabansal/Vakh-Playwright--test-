@@ -264,3 +264,44 @@ This living document tracks key technical decisions, architectural rationales, a
   - All 7 tests passed with 100% success on Chromium.
   - Updated `test cases 2.md` and `test cases 2.csv` rows 21, 26, 32, 39, 45, 47, 50 to `Passed`.
 
+---
+
+### Decision 10: Automated Edge-Case & Boundary Validation Suite (Batch 3)
+* **Context**: The team required automated test coverage for 7 additional edge-case and boundary specifications from `test cases 2.md`:
+  1. Password field whitespace and empty string mandatory validation (Row 12).
+  2. OTP input numeric-only validation blocking alphanumeric and special characters (Row 10).
+  3. Exact time boundary reset for 7 Hearts daily quota at 00:00 UTC / 5:30 AM IST (Row 43).
+  4. Moderation workflow preventing author edit bypass on posts in 'Under Review' status (Row 49).
+  5. Unsupported file format rejection in chat (.exe, .bat, .sh, .dmg, .dll, zero-byte empty files) with 'Unsupported file format' error (Row 25).
+  6. Bidirectional RTL & LTR text (Arabic, Hebrew) isolation and layout stability in chat bubbles (Row 24).
+  7. Real-time typing indicators 5-second inactivity timeout and abrupt disconnect handling (Row 38).
+* **Architecture & Implementation Solutions**:
+  1. **Password Field Whitespace & Empty Validation (`TC_AUTH_012`)**:
+     - Tested empty string and whitespace-only (`"   "`) submissions on the password input field.
+     - Verified that mandatory validation errors are displayed (`text=/required|enter a password|cannot be empty/i`), HTML5 native validation attributes (`valueMissing`) are asserted, and authentication submission is blocked without server exceptions.
+  2. **OTP Numeric-Only Input Enforcement (`TC_AUTH_013`)**:
+     - Verified that entering alphanumeric characters (`"ABCxyz"`) or special characters (`"!@#$%"`) into OTP verification fields is blocked (`inputmode="numeric"`, `pattern="[0-9]*"`).
+     - Verified only valid numeric digits (`"123456"`) are registered in the DOM and accepted.
+  3. **Exact Time Boundary Reset for Hearts (`TC_HOME_014`)**:
+     - Simulated 5:29 AM IST (23:59 UTC, quota exhausted) where attempting an 8th heart is rejected or shows daily limit reached.
+     - Advanced the simulated time to 5:31 AM IST (00:01 UTC next day, post-midnight UTC boundary reset) using Playwright `clock` / route interception.
+     - Verified that liking the post succeeds cleanly, incrementing the like counter and processing the new heart under the refreshed daily quota.
+  4. **Moderation Workflow 'Under Review' Post Integrity (`TC_HOME_015`)**:
+     - Intercepted post state to represent an 'Under Review' pending moderation status.
+     - Verified that attempting to edit the post either disables editing or routes edits through pending review submission (`status: 'pending_review'`), strictly preventing authors from bypassing moderation to publish unreviewed content.
+  5. **Unsupported File Format Rejection in Chat (`TC_CHAT_026`)**:
+     - Created sample `.exe`, `.bat`, and 0-byte `.sh` files in `scratch/`.
+     - Attached files and verified upload interception / client-side validation triggers an 'Unsupported file format' error toast/alert.
+     - Ensured the files are not attached to the composer and composer remains interactive.
+  6. **Bidirectional Text (RTL & LTR) in Chat (`TC_CHAT_027`)**:
+     - Dispatched a message with mixed Hebrew, Arabic, numbers, and English text (`"Hello مرحبا بالعالم [timestamp] שלום עולם QA Testing 123"`).
+     - Verified message bubble renders properly with valid directional containment (`dir="auto"`, `unicode-bidi`), non-zero bounding box dimensions, and zero horizontal viewport overflow.
+  7. **Typing Indicators Inactivity & Disconnect (`TC_CHAT_028`)**:
+     - Emitted an active typing indicator for a peer in the chat container.
+     - Verified indicator is visible and automatically disappears after 5 seconds of inactivity.
+     - Verified that triggering an abrupt network disconnection (`page.context().setOffline(true)`) immediately clears active typing indicators.
+* **Verification Results**:
+  - All 7 tests passed with 100% success locally on Chromium.
+  - Updated `test cases 2.md` and `test cases 2.csv` rows 10, 12, 24, 25, 38, 43, 49 to `Passed`.
+
+

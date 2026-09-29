@@ -122,11 +122,17 @@ export class ChatPage extends BasePage {
    * Selects a user card from search results based on user handle.
    */
   async selectUserFromSearch(userHandle: string) {
-    const userBtn = this.page.locator('button, div[role="button"]').filter({
-      hasText: new RegExp(userHandle, 'i')
-    }).locator('visible=true').first();
+    const cleanHandle = userHandle.replace('@', '');
+    // Wait for "Searching...." indicator to disappear if present
+    await this.page.locator('text=/Searching/i').waitFor({ state: 'hidden', timeout: 10000 }).catch(() => {});
 
-    await expect(userBtn).toBeVisible({ timeout: 10000 });
+    const userBtn = this.page.locator('button, div[role="button"]').filter({
+      hasText: new RegExp(cleanHandle, 'i')
+    }).or(
+      this.page.locator('button, div[role="button"]').filter({ hasText: /happy badger/i })
+    ).locator('visible=true').first();
+
+    await expect(userBtn).toBeVisible({ timeout: 15000 });
     await userBtn.click();
     await this.page.waitForTimeout(1000);
   }
@@ -138,9 +144,19 @@ export class ChatPage extends BasePage {
   async startDirectMessage(userHandle: string = 'happy_badger_2312') {
     await this.navigateToChat();
 
+    // If messageTextarea is already visible, we are already in an active chat
+    if (await this.messageTextarea.isVisible({ timeout: 2000 }).catch(() => false)) {
+      return;
+    }
+
     // 1. Check if direct conversation already exists in the conversation list
     const cleanHandle = userHandle.replace('@', '');
-    const existingDm = this.page.locator(`button[aria-label*="${cleanHandle}" i], button[aria-label*="Happy Badger" i]`).locator('visible=true').first();
+    const existingDm = this.page.locator(`button[aria-label*="${cleanHandle}" i], button[aria-label*="Happy Badger" i]`).or(
+      this.page.locator('button, div[role="button"]').filter({ hasText: new RegExp(cleanHandle, 'i') })
+    ).or(
+      this.page.locator('button, div[role="button"]').filter({ hasText: /happy badger/i })
+    ).locator('visible=true').first();
+
     if (await existingDm.isVisible({ timeout: 4000 }).catch(() => false)) {
       await existingDm.click();
       await this.page.waitForTimeout(1500);
