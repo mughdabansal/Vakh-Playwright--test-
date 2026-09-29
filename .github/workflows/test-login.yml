@@ -21,7 +21,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: 'pages'
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -85,6 +85,7 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add docs/index.html LOGIN_PAGE_REPORT.txt test-reports/
           git diff --staged --quiet || git commit -m "chore: update dashboard after Login Page test suite [skip ci]"
+          git pull --rebase origin main || echo "Rebase skipped"
           git push origin main || echo "Branch updated or push skipped"
 
       - name: Setup GitHub Pages
@@ -102,7 +103,7 @@ jobs:
     if: github.ref == 'refs/heads/main'
     needs: test-login
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 10
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -111,3 +112,4 @@ jobs:
       - name: Deploy Dashboard to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        continue-on-error: true

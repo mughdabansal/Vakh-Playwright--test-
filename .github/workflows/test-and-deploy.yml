@@ -1,6 +1,12 @@
 name: Playwright Tests & Dashboard Deployment
 
 on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'src/**'
+      - '.github/workflows/test-and-deploy.yml'
+      - 'test cases 2.*'
   workflow_dispatch:
     inputs:
       page:
@@ -10,12 +16,18 @@ on:
         type: choice
         options:
           - all
+          - updated
           - login
           - home
           - chat
           - activity
           - explore
           - post
+          - recovery
+          - settings
+          - badge
+          - sanity
+          - api
       browser:
         description: 'Browser engine to run tests against'
         required: true
@@ -34,7 +46,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: 'pages'
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -101,6 +113,24 @@ jobs:
           elif [ "$PAGE_CHOICE" = "post" ]; then
             echo "⚡ Executing Post Creation Page Suite only..."
             npx playwright test src/tests/post.spec.ts $BROWSER_ARG
+          elif [ "$PAGE_CHOICE" = "recovery" ]; then
+            echo "⚡ Executing Recovery Page Suite..."
+            npx playwright test src/tests/recovery.spec.ts $BROWSER_ARG
+          elif [ "$PAGE_CHOICE" = "settings" ]; then
+            echo "⚡ Executing Settings Page Suite..."
+            npx playwright test src/tests/settings.spec.ts $BROWSER_ARG
+          elif [ "$PAGE_CHOICE" = "badge" ]; then
+            echo "⚡ Executing Badge Suite..."
+            npx playwright test src/tests/badge.spec.ts $BROWSER_ARG
+          elif [ "$PAGE_CHOICE" = "api" ]; then
+            echo "⚡ Executing API Test Suites..."
+            npm run test:api:all
+          elif [ "$PAGE_CHOICE" = "sanity" ]; then
+            echo "⚡ Executing Versioned Sanity Suite..."
+            npx playwright test src/tests/sanity/3.0 $BROWSER_ARG
+          elif [ "$PAGE_CHOICE" = "updated" ]; then
+            echo "⚡ Executing Newly Implemented & Updated Edge-Case Suites..."
+            npx playwright test src/tests/login.spec.ts src/tests/recovery.spec.ts src/tests/chat.spec.ts src/tests/home.spec.ts src/tests/post.spec.ts src/tests/badge.spec.ts src/tests/settings.spec.ts src/tests/activity.spec.ts src/tests/explore.spec.ts -g "TC-05|TC_REC_001|TC_CHAT_019|TC_CHAT_020|TC_CHAT_021|TC_HOME_011|TC_POST_006|TC_BADGE_001|TC_SET_001|TC_SET_002|TC_ACT_004|TC_EXP_005|TC_EXP_006" $BROWSER_ARG
           else
             echo "⚡ Executing All Page Test Suites (isolated Chat suite excluded; only runs on explicit manual trigger)..."
             if [ -n "$BROWSER_ARG" ]; then
@@ -129,8 +159,9 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/index.html LOGIN_PAGE_REPORT.txt test-reports/
+          git add docs/ LOGIN_PAGE_REPORT.txt test-reports/
           git diff --staged --quiet || git commit -m "chore: auto-update dashboard & metrics for ${{ github.event.inputs.page || 'all' }} suite [skip ci]"
+          git pull --rebase origin main || echo "Rebase skipped"
           git push origin main || echo "Branch updated or push skipped"
 
       - name: Setup GitHub Pages
@@ -148,7 +179,7 @@ jobs:
     if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main'
     needs: test
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 10
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -157,3 +188,4 @@ jobs:
       - name: Deploy Dashboard to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        continue-on-error: true
