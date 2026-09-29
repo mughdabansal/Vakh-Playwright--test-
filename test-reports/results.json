@@ -14,7 +14,7 @@
       "src/tests/activity.spec.ts",
       "src/tests/explore.spec.ts",
       "-g",
-      "TC-05|TC_REC_001|TC_CHAT_019|TC_CHAT_020|TC_CHAT_021|TC_CHAT_022|TC_CHAT_023|TC_CHAT_024|TC_CHAT_025|TC_HOME_011|TC_HOME_012|TC_HOME_013|TC_POST_006|TC_POST_007|TC_BADGE_001|TC_SET_001|TC_SET_002|TC_ACT_004|TC_EXP_005|TC_EXP_006",
+      "TC-05|TC_REC_001|TC_CHAT_019|TC_CHAT_020|TC_CHAT_021|TC_CHAT_022|TC_CHAT_023|TC_CHAT_024|TC_CHAT_025|TC_CHAT_026|TC_CHAT_027|TC_CHAT_028|TC_HOME_011|TC_HOME_012|TC_HOME_013|TC_HOME_014|TC_HOME_015|TC_POST_006|TC_POST_007|TC_BADGE_001|TC_SET_001|TC_SET_002|TC_ACT_004|TC_EXP_005|TC_EXP_006|TC_AUTH_012|TC_AUTH_013",
       "--project=chromium"
     ],
     "configFile": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/playwright.config.ts",
@@ -30,24 +30,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/017620a46ebb7b83ab523e9f93a034b5fc75277d",
-        "commitHash": "017620a46ebb7b83ab523e9f93a034b5fc75277d",
-        "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36526052337"
+        "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/b578b7155e139254368ca7930ab2087d09de8da1",
+        "commitHash": "b578b7155e139254368ca7930ab2087d09de8da1",
+        "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36531722197"
       },
       "gitCommit": {
-        "shortHash": "017620a",
-        "hash": "017620a46ebb7b83ab523e9f93a034b5fc75277d",
-        "subject": "fix(activity): make publication notification assertion resilient to feed rollover",
-        "body": "fix(activity): make publication notification assertion resilient to feed rollover\n",
+        "shortHash": "b578b71",
+        "hash": "b578b7155e139254368ca7930ab2087d09de8da1",
+        "subject": "fix(explore): support Discover filter button label in toolbar and improve user cards locator",
+        "body": "fix(explore): support Discover filter button label in toolbar and improve user cards locator\n",
         "author": {
           "name": "Mughda Bansal",
           "email": "mughdabansal1414@gmail.com",
-          "time": 1790659469000
+          "time": 1790663609000
         },
         "committer": {
           "name": "Mughda Bansal",
           "email": "mughdabansal1414@gmail.com",
-          "time": 1790659477000
+          "time": 1790663609000
         },
         "branch": "main"
       },
@@ -61,24 +61,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/017620a46ebb7b83ab523e9f93a034b5fc75277d",
-            "commitHash": "017620a46ebb7b83ab523e9f93a034b5fc75277d",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36526052337"
+            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/b578b7155e139254368ca7930ab2087d09de8da1",
+            "commitHash": "b578b7155e139254368ca7930ab2087d09de8da1",
+            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36531722197"
           },
           "gitCommit": {
-            "shortHash": "017620a",
-            "hash": "017620a46ebb7b83ab523e9f93a034b5fc75277d",
-            "subject": "fix(activity): make publication notification assertion resilient to feed rollover",
-            "body": "fix(activity): make publication notification assertion resilient to feed rollover\n",
+            "shortHash": "b578b71",
+            "hash": "b578b7155e139254368ca7930ab2087d09de8da1",
+            "subject": "fix(explore): support Discover filter button label in toolbar and improve user cards locator",
+            "body": "fix(explore): support Discover filter button label in toolbar and improve user cards locator\n",
             "author": {
               "name": "Mughda Bansal",
               "email": "mughdabansal1414@gmail.com",
-              "time": 1790659469000
+              "time": 1790663609000
             },
             "committer": {
               "name": "Mughda Bansal",
               "email": "mughdabansal1414@gmail.com",
-              "time": 1790659477000
+              "time": 1790663609000
             },
             "branch": "main"
           },
@@ -99,24 +99,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/017620a46ebb7b83ab523e9f93a034b5fc75277d",
-            "commitHash": "017620a46ebb7b83ab523e9f93a034b5fc75277d",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36526052337"
+            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/b578b7155e139254368ca7930ab2087d09de8da1",
+            "commitHash": "b578b7155e139254368ca7930ab2087d09de8da1",
+            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36531722197"
           },
           "gitCommit": {
-            "shortHash": "017620a",
-            "hash": "017620a46ebb7b83ab523e9f93a034b5fc75277d",
-            "subject": "fix(activity): make publication notification assertion resilient to feed rollover",
-            "body": "fix(activity): make publication notification assertion resilient to feed rollover\n",
+            "shortHash": "b578b71",
+            "hash": "b578b7155e139254368ca7930ab2087d09de8da1",
+            "subject": "fix(explore): support Discover filter button label in toolbar and improve user cards locator",
+            "body": "fix(explore): support Discover filter button label in toolbar and improve user cards locator\n",
             "author": {
               "name": "Mughda Bansal",
               "email": "mughdabansal1414@gmail.com",
-              "time": 1790659469000
+              "time": 1790663609000
             },
             "committer": {
               "name": "Mughda Bansal",
               "email": "mughdabansal1414@gmail.com",
-              "time": 1790659477000
+              "time": 1790663609000
             },
             "branch": "main"
           },
@@ -137,24 +137,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/017620a46ebb7b83ab523e9f93a034b5fc75277d",
-            "commitHash": "017620a46ebb7b83ab523e9f93a034b5fc75277d",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36526052337"
+            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/b578b7155e139254368ca7930ab2087d09de8da1",
+            "commitHash": "b578b7155e139254368ca7930ab2087d09de8da1",
+            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36531722197"
           },
           "gitCommit": {
-            "shortHash": "017620a",
-            "hash": "017620a46ebb7b83ab523e9f93a034b5fc75277d",
-            "subject": "fix(activity): make publication notification assertion resilient to feed rollover",
-            "body": "fix(activity): make publication notification assertion resilient to feed rollover\n",
+            "shortHash": "b578b71",
+            "hash": "b578b7155e139254368ca7930ab2087d09de8da1",
+            "subject": "fix(explore): support Discover filter button label in toolbar and improve user cards locator",
+            "body": "fix(explore): support Discover filter button label in toolbar and improve user cards locator\n",
             "author": {
               "name": "Mughda Bansal",
               "email": "mughdabansal1414@gmail.com",
-              "time": 1790659469000
+              "time": 1790663609000
             },
             "committer": {
               "name": "Mughda Bansal",
               "email": "mughdabansal1414@gmail.com",
-              "time": 1790659477000
+              "time": 1790663609000
             },
             "branch": "main"
           },
@@ -175,24 +175,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/017620a46ebb7b83ab523e9f93a034b5fc75277d",
-            "commitHash": "017620a46ebb7b83ab523e9f93a034b5fc75277d",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36526052337"
+            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/b578b7155e139254368ca7930ab2087d09de8da1",
+            "commitHash": "b578b7155e139254368ca7930ab2087d09de8da1",
+            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36531722197"
           },
           "gitCommit": {
-            "shortHash": "017620a",
-            "hash": "017620a46ebb7b83ab523e9f93a034b5fc75277d",
-            "subject": "fix(activity): make publication notification assertion resilient to feed rollover",
-            "body": "fix(activity): make publication notification assertion resilient to feed rollover\n",
+            "shortHash": "b578b71",
+            "hash": "b578b7155e139254368ca7930ab2087d09de8da1",
+            "subject": "fix(explore): support Discover filter button label in toolbar and improve user cards locator",
+            "body": "fix(explore): support Discover filter button label in toolbar and improve user cards locator\n",
             "author": {
               "name": "Mughda Bansal",
               "email": "mughdabansal1414@gmail.com",
-              "time": 1790659469000
+              "time": 1790663609000
             },
             "committer": {
               "name": "Mughda Bansal",
               "email": "mughdabansal1414@gmail.com",
-              "time": 1790659477000
+              "time": 1790663609000
             },
             "branch": "main"
           },
@@ -270,12 +270,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 9158,
+                      "duration": 6547,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T05:25:37.751Z",
+                      "startTime": "2026-09-29T06:35:50.917Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -321,12 +321,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 12077,
+                      "duration": 7438,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T05:25:47.165Z",
+                      "startTime": "2026-09-29T06:35:57.735Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -372,12 +372,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 19902,
+                      "duration": 16767,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T05:25:59.266Z",
+                      "startTime": "2026-09-29T06:36:05.204Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -406,12 +406,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 18650,
+                      "duration": 17529,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T05:26:19.182Z",
+                      "startTime": "2026-09-29T06:36:21.985Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -440,12 +440,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 16551,
+                      "duration": 13863,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T05:26:37.843Z",
+                      "startTime": "2026-09-29T06:36:39.525Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -474,12 +474,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 8732,
+                      "duration": 7477,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T05:26:54.411Z",
+                      "startTime": "2026-09-29T06:36:53.398Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -508,12 +508,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 14360,
+                      "duration": 9005,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T05:27:03.156Z",
+                      "startTime": "2026-09-29T06:37:00.886Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -542,12 +542,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 14737,
+                      "duration": 13719,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T05:27:17.531Z",
+                      "startTime": "2026-09-29T06:37:09.902Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -578,12 +578,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 16138,
+                      "duration": 14183,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T05:27:32.279Z",
+                      "startTime": "2026-09-29T06:37:23.634Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -594,6 +594,108 @@
               "id": "6dac514d5d837ca37b9e-aa761ea53eb413f3503a",
               "file": "chat.spec.ts",
               "line": 745,
+              "column": 7
+            },
+            {
+              "title": "TC_CHAT_026: uploading unsupported file formats (.exe, .bat, .sh, .dmg, .dll, zero-byte empty files) in chat shows an Unsupported file format error and rejects the upload",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 9457,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-29T06:37:37.829Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6dac514d5d837ca37b9e-2c6454eb77c2182f9747",
+              "file": "chat.spec.ts",
+              "line": 818,
+              "column": 7
+            },
+            {
+              "title": "TC_CHAT_027: sending messages with right-to-left (RTL) text (Arabic, Hebrew) mixed with LTR text, verifying bidirectional text isolation and layout stability",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 13837,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-29T06:37:47.296Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6dac514d5d837ca37b9e-23bd68df2fbf3cb446ad",
+              "file": "chat.spec.ts",
+              "line": 935,
+              "column": 7
+            },
+            {
+              "title": "TC_CHAT_028: typing indicators: verify typing status disappears after 5 seconds of inactivity or if the user abruptly disconnects or closes the browser tab",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 17046,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-29T06:38:01.142Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6dac514d5d837ca37b9e-0511e7a597ead2547f75",
+              "file": "chat.spec.ts",
+              "line": 993,
               "column": 7
             }
           ]
@@ -629,12 +731,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 7777,
+                      "duration": 5985,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T05:27:48.433Z",
+                      "startTime": "2026-09-29T06:38:18.206Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -663,12 +765,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 11203,
+                      "duration": 7517,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T05:27:56.223Z",
+                      "startTime": "2026-09-29T06:38:24.202Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -714,12 +816,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 6739,
+                      "duration": 3859,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T05:28:07.446Z",
+                      "startTime": "2026-09-29T06:38:31.737Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -748,12 +850,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 14342,
+                      "duration": 10646,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T05:28:14.203Z",
+                      "startTime": "2026-09-29T06:38:35.607Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -782,12 +884,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 8033,
+                      "duration": 5752,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T05:28:28.556Z",
+                      "startTime": "2026-09-29T06:38:46.265Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -798,6 +900,74 @@
               "id": "d318381359a9b96acb1e-2a27f4b63b0c7b108db8",
               "file": "home.spec.ts",
               "line": 299,
+              "column": 7
+            },
+            {
+              "title": "TC_HOME_014: exact time boundary reset for hearts: liking at 5:29 AM IST (quota exhausted) and 5:31 AM IST (after 00:00 UTC reset) processes new heart",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5159,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-29T06:38:52.029Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d318381359a9b96acb1e-93d69b3bbc73f15012db",
+              "file": "home.spec.ts",
+              "line": 334,
+              "column": 7
+            },
+            {
+              "title": "TC_HOME_015: moderation workflow: post author attempting to edit a post in Under Review status is blocked or updates without bypassing review",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6634,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-29T06:38:57.197Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d318381359a9b96acb1e-8fffb284d3d069baef20",
+              "file": "home.spec.ts",
+              "line": 413,
               "column": 7
             }
           ]
@@ -833,12 +1003,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 6137,
+                      "duration": 4439,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T05:28:36.606Z",
+                      "startTime": "2026-09-29T06:39:03.847Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -849,6 +1019,74 @@
               "id": "41d3fd2474a19feb00a1-623af21503f8a98de1d7",
               "file": "login.spec.ts",
               "line": 140,
+              "column": 7
+            },
+            {
+              "title": "TC_AUTH_012: submitting a password with only whitespace characters or an empty string shows a mandatory validation error",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4339,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-29T06:39:08.300Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "41d3fd2474a19feb00a1-0c437c32a163345fd86b",
+              "file": "login.spec.ts",
+              "line": 185,
+              "column": 7
+            },
+            {
+              "title": "TC_AUTH_013: entering alphanumeric or special characters into the OTP verification input is blocked and only numeric digits are accepted",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3654,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-29T06:39:12.650Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "41d3fd2474a19feb00a1-d0b352c292ad67c121c6",
+              "file": "login.spec.ts",
+              "line": 241,
               "column": 7
             }
           ]
@@ -884,12 +1122,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 23577,
+                      "duration": 16191,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T05:28:42.758Z",
+                      "startTime": "2026-09-29T06:39:16.321Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -918,12 +1156,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 20774,
+                      "duration": 11734,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T05:29:06.349Z",
+                      "startTime": "2026-09-29T06:39:32.528Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -969,12 +1207,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 8167,
+                      "duration": 6038,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T05:29:27.137Z",
+                      "startTime": "2026-09-29T06:39:44.278Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1020,12 +1258,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 12090,
+                      "duration": 7579,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T05:29:35.319Z",
+                      "startTime": "2026-09-29T06:39:50.333Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1054,12 +1292,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 12612,
+                      "duration": 9994,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T05:29:47.421Z",
+                      "startTime": "2026-09-29T06:39:57.923Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1079,9 +1317,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-09-29T05:25:36.697Z",
-    "duration": 263391.778,
-    "expected": 20,
+    "startTime": "2026-09-29T06:35:49.809Z",
+    "duration": 258171.905,
+    "expected": 27,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
