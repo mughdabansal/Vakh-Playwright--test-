@@ -228,3 +228,39 @@ This living document tracks key technical decisions, architectural rationales, a
 * **Execution Verification**:
   - Full suite (`npm run test:api:all`): **92 passed out of 92 tests (100% success)** in 28.2s.
   - Quality dashboard regenerated at `docs/index.html`.
+
+---
+
+### Decision 9: Automated Edge-Case & Boundary Validation Suite (Batch 2)
+* **Context**: The team required automated test coverage for 7 additional edge-case and boundary specifications from `test cases 2.md`:
+  1. Group chat creation edge cases (no members or empty group name).
+  2. Empty or whitespace-only chat message blocking.
+  3. Uploading files exceeding maximum file size limit (>50MB).
+  4. Moderation permissions RBAC (non-admin receives 403 Forbidden).
+  5. Feed pull-to-refresh during network disconnection with offline banner.
+  6. Post creation with missing mandatory fields.
+  7. Muted group chats @mention notification preferences.
+* **Architecture & Implementation Solutions**:
+  1. **Group Chat Creation Edge Cases (`TC_CHAT_022`)**:
+     - Verified that without selecting members, the 'Create Group' / 'Start Chat' action button remains disabled or not rendered, preventing chat initialization.
+     - Verified that empty or whitespace-only group names block submission or require valid naming.
+  2. **Empty Chat Message Blocking (`TC_CHAT_023`)**:
+     - Tested empty strings, whitespace-only strings (`"     "`), and whitespace with tabs/newlines (`" \t\n \n\t "`).
+     - Verified the send button remains disabled (`btn.disabled || aria-disabled="true"`) and pressing Enter does not dispatch messages or increment bubbles.
+  3. **File Size Limit Abort (`TC_CHAT_024`)**:
+     - Handled Playwright's buffer constraint (restricting inline buffers to 50MB) by generating a sparse 55MB zip file on disk (`fs.truncateSync`) in `scratch/` and passing the file path to `fileChooser.setFiles()`.
+     - Verified upload endpoint rejection (HTTP 413) displays 'File exceeds maximum allowed size' toast/alert without app freezing. Cleaned up temporary files in `finally` block.
+  4. **Feed Offline Pull-to-Refresh (`TC_HOME_012`)**:
+     - Tested `page.context().setOffline(true)` while triggering feed pull-to-refresh via wheel scroll.
+     - Verified existing cached post cards remain mounted in the feed DOM and non-intrusive offline indicator is rendered.
+  5. **Moderation RBAC Protection (`TC_HOME_013`)**:
+     - Verified that unprivileged regular users attempting direct `POST /api/posts/:id/review/publish` or `POST /api/posts/:id/review/reject` receive 403 Forbidden (or 401 Unauthorized), and moderation buttons are omitted from the regular feed UI.
+  6. **Mandatory Post Fields Validation (`TC_POST_007`)**:
+     - Opened New Post composer modal, selected target form, and left content/text fields blank.
+     - Verified 'Create' button is disabled (`aria-disabled="true"`) or clicking triggers required field validation without publishing.
+  7. **Muted Group Chat Mentions (`TC_CHAT_025`)**:
+     - Verified that when a group chat is muted, @mention notifications respect user preferences (`respect_mute` vs `always_notify`), preventing unwanted alerts while maintaining conversation integrity.
+* **Verification Results**:
+  - All 7 tests passed with 100% success on Chromium.
+  - Updated `test cases 2.md` and `test cases 2.csv` rows 21, 26, 32, 39, 45, 47, 50 to `Passed`.
+

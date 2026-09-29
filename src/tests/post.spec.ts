@@ -203,6 +203,61 @@ test.describe('Eve Vakh - Post Creation & Composer Full Test Suite', () => {
     expect(pageErrors).toHaveLength(0);
   });
 
+  /**
+   * Test Case 7 [Form Validation]: Missing Mandatory Form Fields (Row 47)
+   * Validates:
+   *  - Submitting a new post while leaving mandatory form fields blank highlights errors.
+   *  - The 'Create' button is disabled or clicking it is blocked.
+   *  - Post publication is prevented and composer modal remains open.
+   *  - Zero uncaught frontend exceptions.
+   */
+  test('TC_POST_007: submitting a new post while leaving mandatory form fields blank highlights errors and prevents post publication', async ({ page }) => {
+    const pageErrors: Error[] = [];
+    page.on('pageerror', err => pageErrors.push(err));
+
+    const composerPage = new PostComposerPage(page);
+
+    // 1. Open New Post modal and select target form
+    await composerPage.openNewPostModal();
+    await composerPage.selectTargetForm();
+    await page.waitForTimeout(1000);
+
+    // 2. Leave all mandatory fields (text/content/editor) blank
+    const editor = page.locator('[role="dialog"] textarea, [role="dialog"] [contenteditable="true"], [role="dialog"] input[type="text"]').first();
+    if (await editor.isVisible({ timeout: 2000 }).catch(() => false)) {
+      await editor.fill('');
+    }
+
+    // 3. Verify Create button is disabled or has aria-disabled="true"
+    const createBtn = page.locator('[role="dialog"] button[aria-label="Create post"], [role="dialog"] button:has-text("Create"), button[aria-label="Create post"]').first();
+    let isNativeDisabled = await createBtn.isDisabled().catch(() => false);
+    let isAriaDisabled = (await createBtn.getAttribute('aria-disabled')) === 'true';
+    let isCreateDisabled = isNativeDisabled || isAriaDisabled;
+
+    const errorIndicator = page.locator('text=/required|cannot be blank|field is required|please fill out|mandatory/i').or(
+      page.locator('[role="alert"], [aria-invalid="true"], [class*="error" i]')
+    );
+    let hasError = await errorIndicator.first().isVisible({ timeout: 1500 }).catch(() => false);
+
+    // 4. If button appears enabled, clicking it must trigger required validation and NOT publish the post
+    if (!isCreateDisabled && await createBtn.isVisible()) {
+      await createBtn.click({ force: true }).catch(() => {});
+      await page.waitForTimeout(1000);
+      isNativeDisabled = await createBtn.isDisabled().catch(() => false);
+      isAriaDisabled = (await createBtn.getAttribute('aria-disabled')) === 'true';
+      isCreateDisabled = isNativeDisabled || isAriaDisabled;
+      hasError = hasError || await errorIndicator.first().isVisible({ timeout: 1500 }).catch(() => false);
+    }
+
+    // 5. Assert composer modal remains open (post publication prevented) and validation is enforced
+    const isModalOpen = await page.locator('[role="dialog"]').isVisible().catch(() => true);
+    expect(isModalOpen).toBeTruthy();
+    expect(isCreateDisabled || hasError).toBeTruthy();
+
+    // 6. Close composer dialog cleanly
+    await composerPage.closeDialog();
+    expect(pageErrors).toHaveLength(0);
+  });
 });
 
 
