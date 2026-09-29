@@ -4,17 +4,9 @@
       "/opt/hostedtoolcache/node/22.23.2/x64/bin/node",
       "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/node_modules/.bin/playwright",
       "test",
-      "src/tests/login.spec.ts",
-      "src/tests/recovery.spec.ts",
-      "src/tests/chat.spec.ts",
-      "src/tests/home.spec.ts",
       "src/tests/post.spec.ts",
-      "src/tests/badge.spec.ts",
-      "src/tests/settings.spec.ts",
-      "src/tests/activity.spec.ts",
-      "src/tests/explore.spec.ts",
       "-g",
-      "TC-05|TC_REC_001|TC_CHAT_019|TC_CHAT_020|TC_CHAT_021|TC_HOME_011|TC_POST_006|TC_BADGE_001|TC_SET_001|TC_SET_002|TC_ACT_004|TC_EXP_005|TC_EXP_006",
+      "TC_POST_005",
       "--project=chromium"
     ],
     "configFile": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/playwright.config.ts",
@@ -30,24 +22,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/63dfc60b685efae2fe97231bb90af9576e390380",
-        "commitHash": "63dfc60b685efae2fe97231bb90af9576e390380",
-        "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36512659359"
+        "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/fdbf799093d492c542a5ef93ab6f9df9f8da6107",
+        "commitHash": "fdbf799093d492c542a5ef93ab6f9df9f8da6107",
+        "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36525140412"
       },
       "gitCommit": {
-        "shortHash": "63dfc60",
-        "hash": "63dfc60b685efae2fe97231bb90af9576e390380",
-        "subject": "chore: update dashboard after Post Creation Page test suite [skip ci]",
-        "body": "chore: update dashboard after Post Creation Page test suite [skip ci]\n",
+        "shortHash": "fdbf799",
+        "hash": "fdbf799093d492c542a5ef93ab6f9df9f8da6107",
+        "subject": "feat(tests): implement edge-case test suite batch 2, update test tracking and CI dispatch",
+        "body": "feat(tests): implement edge-case test suite batch 2, update test tracking and CI dispatch\n",
         "author": {
-          "name": "github-actions[bot]",
-          "email": "github-actions[bot]@users.noreply.github.com",
-          "time": 1790648688000
+          "name": "Mughda Bansal",
+          "email": "mughdabansal1414@gmail.com",
+          "time": 1790658775000
         },
         "committer": {
-          "name": "github-actions[bot]",
-          "email": "github-actions[bot]@users.noreply.github.com",
-          "time": 1790648688000
+          "name": "Mughda Bansal",
+          "email": "mughdabansal1414@gmail.com",
+          "time": 1790658775000
         },
         "branch": "main"
       },
@@ -61,24 +53,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/63dfc60b685efae2fe97231bb90af9576e390380",
-            "commitHash": "63dfc60b685efae2fe97231bb90af9576e390380",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36512659359"
+            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/fdbf799093d492c542a5ef93ab6f9df9f8da6107",
+            "commitHash": "fdbf799093d492c542a5ef93ab6f9df9f8da6107",
+            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36525140412"
           },
           "gitCommit": {
-            "shortHash": "63dfc60",
-            "hash": "63dfc60b685efae2fe97231bb90af9576e390380",
-            "subject": "chore: update dashboard after Post Creation Page test suite [skip ci]",
-            "body": "chore: update dashboard after Post Creation Page test suite [skip ci]\n",
+            "shortHash": "fdbf799",
+            "hash": "fdbf799093d492c542a5ef93ab6f9df9f8da6107",
+            "subject": "feat(tests): implement edge-case test suite batch 2, update test tracking and CI dispatch",
+            "body": "feat(tests): implement edge-case test suite batch 2, update test tracking and CI dispatch\n",
             "author": {
-              "name": "github-actions[bot]",
-              "email": "github-actions[bot]@users.noreply.github.com",
-              "time": 1790648688000
+              "name": "Mughda Bansal",
+              "email": "mughdabansal1414@gmail.com",
+              "time": 1790658775000
             },
             "committer": {
-              "name": "github-actions[bot]",
-              "email": "github-actions[bot]@users.noreply.github.com",
-              "time": 1790648688000
+              "name": "Mughda Bansal",
+              "email": "mughdabansal1414@gmail.com",
+              "time": 1790658775000
             },
             "branch": "main"
           },
@@ -87,7 +79,10 @@
         "id": "chromium",
         "name": "chromium",
         "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
-        "testIgnore": [],
+        "testIgnore": [
+          "**/chat.spec.ts",
+          "**/04-chat-collaboration.spec.ts"
+        ],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
@@ -99,24 +94,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/63dfc60b685efae2fe97231bb90af9576e390380",
-            "commitHash": "63dfc60b685efae2fe97231bb90af9576e390380",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36512659359"
+            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/fdbf799093d492c542a5ef93ab6f9df9f8da6107",
+            "commitHash": "fdbf799093d492c542a5ef93ab6f9df9f8da6107",
+            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36525140412"
           },
           "gitCommit": {
-            "shortHash": "63dfc60",
-            "hash": "63dfc60b685efae2fe97231bb90af9576e390380",
-            "subject": "chore: update dashboard after Post Creation Page test suite [skip ci]",
-            "body": "chore: update dashboard after Post Creation Page test suite [skip ci]\n",
+            "shortHash": "fdbf799",
+            "hash": "fdbf799093d492c542a5ef93ab6f9df9f8da6107",
+            "subject": "feat(tests): implement edge-case test suite batch 2, update test tracking and CI dispatch",
+            "body": "feat(tests): implement edge-case test suite batch 2, update test tracking and CI dispatch\n",
             "author": {
-              "name": "github-actions[bot]",
-              "email": "github-actions[bot]@users.noreply.github.com",
-              "time": 1790648688000
+              "name": "Mughda Bansal",
+              "email": "mughdabansal1414@gmail.com",
+              "time": 1790658775000
             },
             "committer": {
-              "name": "github-actions[bot]",
-              "email": "github-actions[bot]@users.noreply.github.com",
-              "time": 1790648688000
+              "name": "Mughda Bansal",
+              "email": "mughdabansal1414@gmail.com",
+              "time": 1790658775000
             },
             "branch": "main"
           },
@@ -125,7 +120,10 @@
         "id": "firefox",
         "name": "firefox",
         "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
-        "testIgnore": [],
+        "testIgnore": [
+          "**/chat.spec.ts",
+          "**/04-chat-collaboration.spec.ts"
+        ],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
@@ -137,24 +135,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/63dfc60b685efae2fe97231bb90af9576e390380",
-            "commitHash": "63dfc60b685efae2fe97231bb90af9576e390380",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36512659359"
+            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/fdbf799093d492c542a5ef93ab6f9df9f8da6107",
+            "commitHash": "fdbf799093d492c542a5ef93ab6f9df9f8da6107",
+            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36525140412"
           },
           "gitCommit": {
-            "shortHash": "63dfc60",
-            "hash": "63dfc60b685efae2fe97231bb90af9576e390380",
-            "subject": "chore: update dashboard after Post Creation Page test suite [skip ci]",
-            "body": "chore: update dashboard after Post Creation Page test suite [skip ci]\n",
+            "shortHash": "fdbf799",
+            "hash": "fdbf799093d492c542a5ef93ab6f9df9f8da6107",
+            "subject": "feat(tests): implement edge-case test suite batch 2, update test tracking and CI dispatch",
+            "body": "feat(tests): implement edge-case test suite batch 2, update test tracking and CI dispatch\n",
             "author": {
-              "name": "github-actions[bot]",
-              "email": "github-actions[bot]@users.noreply.github.com",
-              "time": 1790648688000
+              "name": "Mughda Bansal",
+              "email": "mughdabansal1414@gmail.com",
+              "time": 1790658775000
             },
             "committer": {
-              "name": "github-actions[bot]",
-              "email": "github-actions[bot]@users.noreply.github.com",
-              "time": 1790648688000
+              "name": "Mughda Bansal",
+              "email": "mughdabansal1414@gmail.com",
+              "time": 1790658775000
             },
             "branch": "main"
           },
@@ -163,7 +161,10 @@
         "id": "webkit",
         "name": "webkit",
         "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
-        "testIgnore": [],
+        "testIgnore": [
+          "**/chat.spec.ts",
+          "**/04-chat-collaboration.spec.ts"
+        ],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
@@ -175,24 +176,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/63dfc60b685efae2fe97231bb90af9576e390380",
-            "commitHash": "63dfc60b685efae2fe97231bb90af9576e390380",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36512659359"
+            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/fdbf799093d492c542a5ef93ab6f9df9f8da6107",
+            "commitHash": "fdbf799093d492c542a5ef93ab6f9df9f8da6107",
+            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36525140412"
           },
           "gitCommit": {
-            "shortHash": "63dfc60",
-            "hash": "63dfc60b685efae2fe97231bb90af9576e390380",
-            "subject": "chore: update dashboard after Post Creation Page test suite [skip ci]",
-            "body": "chore: update dashboard after Post Creation Page test suite [skip ci]\n",
+            "shortHash": "fdbf799",
+            "hash": "fdbf799093d492c542a5ef93ab6f9df9f8da6107",
+            "subject": "feat(tests): implement edge-case test suite batch 2, update test tracking and CI dispatch",
+            "body": "feat(tests): implement edge-case test suite batch 2, update test tracking and CI dispatch\n",
             "author": {
-              "name": "github-actions[bot]",
-              "email": "github-actions[bot]@users.noreply.github.com",
-              "time": 1790648688000
+              "name": "Mughda Bansal",
+              "email": "mughdabansal1414@gmail.com",
+              "time": 1790658775000
             },
             "committer": {
-              "name": "github-actions[bot]",
-              "email": "github-actions[bot]@users.noreply.github.com",
-              "time": 1790648688000
+              "name": "Mughda Bansal",
+              "email": "mughdabansal1414@gmail.com",
+              "time": 1790658775000
             },
             "branch": "main"
           },
@@ -201,7 +202,10 @@
         "id": "edge",
         "name": "edge",
         "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
-        "testIgnore": [],
+        "testIgnore": [
+          "**/chat.spec.ts",
+          "**/04-chat-collaboration.spec.ts"
+        ],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
@@ -242,414 +246,6 @@
   },
   "suites": [
     {
-      "title": "activity.spec.ts",
-      "file": "activity.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Eve Vakh - Activity & Notifications Page Test Suite",
-          "file": "activity.spec.ts",
-          "line": 7,
-          "column": 6,
-          "specs": [
-            {
-              "title": "TC_ACT_004: should verify form publication approval notification and media preview",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 7798,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-29T02:28:22.211Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "616be4781cf8c32ae453-67db8b34566fa5053e57",
-              "file": "activity.spec.ts",
-              "line": 78,
-              "column": 7
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "badge.spec.ts",
-      "file": "badge.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Eve Vakh - Badge Access Control & Deletion Security Suite",
-          "file": "badge.spec.ts",
-          "line": 8,
-          "column": 6,
-          "specs": [
-            {
-              "title": "TC_BADGE_001: demoted or non-admin user receives 403 Forbidden on badge deletion and delete option is not rendered in UI",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 6683,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-29T02:28:30.688Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "556dc9409904593b1296-f84db98aa2cd0dfe05cf",
-              "file": "badge.spec.ts",
-              "line": 34,
-              "column": 7
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "chat.spec.ts",
-      "file": "chat.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Eve Vakh - Chat & Messaging Comprehensive Test Suite",
-          "file": "chat.spec.ts",
-          "line": 7,
-          "column": 6,
-          "specs": [
-            {
-              "title": "TC_CHAT_019: network disconnect during media/file upload stops progress, displays retry option, and prevents app freeze",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 12456,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-29T02:28:37.386Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-3220d0ea810e35d6967c",
-              "file": "chat.spec.ts",
-              "line": 414,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_020: sending messages while offline marks messages as Pending/Queued and automatically dispatches upon network restoration",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 16055,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-29T02:28:49.851Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-996b14a043a0d28aaf45",
-              "file": "chat.spec.ts",
-              "line": 458,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_021: unblocked user immediately restores real-time messaging capabilities without requiring app reload",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 13689,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-29T02:29:05.915Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-c9de3ff870385ff73cc3",
-              "file": "chat.spec.ts",
-              "line": 500,
-              "column": 7
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "explore.spec.ts",
-      "file": "explore.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Eve Vakh - Explore Page Functional, UI/UX & Profile Forms Test Suite",
-          "file": "explore.spec.ts",
-          "line": 8,
-          "column": 6,
-          "specs": [
-            {
-              "title": "TC_EXP_005: should validate active filter button toggle and list responsiveness",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 7382,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-29T02:29:19.616Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "068fad9605609506583e-edbd9355c7807069fc9d",
-              "file": "explore.spec.ts",
-              "line": 98,
-              "column": 7
-            },
-            {
-              "title": "TC_EXP_006: should navigate to user profile and display header details (username, joined, rep, tags)",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 7325,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-29T02:29:27.007Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "068fad9605609506583e-ec56b41e4b10a568b9a1",
-              "file": "explore.spec.ts",
-              "line": 109,
-              "column": 7
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "home.spec.ts",
-      "file": "home.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Eve Vakh - Home Page Full UI & Functional Test Suite",
-          "file": "home.spec.ts",
-          "line": 7,
-          "column": 6,
-          "specs": [
-            {
-              "title": "TC_HOME_011: unhearting/unliking a post verifies whether daily heart budget is refunded or remains expended according to business rules",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3704,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-29T02:29:34.343Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "d318381359a9b96acb1e-3091295ebb1b98d486cf",
-              "file": "home.spec.ts",
-              "line": 185,
-              "column": 7
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "login.spec.ts",
-      "file": "login.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Eve Vakh - Login Page Functional & Button Test Suite",
-          "file": "login.spec.ts",
-          "line": 7,
-          "column": 6,
-          "specs": [
-            {
-              "title": "TC-05: submitting password exceeding 128 characters is handled cleanly without server timeout or 500 error",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4095,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-29T02:29:38.058Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "41d3fd2474a19feb00a1-623af21503f8a98de1d7",
-              "file": "login.spec.ts",
-              "line": 140,
-              "column": 7
-            }
-          ]
-        }
-      ]
-    },
-    {
       "title": "post.spec.ts",
       "file": "post.spec.ts",
       "column": 0,
@@ -663,7 +259,7 @@
           "column": 6,
           "specs": [
             {
-              "title": "TC_POST_006: uploading corrupt or oversized media attachment halts submission and displays inline file error",
+              "title": "TC_POST_005: should create form with poll field and publish interactive poll post with voting",
               "ok": true,
               "tags": [],
               "tests": [
@@ -678,12 +274,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 14727,
+                      "duration": 30931,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T02:29:42.166Z",
+                      "startTime": "2026-09-29T05:13:56.106Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -691,145 +287,9 @@
                   "status": "expected"
                 }
               ],
-              "id": "852d2ff9c4320f80b981-3bedb8761c58a4f9910b",
+              "id": "852d2ff9c4320f80b981-7c8f20a8b3aaecb1a74b",
               "file": "post.spec.ts",
-              "line": 144,
-              "column": 7
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "recovery.spec.ts",
-      "file": "recovery.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Eve Vakh - Account Recovery & 2FA Security Suite",
-          "file": "recovery.spec.ts",
-          "line": 7,
-          "column": 6,
-          "specs": [
-            {
-              "title": "TC_REC_001: entering incorrect 2FA authenticator TOTP code 5 times disables further attempts for 15 minutes",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5772,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-29T02:29:56.904Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "ef78f3da5c9c24fceacf-615a320ce7d2faa2cf1a",
-              "file": "recovery.spec.ts",
-              "line": 18,
-              "column": 7
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "settings.spec.ts",
-      "file": "settings.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Eve Vakh - Settings & Profile Configuration Suite",
-          "file": "settings.spec.ts",
-          "line": 7,
-          "column": 6,
-          "specs": [
-            {
-              "title": "TC_SET_001: attempting to save username containing spaces or disallowed symbols displays format requirements and blocks save",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 9643,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-29T02:30:02.685Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "d877ffdf71ec720167ae-db91ebab9a96dd32c665",
-              "file": "settings.spec.ts",
-              "line": 37,
-              "column": 7
-            },
-            {
-              "title": "TC_SET_002: uploading oversized profile photo (>15MB) shows error with option to crop/compress",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 8314,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-29T02:30:12.336Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "d877ffdf71ec720167ae-2b8f531ff53a55f562cc",
-              "file": "settings.spec.ts",
-              "line": 75,
+              "line": 102,
               "column": 7
             }
           ]
@@ -839,9 +299,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-09-29T02:28:21.522Z",
-    "duration": 119175.712,
-    "expected": 13,
+    "startTime": "2026-09-29T05:13:55.385Z",
+    "duration": 33011.582,
+    "expected": 1,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
