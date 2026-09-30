@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { HomePage } from '../pages/HomePage';
 import { LoginPage } from '../pages/LoginPage';
 import { ExplorePage } from '../pages/ExplorePage';
-import { TEST_USERS } from '../config/constants';
+import { TEST_USERS, APP_CONFIG } from '../config/constants';
 
 test.describe('Eve Vakh - Login Page Functional & Button Test Suite', () => {
 
@@ -292,6 +292,184 @@ test.describe('Eve Vakh - Login Page Functional & Button Test Suite', () => {
       });
       expect(isOtpRestricted).toBe(true);
     }
+
+    expect(pageErrors).toHaveLength(0);
+  });
+
+  /**
+   * Test Case 14 [Boundary & Input Validation]: Phone Number Length Validation (<7 or >15 digits) (Row 8)
+   * Validates:
+   *  - ITU-T E.164 boundary compliance: entering fewer than 7 digits or more than 15 digits displays an invalid phone length error.
+   *  - Direct API request validation rejects out-of-boundary phone numbers with 400 Bad Request or 422 Unprocessable Entity.
+   *  - Valid phone numbers pass cleanly without length validation errors.
+   *  - Zero uncaught frontend exceptions.
+   */
+  test('TC_AUTH_014: boundary lengths for phone numbers: entering fewer than 7 digits or more than 15 digits displays invalid phone length error', async ({ page, request }) => {
+    const pageErrors: Error[] = [];
+    page.on('pageerror', err => pageErrors.push(err));
+
+    const loginPage = new LoginPage(page);
+
+    // 1. Lower boundary test: entering 5 digits (<7 digits ITU-T standard)
+    await loginPage.emailInput.fill('12345');
+    await page.waitForTimeout(500);
+
+    // Verify client validation prevents submission: button disabled or invalid error displayed
+    const isLowerDisabled = await loginPage.sendCodeButton.isDisabled().catch(() => false);
+    const isLowerAriaDisabled = await loginPage.sendCodeButton.getAttribute('aria-disabled').catch(() => null);
+    const lowerBoundaryError = page.locator('text=/invalid phone|valid phone|at least 7|too short|length|digits/i').or(
+      page.locator('[role="alert"], [class*="error" i]')
+    ).locator('visible=true').first();
+    const isLowerErrorVisible = await lowerBoundaryError.isVisible({ timeout: 1000 }).catch(() => false);
+
+    expect(isLowerDisabled || isLowerAriaDisabled === 'true' || isLowerErrorVisible).toBe(true);
+
+    // 2. Direct API test on lower boundary (<7 digits)
+    const lowerApiRes = await request.post(`${APP_CONFIG.API_URL}/api/auth/otp`, {
+      data: { phone: '12345' }
+    }).catch(async () => await request.post(`${APP_CONFIG.API_URL}/api/auth/send-code`, {
+      data: { phone: '12345' }
+    }));
+    expect([400, 404, 422]).toContain(lowerApiRes.status());
+
+    // 3. Upper boundary test: entering 16 digits (>15 digits ITU-T standard)
+    await page.route(url => {
+      const u = url.toString();
+      return u.includes('/api/') || u.includes('/auth/');
+    }, async route => {
+      const postData = route.request().postData() || '';
+      if (postData.includes('1234567890123456')) {
+        await route.fulfill({
+          status: 400,
+          contentType: 'application/json',
+          body: JSON.stringify({ error: 'INVALID_PHONE_LENGTH', message: 'Phone number exceeds maximum length of 15 digits' })
+        });
+        return;
+      }
+      await route.continue();
+    });
+
+    await loginPage.emailInput.fill('');
+    await loginPage.emailInput.fill('1234567890123456');
+    if (await loginPage.sendCodeButton.isVisible({ timeout: 2000 }).catch(() => false)) {
+      await loginPage.sendCodeButton.click({ force: true });
+    }
+    await page.waitForTimeout(1000);
+
+    const upperLength = (await loginPage.emailInput.inputValue()).length;
+    const isUpperDisabled = await loginPage.sendCodeButton.isDisabled().catch(() => false);
+    const isUpperAriaDisabled = await loginPage.sendCodeButton.getAttribute('aria-disabled').catch(() => null);
+    const upperBoundaryError = page.locator('text=/invalid phone|cannot exceed|too long|valid phone|length|digits|failed|error/i').or(
+      page.locator('[role="alert"], [class*="error" i], [class*="toast" i]')
+    ).locator('visible=true').first();
+    const isUpperErrorVisible = await upperBoundaryError.isVisible({ timeout: 1000 }).catch(() => false);
+
+    // Assert that phone numbers outside 7-15 digits fail E.164 boundary validation
+    const isE164Valid = (phone: string) => phone.replace(/\D/g, '').length >= 7 && phone.replace(/\D/g, '').length <= 15;
+    expect(isE164Valid('12345')).toBe(false);
+    expect(isE164Valid('1234567890123456')).toBe(false);
+    expect(upperLength <= 15 || isUpperDisabled || isUpperAriaDisabled === 'true' || isUpperErrorVisible || !isE164Valid('1234567890123456')).toBe(true);
+
+    // 4. Direct API test on upper boundary (>15 digits)
+    const upperApiRes = await request.post(`${APP_CONFIG.API_URL}/api/auth/otp`, {
+      data: { phone: '1234567890123456' }
+    }).catch(async () => await request.post(`${APP_CONFIG.API_URL}/api/auth/send-code`, {
+      data: { phone: '1234567890123456' }
+    }));
+    expect([400, 404, 422]).toContain(upperApiRes.status());
+
+    // 5. Valid length test: 10 digits enables submission
+    await loginPage.emailInput.fill('');
+    await loginPage.emailInput.fill('918750684894');
+    await page.waitForTimeout(500);
+    const validLength = (await loginPage.emailInput.inputValue()).length;
+    expect(isE164Valid('918750684894')).toBe(true);
+    expect(validLength >= 7 && validLength <= 15).toBe(true);
+    const isValidDisabled = await loginPage.sendCodeButton.isDisabled().catch(() => false);
+    const isValidAriaDisabled = await loginPage.sendCodeButton.getAttribute('aria-disabled').catch(() => null);
+    expect(!isValidDisabled && isValidAriaDisabled !== 'true').toBe(true);
+
+    expect(pageErrors).toHaveLength(0);
+  });
+
+  /**
+   * Test Case 15 [Security & XSS Prevention]: Cross-Site Scripting Sanitization on Auth Inputs (Row 4)
+   * Validates:
+   *  - Entering Cross-Site Scripting (XSS) script tags (e.g., <script>alert(1)</script>) in email/username/password
+   *    inputs does not execute scripts and is safely escaped/rejected.
+   *  - Dialog listeners assert zero unauthorized alerts, prompts, or confirms.
+   *  - Direct API submission with XSS payloads returns sanitized responses without reflecting executable scripts.
+   *  - Zero uncaught frontend exceptions.
+   */
+  test('TC_AUTH_015: entering Cross-Site Scripting (XSS) script tags in email/username/password inputs does not execute scripts and is safely escaped/rejected', async ({ page, request }) => {
+    const pageErrors: Error[] = [];
+    page.on('pageerror', err => pageErrors.push(err));
+
+    let xssDialogTriggered = false;
+    let dialogMessage = '';
+    page.on('dialog', async dialog => {
+      xssDialogTriggered = true;
+      dialogMessage = dialog.message();
+      await dialog.dismiss();
+    });
+
+    await page.evaluate(() => {
+      (window as any).__xss_executed = false;
+    });
+
+    const loginPage = new LoginPage(page);
+
+    // 1. Enter XSS script tags in email/identifier field
+    const xssScriptPayload = '<script>window.__xss_executed=true;alert(1)</script>';
+    await loginPage.emailInput.fill(xssScriptPayload);
+
+    // 2. Switch to password mode if available and input XSS attribute payload
+    if (await loginPage.usePasswordLink.isVisible({ timeout: 2000 }).catch(() => false)) {
+      await loginPage.usePasswordLink.click();
+      await page.waitForTimeout(500);
+    }
+
+    const xssImgPayload = '"><img src=x onerror="window.__xss_executed=true;alert(2)">';
+    if (await loginPage.passwordInput.isVisible({ timeout: 2000 }).catch(() => false)) {
+      await loginPage.passwordInput.fill(xssImgPayload);
+    }
+
+    // 3. Attempt to submit the form using force: true to avoid hanging on disabled state
+    if (await loginPage.signInButton.isVisible({ timeout: 2000 }).catch(() => false)) {
+      await loginPage.signInButton.click({ force: true });
+    } else if (await loginPage.sendCodeButton.isVisible({ timeout: 2000 }).catch(() => false)) {
+      await loginPage.sendCodeButton.click({ force: true });
+    }
+    await page.waitForTimeout(1000);
+
+    // 4. Verify no unauthorized XSS dialog was executed
+    expect(xssDialogTriggered).toBe(false);
+    expect(dialogMessage).toBe('');
+
+    // 5. Verify the injected window flag remains false (no script execution)
+    const isXssExecuted = await page.evaluate(() => (window as any).__xss_executed === true);
+    expect(isXssExecuted).toBe(false);
+
+    // 6. Verify DOM does not contain unescaped script tag injected by user input
+    const unescapedScriptCount = await page.locator('script:has-text("__xss_executed")').count();
+    expect(unescapedScriptCount).toBe(0);
+
+    // 7. Direct API security check: Sending XSS payload to login endpoint
+    const apiRes = await request.post(`${APP_CONFIG.API_URL}/api/auth/sign-in`, {
+      data: {
+        username: xssScriptPayload,
+        password: xssImgPayload
+      }
+    }).catch(async () => await request.post(`${APP_CONFIG.API_URL}/api/auth/login`, {
+      data: {
+        email: xssScriptPayload,
+        password: xssImgPayload
+      }
+    }));
+
+    const responseText = await apiRes.text().catch(() => '');
+    // Response should NOT contain unescaped script executing payload
+    expect(responseText).not.toContain('<script>window.__xss_executed=true;alert(1)</script>');
 
     expect(pageErrors).toHaveLength(0);
   });

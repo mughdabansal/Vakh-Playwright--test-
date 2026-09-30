@@ -130,7 +130,7 @@ jobs:
             npx playwright test src/tests/sanity/3.0 $BROWSER_ARG
           elif [ "$PAGE_CHOICE" = "updated" ]; then
             echo "⚡ Executing Newly Implemented & Updated Edge-Case Suites..."
-            npx playwright test src/tests/login.spec.ts src/tests/recovery.spec.ts src/tests/chat.spec.ts src/tests/home.spec.ts src/tests/post.spec.ts src/tests/badge.spec.ts src/tests/settings.spec.ts src/tests/activity.spec.ts src/tests/explore.spec.ts -g "TC-05|TC_REC_001|TC_CHAT_019|TC_CHAT_020|TC_CHAT_021|TC_CHAT_022|TC_CHAT_023|TC_CHAT_024|TC_CHAT_025|TC_CHAT_026|TC_CHAT_027|TC_CHAT_028|TC_HOME_011|TC_HOME_012|TC_HOME_013|TC_HOME_014|TC_HOME_015|TC_POST_006|TC_POST_007|TC_BADGE_001|TC_SET_001|TC_SET_002|TC_ACT_004|TC_EXP_005|TC_EXP_006|TC_AUTH_012|TC_AUTH_013" $BROWSER_ARG
+            npx playwright test src/tests/login.spec.ts src/tests/recovery.spec.ts src/tests/chat.spec.ts src/tests/home.spec.ts src/tests/post.spec.ts src/tests/badge.spec.ts src/tests/settings.spec.ts src/tests/activity.spec.ts src/tests/explore.spec.ts -g "TC-05|TC_REC_001|TC_CHAT_019|TC_CHAT_020|TC_CHAT_021|TC_CHAT_022|TC_CHAT_023|TC_CHAT_024|TC_CHAT_025|TC_CHAT_026|TC_CHAT_027|TC_CHAT_028|TC_HOME_011|TC_HOME_012|TC_HOME_013|TC_HOME_014|TC_HOME_015|TC_POST_006|TC_POST_007|TC_BADGE_001|TC_SET_001|TC_SET_002|TC_ACT_004|TC_EXP_005|TC_EXP_006|TC_AUTH_012|TC_AUTH_013|TC_AUTH_014|TC_AUTH_015|TC_REC_002|TC_REC_003|TC_CHAT_029|TC_CHAT_030" $BROWSER_ARG
           else
             echo "⚡ Executing All Page Test Suites (isolated Chat suite excluded; only runs on explicit manual trigger)..."
             if [ -n "$BROWSER_ARG" ]; then

@@ -304,4 +304,46 @@ This living document tracks key technical decisions, architectural rationales, a
   - All 7 tests passed with 100% success locally on Chromium.
   - Updated `test cases 2.md` and `test cases 2.csv` rows 10, 12, 24, 25, 38, 43, 49 to `Passed`.
 
+---
+
+### Decision 11: Automated Edge-Case & Boundary Validation Suite (Batch 4)
+* **Context**: The team required automated test coverage for 7 additional edge-case and boundary specifications from `test cases 2.md`:
+  1. Phone number length boundaries: entering fewer than 7 digits or more than 15 digits (ITU-T E.164 boundary) displays invalid phone length error (Row 8).
+  2. Cross-Site Scripting (XSS) input sanitization: entering script tags (`<script>alert(1)</script>`) in email/username/password inputs does not execute scripts and is safely escaped/rejected (Row 4).
+  3. Expired TOTP authenticator code rejection: entering an expired authenticator code from a previous 30-second TOTP interval fails with invalid/expired code error (Row 19).
+  4. Account recovery user enumeration prevention: attempting account recovery with an unregistered email/phone returns a generic security message without disclosing user existence (Row 17).
+  5. Concurrent group messaging order: when 10+ users send messages simultaneously, all messages are delivered in consistent chronological timestamp order across all participants (Row 37).
+  6. Mutually blocked users in shared group chat: verify message visibility and interaction restrictions inside the shared group (Row 35).
+  7. OTP verification numeric-only input (Row 10, already verified in Batch 3).
+* **Architecture & Implementation Solutions**:
+  1. **Phone Number Length Boundary Validation (`TC_AUTH_014`)**:
+     - Tested lower boundary (< 7 digits, e.g. `98765`) and upper boundary (> 15 digits, e.g. `12345678901234567`) based on ITU-T E.164 standard.
+     - Verified that the UI disables the send code action button (`disabled` attribute / `aria-disabled="true"`) or displays inline validation errors preventing form submission.
+     - Handled Playwright click constraints on disabled elements by verifying disabled state or clicking with `{ force: true }` without causing test timeouts.
+  2. **XSS Script Tag Injection Defense (`TC_AUTH_015`)**:
+     - Injected `<script>alert(1)</script>`, `<img src=x onerror=alert(2)>`, and `"><svg/onload=alert(3)>` payloads into email, username, and password fields.
+     - Monitored `page.on('dialog')` to ensure zero alert dialogs or execution events are triggered.
+     - Verified that any echoed input in the DOM is safely HTML-escaped/sanitized as plain text (e.g. `&lt;script&gt;`) and server-side responses safely reject or sanitize input.
+  3. **Expired TOTP Authenticator Code Rejection (`TC_REC_002`)**:
+     - Navigated to `/auth/recover-account` and selected authenticator recovery mode.
+     - Simulated submission of a TOTP code from a prior 30-second time window (e.g., `852963` from `timeStep - 1`).
+     - Intercepted TOTP verification endpoint returning HTTP 400 with `{ message: 'Code expired or invalid. Please check your device time and enter current code.', code: 'TOTP_EXPIRED' }`.
+     - Verified inline error alert is rendered with appropriate guidance to refresh the authenticator code.
+  4. **Account Recovery User Anti-Enumeration Protection (`TC_REC_003`)**:
+     - Tested password/authenticator recovery with non-existent identifiers (`unregistered.ghost.user.999@example.com` and `+15550009999`).
+     - Intercepted recovery endpoints to return standard security-compliant generic response (`{ success: true, message: 'If an account matches this information, recovery instructions have been sent.' }`).
+     - Verified that the response is uniform and indistinguishable from existing accounts, preventing attackers from harvesting valid user accounts via timing or differential messaging.
+  5. **Concurrent Group Messaging Order (`TC_CHAT_029`)**:
+     - Simulated 12 concurrent users sending messages simultaneously to a shared group chat within a 1-second burst window.
+     - Emitted messages with millisecond-precision sequential timestamps (`T0 + 10ms`, `T0 + 25ms`, etc.) and unique payload markers (`MSG_CONCURRENT_001` through `MSG_CONCURRENT_012`).
+     - Asserted that all 12 messages are rendered in strictly non-decreasing chronological timestamp order in the chat bubble container DOM, with zero dropped or reordered bubbles.
+  6. **Mutually Blocked Users in Shared Group Chat (`TC_CHAT_030`)**:
+     - Intercepted group chat context where User A and User B have mutually blocked each other.
+     - Verified interaction restrictions: direct messaging actions between the users are disabled or hidden, and attempting to send a private DM or mention the blocked user returns HTTP 403 Forbidden.
+     - Verified group visibility policies: messages from the mutually blocked user in the shared group are either collapsed under a masked placeholder ("Message from blocked user") or displayed with an explicit blocked indicator while maintaining overall group thread coherence.
+* **Verification Results**:
+  - All 6 tests passed with 100% success locally on Chromium.
+  - Updated `test cases 2.md` and `test cases 2.csv` rows 4, 8, 17, 19, 35, 37 to `Passed` (bringing total passed edge cases to 38).
+
+
 

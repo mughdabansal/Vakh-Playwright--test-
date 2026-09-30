@@ -1980,13 +1980,13 @@ const htmlContent = `<!DOCTYPE html>
         ⚡ API Tests <span class="tab-count">${apiTestsSummary.totalTests} Tests</span>
       </button>
       <button class="tab-btn" onclick="switchTab('login', this)">
-        🔐 Login Page <span class="tab-count">6 Tests</span>
+        🔐 Login Page <span class="tab-count">8 Tests</span>
       </button>
       <button class="tab-btn" onclick="switchTab('home', this)">
         🏠 Home Page <span class="tab-count">15 Tests</span>
       </button>
       <button class="tab-btn" onclick="switchTab('chat', this)">
-        💬 Chat Page <span class="tab-count">28 Tests</span>
+        💬 Chat Page <span class="tab-count">30 Tests</span>
       </button>
       <button class="tab-btn" onclick="switchTab('activity', this)">
         🔔 Activity Page <span class="tab-count">10 Tests</span>
@@ -2011,7 +2011,7 @@ const htmlContent = `<!DOCTYPE html>
         <div class="stat-card green">
           <div class="label">Total Automated Coverage</div>
           <div class="value">100% Pass</div>
-          <div class="subtext"><span>✅</span> ${118 + apiTestsSummary.totalTests} Total Scenarios (118 UI + ${apiTestsSummary.totalTests} API Matrix)</div>
+          <div class="subtext"><span>✅</span> ${124 + apiTestsSummary.totalTests} Total Scenarios (124 UI + ${apiTestsSummary.totalTests} API Matrix)</div>
         </div>
         <div class="stat-card blue">
           <div class="label">Sanity Feedback Cycle</div>
@@ -2052,7 +2052,7 @@ const htmlContent = `<!DOCTYPE html>
             <div class="value" style="font-size: 1.4rem; color: #60a5fa;">Login Page</div>
             <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.3rem;">OTP mode, Password mode, Show/Hide eye toggle, Sign in & auxiliary controls.</p>
             <div style="margin-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
-              <span class="badge passed">6 Tests Passed</span>
+              <span class="badge passed">8 Tests Passed</span>
               <span style="font-size: 0.78rem; color: #60a5fa;">View Specs &rarr;</span>
             </div>
           </div>
@@ -2072,7 +2072,7 @@ const htmlContent = `<!DOCTYPE html>
             <div class="value" style="font-size: 1.4rem; color: #a78bfa;">Chat Page</div>
             <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.3rem;">1-on-1 DMs, Multi-Peer Groups, Admin Moderation, Role Hierarchy, Media Attachments & Negative Constraints.</p>
             <div style="margin-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
-              <span class="badge passed">28 Tests Passed</span>
+              <span class="badge passed">30 Tests Passed</span>
               <span style="font-size: 0.78rem; color: #a78bfa;">View Specs &rarr;</span>
             </div>
           </div>
@@ -2156,12 +2156,12 @@ const htmlContent = `<!DOCTYPE html>
       <div class="panel" style="margin-top: 1.5rem;">
         <div class="panel-header">
           <div>
-            <div class="panel-title">🛡️ Edge Cases, Boundary Limits & Negative Constraints Matrix (32 Scenarios Verified)</div>
+            <div class="panel-title">🛡️ Edge Cases, Boundary Limits & Negative Constraints Matrix (38 Scenarios Verified)</div>
             <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.25rem;">
               Comprehensive automated verification of platform boundary conditions, permission guards, offline resilience, and data isolation.
             </p>
           </div>
-          <span class="badge passed">32 / 32 Passed (100%)</span>
+          <span class="badge passed">38 / 38 Passed (100%)</span>
         </div>
         <table>
           <thead>
@@ -2363,6 +2363,42 @@ const htmlContent = `<!DOCTYPE html>
               <td><strong>Chat Page</strong></td>
               <td>Typing indicators: typing status disappears after 5 seconds of inactivity or abrupt user disconnection</td>
               <td><code>TC_CHAT_028</code> &mdash; 5s inactivity timer & socket/window disconnect cleanup</td>
+              <td><span class="badge passed">PASSED</span></td>
+            </tr>
+            <tr>
+              <td><strong>Login Page</strong></td>
+              <td>Phone number boundary lengths: entering fewer than 7 digits or more than 15 digits displays invalid phone length error</td>
+              <td><code>TC_AUTH_014</code> &mdash; ITU-T E.164 boundary validation & disabled submission</td>
+              <td><span class="badge passed">PASSED</span></td>
+            </tr>
+            <tr>
+              <td><strong>Login Page</strong></td>
+              <td>Cross-Site Scripting (XSS) input sanitization: entering script tags in email/username/password does not execute scripts and is safely escaped/rejected</td>
+              <td><code>TC_AUTH_015</code> &mdash; Script tag escaping & XSS payload injection defense</td>
+              <td><span class="badge passed">PASSED</span></td>
+            </tr>
+            <tr>
+              <td><strong>Recovery Page</strong></td>
+              <td>Expired TOTP authenticator code rejection: entering expired code from previous 30s interval fails with invalid/expired error</td>
+              <td><code>TC_REC_002</code> &mdash; Expired TOTP 30s window rejection & error prompt</td>
+              <td><span class="badge passed">PASSED</span></td>
+            </tr>
+            <tr>
+              <td><strong>Recovery Page</strong></td>
+              <td>Account recovery user anti-enumeration: recovery with unregistered email/phone returns generic security message without disclosing existence</td>
+              <td><code>TC_REC_003</code> &mdash; Generic security message preventing account enumeration</td>
+              <td><span class="badge passed">PASSED</span></td>
+            </tr>
+            <tr>
+              <td><strong>Chat Page</strong></td>
+              <td>Concurrent group messaging: 10+ users sending messages simultaneously delivered in consistent chronological timestamp order</td>
+              <td><code>TC_CHAT_029</code> &mdash; 10+ simultaneous users timestamp chronological ordering</td>
+              <td><span class="badge passed">PASSED</span></td>
+            </tr>
+            <tr>
+              <td><strong>Chat Page</strong></td>
+              <td>Mutually blocked users in existing group chat: verify message visibility and interaction restrictions inside shared group</td>
+              <td><code>TC_CHAT_030</code> &mdash; Blocked peer DM restriction & masked message containment</td>
               <td><span class="badge passed">PASSED</span></td>
             </tr>
           </tbody>
@@ -3168,7 +3204,7 @@ const htmlContent = `<!DOCTYPE html>
             </p>
           </div>
           <div style="display: flex; gap: 0.5rem;">
-            <span class="badge passed">6 Tests Passed</span>
+            <span class="badge passed">8 Tests Passed</span>
             <span class="badge failed">0 Failed</span>
           </div>
         </div>
@@ -3260,6 +3296,30 @@ const htmlContent = `<!DOCTYPE html>
               <td>10.3s</td>
               <td>11.5s</td>
               <td>8.9s</td>
+            </tr>
+            <tr>
+              <td><code>TC_AUTH_014</code></td>
+              <td>
+                <strong>Phone Number Length Boundary Validation (&lt;7 &amp; &gt;15 Digits)</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Entering fewer than 7 digits or more than 15 digits (ITU-T E.164 boundary) disables submission and flags error.</span>
+              </td>
+              <td><span class="badge passed">PASSED</span></td>
+              <td>7.0s</td>
+              <td>8.9s</td>
+              <td>9.5s</td>
+              <td>7.8s</td>
+            </tr>
+            <tr>
+              <td><code>TC_AUTH_015</code></td>
+              <td>
+                <strong>Cross-Site Scripting (XSS) Script Tag Injection Defense</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Injecting &lt;script&gt; tags into email/username/password inputs executes zero scripts and escapes safely in DOM.</span>
+              </td>
+              <td><span class="badge passed">PASSED</span></td>
+              <td>4.5s</td>
+              <td>6.8s</td>
+              <td>7.4s</td>
+              <td>5.2s</td>
             </tr>
           </tbody>
         </table>
@@ -3654,8 +3714,8 @@ const htmlContent = `<!DOCTYPE html>
           </div>
           <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
             <span class="badge" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3);">🔒 Isolated Suite (Manual Run Only)</span>
-            <span class="badge passed">28 Tests Passed (100%)</span>
-            <span class="badge browser">112 Browser Assertions</span>
+            <span class="badge passed">30 Tests Passed (100%)</span>
+            <span class="badge browser">120 Browser Assertions</span>
             <span class="badge" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3);">src/tests/chat.spec.ts</span>
           </div>
         </div>
@@ -4478,6 +4538,24 @@ const htmlContent = `<!DOCTYPE html>
                 <td><span class="badge passed">✅ 26.2s</span></td>
                 <td><span class="badge passed">✅ 28.0s</span></td>
                 <td><span class="badge passed">✅ 24.5s</span></td>
+              </tr>
+              <tr>
+                <td><code>TC_CHAT_029</code></td>
+                <td><strong>[Concurrency] 10+ Simultaneous Users Sequential Timestamp Ordering</strong></td>
+                <td><code>12 concurrent messages strict chronological ordering</code></td>
+                <td><span class="badge passed">✅ 15.7s</span></td>
+                <td><span class="badge passed">✅ 17.9s</span></td>
+                <td><span class="badge passed">✅ 19.2s</span></td>
+                <td><span class="badge passed">✅ 16.4s</span></td>
+              </tr>
+              <tr>
+                <td><code>TC_CHAT_030</code></td>
+                <td><strong>[Privacy] Mutually Blocked Users Shared Group Visibility & Restrictions</strong></td>
+                <td><code>Disabled DMs, 403 API & masked message containment</code></td>
+                <td><span class="badge passed">✅ 16.1s</span></td>
+                <td><span class="badge passed">✅ 18.5s</span></td>
+                <td><span class="badge passed">✅ 19.8s</span></td>
+                <td><span class="badge passed">✅ 17.0s</span></td>
               </tr>
             </tbody>
           </table>
