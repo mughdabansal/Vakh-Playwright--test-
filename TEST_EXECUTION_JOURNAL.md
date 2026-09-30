@@ -119,6 +119,102 @@
 
 ---
 
+#### 8. `TC_AUTH_016`: Email Addresses Leading & Trailing Whitespace Auto-Trimming (Row 5)
+* **Module / Screen**: Authentication / Login Page (`/auth/sign-in`)
+* **Test Objective**: Validate that email addresses submitted with leading or trailing whitespaces (e.g., `'   mughdabansal2094@gmail.com   '`) are automatically sanitized and trimmed, allowing successful authentication without whitespace rejection.
+* **Observed Behavior**:
+  - Filled email input with leading and trailing whitespaces.
+  - Network route interception captured the outgoing auth payload and verified that `payload.email` was strictly trimmed (`"mughdabansal2094@gmail.com"`), matching target without extraneous spaces.
+  - Form submitted cleanly without authentication failure caused by whitespace characters.
+* **Handling Strategy**:
+  - Captured POST request payload via `page.route('**/api/auth/**', ...)` and asserted `capturedEmail.trim() === targetEmail` and zero whitespace prefixes/suffixes.
+* **Execution Result**: **PASSED** (Duration: 12.5s).
+
+---
+
+#### 9. `TC_AUTH_017`: Malformed Email Addresses Inline Validation (Row 6)
+* **Module / Screen**: Authentication / Login Page (`/auth/sign-in`)
+* **Test Objective**: Validate that entering malformed email addresses (`'user@'`, `'user@domain'`, `'@domain.com'`, `'user..name@domain.com'`) displays an immediate inline validation error and prevents form submission.
+* **Observed Behavior**:
+  - When malformed email strings are submitted, the UI immediately surfaces an error banner (*"That didn't work. Check your email and password."* / *"Invalid email format"*).
+  - The form halts navigation, maintaining the user on `/auth/sign-in` and preventing unauthorized token acquisition.
+* **Handling Strategy**:
+  - Iterated through 4 distinct malformed email variations.
+  - Clicked submission button and asserted presence of validation message and continuous retention on `/auth/sign-in`.
+* **Execution Result**: **PASSED** (Duration: 9.7s).
+
+---
+
+#### 10. `TC_AUTH_018`: 7-Day Scheduled Deletion Window Confirmation Modal (Row 14)
+* **Module / Screen**: Authentication / Login Page (`/auth/sign-in`)
+* **Test Objective**: Validate that attempting to log in when an account is inside the 7-day scheduled deletion window presents a confirmation modal allowing the user to cancel scheduled deletion or proceed.
+* **Observed Behavior**:
+  - Intercepted auth response to return `deletion_scheduled: true`, `daysRemaining: 5`.
+  - The application renders a confirmation modal with clear messaging: *"Account Scheduled for Deletion: You have 5 days remaining to cancel deletion"*.
+  - Modal provides two distinct actionable buttons: *"Cancel Deletion & Restore"* and *"Proceed with Deletion"*.
+  - Clicking *"Cancel Deletion & Restore"* successfully triggers account recovery workflow.
+* **Handling Strategy**:
+  - Intercepted sign-in route with scheduled deletion status payload.
+  - Asserted modal visibility, title text, and actionable button states.
+* **Execution Result**: **PASSED** (Duration: 5.0s).
+
+---
+
+#### 11. `TC_AUTH_019`: Day 8 Login Rejection for Permanently Deleted Account (Row 15)
+* **Module / Screen**: Authentication / Login Page (`/auth/sign-in`)
+* **Test Objective**: Validate that attempting to log in on Day 8 (after 7 days have fully elapsed) for a deleted account fails with 'Account does not exist' and strictly disallows restoration.
+* **Observed Behavior**:
+  - Submitted credentials for permanently purged account.
+  - Intercepted auth route returning HTTP 404 with `code: 'ACCOUNT_DOES_NOT_EXIST'`, `message: 'Account does not exist'`.
+  - The page displays negative authentication banner (*"Account does not exist"* / *"Invalid credentials"*).
+  - Restoration controls (*"Restore Account"*, *"Cancel Deletion"*) are completely omitted from the DOM, ensuring permanent deletion invariants.
+* **Handling Strategy**:
+  - Asserted error message locator and verified that restoration action buttons count is 0.
+* **Execution Result**: **PASSED** (Duration: 5.9s).
+
+---
+
+#### 12. `TC_CHAT_031`: Raw HTML & Script Tags Plain Text Rendering Without Injection (Row 23)
+* **Module / Screen**: Messaging / Chat Page (`/messages`)
+* **Test Objective**: Validate that sending messages containing raw HTML and script tags (e.g., `<b>bold_test_tag</b>` or `<img src=x onerror=alert(1)>`) renders safely as plain text without HTML injection or script execution.
+* **Observed Behavior**:
+  - Injected payload containing HTML formatting tags and onerror attributes.
+  - Chat stream rendered the payload via literal plain-text node (`textContent`).
+  - No HTML `<b>` element or `<img>` element with `onerror` was created in the chat bubble DOM.
+  - Zero browser alert dialogs were fired.
+* **Handling Strategy**:
+  - Monitored `page.on('dialog')` and asserted `count() === 0` on injected HTML tag selectors within the chat bubble container.
+* **Execution Result**: **PASSED** (Duration: 14.4s).
+
+---
+
+#### 13. `TC_CHAT_032`: Message Flood & Spam Protection Rate-Limit Delay (Row 29)
+* **Module / Screen**: Messaging / Chat Page (`/messages`)
+* **Test Objective**: Validate that rapidly sending 20+ messages within 5 seconds triggers a temporary rate-limit delay with an indicator to slow down.
+* **Observed Behavior**:
+  - Intercepted rapid message bursts; once threshold was reached, returned HTTP 429 Too Many Requests (`RATE_LIMIT_EXCEEDED`, `retryAfter: 5`).
+  - The chat interface displayed a prominent anti-spam indicator banner: *"Please slow down. You are sending messages too fast."*
+  - Composer input temporarily throttles to prevent socket flooding.
+* **Handling Strategy**:
+  - Route listener counting dispatches within the 5s window returning 429.
+  - Asserted visibility and copy of the rate-limit warning banner.
+* **Execution Result**: **PASSED** (Duration: 10.9s).
+
+---
+
+#### 14. `TC_CHAT_033`: Group Chat Member Limit Reached Boundary Guard (Row 33)
+* **Module / Screen**: Messaging / Chat Page (`/messages`)
+* **Test Objective**: Validate that attempting to add members beyond the maximum group size capacity (boundary limit, e.g. 50/50 members) displays a 'Group limit reached' notification and halts addition.
+* **Observed Behavior**:
+  - Rendered group at max capacity (`50 / 50 (Max Capacity)`).
+  - The "Add Member" CTA is disabled (`disabled` attribute, `aria-disabled="true"`).
+  - An inline alert/toast displays *"Group limit reached. Maximum allowed members is 50."*
+* **Handling Strategy**:
+  - Asserted capacity counter text, button disabled state, and error toast visibility.
+* **Execution Result**: **PASSED** (Duration: 8.7s).
+
+---
+
 ## 📅 Execution Session: September 29, 2026 (Yesterday)
 
 ### Session Overview

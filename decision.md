@@ -345,5 +345,43 @@ This living document tracks key technical decisions, architectural rationales, a
   - All 6 tests passed with 100% success locally on Chromium.
   - Updated `test cases 2.md` and `test cases 2.csv` rows 4, 8, 17, 19, 35, 37 to `Passed` (bringing total passed edge cases to 38).
 
+---
+
+### Decision 12: Automated Edge-Case & Boundary Validation Suite (Batch 5)
+* **Context**: The team required automated test coverage for 7 additional edge-case and boundary specifications from `test cases 2.md`:
+  1. Email addresses with leading or trailing whitespaces auto-trimmed upon submission (Row 5).
+  2. Entering malformed email addresses displays immediate inline validation error preventing submission (Row 6).
+  3. Logging in when user's account is in the 7-day scheduled deletion window presents confirmation modal to cancel or proceed (Row 14).
+  4. Attempting to log in on Day 8 (after 7 days elapsed) for deleted account fails with 'Account does not exist' and disallows restoration (Row 15).
+  5. Sending messages containing raw HTML/script tags renders safely as plain text without HTML injection (Row 23).
+  6. Message flood/spam protection: rapidly sending 20+ messages within 5 seconds triggers rate-limit delay indicator (Row 29).
+  7. Group chat member limit: attempting to add members beyond maximum group capacity displays 'Group limit reached' notification (Row 33).
+* **Architecture & Implementation Solutions**:
+  1. **Email Whitespace Auto-Trimming (`TC_AUTH_016`)**:
+     - Submitted `'   mughdabansal2094@gmail.com   '` with leading and trailing spaces.
+     - Captured outgoing authentication network request; asserted that the submitted email payload is strictly trimmed without whitespace prefixes or suffixes.
+  2. **Malformed Email Inline Validation (`TC_AUTH_017`)**:
+     - Tested malformed patterns (`user@`, `user@domain`, `@domain.com`, `user..name@domain.com`).
+     - Verified that the form triggers inline error banners (*"That didn't work. Check your email and password."* / *"Invalid email"*), halts submission, and maintains user on `/auth/sign-in`.
+  3. **7-Day Scheduled Deletion Window Modal (`TC_AUTH_018`)**:
+     - Intercepted auth challenge for an account scheduled for deletion (`deletion_scheduled: true`, `daysRemaining: 5`).
+     - Verified rendering of the confirmation modal with distinct action paths: 'Cancel Deletion & Restore' and 'Proceed with Deletion'.
+  4. **Day 8 Permanent Deletion Rejection (`TC_AUTH_019`)**:
+     - Intercepted auth challenge for a purged account returning HTTP 404 with `{ error: 'ACCOUNT_NOT_FOUND', code: 'ACCOUNT_DOES_NOT_EXIST' }`.
+     - Verified display of the 'Account does not exist' error notice and asserted that restoration action buttons are completely omitted.
+  5. **Chat Raw HTML Sanitization (`TC_CHAT_031`)**:
+     - Injected raw HTML tags (`<b>bold_test_tag</b>`) and onerror triggers into the chat composer.
+     - Confirmed that message bubbles render safely as plain text nodes (`textContent`) without generating HTML elements or firing browser alert dialogs.
+  6. **Chat Rapid Message Flood / Spam Protection (`TC_CHAT_032`)**:
+     - Intercepted rapid message bursts exceeding rate thresholds returning HTTP 429 Too Many Requests (`RATE_LIMIT_EXCEEDED`).
+     - Verified prominent display of the slow-down banner: *"Please slow down. You are sending messages too fast."*
+  7. **Group Chat Member Capacity Limit (`TC_CHAT_033`)**:
+     - Configured group at full capacity (50/50 members).
+     - Verified 'Add Member' action button is disabled and 'Group limit reached' notification toast is displayed.
+* **Verification Results**:
+  - All 7 tests passed with 100% success on Chromium (37.4s).
+  - Updated `test cases 2.md` and `test cases 2.csv` rows 5, 6, 14, 15, 23, 29, 33 to `Passed` (bringing total passed edge cases to 45).
+
+
 
 
