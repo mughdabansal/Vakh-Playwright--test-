@@ -14,7 +14,7 @@
       "src/tests/activity.spec.ts",
       "src/tests/explore.spec.ts",
       "-g",
-      "TC-05|TC_REC_001|TC_CHAT_019|TC_CHAT_020|TC_CHAT_021|TC_CHAT_022|TC_CHAT_023|TC_CHAT_024|TC_CHAT_025|TC_CHAT_026|TC_CHAT_027|TC_CHAT_028|TC_HOME_011|TC_HOME_012|TC_HOME_013|TC_HOME_014|TC_HOME_015|TC_POST_006|TC_POST_007|TC_BADGE_001|TC_SET_001|TC_SET_002|TC_ACT_004|TC_EXP_005|TC_EXP_006|TC_AUTH_012|TC_AUTH_013",
+      "TC-05|TC_REC_001|TC_CHAT_019|TC_CHAT_020|TC_CHAT_021|TC_CHAT_022|TC_CHAT_023|TC_CHAT_024|TC_CHAT_025|TC_CHAT_026|TC_CHAT_027|TC_CHAT_028|TC_HOME_011|TC_HOME_012|TC_HOME_013|TC_HOME_014|TC_HOME_015|TC_POST_006|TC_POST_007|TC_BADGE_001|TC_SET_001|TC_SET_002|TC_ACT_004|TC_EXP_005|TC_EXP_006|TC_AUTH_012|TC_AUTH_013|TC_AUTH_014|TC_AUTH_015|TC_REC_002|TC_REC_003|TC_CHAT_029|TC_CHAT_030",
       "--project=chromium"
     ],
     "configFile": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/playwright.config.ts",
@@ -30,24 +30,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/b578b7155e139254368ca7930ab2087d09de8da1",
-        "commitHash": "b578b7155e139254368ca7930ab2087d09de8da1",
-        "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36531722197"
+        "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/489083838fa6340f8c4399b878767e50fb91c5b1",
+        "commitHash": "489083838fa6340f8c4399b878767e50fb91c5b1",
+        "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36681316362"
       },
       "gitCommit": {
-        "shortHash": "b578b71",
-        "hash": "b578b7155e139254368ca7930ab2087d09de8da1",
-        "subject": "fix(explore): support Discover filter button label in toolbar and improve user cards locator",
-        "body": "fix(explore): support Discover filter button label in toolbar and improve user cards locator\n",
+        "shortHash": "4890838",
+        "hash": "489083838fa6340f8c4399b878767e50fb91c5b1",
+        "subject": "feat: implement 6 edge-case suites (phone length boundary, XSS sanitization, expired TOTP, recovery anti-enumeration, concurrent messaging order, mutual block restrictions) and update dashboard",
+        "body": "feat: implement 6 edge-case suites (phone length boundary, XSS sanitization, expired TOTP, recovery anti-enumeration, concurrent messaging order, mutual block restrictions) and update dashboard\n",
         "author": {
           "name": "Mughda Bansal",
           "email": "mughdabansal1414@gmail.com",
-          "time": 1790663609000
+          "time": 1790751571000
         },
         "committer": {
           "name": "Mughda Bansal",
           "email": "mughdabansal1414@gmail.com",
-          "time": 1790663609000
+          "time": 1790751571000
         },
         "branch": "main"
       },
@@ -61,24 +61,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/b578b7155e139254368ca7930ab2087d09de8da1",
-            "commitHash": "b578b7155e139254368ca7930ab2087d09de8da1",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36531722197"
+            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/489083838fa6340f8c4399b878767e50fb91c5b1",
+            "commitHash": "489083838fa6340f8c4399b878767e50fb91c5b1",
+            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36681316362"
           },
           "gitCommit": {
-            "shortHash": "b578b71",
-            "hash": "b578b7155e139254368ca7930ab2087d09de8da1",
-            "subject": "fix(explore): support Discover filter button label in toolbar and improve user cards locator",
-            "body": "fix(explore): support Discover filter button label in toolbar and improve user cards locator\n",
+            "shortHash": "4890838",
+            "hash": "489083838fa6340f8c4399b878767e50fb91c5b1",
+            "subject": "feat: implement 6 edge-case suites (phone length boundary, XSS sanitization, expired TOTP, recovery anti-enumeration, concurrent messaging order, mutual block restrictions) and update dashboard",
+            "body": "feat: implement 6 edge-case suites (phone length boundary, XSS sanitization, expired TOTP, recovery anti-enumeration, concurrent messaging order, mutual block restrictions) and update dashboard\n",
             "author": {
               "name": "Mughda Bansal",
               "email": "mughdabansal1414@gmail.com",
-              "time": 1790663609000
+              "time": 1790751571000
             },
             "committer": {
               "name": "Mughda Bansal",
               "email": "mughdabansal1414@gmail.com",
-              "time": 1790663609000
+              "time": 1790751571000
             },
             "branch": "main"
           },
@@ -99,24 +99,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/b578b7155e139254368ca7930ab2087d09de8da1",
-            "commitHash": "b578b7155e139254368ca7930ab2087d09de8da1",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36531722197"
+            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/489083838fa6340f8c4399b878767e50fb91c5b1",
+            "commitHash": "489083838fa6340f8c4399b878767e50fb91c5b1",
+            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36681316362"
           },
           "gitCommit": {
-            "shortHash": "b578b71",
-            "hash": "b578b7155e139254368ca7930ab2087d09de8da1",
-            "subject": "fix(explore): support Discover filter button label in toolbar and improve user cards locator",
-            "body": "fix(explore): support Discover filter button label in toolbar and improve user cards locator\n",
+            "shortHash": "4890838",
+            "hash": "489083838fa6340f8c4399b878767e50fb91c5b1",
+            "subject": "feat: implement 6 edge-case suites (phone length boundary, XSS sanitization, expired TOTP, recovery anti-enumeration, concurrent messaging order, mutual block restrictions) and update dashboard",
+            "body": "feat: implement 6 edge-case suites (phone length boundary, XSS sanitization, expired TOTP, recovery anti-enumeration, concurrent messaging order, mutual block restrictions) and update dashboard\n",
             "author": {
               "name": "Mughda Bansal",
               "email": "mughdabansal1414@gmail.com",
-              "time": 1790663609000
+              "time": 1790751571000
             },
             "committer": {
               "name": "Mughda Bansal",
               "email": "mughdabansal1414@gmail.com",
-              "time": 1790663609000
+              "time": 1790751571000
             },
             "branch": "main"
           },
@@ -137,24 +137,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/b578b7155e139254368ca7930ab2087d09de8da1",
-            "commitHash": "b578b7155e139254368ca7930ab2087d09de8da1",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36531722197"
+            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/489083838fa6340f8c4399b878767e50fb91c5b1",
+            "commitHash": "489083838fa6340f8c4399b878767e50fb91c5b1",
+            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36681316362"
           },
           "gitCommit": {
-            "shortHash": "b578b71",
-            "hash": "b578b7155e139254368ca7930ab2087d09de8da1",
-            "subject": "fix(explore): support Discover filter button label in toolbar and improve user cards locator",
-            "body": "fix(explore): support Discover filter button label in toolbar and improve user cards locator\n",
+            "shortHash": "4890838",
+            "hash": "489083838fa6340f8c4399b878767e50fb91c5b1",
+            "subject": "feat: implement 6 edge-case suites (phone length boundary, XSS sanitization, expired TOTP, recovery anti-enumeration, concurrent messaging order, mutual block restrictions) and update dashboard",
+            "body": "feat: implement 6 edge-case suites (phone length boundary, XSS sanitization, expired TOTP, recovery anti-enumeration, concurrent messaging order, mutual block restrictions) and update dashboard\n",
             "author": {
               "name": "Mughda Bansal",
               "email": "mughdabansal1414@gmail.com",
-              "time": 1790663609000
+              "time": 1790751571000
             },
             "committer": {
               "name": "Mughda Bansal",
               "email": "mughdabansal1414@gmail.com",
-              "time": 1790663609000
+              "time": 1790751571000
             },
             "branch": "main"
           },
@@ -175,24 +175,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/b578b7155e139254368ca7930ab2087d09de8da1",
-            "commitHash": "b578b7155e139254368ca7930ab2087d09de8da1",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36531722197"
+            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/489083838fa6340f8c4399b878767e50fb91c5b1",
+            "commitHash": "489083838fa6340f8c4399b878767e50fb91c5b1",
+            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36681316362"
           },
           "gitCommit": {
-            "shortHash": "b578b71",
-            "hash": "b578b7155e139254368ca7930ab2087d09de8da1",
-            "subject": "fix(explore): support Discover filter button label in toolbar and improve user cards locator",
-            "body": "fix(explore): support Discover filter button label in toolbar and improve user cards locator\n",
+            "shortHash": "4890838",
+            "hash": "489083838fa6340f8c4399b878767e50fb91c5b1",
+            "subject": "feat: implement 6 edge-case suites (phone length boundary, XSS sanitization, expired TOTP, recovery anti-enumeration, concurrent messaging order, mutual block restrictions) and update dashboard",
+            "body": "feat: implement 6 edge-case suites (phone length boundary, XSS sanitization, expired TOTP, recovery anti-enumeration, concurrent messaging order, mutual block restrictions) and update dashboard\n",
             "author": {
               "name": "Mughda Bansal",
               "email": "mughdabansal1414@gmail.com",
-              "time": 1790663609000
+              "time": 1790751571000
             },
             "committer": {
               "name": "Mughda Bansal",
               "email": "mughdabansal1414@gmail.com",
-              "time": 1790663609000
+              "time": 1790751571000
             },
             "branch": "main"
           },
@@ -270,12 +270,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 6547,
+                      "duration": 8347,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T06:35:50.917Z",
+                      "startTime": "2026-09-30T07:02:03.286Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -321,12 +321,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 7438,
+                      "duration": 7833,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T06:35:57.735Z",
+                      "startTime": "2026-09-30T07:02:11.839Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -372,12 +372,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 16767,
+                      "duration": 12977,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T06:36:05.204Z",
+                      "startTime": "2026-09-30T07:02:19.705Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -406,12 +406,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 17529,
+                      "duration": 17149,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T06:36:21.985Z",
+                      "startTime": "2026-09-30T07:02:32.706Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -440,12 +440,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 13863,
+                      "duration": 10543,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T06:36:39.525Z",
+                      "startTime": "2026-09-30T07:02:49.865Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -474,12 +474,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 7477,
+                      "duration": 7335,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T06:36:53.398Z",
+                      "startTime": "2026-09-30T07:03:00.418Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -508,12 +508,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 9005,
+                      "duration": 11946,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T06:37:00.886Z",
+                      "startTime": "2026-09-30T07:03:07.762Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -542,12 +542,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 13719,
+                      "duration": 9496,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T06:37:09.902Z",
+                      "startTime": "2026-09-30T07:03:19.717Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -578,12 +578,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 14183,
+                      "duration": 26361,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T06:37:23.634Z",
+                      "startTime": "2026-09-30T07:03:29.222Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -612,12 +612,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 9457,
+                      "duration": 9983,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T06:37:37.829Z",
+                      "startTime": "2026-09-30T07:03:55.592Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -646,12 +646,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 13837,
+                      "duration": 13788,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T06:37:47.296Z",
+                      "startTime": "2026-09-30T07:04:05.585Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -680,12 +680,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 17046,
+                      "duration": 13658,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T06:38:01.142Z",
+                      "startTime": "2026-09-30T07:04:19.382Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -696,6 +696,74 @@
               "id": "6dac514d5d837ca37b9e-0511e7a597ead2547f75",
               "file": "chat.spec.ts",
               "line": 993,
+              "column": 7
+            },
+            {
+              "title": "TC_CHAT_029: concurrent messaging in group chats: when 10+ users send messages simultaneously, all messages are delivered in consistent chronological timestamp order",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 11588,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-30T07:04:33.051Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6dac514d5d837ca37b9e-dbc022fbab33b8c28b5d",
+              "file": "chat.spec.ts",
+              "line": 1070,
+              "column": 7
+            },
+            {
+              "title": "TC_CHAT_030: mutually blocked users in same existing group chat: verify message visibility and interaction restrictions inside shared group",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 11009,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-30T07:04:44.647Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6dac514d5d837ca37b9e-861544b05434cdb82461",
+              "file": "chat.spec.ts",
+              "line": 1146,
               "column": 7
             }
           ]
@@ -731,12 +799,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5985,
+                      "duration": 5889,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T06:38:18.206Z",
+                      "startTime": "2026-09-30T07:04:55.672Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -765,12 +833,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 7517,
+                      "duration": 7269,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T06:38:24.202Z",
+                      "startTime": "2026-09-30T07:05:01.572Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -816,12 +884,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3859,
+                      "duration": 4853,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T06:38:31.737Z",
+                      "startTime": "2026-09-30T07:05:08.859Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -850,12 +918,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 10646,
+                      "duration": 11132,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T06:38:35.607Z",
+                      "startTime": "2026-09-30T07:05:13.720Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -884,12 +952,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5752,
+                      "duration": 5286,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T06:38:46.265Z",
+                      "startTime": "2026-09-30T07:05:24.862Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -918,12 +986,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5159,
+                      "duration": 4954,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T06:38:52.029Z",
+                      "startTime": "2026-09-30T07:05:30.156Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -952,12 +1020,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 6634,
+                      "duration": 5457,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T06:38:57.197Z",
+                      "startTime": "2026-09-30T07:05:35.119Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1003,12 +1071,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4439,
+                      "duration": 4414,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T06:39:03.847Z",
+                      "startTime": "2026-09-30T07:05:40.592Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1037,12 +1105,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4339,
+                      "duration": 4257,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T06:39:08.300Z",
+                      "startTime": "2026-09-30T07:05:45.019Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1071,12 +1139,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3654,
+                      "duration": 3592,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T06:39:12.650Z",
+                      "startTime": "2026-09-30T07:05:49.296Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1087,6 +1155,74 @@
               "id": "41d3fd2474a19feb00a1-d0b352c292ad67c121c6",
               "file": "login.spec.ts",
               "line": 241,
+              "column": 7
+            },
+            {
+              "title": "TC_AUTH_014: boundary lengths for phone numbers: entering fewer than 7 digits or more than 15 digits displays invalid phone length error",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4936,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-30T07:05:52.899Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "41d3fd2474a19feb00a1-a73dc5bcd58916e62859",
+              "file": "login.spec.ts",
+              "line": 307,
+              "column": 7
+            },
+            {
+              "title": "TC_AUTH_015: entering Cross-Site Scripting (XSS) script tags in email/username/password inputs does not execute scripts and is safely escaped/rejected",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4051,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-30T07:05:57.851Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "41d3fd2474a19feb00a1-9008f49c511d316e96b0",
+              "file": "login.spec.ts",
+              "line": 404,
               "column": 7
             }
           ]
@@ -1122,12 +1258,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 16191,
+                      "duration": 15011,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T06:39:16.321Z",
+                      "startTime": "2026-09-30T07:06:01.916Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1156,12 +1292,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 11734,
+                      "duration": 13107,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T06:39:32.528Z",
+                      "startTime": "2026-09-30T07:06:16.938Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1207,12 +1343,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 6038,
+                      "duration": 6017,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T06:39:44.278Z",
+                      "startTime": "2026-09-30T07:06:30.058Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1223,6 +1359,74 @@
               "id": "ef78f3da5c9c24fceacf-615a320ce7d2faa2cf1a",
               "file": "recovery.spec.ts",
               "line": 18,
+              "column": 7
+            },
+            {
+              "title": "TC_REC_002: entering an expired authenticator code from a previous 30-second TOTP interval fails with an invalid/expired code error",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4677,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-30T07:06:36.083Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ef78f3da5c9c24fceacf-9cbf1d17d1dec4439cee",
+              "file": "recovery.spec.ts",
+              "line": 111,
+              "column": 7
+            },
+            {
+              "title": "TC_REC_003: attempting account recovery with an unregistered email or phone number returns a generic security message preventing user enumeration",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4052,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-30T07:06:40.769Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ef78f3da5c9c24fceacf-fbb67509e63d387325e3",
+              "file": "recovery.spec.ts",
+              "line": 202,
               "column": 7
             }
           ]
@@ -1258,12 +1462,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 7579,
+                      "duration": 7781,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T06:39:50.333Z",
+                      "startTime": "2026-09-30T07:06:44.840Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1292,12 +1496,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 9994,
+                      "duration": 10509,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-29T06:39:57.923Z",
+                      "startTime": "2026-09-30T07:06:52.630Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1317,9 +1521,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-09-29T06:35:49.809Z",
-    "duration": 258171.905,
-    "expected": 27,
+    "startTime": "2026-09-30T07:02:02.402Z",
+    "duration": 300779.561,
+    "expected": 33,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
