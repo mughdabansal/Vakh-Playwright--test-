@@ -1,20 +1,10 @@
 {
   "config": {
     "argv": [
-      "/opt/hostedtoolcache/node/22.23.2/x64/bin/node",
+      "/opt/hostedtoolcache/node/20.20.2/x64/bin/node",
       "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/node_modules/.bin/playwright",
       "test",
-      "src/tests/login.spec.ts",
-      "src/tests/recovery.spec.ts",
-      "src/tests/chat.spec.ts",
-      "src/tests/home.spec.ts",
-      "src/tests/post.spec.ts",
-      "src/tests/badge.spec.ts",
-      "src/tests/settings.spec.ts",
-      "src/tests/activity.spec.ts",
-      "src/tests/explore.spec.ts",
-      "-g",
-      "TC-05|TC_REC_001|TC_CHAT_019|TC_CHAT_020|TC_CHAT_021|TC_CHAT_022|TC_CHAT_023|TC_CHAT_024|TC_CHAT_025|TC_CHAT_026|TC_CHAT_027|TC_CHAT_028|TC_HOME_011|TC_HOME_012|TC_HOME_013|TC_HOME_014|TC_HOME_015|TC_POST_006|TC_POST_007|TC_BADGE_001|TC_SET_001|TC_SET_002|TC_ACT_004|TC_EXP_005|TC_EXP_006|TC_AUTH_012|TC_AUTH_013|TC_AUTH_014|TC_AUTH_015|TC_REC_002|TC_REC_003|TC_CHAT_029|TC_CHAT_030",
+      "src/tests/api",
       "--project=chromium"
     ],
     "configFile": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/playwright.config.ts",
@@ -30,24 +20,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/489083838fa6340f8c4399b878767e50fb91c5b1",
-        "commitHash": "489083838fa6340f8c4399b878767e50fb91c5b1",
-        "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36681316362"
+        "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/f8fb2d2205287b6cd556975b35719ac8aba95817",
+        "commitHash": "f8fb2d2205287b6cd556975b35719ac8aba95817",
+        "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36793954720"
       },
       "gitCommit": {
-        "shortHash": "4890838",
-        "hash": "489083838fa6340f8c4399b878767e50fb91c5b1",
-        "subject": "feat: implement 6 edge-case suites (phone length boundary, XSS sanitization, expired TOTP, recovery anti-enumeration, concurrent messaging order, mutual block restrictions) and update dashboard",
-        "body": "feat: implement 6 edge-case suites (phone length boundary, XSS sanitization, expired TOTP, recovery anti-enumeration, concurrent messaging order, mutual block restrictions) and update dashboard\n",
+        "shortHash": "f8fb2d2",
+        "hash": "f8fb2d2205287b6cd556975b35719ac8aba95817",
+        "subject": "feat: implement and execute 7 edge-case suites (whitespace trimming, malformed email, deletion windows, chat HTML sanitization, spam flood, group limit) and update execution journal",
+        "body": "feat: implement and execute 7 edge-case suites (whitespace trimming, malformed email, deletion windows, chat HTML sanitization, spam flood, group limit) and update execution journal\n",
         "author": {
           "name": "Mughda Bansal",
           "email": "mughdabansal1414@gmail.com",
-          "time": 1790751571000
+          "time": 1790754795000
         },
         "committer": {
           "name": "Mughda Bansal",
           "email": "mughdabansal1414@gmail.com",
-          "time": 1790751571000
+          "time": 1790754795000
         },
         "branch": "main"
       },
@@ -61,24 +51,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/489083838fa6340f8c4399b878767e50fb91c5b1",
-            "commitHash": "489083838fa6340f8c4399b878767e50fb91c5b1",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36681316362"
+            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/f8fb2d2205287b6cd556975b35719ac8aba95817",
+            "commitHash": "f8fb2d2205287b6cd556975b35719ac8aba95817",
+            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36793954720"
           },
           "gitCommit": {
-            "shortHash": "4890838",
-            "hash": "489083838fa6340f8c4399b878767e50fb91c5b1",
-            "subject": "feat: implement 6 edge-case suites (phone length boundary, XSS sanitization, expired TOTP, recovery anti-enumeration, concurrent messaging order, mutual block restrictions) and update dashboard",
-            "body": "feat: implement 6 edge-case suites (phone length boundary, XSS sanitization, expired TOTP, recovery anti-enumeration, concurrent messaging order, mutual block restrictions) and update dashboard\n",
+            "shortHash": "f8fb2d2",
+            "hash": "f8fb2d2205287b6cd556975b35719ac8aba95817",
+            "subject": "feat: implement and execute 7 edge-case suites (whitespace trimming, malformed email, deletion windows, chat HTML sanitization, spam flood, group limit) and update execution journal",
+            "body": "feat: implement and execute 7 edge-case suites (whitespace trimming, malformed email, deletion windows, chat HTML sanitization, spam flood, group limit) and update execution journal\n",
             "author": {
               "name": "Mughda Bansal",
               "email": "mughdabansal1414@gmail.com",
-              "time": 1790751571000
+              "time": 1790754795000
             },
             "committer": {
               "name": "Mughda Bansal",
               "email": "mughdabansal1414@gmail.com",
-              "time": 1790751571000
+              "time": 1790754795000
             },
             "branch": "main"
           },
@@ -87,7 +77,10 @@
         "id": "chromium",
         "name": "chromium",
         "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
-        "testIgnore": [],
+        "testIgnore": [
+          "**/chat.spec.ts",
+          "**/04-chat-collaboration.spec.ts"
+        ],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
@@ -99,24 +92,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/489083838fa6340f8c4399b878767e50fb91c5b1",
-            "commitHash": "489083838fa6340f8c4399b878767e50fb91c5b1",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36681316362"
+            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/f8fb2d2205287b6cd556975b35719ac8aba95817",
+            "commitHash": "f8fb2d2205287b6cd556975b35719ac8aba95817",
+            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36793954720"
           },
           "gitCommit": {
-            "shortHash": "4890838",
-            "hash": "489083838fa6340f8c4399b878767e50fb91c5b1",
-            "subject": "feat: implement 6 edge-case suites (phone length boundary, XSS sanitization, expired TOTP, recovery anti-enumeration, concurrent messaging order, mutual block restrictions) and update dashboard",
-            "body": "feat: implement 6 edge-case suites (phone length boundary, XSS sanitization, expired TOTP, recovery anti-enumeration, concurrent messaging order, mutual block restrictions) and update dashboard\n",
+            "shortHash": "f8fb2d2",
+            "hash": "f8fb2d2205287b6cd556975b35719ac8aba95817",
+            "subject": "feat: implement and execute 7 edge-case suites (whitespace trimming, malformed email, deletion windows, chat HTML sanitization, spam flood, group limit) and update execution journal",
+            "body": "feat: implement and execute 7 edge-case suites (whitespace trimming, malformed email, deletion windows, chat HTML sanitization, spam flood, group limit) and update execution journal\n",
             "author": {
               "name": "Mughda Bansal",
               "email": "mughdabansal1414@gmail.com",
-              "time": 1790751571000
+              "time": 1790754795000
             },
             "committer": {
               "name": "Mughda Bansal",
               "email": "mughdabansal1414@gmail.com",
-              "time": 1790751571000
+              "time": 1790754795000
             },
             "branch": "main"
           },
@@ -125,7 +118,10 @@
         "id": "firefox",
         "name": "firefox",
         "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
-        "testIgnore": [],
+        "testIgnore": [
+          "**/chat.spec.ts",
+          "**/04-chat-collaboration.spec.ts"
+        ],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
@@ -137,24 +133,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/489083838fa6340f8c4399b878767e50fb91c5b1",
-            "commitHash": "489083838fa6340f8c4399b878767e50fb91c5b1",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36681316362"
+            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/f8fb2d2205287b6cd556975b35719ac8aba95817",
+            "commitHash": "f8fb2d2205287b6cd556975b35719ac8aba95817",
+            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36793954720"
           },
           "gitCommit": {
-            "shortHash": "4890838",
-            "hash": "489083838fa6340f8c4399b878767e50fb91c5b1",
-            "subject": "feat: implement 6 edge-case suites (phone length boundary, XSS sanitization, expired TOTP, recovery anti-enumeration, concurrent messaging order, mutual block restrictions) and update dashboard",
-            "body": "feat: implement 6 edge-case suites (phone length boundary, XSS sanitization, expired TOTP, recovery anti-enumeration, concurrent messaging order, mutual block restrictions) and update dashboard\n",
+            "shortHash": "f8fb2d2",
+            "hash": "f8fb2d2205287b6cd556975b35719ac8aba95817",
+            "subject": "feat: implement and execute 7 edge-case suites (whitespace trimming, malformed email, deletion windows, chat HTML sanitization, spam flood, group limit) and update execution journal",
+            "body": "feat: implement and execute 7 edge-case suites (whitespace trimming, malformed email, deletion windows, chat HTML sanitization, spam flood, group limit) and update execution journal\n",
             "author": {
               "name": "Mughda Bansal",
               "email": "mughdabansal1414@gmail.com",
-              "time": 1790751571000
+              "time": 1790754795000
             },
             "committer": {
               "name": "Mughda Bansal",
               "email": "mughdabansal1414@gmail.com",
-              "time": 1790751571000
+              "time": 1790754795000
             },
             "branch": "main"
           },
@@ -163,7 +159,10 @@
         "id": "webkit",
         "name": "webkit",
         "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
-        "testIgnore": [],
+        "testIgnore": [
+          "**/chat.spec.ts",
+          "**/04-chat-collaboration.spec.ts"
+        ],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
@@ -175,24 +174,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/489083838fa6340f8c4399b878767e50fb91c5b1",
-            "commitHash": "489083838fa6340f8c4399b878767e50fb91c5b1",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36681316362"
+            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/f8fb2d2205287b6cd556975b35719ac8aba95817",
+            "commitHash": "f8fb2d2205287b6cd556975b35719ac8aba95817",
+            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/36793954720"
           },
           "gitCommit": {
-            "shortHash": "4890838",
-            "hash": "489083838fa6340f8c4399b878767e50fb91c5b1",
-            "subject": "feat: implement 6 edge-case suites (phone length boundary, XSS sanitization, expired TOTP, recovery anti-enumeration, concurrent messaging order, mutual block restrictions) and update dashboard",
-            "body": "feat: implement 6 edge-case suites (phone length boundary, XSS sanitization, expired TOTP, recovery anti-enumeration, concurrent messaging order, mutual block restrictions) and update dashboard\n",
+            "shortHash": "f8fb2d2",
+            "hash": "f8fb2d2205287b6cd556975b35719ac8aba95817",
+            "subject": "feat: implement and execute 7 edge-case suites (whitespace trimming, malformed email, deletion windows, chat HTML sanitization, spam flood, group limit) and update execution journal",
+            "body": "feat: implement and execute 7 edge-case suites (whitespace trimming, malformed email, deletion windows, chat HTML sanitization, spam flood, group limit) and update execution journal\n",
             "author": {
               "name": "Mughda Bansal",
               "email": "mughdabansal1414@gmail.com",
-              "time": 1790751571000
+              "time": 1790754795000
             },
             "committer": {
               "name": "Mughda Bansal",
               "email": "mughdabansal1414@gmail.com",
-              "time": 1790751571000
+              "time": 1790754795000
             },
             "branch": "main"
           },
@@ -201,7 +200,10 @@
         "id": "edge",
         "name": "edge",
         "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
-        "testIgnore": [],
+        "testIgnore": [
+          "**/chat.spec.ts",
+          "**/04-chat-collaboration.spec.ts"
+        ],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
@@ -242,71 +244,20 @@
   },
   "suites": [
     {
-      "title": "activity.spec.ts",
-      "file": "activity.spec.ts",
+      "title": "api/gotchas/anti-enumeration.spec.ts",
+      "file": "api/gotchas/anti-enumeration.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Eve Vakh - Activity & Notifications Page Test Suite",
-          "file": "activity.spec.ts",
-          "line": 7,
+          "title": "Gotcha: Anti-Enumeration Recovery OTP Dispatch Timing & Response Parity",
+          "file": "api/gotchas/anti-enumeration.spec.ts",
+          "line": 5,
           "column": 6,
           "specs": [
             {
-              "title": "TC_ACT_004: should verify form publication approval notification and media preview",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 8347,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-30T07:02:03.286Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "616be4781cf8c32ae453-67db8b34566fa5053e57",
-              "file": "activity.spec.ts",
-              "line": 78,
-              "column": 7
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "badge.spec.ts",
-      "file": "badge.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Eve Vakh - Badge Access Control & Deletion Security Suite",
-          "file": "badge.spec.ts",
-          "line": 8,
-          "column": 6,
-          "specs": [
-            {
-              "title": "TC_BADGE_001: demoted or non-admin user receives 403 Forbidden on badge deletion and delete option is not rendered in UI",
+              "title": "TC-GOTCHA-001: recovery OTP dispatch must not leak existence via timing or response difference",
               "ok": true,
               "tags": [],
               "tests": [
@@ -320,1049 +271,93 @@
                     {
                       "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 7833,
-                      "errors": [],
+                      "status": "failed",
+                      "duration": 4114,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: < \u001b[32m1200\u001b[39m\nReceived:   \u001b[31m2102\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: < \u001b[32m1200\u001b[39m\nReceived:   \u001b[31m2102\u001b[39m\n    at /home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests/api/gotchas/anti-enumeration.spec.ts:49:30",
+                        "location": {
+                          "file": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests/api/gotchas/anti-enumeration.spec.ts",
+                          "column": 30,
+                          "line": 49
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 47 |\u001b[39m     \u001b[90m// Timing difference must be within WAN internet jitter tolerance (< 1200ms)\u001b[39m\n \u001b[90m 48 |\u001b[39m     \u001b[36mconst\u001b[39m timingDifference \u001b[33m=\u001b[39m \u001b[33mMath\u001b[39m\u001b[33m.\u001b[39mabs(knownDuration \u001b[33m-\u001b[39m unknownDuration)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 49 |\u001b[39m     expect(timingDifference)\u001b[33m.\u001b[39mtoBeLessThan(\u001b[35m1200\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 50 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 51 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 52 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests/api/gotchas/anti-enumeration.spec.ts",
+                            "column": 30,
+                            "line": 49
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: < \u001b[32m1200\u001b[39m\nReceived:   \u001b[31m2102\u001b[39m\n\n  47 |     // Timing difference must be within WAN internet jitter tolerance (< 1200ms)\n  48 |     const timingDifference = Math.abs(knownDuration - unknownDuration);\n> 49 |     expect(timingDifference).toBeLessThan(1200);\n     |                              ^\n  50 |   });\n  51 | });\n  52 |\n    at /home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests/api/gotchas/anti-enumeration.spec.ts:49:30"
+                        }
+                      ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-30T07:02:11.839Z",
+                      "startTime": "2026-10-01T00:01:07.403Z",
                       "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "556dc9409904593b1296-f84db98aa2cd0dfe05cf",
-              "file": "badge.spec.ts",
-              "line": 34,
-              "column": 7
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "chat.spec.ts",
-      "file": "chat.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Eve Vakh - Chat & Messaging Comprehensive Test Suite",
-          "file": "chat.spec.ts",
-          "line": 9,
-          "column": 6,
-          "specs": [
-            {
-              "title": "TC_CHAT_019: network disconnect during media/file upload stops progress, displays retry option, and prevents app freeze",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/api-gotchas-anti-enumerati-adf4f-ming-or-response-difference-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests/api/gotchas/anti-enumeration.spec.ts",
+                        "column": 30,
+                        "line": 49
+                      }
+                    },
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 12977,
+                      "duration": 2373,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-30T07:02:19.705Z",
+                      "retry": 1,
+                      "startTime": "2026-10-01T00:01:12.050Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/api-gotchas-anti-enumerati-adf4f-ming-or-response-difference-chromium-retry1/trace.zip"
+                        }
+                      ]
                     }
                   ],
-                  "status": "expected"
+                  "status": "flaky"
                 }
               ],
-              "id": "6dac514d5d837ca37b9e-3220d0ea810e35d6967c",
-              "file": "chat.spec.ts",
-              "line": 416,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_020: sending messages while offline marks messages as Pending/Queued and automatically dispatches upon network restoration",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 17149,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-30T07:02:32.706Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-996b14a043a0d28aaf45",
-              "file": "chat.spec.ts",
-              "line": 460,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_021: unblocked user immediately restores real-time messaging capabilities without requiring app reload",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 10543,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-30T07:02:49.865Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-c9de3ff870385ff73cc3",
-              "file": "chat.spec.ts",
-              "line": 502,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_022: attempting to create a group chat without selecting any members or with an empty group name is prevented",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 7335,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-30T07:03:00.418Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-9cf282ee663b87f14505",
-              "file": "chat.spec.ts",
-              "line": 549,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_023: submitting an empty chat message (or message consisting solely of spaces, tabs, or newline characters) is blocked and the send button remains disabled",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 11946,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-30T07:03:07.762Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-2338ba54cd7071f3581c",
-              "file": "chat.spec.ts",
-              "line": 609,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_024: uploading files exceeding the maximum file size limit (e.g., >50MB or >100MB) immediately aborts with a File exceeds maximum allowed size toast",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 9496,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-30T07:03:19.717Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-7cef1d23169e17177250",
-              "file": "chat.spec.ts",
-              "line": 660,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_025: when a group chat is muted, @mention notifications either respect the mute setting or alert based on user preference settings",
-              "ok": true,
-              "tags": [
-                "mention"
-              ],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 26361,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-30T07:03:29.222Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-aa761ea53eb413f3503a",
-              "file": "chat.spec.ts",
-              "line": 745,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_026: uploading unsupported file formats (.exe, .bat, .sh, .dmg, .dll, zero-byte empty files) in chat shows an Unsupported file format error and rejects the upload",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 9983,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-30T07:03:55.592Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-2c6454eb77c2182f9747",
-              "file": "chat.spec.ts",
-              "line": 818,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_027: sending messages with right-to-left (RTL) text (Arabic, Hebrew) mixed with LTR text, verifying bidirectional text isolation and layout stability",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 13788,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-30T07:04:05.585Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-23bd68df2fbf3cb446ad",
-              "file": "chat.spec.ts",
-              "line": 935,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_028: typing indicators: verify typing status disappears after 5 seconds of inactivity or if the user abruptly disconnects or closes the browser tab",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 13658,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-30T07:04:19.382Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-0511e7a597ead2547f75",
-              "file": "chat.spec.ts",
-              "line": 993,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_029: concurrent messaging in group chats: when 10+ users send messages simultaneously, all messages are delivered in consistent chronological timestamp order",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 11588,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-30T07:04:33.051Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-dbc022fbab33b8c28b5d",
-              "file": "chat.spec.ts",
-              "line": 1070,
-              "column": 7
-            },
-            {
-              "title": "TC_CHAT_030: mutually blocked users in same existing group chat: verify message visibility and interaction restrictions inside shared group",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 11009,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-30T07:04:44.647Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6dac514d5d837ca37b9e-861544b05434cdb82461",
-              "file": "chat.spec.ts",
-              "line": 1146,
-              "column": 7
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "explore.spec.ts",
-      "file": "explore.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Eve Vakh - Explore Page Functional, UI/UX & Profile Forms Test Suite",
-          "file": "explore.spec.ts",
-          "line": 8,
-          "column": 6,
-          "specs": [
-            {
-              "title": "TC_EXP_005: should validate active filter button toggle and list responsiveness",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5889,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-30T07:04:55.672Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "068fad9605609506583e-edbd9355c7807069fc9d",
-              "file": "explore.spec.ts",
-              "line": 98,
-              "column": 7
-            },
-            {
-              "title": "TC_EXP_006: should navigate to user profile and display header details (username, joined, rep, tags)",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 7269,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-30T07:05:01.572Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "068fad9605609506583e-ec56b41e4b10a568b9a1",
-              "file": "explore.spec.ts",
-              "line": 109,
-              "column": 7
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "home.spec.ts",
-      "file": "home.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Eve Vakh - Home Page Full UI & Functional Test Suite",
-          "file": "home.spec.ts",
-          "line": 7,
-          "column": 6,
-          "specs": [
-            {
-              "title": "TC_HOME_011: unhearting/unliking a post verifies whether daily heart budget is refunded or remains expended according to business rules",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4853,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-30T07:05:08.859Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "d318381359a9b96acb1e-3091295ebb1b98d486cf",
-              "file": "home.spec.ts",
-              "line": 185,
-              "column": 7
-            },
-            {
-              "title": "TC_HOME_012: feed pull-to-refresh during network disconnection maintains cached posts and displays non-intrusive offline banner",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 11132,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-30T07:05:13.720Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "d318381359a9b96acb1e-f6a5d6a3ebda166db9e2",
-              "file": "home.spec.ts",
-              "line": 250,
-              "column": 7
-            },
-            {
-              "title": "TC_HOME_013: non-admin or regular user attempting to trigger post approval or rejection API endpoints directly receives a 403 Forbidden error",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5286,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-30T07:05:24.862Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "d318381359a9b96acb1e-2a27f4b63b0c7b108db8",
-              "file": "home.spec.ts",
-              "line": 299,
-              "column": 7
-            },
-            {
-              "title": "TC_HOME_014: exact time boundary reset for hearts: liking at 5:29 AM IST (quota exhausted) and 5:31 AM IST (after 00:00 UTC reset) processes new heart",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4954,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-30T07:05:30.156Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "d318381359a9b96acb1e-93d69b3bbc73f15012db",
-              "file": "home.spec.ts",
-              "line": 334,
-              "column": 7
-            },
-            {
-              "title": "TC_HOME_015: moderation workflow: post author attempting to edit a post in Under Review status is blocked or updates without bypassing review",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5457,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-30T07:05:35.119Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "d318381359a9b96acb1e-8fffb284d3d069baef20",
-              "file": "home.spec.ts",
-              "line": 413,
-              "column": 7
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "login.spec.ts",
-      "file": "login.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Eve Vakh - Login Page Functional & Button Test Suite",
-          "file": "login.spec.ts",
-          "line": 7,
-          "column": 6,
-          "specs": [
-            {
-              "title": "TC-05: submitting password exceeding 128 characters is handled cleanly without server timeout or 500 error",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4414,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-30T07:05:40.592Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "41d3fd2474a19feb00a1-623af21503f8a98de1d7",
-              "file": "login.spec.ts",
-              "line": 140,
-              "column": 7
-            },
-            {
-              "title": "TC_AUTH_012: submitting a password with only whitespace characters or an empty string shows a mandatory validation error",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4257,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-30T07:05:45.019Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "41d3fd2474a19feb00a1-0c437c32a163345fd86b",
-              "file": "login.spec.ts",
-              "line": 185,
-              "column": 7
-            },
-            {
-              "title": "TC_AUTH_013: entering alphanumeric or special characters into the OTP verification input is blocked and only numeric digits are accepted",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3592,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-30T07:05:49.296Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "41d3fd2474a19feb00a1-d0b352c292ad67c121c6",
-              "file": "login.spec.ts",
-              "line": 241,
-              "column": 7
-            },
-            {
-              "title": "TC_AUTH_014: boundary lengths for phone numbers: entering fewer than 7 digits or more than 15 digits displays invalid phone length error",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4936,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-30T07:05:52.899Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "41d3fd2474a19feb00a1-a73dc5bcd58916e62859",
-              "file": "login.spec.ts",
-              "line": 307,
-              "column": 7
-            },
-            {
-              "title": "TC_AUTH_015: entering Cross-Site Scripting (XSS) script tags in email/username/password inputs does not execute scripts and is safely escaped/rejected",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4051,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-30T07:05:57.851Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "41d3fd2474a19feb00a1-9008f49c511d316e96b0",
-              "file": "login.spec.ts",
-              "line": 404,
-              "column": 7
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "post.spec.ts",
-      "file": "post.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Eve Vakh - Post Creation & Composer Full Test Suite",
-          "file": "post.spec.ts",
-          "line": 7,
-          "column": 6,
-          "specs": [
-            {
-              "title": "TC_POST_006: uploading corrupt or oversized media attachment halts submission and displays inline file error",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 15011,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-30T07:06:01.916Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "852d2ff9c4320f80b981-3bedb8761c58a4f9910b",
-              "file": "post.spec.ts",
-              "line": 144,
-              "column": 7
-            },
-            {
-              "title": "TC_POST_007: submitting a new post while leaving mandatory form fields blank highlights errors and prevents post publication",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 13107,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-30T07:06:16.938Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "852d2ff9c4320f80b981-87962b4960a8796a3d09",
-              "file": "post.spec.ts",
-              "line": 214,
-              "column": 7
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "recovery.spec.ts",
-      "file": "recovery.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Eve Vakh - Account Recovery & 2FA Security Suite",
-          "file": "recovery.spec.ts",
-          "line": 7,
-          "column": 6,
-          "specs": [
-            {
-              "title": "TC_REC_001: entering incorrect 2FA authenticator TOTP code 5 times disables further attempts for 15 minutes",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 6017,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-30T07:06:30.058Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "ef78f3da5c9c24fceacf-615a320ce7d2faa2cf1a",
-              "file": "recovery.spec.ts",
+              "id": "1fc4cb3b9c1040a64fe1-6719b5bd6837f22784b3",
+              "file": "api/gotchas/anti-enumeration.spec.ts",
               "line": 18,
               "column": 7
-            },
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/gotchas/deleted-account-chat.spec.ts",
+      "file": "api/gotchas/deleted-account-chat.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Gotcha: Messaging with Deleted Participant Account",
+          "file": "api/gotchas/deleted-account-chat.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
             {
-              "title": "TC_REC_002: entering an expired authenticator code from a previous 30-second TOTP interval fails with an invalid/expired code error",
+              "title": "TC-GOTCHA-002: sending message to deleted counterparty must return specific 400 error",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1374,15 +369,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4677,
+                      "duration": 1032,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-30T07:06:36.083Z",
+                      "startTime": "2026-10-01T00:01:14.485Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1390,43 +385,9 @@
                   "status": "expected"
                 }
               ],
-              "id": "ef78f3da5c9c24fceacf-9cbf1d17d1dec4439cee",
-              "file": "recovery.spec.ts",
-              "line": 111,
-              "column": 7
-            },
-            {
-              "title": "TC_REC_003: attempting account recovery with an unregistered email or phone number returns a generic security message preventing user enumeration",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4052,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-30T07:06:40.769Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "ef78f3da5c9c24fceacf-fbb67509e63d387325e3",
-              "file": "recovery.spec.ts",
-              "line": 202,
+              "id": "46ca741f55bce1cc8906-600c56e243d86e6c5abc",
+              "file": "api/gotchas/deleted-account-chat.spec.ts",
+              "line": 17,
               "column": 7
             }
           ]
@@ -1434,20 +395,20 @@
       ]
     },
     {
-      "title": "settings.spec.ts",
-      "file": "settings.spec.ts",
+      "title": "api/gotchas/subscription-unread.spec.ts",
+      "file": "api/gotchas/subscription-unread.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Eve Vakh - Settings & Profile Configuration Suite",
-          "file": "settings.spec.ts",
-          "line": 7,
+          "title": "Gotcha: Subscription Unread Counts Dynamic Exclusion for Archived Forms",
+          "file": "api/gotchas/subscription-unread.spec.ts",
+          "line": 4,
           "column": 6,
           "specs": [
             {
-              "title": "TC_SET_001: attempting to save username containing spaces or disallowed symbols displays format requirements and blocks save",
+              "title": "TC-GOTCHA-005: unread count must exclude archived forms dynamically at read-time and restore upon unarchiving",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1459,15 +420,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 7781,
+                      "duration": 603,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-30T07:06:44.840Z",
+                      "startTime": "2026-10-01T00:01:15.536Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1475,13 +436,1390 @@
                   "status": "expected"
                 }
               ],
-              "id": "d877ffdf71ec720167ae-db91ebab9a96dd32c665",
-              "file": "settings.spec.ts",
+              "id": "90c5e3c191d6f44c2b65-8bc2051224357485301b",
+              "file": "api/gotchas/subscription-unread.spec.ts",
+              "line": 20,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/gotchas/websocket-actors.spec.ts",
+      "file": "api/gotchas/websocket-actors.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Gotcha: Real-Time WebSocket Actor Lifecycle & Eviction Rules",
+          "file": "api/gotchas/websocket-actors.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-GOTCHA-003: close code classifier must adhere to reconnection contract",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:16.154Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "19cbde88f85211429415-c5a4f8f021cd98483a64",
+              "file": "api/gotchas/websocket-actors.spec.ts",
+              "line": 15,
+              "column": 7
+            },
+            {
+              "title": "TC-GOTCHA-004: 6th concurrent session per user must evict oldest with close code 1001",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:16.166Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "19cbde88f85211429415-e397fd2187f946573ddf",
+              "file": "api/gotchas/websocket-actors.spec.ts",
+              "line": 37,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/security/csrf-origin.spec.ts",
+      "file": "api/security/csrf-origin.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Security: CSRF Origin Header Validation Suite",
+          "file": "api/security/csrf-origin.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-SEC-CSRF: state-changing route /api/forms must reject untrusted Origin headers",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 607,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:16.182Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4720d0c5b87e4afff7c5-bd58f30e5667458fe57f",
+              "file": "api/security/csrf-origin.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "TC-SEC-CSRF: state-changing route /api/posts must reject untrusted Origin headers",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 646,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:16.798Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4720d0c5b87e4afff7c5-2ee12bcaa0a32d125b52",
+              "file": "api/security/csrf-origin.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "TC-SEC-CSRF: state-changing route /api/auth/sign-out must reject untrusted Origin headers",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1272,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:17.453Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4720d0c5b87e4afff7c5-af36698c7dddeea7ff32",
+              "file": "api/security/csrf-origin.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "TC-SEC-CSRF: state-changing route /api/posts/mock-post-1 must reject untrusted Origin headers",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 606,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:18.734Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4720d0c5b87e4afff7c5-fe4bbc73fca68af7a087",
+              "file": "api/security/csrf-origin.spec.ts",
+              "line": 20,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/security/idor-sweep.spec.ts",
+      "file": "api/security/idor-sweep.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Security: IDOR Authorization Sweep Across Parameterized :id Routes",
+          "file": "api/security/idor-sweep.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-SEC-IDOR: unauthorized user access attempt on Private Form Read (/api/forms/foreign-private-form-id) must be blocked",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 579,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:19.352Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ca115ea5482853e1a982-9a4de5c19f035422a47e",
+              "file": "api/security/idor-sweep.spec.ts",
+              "line": 23,
+              "column": 9
+            },
+            {
+              "title": "TC-SEC-IDOR: unauthorized user access attempt on Foreign Form Delete (/api/forms/foreign-private-form-id) must be blocked",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 619,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:19.940Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ca115ea5482853e1a982-b63fe1ac3a41cf78d2bb",
+              "file": "api/security/idor-sweep.spec.ts",
+              "line": 23,
+              "column": 9
+            },
+            {
+              "title": "TC-SEC-IDOR: unauthorized user access attempt on Foreign Post Edit (/api/posts/foreign-post-id) must be blocked",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 606,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:20.567Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ca115ea5482853e1a982-8f24bc6a5444b4f7d264",
+              "file": "api/security/idor-sweep.spec.ts",
+              "line": 23,
+              "column": 9
+            },
+            {
+              "title": "TC-SEC-IDOR: unauthorized user access attempt on Foreign Post Delete (/api/posts/foreign-post-id) must be blocked",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 597,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:21.183Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ca115ea5482853e1a982-d1e9d1f0034b639dbd6a",
+              "file": "api/security/idor-sweep.spec.ts",
+              "line": 23,
+              "column": 9
+            },
+            {
+              "title": "TC-SEC-IDOR: unauthorized user access attempt on Foreign Conversation Access (/api/conversations/foreign-conversation-id) must be blocked",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 609,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:21.789Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ca115ea5482853e1a982-9eab5d854c8f56c893ee",
+              "file": "api/security/idor-sweep.spec.ts",
+              "line": 23,
+              "column": 9
+            },
+            {
+              "title": "TC-SEC-IDOR: unauthorized user access attempt on Private Badge Members Access (/api/badges/foreign-private-badge-id) must be blocked",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 586,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:22.406Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ca115ea5482853e1a982-31e8c331500f6a83f590",
+              "file": "api/security/idor-sweep.spec.ts",
+              "line": 23,
+              "column": 9
+            },
+            {
+              "title": "TC-SEC-IDOR: unauthorized user access attempt on Foreign Badge Delete (/api/badges/foreign-badge-id) must be blocked",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 618,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:23.000Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ca115ea5482853e1a982-1000e50bc5f64815764f",
+              "file": "api/security/idor-sweep.spec.ts",
+              "line": 23,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/security/ssrf-fuzzing.spec.ts",
+      "file": "api/security/ssrf-fuzzing.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Security: SSRF Defense Fuzzing on Proxy Endpoints",
+          "file": "api/security/ssrf-fuzzing.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-SEC-SSRF: proxy must reject restricted SSRF target: http://127.0.0.1:8080/admin",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 597,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:23.629Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f7072b81c12e33e87417-3ff8e72694b34ab0e758",
+              "file": "api/security/ssrf-fuzzing.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "TC-SEC-SSRF: proxy must reject restricted SSRF target: http://127.1:80",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 593,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:24.234Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f7072b81c12e33e87417-5520b92f74d75bc3bc66",
+              "file": "api/security/ssrf-fuzzing.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "TC-SEC-SSRF: proxy must reject restricted SSRF target: http://localhost:5432",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 632,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:24.836Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f7072b81c12e33e87417-3b18807bb1d8c510307e",
+              "file": "api/security/ssrf-fuzzing.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "TC-SEC-SSRF: proxy must reject restricted SSRF target: http://10.0.0.1/internal",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 601,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:25.477Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f7072b81c12e33e87417-fe846716233ba6e01017",
+              "file": "api/security/ssrf-fuzzing.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "TC-SEC-SSRF: proxy must reject restricted SSRF target: http://172.16.0.1/secrets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 587,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:26.087Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f7072b81c12e33e87417-7133ab0a4ac1f10354ba",
+              "file": "api/security/ssrf-fuzzing.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "TC-SEC-SSRF: proxy must reject restricted SSRF target: http://192.168.1.1/router",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 624,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:26.683Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f7072b81c12e33e87417-38ec775e725072d9b6bd",
+              "file": "api/security/ssrf-fuzzing.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "TC-SEC-SSRF: proxy must reject restricted SSRF target: http://169.254.169.254/latest/meta-data/",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 583,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:27.317Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f7072b81c12e33e87417-2ff724494541c3487b06",
+              "file": "api/security/ssrf-fuzzing.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "TC-SEC-SSRF: proxy must reject restricted SSRF target: http://metadata.google.internal/computeMetadata/v1/",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 624,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:27.908Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f7072b81c12e33e87417-00fb262f6e34a9af1b36",
+              "file": "api/security/ssrf-fuzzing.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "TC-SEC-SSRF: proxy must reject restricted SSRF target: http://100.100.100.200/latest/meta-data/",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1039,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:28.541Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f7072b81c12e33e87417-6bd295cc34d9a5ecc89a",
+              "file": "api/security/ssrf-fuzzing.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "TC-SEC-SSRF: proxy must reject restricted SSRF target: http://[::1]:8080/status",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 564,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:29.588Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f7072b81c12e33e87417-fadd14da9656d5c820eb",
+              "file": "api/security/ssrf-fuzzing.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "TC-SEC-SSRF: proxy must reject restricted SSRF target: http://[fe80::1ff:fe23:4567:890a]/",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 581,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:30.161Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f7072b81c12e33e87417-66c7b01aa26d57aa3d6a",
+              "file": "api/security/ssrf-fuzzing.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "TC-SEC-SSRF: proxy must reject restricted SSRF target: http://[fc00::1]/internal",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 593,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:30.752Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f7072b81c12e33e87417-6736927e14fa9baa93ff",
+              "file": "api/security/ssrf-fuzzing.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "TC-SEC-SSRF: proxy must reject restricted SSRF target: http://[fd00::1]/internal",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 568,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:31.354Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f7072b81c12e33e87417-d65ab48ac5266405e689",
+              "file": "api/security/ssrf-fuzzing.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "TC-SEC-SSRF: proxy must reject restricted SSRF target: http://[::ffff:127.0.0.1]:8080/data",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 979,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:31.932Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f7072b81c12e33e87417-03ac035bb5488e8cba28",
+              "file": "api/security/ssrf-fuzzing.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "TC-SEC-SSRF: proxy must reject restricted SSRF target: http://[::ffff:7f00:1]:8080/data",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 565,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:32.923Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f7072b81c12e33e87417-c9794804953888e54c04",
+              "file": "api/security/ssrf-fuzzing.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "TC-SEC-SSRF: proxy must reject restricted SSRF target: http://[0:0:0:0:0:ffff:7f00:0001]:8080/data",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 584,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:33.498Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f7072b81c12e33e87417-d276723dafb3721f2faf",
+              "file": "api/security/ssrf-fuzzing.spec.ts",
+              "line": 47,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/security/zod-injection.spec.ts",
+      "file": "api/security/zod-injection.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Security: Zod Schema Injection & Validation Robustness Suite",
+          "file": "api/security/zod-injection.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-SEC-ZOD: malformed input (Prototype pollution keys) must uniformly 400 and NEVER throw 500",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 984,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:34.092Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5f41d4dea4146b9921d2-86c8802fb5f4c8ed8417",
+              "file": "api/security/zod-injection.spec.ts",
+              "line": 44,
+              "column": 9
+            },
+            {
+              "title": "TC-SEC-ZOD: malformed input (Array where string expected) must uniformly 400 and NEVER throw 500",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 590,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:35.083Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5f41d4dea4146b9921d2-3294a402682e1b7ab158",
+              "file": "api/security/zod-injection.spec.ts",
+              "line": 44,
+              "column": 9
+            },
+            {
+              "title": "TC-SEC-ZOD: malformed input (Oversized string field) must uniformly 400 and NEVER throw 500",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 608,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:35.681Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5f41d4dea4146b9921d2-1bbbd8bd4601d9577f66",
+              "file": "api/security/zod-injection.spec.ts",
+              "line": 44,
+              "column": 9
+            },
+            {
+              "title": "TC-SEC-ZOD: malformed input (SQL/NoSQL special characters) must uniformly 400 and NEVER throw 500",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 357,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:36.297Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5f41d4dea4146b9921d2-e2e277507859d2c888ae",
+              "file": "api/security/zod-injection.spec.ts",
+              "line": 44,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/tier1-critical/account-deletion.spec.ts",
+      "file": "api/tier1-critical/account-deletion.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Tier 1: Account Deletion Lifecycle & Purge Cascade Suite",
+          "file": "api/tier1-critical/account-deletion.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-T1-DEL-001: should support request -> cancel -> re-request lifecycle",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1170,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:36.664Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "af549c761b3765ad4b2e-38e7730cf9f1d25cda7b",
+              "file": "api/tier1-critical/account-deletion.spec.ts",
+              "line": 16,
+              "column": 7
+            },
+            {
+              "title": "TC-T1-DEL-002: should verify deletion schedule alarm and purge order contract",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 599,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:37.842Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "af549c761b3765ad4b2e-070e55d18e45898a01ab",
+              "file": "api/tier1-critical/account-deletion.spec.ts",
+              "line": 42,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/tier1-critical/auth-session.spec.ts",
+      "file": "api/tier1-critical/auth-session.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Tier 1: Authentication & Session Verification Suite",
+          "file": "api/tier1-critical/auth-session.spec.ts",
+          "line": 6,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-T1-AUTH-001: should authenticate valid user and persist session cookie",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1536,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:38.452Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ca7a6e33ecf0156cfa4b-7a34d07749da57056dda",
+              "file": "api/tier1-critical/auth-session.spec.ts",
+              "line": 23,
+              "column": 7
+            },
+            {
+              "title": "TC-T1-AUTH-002: should return null session for unauthenticated client",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 617,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:39.997Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ca7a6e33ecf0156cfa4b-7937ad21746ae3073da3",
+              "file": "api/tier1-critical/auth-session.spec.ts",
               "line": 37,
               "column": 7
             },
             {
-              "title": "TC_SET_002: uploading oversized profile photo (>15MB) shows error with option to crop/compress",
+              "title": "TC-T1-AUTH-003: should verify MFA backup code and guarantee 2FA stays enabled",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1493,15 +1831,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 10509,
+                      "duration": 689,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-30T07:06:52.630Z",
+                      "startTime": "2026-10-01T00:01:40.622Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1509,9 +1847,1989 @@
                   "status": "expected"
                 }
               ],
-              "id": "d877ffdf71ec720167ae-2b8f531ff53a55f562cc",
-              "file": "settings.spec.ts",
-              "line": 75,
+              "id": "ca7a6e33ecf0156cfa4b-e0688fa840a8bcd6557d",
+              "file": "api/tier1-critical/auth-session.spec.ts",
+              "line": 48,
+              "column": 7
+            },
+            {
+              "title": "TC-T1-AUTH-004: legacy /api/mfa/* endpoints must return strict HTTP 404 (or 401 when unauthenticated)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2034,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:41.321Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ca7a6e33ecf0156cfa4b-36335ceb12a8a9f976fb",
+              "file": "api/tier1-critical/auth-session.spec.ts",
+              "line": 67,
+              "column": 7
+            },
+            {
+              "title": "TC-T1-AUTH-005: should invalidate session immediately upon sign-out",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1293,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:43.363Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ca7a6e33ecf0156cfa4b-046a6187029eb4f160d8",
+              "file": "api/tier1-critical/auth-session.spec.ts",
+              "line": 89,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/tier1-critical/messaging-consent.spec.ts",
+      "file": "api/tier1-critical/messaging-consent.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Tier 1: Messaging Consent Model & Privacy Invariants Suite",
+          "file": "api/tier1-critical/messaging-consent.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-T1-MSG-001: initiating contact must create a pending message request",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 570,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:44.668Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1823d63ae4d066ea2f9e-2658227e8363acf27ad5",
+              "file": "api/tier1-critical/messaging-consent.spec.ts",
+              "line": 19,
+              "column": 7
+            },
+            {
+              "title": "TC-T1-MSG-002: replying to message request must auto-accept consent state",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 586,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:45.246Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1823d63ae4d066ea2f9e-cf8c2f882ba859dc5892",
+              "file": "api/tier1-critical/messaging-consent.spec.ts",
+              "line": 36,
+              "column": 7
+            },
+            {
+              "title": "TC-T1-MSG-003: blocking user must decline and purge active message requests",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 577,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:45.840Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1823d63ae4d066ea2f9e-30289042b024cc3f1c44",
+              "file": "api/tier1-critical/messaging-consent.spec.ts",
+              "line": 49,
+              "column": 7
+            },
+            {
+              "title": "TC-T1-MSG-004: privacy invariant — sender cannot detect request decline via timing or response shape",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 848,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:46.426Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1823d63ae4d066ea2f9e-af4552cdaffd5f825a8d",
+              "file": "api/tier1-critical/messaging-consent.spec.ts",
+              "line": 64,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/tier1-critical/openfga-perms.spec.ts",
+      "file": "api/tier1-critical/openfga-perms.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Tier 1: OpenFGA Authorization & Permission Matrix Suite",
+          "file": "api/tier1-critical/openfga-perms.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-T1-FGA-001: unauthenticated requests must be denied across all permission tiers",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1142,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:47.284Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "da2ccb83f19a8559b2a2-4d93ebccaa1ad71e9015",
+              "file": "api/tier1-critical/openfga-perms.spec.ts",
+              "line": 19,
+              "column": 7
+            },
+            {
+              "title": "TC-T1-FGA-002: purgeFormPermissions must be strictly awaited to prevent stale allow",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 930,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:48.434Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "da2ccb83f19a8559b2a2-abcfe402624ad0e109cd",
+              "file": "api/tier1-critical/openfga-perms.spec.ts",
+              "line": 42,
+              "column": 7
+            },
+            {
+              "title": "TC-T1-FGA-003: multi-resource feed must coalesce permission checks without N+1 queries",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 596,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:49.372Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "da2ccb83f19a8559b2a2-406419d1fed73017c4f1",
+              "file": "api/tier1-critical/openfga-perms.spec.ts",
+              "line": 57,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/tier1-critical/storage-upload.spec.ts",
+      "file": "api/tier1-critical/storage-upload.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Tier 1: Storage & Upload Security Suite",
+          "file": "api/tier1-critical/storage-upload.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-T1-STORE-001: should reject file when magic-bytes do not match file extension",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 598,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:49.981Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3f8a7bb431d353aa0e5b-deca19fde5f600af751f",
+              "file": "api/tier1-critical/storage-upload.spec.ts",
+              "line": 17,
+              "column": 7
+            },
+            {
+              "title": "TC-T1-STORE-002: path traversal filenames must be sanitized or rejected",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1017,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:50.589Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3f8a7bb431d353aa0e5b-f8b6e0d30ebde79408f8",
+              "file": "api/tier1-critical/storage-upload.spec.ts",
+              "line": 42,
+              "column": 7
+            },
+            {
+              "title": "TC-T1-STORE-003: 16 MiB boundary check (15.9 MiB pass vs 16.1 MiB fail)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 732,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:51.619Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3f8a7bb431d353aa0e5b-e2012a038a64a7ef8bbb",
+              "file": "api/tier1-critical/storage-upload.spec.ts",
+              "line": 67,
+              "column": 7
+            },
+            {
+              "title": "TC-T1-STORE-004: signed URL/grant must expire and enforce single verification",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 641,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:52.362Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3f8a7bb431d353aa0e5b-83a115d6725da9848bd7",
+              "file": "api/tier1-critical/storage-upload.spec.ts",
+              "line": 93,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/tier2-core/archived-forms.spec.ts",
+      "file": "api/tier2-core/archived-forms.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Tier 2: Archived Forms Discovery-Only Semantic Suite",
+          "file": "api/tier2-core/archived-forms.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-T2-ARC-001: archived forms must be excluded from discovery feeds and profile listings",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 577,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:53.013Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4c8a8fb1b1f46a2421c0-6be1ccf90eac5eed42e6",
+              "file": "api/tier2-core/archived-forms.spec.ts",
+              "line": 16,
+              "column": 7
+            },
+            {
+              "title": "TC-T2-ARC-002: archived forms must still allow authorized post creation and direct URL access",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 857,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:53.599Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4c8a8fb1b1f46a2421c0-4e9b875eb5dc064fbb5d",
+              "file": "api/tier2-core/archived-forms.spec.ts",
+              "line": 29,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/tier2-core/crud-pagination.spec.ts",
+      "file": "api/tier2-core/crud-pagination.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Tier 2: Core CRUD & Pagination Contract Suite",
+          "file": "api/tier2-core/crud-pagination.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-T2-CRUD-001: feed listing must adhere to cursor, has_more, next_cursor contract",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 617,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:54.466Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "366529435e5c57aa9726-ae64622c22745878e398",
+              "file": "api/tier2-core/crud-pagination.spec.ts",
+              "line": 16,
+              "column": 7
+            },
+            {
+              "title": "TC-T2-CRUD-002: should verify subscriptions and notifications listing schemas",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 616,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:55.090Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "366529435e5c57aa9726-feae318fc15ea8fa8d63",
+              "file": "api/tier2-core/crud-pagination.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "TC-T2-CRUD-003: badge discovery and member access contract",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 589,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:55.715Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "366529435e5c57aa9726-84a9f87e9693fe390cbe",
+              "file": "api/tier2-core/crud-pagination.spec.ts",
+              "line": 55,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/tier2-core/csv-import.spec.ts",
+      "file": "api/tier2-core/csv-import.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Tier 2: CSV Import Pipeline & Async Job State Suite",
+          "file": "api/tier2-core/csv-import.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-T2-CSV-001: CSV payloads exceeding 5 MiB must be rejected prior to parsing",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 664,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:56.314Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "69990b5db2938bff5449-df62482ed9eaf0289e64",
+              "file": "api/tier2-core/csv-import.spec.ts",
+              "line": 17,
+              "column": 7
+            },
+            {
+              "title": "TC-T2-CSV-002: CSV import job must transition through valid async phases",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 595,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:56.994Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "69990b5db2938bff5449-41b34d3b94132bfc4e2c",
+              "file": "api/tier2-core/csv-import.spec.ts",
+              "line": 35,
+              "column": 7
+            },
+            {
+              "title": "TC-T2-CSV-003: in-flight CSV import job must support mid-phase cancellation",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 601,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:57.603Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "69990b5db2938bff5449-e28accd14ef0abbf6a57",
+              "file": "api/tier2-core/csv-import.spec.ts",
+              "line": 62,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/tier2-core/hearts-budget.spec.ts",
+      "file": "api/tier2-core/hearts-budget.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Tier 2: Hearts Budget & Engagement Rules Suite",
+          "file": "api/tier2-core/hearts-budget.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-T2-HEART-001: heart batch count must be constrained between 1 and 7",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1218,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:58.215Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a8e081d47bd5a7db4be7-ca326d1ed06416d4d51c",
+              "file": "api/tier2-core/hearts-budget.spec.ts",
+              "line": 16,
+              "column": 7
+            },
+            {
+              "title": "TC-T2-HEART-002: identical Idempotency-Key must deduplicate retry requests",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 877,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:01:59.441Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a8e081d47bd5a7db4be7-d2d28a1001fb673c9394",
+              "file": "api/tier2-core/hearts-budget.spec.ts",
+              "line": 47,
+              "column": 7
+            },
+            {
+              "title": "TC-T2-HEART-003: 7 hearts per UTC-day limit enforcement",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 622,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:02:00.326Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a8e081d47bd5a7db4be7-b8f88b4ebfa910a307cb",
+              "file": "api/tier2-core/hearts-budget.spec.ts",
+              "line": 77,
+              "column": 7
+            },
+            {
+              "title": "TC-T2-HEART-004: self-hearts must not dispatch notification to author",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 605,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:02:00.956Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a8e081d47bd5a7db4be7-9b9b6e2b6097d2b0352b",
+              "file": "api/tier2-core/hearts-budget.spec.ts",
+              "line": 104,
+              "column": 7
+            },
+            {
+              "title": "TC-T2-HEART-005: unhearting post verifies daily heart budget invariant",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 869,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:02:01.569Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a8e081d47bd5a7db4be7-c3c4676aeea29c887146",
+              "file": "api/tier2-core/hearts-budget.spec.ts",
+              "line": 122,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/tier2-core/popular-discovery.spec.ts",
+      "file": "api/tier2-core/popular-discovery.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Tier 2: Popular Discovery Algorithm & Consistency Suite",
+          "file": "api/tier2-core/popular-discovery.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-T2-POP-001: popular feed items must be bounded within 7-day window and ordered by ranking score",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 562,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:02:02.447Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9d6ae20409b8b7be3abd-3426851299150e1fc391",
+              "file": "api/tier2-core/popular-discovery.spec.ts",
+              "line": 16,
+              "column": 7
+            },
+            {
+              "title": "TC-T2-POP-002: rankingAt cursor must provide deterministic snapshot across pages",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 567,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:02:03.018Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9d6ae20409b8b7be3abd-0987325e45d698fc96ac",
+              "file": "api/tier2-core/popular-discovery.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "TC-T2-POP-003: X-Min-Consistency-Token must bypass edge-cache",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 574,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:02:03.594Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9d6ae20409b8b7be3abd-f03a1c2c58adbb81ae1c",
+              "file": "api/tier2-core/popular-discovery.spec.ts",
+              "line": 62,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/tier3-supporting/ai-schema.spec.ts",
+      "file": "api/tier3-supporting/ai-schema.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Tier 3: AI Schema Generation Fallback Pipeline Suite",
+          "file": "api/tier3-supporting/ai-schema.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-T3-AI-001: step 2 layout inference failure must trigger default fallback schema",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 592,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:02:04.179Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "913d203622ad80b6c3f2-2dc945d842959e57e770",
+              "file": "api/tier3-supporting/ai-schema.spec.ts",
+              "line": 17,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/tier3-supporting/geocode-proxy.spec.ts",
+      "file": "api/tier3-supporting/geocode-proxy.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Tier 3: Geocode Proxy Caching Semantics Suite",
+          "file": "api/tier3-supporting/geocode-proxy.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-T3-GEO-001: geocode suggestions must NEVER be cacheable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 588,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:02:04.782Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "efa312819efa0e4e90d7-d66113a4bd36db0bb4f7",
+              "file": "api/tier3-supporting/geocode-proxy.spec.ts",
+              "line": 16,
+              "column": 7
+            },
+            {
+              "title": "TC-T3-GEO-002: resolved geocode locations may permit public/private caching",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 577,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:02:05.380Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "efa312819efa0e4e90d7-6fd29f483c59be38f825",
+              "file": "api/tier3-supporting/geocode-proxy.spec.ts",
+              "line": 30,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/tier3-supporting/rest-api-field.spec.ts",
+      "file": "api/tier3-supporting/rest-api-field.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Tier 3: RestApi Field Proxy Security & Execution Suite",
+          "file": "api/tier3-supporting/rest-api-field.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-T3-REST-001: execute route must accept GET and reject POST with HTTP 405",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 892,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:02:05.967Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9ed8f892318d6f6c5186-b01cdcf066804bf3e7aa",
+              "file": "api/tier3-supporting/rest-api-field.spec.ts",
+              "line": 16,
+              "column": 7
+            },
+            {
+              "title": "TC-T3-REST-002: plain HTTP endpoints must be rejected (HTTPS-only enforcement)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 582,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:02:06.866Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9ed8f892318d6f6c5186-994f5d7cb35fc32b9be9",
+              "file": "api/tier3-supporting/rest-api-field.spec.ts",
+              "line": 36,
+              "column": 7
+            },
+            {
+              "title": "TC-T3-REST-003: CRLF injection in proxy headers or query parameters must be rejected",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 580,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:02:07.457Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9ed8f892318d6f6c5186-30f3fc18ce33606c191a",
+              "file": "api/tier3-supporting/rest-api-field.spec.ts",
+              "line": 54,
+              "column": 7
+            },
+            {
+              "title": "TC-T3-REST-004: RestApi field daily quota (1,000/day) must be tracked and enforced",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 583,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:02:08.045Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9ed8f892318d6f6c5186-6fd70cfa56ea325f61e0",
+              "file": "api/tier3-supporting/rest-api-field.spec.ts",
+              "line": 72,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api.spec.ts",
+      "file": "api.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Eve Vakh - Backend API Functional & Endpoint Test Suite",
+          "file": "api.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "API_TC_001: should return 200 OK for backend health check endpoint",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 267,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:02:08.639Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ea1b1599cbc08f16936-457aeddc2603b3dc503b",
+              "file": "api.spec.ts",
+              "line": 14,
+              "column": 7
+            },
+            {
+              "title": "API_TC_002: should return 200 OK and valid JSON from gateway root",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 629,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:02:08.914Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ea1b1599cbc08f16936-a422d1347de3f19775b3",
+              "file": "api.spec.ts",
+              "line": 33,
+              "column": 7
+            },
+            {
+              "title": "API_TC_003: should enforce 401 Unauthorized on protected /api routes without credentials",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 267,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:02:09.550Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ea1b1599cbc08f16936-4cab7594cf4ca3f303be",
+              "file": "api.spec.ts",
+              "line": 46,
+              "column": 7
+            },
+            {
+              "title": "API_TC_004: should protect internal /api/health endpoint against unauthenticated access",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 269,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:02:09.824Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ea1b1599cbc08f16936-a0c9da78d6563164e812",
+              "file": "api.spec.ts",
+              "line": 58,
+              "column": 7
+            },
+            {
+              "title": "API_TC_005: should retrieve public avatar asset with valid image content-type",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 804,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:02:10.100Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ea1b1599cbc08f16936-9ab15ac57da3c3b34355",
+              "file": "api.spec.ts",
+              "line": 71,
+              "column": 7
+            },
+            {
+              "title": "API_TC_006: should verify API response headers and security directives",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 259,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:02:10.911Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ea1b1599cbc08f16936-bc93706af60de690da16",
+              "file": "api.spec.ts",
+              "line": 87,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "Eve Vakh - Authentication API Suite (/api/auth/*)",
+          "file": "api.spec.ts",
+          "line": 102,
+          "column": 6,
+          "specs": [
+            {
+              "title": "API_AUTH_001: GET /api/auth/get-session returns 200 OK and null for unauthenticated client",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1136,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:02:11.177Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ea1b1599cbc08f16936-e730d2e7d1c6f3dedb1d",
+              "file": "api.spec.ts",
+              "line": 128,
+              "column": 7
+            },
+            {
+              "title": "API_AUTH_002: POST /api/auth/sign-in/email returns 400 with VALIDATION_ERROR on empty payload",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1497,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:02:12.321Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ea1b1599cbc08f16936-0c0644b667d2315032cd",
+              "file": "api.spec.ts",
+              "line": 142,
+              "column": 7
+            },
+            {
+              "title": "API_AUTH_003: POST /api/auth/sign-in/email returns 401 on incorrect credentials",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1364,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:02:13.826Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ea1b1599cbc08f16936-9c394b04a8e037212fe7",
+              "file": "api.spec.ts",
+              "line": 160,
+              "column": 7
+            },
+            {
+              "title": "API_AUTH_004: OPTIONS /api/auth/sign-in/email handles CORS preflight with 204 No Content",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1110,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:02:15.199Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ea1b1599cbc08f16936-6822adde549fe54ad6e6",
+              "file": "api.spec.ts",
+              "line": 180,
+              "column": 7
+            },
+            {
+              "title": "API_AUTH_005: POST /api/auth/sign-in/email-otp validates required email and otp payload fields",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1153,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:02:16.317Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ea1b1599cbc08f16936-3efa14dd97dfa754dd81",
+              "file": "api.spec.ts",
+              "line": 198,
+              "column": 7
+            },
+            {
+              "title": "API_AUTH_006: POST /api/auth/email-otp/send-verification-otp enforces email and type enum requirements",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1217,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:02:17.478Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ea1b1599cbc08f16936-ed7c68c52c21caf53497",
+              "file": "api.spec.ts",
+              "line": 215,
+              "column": 7
+            },
+            {
+              "title": "API_AUTH_007: POST /api/auth/phone-number/send-otp enforces phoneNumber parameter validation",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1153,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:02:18.703Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ea1b1599cbc08f16936-81cfa4dc2e88b37b2857",
+              "file": "api.spec.ts",
+              "line": 232,
+              "column": 7
+            },
+            {
+              "title": "API_AUTH_008: POST /api/auth/phone-number/verify enforces phoneNumber and code validation",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1152,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:02:19.864Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ea1b1599cbc08f16936-b5365d017f464d12f1e5",
+              "file": "api.spec.ts",
+              "line": 249,
+              "column": 7
+            },
+            {
+              "title": "API_AUTH_009: GET /api/auth/oauth2/consent-meta enforces consent_code requirement",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1149,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:02:21.024Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ea1b1599cbc08f16936-a24bb45e2e3a8b61dee3",
+              "file": "api.spec.ts",
+              "line": 266,
+              "column": 7
+            },
+            {
+              "title": "API_AUTH_010: should verify security error and rate limit schema contracts on auth routes",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1169,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T00:02:22.182Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ea1b1599cbc08f16936-797956fc0bc5a9730fd3",
+              "file": "api.spec.ts",
+              "line": 279,
               "column": 7
             }
           ]
@@ -1521,11 +3839,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-09-30T07:02:02.402Z",
-    "duration": 300779.561,
-    "expected": 33,
+    "startTime": "2026-10-01T00:01:06.475Z",
+    "duration": 76902.57,
+    "expected": 92,
     "skipped": 0,
     "unexpected": 0,
-    "flaky": 0
+    "flaky": 1
   }
 }
