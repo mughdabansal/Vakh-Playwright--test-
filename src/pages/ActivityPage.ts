@@ -93,17 +93,43 @@ export class ActivityPage extends BasePage {
   }
 
   /**
+   * Scrolls the activity feed container down until the target locator becomes visible or bottom is reached.
+   */
+  async scrollToFeedElement(targetLocator: Locator, maxScrolls = 8) {
+    for (let s = 0; s < maxScrolls; s++) {
+      if (await targetLocator.first().isVisible().catch(() => false)) {
+        return;
+      }
+      await this.page.evaluate(() => {
+        document.querySelectorAll('div').forEach(el => {
+          if (el.scrollHeight > el.clientHeight) el.scrollTop += 3000;
+        });
+      });
+      await this.page.waitForTimeout(400);
+    }
+  }
+
+  /**
+   * Scrolls the activity feed inner container down until the bottom terminus indicator appears.
+   */
+  async scrollToEndOfFeed() {
+    await this.scrollToFeedElement(this.endOfFeedIndicator, 10);
+  }
+
+  /**
    * Verifies Activity feed structure and elements.
    */
   async verifyActivityFeedLayout() {
     await expect(this.activityHeader).toBeVisible();
-    await expect(this.endOfFeedIndicator).toBeVisible({ timeout: 10000 });
+    await this.scrollToEndOfFeed();
+    await expect(this.endOfFeedIndicator.first()).toBeVisible({ timeout: 10000 });
   }
 
   /**
    * Verifies Badge and Role assignment notification.
    */
   async verifyBadgeNotification() {
+    await this.scrollToFeedElement(this.badgeAlert);
     await expect(this.badgeAlert).toBeVisible({ timeout: 10000 });
     // Relative timestamp verification (e.g. 2d)
     const badgeRow = this.page.locator('div').filter({ hasText: /Happy Badger added you to Test badge 3.0/i }).first();
@@ -114,6 +140,7 @@ export class ActivityPage extends BasePage {
    * Verifies Form Publication and Approval notification with image thumbnail.
    */
   async verifyPublicationNotification() {
+    await this.scrollToFeedElement(this.publicationAlert, 4);
     const isPubVisible = await this.publicationAlert.isVisible({ timeout: 5000 }).catch(() => false);
     if (isPubVisible) {
       await expect(this.publicationAlert).toBeVisible();
@@ -130,6 +157,7 @@ export class ActivityPage extends BasePage {
    * Verifies Content Moderation Rejection notification with referenced post text.
    */
   async verifyModerationNotification() {
+    await this.scrollToFeedElement(this.moderationAlert);
     await expect(this.moderationAlert).toBeVisible({ timeout: 10000 });
     await expect(this.moderationPostSnippet).toBeVisible({ timeout: 10000 });
   }
@@ -138,6 +166,7 @@ export class ActivityPage extends BasePage {
    * Verifies Post Reaction / Heart notification with referenced post snippet and media.
    */
   async verifyHeartNotification() {
+    await this.scrollToFeedElement(this.heartAlertFirst);
     await expect(this.heartAlertFirst).toBeVisible({ timeout: 10000 });
     await expect(this.heartPostSnippet).toBeVisible({ timeout: 10000 });
   }
@@ -146,6 +175,7 @@ export class ActivityPage extends BasePage {
    * Verifies Access & Permissions Granted notifications for both test form and posts.
    */
   async verifyAccessGrantedNotifications() {
+    await this.scrollToFeedElement(this.testFormAccessAlert.or(this.postsAccessAlert));
     await expect(this.testFormAccessAlert).toBeVisible({ timeout: 10000 });
     await expect(this.postsAccessAlert).toBeVisible({ timeout: 10000 });
   }
@@ -154,6 +184,7 @@ export class ActivityPage extends BasePage {
    * Verifies User Post Interaction & Mention notification.
    */
   async verifyUserActivityNotification() {
+    await this.scrollToFeedElement(this.userActivityAlert);
     await expect(this.userActivityAlert).toBeVisible({ timeout: 10000 });
   }
 
@@ -161,7 +192,8 @@ export class ActivityPage extends BasePage {
    * Verifies End of Feed indicator and chronological ordering.
    */
   async verifyEndOfFeedIndicator() {
-    await expect(this.endOfFeedIndicator).toBeVisible({ timeout: 10000 });
+    await this.scrollToEndOfFeed();
+    await expect(this.endOfFeedIndicator.first()).toBeVisible({ timeout: 10000 });
   }
 
   /**

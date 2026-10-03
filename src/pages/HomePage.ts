@@ -133,10 +133,11 @@ export class HomePage extends BasePage {
    * Dynamically adapts to whichever post is currently available in the feed.
    */
   async clickAllowedUserPost(authorPattern?: RegExp) {
-    // Locate active post cards on the feed with timestamps (ensures feed has loaded and excludes sidebar nav)
+    const targetPattern = authorPattern || /happy_badger_2312|mughdabansal1414/i;
+    // Locate active post cards on the feed from allowed users (excluding sidebar nav and empty state notices)
     const feedPostCards = this.page.locator('div[tabindex="0"]:visible')
-      .filter({ hasNotText: /posts unavailable|no posts yet|post something/i })
-      .filter({ hasText: /ago/i });
+      .filter({ hasNotText: /^Home$|^Chat$|^Activity$|^Explore$|^New Post$|^More$|posts unavailable|no posts yet|post something/i })
+      .filter({ hasText: targetPattern });
 
     // Explicitly wait for at least one feed post to be rendered
     await expect(feedPostCards.first()).toBeVisible({ timeout: 20000 });

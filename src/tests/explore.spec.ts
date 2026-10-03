@@ -210,10 +210,19 @@ test.describe('Eve Vakh - Explore Page Functional, UI/UX & Profile Forms Test Su
 
     // 5. Assert UI shell remains rendered, visible, and stable
     await expect(page.locator('body')).toBeVisible();
-    await expect(explorePage.homeNavButton.or(explorePage.exploreNavButton).first()).toBeVisible();
+    const navOrBack = page.getByRole('menuitem', { name: 'Back' })
+      .or(explorePage.homeNavButton)
+      .or(explorePage.exploreNavButton)
+      .first();
+    await expect(navOrBack).toBeVisible({ timeout: 5000 });
 
     // 6. Verify user can still interact and navigate back to explore
-    await explorePage.clickExploreButton();
+    const backBtn = page.getByRole('menuitem', { name: 'Back' }).first();
+    if (await backBtn.isVisible({ timeout: 2000 }).catch(() => false)) {
+      await backBtn.click();
+    } else {
+      await explorePage.clickExploreButton();
+    }
     await explorePage.verifyExploreHeader();
     expect(pageErrors).toHaveLength(0);
   });
@@ -270,10 +279,19 @@ test.describe('Eve Vakh - Explore Page Functional, UI/UX & Profile Forms Test Su
 
     // 5. Assert UI shell remains rendered, visible, and stable
     await expect(page.locator('body')).toBeVisible();
-    await expect(explorePage.homeNavButton.or(explorePage.exploreNavButton).first()).toBeVisible();
+    const navOrBackBlocked = page.getByRole('menuitem', { name: 'Back' })
+      .or(explorePage.homeNavButton)
+      .or(explorePage.exploreNavButton)
+      .first();
+    await expect(navOrBackBlocked).toBeVisible({ timeout: 5000 });
 
     // 6. Verify user can still interact and navigate back to explore
-    await explorePage.clickExploreButton();
+    const backBtnBlocked = page.getByRole('menuitem', { name: 'Back' }).first();
+    if (await backBtnBlocked.isVisible({ timeout: 2000 }).catch(() => false)) {
+      await backBtnBlocked.click();
+    } else {
+      await explorePage.clickExploreButton();
+    }
     await explorePage.verifyExploreHeader();
     expect(pageErrors).toHaveLength(0);
   });
