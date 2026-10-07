@@ -47,6 +47,13 @@
     "test:report": "playwright show-report test-reports/html-report",
     "test:perf": "node performance/login-loadtest.js",
     "test:perf:api": "node performance/api-loadtest.js",
+    "test:load": "node performance/runner.js",
+    "test:load:frontend": "node performance/runner.js --scenario=frontend",
+    "test:load:api": "node performance/runner.js --scenario=api",
+    "test:load:ratelimit": "node performance/runner.js --scenario=ratelimit",
+    "test:load:websocket": "node performance/runner.js --scenario=websocket",
+    "test:load:spike": "node performance/runner.js --scenario=spike",
+    "test:load:soak": "node performance/runner.js --scenario=soak",
     "generate:dashboard": "node scripts/generate-dashboard.js"
   },
   "keywords": [

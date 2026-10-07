@@ -1,0 +1,42 @@
+{
+  "scenarioId": "LOAD-04B",
+  "scenarioName": "IP Rate Limit (Flood Defense)",
+  "targetUrl": "https://xo.eve.vakh.com/api/auth/get-session",
+  "timestamp": "2026-10-06T13:17:12.335Z",
+  "resultState": "PASS",
+  "defenseLayer": "APPLICATION_MIDDLEWARE",
+  "achievedRps": 125,
+  "distribution": {
+    "http2xx": 384,
+    "http429": 116,
+    "http401": 0,
+    "http403": 0,
+    "http5xx": 0,
+    "other4xx": 0
+  },
+  "stats": {
+    "p50": 90,
+    "p95": 933,
+    "p99": 1026,
+    "avgLatencyMs": 213.69
+  },
+  "sample429": {
+    "layer": "APPLICATION_MIDDLEWARE",
+    "code": "RATE_LIMIT_EXCEEDED",
+    "requestId": "2c3fa5e0-bbe5-443c-a665-65d418fede34",
+    "message": "Rate limit exceeded. Please try again later.",
+    "headers": {
+      "retryAfter": "41",
+      "limit": "60",
+      "remaining": "0",
+      "reset": "1791292680",
+      "cfRay": "a464f216aec15480-DEL",
+      "server": "cloudflare",
+      "contentType": "application/json"
+    }
+  },
+  "passed": true,
+  "inconclusive": false,
+  "failed": false,
+  "violations": []
+}

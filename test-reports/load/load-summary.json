@@ -1,0 +1,28 @@
+{
+  "timestamp": "2026-10-07T05:24:07.152Z",
+  "mode": "smoke",
+  "overallStatus": "FAILED",
+  "summaryString": "0/1 Passed | 1/1 Failed",
+  "counts": {
+    "total": 1,
+    "passed": 0,
+    "inconclusive": 0,
+    "failed": 1
+  },
+  "scenarios": [
+    {
+      "scenarioId": "LOAD-04A",
+      "resultState": "CONFIGURATION_ERROR",
+      "failed": true,
+      "passed": false
+    }
+  ],
+  "results": [
+    {
+      "scenarioId": "LOAD-04A",
+      "resultState": "CONFIGURATION_ERROR",
+      "failed": true,
+      "passed": false
+    }
+  ]
+}

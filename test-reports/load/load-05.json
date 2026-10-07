@@ -1,0 +1,27 @@
+{
+  "scenarioId": "LOAD-05",
+  "scenarioName": "WebSocket Real-Time Concurrency",
+  "targetUrl": "wss://xo.eve.vakh.com/ws",
+  "timestamp": "2026-10-05T07:03:01.491Z",
+  "passed": true,
+  "violations": [],
+  "totalAttempted": 50,
+  "totalConnected": 50,
+  "failedConnections": 0,
+  "authRejections": 50,
+  "stats": {
+    "avg": 554.32,
+    "p50": 330,
+    "p90": 1158,
+    "p95": 1247,
+    "p99": 1294,
+    "max": 1294
+  },
+  "achievedRps": 10,
+  "errorRatePercent": 0,
+  "details": {
+    "totalAttempted": 50,
+    "totalConnected": 50,
+    "timeoutsSample": []
+  }
+}

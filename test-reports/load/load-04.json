@@ -1,0 +1,39 @@
+{
+  "scenarioId": "LOAD-04",
+  "scenarioName": "Rate Limiting & Authenticated Identity Isolation",
+  "targetUrl": "https://xo.eve.vakh.com/api/auth/get-session",
+  "timestamp": "2026-10-06T04:58:40.054Z",
+  "passed": false,
+  "violations": [
+    "User B was degraded (Only 13/15 succeeded). Scope: GLOBAL_OR_SHARED_BUCKET (Application rate-limit shared across users)"
+  ],
+  "scope": "GLOBAL_OR_SHARED_BUCKET (Application rate-limit shared across users)",
+  "userABurst": {
+    "totalRequests": 500,
+    "http2xx": 384,
+    "http429RateLimited": 116,
+    "http401_403AuthError": 0,
+    "http5xxServerError": 0,
+    "avgLatencyMs": 127.92
+  },
+  "userBIsolated": {
+    "totalRequests": 15,
+    "http2xxSuccess": 13,
+    "http429RateLimited": 2,
+    "http401_403AuthError": 0,
+    "http5xxServerError": 0,
+    "successRatePercent": 86.7,
+    "rateLimitHeaders": {
+      "x-ratelimit-limit": "60",
+      "x-ratelimit-remaining": "55",
+      "x-ratelimit-reset": "1791262740"
+    }
+  },
+  "stats": {
+    "p50": 91,
+    "p95": 788,
+    "p99": 896
+  },
+  "achievedRps": 166.67,
+  "errorRatePercent": 23.2
+}

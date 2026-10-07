@@ -1,16 +1,16 @@
 {
-  "timestamp": "2026-10-03T23:14:09.562Z",
+  "timestamp": "2026-10-05T06:56:34.879Z",
   "targetUrl": "https://xo.eve.vakh.com",
   "stages": {
     "userABurst": {
       "total": 150,
       "rateLimitedOrNon2xx": 150,
-      "latencyAverageMs": 330.06
+      "latencyAverageMs": 379.78
     },
     "userBIsolation": {
       "total": 10,
       "successful2xx": 0,
-      "latencyAverageMs": 355.1
+      "latencyAverageMs": 579.9
     }
   }
 }

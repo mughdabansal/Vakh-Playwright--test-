@@ -1,0 +1,62 @@
+{
+  "scenarioId": "LOAD-06",
+  "scenarioName": "Spike & Stress Testing",
+  "targetUrl": "https://xo.eve.vakh.com/health",
+  "timestamp": "2026-10-05T07:03:19.818Z",
+  "passed": true,
+  "violations": [],
+  "totalRequests": 2375,
+  "peakThroughputRps": 271.8,
+  "achievedRps": 271.8,
+  "totalNon2xx": 0,
+  "stats": {
+    "p50": 178,
+    "p95": 790,
+    "p99": 890
+  },
+  "errorRatePercent": 0,
+  "details": {
+    "stages": [
+      {
+        "stage": 1,
+        "connections": 10,
+        "targetRate": 30,
+        "achievedRate": 28.75,
+        "p50": 170,
+        "p95": 561,
+        "errors": 0,
+        "non2xx": 0
+      },
+      {
+        "stage": 2,
+        "connections": 50,
+        "targetRate": 150,
+        "achievedRate": 141.2,
+        "p50": 171,
+        "p95": 654,
+        "errors": 0,
+        "non2xx": 0
+      },
+      {
+        "stage": 3,
+        "connections": 100,
+        "targetRate": 300,
+        "achievedRate": 271.8,
+        "p50": 178,
+        "p95": 790,
+        "errors": 0,
+        "non2xx": 0
+      },
+      {
+        "stage": 4,
+        "connections": 20,
+        "targetRate": 50,
+        "achievedRate": 48.75,
+        "p50": 174,
+        "p95": 602,
+        "errors": 0,
+        "non2xx": 0
+      }
+    ]
+  }
+}
