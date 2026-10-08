@@ -107,6 +107,13 @@ async function main() {
 
     const summary = reporter.generateFinalReport({ mode: options.mode });
 
+    try {
+      const { loadLoadTestData } = require('../scripts/load-dashboard-helper');
+      loadLoadTestData(path.join(__dirname, '..', 'test-reports'));
+    } catch (e) {
+      // Non-fatal if helper unavailable
+    }
+
     console.log(`Report successfully generated:`);
     console.log(` - Markdown: ${summary.markdownPath}`);
     console.log(` - JSON:     ${summary.jsonPath}`);

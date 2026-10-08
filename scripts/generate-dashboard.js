@@ -103,6 +103,12 @@ const { loadApiTestData, generateApiViewHtml } = require('./api-dashboard-helper
 const { apiTestsSummary, rateLimitBench, wsBench } = loadApiTestData(reportsDir, resultsJsonPath, lastUpdated);
 const apiViewHtml = generateApiViewHtml(apiTestsSummary, apiPerf, rateLimitBench, wsBench);
 
+// Load / Extract Load Testing Suite Multi-Run History & Benchmarks
+const { loadLoadTestData, generatePerformanceViewHtml, generatePerformanceChartJs } = require('./load-dashboard-helper');
+const { loadSummary, loadHistory, load04a, load04b, load04c } = loadLoadTestData(reportsDir);
+const performanceViewHtml = generatePerformanceViewHtml(loadSummary, loadHistory, load04a, load04b, load04c, lastUpdated);
+const performanceChartJs = generatePerformanceChartJs(loadHistory);
+
 const htmlContent = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1997,6 +2003,9 @@ const htmlContent = `<!DOCTYPE html>
       <button class="tab-btn" onclick="switchTab('post', this)">
         📝 Create Post <span class="tab-count">7 Tests</span>
       </button>
+      <button class="tab-btn" onclick="switchTab('performance', this)">
+        🚀 Performance &amp; Load <span class="tab-count">${loadHistory.length} Run${loadHistory.length === 1 ? '' : 's'}</span>
+      </button>
       <button class="tab-btn" onclick="switchTab('cicd', this)">
         ⚙️ GitHub Actions CI/CD <span class="tab-count">Live (90m)</span>
       </button>
@@ -2018,10 +2027,10 @@ const htmlContent = `<!DOCTYPE html>
           <div class="value">40 / 40</div>
           <div class="subtext"><span>⚡</span> Releases 1.0, 2.0 & 3.0 verified across all 4 browser engines</div>
         </div>
-        <div class="stat-card purple">
-          <div class="label">Web Load Throughput</div>
-          <div class="value">${(webPerf.requests?.average || 196.2).toFixed(1)} req/s</div>
-          <div class="subtext">Zero dropped requests | Avg Latency: ${(webPerf.latency?.average || 116.86).toFixed(1)}ms</div>
+        <div class="stat-card purple" style="cursor: pointer;" onclick="switchTab('performance')">
+          <div class="label">Load &amp; Rate-Limiting Suite</div>
+          <div class="value">${loadHistory.length > 0 ? loadHistory[loadHistory.length - 1].metrics.avgRps : (webPerf.requests?.average || 196.2).toFixed(1)} req/s</div>
+          <div class="subtext"><span>⚡</span> ${loadHistory.length > 0 ? loadHistory[loadHistory.length - 1].summaryString : 'Zero dropped requests'} &bull; Avg Latency: ${loadHistory.length > 0 ? loadHistory[loadHistory.length - 1].metrics.avgLatencyMs : (webPerf.latency?.average || 116.86).toFixed(1)}ms</div>
         </div>
         <div class="stat-card orange" style="cursor: pointer;" onclick="switchTab('api')">
           <div class="label">Backend API Test Matrix</div>
@@ -6072,6 +6081,8 @@ const htmlContent = `<!DOCTYPE html>
     
     ${apiViewHtml}
 
+    ${performanceViewHtml}
+
 
     <!-- ==================== VIEW 9: POST CREATION PAGE ==================== -->
     <div id="view-post" class="view-content">
@@ -7120,6 +7131,19 @@ const htmlContent = `<!DOCTYPE html>
         window.latencyChartInstance.options.scales.y.grid.color = chartGridColor;
         window.latencyChartInstance.update();
       }
+      if (window.loadThroughputChartInstance) {
+        window.loadThroughputChartInstance.options.scales.x.ticks.color = chartTextColor;
+        window.loadThroughputChartInstance.options.scales.yRps.ticks.color = chartTextColor;
+        window.loadThroughputChartInstance.options.scales.yRps.grid.color = chartGridColor;
+        window.loadThroughputChartInstance.options.scales.yLat.ticks.color = chartTextColor;
+        window.loadThroughputChartInstance.update();
+      }
+      if (window.loadDistChartInstance) {
+        window.loadDistChartInstance.options.scales.x.ticks.color = chartTextColor;
+        window.loadDistChartInstance.options.scales.y.ticks.color = chartTextColor;
+        window.loadDistChartInstance.options.scales.y.grid.color = chartGridColor;
+        window.loadDistChartInstance.update();
+      }
     }
 
     // Charts Initialization
@@ -7179,6 +7203,8 @@ const htmlContent = `<!DOCTYPE html>
         }
       }
     });
+
+    ${performanceChartJs}
 
     // Initialize Theme On Load
     (function() {

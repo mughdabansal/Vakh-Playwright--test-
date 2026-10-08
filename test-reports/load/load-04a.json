@@ -2,26 +2,29 @@
   "scenarioId": "LOAD-04A",
   "scenarioName": "User Rate Limit (Quota Throttling)",
   "targetUrl": "https://xo.eve.vakh.com/api/auth/get-session",
-  "timestamp": "2026-10-06T13:15:54.702Z",
-  "resultState": "PASS",
-  "achievedRps": 40,
+  "timestamp": "2026-10-07T05:52:51.904Z",
+  "mode": "smoke",
+  "resultState": "INCONCLUSIVE",
+  "achievedRps": 20,
   "distribution": {
-    "http2xx": 107,
-    "http429": 13,
+    "http2xx": 120,
+    "http429": 0,
     "http401": 0,
     "http403": 0,
     "http5xx": 0,
     "other4xx": 0
   },
   "stats": {
-    "p50": 97,
-    "p95": 892,
-    "p99": 936,
-    "avgLatencyMs": 249.95
+    "p50": 372,
+    "p95": 1274,
+    "p99": 1470,
+    "avgLatencyMs": 489.48
   },
   "sample429": null,
-  "passed": true,
-  "inconclusive": false,
+  "passed": false,
+  "inconclusive": true,
   "failed": false,
-  "violations": []
+  "violations": [
+    "Calibrated volume (120 reqs) was absorbed across edge isolates without hitting the 60 rpm isolate counter."
+  ]
 }

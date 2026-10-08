@@ -23,7 +23,7 @@ on:
           - stress
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   load-test:
@@ -34,6 +34,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js Environment
         uses: actions/setup-node@v4
@@ -67,6 +69,20 @@ jobs:
             --scenario=${{ inputs.scenario }} \
             --mode=${{ inputs.mode }}
 
+      - name: Update Live Quality & Performance Dashboard
+        if: always()
+        run: npm run generate:dashboard
+
+      - name: Commit Updated Dashboard & Load History to Main
+        if: always() && github.ref == 'refs/heads/main'
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/ test-reports/load/
+          git diff --staged --quiet || git commit -m "chore: auto-update load test results & live dashboard [skip ci]"
+          git pull --rebase origin main || echo "Rebase skipped"
+          git push origin main || echo "Branch updated or push skipped"
+
       - name: Publish Scenario Summary to Job Summary
         if: always()
         run: |
@@ -93,8 +109,10 @@ jobs:
           path: |
             test-reports/load/LOAD_TEST_REPORT.md
             test-reports/load/load-summary.json
+            test-reports/load/load-history.json
             test-reports/load/load-04a.json
             test-reports/load/load-04b.json
             test-reports/load/load-04c.json
           if-no-files-found: warn
           retention-days: 30
+
