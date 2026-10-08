@@ -1,6 +1,10 @@
 name: Load Testing Suite
 
 on:
+  schedule:
+    # Automated run at 4:00 AM IST on Monday and Friday
+    # 4:00 AM IST = 22:30 UTC on Sunday (0) and Thursday (4)
+    - cron: '30 22 * * 0,4'
   workflow_dispatch:
     inputs:
       scenario:
@@ -27,7 +31,7 @@ permissions:
 
 jobs:
   load-test:
-    name: Load Test (${{ inputs.scenario }} - ${{ inputs.mode }})
+    name: Load Test (${{ inputs.scenario || 'ratelimit' }} - ${{ inputs.mode || 'smoke' }})
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -66,8 +70,8 @@ jobs:
           VAKH_TEST_PASSWORD: ${{ secrets.VAKH_TEST_PASSWORD }}
         run: |
           node performance/runner.js \
-            --scenario=${{ inputs.scenario }} \
-            --mode=${{ inputs.mode }}
+            --scenario=${{ inputs.scenario || 'ratelimit' }} \
+            --mode=${{ inputs.mode || 'smoke' }}
 
       - name: Update Live Quality & Performance Dashboard
         if: always()

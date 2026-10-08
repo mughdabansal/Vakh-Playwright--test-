@@ -209,6 +209,9 @@ function generatePerformanceViewHtml(loadSummary, loadHistory, load04a, load04b,
           <span class="badge browser" style="font-size: 0.88rem; padding: 0.45rem 0.9rem;">
             📊 ${totalRuns} Historical Run${totalRuns === 1 ? '' : 's'} Tracked
           </span>
+          <span class="badge browser" style="font-size: 0.84rem; padding: 0.45rem 0.85rem;">
+            🕒 Auto Schedule: Mon &amp; Fri at 4:00 AM IST
+          </span>
           <a href="https://github.com/mughdabansal/Vakh-Playwright--test-/actions/workflows/load-testing.yml" target="_blank" class="btn-github" style="font-size: 0.8rem; padding: 0.35rem 0.75rem;">
             ⚡ Trigger in CI
           </a>
