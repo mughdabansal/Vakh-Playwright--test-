@@ -165,12 +165,75 @@ function generatePerformanceViewHtml(loadSummary, loadHistory, load04a, load04b,
   const statusBadgeClass = overallStatus === 'PASS' ? 'passed' : overallStatus === 'INCONCLUSIVE' ? 'warning' : 'failed';
   const statusIcon = overallStatus === 'PASS' ? '🟢' : overallStatus === 'INCONCLUSIVE' ? '⚪' : '🔴';
 
-  // Table rows for historical comparison
-  const historyTableRows = loadHistory.slice().reverse().map((run) => {
+  // Run-over-Run Delta Calculation
+  const hasPrevious = totalRuns >= 2;
+  const previousRun = hasPrevious ? loadHistory[totalRuns - 2] : null;
+
+  let deltaRps = 0, deltaRpsPct = 0;
+  let deltaLat = 0, deltaLatPct = 0;
+  let deltaP95 = 0, deltaP95Pct = 0;
+  let delta429 = 0;
+
+  if (hasPrevious && latestRun && previousRun) {
+    deltaRps = Number((latestRun.metrics.avgRps - previousRun.metrics.avgRps).toFixed(1));
+    deltaRpsPct = previousRun.metrics.avgRps > 0 ? Number(((deltaRps / previousRun.metrics.avgRps) * 100).toFixed(1)) : 0;
+
+    deltaLat = Number((latestRun.metrics.avgLatencyMs - previousRun.metrics.avgLatencyMs).toFixed(1));
+    deltaLatPct = previousRun.metrics.avgLatencyMs > 0 ? Number(((deltaLat / previousRun.metrics.avgLatencyMs) * 100).toFixed(1)) : 0;
+
+    deltaP95 = Number((latestRun.metrics.maxP95Ms - previousRun.metrics.maxP95Ms).toFixed(1));
+    deltaP95Pct = previousRun.metrics.maxP95Ms > 0 ? Number(((deltaP95 / previousRun.metrics.maxP95Ms) * 100).toFixed(1)) : 0;
+
+    delta429 = latestRun.metrics.total429 - previousRun.metrics.total429;
+  }
+
+  // Delta Pill Styles
+  const rpsPillColor = deltaRps >= 0 ? '#10b981' : '#f59e0b';
+  const rpsPillBg = deltaRps >= 0 ? 'rgba(16, 185, 129, 0.15)' : 'rgba(245, 158, 11, 0.15)';
+  const rpsPillText = hasPrevious
+    ? `${deltaRps >= 0 ? '▲ +' : '▼ '}${deltaRps} req/s (${deltaRps >= 0 ? '+' : ''}${deltaRpsPct}%)`
+    : 'Baseline Reference';
+
+  // For latency: negative delta is FASTER (green)
+  const latPillColor = deltaLat <= 0 ? '#10b981' : '#f59e0b';
+  const latPillBg = deltaLat <= 0 ? 'rgba(16, 185, 129, 0.15)' : 'rgba(245, 158, 11, 0.15)';
+  const latPillText = hasPrevious
+    ? `${deltaLat < 0 ? '▲ ' + Math.abs(deltaLat) + ' ms faster' : deltaLat > 0 ? '▼ +' + deltaLat + ' ms slower' : '±0 ms parity'} (${deltaLat <= 0 ? '' : '+'}${deltaLatPct}%)`
+    : 'Baseline Reference';
+
+  const p95PillColor = deltaP95 <= 0 ? '#10b981' : '#f59e0b';
+  const p95PillBg = deltaP95 <= 0 ? 'rgba(16, 185, 129, 0.15)' : 'rgba(245, 158, 11, 0.15)';
+  const p95PillText = hasPrevious
+    ? `${deltaP95 <= 0 ? '▲ ' + Math.abs(deltaP95) + ' ms improved' : '▼ +' + deltaP95 + ' ms increased'}`
+    : 'Baseline Reference';
+
+  const throttlePillColor = delta429 === 0 ? '#60a5fa' : '#fbbf24';
+  const throttlePillBg = delta429 === 0 ? 'rgba(96, 165, 250, 0.15)' : 'rgba(251, 191, 36, 0.15)';
+  const throttlePillText = hasPrevious
+    ? `${delta429 === 0 ? '±0 (Identical Defense Threshold)' : (delta429 > 0 ? '+' : '') + delta429 + ' 429s vs prior'}`
+    : 'Active Defense Barrier';
+
+  // Table rows for historical comparison with delta column
+  const historyTableRows = loadHistory.slice().reverse().map((run, idx, reversedArr) => {
+    const prior = idx < reversedArr.length - 1 ? reversedArr[idx + 1] : null;
     const badgeCls = run.overallStatus === 'PASS' ? 'passed' : run.overallStatus === 'INCONCLUSIVE' ? 'orange' : 'failed';
     const s4aCls = run.metrics.load04a.status === 'PASS' ? 'passed' : run.metrics.load04a.status === 'INCONCLUSIVE' ? 'orange' : 'failed';
     const s4bCls = run.metrics.load04b.status === 'PASS' ? 'passed' : run.metrics.load04b.status === 'INCONCLUSIVE' ? 'orange' : 'failed';
     const s4cCls = run.metrics.load04c.status === 'PASS' ? 'passed' : run.metrics.load04c.status === 'INCONCLUSIVE' ? 'orange' : 'failed';
+
+    let diffDisplay = '<span class="badge browser" style="font-size: 0.76rem;">Baseline Run</span>';
+    if (prior) {
+      const dRps = Number((run.metrics.avgRps - prior.metrics.avgRps).toFixed(1));
+      const dLat = Number((run.metrics.avgLatencyMs - prior.metrics.avgLatencyMs).toFixed(1));
+      const rpsColor = dRps >= 0 ? '#34d399' : '#fbbf24';
+      const latColor = dLat <= 0 ? '#34d399' : '#fbbf24';
+      diffDisplay = `
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.78rem;">
+          <span style="color: ${rpsColor}; font-weight: 600;">${dRps >= 0 ? '+' : ''}${dRps} rps</span> &bull; 
+          <span style="color: ${latColor};">${dLat <= 0 ? '' : '+'}${dLat}ms</span>
+        </span>
+      `;
+    }
 
     return `
       <tr>
@@ -185,6 +248,7 @@ function generatePerformanceViewHtml(loadSummary, loadHistory, load04a, load04b,
         <td style="font-family: 'JetBrains Mono', monospace; color: #fbbf24;">${run.metrics.maxP95Ms} ms</td>
         <td style="font-family: 'JetBrains Mono', monospace;">${run.metrics.total429} / ${run.metrics.totalRequests}</td>
         <td><span class="badge ${badgeCls}">${escapeHtml(run.overallStatus)}</span></td>
+        <td style="white-space: nowrap;">${diffDisplay}</td>
       </tr>
     `;
   }).join('\n');
@@ -239,6 +303,80 @@ function generatePerformanceViewHtml(loadSummary, loadHistory, load04a, load04b,
           <div class="label" style="color: #fbbf24;">Rate-Limit Enforcement</div>
           <div class="value" style="font-size: 1.5rem; color: #fbbf24;">${latestRun?.metrics?.total429 || 246} HTTP 429</div>
           <div class="subtext"><span>🛡️</span> 0 Server Errors (Zero 5xx observed)</div>
+        </div>
+      </div>
+
+      <!-- Run-over-Run Delta & Comparative Differential Panel -->
+      <div class="panel" style="margin-bottom: 1.5rem; border: 1px solid var(--border); background: linear-gradient(135deg, rgba(20, 30, 51, 0.95), rgba(13, 19, 34, 0.95)); border-radius: 12px; padding: 1.25rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.75rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.75rem;">
+          <div>
+            <div style="font-weight: 800; font-size: 1.1rem; color: var(--text); display: flex; align-items: center; gap: 0.5rem;">
+              <span>⚡</span> Run-over-Run Comparative Differential &amp; Variance
+            </div>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">
+              ${hasPrevious
+                ? `Telemetry differential between <strong>Run #${latestRun.runNumber}</strong> (Current) and <strong>Run #${previousRun.runNumber}</strong> (Prior)`
+                : `<strong>Run #1</strong> established as baseline reference. Comparative variance percentages will compute automatically against prior runs starting on Run #2.`
+              }
+            </p>
+          </div>
+          <span class="badge ${hasPrevious ? 'passed' : 'browser'}" style="font-size: 0.82rem; padding: 0.35rem 0.75rem;">
+            ${hasPrevious ? `Compared vs Run #${previousRun.runNumber}` : 'Initial Calibration Baseline'}
+          </span>
+        </div>
+
+        <div class="grid-4">
+          <!-- Throughput Delta -->
+          <div style="background: var(--card-bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 0.9rem;">
+            <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.3rem;">Throughput Differential</div>
+            <div style="font-size: 1.35rem; font-weight: 800; font-family: 'JetBrains Mono', monospace; color: #60a5fa;">
+              ${latestRun?.metrics?.avgRps || 42.1} <span style="font-size: 0.8rem; font-weight: 500; color: var(--text-dim);">req/s</span>
+            </div>
+            <div style="margin-top: 0.4rem;">
+              <span style="display: inline-block; padding: 0.2rem 0.55rem; border-radius: 4px; font-size: 0.75rem; font-family: 'JetBrains Mono', monospace; font-weight: 600; color: ${rpsPillColor}; background: ${rpsPillBg};">
+                ${rpsPillText}
+              </span>
+            </div>
+          </div>
+
+          <!-- Mean Latency Delta -->
+          <div style="background: var(--card-bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 0.9rem;">
+            <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.3rem;">Mean Latency Differential</div>
+            <div style="font-size: 1.35rem; font-weight: 800; font-family: 'JetBrains Mono', monospace; color: #34d399;">
+              ${latestRun?.metrics?.avgLatencyMs || 443.6} <span style="font-size: 0.8rem; font-weight: 500; color: var(--text-dim);">ms</span>
+            </div>
+            <div style="margin-top: 0.4rem;">
+              <span style="display: inline-block; padding: 0.2rem 0.55rem; border-radius: 4px; font-size: 0.75rem; font-family: 'JetBrains Mono', monospace; font-weight: 600; color: ${latPillColor}; background: ${latPillBg};">
+                ${latPillText}
+              </span>
+            </div>
+          </div>
+
+          <!-- P95 Tail Delta -->
+          <div style="background: var(--card-bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 0.9rem;">
+            <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.3rem;">P95 Tail Differential</div>
+            <div style="font-size: 1.35rem; font-weight: 800; font-family: 'JetBrains Mono', monospace; color: #fbbf24;">
+              ${latestRun?.metrics?.maxP95Ms || 1274} <span style="font-size: 0.8rem; font-weight: 500; color: var(--text-dim);">ms</span>
+            </div>
+            <div style="margin-top: 0.4rem;">
+              <span style="display: inline-block; padding: 0.2rem 0.55rem; border-radius: 4px; font-size: 0.75rem; font-family: 'JetBrains Mono', monospace; font-weight: 600; color: ${p95PillColor}; background: ${p95PillBg};">
+                ${p95PillText}
+              </span>
+            </div>
+          </div>
+
+          <!-- 429 Throttle Delta -->
+          <div style="background: var(--card-bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 0.9rem;">
+            <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.3rem;">Barrier Defense Delta</div>
+            <div style="font-size: 1.35rem; font-weight: 800; font-family: 'JetBrains Mono', monospace; color: #c084fc;">
+              ${latestRun?.metrics?.total429 || 246} <span style="font-size: 0.8rem; font-weight: 500; color: var(--text-dim);">429s</span>
+            </div>
+            <div style="margin-top: 0.4rem;">
+              <span style="display: inline-block; padding: 0.2rem 0.55rem; border-radius: 4px; font-size: 0.75rem; font-family: 'JetBrains Mono', monospace; font-weight: 600; color: ${throttlePillColor}; background: ${throttlePillBg};">
+                ${throttlePillText}
+              </span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -343,7 +481,7 @@ function generatePerformanceViewHtml(loadSummary, loadHistory, load04a, load04b,
           <div>
             <div class="panel-title">📋 Historical Load Benchmark Run Log</div>
             <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">
-              Complete historical record preserved across all CI and manual load test executions.
+              Complete historical record preserved across all CI and manual load test executions with differential comparison.
             </p>
           </div>
           <span style="font-size: 0.8rem; color: var(--text-dim);">Auto-Updated via CI</span>
@@ -363,6 +501,7 @@ function generatePerformanceViewHtml(loadSummary, loadHistory, load04a, load04b,
                 <th>P95 Latency</th>
                 <th>429 / Total</th>
                 <th>Verdict</th>
+                <th>Δ vs Prior Run</th>
               </tr>
             </thead>
             <tbody>
@@ -376,7 +515,7 @@ function generatePerformanceViewHtml(loadSummary, loadHistory, load04a, load04b,
 }
 
 /**
- * Generates the Chart.js JavaScript code to initialize the comparable graphs
+ * Generates the Chart.js JavaScript code to initialize the comparable graphs with tooltips
  */
 function generatePerformanceChartJs(loadHistory) {
   const historyDataJson = JSON.stringify(loadHistory);
@@ -475,7 +614,25 @@ function generatePerformanceChartJs(loadHistory) {
             },
             tooltip: {
               padding: 12,
-              cornerRadius: 8
+              cornerRadius: 8,
+              callbacks: {
+                afterBody: function(tooltipItems) {
+                  const idx = tooltipItems[0].dataIndex;
+                  if (idx > 0 && loadHistoryData[idx - 1]) {
+                    const current = loadHistoryData[idx];
+                    const prior = loadHistoryData[idx - 1];
+                    const diffRps = Number((current.metrics.avgRps - prior.metrics.avgRps).toFixed(1));
+                    const diffLat = Number((current.metrics.avgLatencyMs - prior.metrics.avgLatencyMs).toFixed(1));
+                    return [
+                      '',
+                      '--- Δ vs Run #' + prior.runNumber + ' ---',
+                      'Δ Throughput: ' + (diffRps >= 0 ? '+' : '') + diffRps + ' req/s',
+                      'Δ Mean Latency: ' + (diffLat <= 0 ? '' : '+') + diffLat + ' ms (' + (diffLat <= 0 ? 'Faster' : 'Slower') + ')'
+                    ];
+                  }
+                  return ['(Initial Baseline Run)'];
+                }
+              }
             }
           }
         }
@@ -534,7 +691,23 @@ function generatePerformanceChartJs(loadHistory) {
             },
             tooltip: {
               padding: 12,
-              cornerRadius: 8
+              cornerRadius: 8,
+              callbacks: {
+                afterBody: function(tooltipItems) {
+                  const idx = tooltipItems[0].dataIndex;
+                  if (idx > 0 && loadHistoryData[idx - 1]) {
+                    const current = loadHistoryData[idx];
+                    const prior = loadHistoryData[idx - 1];
+                    const diff429 = current.metrics.total429 - prior.metrics.total429;
+                    return [
+                      '',
+                      '--- Δ Defense vs Run #' + prior.runNumber + ' ---',
+                      'Δ 429 Enforced: ' + (diff429 >= 0 ? '+' : '') + diff429 + ' requests'
+                    ];
+                  }
+                  return ['(Initial Baseline Run)'];
+                }
+              }
             }
           }
         }
