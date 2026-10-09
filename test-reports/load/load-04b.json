@@ -2,24 +2,24 @@
   "scenarioId": "LOAD-04B",
   "scenarioName": "IP Rate Limit (Flood Defense)",
   "targetUrl": "https://xo.eve.vakh.com/api/auth/get-session",
-  "timestamp": "2026-10-07T05:53:15.817Z",
+  "timestamp": "2026-10-09T02:22:48.905Z",
   "mode": "smoke",
   "resultState": "PASS",
   "defenseLayer": "NONE_TRIGGERED",
-  "achievedRps": 71.43,
+  "achievedRps": 83.34,
   "distribution": {
-    "http2xx": 254,
-    "http429": 246,
+    "http2xx": 364,
+    "http429": 136,
     "http401": 0,
     "http403": 0,
     "http5xx": 0,
     "other4xx": 0
   },
   "stats": {
-    "p50": 335,
-    "p95": 1222,
-    "p99": 1345,
-    "avgLatencyMs": 428.95
+    "p50": 280,
+    "p95": 875,
+    "p99": 899,
+    "avgLatencyMs": 329.1
   },
   "sample429": null,
   "passed": true,
