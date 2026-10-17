@@ -4,7 +4,7 @@
       "C:\\Program Files\\nodejs\\node.exe",
       "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\node_modules\\@playwright\\test\\cli.js",
       "test",
-      "src/tests/explore.spec.ts"
+      "src/tests/activity.spec.ts"
     ],
     "configFile": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\playwright.config.ts",
     "rootDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
@@ -133,20 +133,20 @@
   },
   "suites": [
     {
-      "title": "explore.spec.ts",
-      "file": "explore.spec.ts",
+      "title": "activity.spec.ts",
+      "file": "activity.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Eve Vakh - Explore Page Functional, UI/UX & Profile Forms Test Suite",
-          "file": "explore.spec.ts",
-          "line": 8,
+          "title": "Eve Vakh - Activity & Notifications Page Test Suite",
+          "file": "activity.spec.ts",
+          "line": 7,
           "column": 6,
           "specs": [
             {
-              "title": "TC_EXP_001: should display explore header, navigation state and filter toolbar layout",
+              "title": "TC_ACT_001: should navigate to activity page and verify header display",
               "ok": true,
               "tags": [],
               "tests": [
@@ -161,18 +161,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 18012,
+                      "duration": 7944,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:21:29.944Z",
+                      "startTime": "2026-10-17T14:53:19.921Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-5e1f5-e-and-filter-toolbar-layout-chromium\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-c0ba2-e-and-verify-header-display-chromium\\video.webm"
                         }
                       ]
                     }
@@ -180,13 +180,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-e1957245c051e0e0c9c2",
-              "file": "explore.spec.ts",
-              "line": 42,
+              "id": "616be4781cf8c32ae453-3f190bd5eb820169b025",
+              "file": "activity.spec.ts",
+              "line": 80,
               "column": 7
             },
             {
-              "title": "TC_EXP_002: should display user cards with profile picture, username, display name and tags",
+              "title": "TC_ACT_002: should display activity feed and verify content layout",
               "ok": true,
               "tags": [],
               "tests": [
@@ -201,18 +201,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 11997,
+                      "duration": 9278,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:21:48.283Z",
+                      "startTime": "2026-10-17T14:53:28.185Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-60f5b-rname-display-name-and-tags-chromium\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-6ae2a-d-and-verify-content-layout-chromium\\video.webm"
                         }
                       ]
                     }
@@ -220,13 +220,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-e017ac197aacbcbb1497",
-              "file": "explore.spec.ts",
-              "line": 64,
+              "id": "616be4781cf8c32ae453-6b9f5ccc60cf9d78ed63",
+              "file": "activity.spec.ts",
+              "line": 96,
               "column": 7
             },
             {
-              "title": "TC_EXP_003: should open and validate nearby filter modal with apply, clear and close buttons",
+              "title": "TC_ACT_003: should verify badge and role assignment notification message",
               "ok": true,
               "tags": [],
               "tests": [
@@ -241,18 +241,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 10932,
+                      "duration": 8583,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:22:00.332Z",
+                      "startTime": "2026-10-17T14:53:37.495Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-38c22-ply-clear-and-close-buttons-chromium\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-c9d83-gnment-notification-message-chromium\\video.webm"
                         }
                       ]
                     }
@@ -260,13 +260,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-38065f9d70f1a5985268",
-              "file": "explore.spec.ts",
-              "line": 76,
+              "id": "616be4781cf8c32ae453-c29ea7d4e1b00c79571b",
+              "file": "activity.spec.ts",
+              "line": 109,
               "column": 7
             },
             {
-              "title": "TC_EXP_004: should open and validate tags filter modal with content and controls",
+              "title": "TC_ACT_004: should verify form publication approval notification and media preview",
               "ok": true,
               "tags": [],
               "tests": [
@@ -281,18 +281,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 33133,
+                      "duration": 8875,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:22:11.301Z",
+                      "startTime": "2026-10-17T14:53:46.106Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-23222-l-with-content-and-controls-chromium\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-81035-ification-and-media-preview-chromium\\video.webm"
                         }
                       ]
                     }
@@ -300,13 +300,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-413077f8e8c429ea2d74",
-              "file": "explore.spec.ts",
-              "line": 89,
+              "id": "616be4781cf8c32ae453-67db8b34566fa5053e57",
+              "file": "activity.spec.ts",
+              "line": 122,
               "column": 7
             },
             {
-              "title": "TC_EXP_005: should validate active filter button toggle and list responsiveness",
+              "title": "TC_ACT_005: should verify content moderation policy rejection message and quoted post",
               "ok": true,
               "tags": [],
               "tests": [
@@ -321,18 +321,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 36202,
+                      "duration": 8731,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:22:44.457Z",
+                      "startTime": "2026-10-17T14:53:55.013Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-e4d82-gle-and-list-responsiveness-chromium\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-cee6f-ion-message-and-quoted-post-chromium\\video.webm"
                         }
                       ]
                     }
@@ -340,13 +340,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-edbd9355c7807069fc9d",
-              "file": "explore.spec.ts",
-              "line": 100,
+              "id": "616be4781cf8c32ae453-393880cc1dc48ebd6e0c",
+              "file": "activity.spec.ts",
+              "line": 135,
               "column": 7
             },
             {
-              "title": "TC_EXP_006: should navigate to user profile and display header details (username, joined, rep, tags)",
+              "title": "TC_ACT_006: should verify post heart reaction notification and referenced post snippet",
               "ok": true,
               "tags": [],
               "tests": [
@@ -361,18 +361,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 40924,
+                      "duration": 10652,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:23:20.686Z",
+                      "startTime": "2026-10-17T14:54:03.767Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-10b3f-s-username-joined-rep-tags--chromium\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-baf45-and-referenced-post-snippet-chromium\\video.webm"
                         }
                       ]
                     }
@@ -380,13 +380,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-ec56b41e4b10a568b9a1",
-              "file": "explore.spec.ts",
-              "line": 111,
+              "id": "616be4781cf8c32ae453-d7f5233c5c23afe7d138",
+              "file": "activity.spec.ts",
+              "line": 149,
               "column": 7
             },
             {
-              "title": "TC_EXP_007: should display profile action buttons (Message and More) on profile view",
+              "title": "TC_ACT_007: should verify access and permissions granted notification messages",
               "ok": true,
               "tags": [],
               "tests": [
@@ -401,18 +401,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 16683,
+                      "duration": 10193,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:24:01.662Z",
+                      "startTime": "2026-10-17T14:54:14.451Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-72d78-ge-and-More-on-profile-view-chromium\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-10aa0-anted-notification-messages-chromium\\video.webm"
                         }
                       ]
                     }
@@ -420,13 +420,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-3afe6f3dda8fa3669df8",
-              "file": "explore.spec.ts",
-              "line": 127,
+              "id": "616be4781cf8c32ae453-5e5a1148aebb4a57f1f6",
+              "file": "activity.spec.ts",
+              "line": 163,
               "column": 7
             },
             {
-              "title": "TC_EXP_008: should display Forms section and list of user forms on profile",
+              "title": "TC_ACT_008: should verify user activity and post mention notification details",
               "ok": true,
               "tags": [],
               "tests": [
@@ -441,18 +441,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 13270,
+                      "duration": 12583,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:24:18.456Z",
+                      "startTime": "2026-10-17T14:54:24.676Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-b0154-st-of-user-forms-on-profile-chromium\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-189a8-ention-notification-details-chromium\\video.webm"
                         }
                       ]
                     }
@@ -460,13 +460,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-a80bf56afcb7cc4b1103",
-              "file": "explore.spec.ts",
-              "line": 141,
+              "id": "616be4781cf8c32ae453-6ffbc56d5467988266ce",
+              "file": "activity.spec.ts",
+              "line": 176,
               "column": 7
             },
             {
-              "title": "TC_EXP_009: should validate subscribe button presence, accessibility and subscription toggle",
+              "title": "TC_ACT_009: should verify end-of-feed indicator and chronological sequence",
               "ok": true,
               "tags": [],
               "tests": [
@@ -481,18 +481,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 18262,
+                      "duration": 10732,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:24:31.781Z",
+                      "startTime": "2026-10-17T14:54:37.296Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-fe721-ity-and-subscription-toggle-chromium\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-045ec--and-chronological-sequence-chromium\\video.webm"
                         }
                       ]
                     }
@@ -500,13 +500,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-b28f3965b15e84df5918",
-              "file": "explore.spec.ts",
-              "line": 155,
+              "id": "616be4781cf8c32ae453-204e0705c334e3fba5a2",
+              "file": "activity.spec.ts",
+              "line": 189,
               "column": 7
             },
             {
-              "title": "TC_EXP_010: clicking profile card from search results for deleted user alerts/handles gracefully without app crash",
+              "title": "TC_ACT_010: should preserve authenticated session upon direct activity navigation",
               "ok": true,
               "tags": [],
               "tests": [
@@ -521,18 +521,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 16638,
+                      "duration": 8595,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:24:50.098Z",
+                      "startTime": "2026-10-17T14:54:48.066Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-70884-racefully-without-app-crash-chromium\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-04cd1--direct-activity-navigation-chromium\\video.webm"
                         }
                       ]
                     }
@@ -540,13 +540,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-5b992a1fcbf3ade683ec",
-              "file": "explore.spec.ts",
-              "line": 171,
+              "id": "616be4781cf8c32ae453-43bf40385ed0aa08bb1a",
+              "file": "activity.spec.ts",
+              "line": 203,
               "column": 7
             },
             {
-              "title": "TC_EXP_011: clicking profile card from search results for user who blocked requester alerts/handles gracefully without app crash",
+              "title": "TC_ACT_011: should group high-frequency reactions (50+ likes in 1 minute) into a single summary notification",
               "ok": true,
               "tags": [],
               "tests": [
@@ -561,18 +561,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 27937,
+                      "duration": 10509,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:25:06.785Z",
+                      "startTime": "2026-10-17T14:54:56.698Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-4b534-racefully-without-app-crash-chromium\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-ecacd-single-summary-notification-chromium\\video.webm"
                         }
                       ]
                     }
@@ -580,53 +580,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-1c51a9fb5c3f19fc0a84",
-              "file": "explore.spec.ts",
-              "line": 240,
+              "id": "616be4781cf8c32ae453-6abd8c32a14f50f76d9e",
+              "file": "activity.spec.ts",
+              "line": 221,
               "column": 7
             },
             {
-              "title": "TC_EXP_012: should validate and clamp boundary values for Nearby distance slider (0 km, negative, and >5000 km)",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 23719,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-17T12:25:34.807Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-fad9d--0-km-negative-and-5000-km--chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "068fad9605609506583e-0604310bccc70fc90b2a",
-              "file": "explore.spec.ts",
-              "line": 310,
-              "column": 7
-            },
-            {
-              "title": "TC_EXP_001: should display explore header, navigation state and filter toolbar layout",
+              "title": "TC_ACT_001: should navigate to activity page and verify header display",
               "ok": true,
               "tags": [],
               "tests": [
@@ -641,42 +601,18 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 22885,
+                      "duration": 15900,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:21:29.936Z",
+                      "startTime": "2026-10-17T14:53:19.934Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-5e1f5-e-and-filter-toolbar-layout-firefox\\video.webm"
-                        }
-                      ]
-                    },
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 25235,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 1,
-                      "startTime": "2026-10-17T12:23:53.059Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-5e1f5-e-and-filter-toolbar-layout-firefox-retry1\\video.webm"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-5e1f5-e-and-filter-toolbar-layout-firefox-retry1\\trace.zip"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-c0ba2-e-and-verify-header-display-firefox\\video.webm"
                         }
                       ]
                     }
@@ -684,13 +620,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-52cd8a021c9c8b1ebe9d",
-              "file": "explore.spec.ts",
-              "line": 42,
+              "id": "616be4781cf8c32ae453-2331fb97787c953d3c1d",
+              "file": "activity.spec.ts",
+              "line": 80,
               "column": 7
             },
             {
-              "title": "TC_EXP_002: should display user cards with profile picture, username, display name and tags",
+              "title": "TC_ACT_002: should display activity feed and verify content layout",
               "ok": true,
               "tags": [],
               "tests": [
@@ -705,42 +641,18 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 18070,
+                      "duration": 14831,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:21:54.382Z",
+                      "startTime": "2026-10-17T14:53:37.230Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-60f5b-rname-display-name-and-tags-firefox\\video.webm"
-                        }
-                      ]
-                    },
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 20653,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 1,
-                      "startTime": "2026-10-17T12:24:21.684Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-60f5b-rname-display-name-and-tags-firefox-retry1\\video.webm"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-60f5b-rname-display-name-and-tags-firefox-retry1\\trace.zip"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-6ae2a-d-and-verify-content-layout-firefox\\video.webm"
                         }
                       ]
                     }
@@ -748,13 +660,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-bf213330155b049eafc3",
-              "file": "explore.spec.ts",
-              "line": 64,
+              "id": "616be4781cf8c32ae453-c84f944cf178f8f682be",
+              "file": "activity.spec.ts",
+              "line": 96,
               "column": 7
             },
             {
-              "title": "TC_EXP_003: should open and validate nearby filter modal with apply, clear and close buttons",
+              "title": "TC_ACT_003: should verify badge and role assignment notification message",
               "ok": true,
               "tags": [],
               "tests": [
@@ -768,99 +680,33 @@
                     {
                       "workerIndex": 1,
                       "parallelIndex": 1,
-                      "status": "timedOut",
-                      "duration": 96991,
-                      "error": {
-                        "message": "\u001b[31mTest timeout of 90000ms exceeded while running \"beforeEach\" hook.\u001b[39m",
-                        "stack": "\u001b[31mTest timeout of 90000ms exceeded while running \"beforeEach\" hook.\u001b[39m\n    at C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\src\\tests\\explore.spec.ts:12:8",
-                        "location": {
-                          "file": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\src\\tests\\explore.spec.ts",
-                          "column": 8,
-                          "line": 12
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 10 |\u001b[39m   test\u001b[33m.\u001b[39msetTimeout(\u001b[35m90000\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 12 |\u001b[39m   test\u001b[33m.\u001b[39mbeforeEach(\u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m    |\u001b[39m        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 13 |\u001b[39m     \u001b[36mconst\u001b[39m homePage \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mHomePage\u001b[39m(page)\u001b[33m;\u001b[39m\n \u001b[90m 14 |\u001b[39m     \u001b[36mconst\u001b[39m loginPage \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mLoginPage\u001b[39m(page)\u001b[33m;\u001b[39m\n \u001b[90m 15 |\u001b[39m     \u001b[36mconst\u001b[39m explorePage \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mExplorePage\u001b[39m(page)\u001b[33m;\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\src\\tests\\explore.spec.ts",
-                            "column": 8,
-                            "line": 12
-                          },
-                          "message": "\u001b[31mTest timeout of 90000ms exceeded while running \"beforeEach\" hook.\u001b[39m\n\n  10 |   test.setTimeout(90000);\n  11 |\n> 12 |   test.beforeEach(async ({ page }) => {\n     |        ^\n  13 |     const homePage = new HomePage(page);\n  14 |     const loginPage = new LoginPage(page);\n  15 |     const explorePage = new ExplorePage(page);\n    at C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\src\\tests\\explore.spec.ts:12:8"
-                        },
-                        {
-                          "location": {
-                            "file": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\src\\pages\\BasePage.ts",
-                            "column": 29,
-                            "line": 31
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/auth\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\n\n\n   at ..\\pages\\BasePage.ts:31\n\n  29 |    */\n  30 |   async waitForUrlPattern(pattern: RegExp | string, timeout: number = APP_CONFIG.DEFAULT_TIMEOUT) {\n> 31 |     await expect(this.page).toHaveURL(pattern, { timeout });\n     |                             ^\n  32 |   }\n  33 |\n  34 |   /**\n    at LoginPage.waitForUrlPattern (C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\src\\pages\\BasePage.ts:31:29)\n    at LoginPage.verifyIsOnLoginPage (C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\src\\pages\\LoginPage.ts:79:16)\n    at C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\src\\tests\\explore.spec.ts:20:21"
-                        }
-                      ],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-17T12:22:12.516Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-38c22-ply-clear-and-close-buttons-firefox\\test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-38c22-ply-clear-and-close-buttons-firefox\\video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-38c22-ply-clear-and-close-buttons-firefox\\error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\src\\tests\\explore.spec.ts",
-                        "column": 8,
-                        "line": 12
-                      }
-                    },
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 28385,
+                      "duration": 13466,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
-                      "retry": 1,
-                      "startTime": "2026-10-17T12:24:43.133Z",
+                      "retry": 0,
+                      "startTime": "2026-10-17T14:53:52.112Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-38c22-ply-clear-and-close-buttons-firefox-retry1\\video.webm"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-38c22-ply-clear-and-close-buttons-firefox-retry1\\trace.zip"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-c9d83-gnment-notification-message-firefox\\video.webm"
                         }
                       ]
                     }
                   ],
-                  "status": "flaky"
+                  "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-7f07c60f0567244954ae",
-              "file": "explore.spec.ts",
-              "line": 76,
+              "id": "616be4781cf8c32ae453-846f87e99cd7b42f8373",
+              "file": "activity.spec.ts",
+              "line": 109,
               "column": 7
             },
             {
-              "title": "TC_EXP_004: should open and validate tags filter modal with content and controls",
+              "title": "TC_ACT_004: should verify form publication approval notification and media preview",
               "ok": true,
               "tags": [],
               "tests": [
@@ -872,39 +718,21 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": -1,
-                      "parallelIndex": -1,
-                      "status": "skipped",
-                      "duration": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 15053,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:23:51.938Z",
-                      "annotations": [],
-                      "attachments": []
-                    },
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 32271,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 1,
-                      "startTime": "2026-10-17T12:25:12.224Z",
+                      "startTime": "2026-10-17T14:54:05.626Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-23222-l-with-content-and-controls-firefox-retry1\\video.webm"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-23222-l-with-content-and-controls-firefox-retry1\\trace.zip"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-81035-ification-and-media-preview-firefox\\video.webm"
                         }
                       ]
                     }
@@ -912,13 +740,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-c862bb6bcc8cd85fba89",
-              "file": "explore.spec.ts",
-              "line": 89,
+              "id": "616be4781cf8c32ae453-2bed74c4b20134e1da61",
+              "file": "activity.spec.ts",
+              "line": 122,
               "column": 7
             },
             {
-              "title": "TC_EXP_005: should validate active filter button toggle and list responsiveness",
+              "title": "TC_ACT_005: should verify content moderation policy rejection message and quoted post",
               "ok": true,
               "tags": [],
               "tests": [
@@ -930,39 +758,21 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": -1,
-                      "parallelIndex": -1,
-                      "status": "skipped",
-                      "duration": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 16179,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:23:51.939Z",
-                      "annotations": [],
-                      "attachments": []
-                    },
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 21016,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 1,
-                      "startTime": "2026-10-17T12:25:47.017Z",
+                      "startTime": "2026-10-17T14:54:20.720Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-e4d82-gle-and-list-responsiveness-firefox-retry1\\video.webm"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-e4d82-gle-and-list-responsiveness-firefox-retry1\\trace.zip"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-cee6f-ion-message-and-quoted-post-firefox\\video.webm"
                         }
                       ]
                     }
@@ -970,13 +780,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-13b024f1cbebc16822ac",
-              "file": "explore.spec.ts",
-              "line": 100,
+              "id": "616be4781cf8c32ae453-8751050b2c020ef8d8bb",
+              "file": "activity.spec.ts",
+              "line": 135,
               "column": 7
             },
             {
-              "title": "TC_EXP_006: should navigate to user profile and display header details (username, joined, rep, tags)",
+              "title": "TC_ACT_006: should verify post heart reaction notification and referenced post snippet",
               "ok": true,
               "tags": [],
               "tests": [
@@ -988,39 +798,21 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": -1,
-                      "parallelIndex": -1,
-                      "status": "skipped",
-                      "duration": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 14230,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:23:51.939Z",
-                      "annotations": [],
-                      "attachments": []
-                    },
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 40799,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 1,
-                      "startTime": "2026-10-17T12:26:08.718Z",
+                      "startTime": "2026-10-17T14:54:36.950Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-10b3f-s-username-joined-rep-tags--firefox-retry1\\video.webm"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-10b3f-s-username-joined-rep-tags--firefox-retry1\\trace.zip"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-baf45-and-referenced-post-snippet-firefox\\video.webm"
                         }
                       ]
                     }
@@ -1028,13 +820,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-61ada054a7a85e4a035d",
-              "file": "explore.spec.ts",
-              "line": 111,
+              "id": "616be4781cf8c32ae453-adbd9a602b42fa338bb4",
+              "file": "activity.spec.ts",
+              "line": 149,
               "column": 7
             },
             {
-              "title": "TC_EXP_007: should display profile action buttons (Message and More) on profile view",
+              "title": "TC_ACT_007: should verify access and permissions granted notification messages",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1046,39 +838,21 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": -1,
-                      "parallelIndex": -1,
-                      "status": "skipped",
-                      "duration": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 15108,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:23:51.940Z",
-                      "annotations": [],
-                      "attachments": []
-                    },
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 28457,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 1,
-                      "startTime": "2026-10-17T12:26:51.395Z",
+                      "startTime": "2026-10-17T14:54:51.215Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-72d78-ge-and-More-on-profile-view-firefox-retry1\\video.webm"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-72d78-ge-and-More-on-profile-view-firefox-retry1\\trace.zip"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-10aa0-anted-notification-messages-firefox\\video.webm"
                         }
                       ]
                     }
@@ -1086,13 +860,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-19fa099e6bcb8be4afb2",
-              "file": "explore.spec.ts",
-              "line": 127,
+              "id": "616be4781cf8c32ae453-81c9cea473df043b0cbd",
+              "file": "activity.spec.ts",
+              "line": 163,
               "column": 7
             },
             {
-              "title": "TC_EXP_008: should display Forms section and list of user forms on profile",
+              "title": "TC_ACT_008: should verify user activity and post mention notification details",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1104,39 +878,21 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": -1,
-                      "parallelIndex": -1,
-                      "status": "skipped",
-                      "duration": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 13694,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:23:51.940Z",
-                      "annotations": [],
-                      "attachments": []
-                    },
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 68139,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 1,
-                      "startTime": "2026-10-17T12:27:21.137Z",
+                      "startTime": "2026-10-17T14:55:06.355Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-b0154-st-of-user-forms-on-profile-firefox-retry1\\video.webm"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-b0154-st-of-user-forms-on-profile-firefox-retry1\\trace.zip"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-189a8-ention-notification-details-firefox\\video.webm"
                         }
                       ]
                     }
@@ -1144,13 +900,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-9327cb5d732136aa463b",
-              "file": "explore.spec.ts",
-              "line": 141,
+              "id": "616be4781cf8c32ae453-5515a795000eb6b05aff",
+              "file": "activity.spec.ts",
+              "line": 176,
               "column": 7
             },
             {
-              "title": "TC_EXP_009: should validate subscribe button presence, accessibility and subscription toggle",
+              "title": "TC_ACT_009: should verify end-of-feed indicator and chronological sequence",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1162,39 +918,21 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": -1,
-                      "parallelIndex": -1,
-                      "status": "skipped",
-                      "duration": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 13399,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:23:51.940Z",
-                      "annotations": [],
-                      "attachments": []
-                    },
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 36032,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 1,
-                      "startTime": "2026-10-17T12:28:30.223Z",
+                      "startTime": "2026-10-17T14:55:20.085Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-fe721-ity-and-subscription-toggle-firefox-retry1\\video.webm"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-fe721-ity-and-subscription-toggle-firefox-retry1\\trace.zip"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-045ec--and-chronological-sequence-firefox\\video.webm"
                         }
                       ]
                     }
@@ -1202,13 +940,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-045c89ec1a71fccf6943",
-              "file": "explore.spec.ts",
-              "line": 155,
+              "id": "616be4781cf8c32ae453-793b5458db392c657d2a",
+              "file": "activity.spec.ts",
+              "line": 189,
               "column": 7
             },
             {
-              "title": "TC_EXP_010: clicking profile card from search results for deleted user alerts/handles gracefully without app crash",
+              "title": "TC_ACT_010: should preserve authenticated session upon direct activity navigation",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1220,39 +958,21 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": -1,
-                      "parallelIndex": -1,
-                      "status": "skipped",
-                      "duration": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 19278,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:23:51.940Z",
-                      "annotations": [],
-                      "attachments": []
-                    },
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 27722,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 1,
-                      "startTime": "2026-10-17T12:29:07.343Z",
+                      "startTime": "2026-10-17T14:55:33.534Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-70884-racefully-without-app-crash-firefox-retry1\\video.webm"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-70884-racefully-without-app-crash-firefox-retry1\\trace.zip"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-04cd1--direct-activity-navigation-firefox\\video.webm"
                         }
                       ]
                     }
@@ -1260,13 +980,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-13e423d79002c95d5ef2",
-              "file": "explore.spec.ts",
-              "line": 171,
+              "id": "616be4781cf8c32ae453-5e3cbefe68b586879541",
+              "file": "activity.spec.ts",
+              "line": 203,
               "column": 7
             },
             {
-              "title": "TC_EXP_011: clicking profile card from search results for user who blocked requester alerts/handles gracefully without app crash",
+              "title": "TC_ACT_011: should group high-frequency reactions (50+ likes in 1 minute) into a single summary notification",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1278,39 +998,61 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": -1,
-                      "parallelIndex": -1,
-                      "status": "skipped",
-                      "duration": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 16014,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:23:51.940Z",
+                      "startTime": "2026-10-17T14:55:52.876Z",
                       "annotations": [],
-                      "attachments": []
-                    },
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-ecacd-single-summary-notification-firefox\\video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-3f6c34ed56556d6717d4",
+              "file": "activity.spec.ts",
+              "line": 221,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_001: should navigate to activity page and verify header display",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
                     {
                       "workerIndex": 2,
-                      "parallelIndex": 1,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 44386,
+                      "duration": 14486,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
-                      "retry": 1,
-                      "startTime": "2026-10-17T12:29:36.130Z",
+                      "retry": 0,
+                      "startTime": "2026-10-17T14:55:09.089Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-4b534-racefully-without-app-crash-firefox-retry1\\video.webm"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-4b534-racefully-without-app-crash-firefox-retry1\\trace.zip"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-c0ba2-e-and-verify-header-display-webkit\\video.webm"
                         }
                       ]
                     }
@@ -1318,13 +1060,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-c9719d8f913c6de9ca67",
-              "file": "explore.spec.ts",
-              "line": 240,
+              "id": "616be4781cf8c32ae453-40eeb2640590a90411cb",
+              "file": "activity.spec.ts",
+              "line": 80,
               "column": 7
             },
             {
-              "title": "TC_EXP_012: should validate and clamp boundary values for Nearby distance slider (0 km, negative, and >5000 km)",
+              "title": "TC_ACT_002: should display activity feed and verify content layout",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1332,43 +1074,25 @@
                   "timeout": 90000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
                   "results": [
-                    {
-                      "workerIndex": -1,
-                      "parallelIndex": -1,
-                      "status": "skipped",
-                      "duration": 0,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-17T12:23:51.940Z",
-                      "annotations": [],
-                      "attachments": []
-                    },
                     {
                       "workerIndex": 2,
-                      "parallelIndex": 1,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 46834,
+                      "duration": 17875,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
-                      "retry": 1,
-                      "startTime": "2026-10-17T12:30:22.166Z",
+                      "retry": 0,
+                      "startTime": "2026-10-17T14:55:23.816Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-fad9d--0-km-negative-and-5000-km--firefox-retry1\\video.webm"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-fad9d--0-km-negative-and-5000-km--firefox-retry1\\trace.zip"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-6ae2a-d-and-verify-content-layout-webkit\\video.webm"
                         }
                       ]
                     }
@@ -1376,13 +1100,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-b9c5f03a8d916e79ad4b",
-              "file": "explore.spec.ts",
-              "line": 310,
+              "id": "616be4781cf8c32ae453-c9d350d3e8448011ace5",
+              "file": "activity.spec.ts",
+              "line": 96,
               "column": 7
             },
             {
-              "title": "TC_EXP_001: should display explore header, navigation state and filter toolbar layout",
+              "title": "TC_ACT_003: should verify badge and role assignment notification message",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1394,21 +1118,21 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 3,
+                      "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 26356,
+                      "duration": 19590,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:26:01.475Z",
+                      "startTime": "2026-10-17T14:55:41.750Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-5e1f5-e-and-filter-toolbar-layout-webkit\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-c9d83-gnment-notification-message-webkit\\video.webm"
                         }
                       ]
                     }
@@ -1416,13 +1140,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-30483ff56932b578b373",
-              "file": "explore.spec.ts",
-              "line": 42,
+              "id": "616be4781cf8c32ae453-7dd9d7499ddc80269ca9",
+              "file": "activity.spec.ts",
+              "line": 109,
               "column": 7
             },
             {
-              "title": "TC_EXP_002: should display user cards with profile picture, username, display name and tags",
+              "title": "TC_ACT_004: should verify form publication approval notification and media preview",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1434,21 +1158,21 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 3,
+                      "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 30125,
+                      "duration": 23869,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:26:28.086Z",
+                      "startTime": "2026-10-17T14:56:01.393Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-60f5b-rname-display-name-and-tags-webkit\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-81035-ification-and-media-preview-webkit\\video.webm"
                         }
                       ]
                     }
@@ -1456,13 +1180,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-6d276258ebbc1d5d36b8",
-              "file": "explore.spec.ts",
-              "line": 64,
+              "id": "616be4781cf8c32ae453-741c710d1bd040e90ec4",
+              "file": "activity.spec.ts",
+              "line": 122,
               "column": 7
             },
             {
-              "title": "TC_EXP_003: should open and validate nearby filter modal with apply, clear and close buttons",
+              "title": "TC_ACT_005: should verify content moderation policy rejection message and quoted post",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1474,21 +1198,21 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 3,
+                      "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 35478,
+                      "duration": 23109,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:26:58.269Z",
+                      "startTime": "2026-10-17T14:56:25.315Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-38c22-ply-clear-and-close-buttons-webkit\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-cee6f-ion-message-and-quoted-post-webkit\\video.webm"
                         }
                       ]
                     }
@@ -1496,13 +1220,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-4f8463e348e384c536a4",
-              "file": "explore.spec.ts",
-              "line": 76,
+              "id": "616be4781cf8c32ae453-2547bcf08994cb690835",
+              "file": "activity.spec.ts",
+              "line": 135,
               "column": 7
             },
             {
-              "title": "TC_EXP_004: should open and validate tags filter modal with content and controls",
+              "title": "TC_ACT_006: should verify post heart reaction notification and referenced post snippet",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1514,21 +1238,21 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 3,
+                      "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 41135,
+                      "duration": 18227,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:27:33.802Z",
+                      "startTime": "2026-10-17T14:56:48.481Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-23222-l-with-content-and-controls-webkit\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-baf45-and-referenced-post-snippet-webkit\\video.webm"
                         }
                       ]
                     }
@@ -1536,13 +1260,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-b3068604e0c0936a05f1",
-              "file": "explore.spec.ts",
-              "line": 89,
+              "id": "616be4781cf8c32ae453-133c3032c684d3e1af75",
+              "file": "activity.spec.ts",
+              "line": 149,
               "column": 7
             },
             {
-              "title": "TC_EXP_005: should validate active filter button toggle and list responsiveness",
+              "title": "TC_ACT_007: should verify access and permissions granted notification messages",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1554,21 +1278,21 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 3,
+                      "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 49933,
+                      "duration": 17828,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:28:15.019Z",
+                      "startTime": "2026-10-17T14:57:06.742Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-e4d82-gle-and-list-responsiveness-webkit\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-10aa0-anted-notification-messages-webkit\\video.webm"
                         }
                       ]
                     }
@@ -1576,13 +1300,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-baf22bd7f95528e9a236",
-              "file": "explore.spec.ts",
-              "line": 100,
+              "id": "616be4781cf8c32ae453-11ef22923c1d57f754b5",
+              "file": "activity.spec.ts",
+              "line": 163,
               "column": 7
             },
             {
-              "title": "TC_EXP_006: should navigate to user profile and display header details (username, joined, rep, tags)",
+              "title": "TC_ACT_008: should verify user activity and post mention notification details",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1594,21 +1318,21 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 3,
+                      "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 32610,
+                      "duration": 21570,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:29:05.017Z",
+                      "startTime": "2026-10-17T14:57:24.597Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-10b3f-s-username-joined-rep-tags--webkit\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-189a8-ention-notification-details-webkit\\video.webm"
                         }
                       ]
                     }
@@ -1616,13 +1340,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-d8acc50d06f4f751f212",
-              "file": "explore.spec.ts",
-              "line": 111,
+              "id": "616be4781cf8c32ae453-5f3e6f12776098cae9f5",
+              "file": "activity.spec.ts",
+              "line": 176,
               "column": 7
             },
             {
-              "title": "TC_EXP_007: should display profile action buttons (Message and More) on profile view",
+              "title": "TC_ACT_009: should verify end-of-feed indicator and chronological sequence",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1634,21 +1358,21 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 3,
+                      "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 92513,
+                      "duration": 20197,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:29:37.682Z",
+                      "startTime": "2026-10-17T14:57:46.198Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-72d78-ge-and-More-on-profile-view-webkit\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-045ec--and-chronological-sequence-webkit\\video.webm"
                         }
                       ]
                     }
@@ -1656,13 +1380,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-4f78f5620a6452fd0d59",
-              "file": "explore.spec.ts",
-              "line": 127,
+              "id": "616be4781cf8c32ae453-70713ba243a079258a49",
+              "file": "activity.spec.ts",
+              "line": 189,
               "column": 7
             },
             {
-              "title": "TC_EXP_008: should display Forms section and list of user forms on profile",
+              "title": "TC_ACT_010: should preserve authenticated session upon direct activity navigation",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1674,21 +1398,21 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 3,
+                      "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 52172,
+                      "duration": 14296,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:31:10.277Z",
+                      "startTime": "2026-10-17T14:58:06.442Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-b0154-st-of-user-forms-on-profile-webkit\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-04cd1--direct-activity-navigation-webkit\\video.webm"
                         }
                       ]
                     }
@@ -1696,13 +1420,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-b48281a3f5cdfd27e16e",
-              "file": "explore.spec.ts",
-              "line": 141,
+              "id": "616be4781cf8c32ae453-e73792c7347a25ffd70c",
+              "file": "activity.spec.ts",
+              "line": 203,
               "column": 7
             },
             {
-              "title": "TC_EXP_009: should validate subscribe button presence, accessibility and subscription toggle",
+              "title": "TC_ACT_011: should group high-frequency reactions (50+ likes in 1 minute) into a single summary notification",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1714,21 +1438,21 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 3,
+                      "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 38970,
+                      "duration": 13471,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:32:02.534Z",
+                      "startTime": "2026-10-17T14:58:20.774Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-fe721-ity-and-subscription-toggle-webkit\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-ecacd-single-summary-notification-webkit\\video.webm"
                         }
                       ]
                     }
@@ -1736,13 +1460,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-5f08ad05da839629c63e",
-              "file": "explore.spec.ts",
-              "line": 155,
+              "id": "616be4781cf8c32ae453-d33480fdda16920f080e",
+              "file": "activity.spec.ts",
+              "line": 221,
               "column": 7
             },
             {
-              "title": "TC_EXP_010: clicking profile card from search results for deleted user alerts/handles gracefully without app crash",
+              "title": "TC_ACT_001: should navigate to activity page and verify header display",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1750,65 +1474,25 @@
                   "timeout": 90000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 39200,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-17T12:32:41.578Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-70884-racefully-without-app-crash-webkit\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "068fad9605609506583e-c730a0c6b5c100e865a8",
-              "file": "explore.spec.ts",
-              "line": 171,
-              "column": 7
-            },
-            {
-              "title": "TC_EXP_011: clicking profile card from search results for user who blocked requester alerts/handles gracefully without app crash",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
+                  "projectId": "edge",
+                  "projectName": "edge",
                   "results": [
                     {
                       "workerIndex": 3,
-                      "parallelIndex": 0,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 36555,
+                      "duration": 9517,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:33:20.847Z",
+                      "startTime": "2026-10-17T14:56:11.810Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-4b534-racefully-without-app-crash-webkit\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-c0ba2-e-and-verify-header-display-edge\\video.webm"
                         }
                       ]
                     }
@@ -1816,13 +1500,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-d51560927bc2f3e03eb4",
-              "file": "explore.spec.ts",
-              "line": 240,
+              "id": "616be4781cf8c32ae453-dfd318d377df3c58b902",
+              "file": "activity.spec.ts",
+              "line": 80,
               "column": 7
             },
             {
-              "title": "TC_EXP_012: should validate and clamp boundary values for Nearby distance slider (0 km, negative, and >5000 km)",
+              "title": "TC_ACT_002: should display activity feed and verify content layout",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1830,25 +1514,25 @@
                   "timeout": 90000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
+                  "projectId": "edge",
+                  "projectName": "edge",
                   "results": [
                     {
                       "workerIndex": 3,
-                      "parallelIndex": 0,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 51711,
+                      "duration": 9610,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:33:57.462Z",
+                      "startTime": "2026-10-17T14:56:24.212Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-fad9d--0-km-negative-and-5000-km--webkit\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-6ae2a-d-and-verify-content-layout-edge\\video.webm"
                         }
                       ]
                     }
@@ -1856,13 +1540,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-d87e998f5d7cad97e31a",
-              "file": "explore.spec.ts",
-              "line": 310,
+              "id": "616be4781cf8c32ae453-7f259c2e4b32c4bd4d7e",
+              "file": "activity.spec.ts",
+              "line": 96,
               "column": 7
             },
             {
-              "title": "TC_EXP_001: should display explore header, navigation state and filter toolbar layout",
+              "title": "TC_ACT_003: should verify badge and role assignment notification message",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1874,21 +1558,21 @@
                   "projectName": "edge",
                   "results": [
                     {
-                      "workerIndex": 4,
+                      "workerIndex": 3,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 42035,
+                      "duration": 10795,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:31:14.130Z",
+                      "startTime": "2026-10-17T14:56:33.867Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-5e1f5-e-and-filter-toolbar-layout-edge\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-c9d83-gnment-notification-message-edge\\video.webm"
                         }
                       ]
                     }
@@ -1896,13 +1580,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-a9c3cccef544b00c8607",
-              "file": "explore.spec.ts",
-              "line": 42,
+              "id": "616be4781cf8c32ae453-de1c7f98325063cf54f3",
+              "file": "activity.spec.ts",
+              "line": 109,
               "column": 7
             },
             {
-              "title": "TC_EXP_002: should display user cards with profile picture, username, display name and tags",
+              "title": "TC_ACT_004: should verify form publication approval notification and media preview",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1914,21 +1598,21 @@
                   "projectName": "edge",
                   "results": [
                     {
-                      "workerIndex": 4,
+                      "workerIndex": 3,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 18175,
+                      "duration": 9569,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:31:58.928Z",
+                      "startTime": "2026-10-17T14:56:44.695Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-60f5b-rname-display-name-and-tags-edge\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-81035-ification-and-media-preview-edge\\video.webm"
                         }
                       ]
                     }
@@ -1936,13 +1620,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-1fab4074324a531757a8",
-              "file": "explore.spec.ts",
-              "line": 64,
+              "id": "616be4781cf8c32ae453-32d1908eabde58e58bce",
+              "file": "activity.spec.ts",
+              "line": 122,
               "column": 7
             },
             {
-              "title": "TC_EXP_003: should open and validate nearby filter modal with apply, clear and close buttons",
+              "title": "TC_ACT_005: should verify content moderation policy rejection message and quoted post",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1954,21 +1638,21 @@
                   "projectName": "edge",
                   "results": [
                     {
-                      "workerIndex": 4,
+                      "workerIndex": 3,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 17418,
+                      "duration": 9825,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:32:17.169Z",
+                      "startTime": "2026-10-17T14:56:54.291Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-38c22-ply-clear-and-close-buttons-edge\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-cee6f-ion-message-and-quoted-post-edge\\video.webm"
                         }
                       ]
                     }
@@ -1976,13 +1660,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-5cca0b8db1452b58ab6c",
-              "file": "explore.spec.ts",
-              "line": 76,
+              "id": "616be4781cf8c32ae453-def33e31fd9a58454012",
+              "file": "activity.spec.ts",
+              "line": 135,
               "column": 7
             },
             {
-              "title": "TC_EXP_004: should open and validate tags filter modal with content and controls",
+              "title": "TC_ACT_006: should verify post heart reaction notification and referenced post snippet",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1994,21 +1678,21 @@
                   "projectName": "edge",
                   "results": [
                     {
-                      "workerIndex": 4,
+                      "workerIndex": 3,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 25298,
+                      "duration": 11380,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:32:34.637Z",
+                      "startTime": "2026-10-17T14:57:04.149Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-23222-l-with-content-and-controls-edge\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-baf45-and-referenced-post-snippet-edge\\video.webm"
                         }
                       ]
                     }
@@ -2016,13 +1700,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-c23aeeb31fb2f1d3b9e2",
-              "file": "explore.spec.ts",
-              "line": 89,
+              "id": "616be4781cf8c32ae453-ed64de53ce53a5f66b04",
+              "file": "activity.spec.ts",
+              "line": 149,
               "column": 7
             },
             {
-              "title": "TC_EXP_005: should validate active filter button toggle and list responsiveness",
+              "title": "TC_ACT_007: should verify access and permissions granted notification messages",
               "ok": true,
               "tags": [],
               "tests": [
@@ -2034,21 +1718,21 @@
                   "projectName": "edge",
                   "results": [
                     {
-                      "workerIndex": 4,
+                      "workerIndex": 3,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 18454,
+                      "duration": 9927,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:32:59.983Z",
+                      "startTime": "2026-10-17T14:57:15.561Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-e4d82-gle-and-list-responsiveness-edge\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-10aa0-anted-notification-messages-edge\\video.webm"
                         }
                       ]
                     }
@@ -2056,13 +1740,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-241655174f0afdc58c82",
-              "file": "explore.spec.ts",
-              "line": 100,
+              "id": "616be4781cf8c32ae453-56bbcb5f8dc0ef694d23",
+              "file": "activity.spec.ts",
+              "line": 163,
               "column": 7
             },
             {
-              "title": "TC_EXP_006: should navigate to user profile and display header details (username, joined, rep, tags)",
+              "title": "TC_ACT_008: should verify user activity and post mention notification details",
               "ok": true,
               "tags": [],
               "tests": [
@@ -2074,21 +1758,21 @@
                   "projectName": "edge",
                   "results": [
                     {
-                      "workerIndex": 4,
+                      "workerIndex": 3,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 25887,
+                      "duration": 11247,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:33:18.513Z",
+                      "startTime": "2026-10-17T14:57:25.524Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-10b3f-s-username-joined-rep-tags--edge\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-189a8-ention-notification-details-edge\\video.webm"
                         }
                       ]
                     }
@@ -2096,13 +1780,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-cc6156e0bff43c1fa4d2",
-              "file": "explore.spec.ts",
-              "line": 111,
+              "id": "616be4781cf8c32ae453-d11f8a8c97761a6c3f91",
+              "file": "activity.spec.ts",
+              "line": 176,
               "column": 7
             },
             {
-              "title": "TC_EXP_007: should display profile action buttons (Message and More) on profile view",
+              "title": "TC_ACT_009: should verify end-of-feed indicator and chronological sequence",
               "ok": true,
               "tags": [],
               "tests": [
@@ -2114,21 +1798,21 @@
                   "projectName": "edge",
                   "results": [
                     {
-                      "workerIndex": 4,
+                      "workerIndex": 3,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 29362,
+                      "duration": 8330,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:33:44.450Z",
+                      "startTime": "2026-10-17T14:57:36.801Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-72d78-ge-and-More-on-profile-view-edge\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-045ec--and-chronological-sequence-edge\\video.webm"
                         }
                       ]
                     }
@@ -2136,13 +1820,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-8426bb9ccd43aa6f00e4",
-              "file": "explore.spec.ts",
-              "line": 127,
+              "id": "616be4781cf8c32ae453-76053fde6740df1bb26e",
+              "file": "activity.spec.ts",
+              "line": 189,
               "column": 7
             },
             {
-              "title": "TC_EXP_008: should display Forms section and list of user forms on profile",
+              "title": "TC_ACT_010: should preserve authenticated session upon direct activity navigation",
               "ok": true,
               "tags": [],
               "tests": [
@@ -2154,21 +1838,21 @@
                   "projectName": "edge",
                   "results": [
                     {
-                      "workerIndex": 4,
+                      "workerIndex": 3,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 17308,
+                      "duration": 7429,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:34:13.864Z",
+                      "startTime": "2026-10-17T14:57:45.166Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-b0154-st-of-user-forms-on-profile-edge\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-04cd1--direct-activity-navigation-edge\\video.webm"
                         }
                       ]
                     }
@@ -2176,13 +1860,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-267a3af29f5aacb7c35e",
-              "file": "explore.spec.ts",
-              "line": 141,
+              "id": "616be4781cf8c32ae453-ae1b223d50b1f1c52e97",
+              "file": "activity.spec.ts",
+              "line": 203,
               "column": 7
             },
             {
-              "title": "TC_EXP_009: should validate subscribe button presence, accessibility and subscription toggle",
+              "title": "TC_ACT_011: should group high-frequency reactions (50+ likes in 1 minute) into a single summary notification",
               "ok": true,
               "tags": [],
               "tests": [
@@ -2194,21 +1878,21 @@
                   "projectName": "edge",
                   "results": [
                     {
-                      "workerIndex": 4,
+                      "workerIndex": 3,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 23367,
+                      "duration": 8021,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-17T12:34:31.231Z",
+                      "startTime": "2026-10-17T14:57:52.626Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-fe721-ity-and-subscription-toggle-edge\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-ecacd-single-summary-notification-edge\\video.webm"
                         }
                       ]
                     }
@@ -2216,129 +1900,9 @@
                   "status": "expected"
                 }
               ],
-              "id": "068fad9605609506583e-0ea4bde13daf1346185f",
-              "file": "explore.spec.ts",
-              "line": 155,
-              "column": 7
-            },
-            {
-              "title": "TC_EXP_010: clicking profile card from search results for deleted user alerts/handles gracefully without app crash",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "edge",
-                  "projectName": "edge",
-                  "results": [
-                    {
-                      "workerIndex": 4,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 17451,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-17T12:34:54.667Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-70884-racefully-without-app-crash-edge\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "068fad9605609506583e-2016f241c77bcd184c37",
-              "file": "explore.spec.ts",
-              "line": 171,
-              "column": 7
-            },
-            {
-              "title": "TC_EXP_011: clicking profile card from search results for user who blocked requester alerts/handles gracefully without app crash",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "edge",
-                  "projectName": "edge",
-                  "results": [
-                    {
-                      "workerIndex": 4,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 17899,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-17T12:35:12.165Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-4b534-racefully-without-app-crash-edge\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "068fad9605609506583e-d9e376f4db83381770d4",
-              "file": "explore.spec.ts",
-              "line": 240,
-              "column": 7
-            },
-            {
-              "title": "TC_EXP_012: should validate and clamp boundary values for Nearby distance slider (0 km, negative, and >5000 km)",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "edge",
-                  "projectName": "edge",
-                  "results": [
-                    {
-                      "workerIndex": 4,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 28510,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-17T12:35:30.096Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-fad9d--0-km-negative-and-5000-km--edge\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "068fad9605609506583e-9b684ba17967641b48d1",
-              "file": "explore.spec.ts",
-              "line": 310,
+              "id": "616be4781cf8c32ae453-713a3269cdca083988eb",
+              "file": "activity.spec.ts",
+              "line": 221,
               "column": 7
             }
           ]
@@ -2348,11 +1912,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-17T12:21:28.220Z",
-    "duration": 870787.321,
-    "expected": 47,
+    "startTime": "2026-10-17T14:53:18.746Z",
+    "duration": 315641.93,
+    "expected": 44,
     "skipped": 0,
     "unexpected": 0,
-    "flaky": 1
+    "flaky": 0
   }
 }
