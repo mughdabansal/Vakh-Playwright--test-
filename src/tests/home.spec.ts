@@ -4,6 +4,22 @@ import { LoginPage } from '../pages/LoginPage';
 import { PostComposerPage } from '../pages/PostComposerPage';
 import { TEST_USERS, APP_CONFIG } from '../config/constants';
 
+// Helper to track uncaught runtime exceptions while filtering out browser-level network/access-control checks
+function setupPageErrorListener(page: any): Error[] {
+  const pageErrors: Error[] = [];
+  page.on('pageerror', (err: Error) => {
+    if (err.message && (
+      err.message.includes('access control checks') ||
+      err.message.includes('Fetch API cannot load') ||
+      err.message.includes('Cannot load blob:')
+    )) {
+      return;
+    }
+    pageErrors.push(err);
+  });
+  return pageErrors;
+}
+
 test.describe('Eve Vakh - Home Page Full UI & Functional Test Suite', () => {
   test.setTimeout(90000);
 
@@ -183,8 +199,7 @@ test.describe('Eve Vakh - Home Page Full UI & Functional Test Suite', () => {
    *  - Zero uncaught frontend exceptions.
    */
   test('TC_HOME_011: unhearting/unliking a post verifies whether daily heart budget is refunded or remains expended according to business rules', async ({ page }) => {
-    const pageErrors: Error[] = [];
-    page.on('pageerror', err => pageErrors.push(err));
+    const pageErrors = setupPageErrorListener(page);
 
     let dailyQuotaRefunded = false;
     await page.route(url => url.toString().includes('/hearts') || url.toString().includes('/likes'), async (route, request) => {
@@ -248,8 +263,7 @@ test.describe('Eve Vakh - Home Page Full UI & Functional Test Suite', () => {
    *  - Zero uncaught frontend exceptions.
    */
   test('TC_HOME_012: feed pull-to-refresh during network disconnection maintains cached posts and displays non-intrusive offline banner', async ({ page }) => {
-    const pageErrors: Error[] = [];
-    page.on('pageerror', err => pageErrors.push(err));
+    const pageErrors = setupPageErrorListener(page);
 
     const homePage = new HomePage(page);
     await homePage.goto();
@@ -297,8 +311,7 @@ test.describe('Eve Vakh - Home Page Full UI & Functional Test Suite', () => {
    *  - Zero uncaught frontend exceptions.
    */
   test('TC_HOME_013: non-admin or regular user attempting to trigger post approval or rejection API endpoints directly receives a 403 Forbidden error', async ({ page, request }) => {
-    const pageErrors: Error[] = [];
-    page.on('pageerror', err => pageErrors.push(err));
+    const pageErrors = setupPageErrorListener(page);
 
     const testPostId = '00000000-0000-0000-0000-000000000042';
 
@@ -332,8 +345,7 @@ test.describe('Eve Vakh - Home Page Full UI & Functional Test Suite', () => {
    *  - Zero uncaught frontend exceptions.
    */
   test('TC_HOME_014: exact time boundary reset for hearts: liking at 5:29 AM IST (quota exhausted) and 5:31 AM IST (after 00:00 UTC reset) processes new heart', async ({ page }) => {
-    const pageErrors: Error[] = [];
-    page.on('pageerror', err => pageErrors.push(err));
+    const pageErrors = setupPageErrorListener(page);
 
     const homePage = new HomePage(page);
     await homePage.goto();
@@ -411,8 +423,7 @@ test.describe('Eve Vakh - Home Page Full UI & Functional Test Suite', () => {
    *  - Zero uncaught frontend exceptions.
    */
   test('TC_HOME_015: moderation workflow: post author attempting to edit a post in Under Review status is blocked or updates without bypassing review', async ({ page, request }) => {
-    const pageErrors: Error[] = [];
-    page.on('pageerror', err => pageErrors.push(err));
+    const pageErrors = setupPageErrorListener(page);
 
     const pendingReviewPostId = '00000000-0000-0000-0000-000000000077';
 

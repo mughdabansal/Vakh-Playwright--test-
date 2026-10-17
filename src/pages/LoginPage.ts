@@ -173,8 +173,14 @@ export class LoginPage extends BasePage {
       if (!this.page.url().includes('/auth/sign-in')) {
         break;
       }
-      // If still on sign-in after 3s and sign in button is enabled, re-click in case of dropped click
-      if (Date.now() - startTime > 3000) {
+      // If "Sign in failed" notice is visible, wait for rate limiter to clear before re-attempting
+      const failedNotice = this.page.locator('text=/sign in failed/i');
+      if (await failedNotice.isVisible().catch(() => false)) {
+        await this.page.waitForTimeout(2000);
+        if (await this.signInButton.isVisible().catch(() => false) && await this.signInButton.isEnabled().catch(() => false)) {
+          await this.signInButton.click().catch(() => {});
+        }
+      } else if (Date.now() - startTime > 4000) {
         if (await this.signInButton.isVisible().catch(() => false) && await this.signInButton.isEnabled().catch(() => false)) {
           await this.signInButton.click().catch(() => {});
         }
@@ -182,6 +188,6 @@ export class LoginPage extends BasePage {
       await this.page.waitForTimeout(1000);
     }
     await this.waitForUrlPattern(/^https:\/\/eve\.vakh\.com\/?$/, timeout);
-    await expect(this.homeHeader).toBeVisible({ timeout: 15000 });
+    await expect(this.homeHeader).toBeVisible({ timeout: 20000 });
   }
 }

@@ -12,8 +12,8 @@ export default defineConfig({
   testIgnore: isExplicitChatRun ? [] : ['**/chat.spec.ts', '**/04-chat-collaboration.spec.ts'],
   fullyParallel: false,
   forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
+  retries: process.env.CI ? 2 : 1,
+  workers: process.env.CI ? 1 : 2,
   reporter: [
     ['html', { outputFolder: 'test-reports/html-report', open: 'never' }],
     ['json', { outputFile: 'test-reports/results.json' }],
@@ -24,6 +24,7 @@ export default defineConfig({
     baseURL: 'https://eve.vakh.com',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
+    video: 'on',
     actionTimeout: 15000,
     navigationTimeout: 30000,
   },

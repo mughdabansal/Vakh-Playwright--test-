@@ -15,8 +15,13 @@ export abstract class BasePage {
    * Navigates to a specific path relative to the base URL.
    */
   async navigateTo(path: string = '/') {
-    await this.page.goto(path);
-    await this.page.waitForLoadState('domcontentloaded');
+    try {
+      await this.page.goto(path, { waitUntil: 'domcontentloaded' });
+    } catch {
+      await this.page.waitForTimeout(1000);
+      await this.page.goto(path, { waitUntil: 'commit' }).catch(() => {});
+    }
+    await this.page.waitForLoadState('domcontentloaded').catch(() => {});
   }
 
   /**

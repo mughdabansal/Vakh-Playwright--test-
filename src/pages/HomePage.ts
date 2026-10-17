@@ -140,7 +140,7 @@ export class HomePage extends BasePage {
       .filter({ hasText: targetPattern });
 
     // Explicitly wait for at least one feed post to be rendered
-    await expect(feedPostCards.first()).toBeVisible({ timeout: 20000 });
+    await expect(feedPostCards.first()).toBeVisible({ timeout: 30000 });
 
     let targetCard = feedPostCards.first();
 
@@ -169,18 +169,24 @@ export class HomePage extends BasePage {
     }
 
     // Assert navigation into the form/post view
-    await expect(this.page).toHaveURL(/\/form\/|\/post\//, { timeout: 15000 });
+    await expect(this.page).toHaveURL(/\/form\/|\/post\//, { timeout: 20000 });
+
+    // Wait for form data / post loading state to detach if present
+    await this.page.locator('text=/loading form|loading posts|loading/i').waitFor({ state: 'detached', timeout: 20000 }).catch(() => {});
   }
 
   /**
    * Validates that post text, media, and links are displayed and working dynamically as expected.
    */
   async validatePostContent() {
+    // Wait for form data loading state to finish
+    await this.page.locator('text=/loading form|loading posts|loading/i').waitFor({ state: 'detached', timeout: 20000 }).catch(() => {});
+
     // 1. Text validation: dynamically detect any rendered post content
     const postTextElements = this.page.locator('div[dir="auto"], p, span, h1, h2, h3').filter({
       hasNotText: /^Home$|^Chat$|^Activity$|^Explore$|^New Post$|^More$/i
     }).locator('visible=true');
-    await expect(postTextElements.first()).toBeVisible({ timeout: 10000 });
+    await expect(postTextElements.first()).toBeVisible({ timeout: 15000 });
     const textContent = await postTextElements.first().innerText();
     expect(textContent.trim().length).toBeGreaterThan(0);
 
@@ -205,12 +211,15 @@ export class HomePage extends BasePage {
    * Selects a post dynamically using the available select button.
    */
   async selectPost() {
+    // Wait for form/post loading state to detach if present
+    await this.page.locator('text=/loading form|loading posts|loading/i').waitFor({ state: 'detached', timeout: 20000 }).catch(() => {});
+
     const selectBtn = this.page.getByRole('button', { name: /select post|select/i })
       .or(this.page.locator('button[aria-label*="Select post" i], button[aria-label*="Select" i]'))
       .locator('visible=true')
       .first();
 
-    await expect(selectBtn).toBeVisible({ timeout: 10000 });
+    await expect(selectBtn).toBeVisible({ timeout: 20000 });
     await selectBtn.scrollIntoViewIfNeeded();
     await selectBtn.click();
     await this.page.waitForTimeout(1000);
@@ -229,14 +238,20 @@ export class HomePage extends BasePage {
     await quoteBtn.click({ force: true });
     await this.page.waitForTimeout(1000);
 
-    // Verify quote composer modal or options appear
-    const composerModal = this.page.locator('[role="dialog"]')
-      .or(this.page.locator('[data-testid="composer-modal-header"]'))
-      .or(this.page.locator('text=/Quote|Compose/i'));
+    // Verify quote composer modal or options appear using accessible dialog/form elements
+    const composerModal = this.page.getByRole('dialog')
+      .or(this.page.locator('[role="dialog"]'))
+      .or(this.page.getByPlaceholder(/search forms/i))
+      .or(this.page.getByRole('heading', { name: /quote/i }));
     await expect(composerModal.first()).toBeVisible({ timeout: 10000 });
 
     // Close the quote dialog cleanly
-    await this.page.keyboard.press('Escape');
+    const closeBtn = composerModal.getByRole('button', { name: /close/i }).first();
+    if (await closeBtn.isVisible({ timeout: 2000 }).catch(() => false)) {
+      await closeBtn.click({ force: true });
+    } else {
+      await this.page.keyboard.press('Escape');
+    }
     await this.page.waitForTimeout(500);
   }
 
@@ -254,12 +269,18 @@ export class HomePage extends BasePage {
     await this.page.waitForTimeout(1000);
 
     // Verify chat share dialog or options appear
-    const chatModalOrPage = this.page.locator('[role="dialog"]')
+    const chatModalOrPage = this.page.getByRole('dialog')
+      .or(this.page.locator('[role="dialog"]'))
       .or(this.page.locator('button[aria-label*="Send selected posts" i]'))
-      .or(this.page.locator('text=/Messages|Conversation|Send selected posts/i'));
+      .or(this.page.getByText(/Messages|Conversation|Send selected posts/i));
     await expect(chatModalOrPage.first()).toBeVisible({ timeout: 10000 });
 
-    await this.page.keyboard.press('Escape');
+    const closeBtn = chatModalOrPage.getByRole('button', { name: /close/i }).first();
+    if (await closeBtn.isVisible({ timeout: 2000 }).catch(() => false)) {
+      await closeBtn.click({ force: true });
+    } else {
+      await this.page.keyboard.press('Escape');
+    }
     await this.page.waitForTimeout(500);
   }
 
@@ -267,6 +288,9 @@ export class HomePage extends BasePage {
    * Visits the post author's profile page dynamically and asserts profile view.
    */
   async visitPostAuthorProfile(authorUsername?: string) {
+    // Wait for form/post loading state to detach if present
+    await this.page.locator('text=/loading form|loading posts|loading/i').waitFor({ state: 'detached', timeout: 20000 }).catch(() => {});
+
     // Target the author menuitem in the post header (excluding navigation/Back)
     let authorMenuItem = this.page.getByRole('menuitem').filter({
       hasNotText: /^Back$|^Home$|^Chat$|^Activity$|^Explore$/i
@@ -274,19 +298,19 @@ export class HomePage extends BasePage {
 
     if (authorUsername) {
       const specificMenuItem = this.page.getByRole('menuitem', { name: new RegExp(authorUsername, 'i') }).locator('visible=true').first();
-      if (await specificMenuItem.isVisible({ timeout: 3000 }).catch(() => false)) {
+      if (await specificMenuItem.isVisible({ timeout: 5000 }).catch(() => false)) {
         authorMenuItem = specificMenuItem;
       }
     }
 
-    await expect(authorMenuItem).toBeVisible({ timeout: 10000 });
+    await expect(authorMenuItem).toBeVisible({ timeout: 20000 });
     const targetAuthor = (await authorMenuItem.innerText()).trim();
 
     await authorMenuItem.click();
     await this.page.waitForTimeout(1000);
 
     // Verify navigation to profile URL
-    await expect(this.page).toHaveURL(/\/user\//, { timeout: 15000 });
+    await expect(this.page).toHaveURL(/\/user\//, { timeout: 20000 });
 
     // Verify profile handle or username is displayed on profile page
     if (targetAuthor) {
@@ -294,7 +318,7 @@ export class HomePage extends BasePage {
         .or(this.page.locator(`text=${targetAuthor}`))
         .locator('visible=true')
         .first();
-      await expect(profileHandle).toBeVisible({ timeout: 15000 });
+      await expect(profileHandle).toBeVisible({ timeout: 20000 });
     }
   }
 

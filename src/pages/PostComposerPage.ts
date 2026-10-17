@@ -78,13 +78,17 @@ export class PostComposerPage extends BasePage {
    * Selects the target form (defaults to user's 'posts' form) inside the CREATE FORMS modal.
    */
   async selectTargetForm(formName: string = 'posts') {
-    await this.page.locator('[role="dialog"] button[aria-label*="Create in"]').first().waitFor({ state: 'visible', timeout: 10000 }).catch(() => {});
+    await this.page.locator('[role="dialog"]').first().waitFor({ state: 'visible', timeout: 10000 }).catch(() => {});
 
-    const targetFormBtn = this.page.locator(`[role="dialog"] button[aria-label*="Create in ${formName}" i], [role="dialog"] button[aria-label="Create in posts"]`).first();
+    // Target form card: could be 'Resume draft in posts...', 'Create in posts', or text matching formName
+    const targetFormLocator = this.page.locator(`[role="dialog"] [aria-label*="${formName}" i]`)
+      .or(this.page.locator(`[role="dialog"] button[aria-label*="${formName}" i]`))
+      .or(this.page.locator('[role="dialog"]').getByText(formName, { exact: true }))
+      .or(this.page.locator('[role="dialog"] [aria-label*="Resume draft in" i], [role="dialog"] [aria-label*="Create in" i]'));
 
-    // Scroll virtualized container if targetFormBtn is not yet mounted
-    for (let i = 0; i < 20; i++) {
-      if (await targetFormBtn.count() > 0) {
+    // Wait or scroll if not mounted yet
+    for (let i = 0; i < 15; i++) {
+      if (await targetFormLocator.first().isVisible().catch(() => false)) {
         break;
       }
       await this.page.evaluate(() => {
@@ -95,25 +99,27 @@ export class PostComposerPage extends BasePage {
           return (style.overflowY === 'auto' || style.overflowY === 'scroll') && d.scrollHeight > d.clientHeight;
         });
         if (scrollable) {
-          scrollable.scrollTop += 600;
+          scrollable.scrollTop += 400;
         } else {
-          dialog.scrollTop += 600;
+          dialog.scrollTop += 400;
         }
       });
       await this.page.waitForTimeout(250);
     }
 
-    let targetBtn = targetFormBtn;
-    if (await targetFormBtn.count() > 0) {
-      targetBtn = targetFormBtn;
-    } else {
-      targetBtn = this.page.locator('[role="dialog"] button[aria-label*="Create in"]').first();
-    }
-
-    await targetBtn.scrollIntoViewIfNeeded();
+    const targetBtn = targetFormLocator.first();
+    await targetBtn.scrollIntoViewIfNeeded().catch(() => {});
     await expect(targetBtn).toBeVisible({ timeout: 15000 });
     await this.page.waitForTimeout(500);
-    await targetBtn.click({ force: true });
+    await targetBtn.click();
+    await this.page.waitForTimeout(1000);
+
+    // Verify dialog transitioned to composer
+    const composerOpen = this.page.locator('button[aria-label="Add Text"], button[aria-label="Create post"], [data-testid="composer-modal-header"]').first();
+    if (!(await composerOpen.isVisible({ timeout: 3000 }).catch(() => false))) {
+      await targetBtn.click({ force: true }).catch(() => {});
+      await this.page.keyboard.press('Enter');
+    }
     await this.page.waitForTimeout(1000);
   }
 
