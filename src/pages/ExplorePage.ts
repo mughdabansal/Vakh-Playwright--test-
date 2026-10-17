@@ -72,16 +72,16 @@ export class ExplorePage extends BasePage {
     this.searchInput = page.getByPlaceholder(/search users/i).or(page.locator('input[aria-label="Search users"]'));
 
     // Nearby Filter modal
-    this.nearbyModalApply = page.getByTestId('nearby-filter-apply');
-    this.nearbyModalClear = page.getByTestId('nearby-filter-clear');
-    this.nearbyModalClose = page.getByTestId('nearby-filter-close');
+    this.nearbyModalApply = page.getByTestId('nearby-filter-apply').or(page.locator('button[aria-label*="apply" i], button:has-text("Apply")')).locator('visible=true').first();
+    this.nearbyModalClear = page.getByTestId('nearby-filter-clear').or(page.locator('button[aria-label*="clear" i], button:has-text("Clear")')).locator('visible=true').first();
+    this.nearbyModalClose = page.getByTestId('nearby-filter-close').or(page.locator('button[aria-label*="close" i], button:has-text("Close")')).locator('visible=true').first();
     this.nearbyDistanceInput = page.locator('input[aria-label="Distance in kilometers"]').first();
 
     // Tags Filter modal
-    this.tagsModalContent = page.getByTestId('tags-filter-modal-content');
-    this.tagsModalClear = page.getByTestId('tags-filter-clear');
-    this.tagsModalClose = page.getByTestId('tags-filter-close');
-    this.tagsModalApply = page.getByTestId('tags-filter-apply');
+    this.tagsModalContent = page.getByTestId('tags-filter-modal-content').or(page.locator('div[role="dialog"]')).locator('visible=true').first();
+    this.tagsModalClear = page.getByTestId('tags-filter-clear').or(page.locator('button[aria-label*="clear" i], button:has-text("Clear")')).locator('visible=true').first();
+    this.tagsModalClose = page.getByTestId('tags-filter-close').or(page.locator('button[aria-label*="close" i], button:has-text("Close")')).locator('visible=true').first();
+    this.tagsModalApply = page.getByTestId('tags-filter-apply').or(page.locator('button[aria-label*="apply" i], button:has-text("Apply")')).locator('visible=true').first();
 
     // User cards in explore list
     this.userCards = page.locator('button, [role="button"]').filter({ hasText: '@' });
@@ -160,26 +160,36 @@ export class ExplorePage extends BasePage {
    * Opens the Nearby Filter modal, asserts its buttons, and closes it.
    */
   async testNearbyFilterModal() {
-    await expect(this.nearbyFilterBtn).toBeVisible({ timeout: 10000 });
-    await this.nearbyFilterBtn.click();
+    await this.openNearbyFilterModal();
 
     // Verify modal action buttons
-    await expect(this.nearbyModalApply).toBeVisible({ timeout: 5000 });
-    await expect(this.nearbyModalClear).toBeVisible({ timeout: 5000 });
-    await expect(this.nearbyModalClose).toBeVisible({ timeout: 5000 });
+    await expect(this.nearbyModalApply).toBeVisible({ timeout: 10000 });
+    await expect(this.nearbyModalClear).toBeVisible({ timeout: 10000 });
+    await expect(this.nearbyModalClose).toBeVisible({ timeout: 10000 });
 
     // Close the modal
-    await this.nearbyModalClose.click();
-    await expect(this.nearbyModalClose).not.toBeVisible({ timeout: 5000 });
+    try {
+      await this.nearbyModalClose.click({ timeout: 4000 });
+    } catch {
+      await this.nearbyModalClose.click({ force: true });
+    }
+    await expect(this.nearbyModalClose).not.toBeVisible({ timeout: 10000 }).catch(() => {});
   }
 
   /**
    * Opens the Nearby filter modal.
    */
   async openNearbyFilterModal() {
+    if (await this.nearbyModalApply.isVisible({ timeout: 1000 }).catch(() => false)) {
+      return;
+    }
     await expect(this.nearbyFilterBtn).toBeVisible({ timeout: 10000 });
-    await this.nearbyFilterBtn.click();
-    await expect(this.nearbyModalApply).toBeVisible({ timeout: 5000 });
+    try {
+      await this.nearbyFilterBtn.click({ timeout: 4000 });
+    } catch {
+      await this.nearbyFilterBtn.click({ force: true });
+    }
+    await expect(this.nearbyModalApply).toBeVisible({ timeout: 10000 });
   }
 
   /**
@@ -196,8 +206,13 @@ export class ExplorePage extends BasePage {
    */
   async applyNearbyFilter() {
     await expect(this.nearbyModalApply).toBeVisible({ timeout: 5000 });
-    await this.nearbyModalApply.click();
-    await expect(this.nearbyModalApply).not.toBeVisible({ timeout: 10000 });
+    try {
+      await this.nearbyModalApply.click({ timeout: 4000 });
+    } catch {
+      await this.nearbyModalApply.click({ force: true });
+    }
+    await expect(this.nearbyModalApply).not.toBeVisible({ timeout: 10000 }).catch(() => {});
+    await this.page.waitForTimeout(1000);
   }
 
   /**

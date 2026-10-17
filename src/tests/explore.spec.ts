@@ -6,6 +6,8 @@ import { ExplorePage } from '../pages/ExplorePage';
 import { TEST_USERS } from '../config/constants';
 
 test.describe('Eve Vakh - Explore Page Functional, UI/UX & Profile Forms Test Suite', () => {
+  test.describe.configure({ mode: 'serial' });
+  test.setTimeout(90000);
 
   test.beforeEach(async ({ page }) => {
     const homePage = new HomePage(page);

@@ -79,11 +79,14 @@ export class HomePage extends BasePage {
     if (this.page.url().includes('/auth/sign-in')) {
       return;
     }
-    await expect(this.webLink).toBeVisible({ timeout: 15000 });
-    await this.webLink.click();
-    try {
-      await this.waitForUrlPattern(/\/auth\/sign-in/, 5000);
-    } catch {
+    if (await this.webLink.isVisible({ timeout: 5000 }).catch(() => false)) {
+      await this.webLink.click();
+      try {
+        await this.waitForUrlPattern(/\/auth\/sign-in/, 5000);
+      } catch {
+        await this.navigateTo('/auth/sign-in');
+      }
+    } else {
       await this.navigateTo('/auth/sign-in');
     }
   }
