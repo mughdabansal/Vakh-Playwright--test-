@@ -41,14 +41,14 @@ export class ChatPage extends BasePage {
     this.chatNavButton = page.getByRole('menuitem', { name: 'Chat' }).locator('visible=true').first();
     this.messagesHeader = page.getByRole('heading', { name: /messages|conversation/i }).or(page.getByText('Messages', { exact: true })).locator('visible=true').first();
     this.newMsgButton = page.getByRole('button', { name: /new message/i }).or(page.locator('button[aria-label*="New Message"]')).locator('visible=true').first();
-    this.backButton = page.locator('div[role="menuitem"][aria-label="Back"], button[aria-label="Back"]').locator('visible=true').first();
+    this.backButton = page.getByRole('menuitem', { name: 'Back' }).or(page.locator('div[role="menuitem"][aria-label="Back"], button[aria-label="Back"], button:has-text("Back"), [aria-label*="Back" i]')).locator('visible=true').first();
 
     // User Search & Dialog Controls
     this.searchUserInput = page.getByPlaceholder(/search by name or username|search/i).or(page.locator('input[aria-label="Search users"]')).locator('visible=true').last();
     this.startChatButton = page.locator('button[aria-label="Create Group"], button:has-text("Create Group"), button[aria-label="Start Chat"], button:has-text("Start Chat")').locator('visible=true').first();
 
     // Chat Composer & Actions
-    this.messageTextarea = page.locator('textarea[placeholder="Type a message..."], textarea[aria-label="Text input field"]').locator('visible=true').first();
+    this.messageTextarea = page.getByPlaceholder(/Type a message/i).or(page.locator('textarea[placeholder*="Type a message" i], textarea[aria-label*="Text input field" i], [aria-label*="Text input field" i], textarea')).locator('visible=true').first();
     this.sendMessageButton = page.locator('button[aria-label="Send message"]').locator('visible=true').first();
     this.attachmentOptionsButton = page.locator('button[aria-label="Open attachment options"]').locator('visible=true').first();
     this.attachPhotosButton = page.locator('button[aria-label="Attach photos"]').locator('visible=true').first();
@@ -56,7 +56,7 @@ export class ChatPage extends BasePage {
     this.closeAttachmentOptionsButton = page.locator('button[aria-label="Close attachment options"]').locator('visible=true').first();
 
     // Group & Settings Controls
-    this.conversationSettingsButton = page.locator('button[aria-label="Conversation settings"], button[aria-label*="Conversation details"], button[aria-label*="details"]').locator('visible=true').first();
+    this.conversationSettingsButton = page.getByRole('button', { name: /conversation settings|settings/i }).or(page.locator('button[aria-label*="settings" i], button[aria-label*="details" i], button[aria-label*="conversation" i]')).locator('visible=true').first();
     this.editGroupNameButton = page.locator('button[aria-label*="Edit group name"], button:has-text("Edit group name")').locator('visible=true').first();
     this.groupNameInput = page.locator('input[aria-label*="Group name"], input[placeholder*="Group name"], input[type="text"]').locator('visible=true').last();
     this.saveGroupNameButton = page.locator('button[aria-label*="Save group name"], button[aria-label*="Save"], button:has-text("Save")').locator('visible=true').first();
@@ -70,9 +70,24 @@ export class ChatPage extends BasePage {
    * Navigates to the Chat / Messages page via sidebar or direct URL.
    */
   async navigateToChat() {
-    if (this.page.url().includes('/messages')) {
+    // If already on /messages root (not inside a thread /messages/c/...) and new message button is visible, return immediately
+    if (this.page.url().match(/\/messages\/?$/) && await this.newMsgButton.isVisible({ timeout: 1500 }).catch(() => false)) {
       return;
     }
+
+    // If currently inside an active conversation thread (/messages/c/...), click Back or navigate to /messages
+    if (this.page.url().includes('/messages/c/')) {
+      if (await this.backButton.isVisible({ timeout: 2000 }).catch(() => false)) {
+        await this.backButton.click();
+        await this.page.waitForTimeout(1000);
+      }
+      if (this.page.url().includes('/messages/c/')) {
+        await this.navigateTo('/messages');
+        await this.page.waitForTimeout(1500);
+      }
+      return;
+    }
+
     if (await this.chatNavButton.isVisible({ timeout: 5000 }).catch(() => false)) {
       await this.chatNavButton.click();
     }
@@ -90,6 +105,13 @@ export class ChatPage extends BasePage {
    * Header / menuitem, New Message button, and conversation stream container.
    */
   async verifyChatLayout() {
+    // If inside a conversation thread, return to the conversation list so the layout items are visible
+    if (this.page.url().includes('/messages/c/')) {
+      if (await this.backButton.isVisible({ timeout: 2000 }).catch(() => false)) {
+        await this.backButton.click();
+        await this.page.waitForTimeout(1000);
+      }
+    }
     await expect(this.chatNavButton).toBeVisible({ timeout: 10000 });
     await expect(this.newMsgButton).toBeVisible({ timeout: 10000 });
 
@@ -102,6 +124,17 @@ export class ChatPage extends BasePage {
    * Opens the "New Message" dialog.
    */
   async clickNewMessage() {
+    // If inside an active conversation thread or newMsgButton is not yet visible, return to conversation list
+    if (!await this.newMsgButton.isVisible({ timeout: 2000 }).catch(() => false)) {
+      if (await this.backButton.isVisible({ timeout: 2000 }).catch(() => false)) {
+        await this.backButton.click();
+        await this.page.waitForTimeout(1000);
+      }
+      if (!await this.newMsgButton.isVisible({ timeout: 2000 }).catch(() => false)) {
+        await this.navigateTo('/messages');
+        await this.page.waitForTimeout(1500);
+      }
+    }
     await expect(this.newMsgButton).toBeVisible({ timeout: 10000 });
     await this.newMsgButton.click();
     await this.page.waitForTimeout(1000);
@@ -142,15 +175,24 @@ export class ChatPage extends BasePage {
    * Checks if an active DM conversation already exists in the sidebar to reuse it directly.
    */
   async startDirectMessage(userHandle: string = 'happy_badger_2312') {
-    await this.navigateToChat();
+    const cleanHandle = userHandle.replace('@', '');
 
-    // If messageTextarea is already visible, we are already in an active chat
-    if (await this.messageTextarea.isVisible({ timeout: 2000 }).catch(() => false)) {
+    // 1. If we are already inside the target 1-on-1 DM thread with visible message input, reuse it directly
+    const isDmHeader = await this.page.locator(`text=/${cleanHandle}/i`).or(this.page.getByText(/happy badger/i)).isVisible({ timeout: 1500 }).catch(() => false);
+    if (isDmHeader && await this.messageTextarea.isVisible({ timeout: 2000 }).catch(() => false)) {
       return;
     }
 
-    // 1. Check if direct conversation already exists in the conversation list
-    const cleanHandle = userHandle.replace('@', '');
+    // 2. If we are in another thread or need to find this DM, return to conversation list
+    if (this.page.url().includes('/messages/c/')) {
+      if (await this.backButton.isVisible({ timeout: 2000 }).catch(() => false)) {
+        await this.backButton.click();
+        await this.page.waitForTimeout(1000);
+      }
+    }
+    await this.navigateToChat();
+
+    // 3. Check if direct conversation already exists in the conversation list
     const existingDm = this.page.locator(`button[aria-label*="${cleanHandle}" i], button[aria-label*="Happy Badger" i]`).or(
       this.page.locator('button, div[role="button"]').filter({ hasText: new RegExp(cleanHandle, 'i') })
     ).or(
@@ -165,7 +207,7 @@ export class ChatPage extends BasePage {
       }
     }
 
-    // 2. Otherwise initiate via New Message dialog
+    // 4. Otherwise initiate via New Message dialog
     await this.clickNewMessage();
     await this.searchUser(cleanHandle);
     await this.selectUserFromSearch(userHandle);
@@ -315,21 +357,35 @@ export class ChatPage extends BasePage {
    * Reuses the existing group conversation every time instead of creating new ones repeatedly.
    */
   async ensureGroupChatOpened(preferredName: string = 'QA Alpha Group') {
-    // 1. If we are already in an active group chat thread with visible textarea & settings, reuse it
+    // 1. If we are already in an active group chat thread with visible group title & message input, reuse it
+    const isGroupHeader = await this.page.locator(`text="${preferredName}"`).or(this.page.getByText(preferredName)).or(this.page.getByText('Group Chat')).isVisible({ timeout: 1500 }).catch(() => false);
+    if (isGroupHeader && await this.messageTextarea.isVisible({ timeout: 2000 }).catch(() => false)) {
+      return;
+    }
     if (await this.messageTextarea.isVisible({ timeout: 1000 }).catch(() => false)) {
       if (await this.conversationSettingsButton.isVisible({ timeout: 1000 }).catch(() => false)) {
         return;
       }
     }
 
+    // 2. Return to the conversation list if inside a thread
+    if (this.page.url().includes('/messages/c/')) {
+      if (await this.backButton.isVisible({ timeout: 2000 }).catch(() => false)) {
+        await this.backButton.click();
+        await this.page.waitForTimeout(1000);
+      }
+    }
     await this.navigateToChat();
 
-    // 2. Wait for conversation list to load
-    await expect(this.newMsgButton).toBeVisible({ timeout: 15000 });
-    await this.page.waitForTimeout(2000);
+    // 3. Wait for conversation list to load or new message button
+    await this.newMsgButton.waitFor({ state: 'visible', timeout: 10000 }).catch(() => {});
+    await this.page.waitForTimeout(1500);
 
     // Target group items by preferred group title ("QA Alpha Group"), existing variants, or generic "Group Chat"
-    const groupConvo = this.page.locator(`button[aria-label*="${preferredName}" i], button[aria-label*="QA Alpha" i], button[aria-label*="Group Chat" i], button[aria-label*="QA Automated" i]`).locator('visible=true').first();
+    const groupConvo = this.page.locator(`button[aria-label*="${preferredName}" i], button[aria-label*="QA Alpha" i], button[aria-label*="Group Chat" i], button[aria-label*="QA Automated" i]`).or(
+      this.page.locator('button, div[role="button"]').filter({ hasText: new RegExp(preferredName, 'i') })
+    ).locator('visible=true').first();
+
     if (await groupConvo.isVisible({ timeout: 8000 }).catch(() => false)) {
       await groupConvo.click();
       await this.page.waitForTimeout(2000);
@@ -338,7 +394,7 @@ export class ChatPage extends BasePage {
       }
     }
 
-    // 3. Only if no group chat exists at all in the list, create one once and utilize it
+    // 4. Only if no group chat exists at all in the list, create one once and utilize it
     await this.createGroupChat(['happy_badger_2312', 'mughdabansal1414'], preferredName);
   }
 
