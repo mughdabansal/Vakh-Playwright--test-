@@ -216,6 +216,39 @@ export class ExplorePage extends BasePage {
   }
 
   /**
+   * Clears the Nearby filter and resets toolbar state.
+   */
+  async clearNearbyFilter() {
+    await this.openNearbyFilterModal();
+    await expect(this.nearbyModalClear).toBeVisible({ timeout: 5000 });
+    try {
+      await this.nearbyModalClear.click({ timeout: 4000 });
+    } catch {
+      await this.nearbyModalClear.click({ force: true });
+    }
+    await expect(this.nearbyModalClear).not.toBeVisible({ timeout: 10000 }).catch(() => {});
+    await this.page.waitForTimeout(1000);
+  }
+
+  /**
+   * Retrieves ordered array of username handles from all visible user cards.
+   */
+  async getUserCardUsernames(): Promise<string[]> {
+    await this.page.waitForTimeout(500);
+    const count = await this.userCards.count();
+    const usernames: string[] = [];
+    for (let i = 0; i < count; i++) {
+      const card = this.userCards.nth(i);
+      const usernameLocator = card.locator('text=@');
+      if (await usernameLocator.first().isVisible({ timeout: 1000 }).catch(() => false)) {
+        const text = (await usernameLocator.first().innerText()).trim();
+        usernames.push(text);
+      }
+    }
+    return usernames;
+  }
+
+  /**
    * Opens the Tags Filter modal, asserts its controls, and closes it.
    */
   async testTagsFilterModal() {

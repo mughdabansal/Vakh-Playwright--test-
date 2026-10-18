@@ -11,6 +11,7 @@
     "test:chat": "playwright test src/tests/chat.spec.ts && npm run generate:dashboard",
     "test:activity": "playwright test src/tests/activity.spec.ts && npm run generate:dashboard",
     "test:explore": "playwright test src/tests/explore.spec.ts && npm run generate:dashboard",
+    "test:explore:location": "playwright test src/tests/explore-location-boost.spec.ts && npm run generate:dashboard",
     "test:post": "playwright test src/tests/post.spec.ts && npm run generate:dashboard",
     "test:post:poll": "playwright test src/tests/post.spec.ts -g TC_POST_005 && npm run generate:dashboard",
     "test:recovery": "playwright test src/tests/recovery.spec.ts && npm run generate:dashboard",

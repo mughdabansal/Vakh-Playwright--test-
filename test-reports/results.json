@@ -1,18 +1,16 @@
 {
   "config": {
     "argv": [
-      "/opt/hostedtoolcache/node/22.23.3/x64/bin/node",
-      "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/node_modules/.bin/playwright",
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\node_modules\\@playwright\\test\\cli.js",
       "test",
-      "src/tests/post.spec.ts",
-      "-g",
-      "TC_POST_005",
+      "src/tests/explore-location-boost.spec.ts",
       "--project=chromium"
     ],
-    "configFile": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/playwright.config.ts",
-    "rootDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
+    "configFile": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\playwright.config.ts",
+    "rootDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
     "failOnFlakyTests": false,
-    "forbidOnly": true,
+    "forbidOnly": false,
     "fullyParallel": false,
     "globalSetup": null,
     "globalTeardown": null,
@@ -21,64 +19,20 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "ci": {
-        "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/90d1858b9f27e8ff895d1fb237ceb04c0b9524c4",
-        "commitHash": "90d1858b9f27e8ff895d1fb237ceb04c0b9524c4",
-        "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/39092245894"
-      },
-      "gitCommit": {
-        "shortHash": "90d1858",
-        "hash": "90d1858b9f27e8ff895d1fb237ceb04c0b9524c4",
-        "subject": "fix(sanity): update test timeouts, form selector scoping, and WebKit access control filters",
-        "body": "fix(sanity): update test timeouts, form selector scoping, and WebKit access control filters\n",
-        "author": {
-          "name": "Mughda Bansal",
-          "email": "mughdabansal1414@gmail.com",
-          "time": 1792292362000
-        },
-        "committer": {
-          "name": "Mughda Bansal",
-          "email": "mughdabansal1414@gmail.com",
-          "time": 1792292564000
-        },
-        "branch": "main"
-      },
       "actualWorkers": 1
     },
     "preserveOutput": "always",
     "projects": [
       {
-        "outputDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results",
+        "outputDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/test-reports/test-results",
         "repeatEach": 1,
-        "retries": 2,
+        "retries": 1,
         "metadata": {
-          "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/90d1858b9f27e8ff895d1fb237ceb04c0b9524c4",
-            "commitHash": "90d1858b9f27e8ff895d1fb237ceb04c0b9524c4",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/39092245894"
-          },
-          "gitCommit": {
-            "shortHash": "90d1858",
-            "hash": "90d1858b9f27e8ff895d1fb237ceb04c0b9524c4",
-            "subject": "fix(sanity): update test timeouts, form selector scoping, and WebKit access control filters",
-            "body": "fix(sanity): update test timeouts, form selector scoping, and WebKit access control filters\n",
-            "author": {
-              "name": "Mughda Bansal",
-              "email": "mughdabansal1414@gmail.com",
-              "time": 1792292362000
-            },
-            "committer": {
-              "name": "Mughda Bansal",
-              "email": "mughdabansal1414@gmail.com",
-              "time": 1792292564000
-            },
-            "branch": "main"
-          },
           "actualWorkers": 1
         },
         "id": "chromium",
         "name": "chromium",
-        "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
+        "testDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
         "testIgnore": [
           "**/chat.spec.ts",
           "**/04-chat-collaboration.spec.ts"
@@ -89,37 +43,15 @@
         "timeout": 30000
       },
       {
-        "outputDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results",
+        "outputDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/test-reports/test-results",
         "repeatEach": 1,
-        "retries": 2,
+        "retries": 1,
         "metadata": {
-          "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/90d1858b9f27e8ff895d1fb237ceb04c0b9524c4",
-            "commitHash": "90d1858b9f27e8ff895d1fb237ceb04c0b9524c4",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/39092245894"
-          },
-          "gitCommit": {
-            "shortHash": "90d1858",
-            "hash": "90d1858b9f27e8ff895d1fb237ceb04c0b9524c4",
-            "subject": "fix(sanity): update test timeouts, form selector scoping, and WebKit access control filters",
-            "body": "fix(sanity): update test timeouts, form selector scoping, and WebKit access control filters\n",
-            "author": {
-              "name": "Mughda Bansal",
-              "email": "mughdabansal1414@gmail.com",
-              "time": 1792292362000
-            },
-            "committer": {
-              "name": "Mughda Bansal",
-              "email": "mughdabansal1414@gmail.com",
-              "time": 1792292564000
-            },
-            "branch": "main"
-          },
           "actualWorkers": 1
         },
         "id": "firefox",
         "name": "firefox",
-        "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
+        "testDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
         "testIgnore": [
           "**/chat.spec.ts",
           "**/04-chat-collaboration.spec.ts"
@@ -130,37 +62,15 @@
         "timeout": 30000
       },
       {
-        "outputDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results",
+        "outputDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/test-reports/test-results",
         "repeatEach": 1,
-        "retries": 2,
+        "retries": 1,
         "metadata": {
-          "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/90d1858b9f27e8ff895d1fb237ceb04c0b9524c4",
-            "commitHash": "90d1858b9f27e8ff895d1fb237ceb04c0b9524c4",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/39092245894"
-          },
-          "gitCommit": {
-            "shortHash": "90d1858",
-            "hash": "90d1858b9f27e8ff895d1fb237ceb04c0b9524c4",
-            "subject": "fix(sanity): update test timeouts, form selector scoping, and WebKit access control filters",
-            "body": "fix(sanity): update test timeouts, form selector scoping, and WebKit access control filters\n",
-            "author": {
-              "name": "Mughda Bansal",
-              "email": "mughdabansal1414@gmail.com",
-              "time": 1792292362000
-            },
-            "committer": {
-              "name": "Mughda Bansal",
-              "email": "mughdabansal1414@gmail.com",
-              "time": 1792292564000
-            },
-            "branch": "main"
-          },
           "actualWorkers": 1
         },
         "id": "webkit",
         "name": "webkit",
-        "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
+        "testDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
         "testIgnore": [
           "**/chat.spec.ts",
           "**/04-chat-collaboration.spec.ts"
@@ -171,37 +81,15 @@
         "timeout": 30000
       },
       {
-        "outputDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results",
+        "outputDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/test-reports/test-results",
         "repeatEach": 1,
-        "retries": 2,
+        "retries": 1,
         "metadata": {
-          "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/90d1858b9f27e8ff895d1fb237ceb04c0b9524c4",
-            "commitHash": "90d1858b9f27e8ff895d1fb237ceb04c0b9524c4",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/39092245894"
-          },
-          "gitCommit": {
-            "shortHash": "90d1858",
-            "hash": "90d1858b9f27e8ff895d1fb237ceb04c0b9524c4",
-            "subject": "fix(sanity): update test timeouts, form selector scoping, and WebKit access control filters",
-            "body": "fix(sanity): update test timeouts, form selector scoping, and WebKit access control filters\n",
-            "author": {
-              "name": "Mughda Bansal",
-              "email": "mughdabansal1414@gmail.com",
-              "time": 1792292362000
-            },
-            "committer": {
-              "name": "Mughda Bansal",
-              "email": "mughdabansal1414@gmail.com",
-              "time": 1792292564000
-            },
-            "branch": "main"
-          },
           "actualWorkers": 1
         },
         "id": "edge",
         "name": "edge",
-        "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
+        "testDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
         "testIgnore": [
           "**/chat.spec.ts",
           "**/04-chat-collaboration.spec.ts"
@@ -241,25 +129,25 @@
     "updateSnapshots": "missing",
     "updateSourceMethod": "patch",
     "version": "1.62.1",
-    "workers": 1,
+    "workers": 2,
     "webServer": null
   },
   "suites": [
     {
-      "title": "post.spec.ts",
-      "file": "post.spec.ts",
+      "title": "explore-location-boost.spec.ts",
+      "file": "explore-location-boost.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Eve Vakh - Post Creation & Composer Full Test Suite",
-          "file": "post.spec.ts",
-          "line": 7,
+          "title": "Eve Vakh - Explore Page Location-Based Profile Sort & Proximity Boost Suite",
+          "file": "explore-location-boost.spec.ts",
+          "line": 23,
           "column": 6,
           "specs": [
             {
-              "title": "TC_POST_005: should create form with poll field and publish interactive poll post with voting",
+              "title": "TC_LOC_001: should prioritize and boost nearest user profiles to top of explore feed",
               "ok": true,
               "tags": [],
               "tests": [
@@ -274,18 +162,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 36554,
+                      "duration": 12315,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-18T03:03:47.330Z",
+                      "startTime": "2026-10-18T03:35:28.001Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/post-Eve-Vakh---Post-Creat-68a77-ctive-poll-post-with-voting-chromium/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-location-boost-Eve-7037b-iles-to-top-of-explore-feed-chromium\\video.webm"
                         }
                       ]
                     }
@@ -293,9 +181,409 @@
                   "status": "expected"
                 }
               ],
-              "id": "852d2ff9c4320f80b981-7c8f20a8b3aaecb1a74b",
-              "file": "post.spec.ts",
-              "line": 102,
+              "id": "0cc3d81ad24ff7653c82-35da193d9b109b5d84db",
+              "file": "explore-location-boost.spec.ts",
+              "line": 59,
+              "column": 7
+            },
+            {
+              "title": "TC_LOC_002: should dynamically re-rank and boost profiles when client geolocation shifts",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 18153,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-18T03:35:40.502Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-location-boost-Eve-2e2e7-n-client-geolocation-shifts-chromium\\video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0cc3d81ad24ff7653c82-971d9bc41e41a0467a86",
+              "file": "explore-location-boost.spec.ts",
+              "line": 98,
+              "column": 7
+            },
+            {
+              "title": "TC_LOC_003: should adjust profile visibility and thresholding when distance slider radius changes",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 13296,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-18T03:35:58.681Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-location-boost-Eve-6d7cd-tance-slider-radius-changes-chromium\\video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0cc3d81ad24ff7653c82-89a577252bfcd3014db2",
+              "file": "explore-location-boost.spec.ts",
+              "line": 131,
+              "column": 7
+            },
+            {
+              "title": "TC_LOC_004: should transmit valid geolocation coordinates, radius, and sorting parameters to nearby explore API",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 9668,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-18T03:36:12.001Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-location-boost-Eve-c1b9d-eters-to-nearby-explore-API-chromium\\video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0cc3d81ad24ff7653c82-0da245d7c5fb8af6d118",
+              "file": "explore-location-boost.spec.ts",
+              "line": 161,
+              "column": 7
+            },
+            {
+              "title": "TC_LOC_005: should validate response structure and distance/ranking attributes from location-boosted explore endpoint",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 9663,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-18T03:36:21.687Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-location-boost-Eve-a4378-on-boosted-explore-endpoint-chromium\\video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0cc3d81ad24ff7653c82-4777cba4a307f330852c",
+              "file": "explore-location-boost.spec.ts",
+              "line": 198,
+              "column": 7
+            },
+            {
+              "title": "TC_LOC_006: should clamp extreme distance inputs (0 km, negative, >5000 km) without breaking sort order",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 19501,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-18T03:36:31.369Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-location-boost-Eve-e4b7b-without-breaking-sort-order-chromium\\video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0cc3d81ad24ff7653c82-84eb5448cee1984e48fd",
+              "file": "explore-location-boost.spec.ts",
+              "line": 235,
+              "column": 7
+            },
+            {
+              "title": "TC_LOC_007: should gracefully handle denied/dismissed geolocation permissions with fallback feed",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5509,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-18T03:36:50.895Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-location-boost-Eve-cb0dc-missions-with-fallback-feed-chromium\\video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0cc3d81ad24ff7653c82-97c5a56253c695f35894",
+              "file": "explore-location-boost.spec.ts",
+              "line": 265,
+              "column": 7
+            },
+            {
+              "title": "TC_LOC_008: should display clear empty-state and distance expansion guidance when zero profiles are within radius",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 11981,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-18T03:36:56.425Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-location-boost-Eve-c2990--profiles-are-within-radius-chromium\\video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0cc3d81ad24ff7653c82-a5d7071f7a153ecbfd4e",
+              "file": "explore-location-boost.spec.ts",
+              "line": 288,
+              "column": 7
+            },
+            {
+              "title": "TC_LOC_009: should maintain location boost prioritization when combined with tag filtering and search queries",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 12622,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-18T03:37:08.425Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-location-boost-Eve-75e0a-iltering-and-search-queries-chromium\\video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0cc3d81ad24ff7653c82-aa94c2df197ab6bdc4ca",
+              "file": "explore-location-boost.spec.ts",
+              "line": 317,
+              "column": 7
+            },
+            {
+              "title": "TC_LOC_010: should reflect active distance filter on toolbar badge and restore default feed when cleared",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 14886,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-18T03:37:21.068Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-location-boost-Eve-491c8-e-default-feed-when-cleared-chromium\\video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0cc3d81ad24ff7653c82-ca6936830ad9e20f94b2",
+              "file": "explore-location-boost.spec.ts",
+              "line": 349,
+              "column": 7
+            },
+            {
+              "title": "TC_LOC_011: should produce zero uncaught runtime exceptions or page errors during location boost operations",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 17005,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-18T03:37:35.955Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-location-boost-Eve-805e3-g-location-boost-operations-chromium\\video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0cc3d81ad24ff7653c82-bc1d7953d8be084bb9ab",
+              "file": "explore-location-boost.spec.ts",
+              "line": 373,
               "column": 7
             }
           ]
@@ -305,9 +593,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-18T03:03:46.561Z",
-    "duration": 37773.748,
-    "expected": 1,
+    "startTime": "2026-10-18T03:35:26.791Z",
+    "duration": 146353.954,
+    "expected": 11,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
