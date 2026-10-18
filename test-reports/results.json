@@ -1,16 +1,18 @@
 {
   "config": {
     "argv": [
-      "C:\\Program Files\\nodejs\\node.exe",
-      "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\node_modules\\@playwright\\test\\cli.js",
+      "/opt/hostedtoolcache/node/22.23.3/x64/bin/node",
+      "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/node_modules/.bin/playwright",
       "test",
-      "src/tests/sanity",
+      "src/tests/post.spec.ts",
+      "-g",
+      "TC_POST_005",
       "--project=chromium"
     ],
-    "configFile": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\playwright.config.ts",
-    "rootDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
+    "configFile": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/playwright.config.ts",
+    "rootDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
     "failOnFlakyTests": false,
-    "forbidOnly": false,
+    "forbidOnly": true,
     "fullyParallel": false,
     "globalSetup": null,
     "globalTeardown": null,
@@ -19,69 +21,191 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "actualWorkers": 2
+      "ci": {
+        "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/90d1858b9f27e8ff895d1fb237ceb04c0b9524c4",
+        "commitHash": "90d1858b9f27e8ff895d1fb237ceb04c0b9524c4",
+        "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/39092245894"
+      },
+      "gitCommit": {
+        "shortHash": "90d1858",
+        "hash": "90d1858b9f27e8ff895d1fb237ceb04c0b9524c4",
+        "subject": "fix(sanity): update test timeouts, form selector scoping, and WebKit access control filters",
+        "body": "fix(sanity): update test timeouts, form selector scoping, and WebKit access control filters\n",
+        "author": {
+          "name": "Mughda Bansal",
+          "email": "mughdabansal1414@gmail.com",
+          "time": 1792292362000
+        },
+        "committer": {
+          "name": "Mughda Bansal",
+          "email": "mughdabansal1414@gmail.com",
+          "time": 1792292564000
+        },
+        "branch": "main"
+      },
+      "actualWorkers": 1
     },
     "preserveOutput": "always",
     "projects": [
       {
-        "outputDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/test-reports/test-results",
+        "outputDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results",
         "repeatEach": 1,
-        "retries": 1,
+        "retries": 2,
         "metadata": {
-          "actualWorkers": 2
+          "ci": {
+            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/90d1858b9f27e8ff895d1fb237ceb04c0b9524c4",
+            "commitHash": "90d1858b9f27e8ff895d1fb237ceb04c0b9524c4",
+            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/39092245894"
+          },
+          "gitCommit": {
+            "shortHash": "90d1858",
+            "hash": "90d1858b9f27e8ff895d1fb237ceb04c0b9524c4",
+            "subject": "fix(sanity): update test timeouts, form selector scoping, and WebKit access control filters",
+            "body": "fix(sanity): update test timeouts, form selector scoping, and WebKit access control filters\n",
+            "author": {
+              "name": "Mughda Bansal",
+              "email": "mughdabansal1414@gmail.com",
+              "time": 1792292362000
+            },
+            "committer": {
+              "name": "Mughda Bansal",
+              "email": "mughdabansal1414@gmail.com",
+              "time": 1792292564000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 1
         },
         "id": "chromium",
         "name": "chromium",
-        "testDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
-        "testIgnore": [],
+        "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
+        "testIgnore": [
+          "**/chat.spec.ts",
+          "**/04-chat-collaboration.spec.ts"
+        ],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
         "timeout": 30000
       },
       {
-        "outputDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/test-reports/test-results",
+        "outputDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results",
         "repeatEach": 1,
-        "retries": 1,
+        "retries": 2,
         "metadata": {
-          "actualWorkers": 2
+          "ci": {
+            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/90d1858b9f27e8ff895d1fb237ceb04c0b9524c4",
+            "commitHash": "90d1858b9f27e8ff895d1fb237ceb04c0b9524c4",
+            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/39092245894"
+          },
+          "gitCommit": {
+            "shortHash": "90d1858",
+            "hash": "90d1858b9f27e8ff895d1fb237ceb04c0b9524c4",
+            "subject": "fix(sanity): update test timeouts, form selector scoping, and WebKit access control filters",
+            "body": "fix(sanity): update test timeouts, form selector scoping, and WebKit access control filters\n",
+            "author": {
+              "name": "Mughda Bansal",
+              "email": "mughdabansal1414@gmail.com",
+              "time": 1792292362000
+            },
+            "committer": {
+              "name": "Mughda Bansal",
+              "email": "mughdabansal1414@gmail.com",
+              "time": 1792292564000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 1
         },
         "id": "firefox",
         "name": "firefox",
-        "testDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
-        "testIgnore": [],
+        "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
+        "testIgnore": [
+          "**/chat.spec.ts",
+          "**/04-chat-collaboration.spec.ts"
+        ],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
         "timeout": 30000
       },
       {
-        "outputDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/test-reports/test-results",
+        "outputDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results",
         "repeatEach": 1,
-        "retries": 1,
+        "retries": 2,
         "metadata": {
-          "actualWorkers": 2
+          "ci": {
+            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/90d1858b9f27e8ff895d1fb237ceb04c0b9524c4",
+            "commitHash": "90d1858b9f27e8ff895d1fb237ceb04c0b9524c4",
+            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/39092245894"
+          },
+          "gitCommit": {
+            "shortHash": "90d1858",
+            "hash": "90d1858b9f27e8ff895d1fb237ceb04c0b9524c4",
+            "subject": "fix(sanity): update test timeouts, form selector scoping, and WebKit access control filters",
+            "body": "fix(sanity): update test timeouts, form selector scoping, and WebKit access control filters\n",
+            "author": {
+              "name": "Mughda Bansal",
+              "email": "mughdabansal1414@gmail.com",
+              "time": 1792292362000
+            },
+            "committer": {
+              "name": "Mughda Bansal",
+              "email": "mughdabansal1414@gmail.com",
+              "time": 1792292564000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 1
         },
         "id": "webkit",
         "name": "webkit",
-        "testDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
-        "testIgnore": [],
+        "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
+        "testIgnore": [
+          "**/chat.spec.ts",
+          "**/04-chat-collaboration.spec.ts"
+        ],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
         "timeout": 30000
       },
       {
-        "outputDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/test-reports/test-results",
+        "outputDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results",
         "repeatEach": 1,
-        "retries": 1,
+        "retries": 2,
         "metadata": {
-          "actualWorkers": 2
+          "ci": {
+            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/90d1858b9f27e8ff895d1fb237ceb04c0b9524c4",
+            "commitHash": "90d1858b9f27e8ff895d1fb237ceb04c0b9524c4",
+            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/39092245894"
+          },
+          "gitCommit": {
+            "shortHash": "90d1858",
+            "hash": "90d1858b9f27e8ff895d1fb237ceb04c0b9524c4",
+            "subject": "fix(sanity): update test timeouts, form selector scoping, and WebKit access control filters",
+            "body": "fix(sanity): update test timeouts, form selector scoping, and WebKit access control filters\n",
+            "author": {
+              "name": "Mughda Bansal",
+              "email": "mughdabansal1414@gmail.com",
+              "time": 1792292362000
+            },
+            "committer": {
+              "name": "Mughda Bansal",
+              "email": "mughdabansal1414@gmail.com",
+              "time": 1792292564000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 1
         },
         "id": "edge",
         "name": "edge",
-        "testDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
-        "testIgnore": [],
+        "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
+        "testIgnore": [
+          "**/chat.spec.ts",
+          "**/04-chat-collaboration.spec.ts"
+        ],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
@@ -117,909 +241,25 @@
     "updateSnapshots": "missing",
     "updateSourceMethod": "patch",
     "version": "1.62.1",
-    "workers": 2,
+    "workers": 1,
     "webServer": null
   },
   "suites": [
     {
-      "title": "sanity\\1.0\\explore.spec.ts",
-      "file": "sanity/1.0/explore.spec.ts",
+      "title": "post.spec.ts",
+      "file": "post.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Eve Vakh - Sanity 1.0: Explore Page Functional, UI/UX & Profile Forms Test Suite",
-          "file": "sanity/1.0/explore.spec.ts",
-          "line": 8,
-          "column": 6,
-          "specs": [
-            {
-              "title": "TC_EXP_001: should display explore header, navigation state and filter toolbar layout",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 8145,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:52:15.306Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-1.0-explore-Eve-Vak-33ca6-e-and-filter-toolbar-layout-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "d83d5e2fca124052a895-a3afbf280c5d49b13d46",
-              "file": "sanity/1.0/explore.spec.ts",
-              "line": 41,
-              "column": 7
-            },
-            {
-              "title": "TC_EXP_002: should display user cards with profile picture, username, display name and tags",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 10418,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:52:23.694Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-1.0-explore-Eve-Vak-ba982-rname-display-name-and-tags-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "d83d5e2fca124052a895-0e93e7f09593ba1a394a",
-              "file": "sanity/1.0/explore.spec.ts",
-              "line": 63,
-              "column": 7
-            },
-            {
-              "title": "TC_EXP_003: should open and validate nearby filter modal with apply, clear and close buttons",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5730,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:52:34.146Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-1.0-explore-Eve-Vak-6239e-ply-clear-and-close-buttons-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "d83d5e2fca124052a895-cc933e90071f5c209694",
-              "file": "sanity/1.0/explore.spec.ts",
-              "line": 75,
-              "column": 7
-            },
-            {
-              "title": "TC_EXP_004: should open and validate tags filter modal with content and controls",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 6986,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:52:39.906Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-1.0-explore-Eve-Vak-18dd5-l-with-content-and-controls-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "d83d5e2fca124052a895-369fe9bb80f8ff48a9bf",
-              "file": "sanity/1.0/explore.spec.ts",
-              "line": 88,
-              "column": 7
-            },
-            {
-              "title": "TC_EXP_005: should validate active filter button toggle and list responsiveness",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 7701,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:52:46.923Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-1.0-explore-Eve-Vak-f40a8-gle-and-list-responsiveness-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "d83d5e2fca124052a895-c7beaefc7c99d60b86ed",
-              "file": "sanity/1.0/explore.spec.ts",
-              "line": 99,
-              "column": 7
-            },
-            {
-              "title": "TC_EXP_006: should navigate to user profile and display header details (username, joined, rep, tags)",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 11021,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:52:54.656Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-1.0-explore-Eve-Vak-f37eb-s-username-joined-rep-tags--chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "d83d5e2fca124052a895-ee033cd7a233361cf2e8",
-              "file": "sanity/1.0/explore.spec.ts",
-              "line": 110,
-              "column": 7
-            },
-            {
-              "title": "TC_EXP_007: should display profile action buttons (Message and More) on profile view",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 11086,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:53:05.698Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-1.0-explore-Eve-Vak-87408-ge-and-More-on-profile-view-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "d83d5e2fca124052a895-efc2754492fb8c85ad7e",
-              "file": "sanity/1.0/explore.spec.ts",
-              "line": 126,
-              "column": 7
-            },
-            {
-              "title": "TC_EXP_008: should display Forms section and list of user forms on profile",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 10319,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:53:16.805Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-1.0-explore-Eve-Vak-d2639-st-of-user-forms-on-profile-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "d83d5e2fca124052a895-bd1b94b0afeec98f1acc",
-              "file": "sanity/1.0/explore.spec.ts",
-              "line": 140,
-              "column": 7
-            },
-            {
-              "title": "TC_EXP_009: should validate subscribe button presence, accessibility and subscription toggle",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 13382,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:53:27.142Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-1.0-explore-Eve-Vak-c2ef3-ity-and-subscription-toggle-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "d83d5e2fca124052a895-c4bc394510fd585b3a8e",
-              "file": "sanity/1.0/explore.spec.ts",
-              "line": 154,
-              "column": 7
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "sanity\\1.0\\login.spec.ts",
-      "file": "sanity/1.0/login.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Eve Vakh - Sanity 1.0: Login Page Functional & Button Test Suite",
-          "file": "sanity/1.0/login.spec.ts",
+          "title": "Eve Vakh - Post Creation & Composer Full Test Suite",
+          "file": "post.spec.ts",
           "line": 7,
           "column": 6,
           "specs": [
             {
-              "title": "TC-01: should display all initial login page elements and auxiliary controls",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 5214,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:52:15.316Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-1.0-login-Eve-Vakh--0a816-ents-and-auxiliary-controls-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "331314bdf045916e2b48-aba4809dff47bee9576d",
-              "file": "sanity/1.0/login.spec.ts",
-              "line": 27,
-              "column": 7
-            },
-            {
-              "title": "TC-02: should switch between OTP mode and Password mode seamlessly",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 5056,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:52:20.761Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-1.0-login-Eve-Vakh--e3dd6-nd-Password-mode-seamlessly-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "331314bdf045916e2b48-bdbe3a768fb6e3c2561e",
-              "file": "sanity/1.0/login.spec.ts",
-              "line": 40,
-              "column": 7
-            },
-            {
-              "title": "TC-03: should verify password masking, show-password toggle and legal links",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 4649,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:52:25.858Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-1.0-login-Eve-Vakh--78c91-word-toggle-and-legal-links-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "331314bdf045916e2b48-40f32f04b1625d2dbfb8",
-              "file": "sanity/1.0/login.spec.ts",
-              "line": 63,
-              "column": 7
-            },
-            {
-              "title": "TC-04: should complete login with password and navigate through Chat, Activity, and Explore",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 7770,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:52:30.538Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-1.0-login-Eve-Vakh--2ca6f-h-Chat-Activity-and-Explore-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "331314bdf045916e2b48-d9634399ae839b62d055",
-              "file": "sanity/1.0/login.spec.ts",
-              "line": 103,
-              "column": 7
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "sanity\\2.0\\moderation.spec.ts",
-      "file": "sanity/2.0/moderation.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Eve Vakh - Sanity 2.0: Form Owner Moderation & Form History Suite",
-          "file": "sanity/2.0/moderation.spec.ts",
-          "line": 5,
-          "column": 6,
-          "specs": [
-            {
-              "title": "TC_MOD_001: should query form moderation posts queue and verify response contract",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 846,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:52:38.359Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "31afac54e1ecc7c9c045-8d63391e95b1e7430bd5",
-              "file": "sanity/2.0/moderation.spec.ts",
-              "line": 13,
-              "column": 7
-            },
-            {
-              "title": "TC_MOD_002: should validate moderator post approval review contract",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 312,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:52:39.225Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "31afac54e1ecc7c9c045-4e53087ad5d965822ef4",
-              "file": "sanity/2.0/moderation.spec.ts",
-              "line": 30,
-              "column": 7
-            },
-            {
-              "title": "TC_MOD_003: should validate moderator post rejection review contract",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 321,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:52:39.551Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "31afac54e1ecc7c9c045-f8fedac20907eac8789e",
-              "file": "sanity/2.0/moderation.spec.ts",
-              "line": 46,
-              "column": 7
-            },
-            {
-              "title": "TC_MOD_004: should enforce strict authentication guards on moderation actions",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 1477,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:52:39.897Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "31afac54e1ecc7c9c045-060bd8939419e17b10ce",
-              "file": "sanity/2.0/moderation.spec.ts",
-              "line": 62,
-              "column": 7
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "sanity\\2.0\\posting.spec.ts",
-      "file": "sanity/2.0/posting.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Eve Vakh - Sanity 2.0: Home Posting & Composer Test Suite",
-          "file": "sanity/2.0/posting.spec.ts",
-          "line": 7,
-          "column": 6,
-          "specs": [
-            {
-              "title": "TC_POST_001: should display New Post button on home page and launch creation modal",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 7740,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:52:41.402Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-2.0-posting-Eve-Vak-f1453-e-and-launch-creation-modal-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "8f10a366f298b3dfe362-25eb76e4ca66aad28887",
-              "file": "sanity/2.0/posting.spec.ts",
-              "line": 35,
-              "column": 7
-            },
-            {
-              "title": "TC_POST_002: should select target form and transition into post composer view",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 13613,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:52:49.165Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-2.0-posting-Eve-Vak-da7e0-ion-into-post-composer-view-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "8f10a366f298b3dfe362-dfdbf9c9c96fd1d01901",
-              "file": "sanity/2.0/posting.spec.ts",
-              "line": 49,
-              "column": 7
-            },
-            {
-              "title": "TC_POST_003: should render all composition tools and submit controls in composer",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 12846,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:53:02.797Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-2.0-posting-Eve-Vak-3d1d2-submit-controls-in-composer-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "8f10a366f298b3dfe362-d73960f544bc9ab128f3",
-              "file": "sanity/2.0/posting.spec.ts",
-              "line": 65,
-              "column": 7
-            },
-            {
-              "title": "TC_POST_004: should allow entering text content and submitting new post",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 65835,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:53:15.665Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-2.0-posting-Eve-Vak-e603b-ent-and-submitting-new-post-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "8f10a366f298b3dfe362-8b67a1a4e7656254e2ee",
-              "file": "sanity/2.0/posting.spec.ts",
-              "line": 79,
-              "column": 7
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "sanity\\3.0\\01-auth-ui-ux.spec.ts",
-      "file": "sanity/3.0/01-auth-ui-ux.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Eve Vakh - Sanity 3.0: Core Authentication & Platform UI/UX Suite",
-          "file": "sanity/3.0/01-auth-ui-ux.spec.ts",
-          "line": 7,
-          "column": 6,
-          "specs": [
-            {
-              "title": "TC_S3_AUTH_001: should authenticate with password, verify mask toggle and session persistence",
+              "title": "TC_POST_005: should create form with poll field and publish interactive poll post with voting",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1034,18 +274,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 7128,
+                      "duration": 36554,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-18T02:53:40.571Z",
+                      "startTime": "2026-10-18T03:03:47.330Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-3.0-01-auth-ui-ux-E-7a77b-gle-and-session-persistence-chromium\\video.webm"
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/post-Eve-Vakh---Post-Creat-68a77-ctive-poll-post-with-voting-chromium/video.webm"
                         }
                       ]
                     }
@@ -1053,957 +293,9 @@
                   "status": "expected"
                 }
               ],
-              "id": "0e2ee95e5450f00bba96-cd552431832c907ca77c",
-              "file": "sanity/3.0/01-auth-ui-ux.spec.ts",
-              "line": 28,
-              "column": 7
-            },
-            {
-              "title": "TC_S3_AUTH_002: should seamlessly toggle between OTP mode and Password mode",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3440,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:53:47.723Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-3.0-01-auth-ui-ux-E-b8bd1--OTP-mode-and-Password-mode-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "0e2ee95e5450f00bba96-c014d1f72d0ded3d05f0",
-              "file": "sanity/3.0/01-auth-ui-ux.spec.ts",
-              "line": 72,
-              "column": 7
-            },
-            {
-              "title": "TC_S3_UIUX_003: should validate full UI/UX layout, navigation responsiveness and route headers",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 7457,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:53:51.180Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-3.0-01-auth-ui-ux-E-76772-nsiveness-and-route-headers-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "0e2ee95e5450f00bba96-f9e2dd475405fefffd4b",
-              "file": "sanity/3.0/01-auth-ui-ux.spec.ts",
-              "line": 97,
-              "column": 7
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "sanity\\3.0\\02-post-lifecycle.spec.ts",
-      "file": "sanity/3.0/02-post-lifecycle.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Eve Vakh - Sanity 3.0: Post Lifecycle (Create, Edit, Heart, Archive, Delete)",
-          "file": "sanity/3.0/02-post-lifecycle.spec.ts",
-          "line": 8,
-          "column": 6,
-          "specs": [
-            {
-              "title": "TC_S3_POST_001: should create new post with dynamic text content in own form",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 63542,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:53:58.680Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-3.0-02-post-lifecyc-6911e-ic-text-content-in-own-form-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "8b3466ef72d6381b1430-3e5d7010e69621556e30",
-              "file": "sanity/3.0/02-post-lifecycle.spec.ts",
-              "line": 34,
-              "column": 7
-            },
-            {
-              "title": "TC_S3_POST_002: should heart a post and verify state update in form view",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 13454,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:55:02.245Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-3.0-02-post-lifecyc-d9f9e-y-state-update-in-form-view-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "8b3466ef72d6381b1430-6e03531776f10e4f1659",
-              "file": "sanity/3.0/02-post-lifecycle.spec.ts",
-              "line": 53,
-              "column": 7
-            },
-            {
-              "title": "TC_S3_POST_003: should select post and execute in-place editing flow",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 18289,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:55:15.717Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-3.0-02-post-lifecyc-82cbf-ecute-in-place-editing-flow-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "8b3466ef72d6381b1430-6ba5144499343c519edf",
-              "file": "sanity/3.0/02-post-lifecycle.spec.ts",
-              "line": 69,
-              "column": 7
-            },
-            {
-              "title": "TC_S3_POST_004: should select post and trigger post archiving action",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 20939,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:55:34.029Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-3.0-02-post-lifecyc-577dd-igger-post-archiving-action-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "8b3466ef72d6381b1430-a1b9f545500103458a5a",
-              "file": "sanity/3.0/02-post-lifecycle.spec.ts",
-              "line": 87,
-              "column": 7
-            },
-            {
-              "title": "TC_S3_POST_005: should delete draft post cleanly and verify dismiss state",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 13588,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:55:54.999Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-3.0-02-post-lifecyc-63208-ly-and-verify-dismiss-state-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "8b3466ef72d6381b1430-2bd70a3af01aedf03bab",
-              "file": "sanity/3.0/02-post-lifecycle.spec.ts",
-              "line": 103,
-              "column": 7
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "sanity\\3.0\\03-form-lifecycle.spec.ts",
-      "file": "sanity/3.0/03-form-lifecycle.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Eve Vakh - Sanity 3.0: Form Lifecycle & Form Ownership Suite",
-          "file": "sanity/3.0/03-form-lifecycle.spec.ts",
-          "line": 23,
-          "column": 6,
-          "specs": [
-            {
-              "title": "TC_S3_FORM_001: should navigate to owned form and verify owner controls",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 19023,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:54:21.554Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-3.0-03-form-lifecyc-665b1-m-and-verify-owner-controls-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "7e60648a2474ab2e3817-d5638b34bf425eec4788",
-              "file": "sanity/3.0/03-form-lifecycle.spec.ts",
-              "line": 48,
-              "column": 7
-            },
-            {
-              "title": "TC_S3_FORM_002: should inspect form metadata and toggle form info drawer",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 11670,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:54:40.605Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-3.0-03-form-lifecyc-ed298-and-toggle-form-info-drawer-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "7e60648a2474ab2e3817-55451fd63d76488144fb",
-              "file": "sanity/3.0/03-form-lifecycle.spec.ts",
-              "line": 65,
-              "column": 7
-            },
-            {
-              "title": "TC_S3_FORM_003: should verify form subscription state and lifecycle controls",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 11641,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:54:52.291Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-3.0-03-form-lifecyc-392d1-tate-and-lifecycle-controls-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "7e60648a2474ab2e3817-f3aa3ec5763424c60b3d",
-              "file": "sanity/3.0/03-form-lifecycle.spec.ts",
-              "line": 86,
-              "column": 7
-            },
-            {
-              "title": "TC_S3_FORM_004: should prompt double-confirmation modal with cascade warnings and allow safe cancel",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 18258,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:55:03.948Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-3.0-03-form-lifecyc-86031-nings-and-allow-safe-cancel-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "7e60648a2474ab2e3817-5e852c40a3204ea582ad",
-              "file": "sanity/3.0/03-form-lifecycle.spec.ts",
-              "line": 110,
-              "column": 7
-            },
-            {
-              "title": "TC_S3_FORM_005: should validate form deletion cascade safely purging posts and unsubscribing followers",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 16845,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:55:22.226Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-3.0-03-form-lifecyc-d4375-and-unsubscribing-followers-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "7e60648a2474ab2e3817-ce31a5f8ec0f03488354",
-              "file": "sanity/3.0/03-form-lifecycle.spec.ts",
-              "line": 135,
-              "column": 7
-            },
-            {
-              "title": "TC_S3_FORM_006: should enforce maximum field limit threshold when exceeding 50 fields",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 10383,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:55:39.090Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-3.0-03-form-lifecyc-55613-ld-when-exceeding-50-fields-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "7e60648a2474ab2e3817-388c61249e839fa17a6e",
-              "file": "sanity/3.0/03-form-lifecycle.spec.ts",
-              "line": 189,
-              "column": 7
-            },
-            {
-              "title": "TC_S3_FORM_007: attempting to add multiple fields with identical names in same form is flagged with duplicate warning",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 12180,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:55:49.493Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-3.0-03-form-lifecyc-11152-gged-with-duplicate-warning-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "7e60648a2474ab2e3817-7743cbe514c4a442da38",
-              "file": "sanity/3.0/03-form-lifecycle.spec.ts",
-              "line": 260,
-              "column": 7
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "sanity\\3.0\\04-chat-collaboration.spec.ts",
-      "file": "sanity/3.0/04-chat-collaboration.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Eve Vakh - Sanity 3.0: Chat & Collaboration (DM, Group, Members, Admin Roles)",
-          "file": "sanity/3.0/04-chat-collaboration.spec.ts",
-          "line": 7,
-          "column": 6,
-          "specs": [
-            {
-              "title": "TC_S3_CHAT_001: should initiate 1-on-1 direct chat and deliver message to allowed peer",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 21242,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:56:01.723Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-3.0-04-chat-collabo-2ce44-ver-message-to-allowed-peer-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "a1b1f575525f93dfe839-9e55c6e9a4ef3178d5b6",
-              "file": "sanity/3.0/04-chat-collaboration.spec.ts",
-              "line": 33,
-              "column": 7
-            },
-            {
-              "title": "TC_S3_CHAT_002: should open group chat and edit group name as admin",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 32299,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:56:23.021Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-3.0-04-chat-collabo-32a7a-nd-edit-group-name-as-admin-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "a1b1f575525f93dfe839-a35bf456086d000815d0",
-              "file": "sanity/3.0/04-chat-collaboration.spec.ts",
-              "line": 50,
-              "column": 7
-            },
-            {
-              "title": "TC_S3_CHAT_003: should add allowed member and promote to group admin role",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 24892,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:56:55.367Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-3.0-04-chat-collabo-c64ec-promote-to-group-admin-role-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "a1b1f575525f93dfe839-7d4a36de44023645a9aa",
-              "file": "sanity/3.0/04-chat-collaboration.spec.ts",
-              "line": 67,
-              "column": 7
-            },
-            {
-              "title": "TC_S3_CHAT_004: should demote admin and remove member from group chat",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 37525,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:57:20.299Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-3.0-04-chat-collabo-93a3a-move-member-from-group-chat-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "a1b1f575525f93dfe839-6a78c95bee82fb8ee559",
-              "file": "sanity/3.0/04-chat-collaboration.spec.ts",
-              "line": 82,
-              "column": 7
-            },
-            {
-              "title": "TC_S3_CHAT_005: should verify cross-group messaging controls and attachment drawer",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 42240,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:57:57.869Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-3.0-04-chat-collabo-f51a3-trols-and-attachment-drawer-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "a1b1f575525f93dfe839-f5606abbe008ae1a532b",
-              "file": "sanity/3.0/04-chat-collaboration.spec.ts",
-              "line": 97,
-              "column": 7
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "sanity\\3.0\\05-explore-subscriptions.spec.ts",
-      "file": "sanity/3.0/05-explore-subscriptions.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Sanity 3.0: Explore, Profiles & Subscriptions Management Suite",
-          "file": "sanity/3.0/05-explore-subscriptions.spec.ts",
-          "line": 8,
-          "column": 6,
-          "specs": [
-            {
-              "title": "SANITY_3_EXP_001: Discover users on Explore page with tag filters and profile card attributes",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 11263,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:56:08.645Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-3.0-05-explore-subs-8accc-and-profile-card-attributes-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "f07dba30b2e020ee411d-66974bbf6d32b7e9f313",
-              "file": "sanity/3.0/05-explore-subscriptions.spec.ts",
-              "line": 35,
-              "column": 7
-            },
-            {
-              "title": "SANITY_3_EXP_002: Inspect public user profile and toggle form subscription",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 26665,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:56:19.947Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-3.0-05-explore-subs-ca9b1-nd-toggle-form-subscription-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "f07dba30b2e020ee411d-cd9f6ee1f5824167a6ad",
-              "file": "sanity/3.0/05-explore-subscriptions.spec.ts",
-              "line": 55,
-              "column": 7
-            },
-            {
-              "title": "SANITY_3_EXP_003: Subscriptions management view - search, batch selection, and form toggling",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 22828,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-18T02:56:46.662Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-3.0-05-explore-subs-bfca8-selection-and-form-toggling-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "f07dba30b2e020ee411d-ac1f28e39f64a8fa9c75",
-              "file": "sanity/3.0/05-explore-subscriptions.spec.ts",
-              "line": 72,
+              "id": "852d2ff9c4320f80b981-7c8f20a8b3aaecb1a74b",
+              "file": "post.spec.ts",
+              "line": 102,
               "column": 7
             }
           ]
@@ -2013,9 +305,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-18T02:52:14.217Z",
-    "duration": 386166.148,
-    "expected": 44,
+    "startTime": "2026-10-18T03:03:46.561Z",
+    "duration": 37773.748,
+    "expected": 1,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
