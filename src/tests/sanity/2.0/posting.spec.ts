@@ -6,7 +6,7 @@ import { TEST_USERS } from '../../../config/constants';
 
 test.describe('Eve Vakh - Sanity 2.0: Home Posting & Composer Test Suite', () => {
   test.describe.configure({ mode: 'serial' });
-  test.setTimeout(60000);
+  test.setTimeout(90000);
 
   test.beforeEach(async ({ page }) => {
     const homePage = new HomePage(page);

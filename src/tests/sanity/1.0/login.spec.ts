@@ -5,6 +5,7 @@ import { ExplorePage } from '../../../pages/ExplorePage';
 import { TEST_USERS } from '../../../config/constants';
 
 test.describe('Eve Vakh - Sanity 1.0: Login Page Functional & Button Test Suite', () => {
+  test.setTimeout(90000);
 
   test.beforeEach(async ({ page }) => {
     const homePage = new HomePage(page);

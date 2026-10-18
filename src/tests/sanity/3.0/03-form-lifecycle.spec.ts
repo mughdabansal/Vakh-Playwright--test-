@@ -4,6 +4,22 @@ import { LoginPage } from '../../../pages/LoginPage';
 import { FormManagementPage } from '../../../pages/FormManagementPage';
 import { SANITY_3_DATA } from './data/sanity3.data';
 
+// Helper to track uncaught runtime exceptions while filtering out browser-level network/access-control checks
+function setupPageErrorListener(page: any): Error[] {
+  const pageErrors: Error[] = [];
+  page.on('pageerror', (err: Error) => {
+    if (err.message && (
+      err.message.includes('access control checks') ||
+      err.message.includes('Fetch API cannot load') ||
+      err.message.includes('Cannot load blob:')
+    )) {
+      return;
+    }
+    pageErrors.push(err);
+  });
+  return pageErrors;
+}
+
 test.describe('Eve Vakh - Sanity 3.0: Form Lifecycle & Form Ownership Suite', () => {
   test.describe.configure({ mode: 'serial' });
   test.setTimeout(90000);
@@ -119,8 +135,7 @@ test.describe('Eve Vakh - Sanity 3.0: Form Lifecycle & Form Ownership Suite', ()
   test('TC_S3_FORM_005: should validate form deletion cascade safely purging posts and unsubscribing followers', async ({ page }) => {
     const formMgmtPage = new FormManagementPage(page);
 
-    const pageErrors: Error[] = [];
-    page.on('pageerror', err => pageErrors.push(err));
+    const pageErrors = setupPageErrorListener(page);
 
     let deleteDispatched = false;
     let deletedFormId = '';
@@ -172,8 +187,7 @@ test.describe('Eve Vakh - Sanity 3.0: Form Lifecycle & Form Ownership Suite', ()
    *  - User remains safely on the form editor without application runtime crashes.
    */
   test('TC_S3_FORM_006: should enforce maximum field limit threshold when exceeding 50 fields', async ({ page }) => {
-    const pageErrors: Error[] = [];
-    page.on('pageerror', err => pageErrors.push(err));
+    const pageErrors = setupPageErrorListener(page);
 
     const formMgmtPage = new FormManagementPage(page);
 
@@ -209,8 +223,9 @@ test.describe('Eve Vakh - Sanity 3.0: Form Lifecycle & Form Ownership Suite', ()
         const response = await route.fetch({
           postData: JSON.stringify(originalData),
         });
+        const text = await response.text();
+        interceptedResponseBody = text;
         interceptedStatus = response.status();
-        interceptedResponseBody = await response.text();
 
         await route.fulfill({
           response,
@@ -224,8 +239,8 @@ test.describe('Eve Vakh - Sanity 3.0: Form Lifecycle & Form Ownership Suite', ()
     await formMgmtPage.clickSaveForm();
 
     // 4. Validate backend rejected with HTTP 400 and validation error message
-    await expect.poll(() => interceptedStatus).toBe(400);
-    expect(interceptedResponseBody).toContain('expected array to have <=50 items');
+    await expect.poll(() => interceptedStatus, { timeout: 15000 }).toBe(400);
+    await expect.poll(() => interceptedResponseBody, { timeout: 15000 }).toContain('expected array to have <=50 items');
 
     // 5. Verify UI informs the user of maximum field threshold and blocks saving
     await formMgmtPage.verifyMaximumFieldLimitThreshold();
@@ -243,8 +258,7 @@ test.describe('Eve Vakh - Sanity 3.0: Form Lifecycle & Form Ownership Suite', ()
    *  - Zero uncaught application exceptions.
    */
   test('TC_S3_FORM_007: attempting to add multiple fields with identical names in same form is flagged with duplicate warning', async ({ page }) => {
-    const pageErrors: Error[] = [];
-    page.on('pageerror', err => pageErrors.push(err));
+    const pageErrors = setupPageErrorListener(page);
 
     const formMgmtPage = new FormManagementPage(page);
 

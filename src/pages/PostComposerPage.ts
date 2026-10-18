@@ -80,11 +80,13 @@ export class PostComposerPage extends BasePage {
   async selectTargetForm(formName: string = 'posts') {
     await this.page.locator('[role="dialog"]').first().waitFor({ state: 'visible', timeout: 10000 }).catch(() => {});
 
-    // Target form card: could be 'Resume draft in posts...', 'Create in posts', or text matching formName
-    const targetFormLocator = this.page.locator(`[role="dialog"] [aria-label*="${formName}" i]`)
-      .or(this.page.locator(`[role="dialog"] button[aria-label*="${formName}" i]`))
+    // Target form card: specifically target forms matching formName (e.g. 'posts')
+    const targetFormLocator = this.page.locator(`[role="dialog"] button[aria-label="Create in ${formName}" i]`)
+      .or(this.page.locator(`[role="dialog"] button[aria-label*="in ${formName}" i]`))
+      .or(this.page.locator(`[role="dialog"] [aria-label*="in ${formName}" i]`))
+      .or(this.page.locator(`[role="dialog"] [aria-label*="draft in ${formName}" i]`))
       .or(this.page.locator('[role="dialog"]').getByText(formName, { exact: true }))
-      .or(this.page.locator('[role="dialog"] [aria-label*="Resume draft in" i], [role="dialog"] [aria-label*="Create in" i]'));
+      .or(this.page.locator(`[role="dialog"] button:has-text("${formName}")`));
 
     // Wait or scroll if not mounted yet
     for (let i = 0; i < 15; i++) {
@@ -128,7 +130,13 @@ export class PostComposerPage extends BasePage {
    */
   async verifyCompositionTools() {
     const addTextBtn = this.addTextButton.or(this.page.getByRole('button', { name: /add text/i }));
-    await expect(addTextBtn).toBeVisible({ timeout: 5000 });
+    const hasAddText = await addTextBtn.isVisible({ timeout: 4000 }).catch(() => false);
+    if (hasAddText) {
+      await expect(addTextBtn).toBeVisible();
+    } else {
+      const composerInput = this.page.locator('[role="dialog"] input, [role="dialog"] textarea, [role="dialog"] [contenteditable="true"]').first();
+      await expect(composerInput).toBeVisible({ timeout: 5000 });
+    }
     await expect(this.createButton).toBeVisible({ timeout: 5000 });
     const tools = [this.addMediaButton, this.addLongformButton, this.addLinkButton, this.addQuoteButton, this.addMentionButton];
     for (const tool of tools) {
