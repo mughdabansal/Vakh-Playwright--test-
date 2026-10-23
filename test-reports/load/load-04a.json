@@ -2,12 +2,12 @@
   "scenarioId": "LOAD-04A",
   "scenarioName": "User Rate Limit (Quota Throttling)",
   "targetUrl": "https://xo.eve.vakh.com/api/auth/get-session",
-  "timestamp": "2026-10-19T00:19:44.874Z",
+  "timestamp": "2026-10-23T00:47:05.497Z",
   "mode": "smoke",
   "resultState": "INCONCLUSIVE",
-  "achievedRps": 30,
+  "achievedRps": 17,
   "distribution": {
-    "http2xx": 120,
+    "http2xx": 119,
     "http429": 0,
     "http401": 0,
     "http403": 0,
@@ -15,10 +15,10 @@
     "other4xx": 0
   },
   "stats": {
-    "p50": 275,
-    "p95": 757,
-    "p99": 771,
-    "avgLatencyMs": 329.81
+    "p50": 347,
+    "p95": 2533,
+    "p99": 2620,
+    "avgLatencyMs": 518.55
   },
   "sample429": null,
   "passed": false,
