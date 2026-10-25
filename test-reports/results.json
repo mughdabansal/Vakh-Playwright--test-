@@ -22,24 +22,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/b012cdd6a5e3f3768efca658fbf62aed0434d3aa",
-        "commitHash": "b012cdd6a5e3f3768efca658fbf62aed0434d3aa",
-        "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/40178236989"
+        "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/4244554fddb748e6b01d06bc926eb519cafd5819",
+        "commitHash": "4244554fddb748e6b01d06bc926eb519cafd5819",
+        "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/40180177827"
       },
       "gitCommit": {
-        "shortHash": "b012cdd",
-        "hash": "b012cdd6a5e3f3768efca658fbf62aed0434d3aa",
-        "subject": "feat(dashboard): append platform regression test matrix (63 tests) across 9 architectural areas",
-        "body": "feat(dashboard): append platform regression test matrix (63 tests) across 9 architectural areas\n",
+        "shortHash": "4244554",
+        "hash": "4244554fddb748e6b01d06bc926eb519cafd5819",
+        "subject": "fix(dashboard): sanitize last updated timestamp and prevent concurrent rebase conflict markers in CI workflows",
+        "body": "fix(dashboard): sanitize last updated timestamp and prevent concurrent rebase conflict markers in CI workflows\n",
         "author": {
           "name": "Mughda Bansal",
           "email": "mughdabansal1414@gmail.com",
-          "time": 1792918221000
+          "time": 1792919955000
         },
         "committer": {
           "name": "Mughda Bansal",
           "email": "mughdabansal1414@gmail.com",
-          "time": 1792918221000
+          "time": 1792919955000
         },
         "branch": "main"
       },
@@ -53,24 +53,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/b012cdd6a5e3f3768efca658fbf62aed0434d3aa",
-            "commitHash": "b012cdd6a5e3f3768efca658fbf62aed0434d3aa",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/40178236989"
+            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/4244554fddb748e6b01d06bc926eb519cafd5819",
+            "commitHash": "4244554fddb748e6b01d06bc926eb519cafd5819",
+            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/40180177827"
           },
           "gitCommit": {
-            "shortHash": "b012cdd",
-            "hash": "b012cdd6a5e3f3768efca658fbf62aed0434d3aa",
-            "subject": "feat(dashboard): append platform regression test matrix (63 tests) across 9 architectural areas",
-            "body": "feat(dashboard): append platform regression test matrix (63 tests) across 9 architectural areas\n",
+            "shortHash": "4244554",
+            "hash": "4244554fddb748e6b01d06bc926eb519cafd5819",
+            "subject": "fix(dashboard): sanitize last updated timestamp and prevent concurrent rebase conflict markers in CI workflows",
+            "body": "fix(dashboard): sanitize last updated timestamp and prevent concurrent rebase conflict markers in CI workflows\n",
             "author": {
               "name": "Mughda Bansal",
               "email": "mughdabansal1414@gmail.com",
-              "time": 1792918221000
+              "time": 1792919955000
             },
             "committer": {
               "name": "Mughda Bansal",
               "email": "mughdabansal1414@gmail.com",
-              "time": 1792918221000
+              "time": 1792919955000
             },
             "branch": "main"
           },
@@ -94,24 +94,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/b012cdd6a5e3f3768efca658fbf62aed0434d3aa",
-            "commitHash": "b012cdd6a5e3f3768efca658fbf62aed0434d3aa",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/40178236989"
+            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/4244554fddb748e6b01d06bc926eb519cafd5819",
+            "commitHash": "4244554fddb748e6b01d06bc926eb519cafd5819",
+            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/40180177827"
           },
           "gitCommit": {
-            "shortHash": "b012cdd",
-            "hash": "b012cdd6a5e3f3768efca658fbf62aed0434d3aa",
-            "subject": "feat(dashboard): append platform regression test matrix (63 tests) across 9 architectural areas",
-            "body": "feat(dashboard): append platform regression test matrix (63 tests) across 9 architectural areas\n",
+            "shortHash": "4244554",
+            "hash": "4244554fddb748e6b01d06bc926eb519cafd5819",
+            "subject": "fix(dashboard): sanitize last updated timestamp and prevent concurrent rebase conflict markers in CI workflows",
+            "body": "fix(dashboard): sanitize last updated timestamp and prevent concurrent rebase conflict markers in CI workflows\n",
             "author": {
               "name": "Mughda Bansal",
               "email": "mughdabansal1414@gmail.com",
-              "time": 1792918221000
+              "time": 1792919955000
             },
             "committer": {
               "name": "Mughda Bansal",
               "email": "mughdabansal1414@gmail.com",
-              "time": 1792918221000
+              "time": 1792919955000
             },
             "branch": "main"
           },
@@ -135,24 +135,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/b012cdd6a5e3f3768efca658fbf62aed0434d3aa",
-            "commitHash": "b012cdd6a5e3f3768efca658fbf62aed0434d3aa",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/40178236989"
+            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/4244554fddb748e6b01d06bc926eb519cafd5819",
+            "commitHash": "4244554fddb748e6b01d06bc926eb519cafd5819",
+            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/40180177827"
           },
           "gitCommit": {
-            "shortHash": "b012cdd",
-            "hash": "b012cdd6a5e3f3768efca658fbf62aed0434d3aa",
-            "subject": "feat(dashboard): append platform regression test matrix (63 tests) across 9 architectural areas",
-            "body": "feat(dashboard): append platform regression test matrix (63 tests) across 9 architectural areas\n",
+            "shortHash": "4244554",
+            "hash": "4244554fddb748e6b01d06bc926eb519cafd5819",
+            "subject": "fix(dashboard): sanitize last updated timestamp and prevent concurrent rebase conflict markers in CI workflows",
+            "body": "fix(dashboard): sanitize last updated timestamp and prevent concurrent rebase conflict markers in CI workflows\n",
             "author": {
               "name": "Mughda Bansal",
               "email": "mughdabansal1414@gmail.com",
-              "time": 1792918221000
+              "time": 1792919955000
             },
             "committer": {
               "name": "Mughda Bansal",
               "email": "mughdabansal1414@gmail.com",
-              "time": 1792918221000
+              "time": 1792919955000
             },
             "branch": "main"
           },
@@ -176,24 +176,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/b012cdd6a5e3f3768efca658fbf62aed0434d3aa",
-            "commitHash": "b012cdd6a5e3f3768efca658fbf62aed0434d3aa",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/40178236989"
+            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/4244554fddb748e6b01d06bc926eb519cafd5819",
+            "commitHash": "4244554fddb748e6b01d06bc926eb519cafd5819",
+            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/40180177827"
           },
           "gitCommit": {
-            "shortHash": "b012cdd",
-            "hash": "b012cdd6a5e3f3768efca658fbf62aed0434d3aa",
-            "subject": "feat(dashboard): append platform regression test matrix (63 tests) across 9 architectural areas",
-            "body": "feat(dashboard): append platform regression test matrix (63 tests) across 9 architectural areas\n",
+            "shortHash": "4244554",
+            "hash": "4244554fddb748e6b01d06bc926eb519cafd5819",
+            "subject": "fix(dashboard): sanitize last updated timestamp and prevent concurrent rebase conflict markers in CI workflows",
+            "body": "fix(dashboard): sanitize last updated timestamp and prevent concurrent rebase conflict markers in CI workflows\n",
             "author": {
               "name": "Mughda Bansal",
               "email": "mughdabansal1414@gmail.com",
-              "time": 1792918221000
+              "time": 1792919955000
             },
             "committer": {
               "name": "Mughda Bansal",
               "email": "mughdabansal1414@gmail.com",
-              "time": 1792918221000
+              "time": 1792919955000
             },
             "branch": "main"
           },
@@ -274,12 +274,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 31512,
+                      "duration": 33121,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-25T08:51:30.058Z",
+                      "startTime": "2026-10-25T09:20:25.336Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -305,8 +305,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-25T08:51:29.313Z",
-    "duration": 33941.132999999994,
+    "startTime": "2026-10-25T09:20:24.564Z",
+    "duration": 35541.929000000004,
     "expected": 1,
     "skipped": 0,
     "unexpected": 0,
