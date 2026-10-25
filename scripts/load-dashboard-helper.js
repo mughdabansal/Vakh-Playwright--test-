@@ -88,9 +88,9 @@ function loadLoadTestData(reportsDir) {
 
     const runRecord = {
       runNumber: existingIndex !== -1 ? loadHistory[existingIndex].runNumber : loadHistory.length + 1,
-      runId: process.env.GITHUB_RUN_NUMBER || `local-${loadHistory.length + 1}`,
+      runId: existingIndex !== -1 && loadHistory[existingIndex].runId ? loadHistory[existingIndex].runId : (process.env.GITHUB_RUN_NUMBER || `local-${loadHistory.length + 1}`),
       timestamp: loadSummary.timestamp,
-      dateLabel,
+      dateLabel: existingIndex !== -1 && loadHistory[existingIndex].dateLabel ? loadHistory[existingIndex].dateLabel : dateLabel,
       mode: loadSummary.mode || 'smoke',
       overallStatus: loadSummary.overallStatus || 'INCONCLUSIVE',
       summaryString: loadSummary.summaryString || '2/3 Passed | 1/3 Inconclusive',
