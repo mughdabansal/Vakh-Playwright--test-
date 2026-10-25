@@ -30,8 +30,8 @@ export class PostComposerPage extends BasePage {
   constructor(page: Page) {
     super(page);
 
-    // Desktop/Responsive "New Post" button targeting the visible element
-    this.newPostButton = page.locator('button[aria-label="New Post"]:visible, button:has-text("New Post"):visible').first();
+    // Desktop/Responsive "New Post" or "Index" button targeting the active composer entry point
+    this.newPostButton = page.locator('button[aria-label="Index"]:visible, button:has-text("Index"):visible, button[aria-label="New Post"]:visible, button:has-text("New Post"):visible').first();
 
     // "CREATE FORMS" selection modal
     this.createFormsDialog = page.locator('[role="dialog"]');
