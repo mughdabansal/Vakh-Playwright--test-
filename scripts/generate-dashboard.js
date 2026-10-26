@@ -6524,9 +6524,8 @@ const htmlContent = `<!DOCTYPE html>
       // Safety sanitizer: ensure header timestamp displays clean date & time without git conflict markers
       try {
         const headerEl = document.getElementById('dashboardLastUpdatedHeader');
-        if (headerEl && /[<]{4,}|[>]{4,}|[=]{4,}/.test(headerEl.innerText)) {
-          const match = headerEl.innerText.match(/Updated:\s*([A-Za-z]+,\s*[A-Za-z]+\s*\d+,\s*\d+[^>\n=]+)/);
-          headerEl.innerHTML = match ? ('🕒 Updated: ' + match[1].trim()) : ('🕒 Updated: ' + new Date().toLocaleString('en-US', { dateStyle: 'full', timeStyle: 'medium' }));
+        if (headerEl && (headerEl.innerText.indexOf('<<<') !== -1 || headerEl.innerText.indexOf('===') !== -1 || headerEl.innerText.indexOf('>>>') !== -1)) {
+          headerEl.textContent = '🕒 Updated: ' + new Date().toLocaleString('en-US', { dateStyle: 'full', timeStyle: 'medium' });
         }
       } catch (e) {}
     });
