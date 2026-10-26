@@ -2,7 +2,7 @@
   "scenarioId": "LOAD-04C",
   "scenarioName": "User Identity Isolation (Pre-IP Barrier)",
   "targetUrl": "https://xo.eve.vakh.com/api/auth/get-session",
-  "timestamp": "2026-10-23T00:47:16.774Z",
+  "timestamp": "2026-10-26T00:31:23.707Z",
   "mode": "smoke",
   "resultState": "PASS",
   "userABurst": {
@@ -22,9 +22,9 @@
     "http5xx": 0,
     "sampleHeaders": {
       "limit": "60",
-      "remaining": "39",
-      "reset": "1792716480",
-      "cfRay": "a4ecbaa39fe82881-ORD",
+      "remaining": "40",
+      "reset": "1792974720",
+      "cfRay": "a5055b852d92eb30-SJC",
       "server": "cloudflare",
       "contentType": "application/json"
     },
