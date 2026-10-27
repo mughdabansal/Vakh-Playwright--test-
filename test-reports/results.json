@@ -1,21 +1,15 @@
 {
   "config": {
     "argv": [
-      "C:\\Program Files\\nodejs\\node.exe",
-      "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\node_modules\\@playwright\\test\\cli.js",
+      "/opt/hostedtoolcache/node/22.23.3/x64/bin/node",
+      "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/node_modules/.bin/playwright",
       "test",
-      "src/tests/activity.spec.ts",
-      "src/tests/explore.spec.ts",
-      "src/tests/form-advanced-fields.spec.ts",
-      "src/tests/home.spec.ts",
-      "-g",
-      "TC_ACT_003|TC_EXP_006|TC_ADV_FIELD_005|TC_HOME_001|TC_HOME_002|TC_HOME_004|TC_HOME_005",
-      "--project=chromium"
+      "src/tests/activity.spec.ts"
     ],
-    "configFile": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\playwright.config.ts",
-    "rootDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
+    "configFile": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/playwright.config.ts",
+    "rootDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
     "failOnFlakyTests": false,
-    "forbidOnly": false,
+    "forbidOnly": true,
     "fullyParallel": false,
     "globalSetup": null,
     "globalTeardown": null,
@@ -24,20 +18,64 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "actualWorkers": 2
+      "ci": {
+        "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/d948c1337bab9250e5ee2020d12760810a01f65f",
+        "commitHash": "d948c1337bab9250e5ee2020d12760810a01f65f",
+        "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/40455057203"
+      },
+      "gitCommit": {
+        "shortHash": "d948c13",
+        "hash": "d948c1337bab9250e5ee2020d12760810a01f65f",
+        "subject": "fix(tests): resolve locators for activity feed rollover, explore profile headers, form fields tab, and home post navigation",
+        "body": "fix(tests): resolve locators for activity feed rollover, explore profile headers, form fields tab, and home post navigation\n",
+        "author": {
+          "name": "Mughda Bansal",
+          "email": "mughdabansal1414@gmail.com",
+          "time": 1793078599000
+        },
+        "committer": {
+          "name": "Mughda Bansal",
+          "email": "mughdabansal1414@gmail.com",
+          "time": 1793078599000
+        },
+        "branch": "main"
+      },
+      "actualWorkers": 1
     },
     "preserveOutput": "always",
     "projects": [
       {
-        "outputDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/test-reports/test-results",
+        "outputDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results",
         "repeatEach": 1,
-        "retries": 1,
+        "retries": 2,
         "metadata": {
-          "actualWorkers": 2
+          "ci": {
+            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/d948c1337bab9250e5ee2020d12760810a01f65f",
+            "commitHash": "d948c1337bab9250e5ee2020d12760810a01f65f",
+            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/40455057203"
+          },
+          "gitCommit": {
+            "shortHash": "d948c13",
+            "hash": "d948c1337bab9250e5ee2020d12760810a01f65f",
+            "subject": "fix(tests): resolve locators for activity feed rollover, explore profile headers, form fields tab, and home post navigation",
+            "body": "fix(tests): resolve locators for activity feed rollover, explore profile headers, form fields tab, and home post navigation\n",
+            "author": {
+              "name": "Mughda Bansal",
+              "email": "mughdabansal1414@gmail.com",
+              "time": 1793078599000
+            },
+            "committer": {
+              "name": "Mughda Bansal",
+              "email": "mughdabansal1414@gmail.com",
+              "time": 1793078599000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 1
         },
         "id": "chromium",
         "name": "chromium",
-        "testDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
+        "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
         "testIgnore": [
           "**/chat.spec.ts",
           "**/04-chat-collaboration.spec.ts"
@@ -48,15 +86,37 @@
         "timeout": 30000
       },
       {
-        "outputDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/test-reports/test-results",
+        "outputDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results",
         "repeatEach": 1,
-        "retries": 1,
+        "retries": 2,
         "metadata": {
-          "actualWorkers": 2
+          "ci": {
+            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/d948c1337bab9250e5ee2020d12760810a01f65f",
+            "commitHash": "d948c1337bab9250e5ee2020d12760810a01f65f",
+            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/40455057203"
+          },
+          "gitCommit": {
+            "shortHash": "d948c13",
+            "hash": "d948c1337bab9250e5ee2020d12760810a01f65f",
+            "subject": "fix(tests): resolve locators for activity feed rollover, explore profile headers, form fields tab, and home post navigation",
+            "body": "fix(tests): resolve locators for activity feed rollover, explore profile headers, form fields tab, and home post navigation\n",
+            "author": {
+              "name": "Mughda Bansal",
+              "email": "mughdabansal1414@gmail.com",
+              "time": 1793078599000
+            },
+            "committer": {
+              "name": "Mughda Bansal",
+              "email": "mughdabansal1414@gmail.com",
+              "time": 1793078599000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 1
         },
         "id": "firefox",
         "name": "firefox",
-        "testDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
+        "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
         "testIgnore": [
           "**/chat.spec.ts",
           "**/04-chat-collaboration.spec.ts"
@@ -67,15 +127,37 @@
         "timeout": 30000
       },
       {
-        "outputDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/test-reports/test-results",
+        "outputDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results",
         "repeatEach": 1,
-        "retries": 1,
+        "retries": 2,
         "metadata": {
-          "actualWorkers": 2
+          "ci": {
+            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/d948c1337bab9250e5ee2020d12760810a01f65f",
+            "commitHash": "d948c1337bab9250e5ee2020d12760810a01f65f",
+            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/40455057203"
+          },
+          "gitCommit": {
+            "shortHash": "d948c13",
+            "hash": "d948c1337bab9250e5ee2020d12760810a01f65f",
+            "subject": "fix(tests): resolve locators for activity feed rollover, explore profile headers, form fields tab, and home post navigation",
+            "body": "fix(tests): resolve locators for activity feed rollover, explore profile headers, form fields tab, and home post navigation\n",
+            "author": {
+              "name": "Mughda Bansal",
+              "email": "mughdabansal1414@gmail.com",
+              "time": 1793078599000
+            },
+            "committer": {
+              "name": "Mughda Bansal",
+              "email": "mughdabansal1414@gmail.com",
+              "time": 1793078599000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 1
         },
         "id": "webkit",
         "name": "webkit",
-        "testDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
+        "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
         "testIgnore": [
           "**/chat.spec.ts",
           "**/04-chat-collaboration.spec.ts"
@@ -86,15 +168,37 @@
         "timeout": 30000
       },
       {
-        "outputDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/test-reports/test-results",
+        "outputDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results",
         "repeatEach": 1,
-        "retries": 1,
+        "retries": 2,
         "metadata": {
-          "actualWorkers": 2
+          "ci": {
+            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/d948c1337bab9250e5ee2020d12760810a01f65f",
+            "commitHash": "d948c1337bab9250e5ee2020d12760810a01f65f",
+            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/40455057203"
+          },
+          "gitCommit": {
+            "shortHash": "d948c13",
+            "hash": "d948c1337bab9250e5ee2020d12760810a01f65f",
+            "subject": "fix(tests): resolve locators for activity feed rollover, explore profile headers, form fields tab, and home post navigation",
+            "body": "fix(tests): resolve locators for activity feed rollover, explore profile headers, form fields tab, and home post navigation\n",
+            "author": {
+              "name": "Mughda Bansal",
+              "email": "mughdabansal1414@gmail.com",
+              "time": 1793078599000
+            },
+            "committer": {
+              "name": "Mughda Bansal",
+              "email": "mughdabansal1414@gmail.com",
+              "time": 1793078599000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 1
         },
         "id": "edge",
         "name": "edge",
-        "testDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
+        "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
         "testIgnore": [
           "**/chat.spec.ts",
           "**/04-chat-collaboration.spec.ts"
@@ -134,7 +238,7 @@
     "updateSnapshots": "missing",
     "updateSourceMethod": "patch",
     "version": "1.62.1",
-    "workers": 2,
+    "workers": 1,
     "webServer": null
   },
   "suites": [
@@ -152,6 +256,134 @@
           "column": 6,
           "specs": [
             {
+              "title": "TC_ACT_001: should navigate to activity page and verify header display",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4325,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:24:50.722Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-c0ba2-e-and-verify-header-display-chromium/video.webm"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4437,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-10-27T05:25:45.158Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-c0ba2-e-and-verify-header-display-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-c0ba2-e-and-verify-header-display-chromium-retry1/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-3f190bd5eb820169b025",
+              "file": "activity.spec.ts",
+              "line": 80,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_002: should display activity feed and verify content layout",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6902,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:24:55.232Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-6ae2a-d-and-verify-content-layout-chromium/video.webm"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7449,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-10-27T05:25:49.846Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-6ae2a-d-and-verify-content-layout-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-6ae2a-d-and-verify-content-layout-chromium-retry1/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-6b9f5ccc60cf9d78ed63",
+              "file": "activity.spec.ts",
+              "line": 96,
+              "column": 7
+            },
+            {
               "title": "TC_ACT_003: should verify badge and role assignment notification message",
               "ok": true,
               "tags": [],
@@ -167,18 +399,42 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 14348,
+                      "duration": 7027,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-27T05:21:37.925Z",
+                      "startTime": "2026-10-27T05:25:02.142Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-c9d83-gnment-notification-message-chromium\\video.webm"
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-c9d83-gnment-notification-message-chromium/video.webm"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6942,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-10-27T05:25:57.534Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-c9d83-gnment-notification-message-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-c9d83-gnment-notification-message-chromium-retry1/trace.zip"
                         }
                       ]
                     }
@@ -190,88 +446,14 @@
               "file": "activity.spec.ts",
               "line": 109,
               "column": 7
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "explore.spec.ts",
-      "file": "explore.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Eve Vakh - Explore Page Functional, UI/UX & Profile Forms Test Suite",
-          "file": "explore.spec.ts",
-          "line": 8,
-          "column": 6,
-          "specs": [
+            },
             {
-              "title": "TC_EXP_006: should navigate to user profile and display header details (username, joined, rep, tags)",
+              "title": "TC_ACT_004: should verify form publication approval notification and media preview",
               "ok": true,
               "tags": [],
               "tests": [
                 {
                   "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 16800,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-27T05:21:37.960Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-10b3f-s-username-joined-rep-tags--chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "068fad9605609506583e-ec56b41e4b10a568b9a1",
-              "file": "explore.spec.ts",
-              "line": 111,
-              "column": 7
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "form-advanced-fields.spec.ts",
-      "file": "form-advanced-fields.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Eve Vakh - Form Builder Advanced Section Fields Suite",
-          "file": "form-advanced-fields.spec.ts",
-          "line": 6,
-          "column": 6,
-          "specs": [
-            {
-              "title": "TC_ADV_FIELD_005: Form creation with all 4 Advanced fields, persistence, and post creation with data display",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 240000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -281,93 +463,282 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 35397,
+                      "duration": 5702,
                       "errors": [],
-                      "stdout": [
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:25:09.176Z",
+                      "annotations": [],
+                      "attachments": [
                         {
-                          "text": "✅ Fully verified form creation, persistence, and post display for Advanced Suite Verified Form 2924!\n"
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-81035-ification-and-media-preview-chromium/video.webm"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7607,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-10-27T05:26:04.649Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-81035-ification-and-media-preview-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-81035-ification-and-media-preview-chromium-retry1/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-67db8b34566fa5053e57",
+              "file": "activity.spec.ts",
+              "line": 122,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_005: should verify content moderation policy rejection message and quoted post",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6116,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:25:14.885Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-cee6f-ion-message-and-quoted-post-chromium/video.webm"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7007,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-10-27T05:26:12.435Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-cee6f-ion-message-and-quoted-post-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-cee6f-ion-message-and-quoted-post-chromium-retry1/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-393880cc1dc48ebd6e0c",
+              "file": "activity.spec.ts",
+              "line": 135,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_006: should verify post heart reaction notification and referenced post snippet",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7347,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:25:21.008Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-baf45-and-referenced-post-snippet-chromium/video.webm"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7701,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-10-27T05:26:19.660Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-baf45-and-referenced-post-snippet-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-baf45-and-referenced-post-snippet-chromium-retry1/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-d7f5233c5c23afe7d138",
+              "file": "activity.spec.ts",
+              "line": 149,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_007: should verify access and permissions granted notification messages",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 16492,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/mughdabansal1414 gave you access to test form/i).first()\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/mughdabansal1414 gave you access to test form/i).first()\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/mughdabansal1414 gave you access to test form/i).first()\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/mughdabansal1414 gave you access to test form/i).first()\u001b[22m\n\n    at ActivityPage.verifyAccessGrantedNotifications (/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/pages/ActivityPage.ts:206:44)\n    at /home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests/activity.spec.ts:167:5",
+                        "location": {
+                          "file": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/pages/ActivityPage.ts",
+                          "column": 44,
+                          "line": 206
+                        },
+                        "snippet": "   at ../pages/ActivityPage.ts:206\n\n\u001b[0m \u001b[90m 204 |\u001b[39m   \u001b[36masync\u001b[39m verifyAccessGrantedNotifications() {\n \u001b[90m 205 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mscrollToFeedElement(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mtestFormAccessAlert\u001b[33m.\u001b[39mor(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpostsAccessAlert))\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 206 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mtestFormAccessAlert)\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 207 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpostsAccessAlert)\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 208 |\u001b[39m   }\n \u001b[90m 209 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/pages/ActivityPage.ts",
+                            "column": 44,
+                            "line": 206
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/mughdabansal1414 gave you access to test form/i).first()\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/mughdabansal1414 gave you access to test form/i).first()\u001b[22m\n\n\n   at ../pages/ActivityPage.ts:206\n\n  204 |   async verifyAccessGrantedNotifications() {\n  205 |     await this.scrollToFeedElement(this.testFormAccessAlert.or(this.postsAccessAlert));\n> 206 |     await expect(this.testFormAccessAlert).toBeVisible({ timeout: 10000 });\n      |                                            ^\n  207 |     await expect(this.postsAccessAlert).toBeVisible({ timeout: 10000 });\n  208 |   }\n  209 |\n    at ActivityPage.verifyAccessGrantedNotifications (/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/pages/ActivityPage.ts:206:44)\n    at /home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests/activity.spec.ts:167:5"
                         }
                       ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-27T05:21:52.722Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\form-advanced-fields-Eve-V-58e0e--creation-with-data-display-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "73f4cec3b43e9253f2e5-bfd9c56110b508ff4c27",
-              "file": "form-advanced-fields.spec.ts",
-              "line": 251,
-              "column": 7
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "home.spec.ts",
-      "file": "home.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Eve Vakh - Home Page Full UI & Functional Test Suite",
-          "file": "home.spec.ts",
-          "line": 23,
-          "column": 6,
-          "specs": [
-            {
-              "title": "TC_HOME_001: should validate home page UI layout, sidebar navigation and action controls",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 12069,
-                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-27T05:21:55.287Z",
+                      "startTime": "2026-10-27T05:25:28.362Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-10aa0-anted-notification-messages-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-10aa0-anted-notification-messages-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-10aa0-anted-notification-messages-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/pages/ActivityPage.ts",
+                        "column": 44,
+                        "line": 206
+                      }
+                    },
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7359,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-10-27T05:26:27.624Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\home-Eve-Vakh---Home-Page--e771e-igation-and-action-controls-chromium\\video.webm"
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-10aa0-anted-notification-messages-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-10aa0-anted-notification-messages-chromium-retry1/trace.zip"
                         }
                       ]
                     }
                   ],
-                  "status": "expected"
+                  "status": "flaky"
                 }
               ],
-              "id": "d318381359a9b96acb1e-2243c4eb0b9cc768bca8",
-              "file": "home.spec.ts",
-              "line": 51,
+              "id": "616be4781cf8c32ae453-5e5a1148aebb4a57f1f6",
+              "file": "activity.spec.ts",
+              "line": 163,
               "column": 7
             },
             {
-              "title": "TC_HOME_002: should display feed posts filtered strictly for allowed users (happy badge / mughdabansal1414)",
+              "title": "TC_ACT_008: should verify user activity and post mention notification details",
               "ok": true,
               "tags": [],
               "tests": [
@@ -379,21 +750,39 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 9383,
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-27T05:22:07.406Z",
+                      "startTime": "2026-10-27T05:25:44.889Z",
+                      "annotations": [],
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8347,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-10-27T05:26:35.170Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\home-Eve-Vakh---Home-Page--1bb36-ppy-badge-mughdabansal1414--chromium\\video.webm"
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-189a8-ention-notification-details-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-189a8-ention-notification-details-chromium-retry1/trace.zip"
                         }
                       ]
                     }
@@ -401,13 +790,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "d318381359a9b96acb1e-3c732f8a4ba456b3e7ae",
-              "file": "home.spec.ts",
-              "line": 65,
+              "id": "616be4781cf8c32ae453-6ffbc56d5467988266ce",
+              "file": "activity.spec.ts",
+              "line": 176,
               "column": 7
             },
             {
-              "title": "TC_HOME_004: should click on post from allowed user and validate text, media and links",
+              "title": "TC_ACT_009: should verify end-of-feed indicator and chronological sequence",
               "ok": true,
               "tags": [],
               "tests": [
@@ -419,21 +808,39 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 12231,
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-27T05:22:16.897Z",
+                      "startTime": "2026-10-27T05:25:44.889Z",
+                      "annotations": [],
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8280,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-10-27T05:26:43.706Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\home-Eve-Vakh---Home-Page--51b5d-lidate-text-media-and-links-chromium\\video.webm"
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-045ec--and-chronological-sequence-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-045ec--and-chronological-sequence-chromium-retry1/trace.zip"
                         }
                       ]
                     }
@@ -441,13 +848,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "d318381359a9b96acb1e-188e7271125f1e993373",
-              "file": "home.spec.ts",
-              "line": 101,
+              "id": "616be4781cf8c32ae453-204e0705c334e3fba5a2",
+              "file": "activity.spec.ts",
+              "line": 189,
               "column": 7
             },
             {
-              "title": "TC_HOME_005: should select allowed post and launch quote composer flow",
+              "title": "TC_ACT_010: should preserve authenticated session upon direct activity navigation",
               "ok": true,
               "tags": [],
               "tests": [
@@ -459,21 +866,39 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 16267,
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-27T05:22:29.160Z",
+                      "startTime": "2026-10-27T05:25:44.890Z",
+                      "annotations": [],
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4725,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-10-27T05:26:52.238Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\home-Eve-Vakh---Home-Page--663c5--launch-quote-composer-flow-chromium\\video.webm"
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-04cd1--direct-activity-navigation-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-04cd1--direct-activity-navigation-chromium-retry1/trace.zip"
                         }
                       ]
                     }
@@ -481,9 +906,1860 @@
                   "status": "expected"
                 }
               ],
-              "id": "d318381359a9b96acb1e-06cf25085afe8f39230d",
-              "file": "home.spec.ts",
-              "line": 118,
+              "id": "616be4781cf8c32ae453-43bf40385ed0aa08bb1a",
+              "file": "activity.spec.ts",
+              "line": 203,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_011: should group high-frequency reactions (50+ likes in 1 minute) into a single summary notification",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:25:44.890Z",
+                      "annotations": [],
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5679,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-10-27T05:26:57.126Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-ecacd-single-summary-notification-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-ecacd-single-summary-notification-chromium-retry1/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-6abd8c32a14f50f76d9e",
+              "file": "activity.spec.ts",
+              "line": 221,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_001: should navigate to activity page and verify header display",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4699,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:27:03.304Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-c0ba2-e-and-verify-header-display-firefox/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-2331fb97787c953d3c1d",
+              "file": "activity.spec.ts",
+              "line": 80,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_002: should display activity feed and verify content layout",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7524,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:27:08.308Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-6ae2a-d-and-verify-content-layout-firefox/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-c84f944cf178f8f682be",
+              "file": "activity.spec.ts",
+              "line": 96,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_003: should verify badge and role assignment notification message",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5893,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:27:15.843Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-c9d83-gnment-notification-message-firefox/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-846f87e99cd7b42f8373",
+              "file": "activity.spec.ts",
+              "line": 109,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_004: should verify form publication approval notification and media preview",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5834,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:27:21.744Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-81035-ification-and-media-preview-firefox/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-2bed74c4b20134e1da61",
+              "file": "activity.spec.ts",
+              "line": 122,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_005: should verify content moderation policy rejection message and quoted post",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7744,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:27:27.586Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-cee6f-ion-message-and-quoted-post-firefox/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-8751050b2c020ef8d8bb",
+              "file": "activity.spec.ts",
+              "line": 135,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_006: should verify post heart reaction notification and referenced post snippet",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7086,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:27:35.339Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-baf45-and-referenced-post-snippet-firefox/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-adbd9a602b42fa338bb4",
+              "file": "activity.spec.ts",
+              "line": 149,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_007: should verify access and permissions granted notification messages",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7833,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:27:42.433Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-10aa0-anted-notification-messages-firefox/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-81c9cea473df043b0cbd",
+              "file": "activity.spec.ts",
+              "line": 163,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_008: should verify user activity and post mention notification details",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8451,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:27:50.274Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-189a8-ention-notification-details-firefox/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-5515a795000eb6b05aff",
+              "file": "activity.spec.ts",
+              "line": 176,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_009: should verify end-of-feed indicator and chronological sequence",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7125,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:27:58.734Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-045ec--and-chronological-sequence-firefox/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-793b5458db392c657d2a",
+              "file": "activity.spec.ts",
+              "line": 189,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_010: should preserve authenticated session upon direct activity navigation",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7175,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:28:05.868Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-04cd1--direct-activity-navigation-firefox/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-5e3cbefe68b586879541",
+              "file": "activity.spec.ts",
+              "line": 203,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_011: should group high-frequency reactions (50+ likes in 1 minute) into a single summary notification",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6151,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:28:13.053Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-ecacd-single-summary-notification-firefox/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-3f6c34ed56556d6717d4",
+              "file": "activity.spec.ts",
+              "line": 221,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_001: should navigate to activity page and verify header display",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6477,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:28:19.754Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-c0ba2-e-and-verify-header-display-webkit/video.webm"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5106,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-10-27T05:29:20.655Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-c0ba2-e-and-verify-header-display-webkit-retry1/video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-c0ba2-e-and-verify-header-display-webkit-retry1/trace.zip"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4870,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2026-10-27T05:30:22.442Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-c0ba2-e-and-verify-header-display-webkit-retry2/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-40eeb2640590a90411cb",
+              "file": "activity.spec.ts",
+              "line": 80,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_002: should display activity feed and verify content layout",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8067,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:28:26.537Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-6ae2a-d-and-verify-content-layout-webkit/video.webm"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7331,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-10-27T05:29:26.002Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-6ae2a-d-and-verify-content-layout-webkit-retry1/video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-6ae2a-d-and-verify-content-layout-webkit-retry1/trace.zip"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7602,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2026-10-27T05:30:27.400Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-6ae2a-d-and-verify-content-layout-webkit-retry2/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-c9d350d3e8448011ace5",
+              "file": "activity.spec.ts",
+              "line": 96,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_003: should verify badge and role assignment notification message",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7335,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:28:34.615Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-c9d83-gnment-notification-message-webkit/video.webm"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6946,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-10-27T05:29:33.517Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-c9d83-gnment-notification-message-webkit-retry1/video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-c9d83-gnment-notification-message-webkit-retry1/trace.zip"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7218,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2026-10-27T05:30:35.015Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-c9d83-gnment-notification-message-webkit-retry2/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-7dd9d7499ddc80269ca9",
+              "file": "activity.spec.ts",
+              "line": 109,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_004: should verify form publication approval notification and media preview",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5613,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:28:41.959Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-81035-ification-and-media-preview-webkit/video.webm"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5946,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-10-27T05:29:40.639Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-81035-ification-and-media-preview-webkit-retry1/video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-81035-ification-and-media-preview-webkit-retry1/trace.zip"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5319,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2026-10-27T05:30:42.240Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-81035-ification-and-media-preview-webkit-retry2/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-741c710d1bd040e90ec4",
+              "file": "activity.spec.ts",
+              "line": 122,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_005: should verify content moderation policy rejection message and quoted post",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6544,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:28:47.579Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-cee6f-ion-message-and-quoted-post-webkit/video.webm"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8516,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-10-27T05:29:46.755Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-cee6f-ion-message-and-quoted-post-webkit-retry1/video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-cee6f-ion-message-and-quoted-post-webkit-retry1/trace.zip"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7270,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2026-10-27T05:30:47.566Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-cee6f-ion-message-and-quoted-post-webkit-retry2/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-2547bcf08994cb690835",
+              "file": "activity.spec.ts",
+              "line": 135,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_006: should verify post heart reaction notification and referenced post snippet",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8140,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:28:54.132Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-baf45-and-referenced-post-snippet-webkit/video.webm"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7599,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-10-27T05:29:55.451Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-baf45-and-referenced-post-snippet-webkit-retry1/video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-baf45-and-referenced-post-snippet-webkit-retry1/trace.zip"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7328,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2026-10-27T05:30:54.843Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-baf45-and-referenced-post-snippet-webkit-retry2/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-133c3032c684d3e1af75",
+              "file": "activity.spec.ts",
+              "line": 149,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_007: should verify access and permissions granted notification messages",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 18062,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/mughdabansal1414 gave you access to test form/i).first()\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/mughdabansal1414 gave you access to test form/i).first()\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/mughdabansal1414 gave you access to test form/i).first()\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/mughdabansal1414 gave you access to test form/i).first()\u001b[22m\n\n    at ActivityPage.verifyAccessGrantedNotifications (/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/pages/ActivityPage.ts:206:44)\n    at /home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests/activity.spec.ts:167:5",
+                        "location": {
+                          "file": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/pages/ActivityPage.ts",
+                          "column": 44,
+                          "line": 206
+                        },
+                        "snippet": "   at ../pages/ActivityPage.ts:206\n\n\u001b[0m \u001b[90m 204 |\u001b[39m   \u001b[36masync\u001b[39m verifyAccessGrantedNotifications() {\n \u001b[90m 205 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mscrollToFeedElement(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mtestFormAccessAlert\u001b[33m.\u001b[39mor(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpostsAccessAlert))\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 206 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mtestFormAccessAlert)\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 207 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpostsAccessAlert)\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 208 |\u001b[39m   }\n \u001b[90m 209 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/pages/ActivityPage.ts",
+                            "column": 44,
+                            "line": 206
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/mughdabansal1414 gave you access to test form/i).first()\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/mughdabansal1414 gave you access to test form/i).first()\u001b[22m\n\n\n   at ../pages/ActivityPage.ts:206\n\n  204 |   async verifyAccessGrantedNotifications() {\n  205 |     await this.scrollToFeedElement(this.testFormAccessAlert.or(this.postsAccessAlert));\n> 206 |     await expect(this.testFormAccessAlert).toBeVisible({ timeout: 10000 });\n      |                                            ^\n  207 |     await expect(this.postsAccessAlert).toBeVisible({ timeout: 10000 });\n  208 |   }\n  209 |\n    at ActivityPage.verifyAccessGrantedNotifications (/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/pages/ActivityPage.ts:206:44)\n    at /home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests/activity.spec.ts:167:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:29:02.281Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-10aa0-anted-notification-messages-webkit/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-10aa0-anted-notification-messages-webkit/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-10aa0-anted-notification-messages-webkit/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/pages/ActivityPage.ts",
+                        "column": 44,
+                        "line": 206
+                      }
+                    },
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 18701,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/mughdabansal1414 gave you access to test form/i).first()\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/mughdabansal1414 gave you access to test form/i).first()\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/mughdabansal1414 gave you access to test form/i).first()\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/mughdabansal1414 gave you access to test form/i).first()\u001b[22m\n\n    at ActivityPage.verifyAccessGrantedNotifications (/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/pages/ActivityPage.ts:206:44)\n    at /home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests/activity.spec.ts:167:5",
+                        "location": {
+                          "file": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/pages/ActivityPage.ts",
+                          "column": 44,
+                          "line": 206
+                        },
+                        "snippet": "   at ../pages/ActivityPage.ts:206\n\n\u001b[0m \u001b[90m 204 |\u001b[39m   \u001b[36masync\u001b[39m verifyAccessGrantedNotifications() {\n \u001b[90m 205 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mscrollToFeedElement(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mtestFormAccessAlert\u001b[33m.\u001b[39mor(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpostsAccessAlert))\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 206 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mtestFormAccessAlert)\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 207 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpostsAccessAlert)\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 208 |\u001b[39m   }\n \u001b[90m 209 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/pages/ActivityPage.ts",
+                            "column": 44,
+                            "line": 206
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/mughdabansal1414 gave you access to test form/i).first()\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/mughdabansal1414 gave you access to test form/i).first()\u001b[22m\n\n\n   at ../pages/ActivityPage.ts:206\n\n  204 |   async verifyAccessGrantedNotifications() {\n  205 |     await this.scrollToFeedElement(this.testFormAccessAlert.or(this.postsAccessAlert));\n> 206 |     await expect(this.testFormAccessAlert).toBeVisible({ timeout: 10000 });\n      |                                            ^\n  207 |     await expect(this.postsAccessAlert).toBeVisible({ timeout: 10000 });\n  208 |   }\n  209 |\n    at ActivityPage.verifyAccessGrantedNotifications (/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/pages/ActivityPage.ts:206:44)\n    at /home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests/activity.spec.ts:167:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-10-27T05:30:03.228Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-10aa0-anted-notification-messages-webkit-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-10aa0-anted-notification-messages-webkit-retry1/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-10aa0-anted-notification-messages-webkit-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-10aa0-anted-notification-messages-webkit-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/pages/ActivityPage.ts",
+                        "column": 44,
+                        "line": 206
+                      }
+                    },
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 9239,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2026-10-27T05:31:02.178Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-10aa0-anted-notification-messages-webkit-retry2/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "flaky"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-11ef22923c1d57f754b5",
+              "file": "activity.spec.ts",
+              "line": 163,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_008: should verify user activity and post mention notification details",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:29:20.398Z",
+                      "annotations": [],
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-10-27T05:30:22.175Z",
+                      "annotations": [],
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8719,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2026-10-27T05:31:11.425Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-189a8-ention-notification-details-webkit-retry2/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-5f3e6f12776098cae9f5",
+              "file": "activity.spec.ts",
+              "line": 176,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_009: should verify end-of-feed indicator and chronological sequence",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:29:20.398Z",
+                      "annotations": [],
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-10-27T05:30:22.175Z",
+                      "annotations": [],
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7174,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2026-10-27T05:31:20.152Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-045ec--and-chronological-sequence-webkit-retry2/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-70713ba243a079258a49",
+              "file": "activity.spec.ts",
+              "line": 189,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_010: should preserve authenticated session upon direct activity navigation",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:29:20.398Z",
+                      "annotations": [],
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-10-27T05:30:22.175Z",
+                      "annotations": [],
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4915,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2026-10-27T05:31:27.333Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-04cd1--direct-activity-navigation-webkit-retry2/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-e73792c7347a25ffd70c",
+              "file": "activity.spec.ts",
+              "line": 203,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_011: should group high-frequency reactions (50+ likes in 1 minute) into a single summary notification",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:29:20.398Z",
+                      "annotations": [],
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-10-27T05:30:22.175Z",
+                      "annotations": [],
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5958,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2026-10-27T05:31:32.255Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-ecacd-single-summary-notification-webkit-retry2/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-d33480fdda16920f080e",
+              "file": "activity.spec.ts",
+              "line": 221,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_001: should navigate to activity page and verify header display",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "edge",
+                  "projectName": "edge",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4145,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:31:38.524Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-c0ba2-e-and-verify-header-display-edge/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-dfd318d377df3c58b902",
+              "file": "activity.spec.ts",
+              "line": 80,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_002: should display activity feed and verify content layout",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "edge",
+                  "projectName": "edge",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6453,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:31:42.750Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-6ae2a-d-and-verify-content-layout-edge/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-7f259c2e4b32c4bd4d7e",
+              "file": "activity.spec.ts",
+              "line": 96,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_003: should verify badge and role assignment notification message",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "edge",
+                  "projectName": "edge",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5555,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:31:49.212Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-c9d83-gnment-notification-message-edge/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-de1c7f98325063cf54f3",
+              "file": "activity.spec.ts",
+              "line": 109,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_004: should verify form publication approval notification and media preview",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "edge",
+                  "projectName": "edge",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4558,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:31:54.773Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-81035-ification-and-media-preview-edge/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-32d1908eabde58e58bce",
+              "file": "activity.spec.ts",
+              "line": 122,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_005: should verify content moderation policy rejection message and quoted post",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "edge",
+                  "projectName": "edge",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6937,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:31:59.336Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-cee6f-ion-message-and-quoted-post-edge/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-def33e31fd9a58454012",
+              "file": "activity.spec.ts",
+              "line": 135,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_006: should verify post heart reaction notification and referenced post snippet",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "edge",
+                  "projectName": "edge",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5821,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:32:06.279Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-baf45-and-referenced-post-snippet-edge/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-ed64de53ce53a5f66b04",
+              "file": "activity.spec.ts",
+              "line": 149,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_007: should verify access and permissions granted notification messages",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "edge",
+                  "projectName": "edge",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7005,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:32:12.107Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-10aa0-anted-notification-messages-edge/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-56bbcb5f8dc0ef694d23",
+              "file": "activity.spec.ts",
+              "line": 163,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_008: should verify user activity and post mention notification details",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "edge",
+                  "projectName": "edge",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7044,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:32:19.118Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-189a8-ention-notification-details-edge/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-d11f8a8c97761a6c3f91",
+              "file": "activity.spec.ts",
+              "line": 176,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_009: should verify end-of-feed indicator and chronological sequence",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "edge",
+                  "projectName": "edge",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8797,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:32:26.171Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-045ec--and-chronological-sequence-edge/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-76053fde6740df1bb26e",
+              "file": "activity.spec.ts",
+              "line": 189,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_010: should preserve authenticated session upon direct activity navigation",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "edge",
+                  "projectName": "edge",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3054,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:32:34.976Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-04cd1--direct-activity-navigation-edge/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-ae1b223d50b1f1c52e97",
+              "file": "activity.spec.ts",
+              "line": 203,
+              "column": 7
+            },
+            {
+              "title": "TC_ACT_011: should group high-frequency reactions (50+ likes in 1 minute) into a single summary notification",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "edge",
+                  "projectName": "edge",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3885,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:32:38.037Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-ecacd-single-summary-notification-edge/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616be4781cf8c32ae453-713a3269cdca083988eb",
+              "file": "activity.spec.ts",
+              "line": 221,
               "column": 7
             }
           ]
@@ -493,11 +2769,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-27T05:21:36.598Z",
-    "duration": 69028.678,
-    "expected": 7,
+    "startTime": "2026-10-27T05:24:50.270Z",
+    "duration": 471702.659,
+    "expected": 42,
     "skipped": 0,
     "unexpected": 0,
-    "flaky": 0
+    "flaky": 2
   }
 }
