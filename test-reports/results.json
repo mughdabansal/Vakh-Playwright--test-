@@ -4,7 +4,12 @@
       "C:\\Program Files\\nodejs\\node.exe",
       "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\node_modules\\@playwright\\test\\cli.js",
       "test",
-      "src/tests/runtime-cache-editor-lifecycle.spec.ts",
+      "src/tests/activity.spec.ts",
+      "src/tests/explore.spec.ts",
+      "src/tests/form-advanced-fields.spec.ts",
+      "src/tests/home.spec.ts",
+      "-g",
+      "TC_ACT_003|TC_EXP_006|TC_ADV_FIELD_005|TC_HOME_001|TC_HOME_002|TC_HOME_004|TC_HOME_005",
       "--project=chromium"
     ],
     "configFile": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\playwright.config.ts",
@@ -19,7 +24,7 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "actualWorkers": 1
+      "actualWorkers": 2
     },
     "preserveOutput": "always",
     "projects": [
@@ -28,7 +33,7 @@
         "repeatEach": 1,
         "retries": 1,
         "metadata": {
-          "actualWorkers": 1
+          "actualWorkers": 2
         },
         "id": "chromium",
         "name": "chromium",
@@ -47,7 +52,7 @@
         "repeatEach": 1,
         "retries": 1,
         "metadata": {
-          "actualWorkers": 1
+          "actualWorkers": 2
         },
         "id": "firefox",
         "name": "firefox",
@@ -66,7 +71,7 @@
         "repeatEach": 1,
         "retries": 1,
         "metadata": {
-          "actualWorkers": 1
+          "actualWorkers": 2
         },
         "id": "webkit",
         "name": "webkit",
@@ -85,7 +90,7 @@
         "repeatEach": 1,
         "retries": 1,
         "metadata": {
-          "actualWorkers": 1
+          "actualWorkers": 2
         },
         "id": "edge",
         "name": "edge",
@@ -134,25 +139,25 @@
   },
   "suites": [
     {
-      "title": "runtime-cache-editor-lifecycle.spec.ts",
-      "file": "runtime-cache-editor-lifecycle.spec.ts",
+      "title": "activity.spec.ts",
+      "file": "activity.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Runtime Cache, Memory Cleanup, Alias Resolution & Form Editor Lifecycle",
-          "file": "runtime-cache-editor-lifecycle.spec.ts",
-          "line": 24,
+          "title": "Eve Vakh - Activity & Notifications Page Test Suite",
+          "file": "activity.spec.ts",
+          "line": 7,
           "column": 6,
           "specs": [
             {
-              "title": "TC_CACHE_001: offline cache survives memory sweeps and reclaims only idle empty entries",
+              "title": "TC_ACT_003: should verify badge and role assignment notification message",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 120000,
+                  "timeout": 90000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -162,18 +167,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 14920,
+                      "duration": 14348,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-27T04:15:35.055Z",
+                      "startTime": "2026-10-27T05:21:37.925Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-f65c0-ims-only-idle-empty-entries-chromium\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-c9d83-gnment-notification-message-chromium\\video.webm"
                         }
                       ]
                     }
@@ -181,39 +186,214 @@
                   "status": "expected"
                 }
               ],
-              "id": "fa5f3fe7879699678410-f2d4fcc937185b9e3acd",
-              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "id": "616be4781cf8c32ae453-c29ea7d4e1b00c79571b",
+              "file": "activity.spec.ts",
+              "line": 109,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "explore.spec.ts",
+      "file": "explore.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Eve Vakh - Explore Page Functional, UI/UX & Profile Forms Test Suite",
+          "file": "explore.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC_EXP_006: should navigate to user profile and display header details (username, joined, rep, tags)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 16800,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:21:37.960Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-10b3f-s-username-joined-rep-tags--chromium\\video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "068fad9605609506583e-ec56b41e4b10a568b9a1",
+              "file": "explore.spec.ts",
+              "line": 111,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "form-advanced-fields.spec.ts",
+      "file": "form-advanced-fields.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Eve Vakh - Form Builder Advanced Section Fields Suite",
+          "file": "form-advanced-fields.spec.ts",
+          "line": 6,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC_ADV_FIELD_005: Form creation with all 4 Advanced fields, persistence, and post creation with data display",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 240000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 35397,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "✅ Fully verified form creation, persistence, and post display for Advanced Suite Verified Form 2924!\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:21:52.722Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\form-advanced-fields-Eve-V-58e0e--creation-with-data-display-chromium\\video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "73f4cec3b43e9253f2e5-bfd9c56110b508ff4c27",
+              "file": "form-advanced-fields.spec.ts",
+              "line": 251,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "home.spec.ts",
+      "file": "home.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Eve Vakh - Home Page Full UI & Functional Test Suite",
+          "file": "home.spec.ts",
+          "line": 23,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC_HOME_001: should validate home page UI layout, sidebar navigation and action controls",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 12069,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T05:21:55.287Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\home-Eve-Vakh---Home-Page--e771e-igation-and-action-controls-chromium\\video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d318381359a9b96acb1e-2243c4eb0b9cc768bca8",
+              "file": "home.spec.ts",
               "line": 51,
               "column": 7
             },
             {
-              "title": "TC_MEM_001: memory warning is deduplicated and dispatched only once per high-count period",
+              "title": "TC_HOME_002: should display feed posts filtered strictly for allowed users (happy badge / mughdabansal1414)",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 120000,
+                  "timeout": 90000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 282,
+                      "duration": 9383,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-27T04:15:50.166Z",
+                      "startTime": "2026-10-27T05:22:07.406Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-b1917--once-per-high-count-period-chromium\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\home-Eve-Vakh---Home-Page--1bb36-ppy-badge-mughdabansal1414--chromium\\video.webm"
                         }
                       ]
                     }
@@ -221,39 +401,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "fa5f3fe7879699678410-7edaa9240978c4af1fc7",
-              "file": "runtime-cache-editor-lifecycle.spec.ts",
-              "line": 122,
+              "id": "d318381359a9b96acb1e-3c732f8a4ba456b3e7ae",
+              "file": "home.spec.ts",
+              "line": 65,
               "column": 7
             },
             {
-              "title": "TC_ALIAS_001: alias cache maintains bounded capacity and prunes stale unused entries according to freshness policy",
+              "title": "TC_HOME_004: should click on post from allowed user and validate text, media and links",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 120000,
+                  "timeout": 90000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 338,
+                      "duration": 12231,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-27T04:15:50.473Z",
+                      "startTime": "2026-10-27T05:22:16.897Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-1ca86-cording-to-freshness-policy-chromium\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\home-Eve-Vakh---Home-Page--51b5d-lidate-text-media-and-links-chromium\\video.webm"
                         }
                       ]
                     }
@@ -261,39 +441,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "fa5f3fe7879699678410-6de6c344f82fe0f3b5cd",
-              "file": "runtime-cache-editor-lifecycle.spec.ts",
-              "line": 192,
+              "id": "d318381359a9b96acb1e-188e7271125f1e993373",
+              "file": "home.spec.ts",
+              "line": 101,
               "column": 7
             },
             {
-              "title": "TC_ALIAS_002: blank inputs and UUID literals bypass alias resolution queries without network dispatch",
+              "title": "TC_HOME_005: should select allowed post and launch quote composer flow",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 120000,
+                  "timeout": 90000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 267,
+                      "duration": 16267,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-27T04:15:50.826Z",
+                      "startTime": "2026-10-27T05:22:29.160Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-62712-es-without-network-dispatch-chromium\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\home-Eve-Vakh---Home-Page--663c5--launch-quote-composer-flow-chromium\\video.webm"
                         }
                       ]
                     }
@@ -301,1049 +481,9 @@
                   "status": "expected"
                 }
               ],
-              "id": "fa5f3fe7879699678410-9ed828536328a2bfb512",
-              "file": "runtime-cache-editor-lifecycle.spec.ts",
-              "line": 289,
-              "column": 7
-            },
-            {
-              "title": "TC_EDITOR_001: longform editor wrapper maintains component identity and scroll margin across state updates",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5708,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-27T04:15:51.110Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-816ae-margin-across-state-updates-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "fa5f3fe7879699678410-6102ebdc6add64236541",
-              "file": "runtime-cache-editor-lifecycle.spec.ts",
-              "line": 361,
-              "column": 7
-            },
-            {
-              "title": "TC_EDITOR_002: reader composer transitions safely into fullscreen layout without layout breakage or content distortion",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 30918,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-27T04:15:56.833Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-51aa0-akage-or-content-distortion-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "fa5f3fe7879699678410-a89b641290341614899a",
-              "file": "runtime-cache-editor-lifecycle.spec.ts",
-              "line": 422,
-              "column": 7
-            },
-            {
-              "title": "TC_FIELD_001: datetime field accepts valid inputs, formats consistently and prevents corrupted states",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 10145,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-27T04:16:27.772Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-1758c-d-prevents-corrupted-states-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "fa5f3fe7879699678410-aa91b0895931b4316336",
-              "file": "runtime-cache-editor-lifecycle.spec.ts",
-              "line": 474,
-              "column": 7
-            },
-            {
-              "title": "TC_UI_001: field input spacing maintains visual rhythm without overlap and metadata disclosures expand cleanly",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 8503,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-27T04:16:37.938Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-1c9d3--disclosures-expand-cleanly-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "fa5f3fe7879699678410-413b267f60e30350e8cc",
-              "file": "runtime-cache-editor-lifecycle.spec.ts",
-              "line": 532,
-              "column": 7
-            },
-            {
-              "title": "TC_UI_002: remove controls and drag handles render distinct accessible identifiers without accidental trigger",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5748,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-27T04:16:46.468Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-dd008--without-accidental-trigger-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "fa5f3fe7879699678410-7ca81be833444d3c27ab",
-              "file": "runtime-cache-editor-lifecycle.spec.ts",
-              "line": 598,
-              "column": 7
-            },
-            {
-              "title": "TC_UI_003: add tile conforms to grid alignment and selector border reflects neutral versus active focus state",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5908,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-27T04:16:52.252Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-99ee5-l-versus-active-focus-state-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "fa5f3fe7879699678410-53550fd77fe231eea9a1",
-              "file": "runtime-cache-editor-lifecycle.spec.ts",
-              "line": 635,
-              "column": 7
-            },
-            {
-              "title": "TC_CACHE_002: corrupted or malformed offline cache entries fail gracefully without wiping valid cache records",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 325,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-27T04:16:58.186Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-9fcd8--wiping-valid-cache-records-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "fa5f3fe7879699678410-90504f2ade96c6b3a234",
-              "file": "runtime-cache-editor-lifecycle.spec.ts",
-              "line": 673,
-              "column": 7
-            },
-            {
-              "title": "TC_CACHE_003: storage quota exhaustion prioritizes offline user drafts and evicts ephemeral caches first",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 343,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-27T04:16:58.528Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-7cfe3-icts-ephemeral-caches-first-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "fa5f3fe7879699678410-1fe18bf807425c6d1c88",
-              "file": "runtime-cache-editor-lifecycle.spec.ts",
-              "line": 740,
-              "column": 7
-            },
-            {
-              "title": "TC_CACHE_004: active in-memory draft is locked against sweep reclamation during concurrent background cleanup",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 337,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-27T04:16:58.883Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-92219-ncurrent-background-cleanup-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "fa5f3fe7879699678410-4d106040d2ffba9b7621",
-              "file": "runtime-cache-editor-lifecycle.spec.ts",
-              "line": 824,
-              "column": 7
-            },
-            {
-              "title": "TC_MEM_002: memory threshold flapping across boundary is debounced and emits only a single warning",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 308,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-27T04:16:59.236Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-87983-emits-only-a-single-warning-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "fa5f3fe7879699678410-e582464d4a374975c88c",
-              "file": "runtime-cache-editor-lifecycle.spec.ts",
-              "line": 874,
-              "column": 7
-            },
-            {
-              "title": "TC_MEM_003: warning cooldown does not reset when memory only partially recovers",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 354,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-27T04:16:59.577Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-4811f-ory-only-partially-recovers-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "fa5f3fe7879699678410-e17b7bf98e168e6dada8",
-              "file": "runtime-cache-editor-lifecycle.spec.ts",
-              "line": 919,
-              "column": 7
-            },
-            {
-              "title": "TC_MEM_004: multi-tab memory cleanup events synchronize timestamp to prevent duplicate warnings across tabs",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 398,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-27T04:16:59.945Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-40400-licate-warnings-across-tabs-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "fa5f3fe7879699678410-72077c9c0c0aab7bf8ca",
-              "file": "runtime-cache-editor-lifecycle.spec.ts",
-              "line": 953,
-              "column": 7
-            },
-            {
-              "title": "TC_ALIAS_003: alias cache saturation with identical timestamps resolves deterministically",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 275,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-27T04:17:00.360Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-cb273--resolves-deterministically-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "fa5f3fe7879699678410-bc997685fd8cfebf3490",
-              "file": "runtime-cache-editor-lifecycle.spec.ts",
-              "line": 988,
-              "column": 7
-            },
-            {
-              "title": "TC_ALIAS_004: alias collision and re-assignment purges stale target mapping immediately",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 282,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-27T04:17:00.658Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-57550--target-mapping-immediately-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "fa5f3fe7879699678410-607f17f2e3de374077e1",
-              "file": "runtime-cache-editor-lifecycle.spec.ts",
-              "line": 1032,
-              "column": 7
-            },
-            {
-              "title": "TC_ALIAS_005: zero-capacity alias cache operates safely without retention leaks or crashes",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 257,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-27T04:17:00.952Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-70b9a--retention-leaks-or-crashes-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "fa5f3fe7879699678410-18acf391f5ad0ae27423",
-              "file": "runtime-cache-editor-lifecycle.spec.ts",
-              "line": 1065,
-              "column": 7
-            },
-            {
-              "title": "TC_ALIAS_006: malicious input and control characters in alias field are sanitized and rejected",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 301,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-27T04:17:01.223Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-ac145--are-sanitized-and-rejected-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "fa5f3fe7879699678410-eabb4b4dcfd09e3342cb",
-              "file": "runtime-cache-editor-lifecycle.spec.ts",
-              "line": 1098,
-              "column": 7
-            },
-            {
-              "title": "TC_ALIAS_007: pseudo-UUIDs and near-UUID inputs are strictly distinguished from genuine RFC-4122 UUIDs",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 299,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-27T04:17:01.548Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-1380f-from-genuine-RFC-4122-UUIDs-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "fa5f3fe7879699678410-86f7fb0fb0526344ab44",
-              "file": "runtime-cache-editor-lifecycle.spec.ts",
-              "line": 1137,
-              "column": 7
-            },
-            {
-              "title": "TC_EDITOR_003: massive formatted content paste maintains editor wrapper stability without memory freeze",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 6407,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-27T04:17:01.870Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-40efa-ility-without-memory-freeze-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "fa5f3fe7879699678410-7952fa0def3f9e0a2400",
-              "file": "runtime-cache-editor-lifecycle.spec.ts",
-              "line": 1166,
-              "column": 7
-            },
-            {
-              "title": "TC_EDITOR_004: undo and redo history stack is preserved across forced parent re-renders",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 375,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-27T04:17:08.306Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-a765e-ss-forced-parent-re-renders-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "fa5f3fe7879699678410-85be170ca3611c4779c3",
-              "file": "runtime-cache-editor-lifecycle.spec.ts",
-              "line": 1213,
-              "column": 7
-            },
-            {
-              "title": "TC_EDITOR_005: escape key in fullscreen mode exits fullscreen without abruptly closing composer or losing draft",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 20778,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-27T04:17:08.761Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-0af25-ng-composer-or-losing-draft-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "fa5f3fe7879699678410-5f788895229613f77809",
-              "file": "runtime-cache-editor-lifecycle.spec.ts",
-              "line": 1268,
-              "column": 7
-            },
-            {
-              "title": "TC_FIELD_002: invalid calendar dates (non-leap year Feb 29, April 31) are strictly rejected",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 374,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-27T04:17:29.553Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-7dc16-il-31-are-strictly-rejected-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "fa5f3fe7879699678410-bcf6555821a04863033e",
-              "file": "runtime-cache-editor-lifecycle.spec.ts",
-              "line": 1322,
-              "column": 7
-            },
-            {
-              "title": "TC_FIELD_003: cross-timezone datetime conversion preserves exact UTC millisecond timestamp",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 251,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-27T04:17:29.944Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-47691-t-UTC-millisecond-timestamp-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "fa5f3fe7879699678410-f27d7a3f3c29385ba827",
-              "file": "runtime-cache-editor-lifecycle.spec.ts",
-              "line": 1354,
-              "column": 7
-            },
-            {
-              "title": "TC_UI_004: long internationalized labels and RTL text wrap cleanly in metadata disclosures without overflow",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 9239,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-27T04:17:30.207Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-d5f1d-isclosures-without-overflow-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "fa5f3fe7879699678410-1389a0ec9eb878b24760",
-              "file": "runtime-cache-editor-lifecycle.spec.ts",
-              "line": 1378,
-              "column": 7
-            },
-            {
-              "title": "TC_UI_005: destructive removal of populated fields enforces confirmation guard to prevent accidental loss",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 436,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-27T04:17:39.465Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-5fccc--to-prevent-accidental-loss-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "fa5f3fe7879699678410-14f8a66b3657fe428043",
-              "file": "runtime-cache-editor-lifecycle.spec.ts",
-              "line": 1411,
-              "column": 7
-            },
-            {
-              "title": "TC_UI_006: drag handle and remove button maintain minimum touch hit-box separation",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 309,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-27T04:17:39.929Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-11361-um-touch-hit-box-separation-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "fa5f3fe7879699678410-49af0fd073302510ae35",
-              "file": "runtime-cache-editor-lifecycle.spec.ts",
-              "line": 1453,
-              "column": 7
-            },
-            {
-              "title": "TC_UI_007: add tile disables cleanly and displays capacity feedback when form reaches maximum field limit",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 296,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-27T04:17:40.255Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-3dac8-reaches-maximum-field-limit-chromium\\video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "fa5f3fe7879699678410-5f8fed4aefbb61fce8a4",
-              "file": "runtime-cache-editor-lifecycle.spec.ts",
-              "line": 1499,
+              "id": "d318381359a9b96acb1e-06cf25085afe8f39230d",
+              "file": "home.spec.ts",
+              "line": 118,
               "column": 7
             }
           ]
@@ -1353,9 +493,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-27T04:15:34.150Z",
-    "duration": 126608.772,
-    "expected": 30,
+    "startTime": "2026-10-27T05:21:36.598Z",
+    "duration": 69028.678,
+    "expected": 7,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
