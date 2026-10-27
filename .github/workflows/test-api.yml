@@ -1,16 +1,6 @@
 name: "API Risk-Tiered & Security Test Suites"
 
 on:
-  push:
-    paths:
-      - 'src/api/**'
-      - 'src/tests/api/**'
-      - 'performance/api-*.js'
-      - '.github/workflows/test-api.yml'
-  pull_request:
-    paths:
-      - 'src/api/**'
-      - 'src/tests/api/**'
   schedule:
     # Run full security sweep & perf tests at 2:00 AM IST on Thursdays and Sundays
     # 2:00 AM IST = 20:30 UTC on Wednesday (day 3) and Saturday (day 6)

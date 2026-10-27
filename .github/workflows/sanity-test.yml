@@ -2,20 +2,6 @@
 name: Versioned Sanity Test Suites (1.0, 2.0, 3.0)
 
 on:
-  push:
-    branches: [ main ]
-    paths:
-      - 'src/pages/**'
-      - 'src/tests/sanity/**'
-      - 'src/config/**'
-      - '.github/workflows/sanity-test.yml'
-  pull_request:
-    branches: [ main ]
-    paths:
-      - 'src/pages/**'
-      - 'src/tests/sanity/**'
-      - 'src/config/**'
-      - '.github/workflows/sanity-test.yml'
   workflow_dispatch:
     inputs:
       suite_version:

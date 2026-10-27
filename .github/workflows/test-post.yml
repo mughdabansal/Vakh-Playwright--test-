@@ -1,12 +1,6 @@
 name: Test Suite - Create Post & Poll
 
 on:
-  push:
-    branches: [ main ]
-    paths:
-      - 'src/tests/post.spec.ts'
-      - 'src/pages/PostComposerPage.ts'
-      - '.github/workflows/test-post.yml'
   workflow_dispatch:
     inputs:
       test_target:
