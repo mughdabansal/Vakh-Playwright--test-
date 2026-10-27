@@ -1,5 +1,25 @@
 [
   {
+    "id": "local-1793092286314",
+    "runNumber": null,
+    "runUrl": null,
+    "timestamp": "2026-10-27T09:11:26.314Z",
+    "formattedTime": "Oct 27, 2026, 2:41:26 PM",
+    "workflow": "Explore & Discovery Page Suite",
+    "event": "manual",
+    "actor": "Developer",
+    "sha": "99dc65e",
+    "ref": "main",
+    "totalTests": 2,
+    "passedTests": 2,
+    "failedTests": 0,
+    "flakyTests": 0,
+    "durationMs": 33984.474,
+    "durationFormatted": "34.0s",
+    "status": "PASSED",
+    "suiteLabel": "Explore & Discovery Page Suite"
+  },
+  {
     "id": "local-1793078690270",
     "runNumber": null,
     "runUrl": null,

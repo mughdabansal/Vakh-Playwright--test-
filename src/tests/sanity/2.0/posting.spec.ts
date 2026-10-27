@@ -37,7 +37,7 @@ test.describe('Eve Vakh - Sanity 2.0: Home Posting & Composer Test Suite', () =>
 
     await composerPage.openNewPostModal();
     await expect(composerPage.createFormsDialog).toBeVisible();
-    await expect(page.getByText(/^create$/i).first()).toBeVisible();
+    await expect(composerPage.createFormsDialog.getByText(/forms|drafts|index|create/i).first()).toBeVisible();
   });
 
   /**

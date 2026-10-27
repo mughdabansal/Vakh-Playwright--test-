@@ -166,17 +166,23 @@ test.describe('Eve Vakh - Explore Page Location-Based Profile Sort & Proximity B
     let capturedParams: Record<string, string> = {};
 
     await page.route('**/api/profiles/explore/nearby*', async route => {
-      const url = new URL(route.request().url());
-      capturedUrl = url.toString();
-      url.searchParams.forEach((val, key) => {
-        capturedParams[key] = val;
-      });
-      await route.continue();
+      try {
+        const url = new URL(route.request().url());
+        capturedUrl = url.toString();
+        url.searchParams.forEach((val, key) => {
+          capturedParams[key] = val;
+        });
+        await route.continue();
+      } catch {
+        // Guard against route abortion during teardown
+      }
     });
 
     await explorePage.openNearbyFilterModal();
     await explorePage.setNearbyDistance('250');
     await explorePage.applyNearbyFilter();
+    await page.waitForTimeout(500);
+    await page.unrouteAll({ behavior: 'ignoreErrors' });
 
     // If nearby endpoint was invoked, assert query parameters
     if (capturedUrl) {
@@ -203,18 +209,24 @@ test.describe('Eve Vakh - Explore Page Location-Based Profile Sort & Proximity B
     let apiResponseBody: any = null;
 
     await page.route('**/api/profiles/explore/nearby*', async route => {
-      const response = await route.fetch();
-      apiResponseStatus = response.status();
       try {
-        apiResponseBody = await response.json();
+        const response = await route.fetch();
+        apiResponseStatus = response.status();
+        try {
+          apiResponseBody = await response.json();
+        } catch {
+          apiResponseBody = null;
+        }
+        await route.fulfill({ response });
       } catch {
-        apiResponseBody = null;
+        // Guard against route abortion during teardown
       }
-      await route.fulfill({ response });
     });
 
     await explorePage.openNearbyFilterModal();
     await explorePage.applyNearbyFilter();
+    await page.waitForTimeout(500);
+    await page.unrouteAll({ behavior: 'ignoreErrors' });
 
     if (apiResponseStatus > 0) {
       expect([200, 304]).toContain(apiResponseStatus);

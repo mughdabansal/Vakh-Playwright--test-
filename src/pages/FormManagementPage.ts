@@ -49,7 +49,7 @@ export class FormManagementPage extends BasePage {
   constructor(page: Page) {
     super(page);
 
-    this.newPostButton = page.locator('button[aria-label="New Post"]:visible, button:has-text("New Post"):visible').first();
+    this.newPostButton = page.locator('button[aria-label="Index"]:visible, button:has-text("Index"):visible, button[aria-label="New Post"]:visible, button:has-text("New Post"):visible').first();
     this.ownProfileButton = page.getByRole('button', { name: /m_2094/i }).locator('visible=true').first();
 
     // Post Actions
@@ -218,7 +218,7 @@ export class FormManagementPage extends BasePage {
     }
 
     const dialog = this.page.locator('[role="dialog"]');
-    const closeBtn = this.page.getByText('Close', { exact: true }).locator('visible=true').first();
+    const closeBtn = this.page.locator('button[aria-label="Close"], button:has-text("Close"), [role="dialog"] button:has-text("Close")').or(this.page.getByRole('button', { name: /close/i })).first();
     if (await closeBtn.isVisible({ timeout: 3000 }).catch(() => false)) {
       await closeBtn.click({ force: true });
     } else {
