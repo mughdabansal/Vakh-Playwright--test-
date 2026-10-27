@@ -6,8 +6,11 @@
       "test",
       "src/tests/activity.spec.ts:96",
       "src/tests/activity.spec.ts:163",
+      "src/tests/explore.spec.ts:111",
       "src/tests/explore.spec.ts:127",
       "src/tests/explore.spec.ts:155",
+      "src/tests/sanity/1.0/explore.spec.ts:110",
+      "src/tests/sanity/3.0/05-explore-subscriptions.spec.ts:55",
       "--project=chromium"
     ],
     "configFile": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\playwright.config.ts",
@@ -36,10 +39,7 @@
         "id": "chromium",
         "name": "chromium",
         "testDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
-        "testIgnore": [
-          "**/chat.spec.ts",
-          "**/04-chat-collaboration.spec.ts"
-        ],
+        "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
@@ -55,10 +55,7 @@
         "id": "firefox",
         "name": "firefox",
         "testDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
-        "testIgnore": [
-          "**/chat.spec.ts",
-          "**/04-chat-collaboration.spec.ts"
-        ],
+        "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
@@ -74,10 +71,7 @@
         "id": "webkit",
         "name": "webkit",
         "testDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
-        "testIgnore": [
-          "**/chat.spec.ts",
-          "**/04-chat-collaboration.spec.ts"
-        ],
+        "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
@@ -93,10 +87,7 @@
         "id": "edge",
         "name": "edge",
         "testDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
-        "testIgnore": [
-          "**/chat.spec.ts",
-          "**/04-chat-collaboration.spec.ts"
-        ],
+        "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
@@ -165,12 +156,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 43419,
+                      "duration": 22664,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-27T12:13:15.005Z",
+                      "startTime": "2026-10-27T13:06:18.358Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -205,12 +196,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 56655,
+                      "duration": 17040,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-27T12:13:59.265Z",
+                      "startTime": "2026-10-27T13:06:41.296Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -247,6 +238,46 @@
           "column": 6,
           "specs": [
             {
+              "title": "TC_EXP_006: should navigate to user profile and display header details (username, joined, rep, tags)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 19859,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T13:06:18.361Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-10b3f-s-username-joined-rep-tags--chromium\\video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "068fad9605609506583e-ec56b41e4b10a568b9a1",
+              "file": "explore.spec.ts",
+              "line": 111,
+              "column": 7
+            },
+            {
               "title": "TC_EXP_007: should display profile action buttons (Message and More) on profile view",
               "ok": true,
               "tags": [],
@@ -262,12 +293,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 43838,
+                      "duration": 18573,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-27T12:13:15.008Z",
+                      "startTime": "2026-10-27T13:06:38.564Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -302,12 +333,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 48222,
+                      "duration": 26439,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-27T12:13:59.644Z",
+                      "startTime": "2026-10-27T13:06:57.186Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -329,13 +360,127 @@
           ]
         }
       ]
+    },
+    {
+      "title": "sanity\\1.0\\explore.spec.ts",
+      "file": "sanity/1.0/explore.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Eve Vakh - Sanity 1.0: Explore Page Functional, UI/UX & Profile Forms Test Suite",
+          "file": "sanity/1.0/explore.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC_EXP_006: should navigate to user profile and display header details (username, joined, rep, tags)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 14860,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T13:06:58.384Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-1.0-explore-Eve-Vak-f37eb-s-username-joined-rep-tags--chromium\\video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d83d5e2fca124052a895-ee033cd7a233361cf2e8",
+              "file": "sanity/1.0/explore.spec.ts",
+              "line": 110,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "sanity\\3.0\\05-explore-subscriptions.spec.ts",
+      "file": "sanity/3.0/05-explore-subscriptions.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Sanity 3.0: Explore, Profiles & Subscriptions Management Suite",
+          "file": "sanity/3.0/05-explore-subscriptions.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "SANITY_3_EXP_002: Inspect public user profile and toggle form subscription",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 17817,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T13:07:13.308Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\sanity-3.0-05-explore-subs-ca9b1-nd-toggle-form-subscription-chromium\\video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f07dba30b2e020ee411d-cd9f6ee1f5824167a6ad",
+              "file": "sanity/3.0/05-explore-subscriptions.spec.ts",
+              "line": 55,
+              "column": 7
+            }
+          ]
+        }
+      ]
     }
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-27T12:13:10.257Z",
-    "duration": 105943.389,
-    "expected": 4,
+    "startTime": "2026-10-27T13:06:17.126Z",
+    "duration": 74173.73300000001,
+    "expected": 7,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

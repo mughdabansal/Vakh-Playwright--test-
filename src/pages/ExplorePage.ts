@@ -86,10 +86,8 @@ export class ExplorePage extends BasePage {
     // User cards in explore list
     this.userCards = page.locator('button, [role="button"]').filter({ hasText: '@' });
 
-    // Profile view elements - use visible=true or regex to select active foreground profile handle
-    this.profileUsername = page.locator('text=@').filter({ visible: true }).first().or(
-      page.locator('div, span, h1, h2, p').filter({ hasText: /^@/ }).first()
-    );
+    // Profile view elements - use visible=true to select active foreground profile handle
+    this.profileUsername = page.locator('text=@').locator('visible=true').first();
     this.profileJoined = page.getByText(/joined/i).first().or(page.getByText('JOINED', { exact: true }));
     this.profileRep = page.getByText(/rep/i).first().or(page.getByText('REP', { exact: true }));
     this.profileTags = page.getByText(/tags/i).first().or(page.getByText('TAGS', { exact: true }));
