@@ -1,5 +1,25 @@
 [
   {
+    "id": "local-1793110328795",
+    "runNumber": null,
+    "runUrl": null,
+    "timestamp": "2026-10-27T14:12:08.795Z",
+    "formattedTime": "Oct 27, 2026, 7:42:08 PM",
+    "workflow": "50 Test Suites (activity.spec.ts, client-timeout-reliability.spec.ts...)",
+    "event": "manual",
+    "actor": "Developer",
+    "sha": "0b15616",
+    "ref": "main",
+    "totalTests": 308,
+    "passedTests": 308,
+    "failedTests": 0,
+    "flakyTests": 0,
+    "durationMs": 1325051.658,
+    "durationFormatted": "22m 5s",
+    "status": "PASSED",
+    "suiteLabel": "50 Test Suites (activity.spec.ts, client-timeout-reliability.spec.ts...)"
+  },
+  {
     "id": "local-1793106377126",
     "runNumber": null,
     "runUrl": null,

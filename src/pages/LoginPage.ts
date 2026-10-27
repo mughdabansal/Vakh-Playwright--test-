@@ -128,8 +128,17 @@ export class LoginPage extends BasePage {
     await this.emailInput.fill(email);
     await expect(this.passwordInput).toBeVisible({ timeout: 5000 });
     await this.passwordInput.fill(password);
-    await expect(this.signInButton).toBeVisible({ timeout: 5000 });
-    await expect(this.signInButton).toBeEnabled({ timeout: 5000 });
+
+    // If signInButton is not immediately visible (React Native Web debounce), re-focus and blur
+    const isSignInVisible = await this.signInButton.isVisible({ timeout: 3000 }).catch(() => false);
+    if (!isSignInVisible) {
+      await this.passwordInput.click();
+      await this.passwordInput.fill(password);
+      await this.passwordInput.press('Tab');
+    }
+
+    await expect(this.signInButton).toBeVisible({ timeout: 10000 });
+    await expect(this.signInButton).toBeEnabled({ timeout: 10000 });
     await this.page.waitForTimeout(500);
     await this.signInButton.click();
   }

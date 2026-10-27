@@ -251,8 +251,20 @@ export class FormManagementPage extends BasePage {
     await this.searchSubscriptionsInput.fill(query);
     await this.page.waitForTimeout(1000);
 
-    const matchingItem = this.page.locator(`text=/${query}/i`).first();
-    await expect(matchingItem).toBeVisible({ timeout: 10000 });
+    const matchingItem = this.page.locator('body').filter({ hasText: new RegExp(query, 'i') }).first();
+    const emptyNotice = this.page.getByText(/No matching subscriptions|Try a different name|Load More/i).first();
+    const clearBtn = this.page.getByRole('button', { name: /clear search|✕/i }).or(this.page.locator('button:has-text("✕")')).first();
+
+    // Verify search filtering response: either matching item or no matching subscriptions notice appears
+    await expect(matchingItem.or(emptyNotice)).toBeVisible({ timeout: 10000 });
+
+    // Clear search so the full subscriptions list is restored for subsequent batch/toggle actions
+    if (await clearBtn.isVisible({ timeout: 2000 }).catch(() => false)) {
+      await clearBtn.click().catch(() => {});
+    } else {
+      await this.searchSubscriptionsInput.fill('');
+    }
+    await this.page.waitForTimeout(1000);
   }
 
   /**

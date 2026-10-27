@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "Sunday, October 25, 2026 at 9:22:02 AM",
+  "lastUpdated": "Tuesday, October 27, 2026 at 8:04:27 PM",
   "totalTests": 63,
   "passedTests": 63,
   "failedTests": 0,
@@ -9,55 +9,55 @@
       "total": 6,
       "passed": 6,
       "failed": 0,
-      "durationMs": 77722
+      "durationMs": 129647
     },
     "area2": {
       "total": 9,
       "passed": 9,
       "failed": 0,
-      "durationMs": 166
+      "durationMs": 359
     },
     "area3": {
       "total": 9,
       "passed": 9,
       "failed": 0,
-      "durationMs": 71113
+      "durationMs": 102990
     },
     "area4": {
       "total": 7,
       "passed": 7,
       "failed": 0,
-      "durationMs": 59884
+      "durationMs": 86728
     },
     "area5": {
       "total": 8,
       "passed": 8,
       "failed": 0,
-      "durationMs": 3899
+      "durationMs": 1851
     },
     "area6": {
       "total": 7,
       "passed": 7,
       "failed": 0,
-      "durationMs": 51788
+      "durationMs": 69823
     },
     "area7": {
       "total": 7,
       "passed": 7,
       "failed": 0,
-      "durationMs": 5739
+      "durationMs": 8870
     },
     "area8": {
       "total": 5,
       "passed": 5,
       "failed": 0,
-      "durationMs": 9054
+      "durationMs": 10951
     },
     "area9": {
       "total": 5,
       "passed": 5,
       "failed": 0,
-      "durationMs": 2012
+      "durationMs": 1775
     }
   },
   "tests": [
@@ -71,7 +71,7 @@
       "areaLabel": "Area 5: Auth Refresh & Client Resilience",
       "areaIcon": "🔐",
       "status": "passed",
-      "durationMs": 724,
+      "durationMs": 347,
       "scenario": "Request timeout deadline must remain active during slow response body streaming",
       "assertions": "Stream parser aborts when overall deadline exceeded, preventing resource hogging",
       "browsers": [
@@ -93,7 +93,7 @@
       "areaLabel": "Area 5: Auth Refresh & Client Resilience",
       "areaIcon": "🔐",
       "status": "passed",
-      "durationMs": 113,
+      "durationMs": 136,
       "scenario": "Client must accurately distinguish network timeout vs manual cancellation",
       "assertions": "Error discriminator: TimeoutError !== AbortError, retry triggered only on timeout",
       "browsers": [
@@ -115,7 +115,7 @@
       "areaLabel": "Area 9: Edge Contracts & Security Invariants",
       "areaIcon": "🛡️",
       "status": "passed",
-      "durationMs": 722,
+      "durationMs": 550,
       "scenario": "Platform gateway responds with valid TLS connection (HTTPS certificate verification)",
       "assertions": "Valid certificate chain, TLS 1.3 protocol negotiation, zero cipher downgrade",
       "browsers": [
@@ -137,7 +137,7 @@
       "areaLabel": "Area 9: Edge Contracts & Security Invariants",
       "areaIcon": "🛡️",
       "status": "passed",
-      "durationMs": 322,
+      "durationMs": 109,
       "scenario": "Worker responses must never leak database or auth secrets in headers or errors",
       "assertions": "Zero x-powered-by headers, zero stack trace dumps, zero database credentials in 5xx envelopes",
       "browsers": [
@@ -159,7 +159,7 @@
       "areaLabel": "Area 9: Edge Contracts & Security Invariants",
       "areaIcon": "🛡️",
       "status": "passed",
-      "durationMs": 324,
+      "durationMs": 88,
       "scenario": "Worker edge gateway responds cleanly to health probes with sub-100ms latency",
       "assertions": "GET /api/health returns 200 OK with status=\"healthy\", average response < 100ms",
       "browsers": [
@@ -181,7 +181,7 @@
       "areaLabel": "Area 9: Edge Contracts & Security Invariants",
       "areaIcon": "🛡️",
       "status": "passed",
-      "durationMs": 316,
+      "durationMs": 114,
       "scenario": "Downstream MCP connector contract handles latency spikes and timeouts gracefully",
       "assertions": "Circuit breaker trips on upstream MCP timeout, fallback contract returns degradation notice",
       "browsers": [
@@ -203,7 +203,7 @@
       "areaLabel": "Area 9: Edge Contracts & Security Invariants",
       "areaIcon": "🛡️",
       "status": "passed",
-      "durationMs": 328,
+      "durationMs": 914,
       "scenario": "Unapproved origin headers are strictly rejected by edge origin security policy",
       "assertions": "CORS policy rejects arbitrary foreign origins, prevents credentialed cross-site abuse",
       "browsers": [
@@ -225,7 +225,7 @@
       "areaLabel": "Area 5: Auth Refresh & Client Resilience",
       "areaIcon": "🔐",
       "status": "passed",
-      "durationMs": 774,
+      "durationMs": 149,
       "scenario": "Collapse concurrent expired token requests into a single refresh execution",
       "assertions": "Active refresh promise deduplication lock: exactly 1 network call for 10 concurrent requests",
       "browsers": [
@@ -247,7 +247,7 @@
       "areaLabel": "Area 5: Auth Refresh & Client Resilience",
       "areaIcon": "🔐",
       "status": "passed",
-      "durationMs": 1621,
+      "durationMs": 989,
       "scenario": "Stale refresh flight must not overwrite newer valid session credentials",
       "assertions": "Credential epoch counter check: stale response with lower epoch discarded safely",
       "browsers": [
@@ -269,7 +269,7 @@
       "areaLabel": "Area 5: Auth Refresh & Client Resilience",
       "areaIcon": "🔐",
       "status": "passed",
-      "durationMs": 11,
+      "durationMs": 47,
       "scenario": "Corrupted or malformed storage must be safely recovered without runtime crashes",
       "assertions": "Safe JSON parse wrapper catches SyntaxError, resets credentials cleanly to unauthenticated",
       "browsers": [
@@ -291,7 +291,7 @@
       "areaLabel": "Area 5: Auth Refresh & Client Resilience",
       "areaIcon": "🔐",
       "status": "passed",
-      "durationMs": 315,
+      "durationMs": 92,
       "scenario": "Unauthorized CORS origins must be refused without leaking sensitive response payloads",
       "assertions": "Preflight OPTIONS returns 403 or excludes Access-Control-Allow-Origin for unapproved origins",
       "browsers": [
@@ -313,7 +313,7 @@
       "areaLabel": "Area 5: Auth Refresh & Client Resilience",
       "areaIcon": "🔐",
       "status": "passed",
-      "durationMs": 5,
+      "durationMs": 14,
       "scenario": "Sensitive credentials, bearer tokens, and presigned query params redacted in telemetry",
       "assertions": "Telemetry logger applies [REDACTED] mask to Authorization, Bearer, and Sig query parameters",
       "browsers": [
@@ -335,7 +335,7 @@
       "areaLabel": "Area 5: Auth Refresh & Client Resilience",
       "areaIcon": "🔐",
       "status": "passed",
-      "durationMs": 336,
+      "durationMs": 77,
       "scenario": "Push device deregistration must invoke SNS cleanup contract on sign-out",
       "assertions": "Sign-out dispatches device token deregistration, preventing ghost push notifications",
       "browsers": [
@@ -357,7 +357,7 @@
       "areaLabel": "Area 3: Chat Messaging & Direct Replies",
       "areaIcon": "💬",
       "status": "passed",
-      "durationMs": 10065,
+      "durationMs": 12283,
       "scenario": "Render emoji reply pins with correct unicode glyphs and reactive counters",
       "assertions": "Counter increment/decrement, glyph alignment, duplicate pin prevention",
       "browsers": [
@@ -379,7 +379,7 @@
       "areaLabel": "Area 3: Chat Messaging & Direct Replies",
       "areaIcon": "💬",
       "status": "passed",
-      "durationMs": 9224,
+      "durationMs": 11158,
       "scenario": "Reply badge tap target bounds conform strictly to minimum 44px hit test box",
       "assertions": "Bounding client rect height/width >= 44px, zero clipping inside message bubbles",
       "browsers": [
@@ -401,7 +401,7 @@
       "areaLabel": "Area 3: Chat Messaging & Direct Replies",
       "areaIcon": "💬",
       "status": "passed",
-      "durationMs": 7644,
+      "durationMs": 12349,
       "scenario": "Message action modal positions Delete and Report options clearly with safe spacing",
       "assertions": "Destructive action separated, confirmation prompt required, accessibility role=\"menu\"",
       "browsers": [
@@ -423,7 +423,7 @@
       "areaLabel": "Area 3: Chat Messaging & Direct Replies",
       "areaIcon": "💬",
       "status": "passed",
-      "durationMs": 8283,
+      "durationMs": 13215,
       "scenario": "Inline @mentions rendered as clickable interactive user token pills",
       "assertions": "Token click navigates to user profile card, hover displays member badge popover",
       "browsers": [
@@ -445,7 +445,7 @@
       "areaLabel": "Area 3: Chat Messaging & Direct Replies",
       "areaIcon": "💬",
       "status": "passed",
-      "durationMs": 6239,
+      "durationMs": 9228,
       "scenario": "Markdown links with balanced or escaped parentheses parsed without URL truncations",
       "assertions": "Regex parser handles Wikipedia/RFC URLs with nested parentheses cleanly",
       "browsers": [
@@ -467,7 +467,7 @@
       "areaLabel": "Area 3: Chat Messaging & Direct Replies",
       "areaIcon": "💬",
       "status": "passed",
-      "durationMs": 7830,
+      "durationMs": 13717,
       "scenario": "Repeated internal post preview cards in chat stream render cleanly without duplicate DOM",
       "assertions": "Card memoization, single embed fetch per message ID, clean flex wrapping",
       "browsers": [
@@ -489,7 +489,7 @@
       "areaLabel": "Area 3: Chat Messaging & Direct Replies",
       "areaIcon": "💬",
       "status": "passed",
-      "durationMs": 8232,
+      "durationMs": 9248,
       "scenario": "Group event system notices persist and display accurate membership transition states",
       "assertions": "User joined / left / promoted system event pills in message history stream",
       "browsers": [
@@ -511,7 +511,7 @@
       "areaLabel": "Area 3: Chat Messaging & Direct Replies",
       "areaIcon": "💬",
       "status": "passed",
-      "durationMs": 5989,
+      "durationMs": 10230,
       "scenario": "Conversation preview snippet handles escaped HTML entities and mentions cleanly",
       "assertions": "Escaped HTML entities &amp;, &lt;, &gt; rendered as readable text, zero raw injection",
       "browsers": [
@@ -533,7 +533,7 @@
       "areaLabel": "Area 3: Chat Messaging & Direct Replies",
       "areaIcon": "💬",
       "status": "passed",
-      "durationMs": 7607,
+      "durationMs": 11562,
       "scenario": "Reply drawer tabs support cursor-based pagination for \"All Replies\" and \"Emoji\"",
       "assertions": "Cursor progression, monotonic timestamp order, zero duplicate replies on scroll",
       "browsers": [
@@ -555,7 +555,7 @@
       "areaLabel": "Area 4: Feed & Explore Location Ranking",
       "areaIcon": "📍",
       "status": "passed",
-      "durationMs": 8652,
+      "durationMs": 11393,
       "scenario": "Explore Nearby radius chip displays and enforces configured distance boundaries",
       "assertions": "Slider/chip values (5km, 25km, 100km) filter results strictly within geospatial bounding box",
       "browsers": [
@@ -577,7 +577,7 @@
       "areaLabel": "Area 4: Feed & Explore Location Ranking",
       "areaIcon": "📍",
       "status": "passed",
-      "durationMs": 9082,
+      "durationMs": 11409,
       "scenario": "Ranking applies IP proximity scoring fallback gracefully when device GPS is disabled",
       "assertions": "Zero permission rejection error, graceful fallback to city/metro region proximity score",
       "browsers": [
@@ -599,7 +599,7 @@
       "areaLabel": "Area 4: Feed & Explore Location Ranking",
       "areaIcon": "📍",
       "status": "passed",
-      "durationMs": 8364,
+      "durationMs": 11157,
       "scenario": "Blocked owners are strictly excluded from name and handle search results",
       "assertions": "Backend search filter verification: 0 results returned for blocked accounts",
       "browsers": [
@@ -621,7 +621,7 @@
       "areaLabel": "Area 4: Feed & Explore Location Ranking",
       "areaIcon": "📍",
       "status": "passed",
-      "durationMs": 10709,
+      "durationMs": 17241,
       "scenario": "Recent search chips remain intact across search input clears, refreshes and tab switches",
       "assertions": "Local storage caching, deduplication of repeated queries, chip removal tap works",
       "browsers": [
@@ -643,7 +643,7 @@
       "areaLabel": "Area 4: Feed & Explore Location Ranking",
       "areaIcon": "📍",
       "status": "passed",
-      "durationMs": 7489,
+      "durationMs": 16341,
       "scenario": "Cursor pagination maintains monotonic order with zero duplicate profile IDs across pages",
       "assertions": "Set(receivedIds).size === receivedIds.length across 5 pages of scroll",
       "browsers": [
@@ -665,7 +665,7 @@
       "areaLabel": "Area 4: Feed & Explore Location Ranking",
       "areaIcon": "📍",
       "status": "passed",
-      "durationMs": 6219,
+      "durationMs": 10460,
       "scenario": "Popular mix and random discovery feeds maintain distinct scoring with zero algorithmic bleed",
       "assertions": "Separation of algorithmic weight matrices, zero cache key collision between feeds",
       "browsers": [
@@ -687,7 +687,7 @@
       "areaLabel": "Area 4: Feed & Explore Location Ranking",
       "areaIcon": "📍",
       "status": "passed",
-      "durationMs": 9369,
+      "durationMs": 8727,
       "scenario": "Public explore responses do not leak precise latitude/longitude GPS coordinates",
       "assertions": "API response fuzz check: latitude & longitude precision blurred to neighborhood level",
       "browsers": [
@@ -709,7 +709,7 @@
       "areaLabel": "Area 7: Forms, Templates & Calendar Boundaries",
       "areaIcon": "📋",
       "status": "passed",
-      "durationMs": 1351,
+      "durationMs": 552,
       "scenario": "Duplicate form template submission returns standard 409 Conflict error envelope",
       "assertions": "API returns status 409 or 401 unauth guard, UI displays duplicate name conflict message",
       "browsers": [
@@ -731,7 +731,7 @@
       "areaLabel": "Area 7: Forms, Templates & Calendar Boundaries",
       "areaIcon": "📋",
       "status": "passed",
-      "durationMs": 499,
+      "durationMs": 623,
       "scenario": "Repeated permission grant updates are idempotent with zero privilege escalation",
       "assertions": "Multiple identical permission update calls yield identical OpenFGA tuple state",
       "browsers": [
@@ -753,7 +753,7 @@
       "areaLabel": "Area 7: Forms, Templates & Calendar Boundaries",
       "areaIcon": "📋",
       "status": "passed",
-      "durationMs": 5,
+      "durationMs": 9,
       "scenario": "Relative date filter window resolves accurately within UTC timestamp boundaries",
       "assertions": "Past 7 days / 30 days filters resolve strictly to 00:00:00 UTC start and 23:59:59 UTC end",
       "browsers": [
@@ -775,7 +775,7 @@
       "areaLabel": "Area 7: Forms, Templates & Calendar Boundaries",
       "areaIcon": "📋",
       "status": "passed",
-      "durationMs": 9,
+      "durationMs": 6,
       "scenario": "Calendar range across month boundaries and leap year resolves start/end dates correctly",
       "assertions": "Feb 29 leap day transition and 30-to-31 day transitions produce valid ISO strings",
       "browsers": [
@@ -797,7 +797,7 @@
       "areaLabel": "Area 7: Forms, Templates & Calendar Boundaries",
       "areaIcon": "📋",
       "status": "passed",
-      "durationMs": 5,
+      "durationMs": 10,
       "scenario": "Interactive poll voting calculation yields accurate normalized percentage ratios",
       "assertions": "Sum of option percentages equals 100%, rounding handles fractional splits (e.g. 33.3%)",
       "browsers": [
@@ -819,7 +819,7 @@
       "areaLabel": "Area 7: Forms, Templates & Calendar Boundaries",
       "areaIcon": "📋",
       "status": "passed",
-      "durationMs": 3383,
+      "durationMs": 6898,
       "scenario": "\"Not Campus\" template provides generic community field defaults and validation",
       "assertions": "Campus-specific fields hidden, standard community fields pre-populated with validators",
       "browsers": [
@@ -841,7 +841,7 @@
       "areaLabel": "Area 7: Forms, Templates & Calendar Boundaries",
       "areaIcon": "📋",
       "status": "passed",
-      "durationMs": 487,
+      "durationMs": 772,
       "scenario": "Monthly agenda view filters query events within specified month range accurately",
       "assertions": "StartOfMonth and EndOfMonth epoch queries include all active events with zero spillover",
       "browsers": [
@@ -863,7 +863,7 @@
       "areaLabel": "Area 1: Navigation & Index Lifecycle",
       "areaIcon": "🧭",
       "status": "passed",
-      "durationMs": 8611,
+      "durationMs": 13220,
       "scenario": "Open Index composer from multiple entry points (Home Index button, navigation header)",
       "assertions": "Active modal positioning, backdrop rendering, composer focus on mount",
       "browsers": [
@@ -885,7 +885,7 @@
       "areaLabel": "Area 1: Navigation & Index Lifecycle",
       "areaIcon": "🧭",
       "status": "passed",
-      "durationMs": 23978,
+      "durationMs": 28512,
       "scenario": "Preserve draft state across composer close and reopen cycles",
       "assertions": "Content persistence, form target retention, zero state loss on accidental dismiss",
       "browsers": [
@@ -907,7 +907,7 @@
       "areaLabel": "Area 1: Navigation & Index Lifecycle",
       "areaIcon": "🧭",
       "status": "passed",
-      "durationMs": 26218,
+      "durationMs": 29955,
       "scenario": "Resume active post draft after switching screens and navigation tabs",
       "assertions": "Draft restoration, cross-screen navigation continuity, clean modal dismiss",
       "browsers": [
@@ -929,7 +929,7 @@
       "areaLabel": "Area 1: Navigation & Index Lifecycle",
       "areaIcon": "🧭",
       "status": "passed",
-      "durationMs": 7364,
+      "durationMs": 21914,
       "scenario": "Filter blocked users from destination suggestions and @mention lookups",
       "assertions": "Blocked owner suppression, zero leak of blocked usernames in autocomplete",
       "browsers": [
@@ -951,7 +951,7 @@
       "areaLabel": "Area 1: Navigation & Index Lifecycle",
       "areaIcon": "🧭",
       "status": "passed",
-      "durationMs": 5351,
+      "durationMs": 14361,
       "scenario": "Prune unavailable or deleted targets from recents history",
       "assertions": "Dynamic recents pruning, stale ID purge, fallback to available suggestions",
       "browsers": [
@@ -973,7 +973,7 @@
       "areaLabel": "Area 1: Navigation & Index Lifecycle",
       "areaIcon": "🧭",
       "status": "passed",
-      "durationMs": 6200,
+      "durationMs": 21685,
       "scenario": "Feed refresh stability with zero duplicate shimmers or flickering placeholders",
       "assertions": "Stable DOM placeholder reuse, zero layout jump, smooth cursor resume",
       "browsers": [
@@ -995,7 +995,7 @@
       "areaLabel": "Area 2: Media Uploads, Drafts & Recovery",
       "areaIcon": "🎬",
       "status": "passed",
-      "durationMs": 18,
+      "durationMs": 12,
       "scenario": "Chunked byte-level upload resumption following simulated network drops",
       "assertions": "Byte offset resume, zero duplicate chunks uploaded, MD5 payload checksum verified",
       "browsers": [
@@ -1017,7 +1017,7 @@
       "areaLabel": "Area 2: Media Uploads, Drafts & Recovery",
       "areaIcon": "🎬",
       "status": "passed",
-      "durationMs": 19,
+      "durationMs": 32,
       "scenario": "Verify upload completion contract requires explicit 200/201 server ACK",
       "assertions": "Optimistic UI prevented from claiming completion before persistent storage ACK",
       "browsers": [
@@ -1039,7 +1039,7 @@
       "areaLabel": "Area 2: Media Uploads, Drafts & Recovery",
       "areaIcon": "🎬",
       "status": "passed",
-      "durationMs": 15,
+      "durationMs": 29,
       "scenario": "Execute upload retry pipeline with exponential backoff on 429 rate limit or 504 timeout",
       "assertions": "Backoff interval progression (1s, 2s, 4s), jitter inclusion, max retry circuit breaker",
       "browsers": [
@@ -1061,7 +1061,7 @@
       "areaLabel": "Area 2: Media Uploads, Drafts & Recovery",
       "areaIcon": "🎬",
       "status": "passed",
-      "durationMs": 12,
+      "durationMs": 26,
       "scenario": "Explicit user cancellation must terminate pipeline and prevent background fallback retry",
       "assertions": "AbortController abort propagation, zero ghost requests, immediate memory cleanup",
       "browsers": [
@@ -1105,7 +1105,7 @@
       "areaLabel": "Area 2: Media Uploads, Drafts & Recovery",
       "areaIcon": "🎬",
       "status": "passed",
-      "durationMs": 21,
+      "durationMs": 23,
       "scenario": "Preserve paused playback state and exact scrubber seek position across quality toggles",
       "assertions": "Scrubber coordinate locked to exact millisecond, pause state respected without auto-resume",
       "browsers": [
@@ -1127,7 +1127,7 @@
       "areaLabel": "Area 2: Media Uploads, Drafts & Recovery",
       "areaIcon": "🎬",
       "status": "passed",
-      "durationMs": 31,
+      "durationMs": 158,
       "scenario": "Redact S3 presigned signatures, local file system paths, and tokens in client telemetry",
       "assertions": "Telemetry payload regex check: zero X-Amz-Signature, token, or /Users/ leaks",
       "browsers": [
@@ -1149,7 +1149,7 @@
       "areaLabel": "Area 2: Media Uploads, Drafts & Recovery",
       "areaIcon": "🎬",
       "status": "passed",
-      "durationMs": 16,
+      "durationMs": 41,
       "scenario": "Large media files (>50MB) dispatched to persistent background transfer session",
       "assertions": "Background worker execution, foreground UI thread unblocked (60fps maintained)",
       "browsers": [
@@ -1171,7 +1171,7 @@
       "areaLabel": "Area 2: Media Uploads, Drafts & Recovery",
       "areaIcon": "🎬",
       "status": "passed",
-      "durationMs": 17,
+      "durationMs": 21,
       "scenario": "Upload recovery store restores in-flight transfers after simulated client crash/reboot",
       "assertions": "IndexedDB session reload, staged payload verification, recovery prompt displayed",
       "browsers": [
@@ -1193,7 +1193,7 @@
       "areaLabel": "Area 6: Modal Lifecycle & Accessibility",
       "areaIcon": "🪟",
       "status": "passed",
-      "durationMs": 7441,
+      "durationMs": 10121,
       "scenario": "Modal backdrop renders frosted glass styling without transparent bleed-through",
       "assertions": "Backdrop blur filter applied, opacity >= 0.7, pointer events intercepted by modal positioner",
       "browsers": [
@@ -1215,7 +1215,7 @@
       "areaLabel": "Area 6: Modal Lifecycle & Accessibility",
       "areaIcon": "🪟",
       "status": "passed",
-      "durationMs": 8594,
+      "durationMs": 14247,
       "scenario": "Rapid open and close sequence releases modal state and DOM elements cleanly",
       "assertions": "10 rapid open/close iterations leave zero dangling backdrop divs or locked body scrolls",
       "browsers": [
@@ -1237,7 +1237,7 @@
       "areaLabel": "Area 6: Modal Lifecycle & Accessibility",
       "areaIcon": "🪟",
       "status": "passed",
-      "durationMs": 7120,
+      "durationMs": 9859,
       "scenario": "Swipe-to-dismiss sheet gesture respects drag threshold configuration",
       "assertions": "Touchmove delta >= 120px triggers smooth dismiss transition, delta < 120px springs back",
       "browsers": [
@@ -1259,7 +1259,7 @@
       "areaLabel": "Area 6: Modal Lifecycle & Accessibility",
       "areaIcon": "🪟",
       "status": "passed",
-      "durationMs": 6730,
+      "durationMs": 7641,
       "scenario": "Non-closing backdrop click preserves modal open state when dismissOnClickOutside=false",
       "assertions": "Click on outer positioning wrapper ignored, modal remains open and active",
       "browsers": [
@@ -1281,7 +1281,7 @@
       "areaLabel": "Area 6: Modal Lifecycle & Accessibility",
       "areaIcon": "🪟",
       "status": "passed",
-      "durationMs": 6811,
+      "durationMs": 9219,
       "scenario": "Modal exposes accessible aria-modal=\"true\", role=\"dialog\", and keyboard focus trapping",
       "assertions": "Tab key cycles inside dialog only, Shift+Tab wraps to last focusable element",
       "browsers": [
@@ -1303,7 +1303,7 @@
       "areaLabel": "Area 6: Modal Lifecycle & Accessibility",
       "areaIcon": "🪟",
       "status": "passed",
-      "durationMs": 8031,
+      "durationMs": 9089,
       "scenario": "Modal footer action buttons conform strictly to minimum 44px touch target guidelines",
       "assertions": "Computed CSS height and width >= 44px, margin separation prevents mis-taps",
       "browsers": [
@@ -1325,7 +1325,7 @@
       "areaLabel": "Area 6: Modal Lifecycle & Accessibility",
       "areaIcon": "🪟",
       "status": "passed",
-      "durationMs": 7061,
+      "durationMs": 9647,
       "scenario": "Keyboard Escape dismissal sequence releases modal state and returns focus cleanly",
       "assertions": "Escape keypress dismisses active modal, focus returned to triggering launcher button",
       "browsers": [
@@ -1347,7 +1347,7 @@
       "areaLabel": "Area 8: Public Profiles & Verified Badges",
       "areaIcon": "👤",
       "status": "passed",
-      "durationMs": 857,
+      "durationMs": 849,
       "scenario": "Logged-out visitors see public badges while internal affiliation badges remain private",
       "assertions": "Official/verified badges visible publicly, team/staff roles hidden from unauthenticated viewers",
       "browsers": [
@@ -1369,7 +1369,7 @@
       "areaLabel": "Area 8: Public Profiles & Verified Badges",
       "areaIcon": "👤",
       "status": "passed",
-      "durationMs": 427,
+      "durationMs": 400,
       "scenario": "Affiliation badges reflect active membership status after cache invalidation",
       "assertions": "Revoked membership removes badge immediately after SWR cache invalidation signal",
       "browsers": [
@@ -1391,7 +1391,7 @@
       "areaLabel": "Area 8: Public Profiles & Verified Badges",
       "areaIcon": "👤",
       "status": "passed",
-      "durationMs": 3496,
+      "durationMs": 5743,
       "scenario": "Public profile headers display prominent \"Sign in\" and \"Get App\" action buttons",
       "assertions": "CTA buttons present, direct click routes to sign-in modal with return_to parameter",
       "browsers": [
@@ -1413,7 +1413,7 @@
       "areaLabel": "Area 8: Public Profiles & Verified Badges",
       "areaIcon": "👤",
       "status": "passed",
-      "durationMs": 3840,
+      "durationMs": 3528,
       "scenario": "Landing page CTAs navigate smoothly to target community onboarding step",
       "assertions": "Join button deep-links to community registration flow with correct community ID pre-selected",
       "browsers": [
@@ -1435,7 +1435,7 @@
       "areaLabel": "Area 8: Public Profiles & Verified Badges",
       "areaIcon": "👤",
       "status": "passed",
-      "durationMs": 434,
+      "durationMs": 431,
       "scenario": "Public demo view flows return matching preview data with restricted edit actions",
       "assertions": "Demo mode serves read-only preview, create/edit actions display registration prompt",
       "browsers": [
@@ -1448,5 +1448,5 @@
       "error": null
     }
   ],
-  "totalDurationMs": 281377
+  "totalDurationMs": 412994
 }

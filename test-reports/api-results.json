@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "Sunday, October 25, 2026 at 9:22:02 AM",
+  "lastUpdated": "Tuesday, October 27, 2026 at 8:04:27 PM",
   "totalTests": 106,
   "passedTests": 106,
   "failedTests": 0,
-  "durationMs": 80459,
+  "durationMs": 79220,
   "passRate": "100.0",
   "tier1": {
     "total": 24,
@@ -47,7 +47,7 @@
       "endpoint": "/api/auth/email-otp/send-verification-otp",
       "expectedStatus": "400 / Timing Invariant",
       "description": "recovery OTP dispatch must not leak existence via timing or response difference",
-      "durationMs": 3958,
+      "durationMs": 2538,
       "status": "passed",
       "error": null
     },
@@ -62,7 +62,7 @@
       "endpoint": "/api/chat/message",
       "expectedStatus": "400 Bad Request",
       "description": "sending message to deleted counterparty must return specific 400 error",
-      "durationMs": 627,
+      "durationMs": 422,
       "status": "passed",
       "error": null
     },
@@ -77,7 +77,7 @@
       "endpoint": "/api/subscriptions/unread",
       "expectedStatus": "200 OK (Dynamic)",
       "description": "unread count must exclude archived forms dynamically at read-time and restore upon unarchiving",
-      "durationMs": 638,
+      "durationMs": 391,
       "status": "passed",
       "error": null
     },
@@ -92,7 +92,7 @@
       "endpoint": "wss://xo.eve.vakh.com/ws",
       "expectedStatus": "1000 / 1001 Eviction",
       "description": "close code classifier must adhere to reconnection contract",
-      "durationMs": 4,
+      "durationMs": 10,
       "status": "passed",
       "error": null
     },
@@ -107,7 +107,7 @@
       "endpoint": "wss://xo.eve.vakh.com/ws",
       "expectedStatus": "1000 / 1001 Eviction",
       "description": "6th concurrent session per user must evict oldest with close code 1001",
-      "durationMs": 1,
+      "durationMs": 12078,
       "status": "passed",
       "error": null
     },
@@ -122,7 +122,7 @@
       "endpoint": "/api/forms",
       "expectedStatus": "403 Forbidden",
       "description": "state-changing route /api/forms must reject untrusted Origin headers",
-      "durationMs": 607,
+      "durationMs": 413,
       "status": "passed",
       "error": null
     },
@@ -137,7 +137,7 @@
       "endpoint": "/api/posts",
       "expectedStatus": "403 Forbidden",
       "description": "state-changing route /api/posts must reject untrusted Origin headers",
-      "durationMs": 617,
+      "durationMs": 427,
       "status": "passed",
       "error": null
     },
@@ -152,7 +152,7 @@
       "endpoint": "/api/auth/sign-out",
       "expectedStatus": "403 Forbidden",
       "description": "state-changing route /api/auth/sign-out must reject untrusted Origin headers",
-      "durationMs": 1266,
+      "durationMs": 481,
       "status": "passed",
       "error": null
     },
@@ -167,7 +167,7 @@
       "endpoint": "/api/posts/mock-post-1",
       "expectedStatus": "403 Forbidden",
       "description": "state-changing route /api/posts/mock-post-1 must reject untrusted Origin headers",
-      "durationMs": 621,
+      "durationMs": 393,
       "status": "passed",
       "error": null
     },
@@ -182,7 +182,7 @@
       "endpoint": "/api/forms/foreign-private-form-id",
       "expectedStatus": "401 / 403 / 404",
       "description": "unauthorized user access attempt on Private Form Read (/api/forms/foreign-private-form-id) must be blocked",
-      "durationMs": 615,
+      "durationMs": 437,
       "status": "passed",
       "error": null
     },
@@ -197,7 +197,7 @@
       "endpoint": "/api/forms/foreign-private-form-id",
       "expectedStatus": "401 / 403 / 404",
       "description": "unauthorized user access attempt on Foreign Form Delete (/api/forms/foreign-private-form-id) must be blocked",
-      "durationMs": 619,
+      "durationMs": 392,
       "status": "passed",
       "error": null
     },
@@ -212,7 +212,7 @@
       "endpoint": "/api/posts/foreign-post-id",
       "expectedStatus": "401 / 403 / 404",
       "description": "unauthorized user access attempt on Foreign Post Edit (/api/posts/foreign-post-id) must be blocked",
-      "durationMs": 625,
+      "durationMs": 589,
       "status": "passed",
       "error": null
     },
@@ -227,7 +227,7 @@
       "endpoint": "/api/posts/foreign-post-id",
       "expectedStatus": "401 / 403 / 404",
       "description": "unauthorized user access attempt on Foreign Post Delete (/api/posts/foreign-post-id) must be blocked",
-      "durationMs": 618,
+      "durationMs": 413,
       "status": "passed",
       "error": null
     },
@@ -242,7 +242,7 @@
       "endpoint": "/api/conversations/foreign-conversation-id",
       "expectedStatus": "401 / 403 / 404",
       "description": "unauthorized user access attempt on Foreign Conversation Access (/api/conversations/foreign-conversation-id) must be blocked",
-      "durationMs": 621,
+      "durationMs": 392,
       "status": "passed",
       "error": null
     },
@@ -257,7 +257,7 @@
       "endpoint": "/api/badges/foreign-private-badge-id",
       "expectedStatus": "401 / 403 / 404",
       "description": "unauthorized user access attempt on Private Badge Members Access (/api/badges/foreign-private-badge-id) must be blocked",
-      "durationMs": 629,
+      "durationMs": 402,
       "status": "passed",
       "error": null
     },
@@ -272,7 +272,7 @@
       "endpoint": "/api/badges/foreign-badge-id",
       "expectedStatus": "401 / 403 / 404",
       "description": "unauthorized user access attempt on Foreign Badge Delete (/api/badges/foreign-badge-id) must be blocked",
-      "durationMs": 608,
+      "durationMs": 1086,
       "status": "passed",
       "error": null
     },
@@ -287,7 +287,7 @@
       "endpoint": "/api/proxy?url=http%3A%2F%2F127.0.0.1%3A8080%2Fadmin",
       "expectedStatus": "400 / 403 (Blocked)",
       "description": "proxy must reject restricted SSRF target: http://127.0.0.1:8080/admin",
-      "durationMs": 617,
+      "durationMs": 673,
       "status": "passed",
       "error": null
     },
@@ -302,7 +302,7 @@
       "endpoint": "/api/proxy?url=http%3A%2F%2F127.1%3A80",
       "expectedStatus": "400 / 403 (Blocked)",
       "description": "proxy must reject restricted SSRF target: http://127.1:80",
-      "durationMs": 642,
+      "durationMs": 423,
       "status": "passed",
       "error": null
     },
@@ -317,7 +317,7 @@
       "endpoint": "/api/proxy?url=http%3A%2F%2Flocalhost%3A5432",
       "expectedStatus": "400 / 403 (Blocked)",
       "description": "proxy must reject restricted SSRF target: http://localhost:5432",
-      "durationMs": 617,
+      "durationMs": 403,
       "status": "passed",
       "error": null
     },
@@ -332,7 +332,7 @@
       "endpoint": "/api/proxy?url=http%3A%2F%2F10.0.0.1%2Finternal",
       "expectedStatus": "400 / 403 (Blocked)",
       "description": "proxy must reject restricted SSRF target: http://10.0.0.1/internal",
-      "durationMs": 637,
+      "durationMs": 395,
       "status": "passed",
       "error": null
     },
@@ -347,7 +347,7 @@
       "endpoint": "/api/proxy?url=http%3A%2F%2F172.16.0.1%2Fsecrets",
       "expectedStatus": "400 / 403 (Blocked)",
       "description": "proxy must reject restricted SSRF target: http://172.16.0.1/secrets",
-      "durationMs": 610,
+      "durationMs": 403,
       "status": "passed",
       "error": null
     },
@@ -362,7 +362,7 @@
       "endpoint": "/api/proxy?url=http%3A%2F%2F192.168.1.1%2Frouter",
       "expectedStatus": "400 / 403 (Blocked)",
       "description": "proxy must reject restricted SSRF target: http://192.168.1.1/router",
-      "durationMs": 614,
+      "durationMs": 597,
       "status": "passed",
       "error": null
     },
@@ -377,7 +377,7 @@
       "endpoint": "/api/proxy?url=http%3A%2F%2F169.254.169.254%2Flatest%2Fmeta-data%2F",
       "expectedStatus": "400 / 403 (Blocked)",
       "description": "proxy must reject restricted SSRF target: http://169.254.169.254/latest/meta-data/",
-      "durationMs": 617,
+      "durationMs": 392,
       "status": "passed",
       "error": null
     },
@@ -392,7 +392,7 @@
       "endpoint": "/api/proxy?url=http%3A%2F%2Fmetadata.google.internal%2FcomputeMetadata%2Fv1%2F",
       "expectedStatus": "400 / 403 (Blocked)",
       "description": "proxy must reject restricted SSRF target: http://metadata.google.internal/computeMetadata/v1/",
-      "durationMs": 618,
+      "durationMs": 392,
       "status": "passed",
       "error": null
     },
@@ -407,7 +407,7 @@
       "endpoint": "/api/proxy?url=http%3A%2F%2F100.100.100.200%2Flatest%2Fmeta-data%2F",
       "expectedStatus": "400 / 403 (Blocked)",
       "description": "proxy must reject restricted SSRF target: http://100.100.100.200/latest/meta-data/",
-      "durationMs": 612,
+      "durationMs": 390,
       "status": "passed",
       "error": null
     },
@@ -422,7 +422,7 @@
       "endpoint": "/api/proxy?url=http%3A%2F%2F%5B%3A%3A1%5D%3A8080%2Fstatus",
       "expectedStatus": "400 / 403 (Blocked)",
       "description": "proxy must reject restricted SSRF target: http://[::1]:8080/status",
-      "durationMs": 617,
+      "durationMs": 402,
       "status": "passed",
       "error": null
     },
@@ -437,7 +437,7 @@
       "endpoint": "/api/proxy?url=http%3A%2F%2F%5Bfe80%3A%3A1ff%3Afe23%3A4567%3A890a%5D%2F",
       "expectedStatus": "400 / 403 (Blocked)",
       "description": "proxy must reject restricted SSRF target: http://[fe80::1ff:fe23:4567:890a]/",
-      "durationMs": 608,
+      "durationMs": 578,
       "status": "passed",
       "error": null
     },
@@ -452,7 +452,7 @@
       "endpoint": "/api/proxy?url=http%3A%2F%2F%5Bfc00%3A%3A1%5D%2Finternal",
       "expectedStatus": "400 / 403 (Blocked)",
       "description": "proxy must reject restricted SSRF target: http://[fc00::1]/internal",
-      "durationMs": 606,
+      "durationMs": 531,
       "status": "passed",
       "error": null
     },
@@ -467,7 +467,7 @@
       "endpoint": "/api/proxy?url=http%3A%2F%2F%5Bfd00%3A%3A1%5D%2Finternal",
       "expectedStatus": "400 / 403 (Blocked)",
       "description": "proxy must reject restricted SSRF target: http://[fd00::1]/internal",
-      "durationMs": 618,
+      "durationMs": 545,
       "status": "passed",
       "error": null
     },
@@ -482,7 +482,7 @@
       "endpoint": "/api/proxy?url=http%3A%2F%2F%5B%3A%3Affff%3A127.0.0.1%5D%3A8080%2Fdata",
       "expectedStatus": "400 / 403 (Blocked)",
       "description": "proxy must reject restricted SSRF target: http://[::ffff:127.0.0.1]:8080/data",
-      "durationMs": 618,
+      "durationMs": 422,
       "status": "passed",
       "error": null
     },
@@ -497,7 +497,7 @@
       "endpoint": "/api/proxy?url=http%3A%2F%2F%5B%3A%3Affff%3A7f00%3A1%5D%3A8080%2Fdata",
       "expectedStatus": "400 / 403 (Blocked)",
       "description": "proxy must reject restricted SSRF target: http://[::ffff:7f00:1]:8080/data",
-      "durationMs": 610,
+      "durationMs": 398,
       "status": "passed",
       "error": null
     },
@@ -512,7 +512,7 @@
       "endpoint": "/api/proxy?url=http%3A%2F%2F%5B0%3A0%3A0%3A0%3A0%3Affff%3A7f00%3A0001%5D%3A8080%2Fdata",
       "expectedStatus": "400 / 403 (Blocked)",
       "description": "proxy must reject restricted SSRF target: http://[0:0:0:0:0:ffff:7f00:0001]:8080/data",
-      "durationMs": 610,
+      "durationMs": 400,
       "status": "passed",
       "error": null
     },
@@ -527,7 +527,7 @@
       "endpoint": "/api/posts",
       "expectedStatus": "400 Bad Request",
       "description": "malformed input (Prototype pollution keys) must uniformly 400 and NEVER throw 500",
-      "durationMs": 604,
+      "durationMs": 433,
       "status": "passed",
       "error": null
     },
@@ -542,7 +542,7 @@
       "endpoint": "/api/posts",
       "expectedStatus": "400 Bad Request",
       "description": "malformed input (Array where string expected) must uniformly 400 and NEVER throw 500",
-      "durationMs": 617,
+      "durationMs": 399,
       "status": "passed",
       "error": null
     },
@@ -557,7 +557,7 @@
       "endpoint": "/api/posts",
       "expectedStatus": "400 Bad Request",
       "description": "malformed input (Oversized string field) must uniformly 400 and NEVER throw 500",
-      "durationMs": 624,
+      "durationMs": 443,
       "status": "passed",
       "error": null
     },
@@ -572,7 +572,7 @@
       "endpoint": "/api/posts",
       "expectedStatus": "400 Bad Request",
       "description": "malformed input (SQL/NoSQL special characters) must uniformly 400 and NEVER throw 500",
-      "durationMs": 317,
+      "durationMs": 377,
       "status": "passed",
       "error": null
     },
@@ -587,7 +587,7 @@
       "endpoint": "/api/user/delete-account",
       "expectedStatus": "200 OK / 202 Accepted",
       "description": "should support request -> cancel -> re-request lifecycle",
-      "durationMs": 1263,
+      "durationMs": 616,
       "status": "passed",
       "error": null
     },
@@ -602,7 +602,7 @@
       "endpoint": "/api/user/delete-account",
       "expectedStatus": "200 OK / 202 Accepted",
       "description": "should verify deletion schedule alarm and purge order contract",
-      "durationMs": 621,
+      "durationMs": 389,
       "status": "passed",
       "error": null
     },
@@ -617,7 +617,7 @@
       "endpoint": "/api/auth/sign-in/email",
       "expectedStatus": "200 OK",
       "description": "should authenticate valid user and persist session cookie",
-      "durationMs": 930,
+      "durationMs": 738,
       "status": "passed",
       "error": null
     },
@@ -632,7 +632,7 @@
       "endpoint": "/api/auth/sign-in/email",
       "expectedStatus": "200 OK",
       "description": "should return null session for unauthenticated client",
-      "durationMs": 657,
+      "durationMs": 447,
       "status": "passed",
       "error": null
     },
@@ -647,7 +647,7 @@
       "endpoint": "/api/auth/mfa/totp",
       "expectedStatus": "200 OK",
       "description": "should verify MFA backup code and guarantee 2FA stays enabled",
-      "durationMs": 1264,
+      "durationMs": 470,
       "status": "passed",
       "error": null
     },
@@ -662,7 +662,7 @@
       "endpoint": "/api/auth/mfa/totp",
       "expectedStatus": "200 OK",
       "description": "legacy /api/mfa/* endpoints must return strict HTTP 404 (or 401 when unauthenticated)",
-      "durationMs": 2178,
+      "durationMs": 1288,
       "status": "passed",
       "error": null
     },
@@ -677,7 +677,7 @@
       "endpoint": "/api/auth/sign-out",
       "expectedStatus": "200 OK",
       "description": "should invalidate session immediately upon sign-out",
-      "durationMs": 1356,
+      "durationMs": 975,
       "status": "passed",
       "error": null
     },
@@ -692,7 +692,7 @@
       "endpoint": "/api/messages/requests",
       "expectedStatus": "200 OK / 204 No Content",
       "description": "initiating contact must create a pending message request",
-      "durationMs": 614,
+      "durationMs": 432,
       "status": "passed",
       "error": null
     },
@@ -707,7 +707,7 @@
       "endpoint": "/api/messages/requests",
       "expectedStatus": "200 OK / 204 No Content",
       "description": "replying to message request must auto-accept consent state",
-      "durationMs": 642,
+      "durationMs": 522,
       "status": "passed",
       "error": null
     },
@@ -722,7 +722,7 @@
       "endpoint": "/api/messages/requests",
       "expectedStatus": "200 OK / 204 No Content",
       "description": "blocking user must decline and purge active message requests",
-      "durationMs": 616,
+      "durationMs": 576,
       "status": "passed",
       "error": null
     },
@@ -737,7 +737,7 @@
       "endpoint": "/api/messages/requests",
       "expectedStatus": "200 OK / 204 No Content",
       "description": "privacy invariant — sender cannot detect request decline via timing or response shape",
-      "durationMs": 954,
+      "durationMs": 453,
       "status": "passed",
       "error": null
     },
@@ -752,7 +752,7 @@
       "endpoint": "/api/forms/check-permission",
       "expectedStatus": "200 OK / 401 Unauthorized",
       "description": "unauthenticated requests must be denied across all permission tiers",
-      "durationMs": 1239,
+      "durationMs": 520,
       "status": "passed",
       "error": null
     },
@@ -767,7 +767,7 @@
       "endpoint": "/api/forms/check-permission",
       "expectedStatus": "200 OK / 401 Unauthorized",
       "description": "purgeFormPermissions must be strictly awaited to prevent stale allow",
-      "durationMs": 980,
+      "durationMs": 480,
       "status": "passed",
       "error": null
     },
@@ -782,7 +782,7 @@
       "endpoint": "/api/forms/check-permission",
       "expectedStatus": "200 OK / 401 Unauthorized",
       "description": "multi-resource feed must coalesce permission checks without N+1 queries",
-      "durationMs": 629,
+      "durationMs": 400,
       "status": "passed",
       "error": null
     },
@@ -797,7 +797,7 @@
       "endpoint": "/api/storage/upload",
       "expectedStatus": "400 Bad Request",
       "description": "should reject file when magic-bytes do not match file extension",
-      "durationMs": 636,
+      "durationMs": 389,
       "status": "passed",
       "error": null
     },
@@ -812,7 +812,7 @@
       "endpoint": "/api/storage/upload",
       "expectedStatus": "400 Bad Request",
       "description": "path traversal filenames must be sanitized or rejected",
-      "durationMs": 1017,
+      "durationMs": 699,
       "status": "passed",
       "error": null
     },
@@ -827,7 +827,7 @@
       "endpoint": "/api/storage/upload",
       "expectedStatus": "400 Bad Request",
       "description": "16 MiB boundary check (15.9 MiB pass vs 16.1 MiB fail)",
-      "durationMs": 743,
+      "durationMs": 9170,
       "status": "passed",
       "error": null
     },
@@ -842,7 +842,7 @@
       "endpoint": "/api/storage/upload",
       "expectedStatus": "200 OK",
       "description": "signed URL/grant must expire and enforce single verification",
-      "durationMs": 634,
+      "durationMs": 470,
       "status": "passed",
       "error": null
     },
@@ -857,7 +857,7 @@
       "endpoint": "/api/forms/archived",
       "expectedStatus": "200 OK / 404",
       "description": "archived forms must be excluded from discovery feeds and profile listings",
-      "durationMs": 621,
+      "durationMs": 1108,
       "status": "passed",
       "error": null
     },
@@ -872,7 +872,7 @@
       "endpoint": "/api/forms/archived",
       "expectedStatus": "200 OK / 404",
       "description": "archived forms must still allow authorized post creation and direct URL access",
-      "durationMs": 1483,
+      "durationMs": 607,
       "status": "passed",
       "error": null
     },
@@ -887,7 +887,7 @@
       "endpoint": "/api/feed",
       "expectedStatus": "200 OK (Paginated)",
       "description": "feed listing must adhere to cursor, has_more, next_cursor contract",
-      "durationMs": 609,
+      "durationMs": 1109,
       "status": "passed",
       "error": null
     },
@@ -902,7 +902,7 @@
       "endpoint": "/api/feed",
       "expectedStatus": "200 OK (Paginated)",
       "description": "should verify subscriptions and notifications listing schemas",
-      "durationMs": 634,
+      "durationMs": 435,
       "status": "passed",
       "error": null
     },
@@ -917,7 +917,7 @@
       "endpoint": "/api/feed",
       "expectedStatus": "200 OK (Paginated)",
       "description": "badge discovery and member access contract",
-      "durationMs": 617,
+      "durationMs": 457,
       "status": "passed",
       "error": null
     },
@@ -932,7 +932,7 @@
       "endpoint": "/api/import/csv",
       "expectedStatus": "400 Bad Request",
       "description": "CSV payloads exceeding 5 MiB must be rejected prior to parsing",
-      "durationMs": 661,
+      "durationMs": 2097,
       "status": "passed",
       "error": null
     },
@@ -947,7 +947,7 @@
       "endpoint": "/api/import/csv",
       "expectedStatus": "200 OK",
       "description": "CSV import job must transition through valid async phases",
-      "durationMs": 624,
+      "durationMs": 447,
       "status": "passed",
       "error": null
     },
@@ -962,7 +962,7 @@
       "endpoint": "/api/import/csv",
       "expectedStatus": "200 OK",
       "description": "in-flight CSV import job must support mid-phase cancellation",
-      "durationMs": 610,
+      "durationMs": 406,
       "status": "passed",
       "error": null
     },
@@ -977,7 +977,7 @@
       "endpoint": "/api/posts/heart",
       "expectedStatus": "200 OK",
       "description": "heart batch count must be constrained between 1 and 7",
-      "durationMs": 1229,
+      "durationMs": 545,
       "status": "passed",
       "error": null
     },
@@ -992,7 +992,7 @@
       "endpoint": "/api/posts/heart",
       "expectedStatus": "200 OK",
       "description": "identical Idempotency-Key must deduplicate retry requests",
-      "durationMs": 949,
+      "durationMs": 466,
       "status": "passed",
       "error": null
     },
@@ -1007,7 +1007,7 @@
       "endpoint": "/api/posts/heart",
       "expectedStatus": "429 / 400",
       "description": "7 hearts per UTC-day limit enforcement",
-      "durationMs": 627,
+      "durationMs": 391,
       "status": "passed",
       "error": null
     },
@@ -1022,7 +1022,7 @@
       "endpoint": "/api/posts/heart",
       "expectedStatus": "200 OK",
       "description": "self-hearts must not dispatch notification to author",
-      "durationMs": 611,
+      "durationMs": 397,
       "status": "passed",
       "error": null
     },
@@ -1037,7 +1037,7 @@
       "endpoint": "/api/feed/popular",
       "expectedStatus": "200 OK",
       "description": "popular feed items must be bounded within 7-day window and ordered by ranking score",
-      "durationMs": 617,
+      "durationMs": 477,
       "status": "passed",
       "error": null
     },
@@ -1052,7 +1052,7 @@
       "endpoint": "/api/feed/popular",
       "expectedStatus": "200 OK",
       "description": "rankingAt cursor must provide deterministic snapshot across pages",
-      "durationMs": 743,
+      "durationMs": 727,
       "status": "passed",
       "error": null
     },
@@ -1067,7 +1067,7 @@
       "endpoint": "/api/feed/popular",
       "expectedStatus": "200 OK",
       "description": "X-Min-Consistency-Token must bypass edge-cache",
-      "durationMs": 634,
+      "durationMs": 396,
       "status": "passed",
       "error": null
     },
@@ -1082,7 +1082,7 @@
       "endpoint": "/api/ai/schema",
       "expectedStatus": "200 OK (Fallback)",
       "description": "step 2 layout inference failure must trigger default fallback schema",
-      "durationMs": 607,
+      "durationMs": 392,
       "status": "passed",
       "error": null
     },
@@ -1097,7 +1097,7 @@
       "endpoint": "/api/proxy/geocode",
       "expectedStatus": "200 OK (No-Cache)",
       "description": "geocode suggestions must NEVER be cacheable",
-      "durationMs": 617,
+      "durationMs": 420,
       "status": "passed",
       "error": null
     },
@@ -1112,7 +1112,7 @@
       "endpoint": "/api/proxy/geocode",
       "expectedStatus": "200 OK (No-Cache)",
       "description": "resolved geocode locations may permit public/private caching",
-      "durationMs": 633,
+      "durationMs": 588,
       "status": "passed",
       "error": null
     },
@@ -1127,7 +1127,7 @@
       "endpoint": "and",
       "expectedStatus": "200 OK",
       "description": "execute route must accept GET and reject POST with HTTP 405",
-      "durationMs": 922,
+      "durationMs": 631,
       "status": "passed",
       "error": null
     },
@@ -1142,7 +1142,7 @@
       "endpoint": "/api/proxy/rest-field",
       "expectedStatus": "400 / 405 / 429",
       "description": "plain HTTP endpoints must be rejected (HTTPS-only enforcement)",
-      "durationMs": 618,
+      "durationMs": 441,
       "status": "passed",
       "error": null
     },
@@ -1157,7 +1157,7 @@
       "endpoint": "/api/proxy/rest-field",
       "expectedStatus": "400 / 405 / 429",
       "description": "CRLF injection in proxy headers or query parameters must be rejected",
-      "durationMs": 618,
+      "durationMs": 388,
       "status": "passed",
       "error": null
     },
@@ -1172,7 +1172,7 @@
       "endpoint": "/api/proxy/rest-field",
       "expectedStatus": "400 / 405 / 429",
       "description": "RestApi field daily quota (1,000/day) must be tracked and enforced",
-      "durationMs": 610,
+      "durationMs": 384,
       "status": "passed",
       "error": null
     },
@@ -1187,7 +1187,7 @@
       "endpoint": "/api",
       "expectedStatus": "200 OK",
       "description": "should return 200 OK for backend health check endpoint",
-      "durationMs": 310,
+      "durationMs": 87,
       "status": "passed",
       "error": null
     },
@@ -1202,7 +1202,7 @@
       "endpoint": "/api",
       "expectedStatus": "200 OK",
       "description": "should return 200 OK and valid JSON from gateway root",
-      "durationMs": 765,
+      "durationMs": 381,
       "status": "passed",
       "error": null
     },
@@ -1217,7 +1217,7 @@
       "endpoint": "/api",
       "expectedStatus": "200 OK",
       "description": "should enforce 401 Unauthorized on protected /api routes without credentials",
-      "durationMs": 335,
+      "durationMs": 71,
       "status": "passed",
       "error": null
     },
@@ -1232,7 +1232,7 @@
       "endpoint": "/api",
       "expectedStatus": "200 OK",
       "description": "should protect internal /api/health endpoint against unauthenticated access",
-      "durationMs": 304,
+      "durationMs": 77,
       "status": "passed",
       "error": null
     },
@@ -1247,7 +1247,7 @@
       "endpoint": "/api",
       "expectedStatus": "200 OK",
       "description": "should retrieve public avatar asset with valid image content-type",
-      "durationMs": 764,
+      "durationMs": 292,
       "status": "passed",
       "error": null
     },
@@ -1262,7 +1262,7 @@
       "endpoint": "/api",
       "expectedStatus": "200 OK",
       "description": "should verify API response headers and security directives",
-      "durationMs": 308,
+      "durationMs": 176,
       "status": "passed",
       "error": null
     },
@@ -1277,7 +1277,7 @@
       "endpoint": "/api/auth/get-session",
       "expectedStatus": "200 OK",
       "description": "GET /api/auth/get-session returns 200 OK and null for unauthenticated client",
-      "durationMs": 1138,
+      "durationMs": 1797,
       "status": "passed",
       "error": null
     },
@@ -1292,7 +1292,7 @@
       "endpoint": "/api/auth/sign-in/email",
       "expectedStatus": "200 OK",
       "description": "POST /api/auth/sign-in/email returns 400 with VALIDATION_ERROR on empty payload",
-      "durationMs": 1613,
+      "durationMs": 996,
       "status": "passed",
       "error": null
     },
@@ -1307,7 +1307,7 @@
       "endpoint": "/api/auth/sign-in/email",
       "expectedStatus": "200 OK",
       "description": "POST /api/auth/sign-in/email returns 401 on incorrect credentials",
-      "durationMs": 1424,
+      "durationMs": 1262,
       "status": "passed",
       "error": null
     },
@@ -1322,7 +1322,7 @@
       "endpoint": "/api/auth/sign-in/email",
       "expectedStatus": "200 OK",
       "description": "OPTIONS /api/auth/sign-in/email handles CORS preflight with 204 No Content",
-      "durationMs": 1113,
+      "durationMs": 888,
       "status": "passed",
       "error": null
     },
@@ -1337,7 +1337,7 @@
       "endpoint": "/api/auth/sign-in/email-otp",
       "expectedStatus": "200 OK",
       "description": "POST /api/auth/sign-in/email-otp validates required email and otp payload fields",
-      "durationMs": 1219,
+      "durationMs": 992,
       "status": "passed",
       "error": null
     },
@@ -1352,7 +1352,7 @@
       "endpoint": "/api/auth/email-otp/send-verification-otp",
       "expectedStatus": "200 OK",
       "description": "POST /api/auth/email-otp/send-verification-otp enforces email and type enum requirements",
-      "durationMs": 1221,
+      "durationMs": 1005,
       "status": "passed",
       "error": null
     },
@@ -1367,7 +1367,7 @@
       "endpoint": "/api/auth/phone-number/send-otp",
       "expectedStatus": "200 OK",
       "description": "POST /api/auth/phone-number/send-otp enforces phoneNumber parameter validation",
-      "durationMs": 1907,
+      "durationMs": 1234,
       "status": "passed",
       "error": null
     },
@@ -1382,7 +1382,7 @@
       "endpoint": "/api/auth/phone-number/verify",
       "expectedStatus": "200 OK",
       "description": "POST /api/auth/phone-number/verify enforces phoneNumber and code validation",
-      "durationMs": 1207,
+      "durationMs": 993,
       "status": "passed",
       "error": null
     },
@@ -1397,7 +1397,7 @@
       "endpoint": "/api/auth/oauth2/consent-meta",
       "expectedStatus": "200 OK",
       "description": "GET /api/auth/oauth2/consent-meta enforces consent_code requirement",
-      "durationMs": 1216,
+      "durationMs": 968,
       "status": "passed",
       "error": null
     },
@@ -1412,7 +1412,7 @@
       "endpoint": "/api",
       "expectedStatus": "200 OK",
       "description": "should verify security error and rate limit schema contracts on auth routes",
-      "durationMs": 1212,
+      "durationMs": 1692,
       "status": "passed",
       "error": null
     },
@@ -1427,7 +1427,7 @@
       "endpoint": "/api/posts/heart",
       "expectedStatus": "200 OK",
       "description": "unhearting post verifies daily heart budget invariant",
-      "durationMs": 918,
+      "durationMs": 480,
       "status": "passed",
       "error": null
     },
@@ -1442,7 +1442,7 @@
       "endpoint": "/api",
       "expectedStatus": "200 OK",
       "description": "TC_AUTH_004: request timeout deadline must remain active during response body parsing",
-      "durationMs": 724,
+      "durationMs": 347,
       "status": "passed",
       "error": null
     },
@@ -1457,7 +1457,7 @@
       "endpoint": "/api",
       "expectedStatus": "200 OK",
       "description": "TC_AUTH_005: client must accurately distinguish timeout vs manual cancellation",
-      "durationMs": 113,
+      "durationMs": 136,
       "status": "passed",
       "error": null
     },
@@ -1472,7 +1472,7 @@
       "endpoint": "/api",
       "expectedStatus": "200 OK",
       "description": "TC_INFRA_001: platform gateway responds with valid TLS connection",
-      "durationMs": 722,
+      "durationMs": 550,
       "status": "passed",
       "error": null
     },
@@ -1487,7 +1487,7 @@
       "endpoint": "/api",
       "expectedStatus": "200 OK",
       "description": "TC_INFRA_002: worker responses must never leak database or auth secrets",
-      "durationMs": 322,
+      "durationMs": 109,
       "status": "passed",
       "error": null
     },
@@ -1502,7 +1502,7 @@
       "endpoint": "/api",
       "expectedStatus": "200 OK",
       "description": "TC_INFRA_003: worker edge gateway responds cleanly to health probes",
-      "durationMs": 324,
+      "durationMs": 88,
       "status": "passed",
       "error": null
     },
@@ -1517,7 +1517,7 @@
       "endpoint": "/api",
       "expectedStatus": "200 OK",
       "description": "TC_INFRA_004: downstream MCP connector contract handles latency and timeouts",
-      "durationMs": 316,
+      "durationMs": 114,
       "status": "passed",
       "error": null
     },
@@ -1532,7 +1532,7 @@
       "endpoint": "/api",
       "expectedStatus": "200 OK",
       "description": "TC_INFRA_005: unapproved origin headers are rejected by origin security policy",
-      "durationMs": 328,
+      "durationMs": 914,
       "status": "passed",
       "error": null
     },
@@ -1547,7 +1547,7 @@
       "endpoint": "/api",
       "expectedStatus": "200 OK",
       "description": "TC_AUTH_001: should collapse concurrent expired token requests into a single refresh execution",
-      "durationMs": 774,
+      "durationMs": 149,
       "status": "passed",
       "error": null
     },
@@ -1562,7 +1562,7 @@
       "endpoint": "/api",
       "expectedStatus": "200 OK",
       "description": "TC_AUTH_002: stale refresh flight must not overwrite newer valid session credentials",
-      "durationMs": 1621,
+      "durationMs": 989,
       "status": "passed",
       "error": null
     },
@@ -1577,7 +1577,7 @@
       "endpoint": "/api",
       "expectedStatus": "200 OK",
       "description": "TC_AUTH_003: corrupted or malformed storage must be safely recovered without crashes",
-      "durationMs": 11,
+      "durationMs": 47,
       "status": "passed",
       "error": null
     },
@@ -1592,7 +1592,7 @@
       "endpoint": "/api",
       "expectedStatus": "200 OK",
       "description": "TC_AUTH_006: unauthorized CORS origins must be refused without sensitive leaks",
-      "durationMs": 315,
+      "durationMs": 92,
       "status": "passed",
       "error": null
     },
@@ -1607,7 +1607,7 @@
       "endpoint": "/api",
       "expectedStatus": "200 OK",
       "description": "TC_AUTH_007: sensitive credentials must be redacted in logging helpers",
-      "durationMs": 5,
+      "durationMs": 14,
       "status": "passed",
       "error": null
     },
@@ -1622,7 +1622,7 @@
       "endpoint": "/api",
       "expectedStatus": "200 OK",
       "description": "TC_AUTH_008: push device deregistration must invoke SNS cleanup contract",
-      "durationMs": 336,
+      "durationMs": 77,
       "status": "passed",
       "error": null
     }
