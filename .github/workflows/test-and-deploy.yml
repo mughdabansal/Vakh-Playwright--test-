@@ -163,7 +163,7 @@ jobs:
           git diff --staged --quiet || git commit -m "chore: auto-update dashboard & metrics for ${{ github.event.inputs.page || 'all' }} suite [skip ci]"
           git pull --rebase -X theirs origin main 2>/dev/null || (git rebase --abort 2>/dev/null && git pull origin main --strategy-option=theirs 2>/dev/null) || echo "Rebase resolved"
           npm run generate:dashboard
-          git add docs/index.html
+          git add docs/ test-reports/
           git diff --staged --quiet || git commit -m "chore: update dashboard timestamp [skip ci]" || true
           git push origin main || echo "Branch updated or push skipped"
 

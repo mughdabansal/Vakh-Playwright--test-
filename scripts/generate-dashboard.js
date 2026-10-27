@@ -114,6 +114,11 @@ const { loadPlatformUpdatesData, generatePlatformUpdatesViewHtml } = require('./
 const platformUpdatesData = loadPlatformUpdatesData(reportsDir, resultsJsonPath, lastUpdated);
 const platformUpdatesViewHtml = generatePlatformUpdatesViewHtml(platformUpdatesData);
 
+// Load / Extract Latest Job & Test Run Telemetry (Auto-updated on every test run)
+const { loadLastRunData, generateLastRunViewHtml, generateStandaloneLastRunHtml } = require('./last-run-helper');
+const lastRunData = loadLastRunData(reportsDir, resultsJsonPath, lastUpdated);
+const lastRunViewHtml = generateLastRunViewHtml(lastRunData);
+
 const htmlContent = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1984,6 +1989,9 @@ const htmlContent = `<!DOCTYPE html>
       <button class="tab-btn active" onclick="switchTab('overview', this)">
         📊 Overview
       </button>
+      <button class="tab-btn" onclick="switchTab('lastrun', this)" style="border-left: 1px solid var(--border-subtle); background: rgba(59, 130, 246, 0.08);">
+        ⏱️ Last Run <span class="tab-count" style="background: ${lastRunData.overallStatus === 'PASSED' ? 'rgba(16, 185, 129, 0.2)' : 'rgba(239, 68, 68, 0.2)'}; color: ${lastRunData.overallStatus === 'PASSED' ? '#34d399' : '#f87171'}; border: 1px solid ${lastRunData.overallStatus === 'PASSED' ? 'rgba(16, 185, 129, 0.3)' : 'rgba(239, 68, 68, 0.3)'};">${lastRunData.badgeText}</span>
+      </button>
       <button class="tab-btn" onclick="switchTab('sanity', this)">
         ⚡ Sanity Suites <span class="tab-count">40 Tests</span>
       </button>
@@ -2025,6 +2033,14 @@ const htmlContent = `<!DOCTYPE html>
     <!-- ==================== VIEW 1: OVERVIEW ==================== -->
     <div id="view-overview" class="view-content active">
       <div class="grid-4">
+        <div class="stat-card ${lastRunData.overallStatus === 'PASSED' ? 'green' : 'red'}" style="cursor: pointer; grid-column: span 2; border-width: 2px;" onclick="switchTab('lastrun')">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="label" style="font-size: 0.82rem;">⏱️ Latest Test Run & Job Telemetry</div>
+            <span class="badge ${lastRunData.overallStatus === 'PASSED' ? 'passed' : 'failed'}">${lastRunData.overallStatus}: ${lastRunData.passedTests}/${lastRunData.totalTests} Passed</span>
+          </div>
+          <div class="value" style="font-size: 1.5rem; margin-top: 0.25rem;">${lastRunData.workflowDisplayName}</div>
+          <div class="subtext"><span>⚡</span> ${lastRunData.relativeTime} (${lastRunData.runTimestampFormatted}) &bull; Duration: ${lastRunData.durationFormatted} &bull; <strong style="color: #60a5fa;">Click to inspect full run &rarr;</strong></div>
+        </div>
         <div class="stat-card green">
           <div class="label">Total Automated Coverage</div>
           <div class="value">100% Pass</div>
@@ -6103,6 +6119,8 @@ const htmlContent = `<!DOCTYPE html>
 
     ${performanceViewHtml}
 
+    ${lastRunViewHtml}
+
 
     <!-- ==================== VIEW 9: POST CREATION PAGE ==================== -->
     <div id="view-post" class="view-content">
@@ -6495,6 +6513,82 @@ const htmlContent = `<!DOCTYPE html>
 
       const countEl = document.getElementById('updatesVisibleCount');
       if (countEl) countEl.textContent = visible;
+    }
+
+    // Last Run Interactive Filter & Accordion Logic
+    let currentLastRunStatus = 'all';
+    let currentLastRunBrowser = 'all';
+
+    function filterLastRunStatus(status, btn) {
+      currentLastRunStatus = status;
+      document.querySelectorAll('.lastrun-status-pill').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      filterLastRunTests();
+    }
+
+    function filterLastRunBrowser(browser, btn) {
+      currentLastRunBrowser = browser;
+      document.querySelectorAll('.lastrun-browser-pill').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      filterLastRunTests();
+    }
+
+    function filterLastRunTests() {
+      const query = (document.getElementById('lastRunSearchInput')?.value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.lastrun-test-card');
+      let visible = 0;
+
+      cards.forEach(card => {
+        const status = card.getAttribute('data-status');
+        const browser = card.getAttribute('data-browser');
+        const searchBlob = card.getAttribute('data-search') || '';
+
+        const statusMatch = currentLastRunStatus === 'all' || status === currentLastRunStatus;
+        const browserMatch = currentLastRunBrowser === 'all' || browser === currentLastRunBrowser;
+        const queryMatch = !query || searchBlob.includes(query);
+
+        if (statusMatch && browserMatch && queryMatch) {
+          card.style.display = 'block';
+          visible++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      const countEl = document.getElementById('lastRunVisibleCount');
+      if (countEl) countEl.textContent = visible;
+    }
+
+    function toggleLastRunCard(id) {
+      const el = document.getElementById(id);
+      const chevron = document.getElementById('chevron-' + id);
+      if (!el) return;
+      if (el.style.display === 'none' || !el.style.display) {
+        el.style.display = 'block';
+        if (chevron) chevron.style.transform = 'rotate(180deg)';
+      } else {
+        el.style.display = 'none';
+        if (chevron) chevron.style.transform = 'rotate(0deg)';
+      }
+    }
+
+    function toggleAllLastRunCards(expand) {
+      document.querySelectorAll('.lastrun-card-body').forEach(b => {
+        b.style.display = expand ? 'block' : 'none';
+      });
+      document.querySelectorAll('[id^="chevron-lastrun-detail-"]').forEach(c => {
+        c.style.transform = expand ? 'rotate(180deg)' : 'rotate(0deg)';
+      });
+    }
+
+    function copyTestError(id) {
+      const text = document.getElementById(id)?.innerText || '';
+      if (!text) return;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Trace copied to clipboard!');
+      }).catch(err => {
+        console.error('Copy failed', err);
+      });
     }
 
     function toggleUpdatesAccordion(areaKey) {
@@ -7305,4 +7399,8 @@ const htmlContent = `<!DOCTYPE html>
 `;
 
 fs.writeFileSync(path.join(docsDir, 'index.html'), htmlContent);
+
+const standaloneLastRunHtml = generateStandaloneLastRunHtml(lastRunData, '', htmlContent);
+fs.writeFileSync(path.join(docsDir, 'last-run.html'), standaloneLastRunHtml);
+console.log(`✅ Standalone Last Run page generated at: ${path.join(docsDir, 'last-run.html')}`);
 console.log(`✅ Highly interactive multi-page dashboard generated at: ${path.join(docsDir, 'index.html')}`);
