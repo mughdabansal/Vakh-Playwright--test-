@@ -1,15 +1,16 @@
 {
   "config": {
     "argv": [
-      "/opt/hostedtoolcache/node/20.20.2/x64/bin/node",
-      "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/node_modules/.bin/playwright",
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\node_modules\\@playwright\\test\\cli.js",
       "test",
-      "src/tests/activity.spec.ts"
+      "src/tests/runtime-cache-editor-lifecycle.spec.ts",
+      "--project=chromium"
     ],
-    "configFile": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/playwright.config.ts",
-    "rootDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
+    "configFile": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\playwright.config.ts",
+    "rootDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
     "failOnFlakyTests": false,
-    "forbidOnly": true,
+    "forbidOnly": false,
     "fullyParallel": false,
     "globalSetup": null,
     "globalTeardown": null,
@@ -18,64 +19,20 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "ci": {
-        "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/4244554fddb748e6b01d06bc926eb519cafd5819",
-        "commitHash": "4244554fddb748e6b01d06bc926eb519cafd5819",
-        "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/40180177791"
-      },
-      "gitCommit": {
-        "shortHash": "4244554",
-        "hash": "4244554fddb748e6b01d06bc926eb519cafd5819",
-        "subject": "fix(dashboard): sanitize last updated timestamp and prevent concurrent rebase conflict markers in CI workflows",
-        "body": "fix(dashboard): sanitize last updated timestamp and prevent concurrent rebase conflict markers in CI workflows\n",
-        "author": {
-          "name": "Mughda Bansal",
-          "email": "mughdabansal1414@gmail.com",
-          "time": 1792919955000
-        },
-        "committer": {
-          "name": "Mughda Bansal",
-          "email": "mughdabansal1414@gmail.com",
-          "time": 1792919955000
-        },
-        "branch": "main"
-      },
       "actualWorkers": 1
     },
     "preserveOutput": "always",
     "projects": [
       {
-        "outputDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results",
+        "outputDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/test-reports/test-results",
         "repeatEach": 1,
-        "retries": 2,
+        "retries": 1,
         "metadata": {
-          "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/4244554fddb748e6b01d06bc926eb519cafd5819",
-            "commitHash": "4244554fddb748e6b01d06bc926eb519cafd5819",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/40180177791"
-          },
-          "gitCommit": {
-            "shortHash": "4244554",
-            "hash": "4244554fddb748e6b01d06bc926eb519cafd5819",
-            "subject": "fix(dashboard): sanitize last updated timestamp and prevent concurrent rebase conflict markers in CI workflows",
-            "body": "fix(dashboard): sanitize last updated timestamp and prevent concurrent rebase conflict markers in CI workflows\n",
-            "author": {
-              "name": "Mughda Bansal",
-              "email": "mughdabansal1414@gmail.com",
-              "time": 1792919955000
-            },
-            "committer": {
-              "name": "Mughda Bansal",
-              "email": "mughdabansal1414@gmail.com",
-              "time": 1792919955000
-            },
-            "branch": "main"
-          },
           "actualWorkers": 1
         },
         "id": "chromium",
         "name": "chromium",
-        "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
+        "testDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
         "testIgnore": [
           "**/chat.spec.ts",
           "**/04-chat-collaboration.spec.ts"
@@ -86,37 +43,15 @@
         "timeout": 30000
       },
       {
-        "outputDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results",
+        "outputDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/test-reports/test-results",
         "repeatEach": 1,
-        "retries": 2,
+        "retries": 1,
         "metadata": {
-          "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/4244554fddb748e6b01d06bc926eb519cafd5819",
-            "commitHash": "4244554fddb748e6b01d06bc926eb519cafd5819",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/40180177791"
-          },
-          "gitCommit": {
-            "shortHash": "4244554",
-            "hash": "4244554fddb748e6b01d06bc926eb519cafd5819",
-            "subject": "fix(dashboard): sanitize last updated timestamp and prevent concurrent rebase conflict markers in CI workflows",
-            "body": "fix(dashboard): sanitize last updated timestamp and prevent concurrent rebase conflict markers in CI workflows\n",
-            "author": {
-              "name": "Mughda Bansal",
-              "email": "mughdabansal1414@gmail.com",
-              "time": 1792919955000
-            },
-            "committer": {
-              "name": "Mughda Bansal",
-              "email": "mughdabansal1414@gmail.com",
-              "time": 1792919955000
-            },
-            "branch": "main"
-          },
           "actualWorkers": 1
         },
         "id": "firefox",
         "name": "firefox",
-        "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
+        "testDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
         "testIgnore": [
           "**/chat.spec.ts",
           "**/04-chat-collaboration.spec.ts"
@@ -127,37 +62,15 @@
         "timeout": 30000
       },
       {
-        "outputDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results",
+        "outputDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/test-reports/test-results",
         "repeatEach": 1,
-        "retries": 2,
+        "retries": 1,
         "metadata": {
-          "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/4244554fddb748e6b01d06bc926eb519cafd5819",
-            "commitHash": "4244554fddb748e6b01d06bc926eb519cafd5819",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/40180177791"
-          },
-          "gitCommit": {
-            "shortHash": "4244554",
-            "hash": "4244554fddb748e6b01d06bc926eb519cafd5819",
-            "subject": "fix(dashboard): sanitize last updated timestamp and prevent concurrent rebase conflict markers in CI workflows",
-            "body": "fix(dashboard): sanitize last updated timestamp and prevent concurrent rebase conflict markers in CI workflows\n",
-            "author": {
-              "name": "Mughda Bansal",
-              "email": "mughdabansal1414@gmail.com",
-              "time": 1792919955000
-            },
-            "committer": {
-              "name": "Mughda Bansal",
-              "email": "mughdabansal1414@gmail.com",
-              "time": 1792919955000
-            },
-            "branch": "main"
-          },
           "actualWorkers": 1
         },
         "id": "webkit",
         "name": "webkit",
-        "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
+        "testDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
         "testIgnore": [
           "**/chat.spec.ts",
           "**/04-chat-collaboration.spec.ts"
@@ -168,37 +81,15 @@
         "timeout": 30000
       },
       {
-        "outputDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results",
+        "outputDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/test-reports/test-results",
         "repeatEach": 1,
-        "retries": 2,
+        "retries": 1,
         "metadata": {
-          "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/4244554fddb748e6b01d06bc926eb519cafd5819",
-            "commitHash": "4244554fddb748e6b01d06bc926eb519cafd5819",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/40180177791"
-          },
-          "gitCommit": {
-            "shortHash": "4244554",
-            "hash": "4244554fddb748e6b01d06bc926eb519cafd5819",
-            "subject": "fix(dashboard): sanitize last updated timestamp and prevent concurrent rebase conflict markers in CI workflows",
-            "body": "fix(dashboard): sanitize last updated timestamp and prevent concurrent rebase conflict markers in CI workflows\n",
-            "author": {
-              "name": "Mughda Bansal",
-              "email": "mughdabansal1414@gmail.com",
-              "time": 1792919955000
-            },
-            "committer": {
-              "name": "Mughda Bansal",
-              "email": "mughdabansal1414@gmail.com",
-              "time": 1792919955000
-            },
-            "branch": "main"
-          },
           "actualWorkers": 1
         },
         "id": "edge",
         "name": "edge",
-        "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
+        "testDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
         "testIgnore": [
           "**/chat.spec.ts",
           "**/04-chat-collaboration.spec.ts"
@@ -238,30 +129,30 @@
     "updateSnapshots": "missing",
     "updateSourceMethod": "patch",
     "version": "1.62.1",
-    "workers": 1,
+    "workers": 2,
     "webServer": null
   },
   "suites": [
     {
-      "title": "activity.spec.ts",
-      "file": "activity.spec.ts",
+      "title": "runtime-cache-editor-lifecycle.spec.ts",
+      "file": "runtime-cache-editor-lifecycle.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Eve Vakh - Activity & Notifications Page Test Suite",
-          "file": "activity.spec.ts",
-          "line": 7,
+          "title": "Runtime Cache, Memory Cleanup, Alias Resolution & Form Editor Lifecycle",
+          "file": "runtime-cache-editor-lifecycle.spec.ts",
+          "line": 24,
           "column": 6,
           "specs": [
             {
-              "title": "TC_ACT_001: should navigate to activity page and verify header display",
+              "title": "TC_CACHE_001: offline cache survives memory sweeps and reclaims only idle empty entries",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -271,18 +162,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 6215,
+                      "duration": 14920,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-25T09:21:17.709Z",
+                      "startTime": "2026-10-27T04:15:35.055Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-c0ba2-e-and-verify-header-display-chromium/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-f65c0-ims-only-idle-empty-entries-chromium\\video.webm"
                         }
                       ]
                     }
@@ -290,18 +181,18 @@
                   "status": "expected"
                 }
               ],
-              "id": "616be4781cf8c32ae453-3f190bd5eb820169b025",
-              "file": "activity.spec.ts",
-              "line": 80,
+              "id": "fa5f3fe7879699678410-f2d4fcc937185b9e3acd",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 51,
               "column": 7
             },
             {
-              "title": "TC_ACT_002: should display activity feed and verify content layout",
+              "title": "TC_MEM_001: memory warning is deduplicated and dispatched only once per high-count period",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 90000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -311,18 +202,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 7656,
+                      "duration": 282,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-25T09:21:24.170Z",
+                      "startTime": "2026-10-27T04:15:50.166Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-6ae2a-d-and-verify-content-layout-chromium/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-b1917--once-per-high-count-period-chromium\\video.webm"
                         }
                       ]
                     }
@@ -330,98 +221,18 @@
                   "status": "expected"
                 }
               ],
-              "id": "616be4781cf8c32ae453-6b9f5ccc60cf9d78ed63",
-              "file": "activity.spec.ts",
-              "line": 96,
-              "column": 7
-            },
-            {
-              "title": "TC_ACT_003: should verify badge and role assignment notification message",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 6579,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-25T09:21:31.842Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-c9d83-gnment-notification-message-chromium/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "616be4781cf8c32ae453-c29ea7d4e1b00c79571b",
-              "file": "activity.spec.ts",
-              "line": 109,
-              "column": 7
-            },
-            {
-              "title": "TC_ACT_004: should verify form publication approval notification and media preview",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 6301,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-25T09:21:38.433Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-81035-ification-and-media-preview-chromium/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "616be4781cf8c32ae453-67db8b34566fa5053e57",
-              "file": "activity.spec.ts",
+              "id": "fa5f3fe7879699678410-7edaa9240978c4af1fc7",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
               "line": 122,
               "column": 7
             },
             {
-              "title": "TC_ACT_005: should verify content moderation policy rejection message and quoted post",
+              "title": "TC_ALIAS_001: alias cache maintains bounded capacity and prunes stale unused entries according to freshness policy",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 90000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -431,18 +242,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 7072,
+                      "duration": 338,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-25T09:21:44.750Z",
+                      "startTime": "2026-10-27T04:15:50.473Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-cee6f-ion-message-and-quoted-post-chromium/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-1ca86-cording-to-freshness-policy-chromium\\video.webm"
                         }
                       ]
                     }
@@ -450,18 +261,18 @@
                   "status": "expected"
                 }
               ],
-              "id": "616be4781cf8c32ae453-393880cc1dc48ebd6e0c",
-              "file": "activity.spec.ts",
-              "line": 135,
+              "id": "fa5f3fe7879699678410-6de6c344f82fe0f3b5cd",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 192,
               "column": 7
             },
             {
-              "title": "TC_ACT_006: should verify post heart reaction notification and referenced post snippet",
+              "title": "TC_ALIAS_002: blank inputs and UUID literals bypass alias resolution queries without network dispatch",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 90000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -471,18 +282,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 6036,
+                      "duration": 267,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-25T09:21:51.837Z",
+                      "startTime": "2026-10-27T04:15:50.826Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-baf45-and-referenced-post-snippet-chromium/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-62712-es-without-network-dispatch-chromium\\video.webm"
                         }
                       ]
                     }
@@ -490,18 +301,18 @@
                   "status": "expected"
                 }
               ],
-              "id": "616be4781cf8c32ae453-d7f5233c5c23afe7d138",
-              "file": "activity.spec.ts",
-              "line": 149,
+              "id": "fa5f3fe7879699678410-9ed828536328a2bfb512",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 289,
               "column": 7
             },
             {
-              "title": "TC_ACT_007: should verify access and permissions granted notification messages",
+              "title": "TC_EDITOR_001: longform editor wrapper maintains component identity and scroll margin across state updates",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 90000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -511,18 +322,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 6780,
+                      "duration": 5708,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-25T09:21:57.887Z",
+                      "startTime": "2026-10-27T04:15:51.110Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-10aa0-anted-notification-messages-chromium/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-816ae-margin-across-state-updates-chromium\\video.webm"
                         }
                       ]
                     }
@@ -530,18 +341,18 @@
                   "status": "expected"
                 }
               ],
-              "id": "616be4781cf8c32ae453-5e5a1148aebb4a57f1f6",
-              "file": "activity.spec.ts",
-              "line": 163,
+              "id": "fa5f3fe7879699678410-6102ebdc6add64236541",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 361,
               "column": 7
             },
             {
-              "title": "TC_ACT_008: should verify user activity and post mention notification details",
+              "title": "TC_EDITOR_002: reader composer transitions safely into fullscreen layout without layout breakage or content distortion",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 90000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -551,18 +362,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 8780,
+                      "duration": 30918,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-25T09:22:04.680Z",
+                      "startTime": "2026-10-27T04:15:56.833Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-189a8-ention-notification-details-chromium/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-51aa0-akage-or-content-distortion-chromium\\video.webm"
                         }
                       ]
                     }
@@ -570,18 +381,18 @@
                   "status": "expected"
                 }
               ],
-              "id": "616be4781cf8c32ae453-6ffbc56d5467988266ce",
-              "file": "activity.spec.ts",
-              "line": 176,
+              "id": "fa5f3fe7879699678410-a89b641290341614899a",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 422,
               "column": 7
             },
             {
-              "title": "TC_ACT_009: should verify end-of-feed indicator and chronological sequence",
+              "title": "TC_FIELD_001: datetime field accepts valid inputs, formats consistently and prevents corrupted states",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 90000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -591,18 +402,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 6653,
+                      "duration": 10145,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-25T09:22:13.473Z",
+                      "startTime": "2026-10-27T04:16:27.772Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-045ec--and-chronological-sequence-chromium/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-1758c-d-prevents-corrupted-states-chromium\\video.webm"
                         }
                       ]
                     }
@@ -610,18 +421,18 @@
                   "status": "expected"
                 }
               ],
-              "id": "616be4781cf8c32ae453-204e0705c334e3fba5a2",
-              "file": "activity.spec.ts",
-              "line": 189,
+              "id": "fa5f3fe7879699678410-aa91b0895931b4316336",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 474,
               "column": 7
             },
             {
-              "title": "TC_ACT_010: should preserve authenticated session upon direct activity navigation",
+              "title": "TC_UI_001: field input spacing maintains visual rhythm without overlap and metadata disclosures expand cleanly",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 90000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -631,18 +442,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3711,
+                      "duration": 8503,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-25T09:22:20.137Z",
+                      "startTime": "2026-10-27T04:16:37.938Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-04cd1--direct-activity-navigation-chromium/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-1c9d3--disclosures-expand-cleanly-chromium\\video.webm"
                         }
                       ]
                     }
@@ -650,18 +461,18 @@
                   "status": "expected"
                 }
               ],
-              "id": "616be4781cf8c32ae453-43bf40385ed0aa08bb1a",
-              "file": "activity.spec.ts",
-              "line": 203,
+              "id": "fa5f3fe7879699678410-413b267f60e30350e8cc",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 532,
               "column": 7
             },
             {
-              "title": "TC_ACT_011: should group high-frequency reactions (50+ likes in 1 minute) into a single summary notification",
+              "title": "TC_UI_002: remove controls and drag handles render distinct accessible identifiers without accidental trigger",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 90000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -671,18 +482,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4541,
+                      "duration": 5748,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-25T09:22:23.860Z",
+                      "startTime": "2026-10-27T04:16:46.468Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-ecacd-single-summary-notification-chromium/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-dd008--without-accidental-trigger-chromium\\video.webm"
                         }
                       ]
                     }
@@ -690,39 +501,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "616be4781cf8c32ae453-6abd8c32a14f50f76d9e",
-              "file": "activity.spec.ts",
-              "line": 221,
+              "id": "fa5f3fe7879699678410-7ca81be833444d3c27ab",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 598,
               "column": 7
             },
             {
-              "title": "TC_ACT_001: should navigate to activity page and verify header display",
+              "title": "TC_UI_003: add tile conforms to grid alignment and selector border reflects neutral versus active focus state",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 90000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 7221,
+                      "duration": 5908,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-25T09:22:28.863Z",
+                      "startTime": "2026-10-27T04:16:52.252Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-c0ba2-e-and-verify-header-display-firefox/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-99ee5-l-versus-active-focus-state-chromium\\video.webm"
                         }
                       ]
                     }
@@ -730,39 +541,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "616be4781cf8c32ae453-2331fb97787c953d3c1d",
-              "file": "activity.spec.ts",
-              "line": 80,
+              "id": "fa5f3fe7879699678410-53550fd77fe231eea9a1",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 635,
               "column": 7
             },
             {
-              "title": "TC_ACT_002: should display activity feed and verify content layout",
+              "title": "TC_CACHE_002: corrupted or malformed offline cache entries fail gracefully without wiping valid cache records",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 90000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 9559,
+                      "duration": 325,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-25T09:22:36.646Z",
+                      "startTime": "2026-10-27T04:16:58.186Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-6ae2a-d-and-verify-content-layout-firefox/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-9fcd8--wiping-valid-cache-records-chromium\\video.webm"
                         }
                       ]
                     }
@@ -770,39 +581,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "616be4781cf8c32ae453-c84f944cf178f8f682be",
-              "file": "activity.spec.ts",
-              "line": 96,
+              "id": "fa5f3fe7879699678410-90504f2ade96c6b3a234",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 673,
               "column": 7
             },
             {
-              "title": "TC_ACT_003: should verify badge and role assignment notification message",
+              "title": "TC_CACHE_003: storage quota exhaustion prioritizes offline user drafts and evicts ephemeral caches first",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 90000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 7331,
+                      "duration": 343,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-25T09:22:46.225Z",
+                      "startTime": "2026-10-27T04:16:58.528Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-c9d83-gnment-notification-message-firefox/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-7cfe3-icts-ephemeral-caches-first-chromium\\video.webm"
                         }
                       ]
                     }
@@ -810,39 +621,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "616be4781cf8c32ae453-846f87e99cd7b42f8373",
-              "file": "activity.spec.ts",
-              "line": 109,
+              "id": "fa5f3fe7879699678410-1fe18bf807425c6d1c88",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 740,
               "column": 7
             },
             {
-              "title": "TC_ACT_004: should verify form publication approval notification and media preview",
+              "title": "TC_CACHE_004: active in-memory draft is locked against sweep reclamation during concurrent background cleanup",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 90000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 6735,
+                      "duration": 337,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-25T09:22:53.568Z",
+                      "startTime": "2026-10-27T04:16:58.883Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-81035-ification-and-media-preview-firefox/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-92219-ncurrent-background-cleanup-chromium\\video.webm"
                         }
                       ]
                     }
@@ -850,39 +661,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "616be4781cf8c32ae453-2bed74c4b20134e1da61",
-              "file": "activity.spec.ts",
-              "line": 122,
+              "id": "fa5f3fe7879699678410-4d106040d2ffba9b7621",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 824,
               "column": 7
             },
             {
-              "title": "TC_ACT_005: should verify content moderation policy rejection message and quoted post",
+              "title": "TC_MEM_002: memory threshold flapping across boundary is debounced and emits only a single warning",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 90000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 7599,
+                      "duration": 308,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-25T09:23:00.316Z",
+                      "startTime": "2026-10-27T04:16:59.236Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-cee6f-ion-message-and-quoted-post-firefox/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-87983-emits-only-a-single-warning-chromium\\video.webm"
                         }
                       ]
                     }
@@ -890,39 +701,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "616be4781cf8c32ae453-8751050b2c020ef8d8bb",
-              "file": "activity.spec.ts",
-              "line": 135,
+              "id": "fa5f3fe7879699678410-e582464d4a374975c88c",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 874,
               "column": 7
             },
             {
-              "title": "TC_ACT_006: should verify post heart reaction notification and referenced post snippet",
+              "title": "TC_MEM_003: warning cooldown does not reset when memory only partially recovers",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 90000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 7584,
+                      "duration": 354,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-25T09:23:07.928Z",
+                      "startTime": "2026-10-27T04:16:59.577Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-baf45-and-referenced-post-snippet-firefox/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-4811f-ory-only-partially-recovers-chromium\\video.webm"
                         }
                       ]
                     }
@@ -930,39 +741,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "616be4781cf8c32ae453-adbd9a602b42fa338bb4",
-              "file": "activity.spec.ts",
-              "line": 149,
+              "id": "fa5f3fe7879699678410-e17b7bf98e168e6dada8",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 919,
               "column": 7
             },
             {
-              "title": "TC_ACT_007: should verify access and permissions granted notification messages",
+              "title": "TC_MEM_004: multi-tab memory cleanup events synchronize timestamp to prevent duplicate warnings across tabs",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 90000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 7928,
+                      "duration": 398,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-25T09:23:15.522Z",
+                      "startTime": "2026-10-27T04:16:59.945Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-10aa0-anted-notification-messages-firefox/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-40400-licate-warnings-across-tabs-chromium\\video.webm"
                         }
                       ]
                     }
@@ -970,39 +781,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "616be4781cf8c32ae453-81c9cea473df043b0cbd",
-              "file": "activity.spec.ts",
-              "line": 163,
+              "id": "fa5f3fe7879699678410-72077c9c0c0aab7bf8ca",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 953,
               "column": 7
             },
             {
-              "title": "TC_ACT_008: should verify user activity and post mention notification details",
+              "title": "TC_ALIAS_003: alias cache saturation with identical timestamps resolves deterministically",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 90000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 9426,
+                      "duration": 275,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-25T09:23:23.463Z",
+                      "startTime": "2026-10-27T04:17:00.360Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-189a8-ention-notification-details-firefox/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-cb273--resolves-deterministically-chromium\\video.webm"
                         }
                       ]
                     }
@@ -1010,39 +821,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "616be4781cf8c32ae453-5515a795000eb6b05aff",
-              "file": "activity.spec.ts",
-              "line": 176,
+              "id": "fa5f3fe7879699678410-bc997685fd8cfebf3490",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 988,
               "column": 7
             },
             {
-              "title": "TC_ACT_009: should verify end-of-feed indicator and chronological sequence",
+              "title": "TC_ALIAS_004: alias collision and re-assignment purges stale target mapping immediately",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 90000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 8161,
+                      "duration": 282,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-25T09:23:32.903Z",
+                      "startTime": "2026-10-27T04:17:00.658Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-045ec--and-chronological-sequence-firefox/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-57550--target-mapping-immediately-chromium\\video.webm"
                         }
                       ]
                     }
@@ -1050,39 +861,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "616be4781cf8c32ae453-793b5458db392c657d2a",
-              "file": "activity.spec.ts",
-              "line": 189,
+              "id": "fa5f3fe7879699678410-607f17f2e3de374077e1",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 1032,
               "column": 7
             },
             {
-              "title": "TC_ACT_010: should preserve authenticated session upon direct activity navigation",
+              "title": "TC_ALIAS_005: zero-capacity alias cache operates safely without retention leaks or crashes",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 90000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 7278,
+                      "duration": 257,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-25T09:23:41.076Z",
+                      "startTime": "2026-10-27T04:17:00.952Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-04cd1--direct-activity-navigation-firefox/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-70b9a--retention-leaks-or-crashes-chromium\\video.webm"
                         }
                       ]
                     }
@@ -1090,39 +901,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "616be4781cf8c32ae453-5e3cbefe68b586879541",
-              "file": "activity.spec.ts",
-              "line": 203,
+              "id": "fa5f3fe7879699678410-18acf391f5ad0ae27423",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 1065,
               "column": 7
             },
             {
-              "title": "TC_ACT_011: should group high-frequency reactions (50+ likes in 1 minute) into a single summary notification",
+              "title": "TC_ALIAS_006: malicious input and control characters in alias field are sanitized and rejected",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 90000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 6637,
+                      "duration": 301,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-25T09:23:48.366Z",
+                      "startTime": "2026-10-27T04:17:01.223Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-ecacd-single-summary-notification-firefox/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-ac145--are-sanitized-and-rejected-chromium\\video.webm"
                         }
                       ]
                     }
@@ -1130,39 +941,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "616be4781cf8c32ae453-3f6c34ed56556d6717d4",
-              "file": "activity.spec.ts",
-              "line": 221,
+              "id": "fa5f3fe7879699678410-eabb4b4dcfd09e3342cb",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 1098,
               "column": 7
             },
             {
-              "title": "TC_ACT_001: should navigate to activity page and verify header display",
+              "title": "TC_ALIAS_007: pseudo-UUIDs and near-UUID inputs are strictly distinguished from genuine RFC-4122 UUIDs",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 90000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 10112,
+                      "duration": 299,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-25T09:23:55.792Z",
+                      "startTime": "2026-10-27T04:17:01.548Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-c0ba2-e-and-verify-header-display-webkit/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-1380f-from-genuine-RFC-4122-UUIDs-chromium\\video.webm"
                         }
                       ]
                     }
@@ -1170,39 +981,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "616be4781cf8c32ae453-40eeb2640590a90411cb",
-              "file": "activity.spec.ts",
-              "line": 80,
+              "id": "fa5f3fe7879699678410-86f7fb0fb0526344ab44",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 1137,
               "column": 7
             },
             {
-              "title": "TC_ACT_002: should display activity feed and verify content layout",
+              "title": "TC_EDITOR_003: massive formatted content paste maintains editor wrapper stability without memory freeze",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 90000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 7204,
+                      "duration": 6407,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-25T09:24:06.509Z",
+                      "startTime": "2026-10-27T04:17:01.870Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-6ae2a-d-and-verify-content-layout-webkit/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-40efa-ility-without-memory-freeze-chromium\\video.webm"
                         }
                       ]
                     }
@@ -1210,39 +1021,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "616be4781cf8c32ae453-c9d350d3e8448011ace5",
-              "file": "activity.spec.ts",
-              "line": 96,
+              "id": "fa5f3fe7879699678410-7952fa0def3f9e0a2400",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 1166,
               "column": 7
             },
             {
-              "title": "TC_ACT_003: should verify badge and role assignment notification message",
+              "title": "TC_EDITOR_004: undo and redo history stack is preserved across forced parent re-renders",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 90000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 7190,
+                      "duration": 375,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-25T09:24:13.733Z",
+                      "startTime": "2026-10-27T04:17:08.306Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-c9d83-gnment-notification-message-webkit/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-a765e-ss-forced-parent-re-renders-chromium\\video.webm"
                         }
                       ]
                     }
@@ -1250,39 +1061,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "616be4781cf8c32ae453-7dd9d7499ddc80269ca9",
-              "file": "activity.spec.ts",
-              "line": 109,
+              "id": "fa5f3fe7879699678410-85be170ca3611c4779c3",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 1213,
               "column": 7
             },
             {
-              "title": "TC_ACT_004: should verify form publication approval notification and media preview",
+              "title": "TC_EDITOR_005: escape key in fullscreen mode exits fullscreen without abruptly closing composer or losing draft",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 90000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 7307,
+                      "duration": 20778,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-25T09:24:20.935Z",
+                      "startTime": "2026-10-27T04:17:08.761Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-81035-ification-and-media-preview-webkit/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-0af25-ng-composer-or-losing-draft-chromium\\video.webm"
                         }
                       ]
                     }
@@ -1290,39 +1101,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "616be4781cf8c32ae453-741c710d1bd040e90ec4",
-              "file": "activity.spec.ts",
-              "line": 122,
+              "id": "fa5f3fe7879699678410-5f788895229613f77809",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 1268,
               "column": 7
             },
             {
-              "title": "TC_ACT_005: should verify content moderation policy rejection message and quoted post",
+              "title": "TC_FIELD_002: invalid calendar dates (non-leap year Feb 29, April 31) are strictly rejected",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 90000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 7503,
+                      "duration": 374,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-25T09:24:28.258Z",
+                      "startTime": "2026-10-27T04:17:29.553Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-cee6f-ion-message-and-quoted-post-webkit/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-7dc16-il-31-are-strictly-rejected-chromium\\video.webm"
                         }
                       ]
                     }
@@ -1330,39 +1141,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "616be4781cf8c32ae453-2547bcf08994cb690835",
-              "file": "activity.spec.ts",
-              "line": 135,
+              "id": "fa5f3fe7879699678410-bcf6555821a04863033e",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 1322,
               "column": 7
             },
             {
-              "title": "TC_ACT_006: should verify post heart reaction notification and referenced post snippet",
+              "title": "TC_FIELD_003: cross-timezone datetime conversion preserves exact UTC millisecond timestamp",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 90000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 6963,
+                      "duration": 251,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-25T09:24:35.778Z",
+                      "startTime": "2026-10-27T04:17:29.944Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-baf45-and-referenced-post-snippet-webkit/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-47691-t-UTC-millisecond-timestamp-chromium\\video.webm"
                         }
                       ]
                     }
@@ -1370,39 +1181,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "616be4781cf8c32ae453-133c3032c684d3e1af75",
-              "file": "activity.spec.ts",
-              "line": 149,
+              "id": "fa5f3fe7879699678410-f27d7a3f3c29385ba827",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 1354,
               "column": 7
             },
             {
-              "title": "TC_ACT_007: should verify access and permissions granted notification messages",
+              "title": "TC_UI_004: long internationalized labels and RTL text wrap cleanly in metadata disclosures without overflow",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 90000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 7416,
+                      "duration": 9239,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-25T09:24:42.760Z",
+                      "startTime": "2026-10-27T04:17:30.207Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-10aa0-anted-notification-messages-webkit/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-d5f1d-isclosures-without-overflow-chromium\\video.webm"
                         }
                       ]
                     }
@@ -1410,39 +1221,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "616be4781cf8c32ae453-11ef22923c1d57f754b5",
-              "file": "activity.spec.ts",
-              "line": 163,
+              "id": "fa5f3fe7879699678410-1389a0ec9eb878b24760",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 1378,
               "column": 7
             },
             {
-              "title": "TC_ACT_008: should verify user activity and post mention notification details",
+              "title": "TC_UI_005: destructive removal of populated fields enforces confirmation guard to prevent accidental loss",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 90000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 9957,
+                      "duration": 436,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-25T09:24:50.192Z",
+                      "startTime": "2026-10-27T04:17:39.465Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-189a8-ention-notification-details-webkit/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-5fccc--to-prevent-accidental-loss-chromium\\video.webm"
                         }
                       ]
                     }
@@ -1450,39 +1261,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "616be4781cf8c32ae453-5f3e6f12776098cae9f5",
-              "file": "activity.spec.ts",
-              "line": 176,
+              "id": "fa5f3fe7879699678410-14f8a66b3657fe428043",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 1411,
               "column": 7
             },
             {
-              "title": "TC_ACT_009: should verify end-of-feed indicator and chronological sequence",
+              "title": "TC_UI_006: drag handle and remove button maintain minimum touch hit-box separation",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 90000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 8230,
+                      "duration": 309,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-25T09:25:00.160Z",
+                      "startTime": "2026-10-27T04:17:39.929Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-045ec--and-chronological-sequence-webkit/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-11361-um-touch-hit-box-separation-chromium\\video.webm"
                         }
                       ]
                     }
@@ -1490,39 +1301,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "616be4781cf8c32ae453-70713ba243a079258a49",
-              "file": "activity.spec.ts",
-              "line": 189,
+              "id": "fa5f3fe7879699678410-49af0fd073302510ae35",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 1453,
               "column": 7
             },
             {
-              "title": "TC_ACT_010: should preserve authenticated session upon direct activity navigation",
+              "title": "TC_UI_007: add tile disables cleanly and displays capacity feedback when form reaches maximum field limit",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 90000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5124,
+                      "duration": 296,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-25T09:25:08.404Z",
+                      "startTime": "2026-10-27T04:17:40.255Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-04cd1--direct-activity-navigation-webkit/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-3dac8-reaches-maximum-field-limit-chromium\\video.webm"
                         }
                       ]
                     }
@@ -1530,489 +1341,9 @@
                   "status": "expected"
                 }
               ],
-              "id": "616be4781cf8c32ae453-e73792c7347a25ffd70c",
-              "file": "activity.spec.ts",
-              "line": 203,
-              "column": 7
-            },
-            {
-              "title": "TC_ACT_011: should group high-frequency reactions (50+ likes in 1 minute) into a single summary notification",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 8222,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-25T09:25:13.542Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-ecacd-single-summary-notification-webkit/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "616be4781cf8c32ae453-d33480fdda16920f080e",
-              "file": "activity.spec.ts",
-              "line": 221,
-              "column": 7
-            },
-            {
-              "title": "TC_ACT_001: should navigate to activity page and verify header display",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "edge",
-                  "projectName": "edge",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4595,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-25T09:25:22.250Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-c0ba2-e-and-verify-header-display-edge/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "616be4781cf8c32ae453-dfd318d377df3c58b902",
-              "file": "activity.spec.ts",
-              "line": 80,
-              "column": 7
-            },
-            {
-              "title": "TC_ACT_002: should display activity feed and verify content layout",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "edge",
-                  "projectName": "edge",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5987,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-25T09:25:26.971Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-6ae2a-d-and-verify-content-layout-edge/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "616be4781cf8c32ae453-7f259c2e4b32c4bd4d7e",
-              "file": "activity.spec.ts",
-              "line": 96,
-              "column": 7
-            },
-            {
-              "title": "TC_ACT_003: should verify badge and role assignment notification message",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "edge",
-                  "projectName": "edge",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5990,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-25T09:25:32.976Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-c9d83-gnment-notification-message-edge/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "616be4781cf8c32ae453-de1c7f98325063cf54f3",
-              "file": "activity.spec.ts",
-              "line": 109,
-              "column": 7
-            },
-            {
-              "title": "TC_ACT_004: should verify form publication approval notification and media preview",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "edge",
-                  "projectName": "edge",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5322,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-25T09:25:38.977Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-81035-ification-and-media-preview-edge/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "616be4781cf8c32ae453-32d1908eabde58e58bce",
-              "file": "activity.spec.ts",
-              "line": 122,
-              "column": 7
-            },
-            {
-              "title": "TC_ACT_005: should verify content moderation policy rejection message and quoted post",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "edge",
-                  "projectName": "edge",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 6031,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-25T09:25:44.310Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-cee6f-ion-message-and-quoted-post-edge/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "616be4781cf8c32ae453-def33e31fd9a58454012",
-              "file": "activity.spec.ts",
-              "line": 135,
-              "column": 7
-            },
-            {
-              "title": "TC_ACT_006: should verify post heart reaction notification and referenced post snippet",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "edge",
-                  "projectName": "edge",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 6911,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-25T09:25:50.355Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-baf45-and-referenced-post-snippet-edge/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "616be4781cf8c32ae453-ed64de53ce53a5f66b04",
-              "file": "activity.spec.ts",
-              "line": 149,
-              "column": 7
-            },
-            {
-              "title": "TC_ACT_007: should verify access and permissions granted notification messages",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "edge",
-                  "projectName": "edge",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 6368,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-25T09:25:57.278Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-10aa0-anted-notification-messages-edge/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "616be4781cf8c32ae453-56bbcb5f8dc0ef694d23",
-              "file": "activity.spec.ts",
-              "line": 163,
-              "column": 7
-            },
-            {
-              "title": "TC_ACT_008: should verify user activity and post mention notification details",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "edge",
-                  "projectName": "edge",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 7684,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-25T09:26:03.655Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-189a8-ention-notification-details-edge/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "616be4781cf8c32ae453-d11f8a8c97761a6c3f91",
-              "file": "activity.spec.ts",
-              "line": 176,
-              "column": 7
-            },
-            {
-              "title": "TC_ACT_009: should verify end-of-feed indicator and chronological sequence",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "edge",
-                  "projectName": "edge",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 8477,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-25T09:26:11.348Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-045ec--and-chronological-sequence-edge/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "616be4781cf8c32ae453-76053fde6740df1bb26e",
-              "file": "activity.spec.ts",
-              "line": 189,
-              "column": 7
-            },
-            {
-              "title": "TC_ACT_010: should preserve authenticated session upon direct activity navigation",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "edge",
-                  "projectName": "edge",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3696,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-25T09:26:19.837Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-04cd1--direct-activity-navigation-edge/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "616be4781cf8c32ae453-ae1b223d50b1f1c52e97",
-              "file": "activity.spec.ts",
-              "line": 203,
-              "column": 7
-            },
-            {
-              "title": "TC_ACT_011: should group high-frequency reactions (50+ likes in 1 minute) into a single summary notification",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "edge",
-                  "projectName": "edge",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4575,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-25T09:26:23.544Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/activity-Eve-Vakh---Activi-ecacd-single-summary-notification-edge/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "616be4781cf8c32ae453-713a3269cdca083988eb",
-              "file": "activity.spec.ts",
-              "line": 221,
+              "id": "fa5f3fe7879699678410-5f8fed4aefbb61fce8a4",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 1499,
               "column": 7
             }
           ]
@@ -2022,9 +1353,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-25T09:21:16.975Z",
-    "duration": 311216.498,
-    "expected": 44,
+    "startTime": "2026-10-27T04:15:34.150Z",
+    "duration": 126608.772,
+    "expected": 30,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
