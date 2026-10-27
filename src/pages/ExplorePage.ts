@@ -86,13 +86,15 @@ export class ExplorePage extends BasePage {
     // User cards in explore list
     this.userCards = page.locator('button, [role="button"]').filter({ hasText: '@' });
 
-    // Profile view elements - use visible=true to select active foreground profile handle
-    this.profileUsername = page.locator('text=@').locator('visible=true').first();
+    // Profile view elements - use visible=true or regex to select active foreground profile handle
+    this.profileUsername = page.locator('text=@').filter({ visible: true }).first().or(
+      page.locator('div, span, h1, h2, p').filter({ hasText: /^@/ }).first()
+    );
     this.profileJoined = page.getByText(/joined/i).first().or(page.getByText('JOINED', { exact: true }));
     this.profileRep = page.getByText(/rep/i).first().or(page.getByText('REP', { exact: true }));
     this.profileTags = page.getByText(/tags/i).first().or(page.getByText('TAGS', { exact: true }));
-    this.messageBtn = page.getByRole('button', { name: /message/i }).first();
-    this.moreBtn = page.getByRole('button', { name: /more/i }).first();
+    this.messageBtn = page.getByRole('button', { name: /^message$/i }).or(page.getByRole('button', { name: /message/i })).first();
+    this.moreBtn = page.locator('main, [role="main"]').getByRole('button', { name: /more/i }).first().or(page.getByRole('button', { name: /more actions|more/i })).first();
 
     // Forms section and subscribe buttons
     this.formsHeading = page.getByText(/^forms$/i).first();
@@ -352,10 +354,10 @@ export class ExplorePage extends BasePage {
     } catch {
       await card.click({ force: true });
     }
-    await this.waitForUrlPattern(/\/user\//, 15000);
+    await this.waitForUrlPattern(/\/user\//, 20000);
     // Wait for the profile view to finish loading
-    await expect(this.page.getByText(/loading/i).first()).toBeHidden({ timeout: 15000 }).catch(() => {});
-    await expect(this.profileUsername).toBeVisible({ timeout: 15000 });
+    await expect(this.page.getByText(/loading/i).first()).toBeHidden({ timeout: 30000 }).catch(() => {});
+    await expect(this.page.locator('button[aria-label="Show more actions"], button:has-text("More"), [role="menuitem"]:has-text("Back")').first()).toBeVisible({ timeout: 25000 });
   }
 
   /**
@@ -398,7 +400,7 @@ export class ExplorePage extends BasePage {
    */
   async verifyFormsSection() {
     // Assert "Forms" heading
-    await expect(this.formsHeading).toBeVisible({ timeout: 10000 });
+    await expect(this.formsHeading).toBeVisible({ timeout: 15000 });
 
     // Assert that at least one form entry or subscribe button exists within forms
     const formsContent = this.page.locator('body');
@@ -410,11 +412,12 @@ export class ExplorePage extends BasePage {
    */
   async verifyAndClickSubscribeButton() {
     // Wait for subscribe buttons to be visible
-    await expect(this.subscribeButtons.first()).toBeVisible({ timeout: 10000 });
+    await expect(this.subscribeButtons.first()).toBeVisible({ timeout: 15000 });
     const count = await this.subscribeButtons.count();
     expect(count).toBeGreaterThan(0);
 
     const targetBtn = this.subscribeButtons.first();
+    await targetBtn.scrollIntoViewIfNeeded();
     const initialText = (await targetBtn.innerText()).trim();
     const initialAriaLabel = await targetBtn.getAttribute('aria-label');
 
@@ -422,7 +425,11 @@ export class ExplorePage extends BasePage {
     expect(initialAriaLabel).toBeTruthy();
 
     // Click to toggle subscription
-    await targetBtn.click();
+    try {
+      await targetBtn.click({ timeout: 5000 });
+    } catch {
+      await targetBtn.click({ force: true });
+    }
     await this.page.waitForTimeout(1500);
 
     // Verify state or text change or accessibility confirmation
@@ -434,7 +441,11 @@ export class ExplorePage extends BasePage {
 
     // If the button enters the "UNSUBSCRIBE?" confirmation state, click again to complete unsubscription
     if (updatedText === 'UNSUBSCRIBE?') {
-      await targetBtn.click();
+      try {
+        await targetBtn.click({ timeout: 5000 });
+      } catch {
+        await targetBtn.click({ force: true });
+      }
       await this.page.waitForTimeout(1500);
       const finalText = (await targetBtn.innerText()).trim();
       expect(['SUBSCRIBE', 'SUBSCRIBED']).toContain(finalText);

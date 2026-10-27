@@ -4,9 +4,10 @@
       "C:\\Program Files\\nodejs\\node.exe",
       "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\node_modules\\@playwright\\test\\cli.js",
       "test",
-      "src/tests/explore-location-boost.spec.ts",
-      "-g",
-      "TC_LOC_004|TC_LOC_005",
+      "src/tests/activity.spec.ts:96",
+      "src/tests/activity.spec.ts:163",
+      "src/tests/explore.spec.ts:127",
+      "src/tests/explore.spec.ts:155",
       "--project=chromium"
     ],
     "configFile": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\playwright.config.ts",
@@ -21,7 +22,7 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "actualWorkers": 1
+      "actualWorkers": 2
     },
     "preserveOutput": "always",
     "projects": [
@@ -30,7 +31,7 @@
         "repeatEach": 1,
         "retries": 1,
         "metadata": {
-          "actualWorkers": 1
+          "actualWorkers": 2
         },
         "id": "chromium",
         "name": "chromium",
@@ -49,7 +50,7 @@
         "repeatEach": 1,
         "retries": 1,
         "metadata": {
-          "actualWorkers": 1
+          "actualWorkers": 2
         },
         "id": "firefox",
         "name": "firefox",
@@ -68,7 +69,7 @@
         "repeatEach": 1,
         "retries": 1,
         "metadata": {
-          "actualWorkers": 1
+          "actualWorkers": 2
         },
         "id": "webkit",
         "name": "webkit",
@@ -87,7 +88,7 @@
         "repeatEach": 1,
         "retries": 1,
         "metadata": {
-          "actualWorkers": 1
+          "actualWorkers": 2
         },
         "id": "edge",
         "name": "edge",
@@ -136,20 +137,20 @@
   },
   "suites": [
     {
-      "title": "explore-location-boost.spec.ts",
-      "file": "explore-location-boost.spec.ts",
+      "title": "activity.spec.ts",
+      "file": "activity.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Eve Vakh - Explore Page Location-Based Profile Sort & Proximity Boost Suite",
-          "file": "explore-location-boost.spec.ts",
-          "line": 23,
+          "title": "Eve Vakh - Activity & Notifications Page Test Suite",
+          "file": "activity.spec.ts",
+          "line": 7,
           "column": 6,
           "specs": [
             {
-              "title": "TC_LOC_004: should transmit valid geolocation coordinates, radius, and sorting parameters to nearby explore API",
+              "title": "TC_ACT_002: should display activity feed and verify content layout",
               "ok": true,
               "tags": [],
               "tests": [
@@ -164,18 +165,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 15625,
+                      "duration": 43419,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-27T09:11:27.435Z",
+                      "startTime": "2026-10-27T12:13:15.005Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-location-boost-Eve-c1b9d-eters-to-nearby-explore-API-chromium\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-6ae2a-d-and-verify-content-layout-chromium\\video.webm"
                         }
                       ]
                     }
@@ -183,13 +184,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "0cc3d81ad24ff7653c82-0da245d7c5fb8af6d118",
-              "file": "explore-location-boost.spec.ts",
-              "line": 161,
+              "id": "616be4781cf8c32ae453-6b9f5ccc60cf9d78ed63",
+              "file": "activity.spec.ts",
+              "line": 96,
               "column": 7
             },
             {
-              "title": "TC_LOC_005: should validate response structure and distance/ranking attributes from location-boosted explore endpoint",
+              "title": "TC_ACT_007: should verify access and permissions granted notification messages",
               "ok": true,
               "tags": [],
               "tests": [
@@ -204,18 +205,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 16920,
+                      "duration": 56655,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-27T09:11:43.239Z",
+                      "startTime": "2026-10-27T12:13:59.265Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-location-boost-Eve-a4378-on-boosted-explore-endpoint-chromium\\video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\activity-Eve-Vakh---Activi-10aa0-anted-notification-messages-chromium\\video.webm"
                         }
                       ]
                     }
@@ -223,9 +224,106 @@
                   "status": "expected"
                 }
               ],
-              "id": "0cc3d81ad24ff7653c82-4777cba4a307f330852c",
-              "file": "explore-location-boost.spec.ts",
-              "line": 204,
+              "id": "616be4781cf8c32ae453-5e5a1148aebb4a57f1f6",
+              "file": "activity.spec.ts",
+              "line": 163,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "explore.spec.ts",
+      "file": "explore.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Eve Vakh - Explore Page Functional, UI/UX & Profile Forms Test Suite",
+          "file": "explore.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC_EXP_007: should display profile action buttons (Message and More) on profile view",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 43838,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T12:13:15.008Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-72d78-ge-and-More-on-profile-view-chromium\\video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "068fad9605609506583e-3afe6f3dda8fa3669df8",
+              "file": "explore.spec.ts",
+              "line": 127,
+              "column": 7
+            },
+            {
+              "title": "TC_EXP_009: should validate subscribe button presence, accessibility and subscription toggle",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 48222,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T12:13:59.644Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\explore-Eve-Vakh---Explore-fe721-ity-and-subscription-toggle-chromium\\video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "068fad9605609506583e-b28f3965b15e84df5918",
+              "file": "explore.spec.ts",
+              "line": 155,
               "column": 7
             }
           ]
@@ -235,9 +333,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-27T09:11:26.314Z",
-    "duration": 33984.474,
-    "expected": 2,
+    "startTime": "2026-10-27T12:13:10.257Z",
+    "duration": 105943.389,
+    "expected": 4,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
