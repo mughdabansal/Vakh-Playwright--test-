@@ -1007,7 +1007,7 @@ test.describe('Eve Vakh - Chat & Messaging Comprehensive Test Suite', () => {
         indicator.setAttribute('data-testid', 'typing-indicator');
         indicator.setAttribute('class', 'typing-indicator active');
         indicator.setAttribute('aria-label', 'happy_badger_2312 is typing...');
-        indicator.innerText = 'happy_badger_2312 is typing...';
+        (indicator as HTMLElement).innerText = 'happy_badger_2312 is typing...';
         container.appendChild(indicator);
       }
 
@@ -1319,7 +1319,7 @@ test.describe('Eve Vakh - Chat & Messaging Comprehensive Test Suite', () => {
         warningBanner = document.createElement('div');
         warningBanner.setAttribute('data-testid', 'rate-limit-warning');
         warningBanner.setAttribute('style', 'background: #f59e0b; color: #000; padding: 8px 12px; margin: 8px 0; border-radius: 4px; font-weight: 600;');
-        warningBanner.innerText = 'Please slow down. You are sending messages too fast.';
+        (warningBanner as HTMLElement).innerText = 'Please slow down. You are sending messages too fast.';
         container.appendChild(warningBanner);
       }
     });

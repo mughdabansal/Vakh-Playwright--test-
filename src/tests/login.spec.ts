@@ -165,7 +165,7 @@ test.describe('Eve Vakh - Login Page Functional & Button Test Suite', () => {
 
     // 5. Verify server responds safely without 500 or timeout
     if (signInStatus !== null) {
-      expect(signInStatus).not.toBe(500);
+      expect(signInStatus as any).not.toBe(500);
       expect([400, 401, 422]).toContain(signInStatus);
     }
 
