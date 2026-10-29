@@ -53,13 +53,21 @@ export class FormManagementPage extends BasePage {
     this.ownProfileButton = page.getByRole('button', { name: /m_2094/i }).locator('visible=true').first();
 
     // Post Actions
-    this.selectPostButtons = page.locator('button[aria-label*="Select post" i]');
-    this.heartButtons = page.locator('button[aria-label*="Heart this post" i]');
-    this.archivePostButton = page.locator('button[aria-label="Archive post"], button:has-text("Archive")').locator('visible=true').first();
-    this.editPostButton = page.locator('button[aria-label="Edit post"], button:has-text("Edit")').locator('visible=true').first();
-    this.openPostButton = page.locator('button[aria-label="Open post"], button:has-text("Open")').locator('visible=true').first();
-    this.quotePostButton = page.locator('button[aria-label*="Quote selected" i]').locator('visible=true').first();
-    this.chatPostButton = page.locator('button[aria-label*="Chat about selected" i]').locator('visible=true').first();
+    this.selectPostButtons = page.getByRole('checkbox', { name: /select post|select/i })
+      .or(page.getByRole('button', { name: /select post|select/i }))
+      .or(page.locator('[aria-label*="Select post" i], [role="checkbox"][aria-label*="Select" i], button[aria-label*="Select post" i]'));
+    this.heartButtons = page.getByRole('button', { name: /heart/i })
+      .or(page.locator('button[aria-label*="Heart" i], [aria-label*="Heart" i]'));
+    this.archivePostButton = page.getByRole('button', { name: /archive/i })
+      .or(page.locator('button[aria-label*="Archive" i], [aria-label*="Archive" i], button:has-text("Archive")')).locator('visible=true').first();
+    this.editPostButton = page.getByRole('button', { name: /edit/i })
+      .or(page.locator('button[aria-label*="Edit" i], [aria-label*="Edit" i], button:has-text("Edit")')).locator('visible=true').first();
+    this.openPostButton = page.getByRole('button', { name: /open/i })
+      .or(page.locator('button[aria-label*="Open" i], [aria-label*="Open" i], button:has-text("Open")')).locator('visible=true').first();
+    this.quotePostButton = page.getByRole('button', { name: /quote/i })
+      .or(page.locator('button[aria-label*="Quote" i], [aria-label*="Quote" i], button:has-text("Quote")')).locator('visible=true').first();
+    this.chatPostButton = page.getByRole('button', { name: /chat|send/i })
+      .or(page.locator('button[aria-label*="Chat" i], button[aria-label*="Send" i], [aria-label*="Send" i], button:has-text("Chat")')).locator('visible=true').first();
 
     // In-place post editor
     this.postEditTextarea = page.locator('textbox, textarea, [role="textbox"]').filter({ hasText: /\w+/ }).or(page.getByPlaceholder(/start typing/i)).first();
@@ -161,8 +169,9 @@ export class FormManagementPage extends BasePage {
    * Selects the first available post on the form.
    */
   async selectFirstPost() {
-    await expect(this.selectPostButtons.first()).toBeVisible({ timeout: 10000 });
-    const targetSelect = this.selectPostButtons.first();
+    await this.page.locator('text=/loading form|loading posts|loading/i').waitFor({ state: 'detached', timeout: 15000 }).catch(() => {});
+    const targetSelect = this.selectPostButtons.locator('visible=true').first();
+    await expect(targetSelect).toBeVisible({ timeout: 15000 });
     await targetSelect.scrollIntoViewIfNeeded();
     await targetSelect.click();
     await this.page.waitForTimeout(1000);

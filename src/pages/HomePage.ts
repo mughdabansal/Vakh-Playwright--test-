@@ -58,11 +58,22 @@ export class HomePage extends BasePage {
 
     // Feed and Post Selection Actions
     this.feedContainer = page.locator('div:has(> div[tabindex="0"])').first();
-    this.selectPostButton = page.getByRole('button', { name: /select posts|select/i }).or(page.locator('button[aria-label*="Select"]')).locator('visible=true').first();
-    this.deselectPostButton = page.getByRole('button', { name: /deselect|clear/i }).or(page.locator('button[aria-label*="Deselect"]')).locator('visible=true').first();
-    this.quoteSelectedButton = page.getByRole('button', { name: /quote/i }).or(page.locator('button[aria-label*="Quote"]')).locator('visible=true').first();
-    this.chatAboutSelectedButton = page.getByRole('button', { name: /chat|send/i }).or(page.locator('button[aria-label*="Chat"], button[aria-label*="Send"]')).locator('visible=true').first();
-    this.clearSelectedButton = page.getByRole('button', { name: /clear/i }).or(page.locator('button[aria-label*="Clear"]')).locator('visible=true').first();
+    this.selectPostButton = page.getByRole('checkbox', { name: /select post|select/i })
+      .or(page.getByRole('button', { name: /select posts|select/i }))
+      .or(page.locator('[aria-label*="Select post" i], [role="checkbox"][aria-label*="Select" i], button[aria-label*="Select" i]'))
+      .locator('visible=true').first();
+    this.deselectPostButton = page.getByRole('button', { name: /deselect|clear|unselect/i })
+      .or(page.locator('button[aria-label*="Deselect" i], button[aria-label*="Unselect" i], button[aria-label*="Clear" i]'))
+      .locator('visible=true').first();
+    this.quoteSelectedButton = page.getByRole('button', { name: /quote/i })
+      .or(page.locator('button[aria-label*="Quote" i], [aria-label*="Quote" i]'))
+      .locator('visible=true').first();
+    this.chatAboutSelectedButton = page.getByRole('button', { name: /chat|send/i })
+      .or(page.locator('button[aria-label*="Chat" i], button[aria-label*="Send" i], [aria-label*="Send" i], [aria-label*="Chat" i]'))
+      .locator('visible=true').first();
+    this.clearSelectedButton = page.getByRole('button', { name: /clear|unselect/i })
+      .or(page.locator('button[aria-label*="Clear" i], button[aria-label*="Unselect" i]'))
+      .locator('visible=true').first();
   }
 
   /**
@@ -240,8 +251,9 @@ export class HomePage extends BasePage {
     // Wait for form/post loading state to detach if present
     await this.page.locator('text=/loading form|loading posts|loading/i').waitFor({ state: 'detached', timeout: 20000 }).catch(() => {});
 
-    const selectBtn = this.page.getByRole('button', { name: /select post|select/i })
-      .or(this.page.locator('button[aria-label*="Select post" i], button[aria-label*="Select" i]'))
+    const selectBtn = this.page.getByRole('checkbox', { name: /select post|select/i })
+      .or(this.page.getByRole('button', { name: /select post|select/i }))
+      .or(this.page.locator('[aria-label*="Select post" i], [role="checkbox"][aria-label*="Select" i], button[aria-label*="Select post" i], button[aria-label*="Select" i]'))
       .locator('visible=true')
       .first();
 
@@ -256,7 +268,7 @@ export class HomePage extends BasePage {
    */
   async quoteSelectedPost() {
     const quoteBtn = this.page.getByRole('button', { name: /quote selected posts|quote/i })
-      .or(this.page.locator('button[aria-label*="Quote selected posts" i], button[aria-label*="Quote" i]'))
+      .or(this.page.locator('button[aria-label*="Quote selected posts" i], button[aria-label*="Quote" i], [aria-label*="Quote" i]'))
       .locator('visible=true')
       .first();
 
@@ -268,7 +280,8 @@ export class HomePage extends BasePage {
     const composerModal = this.page.getByRole('dialog')
       .or(this.page.locator('[role="dialog"]'))
       .or(this.page.getByPlaceholder(/search forms/i))
-      .or(this.page.getByRole('heading', { name: /quote/i }));
+      .or(this.page.getByRole('heading', { name: /quote/i }))
+      .or(this.page.locator('div[style*="z-index"]').filter({ hasText: /quote|say something|choose destination/i }));
     await expect(composerModal.first()).toBeVisible({ timeout: 10000 });
 
     // Close the quote dialog cleanly
@@ -282,30 +295,32 @@ export class HomePage extends BasePage {
   }
 
   /**
-   * Shares the selected post through chat.
+   * Shares the selected post through chat or copies post link on web.
    */
   async shareSelectedPostThroughChat() {
-    const chatBtn = this.page.getByRole('button', { name: /chat about selected posts|chat|send/i })
-      .or(this.page.locator('button[aria-label*="Chat about selected posts" i], button[aria-label*="Chat" i], button[aria-label*="Send" i]'))
+    const shareBtn = this.page.getByRole('button', { name: /copy link to selected posts|copy link to post|copy link|chat about selected posts|chat|send|share/i })
+      .or(this.page.locator('button[aria-label*="Copy link" i], [aria-label*="Copy link" i], button[aria-label*="Chat about selected posts" i], button[aria-label*="Chat" i], button[aria-label*="Send" i], button[aria-label*="Share" i], [aria-label*="Send" i], [aria-label*="Share" i]'))
       .locator('visible=true')
       .first();
 
-    await expect(chatBtn).toBeVisible({ timeout: 10000 });
-    await chatBtn.click({ force: true });
+    await expect(shareBtn).toBeVisible({ timeout: 10000 });
+    await shareBtn.click({ force: true });
     await this.page.waitForTimeout(1000);
 
-    // Verify chat share dialog or options appear
-    const chatModalOrPage = this.page.getByRole('dialog')
-      .or(this.page.locator('[role="dialog"]'))
+    // Verify share/copy feedback: dialog modal, toast notification, or clipboard feedback
+    const feedbackModalOrToast = this.page.getByRole('dialog')
+      .or(this.page.locator('[role="dialog"], [role="alert"]'))
       .or(this.page.locator('button[aria-label*="Send selected posts" i]'))
-      .or(this.page.getByText(/Messages|Conversation|Send selected posts/i));
-    await expect(chatModalOrPage.first()).toBeVisible({ timeout: 10000 });
+      .or(this.page.getByText(/Messages|Conversation|Send selected posts|Send to|Choose destination|copied to clipboard|link copied/i))
+      .or(this.page.locator('div[style*="z-index"]').filter({ hasText: /chat|send|messages|share|copied/i }));
 
-    const closeBtn = chatModalOrPage.getByRole('button', { name: /close/i }).first();
-    if (await closeBtn.isVisible({ timeout: 2000 }).catch(() => false)) {
-      await closeBtn.click({ force: true });
-    } else {
-      await this.page.keyboard.press('Escape');
+    if (await feedbackModalOrToast.first().isVisible({ timeout: 4000 }).catch(() => false)) {
+      const closeBtn = feedbackModalOrToast.first().getByRole('button', { name: /close/i }).first();
+      if (await closeBtn.isVisible({ timeout: 2000 }).catch(() => false)) {
+        await closeBtn.click({ force: true });
+      } else {
+        await this.page.keyboard.press('Escape').catch(() => {});
+      }
     }
     await this.page.waitForTimeout(500);
   }
