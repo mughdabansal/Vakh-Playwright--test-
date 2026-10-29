@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "Tuesday, October 27, 2026 at 3:08:08 PM",
+  "lastUpdated": "Thursday, October 29, 2026 at 12:08:01 AM",
   "totalTests": 63,
   "passedTests": 63,
   "failedTests": 0,
@@ -33,7 +33,7 @@
       "total": 8,
       "passed": 8,
       "failed": 0,
-      "durationMs": 4046
+      "durationMs": 3898
     },
     "area6": {
       "total": 7,
@@ -57,7 +57,7 @@
       "total": 5,
       "passed": 5,
       "failed": 0,
-      "durationMs": 3547
+      "durationMs": 3526
     }
   },
   "tests": [
@@ -71,7 +71,7 @@
       "areaLabel": "Area 5: Auth Refresh & Client Resilience",
       "areaIcon": "🔐",
       "status": "passed",
-      "durationMs": 321,
+      "durationMs": 1067,
       "scenario": "Request timeout deadline must remain active during slow response body streaming",
       "assertions": "Stream parser aborts when overall deadline exceeded, preventing resource hogging",
       "browsers": [
@@ -93,7 +93,7 @@
       "areaLabel": "Area 5: Auth Refresh & Client Resilience",
       "areaIcon": "🔐",
       "status": "passed",
-      "durationMs": 105,
+      "durationMs": 109,
       "scenario": "Client must accurately distinguish network timeout vs manual cancellation",
       "assertions": "Error discriminator: TimeoutError !== AbortError, retry triggered only on timeout",
       "browsers": [
@@ -115,7 +115,7 @@
       "areaLabel": "Area 9: Edge Contracts & Security Invariants",
       "areaIcon": "🛡️",
       "status": "passed",
-      "durationMs": 2374,
+      "durationMs": 1855,
       "scenario": "Platform gateway responds with valid TLS connection (HTTPS certificate verification)",
       "assertions": "Valid certificate chain, TLS 1.3 protocol negotiation, zero cipher downgrade",
       "browsers": [
@@ -137,7 +137,7 @@
       "areaLabel": "Area 9: Edge Contracts & Security Invariants",
       "areaIcon": "🛡️",
       "status": "passed",
-      "durationMs": 280,
+      "durationMs": 772,
       "scenario": "Worker responses must never leak database or auth secrets in headers or errors",
       "assertions": "Zero x-powered-by headers, zero stack trace dumps, zero database credentials in 5xx envelopes",
       "browsers": [
@@ -159,7 +159,7 @@
       "areaLabel": "Area 9: Edge Contracts & Security Invariants",
       "areaIcon": "🛡️",
       "status": "passed",
-      "durationMs": 322,
+      "durationMs": 320,
       "scenario": "Worker edge gateway responds cleanly to health probes with sub-100ms latency",
       "assertions": "GET /api/health returns 200 OK with status=\"healthy\", average response < 100ms",
       "browsers": [
@@ -181,7 +181,7 @@
       "areaLabel": "Area 9: Edge Contracts & Security Invariants",
       "areaIcon": "🛡️",
       "status": "passed",
-      "durationMs": 307,
+      "durationMs": 278,
       "scenario": "Downstream MCP connector contract handles latency spikes and timeouts gracefully",
       "assertions": "Circuit breaker trips on upstream MCP timeout, fallback contract returns degradation notice",
       "browsers": [
@@ -203,7 +203,7 @@
       "areaLabel": "Area 9: Edge Contracts & Security Invariants",
       "areaIcon": "🛡️",
       "status": "passed",
-      "durationMs": 264,
+      "durationMs": 301,
       "scenario": "Unapproved origin headers are strictly rejected by edge origin security policy",
       "assertions": "CORS policy rejects arbitrary foreign origins, prevents credentialed cross-site abuse",
       "browsers": [
@@ -225,7 +225,7 @@
       "areaLabel": "Area 5: Auth Refresh & Client Resilience",
       "areaIcon": "🔐",
       "status": "passed",
-      "durationMs": 391,
+      "durationMs": 381,
       "scenario": "Collapse concurrent expired token requests into a single refresh execution",
       "assertions": "Active refresh promise deduplication lock: exactly 1 network call for 10 concurrent requests",
       "browsers": [
@@ -247,7 +247,7 @@
       "areaLabel": "Area 5: Auth Refresh & Client Resilience",
       "areaIcon": "🔐",
       "status": "passed",
-      "durationMs": 2547,
+      "durationMs": 1672,
       "scenario": "Stale refresh flight must not overwrite newer valid session credentials",
       "assertions": "Credential epoch counter check: stale response with lower epoch discarded safely",
       "browsers": [
@@ -269,7 +269,7 @@
       "areaLabel": "Area 5: Auth Refresh & Client Resilience",
       "areaIcon": "🔐",
       "status": "passed",
-      "durationMs": 9,
+      "durationMs": 8,
       "scenario": "Corrupted or malformed storage must be safely recovered without runtime crashes",
       "assertions": "Safe JSON parse wrapper catches SyntaxError, resets credentials cleanly to unauthenticated",
       "browsers": [
@@ -291,7 +291,7 @@
       "areaLabel": "Area 5: Auth Refresh & Client Resilience",
       "areaIcon": "🔐",
       "status": "passed",
-      "durationMs": 347,
+      "durationMs": 328,
       "scenario": "Unauthorized CORS origins must be refused without leaking sensitive response payloads",
       "assertions": "Preflight OPTIONS returns 403 or excludes Access-Control-Allow-Origin for unapproved origins",
       "browsers": [
@@ -313,7 +313,7 @@
       "areaLabel": "Area 5: Auth Refresh & Client Resilience",
       "areaIcon": "🔐",
       "status": "passed",
-      "durationMs": 5,
+      "durationMs": 4,
       "scenario": "Sensitive credentials, bearer tokens, and presigned query params redacted in telemetry",
       "assertions": "Telemetry logger applies [REDACTED] mask to Authorization, Bearer, and Sig query parameters",
       "browsers": [
@@ -335,7 +335,7 @@
       "areaLabel": "Area 5: Auth Refresh & Client Resilience",
       "areaIcon": "🔐",
       "status": "passed",
-      "durationMs": 321,
+      "durationMs": 329,
       "scenario": "Push device deregistration must invoke SNS cleanup contract on sign-out",
       "assertions": "Sign-out dispatches device token deregistration, preventing ghost push notifications",
       "browsers": [
@@ -1448,5 +1448,5 @@
       "error": null
     }
   ],
-  "totalDurationMs": 201495
+  "totalDurationMs": 201326
 }
