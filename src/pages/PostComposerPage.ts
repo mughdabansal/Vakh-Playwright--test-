@@ -77,16 +77,14 @@ export class PostComposerPage extends BasePage {
   /**
    * Selects the target form (defaults to user's 'posts' form) inside the CREATE FORMS modal.
    */
-  async selectTargetForm(formName: string = 'posts') {
+  async selectTargetForm(formName: string = 'REST API Exclusive') {
     await this.page.locator('[role="dialog"]').first().waitFor({ state: 'visible', timeout: 10000 }).catch(() => {});
 
-    // Target form card: specifically target forms matching formName (e.g. 'posts')
-    const targetFormLocator = this.page.locator(`[role="dialog"] button[aria-label="Create in ${formName}" i]`)
-      .or(this.page.locator(`[role="dialog"] button[aria-label*="in ${formName}" i]`))
-      .or(this.page.locator(`[role="dialog"] [aria-label*="in ${formName}" i]`))
-      .or(this.page.locator(`[role="dialog"] [aria-label*="draft in ${formName}" i]`))
-      .or(this.page.locator('[role="dialog"]').getByText(formName, { exact: true }))
-      .or(this.page.locator(`[role="dialog"] button:has-text("${formName}")`));
+    // Target form card: specifically target active form matching formName, excluding drafts
+    const targetFormLocator = this.page.locator('[role="dialog"]')
+      .locator('div, [role="button"], button')
+      .filter({ hasText: new RegExp(formName, 'i') })
+      .filter({ hasNotText: /ago|#|draft/i });
 
     // Wait or scroll if not mounted yet
     for (let i = 0; i < 15; i++) {
@@ -113,14 +111,20 @@ export class PostComposerPage extends BasePage {
     await targetBtn.scrollIntoViewIfNeeded().catch(() => {});
     await expect(targetBtn).toBeVisible({ timeout: 15000 });
     await this.page.waitForTimeout(500);
-    await targetBtn.click();
+    await targetBtn.click({ force: true });
     await this.page.waitForTimeout(1000);
 
     // Verify dialog transitioned to composer
     const composerOpen = this.page.locator('button[aria-label="Add Text"], button[aria-label="Create post"], [data-testid="composer-modal-header"]').first();
     if (!(await composerOpen.isVisible({ timeout: 3000 }).catch(() => false))) {
-      await targetBtn.click({ force: true }).catch(() => {});
-      await this.page.keyboard.press('Enter');
+      const formNewPostBtn = this.page.locator('button[aria-label="New Post"]:visible, button:has-text("New Post"):visible').first();
+      if (await formNewPostBtn.isVisible({ timeout: 2000 }).catch(() => false)) {
+        await formNewPostBtn.click({ force: true });
+        await this.page.waitForTimeout(1000);
+      } else {
+        await targetBtn.click({ force: true }).catch(() => {});
+        await this.page.keyboard.press('Enter');
+      }
     }
     await this.page.waitForTimeout(1000);
   }
@@ -170,6 +174,17 @@ export class PostComposerPage extends BasePage {
       await this.page.waitForTimeout(500);
     }
 
+    // If composer auto-restores an old draft with pre-existing stale media attachments, remove them first
+    const staleRemoveBtn = this.page.locator('[role="dialog"]').locator('button:has-text("✕"), button[aria-label*="remove" i], button[aria-label*="delete" i]').first();
+    for (let i = 0; i < 3; i++) {
+      if (await staleRemoveBtn.isVisible({ timeout: 1000 }).catch(() => false)) {
+        await staleRemoveBtn.click({ force: true });
+        await this.page.waitForTimeout(500);
+      } else {
+        break;
+      }
+    }
+
     const dropzoneBtn = this.page.locator('button:has-text("Add media or drop files"), [role="button"]:has-text("Add media or drop files"), button[aria-label*="drop files" i]').first();
     const fileChooserPromise = this.page.waitForEvent('filechooser', { timeout: 10000 }).catch(() => null);
 
@@ -192,6 +207,35 @@ export class PostComposerPage extends BasePage {
           mimeType: mimeType,
           buffer: buffer,
         }]);
+      }
+    }
+    await this.page.waitForTimeout(1500);
+  }
+
+  /**
+   * Uploads multiple media attachments in a single batch file chooser selection.
+   */
+  async uploadMultipleMediaAttachments(files: Array<{ name: string; mimeType: string; buffer: Buffer }>) {
+    const mediaBtn = this.addMediaButton.or(this.page.getByRole('button', { name: /add media/i })).or(this.page.locator('button:has-text("Add Media")')).first();
+    if (await mediaBtn.isVisible({ timeout: 5000 }).catch(() => false)) {
+      await mediaBtn.click({ force: true });
+      await this.page.waitForTimeout(500);
+    }
+
+    const dropzoneBtn = this.page.locator('button:has-text("Add media or drop files"), [role="button"]:has-text("Add media or drop files"), button[aria-label*="drop files" i]').first();
+    const fileChooserPromise = this.page.waitForEvent('filechooser', { timeout: 10000 }).catch(() => null);
+
+    if (await dropzoneBtn.isVisible({ timeout: 5000 }).catch(() => false)) {
+      await dropzoneBtn.click({ force: true });
+    }
+
+    const fileChooser = await fileChooserPromise;
+    if (fileChooser) {
+      await fileChooser.setFiles(files);
+    } else {
+      const fileInput = this.page.locator('input[type="file"]').last();
+      if (await fileInput.isVisible({ timeout: 3000 }).catch(() => false)) {
+        await fileInput.setInputFiles(files);
       }
     }
     await this.page.waitForTimeout(1500);

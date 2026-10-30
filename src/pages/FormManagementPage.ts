@@ -101,8 +101,9 @@ export class FormManagementPage extends BasePage {
    * Navigates to the user's own profile page.
    */
   async navigateToOwnProfile() {
+    await this.page.locator('[role="dialog"]').waitFor({ state: 'hidden', timeout: 5000 }).catch(() => {});
     await expect(this.ownProfileButton).toBeVisible({ timeout: 10000 });
-    await this.ownProfileButton.click();
+    await this.ownProfileButton.click({ force: true });
     await this.waitForUrlPattern(/\/user\//, 15000);
     await expect(this.page.locator('text=@m_2094').locator('visible=true').first()).toBeVisible({ timeout: 10000 });
     // Await profile forms loading
