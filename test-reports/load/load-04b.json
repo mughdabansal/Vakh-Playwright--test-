@@ -2,36 +2,36 @@
   "scenarioId": "LOAD-04B",
   "scenarioName": "IP Rate Limit (Flood Defense)",
   "targetUrl": "https://xo.eve.vakh.com/api/auth/get-session",
-  "timestamp": "2026-10-26T00:31:33.531Z",
+  "timestamp": "2026-10-30T02:04:47.248Z",
   "mode": "smoke",
   "resultState": "PASS",
   "defenseLayer": "APPLICATION_MIDDLEWARE",
   "achievedRps": 83.34,
   "distribution": {
-    "http2xx": 242,
-    "http429": 258,
+    "http2xx": 278,
+    "http429": 222,
     "http401": 0,
     "http403": 0,
     "http5xx": 0,
     "other4xx": 0
   },
   "stats": {
-    "p50": 271,
-    "p95": 735,
-    "p99": 779,
-    "avgLatencyMs": 313.89
+    "p50": 302,
+    "p95": 808,
+    "p99": 878,
+    "avgLatencyMs": 353.25
   },
   "sample429": {
     "layer": "APPLICATION_MIDDLEWARE",
     "code": "RATE_LIMIT_EXCEEDED",
-    "requestId": "9731d4da-1b9d-4b00-aaa9-ee647effb5cc",
+    "requestId": "634a78b4-e1aa-4e9a-a799-7d9cf2b7e83a",
     "message": "Rate limit exceeded. Please try again later.",
     "headers": {
-      "retryAfter": "27",
+      "retryAfter": "13",
       "limit": "60",
       "remaining": "0",
-      "reset": "1792974720",
-      "cfRay": "a5055bd8f943cf17-SJC",
+      "reset": "1793325900",
+      "cfRay": "a526d9e929fe1160-ORD",
       "server": "cloudflare",
       "contentType": "application/json"
     }

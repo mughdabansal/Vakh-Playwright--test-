@@ -1,6 +1,6 @@
 # ⚡ Eve Vakh Application Load & Performance Test Suite Report
 
-> **Execution Timestamp**: 2026-10-26T00:31:33.533Z  
+> **Execution Timestamp**: 2026-10-30T02:04:47.250Z  
 > **Execution Mode**: **SMOKE**  
 > **Overall Benchmark Status**: **INCONCLUSIVE ⚪** (2/3 Passed | 1/3 Inconclusive)
 
@@ -10,8 +10,8 @@
 
 | Scenario ID | Scenario Name | Target | Achieved RPS | P50 (ms) | P95 (ms) | P99 (ms) | Error Rate | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **`LOAD-04A`** | User Rate Limit (Quota Throttling) | `https://xo.eve.vakh.com/api/auth/get-session` | **20 req/s** | 302ms | **2418ms** | 2527ms | 0 errors | **⚪ INCONCLUSIVE** |
-| **`LOAD-04B`** | IP Rate Limit (Flood Defense) | `https://xo.eve.vakh.com/api/auth/get-session` | **83.34 req/s** | 271ms | **735ms** | 779ms | 0 errors | **🟢 PASS** |
+| **`LOAD-04A`** | User Rate Limit (Quota Throttling) | `https://xo.eve.vakh.com/api/auth/get-session` | **20 req/s** | 324ms | **2390ms** | 2440ms | 0 errors | **⚪ INCONCLUSIVE** |
+| **`LOAD-04B`** | IP Rate Limit (Flood Defense) | `https://xo.eve.vakh.com/api/auth/get-session` | **83.34 req/s** | 302ms | **808ms** | 878ms | 0 errors | **🟢 PASS** |
 | **`LOAD-04C`** | User Identity Isolation (Pre-IP Barrier) | `https://xo.eve.vakh.com/api/auth/get-session` | **N/A** | N/A | **N/A** | N/A | 0 errors | **🟢 PASS** |
 
 ---
