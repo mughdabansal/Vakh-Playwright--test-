@@ -108,6 +108,7 @@ test.describe('Eve Vakh - Post Creation & Composer Full Test Suite', () => {
 
     // Navigate to the new poll form page
     await page.goto(formViewUrl);
+    await expect(page.locator('h1, h2, [role="heading"]').filter({ hasText: testFormName }).first()).toBeVisible({ timeout: 15000 });
     await page.waitForTimeout(2000);
 
     // Open post composer inside this poll-enabled form
@@ -178,7 +179,7 @@ test.describe('Eve Vakh - Post Creation & Composer Full Test Suite', () => {
     // 5. Verify submission is halted (Create button is disabled or file error / required indicator displayed)
     const createBtn = page.locator('[role="dialog"] button[aria-label="Create post"], [role="dialog"] button:has-text("Create")').first();
     let isNativeDisabled = await createBtn.isDisabled().catch(() => false);
-    let isAriaDisabled = (await createBtn.getAttribute('aria-disabled')) === 'true';
+    let isAriaDisabled = (await createBtn.getAttribute('aria-disabled').catch(() => null)) === 'true';
     let isCreateDisabled = isNativeDisabled || isAriaDisabled;
     const fileError = page.locator('text=/exceeds|too large|file error|invalid|corrupt|under 5 MB|under 10 MB|under 15 MB|required|saving/i').or(
       page.locator('[role="alert"], [class*="error" i], [class*="toast" i]')
@@ -190,7 +191,7 @@ test.describe('Eve Vakh - Post Creation & Composer Full Test Suite', () => {
       await createBtn.click({ force: true }).catch(() => {});
       await page.waitForTimeout(1000);
       isNativeDisabled = await createBtn.isDisabled().catch(() => false);
-      isAriaDisabled = (await createBtn.getAttribute('aria-disabled')) === 'true';
+      isAriaDisabled = (await createBtn.getAttribute('aria-disabled').catch(() => null)) === 'true';
       isCreateDisabled = isNativeDisabled || isAriaDisabled;
       hasError = hasError || await fileError.first().isVisible({ timeout: 1000 }).catch(() => false);
     }
@@ -231,7 +232,7 @@ test.describe('Eve Vakh - Post Creation & Composer Full Test Suite', () => {
     // 3. Verify Create button is disabled or has aria-disabled="true"
     const createBtn = page.locator('[role="dialog"] button[aria-label="Create post"], [role="dialog"] button:has-text("Create"), button[aria-label="Create post"]').first();
     let isNativeDisabled = await createBtn.isDisabled().catch(() => false);
-    let isAriaDisabled = (await createBtn.getAttribute('aria-disabled')) === 'true';
+    let isAriaDisabled = (await createBtn.getAttribute('aria-disabled').catch(() => null)) === 'true';
     let isCreateDisabled = isNativeDisabled || isAriaDisabled;
 
     const errorIndicator = page.locator('text=/required|cannot be blank|field is required|please fill out|mandatory/i').or(
@@ -244,7 +245,7 @@ test.describe('Eve Vakh - Post Creation & Composer Full Test Suite', () => {
       await createBtn.click({ force: true }).catch(() => {});
       await page.waitForTimeout(1000);
       isNativeDisabled = await createBtn.isDisabled().catch(() => false);
-      isAriaDisabled = (await createBtn.getAttribute('aria-disabled')) === 'true';
+      isAriaDisabled = (await createBtn.getAttribute('aria-disabled').catch(() => null)) === 'true';
       isCreateDisabled = isNativeDisabled || isAriaDisabled;
       hasError = hasError || await errorIndicator.first().isVisible({ timeout: 1500 }).catch(() => false);
     }

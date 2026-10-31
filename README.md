@@ -339,12 +339,14 @@ Performance tests are executed using **Autocannon** at a target throughput of **
 
 ## 🔄 CI/CD & GitHub Actions Pipelines
 
-The project maintains two production CI/CD workflows:
+The project maintains four production CI/CD workflows:
 
 | Workflow | File | Triggers | Responsibilities |
 | :--- | :--- | :--- | :--- |
 | **E2E Tests & Dashboard** | [`.github/workflows/test-and-deploy.yml`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/.github/workflows/test-and-deploy.yml) | Push to `main`, Pull Requests, `workflow_dispatch` | Runs full test suite, regenerates `docs/index.html`, auto-commits metrics, deploys to GitHub Pages. |
 | **Sanity Test Suite** | [`.github/workflows/sanity-test.yml`](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/.github/workflows/sanity-test.yml) | Push/PR on Sanity & Page files, `workflow_dispatch` | Runs versioned sanity suites (`all`, `1.0`, or `2.0`) on selected browser engine with step summaries. |
+| **Load Testing Suite** | [.github/workflows/load-testing.yml](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/.github/workflows/load-testing.yml) | **Dynamic Schedule** (Recalculated after every run), workflow_dispatch | Runs Autocannon stress, rate limiting & isolation benchmarks, and dynamically shifts next scheduled execution. |
+| **API Test Suite Matrix** | [.github/workflows/test-api.yml](file:///c:/Users/Mughda%20Bansal/Vakh-Playwright--test-/.github/workflows/test-api.yml) | **Dynamic Schedule** (Recalculated after every run), workflow_dispatch | Executes full 6-tier risk matrix, security sweeps, and dynamically shifts next scheduled execution. |
 
 ---
 
@@ -364,6 +366,10 @@ The project maintains two production CI/CD workflows:
 | **`npm run test:perf`** | Runs the 200 req/sec Autocannon benchmark against the Web Login portal. |
 | **`npm run test:perf:api`** | Runs the 200 req/sec Autocannon benchmark against the Staging Backend API. |
 | **`npm run generate:dashboard`** | Re-compiles `docs/index.html` from the latest test results. |
+| **`npm run schedule:dynamic`** | Recalculates dynamic off-peak execution times with random variance. |
+| **`npm run schedule:load`** | Reschedules `load-testing.yml` dynamically for the next run. |
+| **`npm run schedule:api`** | Reschedules `test-api.yml` dynamically for the next run. |
+| **`npm run test:schedule`** | Runs the unit test suite verifying dynamic schedule variance and YAML updates. |
 
 ---
 

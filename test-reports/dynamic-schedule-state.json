@@ -1,0 +1,32 @@
+{
+  "load-testing": {
+    "workflowKey": "load-testing",
+    "workflowName": "Load Testing Suite",
+    "cron": "11 21 * * 0",
+    "nextRunDate": "2026-11-01T21:11:00.000Z",
+    "dayOfWeek": 0,
+    "dayName": "Sunday",
+    "hourUtc": 21,
+    "minuteUtc": 11,
+    "formattedUTC": "Sunday, 01 Nov 2026 at 21:11 UTC",
+    "formattedIST": "Monday, 02 Nov 2026 at 02:41 IST",
+    "daysUntil": 2,
+    "previousCron": "30 22 * * 0,4",
+    "updatedAt": "2026-10-30T12:19:15.079Z"
+  },
+  "test-api": {
+    "workflowKey": "test-api",
+    "workflowName": "API Risk-Tiered & Security Test Suites",
+    "cron": "4 21 * * 6",
+    "nextRunDate": "2026-10-31T21:04:00.000Z",
+    "dayOfWeek": 6,
+    "dayName": "Saturday",
+    "hourUtc": 21,
+    "minuteUtc": 4,
+    "formattedUTC": "Saturday, 31 Oct 2026 at 21:04 UTC",
+    "formattedIST": "Sunday, 01 Nov 2026 at 02:34 IST",
+    "daysUntil": 1,
+    "previousCron": "30 20 * * 3,6",
+    "updatedAt": "2026-10-30T12:19:51.240Z"
+  }
+}

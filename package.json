@@ -62,6 +62,10 @@
     "test:load:websocket": "node performance/runner.js --scenario=websocket",
     "test:load:spike": "node performance/runner.js --scenario=spike",
     "test:load:soak": "node performance/runner.js --scenario=soak",
+    "schedule:dynamic": "node scripts/dynamic-scheduler.js",
+    "schedule:load": "node scripts/dynamic-scheduler.js --workflow=load-testing",
+    "schedule:api": "node scripts/dynamic-scheduler.js --workflow=test-api",
+    "test:schedule": "node scripts/dynamic-scheduler.test.js",
     "generate:dashboard": "node scripts/generate-dashboard.js"
   },
   "keywords": [

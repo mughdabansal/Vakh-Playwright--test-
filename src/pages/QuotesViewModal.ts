@@ -74,9 +74,16 @@ export class QuotesViewModal extends BasePage {
 
     // Wait for form posts and locate quote buttons
     await this.page.locator('text=/loading/i').waitFor({ state: 'detached', timeout: 15000 }).catch(() => {});
-    const quoteButton = this.page.locator('button[aria-label*="Quotes" i], button[aria-label*="Quote" i]')
+
+    // Prefer a post that has quotes (accessible name or text with count > 0)
+    const quoteButtonWithCount = this.page.getByRole('button', { name: /quotes,?\s*[1-9]/i })
+      .or(this.page.locator('button[aria-label*="Quotes" i]:not([aria-label*="Quotes, 0"]):not([aria-label="Quotes, 0"])').filter({ hasNotText: /^0$/ }))
       .locator('visible=true')
       .first();
+
+    const quoteButton = (await quoteButtonWithCount.isVisible({ timeout: 4000 }).catch(() => false))
+      ? quoteButtonWithCount
+      : this.page.locator('button[aria-label*="Quotes" i], button[aria-label*="Quote" i]').locator('visible=true').first();
 
     await expect(quoteButton).toBeVisible({ timeout: 20000 });
     await quoteButton.scrollIntoViewIfNeeded();
@@ -91,9 +98,10 @@ export class QuotesViewModal extends BasePage {
    * Returns a locator for a dynamic form tab (e.g. '/POSTS' or '/posts') strictly within the navigation tablist.
    */
   getFormTab(formName: string): Locator {
-    const pattern = new RegExp(`^\\/?${formName}$`, 'i');
+    const pattern = new RegExp(`\\/?${formName}`, 'i');
     return this.tablist.getByRole('tab', { name: pattern })
-      .or(this.tablist.locator('[role="tab"], div[dir="auto"]').filter({ hasText: pattern }))
+      .or(this.tablist.locator('[role="tab"], div[dir="auto"], button, a').filter({ hasText: pattern }))
+      .or(this.modal.locator('[role="tab"], div[dir="auto"]').filter({ hasText: pattern }))
       .first();
   }
 

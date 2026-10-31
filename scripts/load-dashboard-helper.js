@@ -253,6 +253,22 @@ function generatePerformanceViewHtml(loadSummary, loadHistory, load04a, load04b,
     `;
   }).join('\n');
 
+  let scheduleBadge = '';
+  try {
+    const schedPath = path.join(__dirname, '..', 'test-reports', 'dynamic-schedule-state.json');
+    if (fs.existsSync(schedPath)) {
+      const state = JSON.parse(fs.readFileSync(schedPath, 'utf8'));
+      if (state['load-testing']) {
+        const s = state['load-testing'];
+        scheduleBadge = `
+          <span class="badge purple" style="font-size: 0.85rem; padding: 0.45rem 0.9rem;" title="Dynamic schedule recalculated after every run">
+            🕒 Next Dynamic Run: ${escapeHtml(s.formattedIST || s.formattedUTC)}
+          </span>
+        `;
+      }
+    }
+  } catch (e) {}
+
   return `
     <!-- ==================== VIEW 10: PERFORMANCE & LOAD TESTING SUITE ==================== -->
     <div id="view-performance" class="view-content">
@@ -273,6 +289,7 @@ function generatePerformanceViewHtml(loadSummary, loadHistory, load04a, load04b,
           <span class="badge browser" style="font-size: 0.88rem; padding: 0.45rem 0.9rem;">
             📊 ${totalRuns} Historical Run${totalRuns === 1 ? '' : 's'} Tracked
           </span>
+          ${scheduleBadge}
           <a href="https://github.com/mughdabansal/Vakh-Playwright--test-/actions/workflows/load-testing.yml" target="_blank" class="btn-github" style="font-size: 0.8rem; padding: 0.35rem 0.75rem;">
             ⚡ Trigger in CI
           </a>

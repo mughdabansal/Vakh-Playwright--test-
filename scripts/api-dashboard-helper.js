@@ -354,6 +354,22 @@ function generateApiViewHtml(apiSummary, apiPerf, rateLimitBench, wsBench) {
       </tr>`;
   }).join('\n');
 
+  let scheduleBadge = '';
+  try {
+    const schedPath = path.join(__dirname, '..', 'test-reports', 'dynamic-schedule-state.json');
+    if (fs.existsSync(schedPath)) {
+      const state = JSON.parse(fs.readFileSync(schedPath, 'utf8'));
+      if (state['test-api']) {
+        const s = state['test-api'];
+        scheduleBadge = `
+          <span class="badge purple" style="font-size: 0.85rem; padding: 0.4rem 0.85rem;" title="Dynamic schedule recalculated after every run">
+            🕒 Next Dynamic Run: ${escapeHtml(s.formattedIST || s.formattedUTC)}
+          </span>
+        `;
+      }
+    }
+  } catch (e) {}
+
   return `
     <!-- ==================== VIEW 8: RISK-TIERED API & SECURITY SUITES ==================== -->
     <div id="view-api" class="view-content">
@@ -377,6 +393,8 @@ function generateApiViewHtml(apiSummary, apiPerf, rateLimitBench, wsBench) {
           <span style="font-size: 0.78rem; color: var(--text-dim);">
             Updated: <strong>${lastUpdated}</strong>
           </span>
+          ${scheduleBadge}
+          
         </div>
       </div>
 
