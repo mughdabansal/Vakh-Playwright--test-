@@ -67,46 +67,93 @@ export class PostComposerPage extends BasePage {
    * Clicks the "New Post" action button on the Home page.
    */
   async openNewPostModal() {
+    // If a composer or dialog is already open, close/dismiss it cleanly first
+    for (let i = 0; i < 2; i++) {
+      const closeComposerBtn = this.page.locator('button[aria-label*="Close create post" i], [role="dialog"] button:has-text("Close"), button[aria-label="Close"]').first();
+      if (await closeComposerBtn.isVisible({ timeout: 1000 }).catch(() => false)) {
+        await closeComposerBtn.click({ force: true }).catch(() => {});
+        await this.page.waitForTimeout(500);
+        const discardBtn = this.page.locator('button:has-text("Discard"), button:has-text("Delete draft"), button:has-text("Don\'t save")').first();
+        if (await discardBtn.isVisible({ timeout: 1000 }).catch(() => false)) {
+          await discardBtn.click({ force: true }).catch(() => {});
+          await this.page.waitForTimeout(500);
+        }
+      }
+    }
+
     await expect(this.newPostButton).toBeVisible({ timeout: 15000 });
     await expect(this.newPostButton).toBeEnabled();
     await this.page.waitForTimeout(500);
     await this.newPostButton.click({ force: true });
-    await expect(this.createFormsDialog).toBeVisible({ timeout: 10000 });
+
+    // Ensure the Index drawer or composer is visible
+    const indexDrawer = this.page.locator('button:has-text("Close Index"), input[placeholder*="Find" i], [role="dialog"]').first();
+    if (!(await indexDrawer.isVisible({ timeout: 3000 }).catch(() => false))) {
+      await this.newPostButton.click({ force: true }).catch(() => {});
+    }
+    await expect(indexDrawer).toBeVisible({ timeout: 10000 });
   }
 
   /**
    * Selects the target form (defaults to user's 'posts' form) inside the CREATE FORMS modal.
    */
   async selectTargetForm(formName: string = 'posts') {
-    await this.page.locator('[role="dialog"]').first().waitFor({ state: 'visible', timeout: 10000 }).catch(() => {});
-    await this.page.locator('[role="dialog"]').getByText(/loading/i).waitFor({ state: 'detached', timeout: 8000 }).catch(() => {});
+    const searchInput = this.page.locator('input[placeholder*="Find" i], input[aria-label*="Search" i]').first();
+    if (!(await searchInput.isVisible({ timeout: 2000 }).catch(() => false))) {
+      const indexBtn = this.page.locator('button[aria-label="Index"]:visible, button:has-text("Index"):visible').first();
+      if (await indexBtn.isVisible({ timeout: 1000 }).catch(() => false)) {
+        await indexBtn.click({ force: true });
+        await this.page.waitForTimeout(1000);
+      }
+    }
 
     // Filter using search box to show matching forms
-    const searchInput = this.page.locator('[role="dialog"] input[placeholder*="Find" i], [role="dialog"] input[aria-label*="Search" i], [role="dialog"] input').first();
-    if (await searchInput.isVisible({ timeout: 3000 }).catch(() => false)) {
+    if (await searchInput.isVisible({ timeout: 4000 }).catch(() => false)) {
       await searchInput.click();
       await searchInput.fill(formName);
       await this.page.waitForTimeout(1000);
     }
 
-    // Target the "+" button for user's form (m_2094 follows predecessors like happy_badger_2312)
-    const plusBtns = this.page.locator(`[role="dialog"] button[aria-label*="New post in ${formName}" i]`);
-    await plusBtns.first().waitFor({ state: 'visible', timeout: 15000 });
-    const count = await plusBtns.count().catch(() => 1);
-    const targetPlus = count > 1 ? plusBtns.nth(1) : plusBtns.first();
-    await targetPlus.click({ force: true });
-    await this.page.waitForTimeout(1500);
-
-    // Verify dialog transitioned to composer
-    let composerDialog = this.page.locator('[role="dialog"]').filter({ hasText: /NEW POST IN/i }).first();
-    if (!(await composerDialog.isVisible({ timeout: 3000 }).catch(() => false))) {
-      await plusBtns.first().click({ force: true });
+    // Wait for the Index search results to load
+    const plusBtns = this.page.locator(`button[aria-label*="New post in ${formName}" i]`);
+    await plusBtns.first().waitFor({ state: 'visible', timeout: 10000 }).catch(() => {});
+    let count = await plusBtns.count();
+    if (count === 0) {
       await this.page.waitForTimeout(1500);
+      count = await plusBtns.count();
     }
-
-    composerDialog = this.page.locator('[role="dialog"]').filter({ hasText: /NEW POST IN/i }).first();
-    await expect(composerDialog).toBeVisible({ timeout: 15000 });
+    if (count > 0) {
+      const targetPlus = count > 1 ? plusBtns.nth(1) : plusBtns.first();
+      await targetPlus.click({ force: true });
+    } else {
+      const formCard = this.page.locator('button, [role="button"]').filter({ hasText: new RegExp(formName, 'i') }).filter({ hasNotText: /ago|#|draft/i }).first();
+      await formCard.click({ force: true });
+    }
     await this.page.waitForTimeout(1000);
+
+    // Verify dialog transitioned to composer for target form
+    const composerDialog = this.page.locator('[role="dialog"]').filter({
+      has: this.page.locator('button[aria-label="Create post"], button:has-text("Create")')
+    }).filter({
+      hasText: new RegExp(formName, 'i')
+    }).first();
+    if (!(await composerDialog.isVisible({ timeout: 4000 }).catch(() => false))) {
+      if (count > 0) {
+        const targetPlus = count > 1 ? plusBtns.nth(1) : plusBtns.first();
+        await targetPlus.click({ force: true }).catch(() => {});
+      }
+    }
+    await expect(composerDialog).toBeVisible({ timeout: 15000 });
+    await this.page.waitForTimeout(500);
+
+    // Clean up any stale restored media draft to ensure fresh composer state
+    const deleteMediaBtns = composerDialog.locator('button:has-text("Delete media"), button[aria-label*="Delete media" i], button[aria-label*="Delete" i]');
+    let delCount = await deleteMediaBtns.count();
+    while (delCount > 0) {
+      await deleteMediaBtns.first().click({ force: true }).catch(() => {});
+      await this.page.waitForTimeout(400);
+      delCount = await deleteMediaBtns.count();
+    }
   }
 
   async verifyCompositionTools() {
@@ -144,28 +191,41 @@ export class PostComposerPage extends BasePage {
    * Clicks "Add Text" and enters post body content.
    */
   async enterTextContent(text: string) {
-    const composerDialog = this.page.locator('[role="dialog"]').filter({ hasText: /NEW POST IN/i }).first();
+    const composerDialog = this.page.locator('[role="dialog"]').filter({
+      has: this.page.locator('button[aria-label="Create post"], button:has-text("Create")')
+    }).first();
     await expect(composerDialog).toBeVisible({ timeout: 15000 });
 
     // Check if textarea is already visible
     let input = composerDialog.locator('textarea, [contenteditable="true"], input[type="text"]').first();
-    let isInputVisible = await input.isVisible({ timeout: 1000 }).catch(() => false);
+    let isInputVisible = await input.isVisible({ timeout: 1500 }).catch(() => false);
 
     if (!isInputVisible) {
-      // If tools toolbar is collapsed, click "Add content"
-      const addTextBtn = composerDialog.locator('button[aria-label="Add Text"], button:has-text("Text")').first();
-      if (!(await addTextBtn.isVisible().catch(() => false))) {
-        const addContentBtn = composerDialog.locator('button[aria-label="Add content"], button:has-text("Add")').first();
-        if (await addContentBtn.isVisible({ timeout: 3000 }).catch(() => false)) {
-          await addContentBtn.click();
-          await this.page.waitForTimeout(500);
-        }
+      // Clean up any stale media draft that may hide text inputs
+      const deleteMediaBtns = composerDialog.locator('button:has-text("Delete media"), button[aria-label*="Delete media" i], button[aria-label*="Delete" i]');
+      if (await deleteMediaBtns.first().isVisible({ timeout: 1000 }).catch(() => false)) {
+        await deleteMediaBtns.first().click({ force: true }).catch(() => {});
+        await this.page.waitForTimeout(500);
       }
 
-      // Click "Add Text" to mount the editor textarea
-      if (await addTextBtn.isVisible({ timeout: 3000 }).catch(() => false)) {
-        await addTextBtn.click();
-        await this.page.waitForTimeout(500);
+      // Check if textarea appeared after deleting media
+      input = composerDialog.locator('textarea, [contenteditable="true"], input[type="text"]').first();
+      isInputVisible = await input.isVisible({ timeout: 1000 }).catch(() => false);
+
+      if (!isInputVisible) {
+        // Open the "Add content" picker if visible
+        const addContentBtn = composerDialog.locator('button[aria-label="Add content"]').first();
+        if (await addContentBtn.isVisible({ timeout: 2000 }).catch(() => false)) {
+          await addContentBtn.click();
+          await this.page.waitForTimeout(600);
+        }
+
+        // Click "Text" option
+        const textBtn = this.page.locator('button, [role="button"], [role="menuitem"]').filter({ hasText: /^Text$/i }).first();
+        if (await textBtn.isVisible({ timeout: 3000 }).catch(() => false)) {
+          await textBtn.click();
+          await this.page.waitForTimeout(600);
+        }
       }
     }
 
@@ -181,32 +241,33 @@ export class PostComposerPage extends BasePage {
    */
   async uploadMediaAttachment(filename: string, mimeType: string, buffer: Buffer) {
     const composerDialog = this.page.locator('[role="dialog"]').filter({ hasText: /NEW POST IN/i }).first();
-    const mediaBtn = composerDialog.locator('button[aria-label="Add Media"], button:has-text("Media")').first();
-    if (!(await mediaBtn.isVisible({ timeout: 1000 }).catch(() => false))) {
-      const addContentBtn = composerDialog.locator('button[aria-label="Add content"], button:has-text("Add")').first();
-      if (await addContentBtn.isVisible({ timeout: 3000 }).catch(() => false)) {
-        await addContentBtn.click();
+    let dropzoneBtn = this.page.locator('button:has-text("Add media or drop files"), [role="button"]:has-text("Add media or drop files"), button[aria-label*="drop files" i]').first();
+
+    if (!(await dropzoneBtn.isVisible({ timeout: 2000 }).catch(() => false))) {
+      const mediaBtn = this.page.locator('[role="dialog"], [role="menu"], body').locator('button[aria-label="Add Media"], [role="menuitem"]:has-text("Media"), button:has-text("Media")').first();
+      if (!(await mediaBtn.isVisible({ timeout: 1000 }).catch(() => false))) {
+        const addContentBtn = composerDialog.locator('button[aria-label="Add content"], button:has-text("Add")').first();
+        if (await addContentBtn.isVisible({ timeout: 3000 }).catch(() => false)) {
+          await addContentBtn.click({ force: true });
+          await this.page.waitForTimeout(500);
+        }
+      }
+      if (await mediaBtn.isVisible({ timeout: 3000 }).catch(() => false)) {
+        await mediaBtn.click({ force: true });
         await this.page.waitForTimeout(500);
       }
     }
-    if (await mediaBtn.isVisible({ timeout: 3000 }).catch(() => false)) {
-      await mediaBtn.click({ force: true });
+
+    // Clean up any stale restored media attachments before uploading new media
+    await this.page.waitForTimeout(600);
+    const staleDelBtns = this.page.locator('[role="dialog"]').locator('button:has-text("Delete media"), button[aria-label*="Delete media" i], button[aria-label*="Delete" i]');
+    while (await staleDelBtns.first().isVisible({ timeout: 1000 }).catch(() => false)) {
+      await staleDelBtns.first().click({ force: true }).catch(() => {});
       await this.page.waitForTimeout(500);
     }
 
-    // If composer auto-restores an old draft with pre-existing stale media attachments, remove them first
-    const staleRemoveBtn = this.page.locator('[role="dialog"]').locator('button:has-text("✕"), button[aria-label*="remove" i], button[aria-label*="delete" i]').first();
-    for (let i = 0; i < 3; i++) {
-      if (await staleRemoveBtn.isVisible({ timeout: 1000 }).catch(() => false)) {
-        await staleRemoveBtn.click({ force: true });
-        await this.page.waitForTimeout(500);
-      } else {
-        break;
-      }
-    }
-
-    const dropzoneBtn = this.page.locator('button:has-text("Add media or drop files"), [role="button"]:has-text("Add media or drop files"), button[aria-label*="drop files" i]').first();
-    const fileChooserPromise = this.page.waitForEvent('filechooser', { timeout: 10000 }).catch(() => null);
+    dropzoneBtn = this.page.locator('button:has-text("Add media or drop files"), [role="button"]:has-text("Add media or drop files"), button[aria-label*="drop files" i]').first();
+    const fileChooserPromise = this.page.waitForEvent('filechooser', { timeout: 8000 }).catch(() => null);
 
     if (await dropzoneBtn.isVisible({ timeout: 5000 }).catch(() => false)) {
       await dropzoneBtn.click({ force: true });
@@ -221,13 +282,11 @@ export class PostComposerPage extends BasePage {
       }]);
     } else {
       const fileInput = this.page.locator('input[type="file"]').last();
-      if (await fileInput.isVisible({ timeout: 3000 }).catch(() => false)) {
-        await fileInput.setInputFiles([{
-          name: filename,
-          mimeType: mimeType,
-          buffer: buffer,
-        }]);
-      }
+      await fileInput.setInputFiles([{
+        name: filename,
+        mimeType: mimeType,
+        buffer: buffer,
+      }]).catch(() => {});
     }
     await this.page.waitForTimeout(1500);
   }
@@ -237,21 +296,25 @@ export class PostComposerPage extends BasePage {
    */
   async uploadMultipleMediaAttachments(files: Array<{ name: string; mimeType: string; buffer: Buffer }>) {
     const composerDialog = this.page.locator('[role="dialog"]').filter({ hasText: /NEW POST IN/i }).first();
-    const mediaBtn = composerDialog.locator('button[aria-label="Add Media"], button:has-text("Media")').first();
-    if (!(await mediaBtn.isVisible({ timeout: 1000 }).catch(() => false))) {
-      const addContentBtn = composerDialog.locator('button[aria-label="Add content"], button:has-text("Add")').first();
-      if (await addContentBtn.isVisible({ timeout: 3000 }).catch(() => false)) {
-        await addContentBtn.click();
+    let dropzoneBtn = this.page.locator('button:has-text("Add media or drop files"), [role="button"]:has-text("Add media or drop files"), button[aria-label*="drop files" i]').first();
+
+    if (!(await dropzoneBtn.isVisible({ timeout: 2000 }).catch(() => false))) {
+      const mediaBtn = this.page.locator('[role="dialog"], [role="menu"], body').locator('button[aria-label="Add Media"], [role="menuitem"]:has-text("Media"), button:has-text("Media")').first();
+      if (!(await mediaBtn.isVisible({ timeout: 1000 }).catch(() => false))) {
+        const addContentBtn = composerDialog.locator('button[aria-label="Add content"], button:has-text("Add")').first();
+        if (await addContentBtn.isVisible({ timeout: 3000 }).catch(() => false)) {
+          await addContentBtn.click({ force: true });
+          await this.page.waitForTimeout(500);
+        }
+      }
+      if (await mediaBtn.isVisible({ timeout: 3000 }).catch(() => false)) {
+        await mediaBtn.click({ force: true });
         await this.page.waitForTimeout(500);
       }
     }
-    if (await mediaBtn.isVisible({ timeout: 3000 }).catch(() => false)) {
-      await mediaBtn.click({ force: true });
-      await this.page.waitForTimeout(500);
-    }
 
-    const dropzoneBtn = this.page.locator('button:has-text("Add media or drop files"), [role="button"]:has-text("Add media or drop files"), button[aria-label*="drop files" i]').first();
-    const fileChooserPromise = this.page.waitForEvent('filechooser', { timeout: 10000 }).catch(() => null);
+    dropzoneBtn = this.page.locator('button:has-text("Add media or drop files"), [role="button"]:has-text("Add media or drop files"), button[aria-label*="drop files" i]').first();
+    const fileChooserPromise = this.page.waitForEvent('filechooser', { timeout: 8000 }).catch(() => null);
 
     if (await dropzoneBtn.isVisible({ timeout: 5000 }).catch(() => false)) {
       await dropzoneBtn.click({ force: true });
@@ -262,9 +325,7 @@ export class PostComposerPage extends BasePage {
       await fileChooser.setFiles(files);
     } else {
       const fileInput = this.page.locator('input[type="file"]').last();
-      if (await fileInput.isVisible({ timeout: 3000 }).catch(() => false)) {
-        await fileInput.setInputFiles(files);
-      }
+      await fileInput.setInputFiles(files).catch(() => {});
     }
     await this.page.waitForTimeout(1500);
   }

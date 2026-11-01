@@ -40,7 +40,7 @@ test.describe('Public Profiles, Badges & Marketing Landing Pages', () => {
     await page.goto(`${APP_CONFIG.BASE_URL}/`, { waitUntil: 'domcontentloaded' });
 
     // Verify Sign In CTA link or button is visible
-    const signInCTA = page.locator('a, button').filter({ hasText: /(sign in|web|login)/i }).first();
+    const signInCTA = page.locator('a, button').filter({ hasText: /(sign in|web|login|open vakh)/i }).first();
     await expect(signInCTA).toBeVisible({ timeout: 10000 });
   });
 

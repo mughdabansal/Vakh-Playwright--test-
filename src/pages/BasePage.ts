@@ -28,7 +28,19 @@ export abstract class BasePage {
    * Waits for the current URL to match a target pattern.
    */
   async waitForUrlPattern(pattern: RegExp | string, timeout: number = APP_CONFIG.DEFAULT_TIMEOUT) {
-    await expect(this.page).toHaveURL(pattern, { timeout });
+    if (this.page.url().includes('chromewebdata')) {
+      await this.page.reload({ waitUntil: 'domcontentloaded' }).catch(() => {});
+    }
+    try {
+      await expect(this.page).toHaveURL(pattern, { timeout });
+    } catch (err) {
+      if (this.page.url().includes('chromewebdata')) {
+        await this.page.reload({ waitUntil: 'domcontentloaded' }).catch(() => {});
+        await expect(this.page).toHaveURL(pattern, { timeout: 10000 });
+      } else {
+        throw err;
+      }
+    }
   }
 
   /**

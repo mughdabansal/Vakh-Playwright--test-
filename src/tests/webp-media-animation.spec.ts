@@ -3,6 +3,7 @@ import * as path from 'path';
 import * as fs from 'fs';
 import { HomePage } from '../pages/HomePage';
 import { LoginPage } from '../pages/LoginPage';
+import { PostComposerPage } from '../pages/PostComposerPage';
 import { TEST_USERS } from '../config/constants';
 
 test.describe('Eve Vakh - Media Handling: Animated WebP & Static WebP Regression Suite', () => {
@@ -31,54 +32,54 @@ test.describe('Eve Vakh - Media Handling: Animated WebP & Static WebP Regression
    * Helper to open the GIF/Media Testing Form composer.
    */
   async function openMediaComposer(page: Page) {
-    await page.waitForTimeout(2000);
-    const formCard = page.locator('div[tabindex="0"]').filter({ hasText: /GIF Testing Form/i }).first();
-    if (await formCard.isVisible({ timeout: 5000 }).catch(() => false)) {
-      await formCard.scrollIntoViewIfNeeded();
-      await formCard.click({ force: true });
-    } else {
-      await page.goto('https://eve.vakh.com/settings/subscriptions', { waitUntil: 'domcontentloaded' });
-      await page.waitForTimeout(2000);
-      const subCard = page.locator('div, [role="button"]').filter({ hasText: /GIF Testing Form/i }).first();
-      await subCard.scrollIntoViewIfNeeded();
-      await subCard.click();
-    }
-    await page.waitForTimeout(2000);
-
-    const newPostBtn = page.locator('button:has-text("New Post"), button[aria-label="New Post"]').first();
-    await expect(newPostBtn).toBeVisible({ timeout: 20000 });
-    await newPostBtn.click();
-    await page.waitForTimeout(1500);
-
-    // Clean up stale restored drafts
-    const deleteMediaBtns = page.locator('[role="dialog"]').locator('button:has-text("Delete media"), button[aria-label*="Delete media" i], button:has-text("✕")');
-    let count = await deleteMediaBtns.count();
-    while (count > 0) {
-      await deleteMediaBtns.first().click({ force: true });
-      await page.waitForTimeout(400);
-      count = await deleteMediaBtns.count();
-    }
+    const composer = new PostComposerPage(page);
+    await composer.openNewPostModal();
+    await composer.selectTargetForm('posts');
   }
 
   async function uploadWebPFile(page: Page, filename: string, buffer: Buffer, mimeType: string = 'image/webp') {
-    const dropzone = page.locator('button:has-text("Add media or drop files"), [role="button"]:has-text("Add media or drop files")').first();
-    const fileChooserPromise = page.waitForEvent('filechooser', { timeout: 10000 });
-    await dropzone.click();
-    const fileChooser = await fileChooserPromise;
-    await fileChooser.setFiles([{
-      name: filename,
-      mimeType: mimeType,
-      buffer: buffer,
-    }]);
+    const composer = new PostComposerPage(page);
+    await composer.uploadMediaAttachment(filename, mimeType, buffer);
+  }
+
+  async function navigateToPostsForm(page: Page) {
+    const indexBtn = page.locator('button[aria-label="Index"]:visible, button:has-text("Index"):visible').first();
+    if (await indexBtn.isVisible({ timeout: 3000 }).catch(() => false)) {
+      await indexBtn.click();
+      await page.waitForTimeout(1000);
+      const searchInput = page.locator('input[placeholder*="Find" i], input[aria-label*="Search" i]').first();
+      if (await searchInput.isVisible({ timeout: 2000 }).catch(() => false)) {
+        await searchInput.fill('posts');
+        await page.waitForTimeout(1500);
+      }
+      const m2094FormBtn = page.locator('button[aria-label="Open form posts"]').filter({ hasText: `@${TEST_USERS.DEFAULT_USER.username}` }).first();
+      if (await m2094FormBtn.isVisible({ timeout: 3000 }).catch(() => false)) {
+        await m2094FormBtn.click();
+        await page.waitForTimeout(2000);
+        return;
+      }
+    }
+    // Fallback: direct form URL for default user
+    await page.goto('https://eve.vakh.com/form/kwij', { waitUntil: 'domcontentloaded' });
     await page.waitForTimeout(2000);
   }
 
   async function closeComposer(page: Page) {
     await page.keyboard.press('Escape');
     await page.waitForTimeout(400);
-    const closeBtn = page.locator('[role="dialog"]').locator('button:has-text("Close")').first();
+    const discardBtn = page.locator('button:has-text("Discard"), button:has-text("Discard post"), button:has-text("Don\'t save")').first();
+    if (await discardBtn.isVisible({ timeout: 1500 }).catch(() => false)) {
+      await discardBtn.click({ force: true }).catch(() => {});
+      await page.waitForTimeout(400);
+    }
+    const closeBtn = page.locator('[role="dialog"]').locator('button:has-text("Close"), button[aria-label="Close"]').first();
     if (await closeBtn.isVisible({ timeout: 1500 }).catch(() => false)) {
       await closeBtn.click({ force: true }).catch(() => {});
+      await page.waitForTimeout(400);
+    }
+    const closeIndexBtn = page.locator('button:has-text("Close Index"), button[aria-label*="Close" i]').filter({ visible: true }).first();
+    if (await closeIndexBtn.isVisible({ timeout: 1500 }).catch(() => false)) {
+      await closeIndexBtn.click({ force: true }).catch(() => {});
     }
   }
 
@@ -163,7 +164,7 @@ test.describe('Eve Vakh - Media Handling: Animated WebP & Static WebP Regression
     await uploadWebPFile(page, '.webp', animBuffer);
 
     // Verify media item is accepted and rendered without crash
-    const mediaItems = page.locator('[role="dialog"]').locator('button:has-text("Delete media"), button[aria-label*="Delete media" i], [aria-label*="Media item" i]').first();
+    const mediaItems = page.locator('[role="dialog"]').locator('button:has-text("Delete media"), button[aria-label*="Delete media" i], button[aria-label*="Delete" i], [aria-label*="Media item" i]').first();
     await expect(mediaItems).toBeVisible({ timeout: 15000 });
 
     await closeComposer(page);
@@ -184,7 +185,7 @@ test.describe('Eve Vakh - Media Handling: Animated WebP & Static WebP Regression
     await expect(mediaPreview).toBeVisible({ timeout: 10000 });
 
     // Remove
-    const removeBtn = page.locator('[role="dialog"]').locator('button:has-text("Delete media"), button[aria-label*="Delete media" i], button:has-text("✕")').first();
+    const removeBtn = page.locator('[role="dialog"]').locator('button:has-text("Delete media"), button[aria-label*="Delete media" i], button[aria-label*="Delete" i]').first();
     await removeBtn.click({ force: true });
     await page.waitForTimeout(1000);
 
@@ -224,13 +225,15 @@ test.describe('Eve Vakh - Media Handling: Animated WebP & Static WebP Regression
     await openMediaComposer(page);
     await uploadWebPFile(page, 'sample-anim.webp', animBuffer);
 
-    const createBtn = page.locator('[role="dialog"] button:has-text("Create")').first();
-    await createBtn.click();
-    await expect(page.locator('[role="dialog"]')).toBeHidden({ timeout: 25000 });
+    const composer = new PostComposerPage(page);
+    await composer.submitPost();
     await page.waitForTimeout(2000);
 
+    // Navigate to form feed to verify published animated WebP
+    await navigateToPostsForm(page);
+
     // Verify published post card renders with media button on form feed
-    const postMediaButton = page.locator('button[aria-label*=".webp" i], button:has(img)').filter({ visible: true }).first();
+    const postMediaButton = page.locator('button[aria-label*=".webp" i], button:has(div[data-expoimage="true"])').first();
     await expect(postMediaButton).toBeVisible({ timeout: 15000 });
   });
 

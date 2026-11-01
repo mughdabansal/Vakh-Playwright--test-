@@ -345,7 +345,8 @@ export class ExplorePage extends BasePage {
    */
   async clickUserProfile(index = 0) {
     await expect(this.userCards.first()).toBeVisible({ timeout: 15000 });
-    const card = this.userCards.nth(index);
+    const otherCards = this.userCards.filter({ hasNotText: /@m_2094/i });
+    const card = (await otherCards.count().catch(() => 0)) > index ? otherCards.nth(index) : this.userCards.nth(index);
     await card.scrollIntoViewIfNeeded();
     try {
       await card.click({ timeout: 5000 });

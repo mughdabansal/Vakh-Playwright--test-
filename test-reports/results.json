@@ -1,15 +1,16 @@
 {
   "config": {
     "argv": [
-      "/opt/hostedtoolcache/node/22.23.4/x64/bin/node",
-      "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/node_modules/.bin/playwright",
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\node_modules\\@playwright\\test\\cli.js",
       "test",
-      "src/tests/login.spec.ts"
+      "src/tests/runtime-cache-editor-lifecycle.spec.ts",
+      "--project=chromium"
     ],
-    "configFile": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/playwright.config.ts",
-    "rootDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
+    "configFile": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\playwright.config.ts",
+    "rootDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
     "failOnFlakyTests": false,
-    "forbidOnly": true,
+    "forbidOnly": false,
     "fullyParallel": false,
     "globalSetup": null,
     "globalTeardown": null,
@@ -18,64 +19,20 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "ci": {
-        "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/1dbf081500812501064257e7aeb0fb37b7344b7b",
-        "commitHash": "1dbf081500812501064257e7aeb0fb37b7344b7b",
-        "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/41181997374"
-      },
-      "gitCommit": {
-        "shortHash": "1dbf081",
-        "hash": "1dbf081500812501064257e7aeb0fb37b7344b7b",
-        "subject": "feat(tests): add animated WebP/GIF, modal motion, send flow, URL UX, and quotes suites with dynamic /formname defect tracking",
-        "body": "feat(tests): add animated WebP/GIF, modal motion, send flow, URL UX, and quotes suites with dynamic /formname defect tracking\n",
-        "author": {
-          "name": "Mughda Bansal",
-          "email": "mughdabansal1414@gmail.com",
-          "time": 1793336952000
-        },
-        "committer": {
-          "name": "Mughda Bansal",
-          "email": "mughdabansal1414@gmail.com",
-          "time": 1793337138000
-        },
-        "branch": "main"
-      },
       "actualWorkers": 1
     },
     "preserveOutput": "always",
     "projects": [
       {
-        "outputDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results",
+        "outputDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/test-reports/test-results",
         "repeatEach": 1,
-        "retries": 2,
+        "retries": 1,
         "metadata": {
-          "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/1dbf081500812501064257e7aeb0fb37b7344b7b",
-            "commitHash": "1dbf081500812501064257e7aeb0fb37b7344b7b",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/41181997374"
-          },
-          "gitCommit": {
-            "shortHash": "1dbf081",
-            "hash": "1dbf081500812501064257e7aeb0fb37b7344b7b",
-            "subject": "feat(tests): add animated WebP/GIF, modal motion, send flow, URL UX, and quotes suites with dynamic /formname defect tracking",
-            "body": "feat(tests): add animated WebP/GIF, modal motion, send flow, URL UX, and quotes suites with dynamic /formname defect tracking\n",
-            "author": {
-              "name": "Mughda Bansal",
-              "email": "mughdabansal1414@gmail.com",
-              "time": 1793336952000
-            },
-            "committer": {
-              "name": "Mughda Bansal",
-              "email": "mughdabansal1414@gmail.com",
-              "time": 1793337138000
-            },
-            "branch": "main"
-          },
           "actualWorkers": 1
         },
         "id": "chromium",
         "name": "chromium",
-        "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
+        "testDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
         "testIgnore": [
           "**/chat.spec.ts",
           "**/04-chat-collaboration.spec.ts"
@@ -86,37 +43,15 @@
         "timeout": 30000
       },
       {
-        "outputDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results",
+        "outputDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/test-reports/test-results",
         "repeatEach": 1,
-        "retries": 2,
+        "retries": 1,
         "metadata": {
-          "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/1dbf081500812501064257e7aeb0fb37b7344b7b",
-            "commitHash": "1dbf081500812501064257e7aeb0fb37b7344b7b",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/41181997374"
-          },
-          "gitCommit": {
-            "shortHash": "1dbf081",
-            "hash": "1dbf081500812501064257e7aeb0fb37b7344b7b",
-            "subject": "feat(tests): add animated WebP/GIF, modal motion, send flow, URL UX, and quotes suites with dynamic /formname defect tracking",
-            "body": "feat(tests): add animated WebP/GIF, modal motion, send flow, URL UX, and quotes suites with dynamic /formname defect tracking\n",
-            "author": {
-              "name": "Mughda Bansal",
-              "email": "mughdabansal1414@gmail.com",
-              "time": 1793336952000
-            },
-            "committer": {
-              "name": "Mughda Bansal",
-              "email": "mughdabansal1414@gmail.com",
-              "time": 1793337138000
-            },
-            "branch": "main"
-          },
           "actualWorkers": 1
         },
         "id": "firefox",
         "name": "firefox",
-        "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
+        "testDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
         "testIgnore": [
           "**/chat.spec.ts",
           "**/04-chat-collaboration.spec.ts"
@@ -127,37 +62,15 @@
         "timeout": 30000
       },
       {
-        "outputDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results",
+        "outputDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/test-reports/test-results",
         "repeatEach": 1,
-        "retries": 2,
+        "retries": 1,
         "metadata": {
-          "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/1dbf081500812501064257e7aeb0fb37b7344b7b",
-            "commitHash": "1dbf081500812501064257e7aeb0fb37b7344b7b",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/41181997374"
-          },
-          "gitCommit": {
-            "shortHash": "1dbf081",
-            "hash": "1dbf081500812501064257e7aeb0fb37b7344b7b",
-            "subject": "feat(tests): add animated WebP/GIF, modal motion, send flow, URL UX, and quotes suites with dynamic /formname defect tracking",
-            "body": "feat(tests): add animated WebP/GIF, modal motion, send flow, URL UX, and quotes suites with dynamic /formname defect tracking\n",
-            "author": {
-              "name": "Mughda Bansal",
-              "email": "mughdabansal1414@gmail.com",
-              "time": 1793336952000
-            },
-            "committer": {
-              "name": "Mughda Bansal",
-              "email": "mughdabansal1414@gmail.com",
-              "time": 1793337138000
-            },
-            "branch": "main"
-          },
           "actualWorkers": 1
         },
         "id": "webkit",
         "name": "webkit",
-        "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
+        "testDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
         "testIgnore": [
           "**/chat.spec.ts",
           "**/04-chat-collaboration.spec.ts"
@@ -168,37 +81,15 @@
         "timeout": 30000
       },
       {
-        "outputDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results",
+        "outputDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/test-reports/test-results",
         "repeatEach": 1,
-        "retries": 2,
+        "retries": 1,
         "metadata": {
-          "ci": {
-            "commitHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/commit/1dbf081500812501064257e7aeb0fb37b7344b7b",
-            "commitHash": "1dbf081500812501064257e7aeb0fb37b7344b7b",
-            "buildHref": "https://github.com/mughdabansal/Vakh-Playwright--test-/actions/runs/41181997374"
-          },
-          "gitCommit": {
-            "shortHash": "1dbf081",
-            "hash": "1dbf081500812501064257e7aeb0fb37b7344b7b",
-            "subject": "feat(tests): add animated WebP/GIF, modal motion, send flow, URL UX, and quotes suites with dynamic /formname defect tracking",
-            "body": "feat(tests): add animated WebP/GIF, modal motion, send flow, URL UX, and quotes suites with dynamic /formname defect tracking\n",
-            "author": {
-              "name": "Mughda Bansal",
-              "email": "mughdabansal1414@gmail.com",
-              "time": 1793336952000
-            },
-            "committer": {
-              "name": "Mughda Bansal",
-              "email": "mughdabansal1414@gmail.com",
-              "time": 1793337138000
-            },
-            "branch": "main"
-          },
           "actualWorkers": 1
         },
         "id": "edge",
         "name": "edge",
-        "testDir": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/src/tests",
+        "testDir": "C:/Users/Mughda Bansal/Vakh-Playwright--test-/src/tests",
         "testIgnore": [
           "**/chat.spec.ts",
           "**/04-chat-collaboration.spec.ts"
@@ -238,30 +129,30 @@
     "updateSnapshots": "missing",
     "updateSourceMethod": "patch",
     "version": "1.62.1",
-    "workers": 1,
+    "workers": 2,
     "webServer": null
   },
   "suites": [
     {
-      "title": "login.spec.ts",
-      "file": "login.spec.ts",
+      "title": "runtime-cache-editor-lifecycle.spec.ts",
+      "file": "runtime-cache-editor-lifecycle.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Eve Vakh - Login Page Functional & Button Test Suite",
-          "file": "login.spec.ts",
-          "line": 7,
+          "title": "Runtime Cache, Memory Cleanup, Alias Resolution & Form Editor Lifecycle",
+          "file": "runtime-cache-editor-lifecycle.spec.ts",
+          "line": 24,
           "column": 6,
           "specs": [
             {
-              "title": "TC-01: should display all initial login page elements and auxiliary controls",
+              "title": "TC_CACHE_001: offline cache survives memory sweeps and reclaims only idle empty entries",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -271,18 +162,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3041,
+                      "duration": 2904,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-31T07:49:10.983Z",
+                      "startTime": "2026-11-01T06:29:06.127Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-b0e18-ents-and-auxiliary-controls-chromium/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-f65c0-ims-only-idle-empty-entries-chromium\\video.webm"
                         }
                       ]
                     }
@@ -290,18 +181,18 @@
                   "status": "expected"
                 }
               ],
-              "id": "41d3fd2474a19feb00a1-c09ceaaeaf8a7fc33d03",
-              "file": "login.spec.ts",
-              "line": 26,
+              "id": "fa5f3fe7879699678410-f2d4fcc937185b9e3acd",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 51,
               "column": 7
             },
             {
-              "title": "TC-02: should switch between OTP mode and Password mode seamlessly",
+              "title": "TC_MEM_001: memory warning is deduplicated and dispatched only once per high-count period",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -311,18 +202,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2386,
+                      "duration": 293,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-31T07:49:15.419Z",
+                      "startTime": "2026-11-01T06:29:09.243Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-d7cbf-nd-Password-mode-seamlessly-chromium/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-b1917--once-per-high-count-period-chromium\\video.webm"
                         }
                       ]
                     }
@@ -330,18 +221,18 @@
                   "status": "expected"
                 }
               ],
-              "id": "41d3fd2474a19feb00a1-6900758733b6fbfaf0a3",
-              "file": "login.spec.ts",
-              "line": 39,
+              "id": "fa5f3fe7879699678410-7edaa9240978c4af1fc7",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 122,
               "column": 7
             },
             {
-              "title": "TC-03: should verify password masking, show-password toggle and legal links",
+              "title": "TC_ALIAS_001: alias cache maintains bounded capacity and prunes stale unused entries according to freshness policy",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -351,18 +242,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2442,
+                      "duration": 472,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-31T07:49:17.828Z",
+                      "startTime": "2026-11-01T06:29:09.560Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-31e83-word-toggle-and-legal-links-chromium/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-1ca86-cording-to-freshness-policy-chromium\\video.webm"
                         }
                       ]
                     }
@@ -370,18 +261,18 @@
                   "status": "expected"
                 }
               ],
-              "id": "41d3fd2474a19feb00a1-61c9e3b680db9b43dbfb",
-              "file": "login.spec.ts",
-              "line": 62,
+              "id": "fa5f3fe7879699678410-6de6c344f82fe0f3b5cd",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 192,
               "column": 7
             },
             {
-              "title": "TC-04: should complete login with password and navigate through Chat, Activity, and Explore",
+              "title": "TC_ALIAS_002: blank inputs and UUID literals bypass alias resolution queries without network dispatch",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -391,18 +282,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 9343,
+                      "duration": 395,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-31T07:49:20.286Z",
+                      "startTime": "2026-11-01T06:29:10.052Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-08487-h-Chat-Activity-and-Explore-chromium/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-62712-es-without-network-dispatch-chromium\\video.webm"
                         }
                       ]
                     }
@@ -410,18 +301,18 @@
                   "status": "expected"
                 }
               ],
-              "id": "41d3fd2474a19feb00a1-8eaebe8d9d6fbbcb2191",
-              "file": "login.spec.ts",
-              "line": 102,
+              "id": "fa5f3fe7879699678410-9ed828536328a2bfb512",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 289,
               "column": 7
             },
             {
-              "title": "TC-05: submitting password exceeding 128 characters is handled cleanly without server timeout or 500 error",
+              "title": "TC_EDITOR_001: longform editor wrapper maintains component identity and scroll margin across state updates",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -431,18 +322,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4402,
+                      "duration": 3027,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-31T07:49:29.646Z",
+                      "startTime": "2026-11-01T06:29:10.467Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-26482-server-timeout-or-500-error-chromium/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-816ae-margin-across-state-updates-chromium\\video.webm"
                         }
                       ]
                     }
@@ -450,18 +341,18 @@
                   "status": "expected"
                 }
               ],
-              "id": "41d3fd2474a19feb00a1-623af21503f8a98de1d7",
-              "file": "login.spec.ts",
-              "line": 140,
+              "id": "fa5f3fe7879699678410-6102ebdc6add64236541",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 361,
               "column": 7
             },
             {
-              "title": "TC_AUTH_012: submitting a password with only whitespace characters or an empty string shows a mandatory validation error",
+              "title": "TC_EDITOR_002: reader composer transitions safely into fullscreen layout without layout breakage or content distortion",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -471,18 +362,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4289,
+                      "duration": 19041,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-31T07:49:34.061Z",
+                      "startTime": "2026-11-01T06:29:13.510Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-30225--mandatory-validation-error-chromium/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-51aa0-akage-or-content-distortion-chromium\\video.webm"
                         }
                       ]
                     }
@@ -490,18 +381,18 @@
                   "status": "expected"
                 }
               ],
-              "id": "41d3fd2474a19feb00a1-0c437c32a163345fd86b",
-              "file": "login.spec.ts",
-              "line": 185,
+              "id": "fa5f3fe7879699678410-a89b641290341614899a",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 422,
               "column": 7
             },
             {
-              "title": "TC_AUTH_013: entering alphanumeric or special characters into the OTP verification input is blocked and only numeric digits are accepted",
+              "title": "TC_FIELD_001: datetime field accepts valid inputs, formats consistently and prevents corrupted states",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -511,18 +402,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3352,
+                      "duration": 3278,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-31T07:49:38.376Z",
+                      "startTime": "2026-11-01T06:29:32.573Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-c8b33-numeric-digits-are-accepted-chromium/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-1758c-d-prevents-corrupted-states-chromium\\video.webm"
                         }
                       ]
                     }
@@ -530,18 +421,18 @@
                   "status": "expected"
                 }
               ],
-              "id": "41d3fd2474a19feb00a1-d0b352c292ad67c121c6",
-              "file": "login.spec.ts",
-              "line": 241,
+              "id": "fa5f3fe7879699678410-aa91b0895931b4316336",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 474,
               "column": 7
             },
             {
-              "title": "TC_AUTH_014: boundary lengths for phone numbers: entering fewer than 7 digits or more than 15 digits displays invalid phone length error",
+              "title": "TC_UI_001: field input spacing maintains visual rhythm without overlap and metadata disclosures expand cleanly",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -551,18 +442,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5828,
+                      "duration": 3102,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-31T07:49:41.747Z",
+                      "startTime": "2026-11-01T06:29:35.871Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-2c2ef--invalid-phone-length-error-chromium/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-1c9d3--disclosures-expand-cleanly-chromium\\video.webm"
                         }
                       ]
                     }
@@ -570,18 +461,18 @@
                   "status": "expected"
                 }
               ],
-              "id": "41d3fd2474a19feb00a1-a73dc5bcd58916e62859",
-              "file": "login.spec.ts",
-              "line": 307,
+              "id": "fa5f3fe7879699678410-413b267f60e30350e8cc",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 532,
               "column": 7
             },
             {
-              "title": "TC_AUTH_015: entering Cross-Site Scripting (XSS) script tags in email/username/password inputs does not execute scripts and is safely escaped/rejected",
+              "title": "TC_UI_002: remove controls and drag handles render distinct accessible identifiers without accidental trigger",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -591,18 +482,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4598,
+                      "duration": 2616,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-31T07:49:47.587Z",
+                      "startTime": "2026-11-01T06:29:38.995Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-ed8ee--is-safely-escaped-rejected-chromium/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-dd008--without-accidental-trigger-chromium\\video.webm"
                         }
                       ]
                     }
@@ -610,18 +501,18 @@
                   "status": "expected"
                 }
               ],
-              "id": "41d3fd2474a19feb00a1-9008f49c511d316e96b0",
-              "file": "login.spec.ts",
-              "line": 404,
+              "id": "fa5f3fe7879699678410-7ca81be833444d3c27ab",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 598,
               "column": 7
             },
             {
-              "title": "TC_AUTH_016: email addresses with leading or trailing whitespaces are automatically trimmed upon submission and authenticated successfully",
+              "title": "TC_UI_003: add tile conforms to grid alignment and selector border reflects neutral versus active focus state",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -631,18 +522,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4771,
+                      "duration": 2320,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-31T07:49:52.198Z",
+                      "startTime": "2026-11-01T06:29:41.636Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-897c3--authenticated-successfully-chromium/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-99ee5-l-versus-active-focus-state-chromium\\video.webm"
                         }
                       ]
                     }
@@ -650,18 +541,18 @@
                   "status": "expected"
                 }
               ],
-              "id": "41d3fd2474a19feb00a1-08c2052649eeff56c85c",
-              "file": "login.spec.ts",
-              "line": 485,
+              "id": "fa5f3fe7879699678410-53550fd77fe231eea9a1",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 635,
               "column": 7
             },
             {
-              "title": "TC_AUTH_017: entering malformed email addresses displays an immediate inline validation error preventing form submission",
+              "title": "TC_CACHE_002: corrupted or malformed offline cache entries fail gracefully without wiping valid cache records",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -671,18 +562,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5918,
+                      "duration": 311,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-31T07:49:56.980Z",
+                      "startTime": "2026-11-01T06:29:43.979Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-57900--preventing-form-submission-chromium/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-9fcd8--wiping-valid-cache-records-chromium\\video.webm"
                         }
                       ]
                     }
@@ -690,18 +581,18 @@
                   "status": "expected"
                 }
               ],
-              "id": "41d3fd2474a19feb00a1-6c925918d2e73a2d927d",
-              "file": "login.spec.ts",
-              "line": 552,
+              "id": "fa5f3fe7879699678410-90504f2ade96c6b3a234",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 673,
               "column": 7
             },
             {
-              "title": "TC_AUTH_018: logging in when user account is in 7-day scheduled deletion window presents confirmation modal allowing cancellation or proceeding",
+              "title": "TC_CACHE_003: storage quota exhaustion prioritizes offline user drafts and evicts ephemeral caches first",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -711,18 +602,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2854,
+                      "duration": 361,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-31T07:50:02.910Z",
+                      "startTime": "2026-11-01T06:29:44.312Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-c7183--cancellation-or-proceeding-chromium/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-7cfe3-icts-ephemeral-caches-first-chromium\\video.webm"
                         }
                       ]
                     }
@@ -730,18 +621,18 @@
                   "status": "expected"
                 }
               ],
-              "id": "41d3fd2474a19feb00a1-81dd07d90567be6fd7fe",
-              "file": "login.spec.ts",
-              "line": 600,
+              "id": "fa5f3fe7879699678410-1fe18bf807425c6d1c88",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 740,
               "column": 7
             },
             {
-              "title": "TC_AUTH_019: attempting to log in on Day 8 for a deleted account fails with Account does not exist and does not allow restoration",
+              "title": "TC_CACHE_004: active in-memory draft is locked against sweep reclamation during concurrent background cleanup",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -751,18 +642,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3495,
+                      "duration": 328,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-31T07:50:05.782Z",
+                      "startTime": "2026-11-01T06:29:44.693Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-fd6c1--does-not-allow-restoration-chromium/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-92219-ncurrent-background-cleanup-chromium\\video.webm"
                         }
                       ]
                     }
@@ -770,39 +661,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "41d3fd2474a19feb00a1-e2b542927643284dd2df",
-              "file": "login.spec.ts",
-              "line": 684,
+              "id": "fa5f3fe7879699678410-4d106040d2ffba9b7621",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 824,
               "column": 7
             },
             {
-              "title": "TC-01: should display all initial login page elements and auxiliary controls",
+              "title": "TC_MEM_002: memory threshold flapping across boundary is debounced and emits only a single warning",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4373,
+                      "duration": 271,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-31T07:50:09.777Z",
+                      "startTime": "2026-11-01T06:29:45.045Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-b0e18-ents-and-auxiliary-controls-firefox/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-87983-emits-only-a-single-warning-chromium\\video.webm"
                         }
                       ]
                     }
@@ -810,39 +701,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "41d3fd2474a19feb00a1-046730696d8a9d5eee4a",
-              "file": "login.spec.ts",
-              "line": 26,
+              "id": "fa5f3fe7879699678410-e582464d4a374975c88c",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 874,
               "column": 7
             },
             {
-              "title": "TC-02: should switch between OTP mode and Password mode seamlessly",
+              "title": "TC_MEM_003: warning cooldown does not reset when memory only partially recovers",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3850,
+                      "duration": 314,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-31T07:50:14.732Z",
+                      "startTime": "2026-11-01T06:29:45.332Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-d7cbf-nd-Password-mode-seamlessly-firefox/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-4811f-ory-only-partially-recovers-chromium\\video.webm"
                         }
                       ]
                     }
@@ -850,39 +741,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "41d3fd2474a19feb00a1-15c7bee816275d0d9e4c",
-              "file": "login.spec.ts",
-              "line": 39,
+              "id": "fa5f3fe7879699678410-e17b7bf98e168e6dada8",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 919,
               "column": 7
             },
             {
-              "title": "TC-03: should verify password masking, show-password toggle and legal links",
+              "title": "TC_MEM_004: multi-tab memory cleanup events synchronize timestamp to prevent duplicate warnings across tabs",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3982,
+                      "duration": 383,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-31T07:50:18.599Z",
+                      "startTime": "2026-11-01T06:29:45.659Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-31e83-word-toggle-and-legal-links-firefox/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-40400-licate-warnings-across-tabs-chromium\\video.webm"
                         }
                       ]
                     }
@@ -890,39 +781,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "41d3fd2474a19feb00a1-e94f35e107ef600f4006",
-              "file": "login.spec.ts",
-              "line": 62,
+              "id": "fa5f3fe7879699678410-72077c9c0c0aab7bf8ca",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 953,
               "column": 7
             },
             {
-              "title": "TC-04: should complete login with password and navigate through Chat, Activity, and Explore",
+              "title": "TC_ALIAS_003: alias cache saturation with identical timestamps resolves deterministically",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 10621,
+                      "duration": 303,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-31T07:50:22.599Z",
+                      "startTime": "2026-11-01T06:29:46.058Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-08487-h-Chat-Activity-and-Explore-firefox/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-cb273--resolves-deterministically-chromium\\video.webm"
                         }
                       ]
                     }
@@ -930,39 +821,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "41d3fd2474a19feb00a1-ff0bc716ebc886b5a99b",
-              "file": "login.spec.ts",
-              "line": 102,
+              "id": "fa5f3fe7879699678410-bc997685fd8cfebf3490",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 988,
               "column": 7
             },
             {
-              "title": "TC-05: submitting password exceeding 128 characters is handled cleanly without server timeout or 500 error",
+              "title": "TC_ALIAS_004: alias collision and re-assignment purges stale target mapping immediately",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5838,
+                      "duration": 288,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-31T07:50:33.232Z",
+                      "startTime": "2026-11-01T06:29:46.383Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-26482-server-timeout-or-500-error-firefox/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-57550--target-mapping-immediately-chromium\\video.webm"
                         }
                       ]
                     }
@@ -970,39 +861,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "41d3fd2474a19feb00a1-9750b5ef4171cd074ba6",
-              "file": "login.spec.ts",
-              "line": 140,
+              "id": "fa5f3fe7879699678410-607f17f2e3de374077e1",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 1032,
               "column": 7
             },
             {
-              "title": "TC_AUTH_012: submitting a password with only whitespace characters or an empty string shows a mandatory validation error",
+              "title": "TC_ALIAS_005: zero-capacity alias cache operates safely without retention leaks or crashes",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5962,
+                      "duration": 304,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-31T07:50:39.080Z",
+                      "startTime": "2026-11-01T06:29:46.693Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-30225--mandatory-validation-error-firefox/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-70b9a--retention-leaks-or-crashes-chromium\\video.webm"
                         }
                       ]
                     }
@@ -1010,39 +901,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "41d3fd2474a19feb00a1-697f2bb2ba36889ed038",
-              "file": "login.spec.ts",
-              "line": 185,
+              "id": "fa5f3fe7879699678410-18acf391f5ad0ae27423",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 1065,
               "column": 7
             },
             {
-              "title": "TC_AUTH_013: entering alphanumeric or special characters into the OTP verification input is blocked and only numeric digits are accepted",
+              "title": "TC_ALIAS_006: malicious input and control characters in alias field are sanitized and rejected",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5113,
+                      "duration": 291,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-31T07:50:45.056Z",
+                      "startTime": "2026-11-01T06:29:47.015Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-c8b33-numeric-digits-are-accepted-firefox/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-ac145--are-sanitized-and-rejected-chromium\\video.webm"
                         }
                       ]
                     }
@@ -1050,39 +941,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "41d3fd2474a19feb00a1-4b0532815571816c7be0",
-              "file": "login.spec.ts",
-              "line": 241,
+              "id": "fa5f3fe7879699678410-eabb4b4dcfd09e3342cb",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 1098,
               "column": 7
             },
             {
-              "title": "TC_AUTH_014: boundary lengths for phone numbers: entering fewer than 7 digits or more than 15 digits displays invalid phone length error",
+              "title": "TC_ALIAS_007: pseudo-UUIDs and near-UUID inputs are strictly distinguished from genuine RFC-4122 UUIDs",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 6859,
+                      "duration": 314,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-31T07:50:50.180Z",
+                      "startTime": "2026-11-01T06:29:47.323Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-2c2ef--invalid-phone-length-error-firefox/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-1380f-from-genuine-RFC-4122-UUIDs-chromium\\video.webm"
                         }
                       ]
                     }
@@ -1090,39 +981,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "41d3fd2474a19feb00a1-232bd53338b28dcd8b8c",
-              "file": "login.spec.ts",
-              "line": 307,
+              "id": "fa5f3fe7879699678410-86f7fb0fb0526344ab44",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 1137,
               "column": 7
             },
             {
-              "title": "TC_AUTH_015: entering Cross-Site Scripting (XSS) script tags in email/username/password inputs does not execute scripts and is safely escaped/rejected",
+              "title": "TC_EDITOR_003: massive formatted content paste maintains editor wrapper stability without memory freeze",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5929,
+                      "duration": 2600,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-31T07:50:57.049Z",
+                      "startTime": "2026-11-01T06:29:47.650Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-ed8ee--is-safely-escaped-rejected-firefox/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-40efa-ility-without-memory-freeze-chromium\\video.webm"
                         }
                       ]
                     }
@@ -1130,39 +1021,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "41d3fd2474a19feb00a1-c8e0da927d40069f103f",
-              "file": "login.spec.ts",
-              "line": 404,
+              "id": "fa5f3fe7879699678410-7952fa0def3f9e0a2400",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 1166,
               "column": 7
             },
             {
-              "title": "TC_AUTH_016: email addresses with leading or trailing whitespaces are automatically trimmed upon submission and authenticated successfully",
+              "title": "TC_EDITOR_004: undo and redo history stack is preserved across forced parent re-renders",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 7814,
+                      "duration": 294,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-31T07:51:02.991Z",
+                      "startTime": "2026-11-01T06:29:50.265Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-897c3--authenticated-successfully-firefox/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-a765e-ss-forced-parent-re-renders-chromium\\video.webm"
                         }
                       ]
                     }
@@ -1170,39 +1061,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "41d3fd2474a19feb00a1-31238b2923071e7861ae",
-              "file": "login.spec.ts",
-              "line": 485,
+              "id": "fa5f3fe7879699678410-85be170ca3611c4779c3",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 1213,
               "column": 7
             },
             {
-              "title": "TC_AUTH_017: entering malformed email addresses displays an immediate inline validation error preventing form submission",
+              "title": "TC_EDITOR_005: escape key in fullscreen mode exits fullscreen without abruptly closing composer or losing draft",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 7914,
+                      "duration": 15585,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-31T07:51:10.817Z",
+                      "startTime": "2026-11-01T06:29:50.573Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-57900--preventing-form-submission-firefox/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-0af25-ng-composer-or-losing-draft-chromium\\video.webm"
                         }
                       ]
                     }
@@ -1210,39 +1101,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "41d3fd2474a19feb00a1-1f48b0d46a0b6b7f87b1",
-              "file": "login.spec.ts",
-              "line": 552,
+              "id": "fa5f3fe7879699678410-5f788895229613f77809",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 1268,
               "column": 7
             },
             {
-              "title": "TC_AUTH_018: logging in when user account is in 7-day scheduled deletion window presents confirmation modal allowing cancellation or proceeding",
+              "title": "TC_FIELD_002: invalid calendar dates (non-leap year Feb 29, April 31) are strictly rejected",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4947,
+                      "duration": 338,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-31T07:51:18.744Z",
+                      "startTime": "2026-11-01T06:30:06.175Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-c7183--cancellation-or-proceeding-firefox/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-7dc16-il-31-are-strictly-rejected-chromium\\video.webm"
                         }
                       ]
                     }
@@ -1250,39 +1141,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "41d3fd2474a19feb00a1-c10604b3eea4b0fe9c1d",
-              "file": "login.spec.ts",
-              "line": 600,
+              "id": "fa5f3fe7879699678410-bcf6555821a04863033e",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 1322,
               "column": 7
             },
             {
-              "title": "TC_AUTH_019: attempting to log in on Day 8 for a deleted account fails with Account does not exist and does not allow restoration",
+              "title": "TC_FIELD_003: cross-timezone datetime conversion preserves exact UTC millisecond timestamp",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5103,
+                      "duration": 366,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-31T07:51:23.702Z",
+                      "startTime": "2026-11-01T06:30:06.528Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-fd6c1--does-not-allow-restoration-firefox/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-47691-t-UTC-millisecond-timestamp-chromium\\video.webm"
                         }
                       ]
                     }
@@ -1290,39 +1181,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "41d3fd2474a19feb00a1-9a9a4b803af59f100938",
-              "file": "login.spec.ts",
-              "line": 684,
+              "id": "fa5f3fe7879699678410-f27d7a3f3c29385ba827",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 1354,
               "column": 7
             },
             {
-              "title": "TC-01: should display all initial login page elements and auxiliary controls",
+              "title": "TC_UI_004: long internationalized labels and RTL text wrap cleanly in metadata disclosures without overflow",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 8011,
+                      "duration": 3281,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-31T07:51:29.742Z",
+                      "startTime": "2026-11-01T06:30:06.919Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-b0e18-ents-and-auxiliary-controls-webkit/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-d5f1d-isclosures-without-overflow-chromium\\video.webm"
                         }
                       ]
                     }
@@ -1330,39 +1221,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "41d3fd2474a19feb00a1-dcac0787ef57595a72ca",
-              "file": "login.spec.ts",
-              "line": 26,
+              "id": "fa5f3fe7879699678410-1389a0ec9eb878b24760",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 1378,
               "column": 7
             },
             {
-              "title": "TC-02: should switch between OTP mode and Password mode seamlessly",
+              "title": "TC_UI_005: destructive removal of populated fields enforces confirmation guard to prevent accidental loss",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4285,
+                      "duration": 278,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-31T07:51:38.404Z",
+                      "startTime": "2026-11-01T06:30:10.215Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-d7cbf-nd-Password-mode-seamlessly-webkit/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-5fccc--to-prevent-accidental-loss-chromium\\video.webm"
                         }
                       ]
                     }
@@ -1370,39 +1261,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "41d3fd2474a19feb00a1-f24baf3052cea1d540ba",
-              "file": "login.spec.ts",
-              "line": 39,
+              "id": "fa5f3fe7879699678410-14f8a66b3657fe428043",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 1411,
               "column": 7
             },
             {
-              "title": "TC-03: should verify password masking, show-password toggle and legal links",
+              "title": "TC_UI_006: drag handle and remove button maintain minimum touch hit-box separation",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4059,
+                      "duration": 351,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-31T07:51:42.708Z",
+                      "startTime": "2026-11-01T06:30:10.505Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-31e83-word-toggle-and-legal-links-webkit/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-11361-um-touch-hit-box-separation-chromium\\video.webm"
                         }
                       ]
                     }
@@ -1410,39 +1301,39 @@
                   "status": "expected"
                 }
               ],
-              "id": "41d3fd2474a19feb00a1-c9e5e22f46643db34c72",
-              "file": "login.spec.ts",
-              "line": 62,
+              "id": "fa5f3fe7879699678410-49af0fd073302510ae35",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 1453,
               "column": 7
             },
             {
-              "title": "TC-04: should complete login with password and navigate through Chat, Activity, and Explore",
+              "title": "TC_UI_007: add tile disables cleanly and displays capacity feedback when form reaches maximum field limit",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 7755,
+                      "duration": 332,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-31T07:51:46.782Z",
+                      "startTime": "2026-11-01T06:30:10.891Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-08487-h-Chat-Activity-and-Explore-webkit/video.webm"
+                          "path": "C:\\Users\\Mughda Bansal\\Vakh-Playwright--test-\\test-reports\\test-results\\runtime-cache-editor-lifec-3dac8-reaches-maximum-field-limit-chromium\\video.webm"
                         }
                       ]
                     }
@@ -1450,889 +1341,9 @@
                   "status": "expected"
                 }
               ],
-              "id": "41d3fd2474a19feb00a1-1a384c1f4162d1800c7a",
-              "file": "login.spec.ts",
-              "line": 102,
-              "column": 7
-            },
-            {
-              "title": "TC-05: submitting password exceeding 128 characters is handled cleanly without server timeout or 500 error",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5967,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-31T07:51:54.549Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-26482-server-timeout-or-500-error-webkit/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "41d3fd2474a19feb00a1-623dc5c318a2e5441bdb",
-              "file": "login.spec.ts",
-              "line": 140,
-              "column": 7
-            },
-            {
-              "title": "TC_AUTH_012: submitting a password with only whitespace characters or an empty string shows a mandatory validation error",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5760,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-31T07:52:00.530Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-30225--mandatory-validation-error-webkit/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "41d3fd2474a19feb00a1-f7c067e5b46085940f6a",
-              "file": "login.spec.ts",
-              "line": 185,
-              "column": 7
-            },
-            {
-              "title": "TC_AUTH_013: entering alphanumeric or special characters into the OTP verification input is blocked and only numeric digits are accepted",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4996,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-31T07:52:06.305Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-c8b33-numeric-digits-are-accepted-webkit/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "41d3fd2474a19feb00a1-9c196f5169bca34cd253",
-              "file": "login.spec.ts",
-              "line": 241,
-              "column": 7
-            },
-            {
-              "title": "TC_AUTH_014: boundary lengths for phone numbers: entering fewer than 7 digits or more than 15 digits displays invalid phone length error",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 6781,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-31T07:52:11.318Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-2c2ef--invalid-phone-length-error-webkit/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "41d3fd2474a19feb00a1-ea468b7d64b9c87d6d62",
-              "file": "login.spec.ts",
-              "line": 307,
-              "column": 7
-            },
-            {
-              "title": "TC_AUTH_015: entering Cross-Site Scripting (XSS) script tags in email/username/password inputs does not execute scripts and is safely escaped/rejected",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5520,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-31T07:52:18.117Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-ed8ee--is-safely-escaped-rejected-webkit/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "41d3fd2474a19feb00a1-f01e858b481813acded1",
-              "file": "login.spec.ts",
-              "line": 404,
-              "column": 7
-            },
-            {
-              "title": "TC_AUTH_016: email addresses with leading or trailing whitespaces are automatically trimmed upon submission and authenticated successfully",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 6249,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-31T07:52:23.658Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-897c3--authenticated-successfully-webkit/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "41d3fd2474a19feb00a1-b4f9722fdb367e347703",
-              "file": "login.spec.ts",
-              "line": 485,
-              "column": 7
-            },
-            {
-              "title": "TC_AUTH_017: entering malformed email addresses displays an immediate inline validation error preventing form submission",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 7110,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-31T07:52:29.920Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-57900--preventing-form-submission-webkit/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "41d3fd2474a19feb00a1-741be92a59d9dea394b5",
-              "file": "login.spec.ts",
-              "line": 552,
-              "column": 7
-            },
-            {
-              "title": "TC_AUTH_018: logging in when user account is in 7-day scheduled deletion window presents confirmation modal allowing cancellation or proceeding",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4515,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-31T07:52:37.064Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-c7183--cancellation-or-proceeding-webkit/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "41d3fd2474a19feb00a1-989bfb97e63f59ca361b",
-              "file": "login.spec.ts",
-              "line": 600,
-              "column": 7
-            },
-            {
-              "title": "TC_AUTH_019: attempting to log in on Day 8 for a deleted account fails with Account does not exist and does not allow restoration",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4975,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-31T07:52:41.594Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-fd6c1--does-not-allow-restoration-webkit/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "41d3fd2474a19feb00a1-11d7144849c976f2242b",
-              "file": "login.spec.ts",
-              "line": 684,
-              "column": 7
-            },
-            {
-              "title": "TC-01: should display all initial login page elements and auxiliary controls",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "edge",
-                  "projectName": "edge",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 2024,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-31T07:52:47.173Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-b0e18-ents-and-auxiliary-controls-edge/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "41d3fd2474a19feb00a1-23ffb0b64feb9efd9764",
-              "file": "login.spec.ts",
-              "line": 26,
-              "column": 7
-            },
-            {
-              "title": "TC-02: should switch between OTP mode and Password mode seamlessly",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "edge",
-                  "projectName": "edge",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 2449,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-31T07:52:49.323Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-d7cbf-nd-Password-mode-seamlessly-edge/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "41d3fd2474a19feb00a1-01882d89ebb0f5df0b16",
-              "file": "login.spec.ts",
-              "line": 39,
-              "column": 7
-            },
-            {
-              "title": "TC-03: should verify password masking, show-password toggle and legal links",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "edge",
-                  "projectName": "edge",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 2407,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-31T07:52:51.789Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-31e83-word-toggle-and-legal-links-edge/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "41d3fd2474a19feb00a1-ab0fe8977851e9684365",
-              "file": "login.spec.ts",
-              "line": 62,
-              "column": 7
-            },
-            {
-              "title": "TC-04: should complete login with password and navigate through Chat, Activity, and Explore",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "edge",
-                  "projectName": "edge",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 7330,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-31T07:52:54.215Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-08487-h-Chat-Activity-and-Explore-edge/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "41d3fd2474a19feb00a1-37bb95213c4680e2a145",
-              "file": "login.spec.ts",
-              "line": 102,
-              "column": 7
-            },
-            {
-              "title": "TC-05: submitting password exceeding 128 characters is handled cleanly without server timeout or 500 error",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "edge",
-                  "projectName": "edge",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4359,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-31T07:53:01.558Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-26482-server-timeout-or-500-error-edge/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "41d3fd2474a19feb00a1-44187014496a45ef3766",
-              "file": "login.spec.ts",
-              "line": 140,
-              "column": 7
-            },
-            {
-              "title": "TC_AUTH_012: submitting a password with only whitespace characters or an empty string shows a mandatory validation error",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "edge",
-                  "projectName": "edge",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4223,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-31T07:53:05.927Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-30225--mandatory-validation-error-edge/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "41d3fd2474a19feb00a1-810a943309e9826df9f5",
-              "file": "login.spec.ts",
-              "line": 185,
-              "column": 7
-            },
-            {
-              "title": "TC_AUTH_013: entering alphanumeric or special characters into the OTP verification input is blocked and only numeric digits are accepted",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "edge",
-                  "projectName": "edge",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3476,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-31T07:53:10.163Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-c8b33-numeric-digits-are-accepted-edge/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "41d3fd2474a19feb00a1-8287b3bd37ca9b320261",
-              "file": "login.spec.ts",
-              "line": 241,
-              "column": 7
-            },
-            {
-              "title": "TC_AUTH_014: boundary lengths for phone numbers: entering fewer than 7 digits or more than 15 digits displays invalid phone length error",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "edge",
-                  "projectName": "edge",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5074,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-31T07:53:13.653Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-2c2ef--invalid-phone-length-error-edge/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "41d3fd2474a19feb00a1-9333a444b351156943de",
-              "file": "login.spec.ts",
-              "line": 307,
-              "column": 7
-            },
-            {
-              "title": "TC_AUTH_015: entering Cross-Site Scripting (XSS) script tags in email/username/password inputs does not execute scripts and is safely escaped/rejected",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "edge",
-                  "projectName": "edge",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4015,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-31T07:53:18.740Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-ed8ee--is-safely-escaped-rejected-edge/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "41d3fd2474a19feb00a1-546810900f361e639600",
-              "file": "login.spec.ts",
-              "line": 404,
-              "column": 7
-            },
-            {
-              "title": "TC_AUTH_016: email addresses with leading or trailing whitespaces are automatically trimmed upon submission and authenticated successfully",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "edge",
-                  "projectName": "edge",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4656,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-31T07:53:22.770Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-897c3--authenticated-successfully-edge/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "41d3fd2474a19feb00a1-ef59aa4f7ab086ebd589",
-              "file": "login.spec.ts",
-              "line": 485,
-              "column": 7
-            },
-            {
-              "title": "TC_AUTH_017: entering malformed email addresses displays an immediate inline validation error preventing form submission",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "edge",
-                  "projectName": "edge",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5861,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-31T07:53:27.440Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-57900--preventing-form-submission-edge/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "41d3fd2474a19feb00a1-91cb243e4500845d65fc",
-              "file": "login.spec.ts",
-              "line": 552,
-              "column": 7
-            },
-            {
-              "title": "TC_AUTH_018: logging in when user account is in 7-day scheduled deletion window presents confirmation modal allowing cancellation or proceeding",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "edge",
-                  "projectName": "edge",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 2876,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-31T07:53:33.312Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-c7183--cancellation-or-proceeding-edge/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "41d3fd2474a19feb00a1-2802c535f589bc98e69a",
-              "file": "login.spec.ts",
-              "line": 600,
-              "column": 7
-            },
-            {
-              "title": "TC_AUTH_019: attempting to log in on Day 8 for a deleted account fails with Account does not exist and does not allow restoration",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "edge",
-                  "projectName": "edge",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3377,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-31T07:53:36.200Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/Vakh-Playwright--test-/Vakh-Playwright--test-/test-reports/test-results/login-Eve-Vakh---Login-Pag-fd6c1--does-not-allow-restoration-edge/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "41d3fd2474a19feb00a1-c1c69a16c37a7355a969",
-              "file": "login.spec.ts",
-              "line": 684,
+              "id": "fa5f3fe7879699678410-5f8fed4aefbb61fce8a4",
+              "file": "runtime-cache-editor-lifecycle.spec.ts",
+              "line": 1499,
               "column": 7
             }
           ]
@@ -2342,9 +1353,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-31T07:49:10.138Z",
-    "duration": 269507.738,
-    "expected": 52,
+    "startTime": "2026-11-01T06:29:05.020Z",
+    "duration": 66427.274,
+    "expected": 30,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
