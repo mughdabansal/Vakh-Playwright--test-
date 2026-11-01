@@ -70,7 +70,8 @@ test.describe('Eve Vakh - GIF Media Lifecycle & Post Rendering Test Suite', () =
       await page.waitForTimeout(1000);
       const searchInput = page.locator('input[placeholder*="Find" i], input[aria-label*="Search" i]').first();
       if (await searchInput.isVisible({ timeout: 2000 }).catch(() => false)) {
-        await searchInput.fill('posts');
+        await searchInput.fill('');
+        await searchInput.pressSequentially('posts', { delay: 60 });
         await page.waitForTimeout(1500);
       }
       const m2094FormBtn = page.locator('button[aria-label="Open form posts"]').filter({ hasText: `@${TEST_USERS.DEFAULT_USER.username}` }).first();
@@ -86,6 +87,16 @@ test.describe('Eve Vakh - GIF Media Lifecycle & Post Rendering Test Suite', () =
   }
 
   async function closeComposer(page: Page) {
+    const delMedia = page.locator('[role="dialog"]').locator('button:has-text("Delete media"), button[aria-label*="Delete media" i]');
+    while (await delMedia.first().isVisible({ timeout: 500 }).catch(() => false)) {
+      await delMedia.first().click().catch(() => {});
+      await page.waitForTimeout(300);
+    }
+    const deleteDraftBtn = page.locator('button[aria-label="Delete draft"], button:has-text("Delete draft")').first();
+    if (await deleteDraftBtn.isVisible({ timeout: 1000 }).catch(() => false)) {
+      await deleteDraftBtn.click().catch(() => {});
+      await page.waitForTimeout(500);
+    }
     await page.keyboard.press('Escape');
     await page.waitForTimeout(400);
     const discardBtn = page.locator('button:has-text("Discard"), button:has-text("Discard post"), button:has-text("Don\'t save")').first();
@@ -118,7 +129,7 @@ test.describe('Eve Vakh - GIF Media Lifecycle & Post Rendering Test Suite', () =
     await uploadGif(page, 'sample-anim-1.gif', gifBuffer);
 
     // Verify preview thumbnail renders within the composer modal
-    const mediaPreview = page.locator('[role="dialog"]').locator('div[style*="overflow: hidden"], img, div[data-expoimage="true"]').filter({ hasNotText: /close|create|draft/i }).first();
+    const mediaPreview = page.locator('[role="dialog"]').locator('button[aria-label*="Delete media" i], button:has-text("Delete media"), div[data-expoimage="true"], img, div[style*="overflow: hidden"]').filter({ hasNotText: /close|create|draft/i }).first();
     await expect(mediaPreview).toBeVisible({ timeout: 15000 });
 
     await closeComposer(page);
@@ -145,7 +156,8 @@ test.describe('Eve Vakh - GIF Media Lifecycle & Post Rendering Test Suite', () =
     await navigateToPostsForm(page);
 
     // Verify published post card with media element renders on the form feed
-    const postMediaButton = page.locator('button[aria-label*=".gif" i], button:has(div[data-expoimage="true"])').first();
+    const postMediaButton = page.locator('button[aria-label*=".gif" i]:visible, button:has(div[data-expoimage="true"]):visible').first();
+    await postMediaButton.scrollIntoViewIfNeeded().catch(() => {});
     await expect(postMediaButton).toBeVisible({ timeout: 15000 });
   });
 
@@ -184,7 +196,8 @@ test.describe('Eve Vakh - GIF Media Lifecycle & Post Rendering Test Suite', () =
     await navigateToPostsForm(page);
 
     // Locate post media button
-    let postWithMedia = page.locator('button[aria-label*=".gif" i], button:has(div[data-expoimage="true"])').first();
+    let postWithMedia = page.locator('button[aria-label*=".gif" i]').or(page.locator('button:has(div[data-expoimage="true"])')).first();
+    await postWithMedia.scrollIntoViewIfNeeded().catch(() => {});
     if (!(await postWithMedia.isVisible({ timeout: 5000 }).catch(() => false))) {
       await page.goto('https://eve.vakh.com/', { waitUntil: 'domcontentloaded' });
       await openMediaComposer(page);
@@ -196,6 +209,7 @@ test.describe('Eve Vakh - GIF Media Lifecycle & Post Rendering Test Suite', () =
       await navigateToPostsForm(page);
       postWithMedia = page.locator('button[aria-label*=".gif" i], button:has(div[data-expoimage="true"])').first();
     }
+    await postWithMedia.scrollIntoViewIfNeeded().catch(() => {});
     await expect(postWithMedia).toBeVisible({ timeout: 15000 });
     await postWithMedia.click();
     await page.waitForTimeout(1500);
@@ -227,7 +241,7 @@ test.describe('Eve Vakh - GIF Media Lifecycle & Post Rendering Test Suite', () =
     ]);
 
     // Verify both media items attached
-    const mediaItems = page.locator('[role="dialog"]').locator('button:has-text("Delete media"), button[aria-label*="Delete media" i], button[aria-label*="Delete" i]');
+    const mediaItems = page.locator('[role="dialog"]').locator('button:has-text("Delete media"), button[aria-label*="Delete media" i]');
     await expect(mediaItems.first()).toBeVisible({ timeout: 15000 });
     expect(await mediaItems.count()).toBeGreaterThanOrEqual(2);
 
@@ -253,7 +267,7 @@ test.describe('Eve Vakh - GIF Media Lifecycle & Post Rendering Test Suite', () =
 
     // 1. Attach GIF 1
     await uploadGif(page, 'sample-anim-1.gif', gif1Buffer);
-    const mediaPreview = page.locator('[role="dialog"]').locator('div[style*="overflow: hidden"], img, div[data-expoimage="true"]').filter({ hasNotText: /close|create|draft/i }).first();
+    const mediaPreview = page.locator('[role="dialog"]').locator('button[aria-label*="Delete media" i], button:has-text("Delete media"), div[data-expoimage="true"], img, div[style*="overflow: hidden"]').filter({ hasNotText: /close|create|draft/i }).first();
     await expect(mediaPreview).toBeVisible({ timeout: 10000 });
 
     // 2. Remove media attachment

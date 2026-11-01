@@ -29,13 +29,21 @@ export abstract class BasePage {
    */
   async waitForUrlPattern(pattern: RegExp | string, timeout: number = APP_CONFIG.DEFAULT_TIMEOUT) {
     if (this.page.url().includes('chromewebdata')) {
-      await this.page.reload({ waitUntil: 'domcontentloaded' }).catch(() => {});
+      if (String(pattern).includes('sign-in')) {
+        await this.page.goto(APP_CONFIG.SIGN_IN_URL, { waitUntil: 'domcontentloaded' }).catch(() => {});
+      } else {
+        await this.page.reload({ waitUntil: 'domcontentloaded' }).catch(() => {});
+      }
     }
     try {
       await expect(this.page).toHaveURL(pattern, { timeout });
     } catch (err) {
       if (this.page.url().includes('chromewebdata')) {
-        await this.page.reload({ waitUntil: 'domcontentloaded' }).catch(() => {});
+        if (String(pattern).includes('sign-in')) {
+          await this.page.goto(APP_CONFIG.SIGN_IN_URL, { waitUntil: 'domcontentloaded' }).catch(() => {});
+        } else {
+          await this.page.goto(APP_CONFIG.BASE_URL, { waitUntil: 'domcontentloaded' }).catch(() => {});
+        }
         await expect(this.page).toHaveURL(pattern, { timeout: 10000 });
       } else {
         throw err;
