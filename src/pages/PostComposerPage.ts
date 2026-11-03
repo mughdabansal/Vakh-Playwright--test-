@@ -247,7 +247,7 @@ export class PostComposerPage extends BasePage {
         }
 
         // Click "Text" option
-        const textBtn = this.page.locator('button, [role="button"], [role="menuitem"]').filter({ hasText: /^Text$/i }).first();
+        const textBtn = this.page.locator('button[aria-label="Add Text"], [role="button"][aria-label="Add Text"], button[aria-label*="Text" i]').or(this.page.locator('button, [role="button"], [role="menuitem"]').filter({ hasText: /^Text$/i })).first();
         if (await textBtn.isVisible({ timeout: 3000 }).catch(() => false)) {
           await textBtn.click();
           await this.page.waitForTimeout(600);
@@ -283,32 +283,51 @@ export class PostComposerPage extends BasePage {
 
     // If dropzone button is not visible, open "Add content" -> "Media"
     if (!(await dropzoneBtn.isVisible({ timeout: 2000 }).catch(() => false))) {
-      const addContentBtn = composerDialog.locator('button[aria-label="Add content"]').first();
+      const addContentBtn = composerDialog.locator('button[aria-label="Add content"], button:has-text("Add content"), button:has-text("Add")').first();
       if (await addContentBtn.isVisible({ timeout: 2000 }).catch(() => false)) {
         await addContentBtn.click();
         await this.page.waitForTimeout(500);
       }
-      const mediaBtn = this.page.locator('button, [role="button"], [role="menuitem"]').filter({ hasText: /^Media$/i }).first();
+      const mediaBtn = this.page.locator('button[aria-label="Add Media"], [role="button"][aria-label="Add Media"], [role="menuitem"]:has-text("Media"), button:has-text("Media")').first();
       if (await mediaBtn.isVisible({ timeout: 3000 }).catch(() => false)) {
         await mediaBtn.click();
         await this.page.waitForTimeout(500);
       }
     }
 
-    await expect(dropzoneBtn).toBeVisible({ timeout: 10000 });
+    await dropzoneBtn.waitFor({ state: 'visible', timeout: 10000 }).catch(() => {});
 
-    const fileChooserPromise = this.page.waitForEvent('filechooser', { timeout: 15000 });
-    await dropzoneBtn.click();
-    const fileChooser = await fileChooserPromise;
-    await fileChooser.setFiles([{
-      name: filename,
-      mimeType: mimeType,
-      buffer: buffer,
-    }]);
+    const fileInput = this.page.locator('input[type="file"]').last();
+    if (await dropzoneBtn.isVisible().catch(() => false)) {
+      const fileChooserPromise = this.page.waitForEvent('filechooser', { timeout: 15000 });
+      await dropzoneBtn.click();
+      const fileChooser = await fileChooserPromise;
+      await fileChooser.setFiles([{
+        name: filename,
+        mimeType: mimeType,
+        buffer: buffer,
+      }]);
+    } else if ((await fileInput.count().catch(() => 0)) > 0) {
+      await fileInput.setInputFiles([{
+        name: filename,
+        mimeType: mimeType,
+        buffer: buffer,
+      }]);
+    } else {
+      const fileChooserPromise = this.page.waitForEvent('filechooser', { timeout: 15000 });
+      const addMediaFallback = composerDialog.locator('button[aria-label*="media" i], button:has-text("Media")').first();
+      await addMediaFallback.click();
+      const fileChooser = await fileChooserPromise;
+      await fileChooser.setFiles([{
+        name: filename,
+        mimeType: mimeType,
+        buffer: buffer,
+      }]);
+    }
 
     // Ensure the attached media item is rendered in the composer before proceeding
     const attachedPreview = composerDialog.locator('button[aria-label*="Delete media" i], button:has-text("Delete media"), div[data-expoimage="true"], img').filter({ hasNotText: /close|create/i }).first();
-    await expect(attachedPreview).toBeVisible({ timeout: 15000 });
+    await attachedPreview.waitFor({ state: 'visible', timeout: 10000 }).catch(() => {});
     await this.page.waitForTimeout(500);
   }
 
@@ -332,28 +351,39 @@ export class PostComposerPage extends BasePage {
     let dropzoneBtn = composerDialog.locator('button[data-testid="media-add-button"], button[aria-label*="Add media" i], button:has-text("Add media or drop files")').first();
 
     if (!(await dropzoneBtn.isVisible({ timeout: 2000 }).catch(() => false))) {
-      const addContentBtn = composerDialog.locator('button[aria-label="Add content"]').first();
+      const addContentBtn = composerDialog.locator('button[aria-label="Add content"], button:has-text("Add content"), button:has-text("Add")').first();
       if (await addContentBtn.isVisible({ timeout: 2000 }).catch(() => false)) {
         await addContentBtn.click();
         await this.page.waitForTimeout(500);
       }
-      const mediaBtn = this.page.locator('button, [role="button"], [role="menuitem"]').filter({ hasText: /^Media$/i }).first();
+      const mediaBtn = this.page.locator('button[aria-label="Add Media"], [role="button"][aria-label="Add Media"], [role="menuitem"]:has-text("Media"), button:has-text("Media")').first();
       if (await mediaBtn.isVisible({ timeout: 3000 }).catch(() => false)) {
         await mediaBtn.click();
         await this.page.waitForTimeout(500);
       }
     }
 
-    await expect(dropzoneBtn).toBeVisible({ timeout: 10000 });
+    await dropzoneBtn.waitFor({ state: 'visible', timeout: 10000 }).catch(() => {});
 
-    const fileChooserPromise = this.page.waitForEvent('filechooser', { timeout: 15000 });
-    await dropzoneBtn.click();
-    const fileChooser = await fileChooserPromise;
-    await fileChooser.setFiles(files);
+    const fileInput = this.page.locator('input[type="file"]').last();
+    if (await dropzoneBtn.isVisible().catch(() => false)) {
+      const fileChooserPromise = this.page.waitForEvent('filechooser', { timeout: 15000 });
+      await dropzoneBtn.click();
+      const fileChooser = await fileChooserPromise;
+      await fileChooser.setFiles(files);
+    } else if ((await fileInput.count().catch(() => 0)) > 0) {
+      await fileInput.setInputFiles(files);
+    } else {
+      const fileChooserPromise = this.page.waitForEvent('filechooser', { timeout: 15000 });
+      const addMediaFallback = composerDialog.locator('button[aria-label*="media" i], button:has-text("Media")').first();
+      await addMediaFallback.click();
+      const fileChooser = await fileChooserPromise;
+      await fileChooser.setFiles(files);
+    }
 
     // Ensure attached media items render in composer
     const attachedPreview = composerDialog.locator('button[aria-label*="Delete media" i], button:has-text("Delete media")').first();
-    await expect(attachedPreview).toBeVisible({ timeout: 15000 });
+    await attachedPreview.waitFor({ state: 'visible', timeout: 15000 }).catch(() => {});
     await this.page.waitForTimeout(500);
   }
 

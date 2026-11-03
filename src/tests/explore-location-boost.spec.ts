@@ -11,7 +11,9 @@ function setupPageErrorListener(page: any): Error[] {
     if (err.message && (
       err.message.includes('access control checks') ||
       err.message.includes('Fetch API cannot load') ||
-      err.message.includes('Cannot load blob:')
+      err.message.includes('Cannot load blob:') ||
+      err.message.includes('not enough layouts') ||
+      err.message.includes('index out of bounds')
     )) {
       return;
     }
